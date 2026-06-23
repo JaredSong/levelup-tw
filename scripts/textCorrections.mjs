@@ -155,6 +155,10 @@ const RAW_CORRECTIONS = {
   '_manage r': '_manager',
   'mys ql': 'mysql',
   'TABLE t able': 'TABLE table',
+  'ANDSUM': 'AND SUM',
+  'PM 2 . 5': 'PM2.5',
+  'W/m 2': 'W/m²',
+  'μg/m 3': 'μg/m³',
 }
 
 const PATTERNS = Object.entries(CORRECTIONS).map(([broken, fixed]) => [

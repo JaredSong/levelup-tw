@@ -82,7 +82,7 @@ export function Dashboard(props: Props) {
         <div className="syllabus-list">
           {[
             ['17300', 'Web design', '846 · A13'],
-            ['90011', 'Information common', '119 · 5 groups'],
+            ['90011', 'Information common', '119 · A10 · 5 groups'],
             ['90006', 'Safety & health', '100 · A18'],
             ['90007', 'Ethics & law', '100 · A17'],
             ['90008', 'Environmental protection', '100 · A16'],

@@ -21,6 +21,12 @@ interface BackupFile {
   data: BackupData
 }
 
+function withoutId<T extends { id?: number }>(record: T): Omit<T, 'id'> {
+  const copy = { ...record }
+  delete copy.id
+  return copy
+}
+
 // Snapshot everything currently in this browser.
 export async function collectData(): Promise<BackupData> {
   const [progress, attempts, results, explanations] = await Promise.all([
@@ -42,8 +48,8 @@ export async function writeData(data: BackupData): Promise<void> {
   await db.transaction('rw', db.progress, db.attempts, db.results, db.explanations, async () => {
     if (data.progress) { await db.progress.clear(); await db.progress.bulkPut(data.progress) }
     // attempts/results use auto-increment ids; strip them so merged rows re-key cleanly.
-    if (data.attempts) { await db.attempts.clear(); await db.attempts.bulkAdd(data.attempts.map(({ id: _id, ...rest }) => rest)) }
-    if (data.results) { await db.results.clear(); await db.results.bulkAdd(data.results.map(({ id: _id, ...rest }) => rest)) }
+    if (data.attempts) { await db.attempts.clear(); await db.attempts.bulkAdd(data.attempts.map(withoutId)) }
+    if (data.results) { await db.results.clear(); await db.results.bulkAdd(data.results.map(withoutId)) }
     if (data.explanations) { await db.explanations.clear(); await db.explanations.bulkPut(data.explanations) }
   })
   if (data.local) {

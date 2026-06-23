@@ -4,12 +4,19 @@
 
 const DEFAULT_MODELS = { openai: 'gpt-4o-mini', anthropic: 'claude-3-5-haiku-latest' }
 
-function buildPrompt(question, selected) {
+const STYLE_NOTES = {
+  metaphor: 'Use a vivid everyday metaphor or analogy to make the concept intuitive, then connect the analogy back to why the official answer is correct.',
+  simpler: 'Explain as if to a complete beginner: very simple words, short sentences, no jargon unless you immediately define it.',
+  deeper: 'Add more depth: the underlying concept, relevant background, and closely related ideas worth knowing for the exam.',
+}
+
+function buildPrompt(question, selected, style) {
   const choices = question.options.map((option, index) => `${index + 1}. ${option}`).join('\n')
+  const styleNote = STYLE_NOTES[style] ? `\nExtra instruction: ${STYLE_NOTES[style]}` : ''
   return `Explain this Taiwan Web Design Level B written-exam question to a beginner.
 Use clear English, but retain important Traditional Chinese technical or legal terms in parentheses.
 Explain why the official answer is correct and why the learner's choice is wrong or incomplete.
-Treat the supplied official answer as authoritative. Be concise and do not invent a different answer.
+Treat the supplied official answer as authoritative. Be concise and do not invent a different answer.${styleNote}
 
 Question: ${question.prompt}
 Choices:
@@ -59,7 +66,7 @@ export async function explain({ body, authorization, env }) {
     return { status: 401, payload: { error: 'Invalid access token' } }
   }
 
-  const { question, selected = [], provider: requested } = body ?? {}
+  const { question, selected = [], provider: requested, style } = body ?? {}
   if (!question?.prompt || !Array.isArray(question.options) || !Array.isArray(question.answers)) {
     return { status: 400, payload: { error: 'Invalid question' } }
   }
@@ -81,7 +88,7 @@ export async function explain({ body, authorization, env }) {
     || DEFAULT_MODELS[provider]
 
   try {
-    const prompt = buildPrompt(question, selected)
+    const prompt = buildPrompt(question, selected, String(style ?? '').toLowerCase())
     const explanation = provider === 'openai'
       ? await explainWithOpenAI(prompt, model, env)
       : await explainWithAnthropic(prompt, model, env)

@@ -266,3 +266,10 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .backup-actions .secondary-action { display: inline-flex; align-items: center; gap: 7px; cursor: pointer; }
 .backup-actions .file-button { margin: 0; }
 .backup-msg { margin-top: 10px; color: var(--accent-dark); font-size: .85rem; }
+
+/* AI re-explain style buttons */
+.explain-styles { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 10px; }
+.explain-styles span { color: var(--muted); font-size: .78rem; font-weight: 700; }
+.explain-styles button { padding: 5px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink); font-size: .78rem; font-weight: 600; cursor: pointer; }
+.explain-styles button:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+.explain-styles button:disabled { opacity: .5; cursor: default; }

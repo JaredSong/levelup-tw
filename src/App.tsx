@@ -221,19 +221,23 @@ export default function App() {
     setPracticeOpen(false)
   }
 
-  const explain = async (question: Question, selected: number[]) => {
-    const cached = await db.explanations.get(question.id)
+  const explain = async (question: Question, selected: number[], style = 'default') => {
+    const cacheKey = style === 'default' ? question.id : `${question.id}::${style}`
+    const cached = await db.explanations.get(cacheKey)
     if (cached) return cached.content
     const token = localStorage.getItem('level-b-ai-access-token')
     if (!token) throw new Error('AI is ready to connect after you choose Claude or OpenAI and add a private access token.')
     const response = await fetch('/api/explain', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
-      body: JSON.stringify({ question, selected, provider: localStorage.getItem('level-b-ai-provider') ?? undefined }),
+      body: JSON.stringify({ question, selected, provider: localStorage.getItem('level-b-ai-provider') ?? undefined, style: style === 'default' ? undefined : style }),
     })
-    if (!response.ok) throw new Error('The AI explanation service is not available yet.')
+    if (!response.ok) {
+      const detail = await response.json().catch(() => null) as { error?: string } | null
+      throw new Error(detail?.error ?? 'The AI explanation service is not available yet.')
+    }
     const data = await response.json() as { explanation: string; provider?: string }
-    await db.explanations.put({ questionId: question.id, content: data.explanation, provider: data.provider ?? 'ai', updatedAt: new Date().toISOString() })
+    await db.explanations.put({ questionId: cacheKey, content: data.explanation, provider: data.provider ?? 'ai', updatedAt: new Date().toISOString() })
     return data.explanation
   }
 

@@ -27,7 +27,7 @@ interface Props {
   onNavigate: (index: number) => void
   onToggleBookmark: (questionId: string) => Promise<void>
   onComplete: () => void
-  onExplain: (question: Question, selected: number[]) => Promise<string>
+  onExplain: (question: Question, selected: number[], style?: string) => Promise<string>
 }
 
 function formatClock(totalSeconds: number) {
@@ -102,11 +102,11 @@ export function PracticeView({
     else onNavigate(session.currentIndex + 1)
   }
 
-  const requestExplanation = async () => {
+  const requestExplanation = async (style = 'default') => {
     setExplaining(true)
     setExplainError(null)
     try {
-      setExplanation(await onExplain(question, selected))
+      setExplanation(await onExplain(question, selected, style))
     } catch (reason) {
       setExplainError(reason instanceof Error ? reason.message : 'Explanation is unavailable.')
     } finally {
@@ -203,6 +203,14 @@ export function PracticeView({
               <BrainCircuit size={18} /> {explaining ? 'Explaining…' : 'Explain this question'}
             </button>
             {explanation ? <div className="ai-explanation">{explanation}</div> : null}
+            {explanation ? (
+              <div className="explain-styles">
+                <span>Re-explain:</span>
+                <button disabled={explaining} onClick={() => void requestExplanation('metaphor')} type="button">With a metaphor</button>
+                <button disabled={explaining} onClick={() => void requestExplanation('simpler')} type="button">Simpler</button>
+                <button disabled={explaining} onClick={() => void requestExplanation('deeper')} type="button">Go deeper</button>
+              </div>
+            ) : null}
             {explainError ? <p className="inline-error">{explainError}</p> : null}
           </section>
         ) : null}

@@ -1,0 +1,11 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+  functions = "netlify/functions"
+
+# SPA fallback: serve index.html for client-side routes.
+# The /api/explain function is routed via its own config.path and is matched first.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

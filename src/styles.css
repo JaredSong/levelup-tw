@@ -273,3 +273,11 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .explain-styles button { padding: 5px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink); font-size: .78rem; font-weight: 600; cursor: pointer; }
 .explain-styles button:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
 .explain-styles button:disabled { opacity: .5; cursor: default; }
+
+/* Cloud sync (Stats tab) */
+.cloud-sync { padding: 22px 0; border-top: 1px solid var(--line); }
+.cloud-sync h2 { margin: 0; font-size: 1rem; }
+.cloud-sync > div > p { margin: 6px 0 0; color: var(--muted); font-size: .82rem; line-height: 1.5; }
+.cloud-sync label { display: grid; gap: 7px; margin: 14px 0; max-width: 340px; color: var(--muted); font-size: .72rem; font-weight: 700; }
+.cloud-sync input { width: 100%; padding: 10px 11px; border: 1px solid var(--line); border-radius: 6px; background: white; color: var(--ink); }
+.cloud-sync .secondary-action { display: inline-flex; align-items: center; gap: 7px; cursor: pointer; }

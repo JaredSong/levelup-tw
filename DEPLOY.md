@@ -37,14 +37,28 @@ Netlify's "Deploy manually" area. The function will not run this way.
 
 ---
 
-## Option B — Cloudflare Pages (AI works)
+## Option B — Cloudflare Pages (AI + cloud sync)
+
+Use the **Pages** product, not "Create a Worker" — our app is a static site plus
+Pages Functions, so `npx wrangler deploy` (the Worker flow) does not apply.
 
 1. Push this repo to GitHub.
-2. Cloudflare dashboard → **Workers & Pages → Create → Pages → Connect to Git**.
-3. Build command: `npm run build` · Output directory: `dist`.
-   (`functions/api/explain.js` is auto-detected; `public/_redirects` handles SPA routing.)
+2. Cloudflare dashboard → **Workers & Pages → Create → Pages tab → Connect to Git**.
+3. Pick the repo, then set:
+   - Build command: `npm run build`
+   - Build output directory: `dist`
+   (`functions/api/*.js` is auto-detected; `public/_redirects` handles SPA routing.)
 4. **Settings → Environment variables** → add the vars from the table above.
-5. Re-deploy.
+5. **Cloud sync (optional):** Storage & Databases → KV → create a namespace, then
+   Pages project → **Settings → Bindings → Add → KV namespace**, variable name
+   **`SYNC`**, choose that namespace.
+6. Re-deploy.
+
+### Using cloud sync
+In the app: **Stats → Cloud sync** → enter the same passphrase (≥6 chars) on each
+device. It pulls on open and pushes after each session, merging both devices'
+progress, mock history, attempts and notes. The passphrase is never stored on the
+server — only its hash is used as the storage key.
 
 ---
 

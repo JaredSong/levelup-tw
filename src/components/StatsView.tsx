@@ -1,8 +1,9 @@
-import { CheckCircle2, CircleAlert, Download, FileWarning, History, RotateCcw, Target, Upload } from 'lucide-react'
+import { CheckCircle2, CircleAlert, Download, FileWarning, History, RefreshCw, RotateCcw, Target, Upload } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import type { Progress, Question } from '../domain/studyEngine'
 import { db, type SessionResult } from '../storage/db'
 import { exportBackup, importBackup } from '../storage/backup'
+import { getSyncPass, setSyncPass, syncNow } from '../storage/sync'
 
 interface Props {
   questions: Question[]
@@ -41,6 +42,22 @@ export function StatsView({ questions, progress, onSaveAiToken }: Props) {
   const [aiProvider, setAiProvider] = useState(() => localStorage.getItem('level-b-ai-provider') ?? 'openai')
 
   const [dataMsg, setDataMsg] = useState<string | null>(null)
+  const [syncMsg, setSyncMsg] = useState<string | null>(null)
+  const [syncing, setSyncing] = useState(false)
+
+  const handleSync = async () => {
+    setSyncing(true)
+    setSyncMsg(null)
+    try {
+      const { hadRemote } = await syncNow()
+      setSyncMsg(hadRemote ? 'Synced with the cloud. Reloading…' : 'Uploaded. Use the same passphrase on your other device.')
+      if (hadRemote) window.setTimeout(() => window.location.reload(), 900)
+    } catch (error) {
+      setSyncMsg(error instanceof Error ? error.message : 'Sync failed.')
+    } finally {
+      setSyncing(false)
+    }
+  }
 
   const chooseProvider = (value: string) => {
     setAiProvider(value)
@@ -166,6 +183,20 @@ export function StatsView({ questions, progress, onSaveAiToken }: Props) {
           <button className="secondary-action" onClick={handleExportWrong} type="button"><FileWarning size={17} /> Export wrong questions</button>
         </div>
         {dataMsg ? <p className="backup-msg">{dataMsg}</p> : null}
+      </section>
+
+      <section className="cloud-sync">
+        <div>
+          <p className="eyebrow">Cross-device</p>
+          <h2>Cloud sync</h2>
+          <p>Set the same passphrase on each device to keep progress, mock history and notes in sync. Runs automatically when the app opens and after each session. Works on the deployed site.</p>
+        </div>
+        <label>
+          <span>Sync passphrase (min 6 characters)</span>
+          <input defaultValue={getSyncPass()} onBlur={(event) => setSyncPass(event.target.value.trim())} placeholder="Not set" type="password" />
+        </label>
+        <button className="secondary-action" disabled={syncing} onClick={() => void handleSync()} type="button"><RefreshCw size={17} /> {syncing ? 'Syncing…' : 'Sync now'}</button>
+        {syncMsg ? <p className="backup-msg">{syncMsg}</p> : null}
       </section>
 
       <section className="ai-settings">

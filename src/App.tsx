@@ -17,6 +17,7 @@ import {
 import { useQuestionBank } from './hooks/useQuestionBank'
 import { useStudyData } from './hooks/useStudyData'
 import { db } from './storage/db'
+import { isSyncEnabled, syncNow } from './storage/sync'
 import type { SessionMode, StudySession } from './types'
 
 const SESSION_KEY = 'level-b-active-session'
@@ -64,7 +65,7 @@ function createSession(mode: SessionMode, questions: Question[], title?: string)
 
 export default function App() {
   const { bank, error } = useQuestionBank()
-  const { progress, setProgress, loading } = useStudyData()
+  const { progress, setProgress, loading, refresh } = useStudyData()
   const [tab, setTab] = useState<Tab>('study')
   const [session, setSession] = useState<StudySession | null>(() => loadSession())
   const [practiceOpen, setPracticeOpen] = useState(false)
@@ -74,6 +75,12 @@ export default function App() {
     if (session) localStorage.setItem(SESSION_KEY, JSON.stringify(session))
     else localStorage.removeItem(SESSION_KEY)
   }, [session])
+
+  // Pull the cloud copy on open and merge it in (no-op if sync is off or fails).
+  useEffect(() => {
+    if (!isSyncEnabled()) return
+    void syncNow().then(() => refresh()).catch(() => undefined)
+  }, [refresh])
 
   const rows = Object.values(progress)
   const seen = rows.filter((item) => item.attempts > 0).length
@@ -219,6 +226,9 @@ export default function App() {
     setSummary({ ...session, completed: true })
     setSession(null)
     setPracticeOpen(false)
+
+    // Push this session up to the cloud (no-op if sync is off or offline).
+    if (isSyncEnabled()) void syncNow().catch(() => undefined)
   }
 
   const explain = async (question: Question, selected: number[], style = 'default') => {

@@ -53,16 +53,27 @@ export default async function handler(request, response) {
     return json(response, 401, { error: 'Invalid access token' })
   }
 
-  const provider = (process.env.AI_PROVIDER ?? '').toLowerCase()
-  const model = process.env.AI_MODEL
-  if (!model || !['openai', 'anthropic'].includes(provider)) {
-    return json(response, 503, { error: 'AI provider is not configured' })
-  }
-
-  const { question, selected = [] } = request.body ?? {}
+  const { question, selected = [], provider: requested } = request.body ?? {}
   if (!question?.prompt || !Array.isArray(question.options) || !Array.isArray(question.answers)) {
     return json(response, 400, { error: 'Invalid question' })
   }
+
+  const DEFAULT_MODELS = { openai: 'gpt-4o-mini', anthropic: 'claude-3-5-haiku-latest' }
+  // The app can pick a provider per request; otherwise fall back to AI_PROVIDER.
+  const candidate = String(requested ?? '').toLowerCase()
+  const provider = ['openai', 'anthropic'].includes(candidate)
+    ? candidate
+    : (process.env.AI_PROVIDER ?? '').toLowerCase()
+  if (!['openai', 'anthropic'].includes(provider)) {
+    return json(response, 503, { error: 'AI provider is not configured' })
+  }
+  const keyName = provider === 'openai' ? 'OPENAI_API_KEY' : 'ANTHROPIC_API_KEY'
+  if (!process.env[keyName]) {
+    return json(response, 503, { error: `No API key set for ${provider}. Add ${keyName} to your environment and restart.` })
+  }
+  const model = (provider === 'openai' ? process.env.OPENAI_MODEL : process.env.ANTHROPIC_MODEL)
+    || process.env.AI_MODEL
+    || DEFAULT_MODELS[provider]
 
   try {
     const prompt = buildPrompt(question, selected)

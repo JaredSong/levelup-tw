@@ -37,6 +37,12 @@ function MockTrend({ scores }: { scores: number[] }) {
 
 export function StatsView({ questions, progress, onSaveAiToken }: Props) {
   const [results, setResults] = useState<SessionResult[]>([])
+  const [aiProvider, setAiProvider] = useState(() => localStorage.getItem('level-b-ai-provider') ?? 'anthropic')
+
+  const chooseProvider = (value: string) => {
+    setAiProvider(value)
+    localStorage.setItem('level-b-ai-provider', value)
+  }
 
   useEffect(() => {
     void db.results.orderBy('finishedAt').reverse().toArray().then(setResults)
@@ -104,7 +110,11 @@ export function StatsView({ questions, progress, onSaveAiToken }: Props) {
         <div>
           <p className="eyebrow">Optional</p>
           <h2>AI explanations</h2>
-          <p>Claude or OpenAI can explain answered items. Provider keys stay on the server.</p>
+          <p>Pick which model explains answered items. Provider keys stay on the server.</p>
+        </div>
+        <div className="provider-toggle" role="group" aria-label="AI provider">
+          <button className={aiProvider === 'anthropic' ? 'active' : ''} onClick={() => chooseProvider('anthropic')} type="button">Claude</button>
+          <button className={aiProvider === 'openai' ? 'active' : ''} onClick={() => chooseProvider('openai')} type="button">OpenAI</button>
         </div>
         <label>
           <span>Private app access token</span>

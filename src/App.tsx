@@ -229,7 +229,7 @@ export default function App() {
     const response = await fetch('/api/explain', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
-      body: JSON.stringify({ question, selected }),
+      body: JSON.stringify({ question, selected, provider: localStorage.getItem('level-b-ai-provider') ?? undefined }),
     })
     if (!response.ok) throw new Error('The AI explanation service is not available yet.')
     const data = await response.json() as { explanation: string; provider?: string }

@@ -1,4 +1,4 @@
-import { CheckCircle2, CircleAlert, Download, History, RotateCcw, Target, Upload } from 'lucide-react'
+import { CheckCircle2, CircleAlert, Download, FileWarning, History, RotateCcw, Target, Upload } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import type { Progress, Question } from '../domain/studyEngine'
 import { db, type SessionResult } from '../storage/db'
@@ -47,14 +47,36 @@ export function StatsView({ questions, progress, onSaveAiToken }: Props) {
     localStorage.setItem('level-b-ai-provider', value)
   }
 
-  const handleExport = async () => {
-    const blob = new Blob([await exportBackup()], { type: 'application/json' })
-    const url = URL.createObjectURL(blob)
+  const download = (content: string, filename: string, type: string) => {
+    const url = URL.createObjectURL(new Blob([content], { type }))
     const link = document.createElement('a')
     link.href = url
-    link.download = `level-b-backup-${new Date().toISOString().slice(0, 10)}.json`
+    link.download = filename
     link.click()
     URL.revokeObjectURL(url)
+  }
+
+  const handleExport = async () => {
+    download(await exportBackup(), `level-b-backup-${new Date().toISOString().slice(0, 10)}.json`, 'application/json')
+  }
+
+  const handleExportWrong = () => {
+    const wrong = questions.filter((question) => (progress[question.id]?.wrong ?? 0) > 0)
+    if (!wrong.length) {
+      setDataMsg('No wrong questions recorded yet.')
+      return
+    }
+    const blocks = wrong.map((question, index) => {
+      const item = progress[question.id]
+      const mastered = (item?.streak ?? 0) >= 2 ? ' [now mastered]' : ''
+      const options = question.options
+        .map((option, optionIndex) => `   ${question.answers.includes(optionIndex + 1) ? '✓' : ' '} ${optionIndex + 1}. ${option}`)
+        .join('\n')
+      return `${index + 1}. [${question.id}] ${question.sectionTitle ?? ''} · wrong ${item?.wrong ?? 0}×${mastered}\n${question.prompt}\n${options}`
+    })
+    const header = `Level B — Wrong questions (${wrong.length})\nExported ${new Date().toLocaleString()}\n✓ marks the official answer.\n`
+    download(`${header}\n${blocks.join('\n\n')}\n`, `level-b-wrong-${new Date().toISOString().slice(0, 10)}.txt`, 'text/plain;charset=utf-8')
+    setDataMsg(`Exported ${wrong.length} wrong questions.`)
   }
 
   const handleImport = async (file: File) => {
@@ -141,6 +163,7 @@ export function StatsView({ questions, progress, onSaveAiToken }: Props) {
             <Upload size={17} /> Import backup
             <input accept="application/json,.json" hidden onChange={(event) => { const file = event.target.files?.[0]; if (file) void handleImport(file); event.target.value = '' }} type="file" />
           </label>
+          <button className="secondary-action" onClick={handleExportWrong} type="button"><FileWarning size={17} /> Export wrong questions</button>
         </div>
         {dataMsg ? <p className="backup-msg">{dataMsg}</p> : null}
       </section>

@@ -1,5 +1,6 @@
 import { readFile, writeFile } from 'node:fs/promises'
 import { parseQuestionBank } from './questionParser.mjs'
+import { sanitizeText } from './textCorrections.mjs'
 
 const outputPath = new URL('../public/data/questions.json', import.meta.url)
 const banks = [
@@ -22,6 +23,8 @@ for (const bank of banks) {
   bankCounts[bank.code] = parsed.length
   questions.push(...parsed.map((question) => ({
     ...question,
+    prompt: sanitizeText(question.prompt),
+    options: question.options.map(sanitizeText),
     sourceImage: question.hasFigure
       ? question.subjectCode === '17300'
         ? `/question-pages/page-${String(question.sourcePage).padStart(2, '0')}.jpg`

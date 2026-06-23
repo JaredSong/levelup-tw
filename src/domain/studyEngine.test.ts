@@ -1,0 +1,159 @@
+import { describe, expect, it } from 'vitest'
+import {
+  applyAttempt,
+  buildAdaptiveQueue,
+  buildMockQueue,
+  buildRandomQueue,
+  createProgress,
+  scoreAnswer,
+  type Progress,
+  type Question,
+} from './studyEngine'
+
+const questions: Question[] = [
+  {
+    id: '01-001',
+    section: '01',
+    number: 1,
+    kind: 'single',
+    prompt: 'Single choice',
+    options: ['A', 'B', 'C', 'D'],
+    answers: [2],
+  },
+  {
+    id: '01-002',
+    section: '01',
+    number: 2,
+    kind: 'multiple',
+    prompt: 'Multiple choice',
+    options: ['A', 'B', 'C', 'D'],
+    answers: [1, 3],
+  },
+  {
+    id: '02-001',
+    section: '02',
+    number: 1,
+    kind: 'single',
+    prompt: 'Unseen',
+    options: ['A', 'B', 'C', 'D'],
+    answers: [4],
+  },
+]
+
+describe('scoreAnswer', () => {
+  it('requires an exact match for multiple-answer questions', () => {
+    expect(scoreAnswer(questions[1], [1, 3])).toBe(true)
+    expect(scoreAnswer(questions[1], [1])).toBe(false)
+    expect(scoreAnswer(questions[1], [1, 2, 3])).toBe(false)
+  })
+})
+
+describe('applyAttempt', () => {
+  it('schedules a wrong answer soon and records the selected options', () => {
+    const now = new Date('2026-06-23T08:00:00.000Z')
+    const result = applyAttempt(createProgress('01-001'), {
+      selected: [1],
+      correct: false,
+      guessed: false,
+      elapsedMs: 4200,
+      answeredAt: now,
+    })
+
+    expect(result.attempts).toBe(1)
+    expect(result.wrong).toBe(1)
+    expect(result.streak).toBe(0)
+    expect(result.lastSelected).toEqual([1])
+    expect(result.nextReviewAt).toBe('2026-06-23T08:10:00.000Z')
+  })
+
+  it('keeps a guessed correct answer in near-term review', () => {
+    const now = new Date('2026-06-23T08:00:00.000Z')
+    const result = applyAttempt(createProgress('01-001'), {
+      selected: [2],
+      correct: true,
+      guessed: true,
+      elapsedMs: 2000,
+      answeredAt: now,
+    })
+
+    expect(result.correct).toBe(1)
+    expect(result.guessed).toBe(1)
+    expect(result.nextReviewAt).toBe('2026-06-23T12:00:00.000Z')
+  })
+})
+
+describe('buildAdaptiveQueue', () => {
+  it('prioritizes due wrong answers, then weak answers, then unseen questions', () => {
+    const progress: Record<string, Progress> = {
+      '01-001': {
+        ...createProgress('01-001'),
+        attempts: 2,
+        wrong: 2,
+        nextReviewAt: '2026-06-23T07:00:00.000Z',
+      },
+      '01-002': {
+        ...createProgress('01-002'),
+        attempts: 3,
+        correct: 1,
+        wrong: 2,
+        nextReviewAt: '2026-06-24T07:00:00.000Z',
+      },
+    }
+
+    const result = buildAdaptiveQueue(
+      questions,
+      progress,
+      3,
+      new Date('2026-06-23T08:00:00.000Z'),
+      () => 0.5,
+    )
+
+    expect(result.map((question) => question.id)).toEqual([
+      '01-001',
+      '01-002',
+      '02-001',
+    ])
+  })
+})
+
+describe('practice queue builders', () => {
+  it('builds random queues without duplicates and respects filters', () => {
+    const result = buildRandomQueue(questions, 2, {
+      section: '01',
+      kind: 'all',
+      random: () => 0.4,
+    })
+
+    expect(result).toHaveLength(2)
+    expect(new Set(result.map((question) => question.id)).size).toBe(2)
+    expect(result.every((question) => question.section === '01')).toBe(true)
+  })
+
+  it('builds an official-format mock with 60 single and 20 multiple questions', () => {
+    const core: Question[] = [
+      ...Array.from({ length: 70 }, (_, index) => ({
+        ...questions[0],
+        id: `s-${index}`,
+        subjectCode: '17300',
+      })),
+      ...Array.from({ length: 30 }, (_, index) => ({
+        ...questions[1],
+        id: `m-${index}`,
+        subjectCode: '90011',
+      })),
+    ]
+    const common = ['90006', '90007', '90008', '90009'].flatMap((subjectCode) => [
+      ...Array.from({ length: 10 }, (_, index) => ({ ...questions[0], id: `${subjectCode}-s-${index}`, subjectCode })),
+      ...Array.from({ length: 10 }, (_, index) => ({ ...questions[1], id: `${subjectCode}-m-${index}`, subjectCode })),
+    ])
+
+    const result = buildMockQueue([...core, ...common], () => 0.25)
+
+    expect(result).toHaveLength(80)
+    expect(result.filter((question) => question.kind === 'single')).toHaveLength(60)
+    expect(result.filter((question) => question.kind === 'multiple')).toHaveLength(20)
+    for (const subjectCode of ['90006', '90007', '90008', '90009']) {
+      expect(result.filter((question) => question.subjectCode === subjectCode)).toHaveLength(4)
+    }
+  })
+})

@@ -1,7 +1,8 @@
 :root {
   font-family: "Avenir Next", "PingFang TC", "Noto Sans TC", system-ui, sans-serif;
-  color: #18201b;
-  background: #eef0eb;
+  color: var(--ink);
+  background: var(--paper);
+  color-scheme: light;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   letter-spacing: 0;
@@ -36,7 +37,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 }
 
 .app-frame { min-height: 100dvh; padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
-.page { width: min(100%, 980px); margin: 0 auto; padding: 26px 20px 56px; }
+.page { width: min(100%, 980px); margin: 0 auto; padding: calc(26px + env(safe-area-inset-top)) 20px 56px; }
 .eyebrow { margin: 0 0 5px; color: var(--accent); font-size: 0.72rem; font-weight: 800; text-transform: uppercase; }
 
 .app-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 12px 0 27px; border-bottom: 1px solid var(--line); }
@@ -87,7 +88,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .mode-list > button > span:nth-child(2) { display: grid; gap: 2px; }
 .mode-list strong { font-size: .93rem; }
 .mode-list small { color: var(--muted); font-size: .76rem; white-space: normal; }
-.mode-icon { width: 39px; height: 39px; display: grid; place-items: center; border-radius: 7px; }
+.mode-icon { flex-shrink: 0; width: 39px; height: 39px; display: grid; place-items: center; border-radius: 7px; }
 .mode-icon.accent { background: var(--accent-pale); color: var(--accent-dark); }
 .mode-icon.coral { background: #f5dfda; color: var(--coral); }
 .mode-icon.blue { background: #dfeaf4; color: var(--blue); }
@@ -290,3 +291,49 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .sync-status.ok { color: var(--accent-dark); }
 .sync-status.warn { color: var(--coral); }
 .sync-nudge { display: flex; align-items: center; gap: 8px; margin: 14px 0 0; padding: 9px 12px; border-radius: 7px; background: #fbeee9; color: var(--coral); font-size: .82rem; font-weight: 600; }
+
+/* ===== Dark theme ===== */
+[data-theme="dark"] {
+  color-scheme: dark;
+  --ink: #e7ece8;
+  --muted: #9aa49c;
+  --line: #2b322d;
+  --paper: #131714;
+  --surface: #1b211d;
+  --accent: #46b07f;
+  --accent-dark: #2f9468;
+  --accent-pale: #1e3a2d;
+  --coral: #e0846a;
+  --blue: #7fa8d4;
+  --gold: #d6a747;
+  --danger: #e06a5c;
+  background: #0e120f;
+}
+[data-theme="dark"] .bottom-nav { background: rgba(20, 24, 21, .92); box-shadow: 0 -8px 24px rgba(0, 0, 0, .45); }
+[data-theme="dark"] .practice-header,
+[data-theme="dark"] .practice-actions { background: rgba(20, 24, 21, .96); }
+[data-theme="dark"] .progress-track,
+[data-theme="dark"] .mini-track,
+[data-theme="dark"] .practice-progress { background: #2a312c; }
+[data-theme="dark"] .mode-icon.accent { background: var(--accent-pale); color: #bfe6d2; }
+[data-theme="dark"] .mode-icon.coral { background: #3a2723; color: var(--coral); }
+[data-theme="dark"] .mode-icon.blue { background: #22323f; color: var(--blue); }
+[data-theme="dark"] .mode-icon.gold { background: #39301a; color: var(--gold); }
+[data-theme="dark"] .ai-settings input,
+[data-theme="dark"] .cloud-sync input { background: var(--surface); color: var(--ink); border-color: var(--line); }
+[data-theme="dark"] .history-badge { background: #2a2622; color: var(--coral); }
+[data-theme="dark"] .history-badge.pass { background: var(--accent-pale); color: #bfe6d2; }
+[data-theme="dark"] .sync-nudge { background: #3a2723; }
+[data-theme="dark"] .figure-note { background: var(--accent-pale); color: #bfe6d2; }
+[data-theme="dark"] .syllabus-list button:hover,
+[data-theme="dark"] .mode-list button:hover { background: #1b211d; }
+[data-theme="dark"] .option-list button { background: var(--surface); }
+[data-theme="dark"] img.app-shot, [data-theme="dark"] .source-figure img { filter: none; }
+
+/* Appearance toggle (Stats) */
+.appearance { padding: 22px 0; border-top: 1px solid var(--line); }
+.appearance h2 { margin: 0 0 4px; font-size: 1rem; }
+.appearance > p { margin: 0 0 12px; color: var(--muted); font-size: .82rem; }
+.theme-toggle { display: inline-flex; padding: 3px; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); gap: 3px; }
+.theme-toggle button { display: inline-flex; align-items: center; gap: 6px; padding: 7px 16px; border: 0; border-radius: 6px; background: transparent; color: var(--muted); font-size: .85rem; font-weight: 700; cursor: pointer; }
+.theme-toggle button.active { background: var(--accent); color: #fff; }

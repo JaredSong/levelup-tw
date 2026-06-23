@@ -1,4 +1,4 @@
-import { CheckCircle2, CircleAlert, Download, FileWarning, History, RefreshCw, RotateCcw, Target, Upload } from 'lucide-react'
+import { CheckCircle2, CircleAlert, Download, FileWarning, History, Moon, RefreshCw, RotateCcw, Sun, Target, Upload } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import type { Progress, Question } from '../domain/studyEngine'
 import { db, type SessionResult } from '../storage/db'
@@ -44,6 +44,13 @@ export function StatsView({ questions, progress, onSaveAiToken }: Props) {
   const [dataMsg, setDataMsg] = useState<string | null>(null)
   const [syncMsg, setSyncMsg] = useState<string | null>(null)
   const [syncing, setSyncing] = useState(false)
+  const [theme, setTheme] = useState(() => (document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light'))
+
+  const chooseTheme = (value: 'light' | 'dark') => {
+    setTheme(value)
+    localStorage.setItem('level-b-theme', value)
+    document.documentElement.dataset.theme = value
+  }
 
   const handleSync = async () => {
     setSyncing(true)
@@ -137,6 +144,15 @@ export function StatsView({ questions, progress, onSaveAiToken }: Props) {
         <div><CheckCircle2 size={20} /><span>Accuracy</span><strong>{accuracy}%</strong></div>
         <div><RotateCcw size={20} /><span>Total attempts</span><strong>{attempts}</strong></div>
         <div><CircleAlert size={20} /><span>Weak items</span><strong>{wrongItems}</strong></div>
+      </section>
+
+      <section className="appearance">
+        <h2>Appearance</h2>
+        <p>Choose a light or dark theme for the app.</p>
+        <div className="theme-toggle" role="group" aria-label="Theme">
+          <button className={theme === 'light' ? 'active' : ''} onClick={() => chooseTheme('light')} type="button"><Sun size={16} /> Light</button>
+          <button className={theme === 'dark' ? 'active' : ''} onClick={() => chooseTheme('dark')} type="button"><Moon size={16} /> Dark</button>
+        </div>
       </section>
 
       <section className="mock-history">

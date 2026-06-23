@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import type { Progress, Question } from '../domain/studyEngine'
 import { db, type SessionResult } from '../storage/db'
 import { exportBackup, importBackup } from '../storage/backup'
-import { getSyncPass, setSyncPass, syncNow } from '../storage/sync'
+import { getSyncPass, setSyncPass, syncNow, syncStatusLabel } from '../storage/sync'
 
 interface Props {
   questions: Question[]
@@ -190,6 +190,7 @@ export function StatsView({ questions, progress, onSaveAiToken }: Props) {
           <p className="eyebrow">Cross-device</p>
           <h2>Cloud sync</h2>
           <p>Set the same passphrase on each device to keep progress, mock history and notes in sync. Runs automatically when the app opens and after each session. Works on the deployed site.</p>
+          <p className={getSyncPass() ? 'sync-status ok' : 'sync-status warn'}>{syncStatusLabel()}</p>
         </div>
         <label>
           <span>Sync passphrase (min 6 characters)</span>

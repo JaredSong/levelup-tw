@@ -8,6 +8,7 @@ import {
   Clock3,
   ExternalLink,
   Flag,
+  Image as ImageIcon,
   Lightbulb,
   RotateCcw,
   X,
@@ -85,6 +86,10 @@ export function PracticeView({
 
   if (!question) return null
 
+  // Some figure questions have image-only options ("圖示選項 N"); the real
+  // choices live in the source figure, so surface it instead of looking buggy.
+  const optionsAreImages = question.options.some((option) => option.includes('圖示'))
+
   const toggleOption = (option: number) => {
     if (answer || isFlashcard) return
     if (question.kind === 'single') onSelect(question.id, [option])
@@ -141,10 +146,14 @@ export function PracticeView({
         <h1>{question.prompt}</h1>
 
         {question.sourceImage ? (
-          <details className="source-figure">
+          <details className="source-figure" open={optionsAreImages}>
             <summary><ExternalLink size={17} /> Open the official figure page</summary>
             <img src={question.sourceImage} alt={`Official source page ${question.sourcePage} for ${question.id}`} />
           </details>
+        ) : null}
+
+        {optionsAreImages ? (
+          <p className="figure-note"><ImageIcon size={15} /> This question’s options are images — read them on the figure above; pick the matching number below.</p>
         ) : null}
 
         {isFlashcard ? (

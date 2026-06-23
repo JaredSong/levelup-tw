@@ -1,6 +1,7 @@
 import { collectData, mergeData, writeData, type BackupData } from './backup'
 
 const PASS_KEY = 'level-b-sync-pass'
+const LAST_KEY = 'level-b-sync-last'
 
 export function getSyncPass(): string {
   return localStorage.getItem(PASS_KEY) ?? ''
@@ -13,6 +14,23 @@ export function setSyncPass(passphrase: string): void {
 
 export function isSyncEnabled(): boolean {
   return getSyncPass().length >= 6
+}
+
+export function getLastSync(): string | null {
+  return localStorage.getItem(LAST_KEY)
+}
+
+/** Human-readable "x ago" for the last successful sync, or a prompt if never. */
+export function syncStatusLabel(): string {
+  if (!isSyncEnabled()) return 'Not set — your progress is not backed up to the cloud.'
+  const last = getLastSync()
+  if (!last) return 'Passphrase set, but not synced yet.'
+  const mins = Math.floor((Date.now() - new Date(last).getTime()) / 60000)
+  if (mins < 1) return 'Last synced just now.'
+  if (mins < 60) return `Last synced ${mins} min ago.`
+  const hours = Math.floor(mins / 60)
+  if (hours < 24) return `Last synced ${hours} h ago.`
+  return `Last synced ${Math.floor(hours / 24)} d ago.`
 }
 
 /**
@@ -43,5 +61,6 @@ export async function syncNow(): Promise<{ hadRemote: boolean }> {
     const detail = await push.json().catch(() => null) as { error?: string } | null
     throw new Error(detail?.error ?? 'Could not save to the cloud.')
   }
+  localStorage.setItem(LAST_KEY, new Date().toISOString())
   return { hadRemote: !!remote }
 }

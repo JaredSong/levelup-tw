@@ -2,12 +2,14 @@ import {
   ArrowRight,
   Brain,
   Clock3,
+  CloudOff,
   Flame,
   Layers3,
   ListRestart,
   Shuffle,
   Timer,
 } from 'lucide-react'
+import { isSyncEnabled } from '../storage/sync'
 
 interface Props {
   seen: number
@@ -49,6 +51,10 @@ export function Dashboard(props: Props) {
           <span>days</span>
         </div>
       </header>
+
+      {!isSyncEnabled() ? (
+        <p className="sync-nudge"><CloudOff size={16} /> Cloud sync is off — set a passphrase in Stats so your progress is saved across devices.</p>
+      ) : null}
 
       <section className="readiness-strip" aria-label="Study overview">
         <div>

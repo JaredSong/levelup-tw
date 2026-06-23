@@ -155,11 +155,11 @@ export function buildMockQueue(
   const singles = shuffled(
     core.filter((question) => question.kind === 'single'),
     random,
-  ).slice(0, 60 - commonSingles)
+  ).slice(0, Math.max(0, 60 - commonSingles))
   const multiples = shuffled(
     core.filter((question) => question.kind === 'multiple'),
     random,
-  ).slice(0, 20 - commonMultiples)
+  ).slice(0, Math.max(0, 20 - commonMultiples))
 
   if (common.length !== (hasOfficialSubjects ? 16 : 0) || singles.length + commonSingles < 60 || multiples.length + commonMultiples < 20) {
     throw new Error('The question bank cannot satisfy the official mock format')

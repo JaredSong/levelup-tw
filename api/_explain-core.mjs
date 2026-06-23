@@ -3,7 +3,7 @@
 // callers pass plain data and get back { status, payload }.
 
 const PROVIDERS = ['openai', 'anthropic', 'gemini']
-const DEFAULT_MODELS = { openai: 'gpt-4o-mini', anthropic: 'claude-3-5-haiku-latest', gemini: 'gemini-2.0-flash' }
+const DEFAULT_MODELS = { openai: 'gpt-4o-mini', anthropic: 'claude-3-5-haiku-latest', gemini: 'gemini-2.5-flash' }
 const KEY_NAMES = { openai: 'OPENAI_API_KEY', anthropic: 'ANTHROPIC_API_KEY', gemini: 'GEMINI_API_KEY' }
 const MODEL_ENV = { openai: 'OPENAI_MODEL', anthropic: 'ANTHROPIC_MODEL', gemini: 'GEMINI_MODEL' }
 
@@ -62,7 +62,9 @@ async function explainWithGemini(prompt, model, env) {
     headers: { 'Content-Type': 'application/json', 'x-goog-api-key': env.GEMINI_API_KEY },
     body: JSON.stringify({
       contents: [{ parts: [{ text: prompt }] }],
-      generationConfig: { maxOutputTokens: 500 },
+      // Disable "thinking" so the token budget goes to the answer, not hidden
+      // reasoning (2.5/3.x are thinking models and otherwise starve the output).
+      generationConfig: { maxOutputTokens: 800, thinkingConfig: { thinkingBudget: 0 } },
     }),
   })
   const data = await response.json()

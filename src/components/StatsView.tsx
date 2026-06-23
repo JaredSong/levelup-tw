@@ -38,7 +38,7 @@ function MockTrend({ scores }: { scores: number[] }) {
 
 export function StatsView({ questions, progress, onSaveAiToken }: Props) {
   const [results, setResults] = useState<SessionResult[]>([])
-  const [aiProvider, setAiProvider] = useState(() => localStorage.getItem('level-b-ai-provider') ?? 'anthropic')
+  const [aiProvider, setAiProvider] = useState(() => localStorage.getItem('level-b-ai-provider') ?? 'openai')
 
   const [dataMsg, setDataMsg] = useState<string | null>(null)
 

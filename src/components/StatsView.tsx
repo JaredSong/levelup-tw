@@ -177,6 +177,7 @@ export function StatsView({ questions, progress, onSaveAiToken }: Props) {
         <div className="provider-toggle" role="group" aria-label="AI provider">
           <button className={aiProvider === 'anthropic' ? 'active' : ''} onClick={() => chooseProvider('anthropic')} type="button">Claude</button>
           <button className={aiProvider === 'openai' ? 'active' : ''} onClick={() => chooseProvider('openai')} type="button">OpenAI</button>
+          <button className={aiProvider === 'gemini' ? 'active' : ''} onClick={() => chooseProvider('gemini')} type="button">Gemini</button>
         </div>
         <label>
           <span>Private app access token</span>

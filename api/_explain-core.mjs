@@ -2,7 +2,10 @@
 // the Vercel-style handler, and the Netlify function. No req/res coupling:
 // callers pass plain data and get back { status, payload }.
 
-const DEFAULT_MODELS = { openai: 'gpt-4o-mini', anthropic: 'claude-3-5-haiku-latest' }
+const PROVIDERS = ['openai', 'anthropic', 'gemini']
+const DEFAULT_MODELS = { openai: 'gpt-4o-mini', anthropic: 'claude-3-5-haiku-latest', gemini: 'gemini-2.0-flash' }
+const KEY_NAMES = { openai: 'OPENAI_API_KEY', anthropic: 'ANTHROPIC_API_KEY', gemini: 'GEMINI_API_KEY' }
+const MODEL_ENV = { openai: 'OPENAI_MODEL', anthropic: 'ANTHROPIC_MODEL', gemini: 'GEMINI_MODEL' }
 
 const STYLE_NOTES = {
   metaphor: 'Use a vivid everyday metaphor or analogy to make the concept intuitive, then connect the analogy back to why the official answer is correct.',
@@ -53,6 +56,22 @@ async function explainWithAnthropic(prompt, model, env) {
   return data.content?.find((item) => item.type === 'text')?.text
 }
 
+async function explainWithGemini(prompt, model, env) {
+  const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'x-goog-api-key': env.GEMINI_API_KEY },
+    body: JSON.stringify({
+      contents: [{ parts: [{ text: prompt }] }],
+      generationConfig: { maxOutputTokens: 500 },
+    }),
+  })
+  const data = await response.json()
+  if (!response.ok) throw new Error(data?.error?.message ?? 'Gemini request failed')
+  return data.candidates?.[0]?.content?.parts?.map((part) => part.text).join('')
+}
+
+const RUNNERS = { openai: explainWithOpenAI, anthropic: explainWithAnthropic, gemini: explainWithGemini }
+
 /**
  * @param {object} args
  * @param {object} args.body parsed JSON request body
@@ -73,25 +92,21 @@ export async function explain({ body, authorization, env }) {
 
   // The app can pick a provider per request; otherwise fall back to AI_PROVIDER.
   const candidate = String(requested ?? '').toLowerCase()
-  const provider = ['openai', 'anthropic'].includes(candidate)
+  const provider = PROVIDERS.includes(candidate)
     ? candidate
     : (env.AI_PROVIDER ?? '').toLowerCase()
-  if (!['openai', 'anthropic'].includes(provider)) {
+  if (!PROVIDERS.includes(provider)) {
     return { status: 503, payload: { error: 'AI provider is not configured' } }
   }
-  const keyName = provider === 'openai' ? 'OPENAI_API_KEY' : 'ANTHROPIC_API_KEY'
+  const keyName = KEY_NAMES[provider]
   if (!env[keyName]) {
     return { status: 503, payload: { error: `No API key set for ${provider}. Add ${keyName} to your environment.` } }
   }
-  const model = (provider === 'openai' ? env.OPENAI_MODEL : env.ANTHROPIC_MODEL)
-    || env.AI_MODEL
-    || DEFAULT_MODELS[provider]
+  const model = env[MODEL_ENV[provider]] || env.AI_MODEL || DEFAULT_MODELS[provider]
 
   try {
     const prompt = buildPrompt(question, selected, String(style ?? '').toLowerCase())
-    const explanation = provider === 'openai'
-      ? await explainWithOpenAI(prompt, model, env)
-      : await explainWithAnthropic(prompt, model, env)
+    const explanation = await RUNNERS[provider](prompt, model, env)
     if (!explanation) throw new Error('The provider returned no explanation')
     return { status: 200, payload: { explanation, provider } }
   } catch (error) {

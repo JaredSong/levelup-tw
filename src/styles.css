@@ -37,7 +37,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 }
 
 .app-frame { min-height: 100dvh; padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
-.page { width: min(100%, 980px); margin: 0 auto; padding: calc(26px + env(safe-area-inset-top)) 20px 56px; }
+.page { width: min(100%, 980px); margin: 0 auto; padding: max(52px, calc(env(safe-area-inset-top) + 20px)) 20px 56px; }
 .eyebrow { margin: 0 0 5px; color: var(--accent); font-size: 0.72rem; font-weight: 800; text-transform: uppercase; }
 
 .app-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 12px 0 27px; border-bottom: 1px solid var(--line); }
@@ -146,7 +146,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .ai-settings input { width: 100%; padding: 10px 11px; border: 1px solid var(--line); border-radius: 6px; background: white; color: var(--ink); }
 
 .practice-shell { min-height: 100dvh; display: grid; grid-template-rows: auto 4px 1fr auto; background: var(--paper); }
-.practice-header { display: grid; grid-template-columns: 42px 1fr auto; align-items: center; gap: 11px; padding: calc(11px + env(safe-area-inset-top)) 16px 11px; border-bottom: 1px solid var(--line); background: rgba(248,249,245,.96); }
+.practice-header { display: grid; grid-template-columns: 42px 1fr auto; align-items: center; gap: 11px; padding: max(32px, calc(env(safe-area-inset-top) + 12px)) 16px 11px; border-bottom: 1px solid var(--line); background: rgba(248,249,245,.96); }
 .icon-button { width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 6px; background: transparent; cursor: pointer; }
 .practice-title { display: grid; gap: 2px; }
 .practice-title strong { font-size: .88rem; }

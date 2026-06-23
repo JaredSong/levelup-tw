@@ -31,6 +31,20 @@ interface Props {
   onExplain: (question: Question, selected: number[], style?: string) => Promise<string>
 }
 
+// Lightweight renderer: turns **bold** and line breaks into real formatting so
+// the model's Markdown doesn't show as literal asterisks. No HTML injection.
+function renderExplanation(text: string) {
+  return text.split('\n').map((line, lineIndex) => {
+    if (!line.trim()) return null
+    const parts = line.split('**')
+    return (
+      <p className="ai-line" key={lineIndex}>
+        {parts.map((part, partIndex) => (partIndex % 2 ? <strong key={partIndex}>{part}</strong> : part))}
+      </p>
+    )
+  })
+}
+
 function formatClock(totalSeconds: number) {
   const minutes = Math.max(0, Math.floor(totalSeconds / 60))
   const seconds = Math.max(0, totalSeconds % 60)
@@ -211,7 +225,7 @@ export function PracticeView({
             <button className="explain-button" disabled={explaining} onClick={() => void requestExplanation()} type="button">
               <BrainCircuit size={18} /> {explaining ? 'Explaining…' : 'Explain this question'}
             </button>
-            {explanation ? <div className="ai-explanation">{explanation}</div> : null}
+            {explanation ? <div className="ai-explanation">{renderExplanation(explanation)}</div> : null}
             {explanation ? (
               <div className="explain-styles">
                 <span>Re-explain:</span>

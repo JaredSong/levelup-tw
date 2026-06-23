@@ -62,8 +62,30 @@ export const CORRECTIONS = {
   'S ymbian': 'Symbian',
   'Sym bian OS': 'Symbian OS',
   'SE LECT Dept': 'SELECT Dept',
-  'SELECT Dept no': 'SELECT Deptno',
-  'SESSIO N': 'SESSION',
+  'Dept no': 'Deptno',
+  'IN TEGER': 'INTEGER',
+  'De pt': 'Dept',
+  'G ROUP': 'GROUP',
+  'C omm': 'Comm',
+  'Book s': 'Books',
+  'Ser vice': 'Service',
+  'Authenticati on': 'Authentication',
+  'B2 C': 'B2C',
+  'M P3': 'MP3',
+  'O gg': 'Ogg',
+  'NOTNU LL': 'NOT NULL',
+  'on Unload': 'onUnload',
+  'a ttachment': 'attachment',
+  'abcde fg': 'abcdefg',
+  'ar rary': 'array',
+  'ge tmygid': 'getmygid',
+  'us ermanager': 'usermanager',
+  'CO 2': 'CO2',
+  'CH 4': 'CH4',
+  'N 2 O': 'N2O',
+  'SF 6': 'SF6',
+  'O 2': 'O2',
+  'O 3': 'O3',
   'Salar y': 'Salary',
   'Segme nt': 'Segment',
   'Serve r': 'Server',
@@ -125,6 +147,16 @@ export const CORRECTIONS = {
   'w mf': 'wmf',
 }
 
+// Splits next to punctuation/underscores where \b can't help. These broken
+// strings are unique enough to replace literally (verified in the bank).
+const RAW_CORRECTIONS = {
+  '$_SESSIO N': '$_SESSION',
+  '_na me': '_name',
+  '_manage r': '_manager',
+  'mys ql': 'mysql',
+  'TABLE t able': 'TABLE table',
+}
+
 const PATTERNS = Object.entries(CORRECTIONS).map(([broken, fixed]) => [
   new RegExp(`\\b${broken.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'g'),
   fixed,
@@ -134,5 +166,6 @@ export function sanitizeText(text) {
   if (typeof text !== 'string') return text
   let out = text
   for (const [re, fixed] of PATTERNS) out = out.replace(re, fixed)
+  for (const [broken, fixed] of Object.entries(RAW_CORRECTIONS)) out = out.split(broken).join(fixed)
   return out
 }

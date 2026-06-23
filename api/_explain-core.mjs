@@ -19,7 +19,8 @@ function buildPrompt(question, selected, style) {
   return `Explain this Taiwan Web Design Level B written-exam question to a beginner.
 Use clear English, but retain important Traditional Chinese technical or legal terms in parentheses.
 Explain why the official answer is correct and why the learner's choice is wrong or incomplete.
-Treat the supplied official answer as authoritative. Be concise and do not invent a different answer.${styleNote}
+Treat the supplied official answer as authoritative. Be concise and do not invent a different answer.
+Format as short paragraphs. You may use **bold** for key terms and "- " to start list items. Do not use Markdown headings, tables, or backticks.${styleNote}
 
 Question: ${question.prompt}
 Choices:

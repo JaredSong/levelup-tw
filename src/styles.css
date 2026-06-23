@@ -259,3 +259,10 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .provider-toggle { display: inline-flex; margin: 4px 0 14px; padding: 3px; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); gap: 3px; }
 .provider-toggle button { padding: 7px 18px; border: 0; border-radius: 6px; background: transparent; color: var(--muted); font-size: .85rem; font-weight: 700; cursor: pointer; }
 .provider-toggle button.active { background: var(--accent); color: #fff; }
+
+/* Data backup (Stats tab) */
+.data-backup { padding: 22px 0; border-top: 1px solid var(--line); }
+.backup-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+.backup-actions .secondary-action { display: inline-flex; align-items: center; gap: 7px; cursor: pointer; }
+.backup-actions .file-button { margin: 0; }
+.backup-msg { margin-top: 10px; color: var(--accent-dark); font-size: .85rem; }

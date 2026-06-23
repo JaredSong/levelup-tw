@@ -1,7 +1,8 @@
-import { CheckCircle2, CircleAlert, History, RotateCcw, Target } from 'lucide-react'
+import { CheckCircle2, CircleAlert, Download, History, RotateCcw, Target, Upload } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import type { Progress, Question } from '../domain/studyEngine'
 import { db, type SessionResult } from '../storage/db'
+import { exportBackup, importBackup } from '../storage/backup'
 
 interface Props {
   questions: Question[]
@@ -39,9 +40,31 @@ export function StatsView({ questions, progress, onSaveAiToken }: Props) {
   const [results, setResults] = useState<SessionResult[]>([])
   const [aiProvider, setAiProvider] = useState(() => localStorage.getItem('level-b-ai-provider') ?? 'anthropic')
 
+  const [dataMsg, setDataMsg] = useState<string | null>(null)
+
   const chooseProvider = (value: string) => {
     setAiProvider(value)
     localStorage.setItem('level-b-ai-provider', value)
+  }
+
+  const handleExport = async () => {
+    const blob = new Blob([await exportBackup()], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const link = document.createElement('a')
+    link.href = url
+    link.download = `level-b-backup-${new Date().toISOString().slice(0, 10)}.json`
+    link.click()
+    URL.revokeObjectURL(url)
+  }
+
+  const handleImport = async (file: File) => {
+    try {
+      await importBackup(await file.text())
+      setDataMsg('Backup restored. Reloading…')
+      window.setTimeout(() => window.location.reload(), 800)
+    } catch (error) {
+      setDataMsg(error instanceof Error ? error.message : 'Could not read that file.')
+    }
   }
 
   useEffect(() => {
@@ -104,6 +127,22 @@ export function StatsView({ questions, progress, onSaveAiToken }: Props) {
         ) : (
           <p className="history-empty"><History size={18} /> Finish a mock to start tracking your scores here.</p>
         )}
+      </section>
+
+      <section className="data-backup">
+        <div>
+          <p className="eyebrow">Your data</p>
+          <h2>Backup &amp; restore</h2>
+          <p>Progress, mock history and notes are saved in this browser only. Export a file to back up or move to another device.</p>
+        </div>
+        <div className="backup-actions">
+          <button className="secondary-action" onClick={() => void handleExport()} type="button"><Download size={17} /> Export backup</button>
+          <label className="secondary-action file-button">
+            <Upload size={17} /> Import backup
+            <input accept="application/json,.json" hidden onChange={(event) => { const file = event.target.files?.[0]; if (file) void handleImport(file); event.target.value = '' }} type="file" />
+          </label>
+        </div>
+        {dataMsg ? <p className="backup-msg">{dataMsg}</p> : null}
       </section>
 
       <section className="ai-settings">

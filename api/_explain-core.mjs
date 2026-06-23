@@ -29,7 +29,9 @@ Learner selected: ${selected.length ? selected.join(', ') : 'none'}`
 }
 
 async function explainWithOpenAI(prompt, model, env) {
-  const response = await fetch('https://api.openai.com/v1/responses', {
+  // Base URL is configurable so OpenAI-compatible proxies can be used.
+  const base = (env.OPENAI_BASE_URL || 'https://api.openai.com/v1').replace(/\/$/, '')
+  const response = await fetch(`${base}/responses`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${env.OPENAI_API_KEY}` },
     body: JSON.stringify({ model, input: prompt, max_output_tokens: 500 }),

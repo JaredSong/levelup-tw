@@ -350,3 +350,9 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .answer-summary { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 0 0 12px; font-size: .82rem; font-variant-numeric: tabular-nums; }
 .answer-summary .official { color: var(--accent-dark); }
 .answer-summary .earlier { color: var(--muted); }
+
+/* Pre-answer reading help (看懂題目) */
+.reading-help { margin: 2px 0 20px; }
+.reading-button { display: inline-flex; align-items: center; gap: 7px; padding: 8px 14px; border: 1px solid var(--accent-pale); border-radius: 999px; background: var(--accent-pale); color: var(--accent-dark); font-size: .82rem; font-weight: 700; cursor: pointer; }
+.reading-button:disabled { opacity: .6; cursor: default; }
+.reading-panel { margin-top: 12px; padding: 13px 15px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }

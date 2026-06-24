@@ -7,48 +7,62 @@ const DEFAULT_MODELS = { openai: 'gpt-4o-mini', anthropic: 'claude-3-5-haiku-lat
 const KEY_NAMES = { openai: 'OPENAI_API_KEY', anthropic: 'ANTHROPIC_API_KEY', gemini: 'GEMINI_API_KEY' }
 const MODEL_ENV = { openai: 'OPENAI_MODEL', anthropic: 'ANTHROPIC_MODEL', gemini: 'GEMINI_MODEL' }
 
-// Per-style instruction blocks. Default is a structured exam-oriented answer.
-const STYLES = {
-  default: `Structure your answer:
-- State the correct answer first.
-- Explain the governing rule or concept in 1-2 sentences.
-- Briefly say why each other option is wrong or incomplete.
-- End with one short memory cue (a hook or 口訣) to remember it.`,
-  simpler: `Write 80-120 words. Use very short sentences and beginner words.
-Define every technical Chinese term in plain English and add its pinyin.
-Do not use jargon without immediately defining it.`,
-  metaphor: `Start with a vivid everyday analogy, then connect it to the literal exam rule and the correct answer.
-If this is a legal, numerical, or precise-definition question where an analogy could mislead, skip the analogy and explain directly.`,
-  deeper: `Give the underlying concept, the common exam trap for this item, and at most two closely related facts worth knowing.
-Stay focused; do not wander.`,
-  reading: `Focus on understanding the QUESTION itself, not test strategy:
-- Restate the question stem in plain English, with pinyin for key Chinese terms.
-- If the stem contains a negation or odd-one-out phrase (不正確, 不包括, 何者為非, 不屬於, 下列何者錯誤, etc.), flag it clearly and state that the task is to find the FALSE or excluded item.
-- Give a one-line plain-English gloss of each option (pinyin for key terms).
-- Then state the correct answer.`,
+const BASE = `You are tutoring an English-speaking learner (who reads pinyin) for Taiwan's 網頁設計乙級 (Web Design Level B) written exam.
+Write in clear English, but keep important Traditional Chinese technical or legal terms and add pinyin for them.
+Format as short paragraphs. Use **bold** for key terms and start list items with "- ". Do not use Markdown headings, tables, or backticks.`
+
+// Explanation styles all keep the default structure and only ADD their specialization.
+const STYLE_EXTRAS = {
+  simpler: 'Keep it to about 80-120 words, with very short sentences and beginner words; define each technical Chinese term and add pinyin.',
+  metaphor: 'Open with a vivid everyday analogy before stating the rule, then tie the analogy back. If the item is legal, numerical, or a precise definition where an analogy could mislead, skip the analogy and explain directly.',
+  deeper: 'Add the common exam trap for this item and at most two closely related facts worth knowing. Stay focused.',
 }
+
+// Reading mode is translation-only and never sees or reveals the answer.
+const READING = `Translate and explain the question so a learner who reads pinyin can understand it. This is reading help only: do NOT reveal, hint at, or eliminate any option, and do not say which answer is correct.
+- Restate the question stem in plain English, with pinyin for key Chinese terms.
+- If the stem has a negation or odd-one-out phrase (不正確, 不包括, 何者為非, 不屬於, 下列何者錯誤, etc.), flag it clearly and explain the task is to find the FALSE or excluded item.
+- Give a one-line plain-English gloss of each option, with pinyin for key terms.`
 
 function buildPrompt(question, selected, style) {
   const choices = question.options.map((option, index) => `${index + 1}. ${option}`).join('\n')
-  const styleBlock = STYLES[style] ?? STYLES.default
+
+  if (style === 'reading') {
+    return `${BASE}
+
+${READING}
+
+Question: ${question.prompt}
+Choices:
+${choices}`
+  }
 
   const isMultiple = question.kind === 'multiple'
   const isImage = question.hasFigure || question.options.some((option) => option.includes('圖示'))
-  const conditionals = []
-  if (isMultiple) {
-    conditionals.push('This is a MULTIPLE-answer question. Explain why each correct option is required, and explicitly address any correct option the learner missed or any wrong option they added.')
-  }
-  if (isImage) {
-    conditionals.push('You were NOT given the figure/image for this question, and the options may be image-only placeholders. Do not describe, guess, or pretend to see any image. Explain the underlying concept and tell the learner to read the official figure to match the correct option.')
-  }
-  const conditionalBlock = conditionals.length ? `\n${conditionals.join('\n')}\n` : ''
 
-  return `You are tutoring an English-speaking learner (who reads pinyin) for Taiwan's 網頁設計乙級 (Web Design Level B) written exam.
-Write in clear English, but keep important Traditional Chinese technical or legal terms and add pinyin for them.
-Treat the supplied official answer as authoritative; never invent a different answer.
-Format as short paragraphs. Use **bold** for key terms and start list items with "- ". Do not use Markdown headings, tables, or backticks.
-${conditionalBlock}
-${styleBlock}
+  // For image-only options the model can't see the choices, so it must not try
+  // to reject them — that step is replaced with a pointer to the figure.
+  const structure = isImage
+    ? `Structure your answer:
+- State the correct answer first, by its option number.
+- Explain the governing rule or concept in 1-2 sentences.
+- You were NOT given the figure and the options may be image-only, so do NOT describe, guess, or evaluate the individual options. Tell the learner to read the official figure to match the correct option.
+- End with one short memory cue.`
+    : `Structure your answer:
+- State the correct answer first.
+- Explain the governing rule or concept in 1-2 sentences.
+- Briefly say why each other option is wrong or incomplete.
+- End with one short memory cue (a hook or 口訣).`
+
+  const extras = []
+  if (STYLE_EXTRAS[style]) extras.push(STYLE_EXTRAS[style])
+  if (isMultiple) extras.push('This is a MULTIPLE-answer question: explain why each correct option is required, and address any correct option the learner missed or any wrong option they added.')
+  const extraBlock = extras.length ? `\n${extras.map((e) => `Also: ${e}`).join('\n')}` : ''
+
+  return `${BASE}
+Treat the supplied official answer as authoritative; never invent or override it.
+
+${structure}${extraBlock}
 
 Question: ${question.prompt}
 Choices:

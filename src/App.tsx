@@ -25,7 +25,7 @@ const SESSION_KEY = 'level-b-active-session'
 const SEQUENTIAL_KEY = 'level-b-sequential-index'
 const PERSONAL_START_INDEX = 144
 const MOCK_DURATION_MS = 100 * 60_000
-const EXPLAIN_VERSION = 'v2'
+const EXPLAIN_VERSION = 'v3'
 
 function loadSession(): StudySession | null {
   try {
@@ -268,10 +268,13 @@ export default function App() {
     if (cached) return cached.content
     const token = localStorage.getItem('level-b-ai-access-token')
     if (!token) throw new Error('AI is ready to connect after you choose Claude or OpenAI and add a private access token.')
+    // Reading mode is pre-answer translation help: never send the answer key or selection.
+    const isReading = style === 'reading'
+    const payloadQuestion = isReading ? { ...question, answers: [] } : question
     const response = await fetch('/api/explain', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
-      body: JSON.stringify({ question, selected, provider: localStorage.getItem('level-b-ai-provider') ?? undefined, style: style === 'default' ? undefined : style }),
+      body: JSON.stringify({ question: payloadQuestion, selected: isReading ? [] : selected, provider: localStorage.getItem('level-b-ai-provider') ?? undefined, style: style === 'default' ? undefined : style }),
     })
     if (!response.ok) {
       const detail = await response.json().catch(() => null) as { error?: string } | null

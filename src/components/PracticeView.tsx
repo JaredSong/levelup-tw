@@ -78,6 +78,9 @@ export function PracticeView({
   const [explainError, setExplainError] = useState<string | null>(null)
   const [explaining, setExplaining] = useState(false)
   const [priorSelection, setPriorSelection] = useState<number[]>([])
+  const [reading, setReading] = useState<string | null>(null)
+  const [readingLoading, setReadingLoading] = useState(false)
+  const [readingError, setReadingError] = useState<string | null>(null)
   const finishedRef = useRef(false)
   const progressRef = useRef(progress)
   progressRef.current = progress
@@ -95,6 +98,8 @@ export function PracticeView({
     setRevealed(false)
     setExplanation(null)
     setExplainError(null)
+    setReading(null)
+    setReadingError(null)
     // Capture the previous answer once per question, before this session overwrites it.
     setPriorSelection(progressRef.current[questionId]?.lastSelected ?? [])
   }, [questionId])
@@ -154,6 +159,19 @@ export function PracticeView({
     }
   }
 
+  // Reading help is translation-only; it never sees or reveals the answer.
+  const requestReading = async () => {
+    setReadingLoading(true)
+    setReadingError(null)
+    try {
+      setReading(await onExplain(question, [], 'reading'))
+    } catch (reason) {
+      setReadingError(reason instanceof Error ? reason.message : 'Reading help is unavailable.')
+    } finally {
+      setReadingLoading(false)
+    }
+  }
+
   return (
     <main className="practice-shell">
       <header className="practice-header">
@@ -189,6 +207,16 @@ export function PracticeView({
 
         {optionsAreImages ? (
           <p className="figure-note"><ImageIcon size={15} /> This question’s options are images — read them on the figure above; pick the matching number below.</p>
+        ) : null}
+
+        {!isFlashcard ? (
+          <div className="reading-help">
+            <button className="reading-button" disabled={readingLoading} onClick={() => void requestReading()} type="button">
+              <Languages size={17} /> {readingLoading ? '解析中…' : '看懂題目 · understand the question'}
+            </button>
+            {reading ? <div className="ai-explanation reading-panel">{renderExplanation(reading)}</div> : null}
+            {readingError ? <p className="inline-error">{readingError}</p> : null}
+          </div>
         ) : null}
 
         {isFlashcard ? (
@@ -254,19 +282,13 @@ export function PracticeView({
                 ? <span className="earlier"><strong>Earlier you chose:</strong> {priorSelection.join('、')}</span>
                 : null}
             </div>
-            <div className="explain-actions">
-              <button className="explain-button" disabled={explaining} onClick={() => void requestExplanation()} type="button">
-                <BrainCircuit size={18} /> {explaining ? 'Explaining…' : 'Explain this question'}
-              </button>
-              <button className="explain-button alt" disabled={explaining} onClick={() => void requestExplanation('reading')} type="button">
-                <Languages size={18} /> 看懂題目
-              </button>
-            </div>
+            <button className="explain-button" disabled={explaining} onClick={() => void requestExplanation()} type="button">
+              <BrainCircuit size={18} /> {explaining ? 'Explaining…' : 'Explain this question'}
+            </button>
             {explanation ? <div className="ai-explanation">{renderExplanation(explanation)}</div> : null}
             {explanation ? (
               <div className="explain-styles">
                 <span>Re-explain:</span>
-                <button disabled={explaining} onClick={() => void requestExplanation('reading')} type="button">看懂題目</button>
                 <button disabled={explaining} onClick={() => void requestExplanation('metaphor')} type="button">With a metaphor</button>
                 <button disabled={explaining} onClick={() => void requestExplanation('simpler')} type="button">Simpler</button>
                 <button disabled={explaining} onClick={() => void requestExplanation('deeper')} type="button">Go deeper</button>

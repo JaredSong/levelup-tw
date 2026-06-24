@@ -4,6 +4,7 @@ import {
   Bookmark,
   BrainCircuit,
   Check,
+  CheckSquare,
   ChevronLeft,
   ChevronRight,
   Clock3,
@@ -262,7 +263,10 @@ export function PracticeView({
             )}
           </div>
         ) : (
-          <div className="option-list">
+          <div className={`option-list ${question.kind}`}>
+            {question.kind === 'multiple' ? (
+              <p className="kind-hint"><CheckSquare size={15} /> 複選題 · select all correct answers</p>
+            ) : null}
             {question.options.map((option, index) => {
               const value = index + 1
               const isSelected = selected.includes(value)
@@ -271,8 +275,11 @@ export function PracticeView({
               const classes = [isSelected ? 'selected' : '', isCorrectChoice ? 'correct' : '', isWrongChoice ? 'wrong' : ''].filter(Boolean).join(' ')
               return (
                 <button className={classes} key={value} onClick={() => toggleOption(value)} type="button">
-                  <span className="option-index">{value}</span>
-                  <span>{option}</span>
+                  <span className="opt-box" aria-hidden="true">
+                    {isSelected ? (question.kind === 'multiple' ? <Check size={14} strokeWidth={3} /> : <span className="opt-dot" />) : null}
+                  </span>
+                  <span className="opt-num">{value}</span>
+                  <span className="opt-text">{option}</span>
                   {isCorrectChoice ? <Check size={18} /> : isWrongChoice ? <X size={18} /> : null}
                 </button>
               )
@@ -324,6 +331,9 @@ export function PracticeView({
 
       <footer className="practice-actions">
         <button className="secondary-action" disabled={session.currentIndex === 0} onClick={() => onNavigate(session.currentIndex - 1)} type="button"><ChevronLeft size={19} /> Previous</button>
+        {question.kind === 'multiple' && !answer && !isFlashcard ? (
+          <span className="select-count">{selected.length} selected</span>
+        ) : null}
         {isMock ? (
           isLast
             ? <button className="primary-action" onClick={() => setReviewOpen(true)} type="button">Review &amp; submit <ChevronRight size={19} /></button>

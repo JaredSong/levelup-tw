@@ -165,15 +165,25 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .source-figure summary { display: flex; align-items: center; gap: 8px; padding: 11px; color: var(--blue); font-size: .8rem; font-weight: 700; cursor: pointer; }
 .source-figure img { display: block; width: 100%; border-top: 1px solid var(--line); }
 .option-list { display: grid; gap: 10px; }
-.option-list > button { width: 100%; min-height: 58px; display: grid; grid-template-columns: 32px minmax(0,1fr) auto; gap: 11px; align-items: center; padding: 11px 13px; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); text-align: left; line-height: 1.42; cursor: pointer; transition: border-color 140ms ease, background 140ms ease, transform 100ms ease; }
+.kind-hint { display: flex; align-items: center; gap: 7px; margin: 0 0 2px; color: var(--accent-dark); font-size: .8rem; font-weight: 700; }
+.option-list > button { width: 100%; min-height: 58px; display: grid; grid-template-columns: 24px 18px minmax(0,1fr) auto; gap: 11px; align-items: center; padding: 11px 13px; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); text-align: left; line-height: 1.42; cursor: pointer; transition: border-color 140ms ease, background 140ms ease, transform 100ms ease; }
 .option-list > button:hover { border-color: #99a39c; }
 .option-list > button:active { transform: scale(.992); }
-.option-list > button.selected { border-color: var(--blue); background: #edf4f9; }
+.option-list > button.selected { border-color: var(--accent); background: var(--accent-pale); }
 .option-list > button.correct { border-color: var(--accent); background: var(--accent-pale); }
 .option-list > button.wrong { border-color: var(--danger); background: #f9e9e6; }
-.option-index { width: 30px; height: 30px; display: grid; place-items: center; border: 1px solid currentColor; border-radius: 50%; color: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .76rem; }
-.option-list > button.selected .option-index { color: var(--blue); }
-.option-list > button.correct .option-index { color: var(--accent); }
+/* Radio (single) vs checkbox (multiple) indicator */
+.opt-box { width: 22px; height: 22px; display: grid; place-items: center; border: 2px solid #9aa39c; color: #fff; }
+.option-list.single .opt-box { border-radius: 50%; }
+.option-list.multiple .opt-box { border-radius: 6px; }
+.opt-dot { width: 11px; height: 11px; border-radius: 50%; background: var(--accent); }
+.option-list.multiple > button.selected .opt-box { border-color: var(--accent); background: var(--accent); }
+.option-list.single > button.selected .opt-box { border-color: var(--accent); }
+.option-list > button.correct .opt-box { border-color: var(--accent); background: var(--accent); }
+.option-list > button.wrong .opt-box { border-color: var(--danger); background: var(--danger); }
+.opt-num { color: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .78rem; font-weight: 700; }
+.option-list > button.selected .opt-num { color: var(--accent-dark); }
+.select-count { color: var(--muted); font-size: .8rem; font-weight: 700; font-variant-numeric: tabular-nums; }
 .guess-toggle { display: flex; align-items: flex-start; gap: 9px; margin-top: 17px; color: var(--muted); font-size: .78rem; line-height: 1.4; }
 .guess-toggle span { display: flex; align-items: flex-start; gap: 7px; }
 
@@ -333,7 +343,6 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 [data-theme="dark"] .syllabus-list button:hover,
 [data-theme="dark"] .mode-list button:hover { background: #1b211d; }
 [data-theme="dark"] .option-list button { background: var(--surface); }
-[data-theme="dark"] .option-list > button.selected { background: #22323f; }
 [data-theme="dark"] .option-list > button.wrong { background: #3a2723; }
 [data-theme="dark"] .option-list > button:hover { border-color: #4a554d; }
 [data-theme="dark"] .feedback,

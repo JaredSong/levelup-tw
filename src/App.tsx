@@ -10,6 +10,7 @@ import {
   buildAdaptiveQueue,
   buildMockQueue,
   buildRandomQueue,
+  buildSprintQueue,
   createProgress,
   scoreAnswer,
   type Question,
@@ -43,6 +44,7 @@ function titleForMode(mode: SessionMode) {
     wrong: 'Wrong answers',
     flashcard: 'Recall cards',
     mock: 'Official mock',
+    sprint: 'Exam sprint',
     item: 'Item review',
   }[mode]
 }
@@ -280,7 +282,7 @@ export default function App() {
 
   return (
     <div className="app-frame">
-      {tab === 'study' ? <Dashboard seen={seen} total={bank.questions.length} due={due} accuracy={accuracy} hasSession={!!session} sessionLabel={session?.title} onContinue={resumePractice} onSequential={startSequential} onAdaptive={() => begin('adaptive', buildAdaptiveQueue(bank.questions, progress, 10))} onRandom={() => begin('random', buildRandomQueue(bank.questions, 10))} onSubject={(subjectCode, title) => begin('random', buildRandomQueue(bank.questions.filter((question) => question.subjectCode === subjectCode), 10), title)} onWrong={startWrong} onFlashcards={() => begin('flashcard', buildAdaptiveQueue(bank.questions, progress, 10))} onMock={startMock} /> : null}
+      {tab === 'study' ? <Dashboard seen={seen} total={bank.questions.length} due={due} accuracy={accuracy} hasSession={!!session} sessionLabel={session?.title} onContinue={resumePractice} onSequential={startSequential} onAdaptive={() => begin('adaptive', buildAdaptiveQueue(bank.questions, progress, 10))} onRandom={() => begin('random', buildRandomQueue(bank.questions, 10))} onSubject={(subjectCode, title) => begin('random', buildRandomQueue(bank.questions.filter((question) => question.subjectCode === subjectCode), 10), title)} onWrong={startWrong} onFlashcards={() => begin('flashcard', buildAdaptiveQueue(bank.questions, progress, 10))} onMock={startMock} onSprint={() => begin('sprint', buildSprintQueue(bank.questions, progress, 20))} /> : null}
       {tab === 'library' ? <LibraryView questions={bank.questions} progress={progress} onOpen={(question) => begin('item', [question])} /> : null}
       {tab === 'stats' ? <StatsView questions={bank.questions} progress={progress} onSaveAiToken={(token) => localStorage.setItem('level-b-ai-access-token', token)} /> : null}
       <BottomNav active={tab} onChange={setTab} />

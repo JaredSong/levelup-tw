@@ -7,6 +7,7 @@ export type SessionMode =
   | 'wrong'
   | 'flashcard'
   | 'mock'
+  | 'sprint'
   | 'item'
 
 export interface SessionAnswer {

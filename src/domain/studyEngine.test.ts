@@ -4,6 +4,7 @@ import {
   buildAdaptiveQueue,
   buildMockQueue,
   buildRandomQueue,
+  buildSprintQueue,
   createProgress,
   scoreAnswer,
   type Progress,
@@ -155,5 +156,27 @@ describe('practice queue builders', () => {
     for (const subjectCode of ['90006', '90007', '90008', '90009']) {
       expect(result.filter((question) => question.subjectCode === subjectCode)).toHaveLength(4)
     }
+  })
+})
+
+describe('buildSprintQueue', () => {
+  const seed = () => () => 0.42
+  const bank: Question[] = [
+    ...Array.from({ length: 10 }, (_, i) => ({
+      id: `g-${i}`, section: '90006-01', number: i, kind: 'single' as const,
+      prompt: 'g', options: ['A', 'B', 'C', 'D'], answers: [1], sourceGroup: 'general-common' as const,
+    })),
+    ...Array.from({ length: 30 }, (_, i) => ({
+      id: `o-${i}`, section: '17300-01', number: i, kind: 'single' as const,
+      prompt: 'o', options: ['A', 'B', 'C', 'D'], answers: [1], sourceGroup: 'occupation' as const,
+    })),
+  ]
+
+  it('returns 20 questions with at least four common-subject items', () => {
+    const queue = buildSprintQueue(bank, {}, 20, new Date('2026-06-24T00:00:00Z'), seed())
+    expect(queue).toHaveLength(20)
+    const common = queue.filter((q) => q.sourceGroup === 'general-common').length
+    expect(common).toBeGreaterThanOrEqual(4)
+    expect(new Set(queue.map((q) => q.id)).size).toBe(20)
   })
 })

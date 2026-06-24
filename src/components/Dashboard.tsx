@@ -8,6 +8,7 @@ import {
   ListRestart,
   Shuffle,
   Timer,
+  Zap,
 } from 'lucide-react'
 import { isSyncEnabled } from '../storage/sync'
 
@@ -26,6 +27,7 @@ interface Props {
   onWrong: () => void
   onFlashcards: () => void
   onMock: () => void
+  onSprint: () => void
 }
 
 function daysUntilExam() {
@@ -126,6 +128,11 @@ export function Dashboard(props: Props) {
           </div>
         </div>
         <div className="mode-list">
+          <button type="button" onClick={props.onSprint}>
+            <span className="mode-icon coral"><Zap size={21} /></span>
+            <span><strong>Exam sprint</strong><small>20 weighted to weak spots · for a short break</small></span>
+            <span className="mode-meta">20</span>
+          </button>
           <button type="button" onClick={props.onAdaptive}>
             <span className="mode-icon accent"><Brain size={21} /></span>
             <span><strong>Adaptive 10</strong><small>Due, wrong, weak, then new</small></span>

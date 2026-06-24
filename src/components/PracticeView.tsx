@@ -14,7 +14,7 @@ import {
   RotateCcw,
   X,
 } from 'lucide-react'
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import type { Progress, Question } from '../domain/studyEngine'
 import type { StudySession } from '../types'
 
@@ -77,6 +77,10 @@ export function PracticeView({
   const [explanation, setExplanation] = useState<string | null>(null)
   const [explainError, setExplainError] = useState<string | null>(null)
   const [explaining, setExplaining] = useState(false)
+  const [priorSelection, setPriorSelection] = useState<number[]>([])
+  const finishedRef = useRef(false)
+  const progressRef = useRef(progress)
+  progressRef.current = progress
 
   const questionId = session.questionIds[session.currentIndex]
   const question = questions.get(questionId)
@@ -91,6 +95,8 @@ export function PracticeView({
     setRevealed(false)
     setExplanation(null)
     setExplainError(null)
+    // Capture the previous answer once per question, before this session overwrites it.
+    setPriorSelection(progressRef.current[questionId]?.lastSelected ?? [])
   }, [questionId])
 
   useEffect(() => {
@@ -101,6 +107,14 @@ export function PracticeView({
   const secondsRemaining = session.mockEndsAt
     ? Math.ceil((new Date(session.mockEndsAt).getTime() - now) / 1000)
     : Math.floor((now - new Date(session.startedAt).getTime()) / 1000)
+
+  // Auto-submit a mock when the 100-minute clock runs out.
+  useEffect(() => {
+    if (isMock && session.mockEndsAt && secondsRemaining <= 0 && !finishedRef.current) {
+      finishedRef.current = true
+      onComplete()
+    }
+  }, [isMock, session.mockEndsAt, secondsRemaining, onComplete])
 
   const progressPercent = Math.round(((session.currentIndex + 1) / session.questionIds.length) * 100)
   const correctChoices = useMemo(() => new Set(question?.answers ?? []), [question])
@@ -228,7 +242,18 @@ export function PracticeView({
               {answer.correct ? <Check size={20} /> : <X size={20} />}
               <strong>{answer.correct ? (answer.guessed ? 'Correct, but still learning' : 'Correct') : 'Not yet'}</strong>
             </div>
-            <p>{answer.correct ? 'This item has been scheduled according to your recall.' : 'You will see this item again soon.'}</p>
+            <p>{answer.correct
+              ? (answer.guessed
+                ? 'Marked as a guess — it stays in review.'
+                : ((progress[question.id]?.streak ?? 0) >= 2 ? 'Mastered — two correct in a row.' : 'Correct — one more in a row to master.'))
+              : 'You will see this item again soon.'}</p>
+            <div className="answer-summary">
+              <span><strong>You chose:</strong> {selected.length ? selected.join('、') : '—'}</span>
+              <span className="official"><strong>Official:</strong> {question.answers.join('、')}</span>
+              {priorSelection.length && JSON.stringify([...priorSelection].sort()) !== JSON.stringify([...selected].sort())
+                ? <span className="earlier"><strong>Earlier you chose:</strong> {priorSelection.join('、')}</span>
+                : null}
+            </div>
             <div className="explain-actions">
               <button className="explain-button" disabled={explaining} onClick={() => void requestExplanation()} type="button">
                 <BrainCircuit size={18} /> {explaining ? 'Explaining…' : 'Explain this question'}

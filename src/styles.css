@@ -345,3 +345,8 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .theme-toggle { display: inline-flex; padding: 3px; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); gap: 3px; }
 .theme-toggle button { display: inline-flex; align-items: center; gap: 6px; padding: 7px 16px; border: 0; border-radius: 6px; background: transparent; color: var(--muted); font-size: .85rem; font-weight: 700; cursor: pointer; }
 .theme-toggle button.active { background: var(--accent); color: #fff; }
+
+/* Answer summary (post-answer feedback) */
+.answer-summary { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 0 0 12px; font-size: .82rem; font-variant-numeric: tabular-nums; }
+.answer-summary .official { color: var(--accent-dark); }
+.answer-summary .earlier { color: var(--muted); }

@@ -211,3 +211,28 @@ export function buildAdaptiveQueue(
 
   return [...due, ...weak, ...shuffled(unseen, random)].slice(0, limit)
 }
+
+// Short 20-question session for a work break: weighted toward wrong, guessed,
+// due, and unseen items, and guaranteed to include four common-subject questions.
+export function buildSprintQueue(
+  questions: Question[],
+  progressById: Record<string, Progress>,
+  limit = 20,
+  now = new Date(),
+  random = Math.random,
+): Question[] {
+  const priority = (question: Question): number => {
+    const progress = progressById[question.id]
+    if (!progress || progress.attempts === 0) return 3 // unseen
+    if ((progress.wrong > 0 || progress.guessed > 0) && progress.streak < 2) return 4 // wrong/guessed, not mastered
+    if (progress.nextReviewAt && new Date(progress.nextReviewAt).getTime() <= now.getTime()) return 2 // due
+    return 1 // seen and settled
+  }
+  // shuffle first, then stable-sort by priority, so ties stay randomised.
+  const ranked = (pool: Question[]) => shuffled(pool, random).sort((a, b) => priority(b) - priority(a))
+
+  const common = ranked(questions.filter((question) => question.sourceGroup === 'general-common')).slice(0, 4)
+  const commonIds = new Set(common.map((question) => question.id))
+  const rest = ranked(questions.filter((question) => !commonIds.has(question.id))).slice(0, Math.max(0, limit - common.length))
+  return shuffled([...common, ...rest], random).slice(0, limit)
+}

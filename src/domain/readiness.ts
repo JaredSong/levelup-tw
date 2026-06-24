@@ -1,0 +1,114 @@
+import type { Progress, Question } from './studyEngine'
+import type { AttemptRecord } from '../storage/db'
+
+export type GroupStatus = 'weak' | 'building' | 'ready'
+
+export interface GroupReadiness {
+  section: string
+  label: string
+  subjectCode: string
+  kind: 'occupation' | 'information-common' | 'general-common'
+  total: number
+  attempted: number
+  coverage: number
+  mastery: number
+  recentAccuracy: number | null // null when the group has no attempts yet
+  recentCount: number
+  status: GroupStatus
+  weight: number
+}
+
+export interface Readiness {
+  groups: GroupReadiness[]
+  overall: number
+}
+
+const MOCK_TOTAL = 80
+const COMMON_SUBJECTS = 4
+const COMMON_PER_SUBJECT = 4 // four questions from each general subject
+const RECENT_WINDOW = 20
+const PASS = 0.6
+const READY = 0.8
+
+// Per-group readiness blends coverage, recent accuracy, and mastery.
+function readinessValue(group: GroupReadiness): number {
+  return 0.4 * group.coverage + 0.4 * (group.recentAccuracy ?? 0) + 0.2 * group.mastery
+}
+
+export function computeReadiness(
+  questions: Question[],
+  progressById: Record<string, Progress>,
+  attempts: AttemptRecord[],
+): Readiness {
+  const sectionOf = new Map<string, string>()
+  const grouped = new Map<string, Question[]>()
+  for (const question of questions) {
+    sectionOf.set(question.id, question.section)
+    const list = grouped.get(question.section) ?? []
+    list.push(question)
+    grouped.set(question.section, list)
+  }
+
+  const attemptsBySection = new Map<string, AttemptRecord[]>()
+  for (const attempt of attempts) {
+    const section = sectionOf.get(attempt.questionId)
+    if (!section) continue
+    const list = attemptsBySection.get(section) ?? []
+    list.push(attempt)
+    attemptsBySection.set(section, list)
+  }
+
+  const totalCore = questions.filter((question) => question.sourceGroup !== 'general-common').length
+  const coreShare = (MOCK_TOTAL - COMMON_SUBJECTS * COMMON_PER_SUBJECT) / MOCK_TOTAL // 64/80
+
+  const groups: GroupReadiness[] = []
+  for (const [section, qs] of grouped) {
+    const sample = qs[0]
+    const kind = sample.sourceGroup ?? 'occupation'
+    const total = qs.length
+    const attempted = qs.filter((q) => (progressById[q.id]?.attempts ?? 0) > 0).length
+    const mastered = qs.filter((q) => (progressById[q.id]?.streak ?? 0) >= 2).length
+    const coverage = total ? attempted / total : 0
+    const mastery = total ? mastered / total : 0
+
+    const recent = (attemptsBySection.get(section) ?? [])
+      .slice()
+      .sort((a, b) => b.answeredAt.localeCompare(a.answeredAt))
+      .slice(0, RECENT_WINDOW)
+    const recentCount = recent.length
+    const recentAccuracy = recentCount ? recent.filter((a) => a.correct).length / recentCount : null
+
+    const acc = recentAccuracy ?? 0
+    let status: GroupStatus
+    if (coverage < PASS || acc < PASS) status = 'weak'
+    else if (coverage >= READY && acc >= READY) status = 'ready' // ready implies <=20% unseen
+    else status = 'building'
+
+    const weight = kind === 'general-common'
+      ? COMMON_PER_SUBJECT / MOCK_TOTAL
+      : (totalCore ? (total / totalCore) * coreShare : 0)
+
+    groups.push({
+      section,
+      label: sample.sectionTitle ?? section,
+      subjectCode: sample.subjectCode ?? '',
+      kind,
+      total,
+      attempted,
+      coverage,
+      mastery,
+      recentAccuracy,
+      recentCount,
+      status,
+      weight,
+    })
+  }
+
+  const weightSum = groups.reduce((sum, g) => sum + g.weight, 0)
+  const overall = weightSum ? groups.reduce((sum, g) => sum + g.weight * readinessValue(g), 0) / weightSum : 0
+
+  const rank: Record<GroupStatus, number> = { weak: 0, building: 1, ready: 2 }
+  groups.sort((a, b) => rank[a.status] - rank[b.status] || b.weight - a.weight)
+
+  return { groups, overall }
+}

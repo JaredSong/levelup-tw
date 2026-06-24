@@ -1,7 +1,8 @@
-import { CheckCircle2, CircleAlert, Download, FileWarning, History, Moon, RefreshCw, RotateCcw, Sun, Target, Upload } from 'lucide-react'
-import { useEffect, useState } from 'react'
+import { ArrowRight, CheckCircle2, CircleAlert, Download, FileWarning, Gauge, History, Moon, RefreshCw, RotateCcw, Sun, Target, Upload } from 'lucide-react'
+import { useEffect, useMemo, useState } from 'react'
 import type { Progress, Question } from '../domain/studyEngine'
-import { db, type SessionResult } from '../storage/db'
+import { computeReadiness } from '../domain/readiness'
+import { db, type AttemptRecord, type SessionResult } from '../storage/db'
 import { exportBackup, importBackup } from '../storage/backup'
 import { getSyncPass, setSyncPass, syncNow, syncStatusLabel } from '../storage/sync'
 
@@ -9,7 +10,11 @@ interface Props {
   questions: Question[]
   progress: Record<string, Progress>
   onSaveAiToken: (token: string) => void
+  onPracticeGroup: (section: string, title: string) => void
 }
+
+const STATUS_LABEL = { weak: 'Needs work', building: 'Building', ready: 'Ready' } as const
+const pct = (value: number) => Math.round(value * 100)
 
 function formatWhen(iso: string) {
   const date = new Date(iso)
@@ -37,8 +42,9 @@ function MockTrend({ scores }: { scores: number[] }) {
   )
 }
 
-export function StatsView({ questions, progress, onSaveAiToken }: Props) {
+export function StatsView({ questions, progress, onSaveAiToken, onPracticeGroup }: Props) {
   const [results, setResults] = useState<SessionResult[]>([])
+  const [attemptLog, setAttemptLog] = useState<AttemptRecord[]>([])
   const [aiProvider, setAiProvider] = useState(() => localStorage.getItem('level-b-ai-provider') ?? 'openai')
 
   const [dataMsg, setDataMsg] = useState<string | null>(null)
@@ -115,7 +121,10 @@ export function StatsView({ questions, progress, onSaveAiToken }: Props) {
 
   useEffect(() => {
     void db.results.orderBy('finishedAt').reverse().toArray().then(setResults)
+    void db.attempts.toArray().then(setAttemptLog)
   }, [])
+
+  const readiness = useMemo(() => computeReadiness(questions, progress, attemptLog), [questions, progress, attemptLog])
 
   const mocks = results.filter((result) => result.mode === 'mock')
   const mockScoresChrono = [...mocks].reverse().map((result) => result.score)
@@ -126,10 +135,6 @@ export function StatsView({ questions, progress, onSaveAiToken }: Props) {
   const correct = rows.reduce((sum, item) => sum + item.correct, 0)
   const wrongItems = rows.filter((item) => item.wrong > 0 && item.streak < 2).length
   const accuracy = attempts ? Math.round((correct / attempts) * 100) : 0
-  const subjects = Array.from(new Map(questions.map((question) => [
-    question.subjectCode ?? '17300',
-    question.subjectTitle ?? '網頁設計',
-  ])).entries())
 
   return (
     <main className="page stats-page">
@@ -233,26 +238,32 @@ export function StatsView({ questions, progress, onSaveAiToken }: Props) {
         </label>
       </section>
 
-      <section className="section-performance">
-        <div className="section-heading compact"><div><p className="eyebrow">By section</p><h2>Coverage and recall</h2></div></div>
-        {subjects.map(([subjectCode, subjectTitle]) => {
-          const sectionQuestions = questions.filter((question) => question.subjectCode === subjectCode)
-          const sectionRows = sectionQuestions.map((question) => progress[question.id]).filter(Boolean)
-          const sectionAttempts = sectionRows.reduce((sum, item) => sum + item.attempts, 0)
-          const sectionCorrect = sectionRows.reduce((sum, item) => sum + item.correct, 0)
-          const coverage = Math.round((sectionRows.filter((item) => item.attempts).length / sectionQuestions.length) * 100)
-          const sectionAccuracy = sectionAttempts ? Math.round((sectionCorrect / sectionAttempts) * 100) : 0
-          return (
-            <div className="performance-row" key={subjectCode}>
-              <span className="performance-code">{subjectCode}</span>
-              <div>
-                <strong>{subjectTitle}</strong>
-                <div className="mini-track"><span style={{ width: `${coverage}%` }} /></div>
+      <section className="readiness-section">
+        <div className="section-heading compact">
+          <div><p className="eyebrow">Exam readiness</p><h2>By work group</h2></div>
+          <span><Gauge size={15} /> {pct(readiness.overall)}% ready</span>
+        </div>
+        <div className="readiness-bar" aria-label={`${pct(readiness.overall)} percent ready`}><span style={{ width: `${pct(readiness.overall)}%` }} /></div>
+        <p className="readiness-note">Weighted by the official mock mix. Recent accuracy uses your last 20 answers per group, so early mistakes don’t haunt you.</p>
+        <div className="group-list">
+          {readiness.groups.map((group) => (
+            <div className={`group-row ${group.status}`} key={group.section}>
+              <div className="group-top">
+                <strong>{group.label}</strong>
+                <span className="group-code">{group.subjectCode}</span>
+                <span className={`status-badge ${group.status}`}>{STATUS_LABEL[group.status]}</span>
               </div>
-              <span><strong>{coverage}%</strong><small>{sectionAccuracy}% recall</small></span>
+              <div className="group-metrics">
+                <span>Coverage <strong>{pct(group.coverage)}%</strong></span>
+                <span>Recent <strong>{group.recentAccuracy == null ? '—' : `${pct(group.recentAccuracy)}%`}</strong>{group.recentCount ? <small> ({group.recentCount})</small> : null}</span>
+                <span>Mastered <strong>{pct(group.mastery)}%</strong></span>
+              </div>
+              {group.status !== 'ready' ? (
+                <button className="group-practice" onClick={() => onPracticeGroup(group.section, group.label)} type="button">Practice this group <ArrowRight size={15} /></button>
+              ) : null}
             </div>
-          )
-        })}
+          ))}
+        </div>
       </section>
     </main>
   )

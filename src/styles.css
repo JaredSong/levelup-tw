@@ -356,3 +356,28 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .reading-button { display: inline-flex; align-items: center; gap: 7px; padding: 8px 14px; border: 1px solid var(--accent-pale); border-radius: 999px; background: var(--accent-pale); color: var(--accent-dark); font-size: .82rem; font-weight: 700; cursor: pointer; }
 .reading-button:disabled { opacity: .6; cursor: default; }
 .reading-panel { margin-top: 12px; padding: 13px 15px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+
+/* Exam readiness by work group (Progress tab) */
+.readiness-section { padding: 22px 0; border-top: 1px solid var(--line); }
+.readiness-bar { overflow: hidden; height: 8px; margin-top: 12px; border-radius: 4px; background: #dfe2dc; }
+.readiness-bar span { display: block; height: 100%; background: var(--accent); transition: width 300ms ease; }
+.readiness-note { margin: 10px 0 0; color: var(--muted); font-size: .76rem; line-height: 1.5; }
+.group-list { margin-top: 14px; display: grid; gap: 10px; }
+.group-row { padding: 12px 13px; border: 1px solid var(--line); border-left-width: 3px; border-radius: 8px; background: var(--surface); }
+.group-row.weak { border-left-color: var(--coral); }
+.group-row.building { border-left-color: var(--gold); }
+.group-row.ready { border-left-color: var(--accent); }
+.group-top { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.group-top strong { font-size: .92rem; }
+.group-code { color: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .7rem; }
+.status-badge { margin-left: auto; padding: 3px 9px; border-radius: 999px; font-size: .66rem; font-weight: 800; }
+.status-badge.weak { background: #f5dfda; color: var(--coral); }
+.status-badge.building { background: #f3e8cf; color: var(--gold); }
+.status-badge.ready { background: var(--accent-pale); color: var(--accent-dark); }
+.group-metrics { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 9px; color: var(--muted); font-size: .78rem; font-variant-numeric: tabular-nums; }
+.group-metrics strong { color: var(--ink); font-weight: 800; }
+.group-practice { display: inline-flex; align-items: center; gap: 6px; margin-top: 11px; padding: 7px 12px; border: 1px solid var(--accent); border-radius: 6px; background: transparent; color: var(--accent-dark); font-size: .78rem; font-weight: 700; cursor: pointer; }
+.group-practice:hover { background: var(--accent-pale); }
+[data-theme="dark"] .readiness-bar { background: #2a312c; }
+[data-theme="dark"] .status-badge.weak { background: #3a2723; }
+[data-theme="dark"] .status-badge.building { background: #39301a; }

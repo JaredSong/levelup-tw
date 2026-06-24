@@ -26,6 +26,7 @@ export interface StudySession {
   questionStartedAt: string
   answers: Record<string, SessionAnswer>
   selections: Record<string, number[]>
+  flags?: Record<string, boolean>
   mockEndsAt?: string
   /** Frozen time left on the mock clock while paused; restored on resume. */
   mockRemainingMs?: number

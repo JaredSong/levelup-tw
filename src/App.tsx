@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { AlertTriangle, CheckCircle2, LoaderCircle, RotateCcw } from 'lucide-react'
+import { AlertTriangle, ArrowRight, CheckCircle2, LoaderCircle, RotateCcw } from 'lucide-react'
 import { BottomNav, type Tab } from './components/BottomNav'
 import { Dashboard } from './components/Dashboard'
 import { LibraryView } from './components/LibraryView'
@@ -61,6 +61,7 @@ function createSession(mode: SessionMode, questions: Question[], title?: string)
     questionStartedAt: now.toISOString(),
     answers: {},
     selections: {},
+    flags: {},
     mockEndsAt: mode === 'mock' ? new Date(now.getTime() + MOCK_DURATION_MS).toISOString() : undefined,
     mockRemainingMs: mode === 'mock' ? MOCK_DURATION_MS : undefined,
   }
@@ -187,6 +188,11 @@ export default function App() {
     questionStartedAt: new Date().toISOString(),
   }))
 
+  const toggleFlag = (questionId: string) => updateSession((current) => ({
+    ...current,
+    flags: { ...(current.flags ?? {}), [questionId]: !(current.flags?.[questionId]) },
+  }))
+
   const toggleBookmark = async (questionId: string) => {
     const next = { ...(progress[questionId] ?? createProgress(questionId)), bookmarked: !(progress[questionId]?.bookmarked ?? false) }
     await db.progress.put(next)
@@ -286,26 +292,68 @@ export default function App() {
   }
 
   if (practiceOpen && session && sessionQuestions.length) {
-    return <PracticeView session={session} questions={bank.byId} progress={progress} onExit={pausePractice} onSelect={onSelect} onSubmit={recordAttempt} onFlashcardGrade={async (question, knewIt) => recordAttempt(question, [], false, knewIt)} onNavigate={navigate} onToggleBookmark={toggleBookmark} onComplete={() => void complete()} onExplain={explain} />
+    return <PracticeView session={session} questions={bank.byId} progress={progress} onExit={pausePractice} onSelect={onSelect} onSubmit={recordAttempt} onFlashcardGrade={async (question, knewIt) => recordAttempt(question, [], false, knewIt)} onNavigate={navigate} onToggleBookmark={toggleBookmark} onToggleFlag={toggleFlag} onComplete={() => void complete()} onExplain={explain} />
   }
 
   if (summary) {
-    const answers = Object.values(summary.answers)
-    const mockScore = summary.mode === 'mock' ? summary.questionIds.reduce((score, id) => {
+    const summarySession = summary
+    const answers = Object.values(summarySession.answers)
+    const isMock = summarySession.mode === 'mock'
+    const mockScore = isMock ? summarySession.questionIds.reduce((score, id) => {
       const question = bank.byId.get(id)
-      const answer = summary.answers[id]
+      const answer = summarySession.answers[id]
       return score + (answer?.correct ? (question?.kind === 'multiple' ? 2 : 1) : 0)
     }, 0) : null
     const correct = answers.filter((answer) => answer.correct).length
+
+    const groupBreakdown = isMock ? (() => {
+      const map = new Map<string, { section: string; label: string; total: number; correct: number; missed: number }>()
+      for (const id of summarySession.questionIds) {
+        const question = bank.byId.get(id)
+        if (!question) continue
+        const group = map.get(question.section) ?? { section: question.section, label: question.sectionTitle ?? question.section, total: 0, correct: 0, missed: 0 }
+        group.total += 1
+        if (summarySession.answers[id]?.correct) group.correct += 1
+        else group.missed += 1
+        map.set(question.section, group)
+      }
+      return [...map.values()].sort((a, b) => a.correct / a.total - b.correct / b.total)
+    })() : []
+    const missed = isMock ? summarySession.questionIds.filter((id) => !summarySession.answers[id]?.correct).map((id) => bank.byId.get(id)).filter((q): q is Question => !!q) : []
+
     return (
       <main className="session-summary">
         <CheckCircle2 size={34} />
         <p className="eyebrow">Session recorded</p>
-        <h1>{summary.title}</h1>
+        <h1>{summarySession.title}</h1>
         <strong className="summary-score">{mockScore !== null ? `${mockScore}/100` : `${correct}/${answers.length}`}</strong>
         <p>{mockScore !== null ? (mockScore >= 60 ? 'Passing score in this mock.' : 'Not passing yet; the missed items are now in review.') : 'Every answer updated its item history and next review time.'}</p>
-        <button className="primary-action" onClick={() => { setSummary(null); setTab('study') }} type="button">Back to study</button>
-        <button className="secondary-action" onClick={() => begin(summary.mode, summary.questionIds.map((id) => bank.byId.get(id)).filter((q): q is Question => !!q))} type="button"><RotateCcw size={17} /> Repeat session</button>
+
+        {isMock ? (
+          <div className="mock-breakdown">
+            <div className="section-heading compact"><div><p className="eyebrow">Breakdown</p><h2>By work group</h2></div></div>
+            <div className="breakdown-list">
+              {groupBreakdown.map((group) => {
+                const accuracyPct = Math.round((group.correct / group.total) * 100)
+                return (
+                  <div className={accuracyPct < 60 ? 'breakdown-row weak' : 'breakdown-row'} key={group.section}>
+                    <div className="breakdown-head"><strong>{group.label}</strong><span>{group.correct}/{group.total}</span></div>
+                    <div className="mini-track"><span style={{ width: `${accuracyPct}%` }} /></div>
+                    {group.missed ? <button className="group-practice" onClick={() => begin('adaptive', buildAdaptiveQueue(bank.questions.filter((question) => question.section === group.section), progress, 10), `${group.label} · practice`)} type="button">Practice this group <ArrowRight size={15} /></button> : null}
+                  </div>
+                )
+              })}
+            </div>
+            {missed.length ? (
+              <button className="secondary-action wide" onClick={() => begin('wrong', missed, 'Review missed')} type="button"><RotateCcw size={16} /> Review {missed.length} missed</button>
+            ) : null}
+          </div>
+        ) : null}
+
+        <div className="summary-actions">
+          <button className="primary-action" onClick={() => { setSummary(null); setTab('study') }} type="button">Back to study</button>
+          <button className="secondary-action" onClick={() => begin(summarySession.mode, summarySession.questionIds.map((id) => bank.byId.get(id)).filter((q): q is Question => !!q))} type="button"><RotateCcw size={17} /> Repeat session</button>
+        </div>
       </main>
     )
   }

@@ -1,4 +1,5 @@
 import {
+  AlertTriangle,
   ArrowLeft,
   Bookmark,
   BrainCircuit,
@@ -10,6 +11,7 @@ import {
   Flag,
   Image as ImageIcon,
   Languages,
+  LayoutGrid,
   Lightbulb,
   RotateCcw,
   X,
@@ -28,6 +30,7 @@ interface Props {
   onFlashcardGrade: (question: Question, knewIt: boolean) => Promise<void>
   onNavigate: (index: number) => void
   onToggleBookmark: (questionId: string) => Promise<void>
+  onToggleFlag: (questionId: string) => void
   onComplete: () => void
   onExplain: (question: Question, selected: number[], style?: string) => Promise<string>
 }
@@ -68,6 +71,7 @@ export function PracticeView({
   onFlashcardGrade,
   onNavigate,
   onToggleBookmark,
+  onToggleFlag,
   onComplete,
   onExplain,
 }: Props) {
@@ -81,6 +85,8 @@ export function PracticeView({
   const [reading, setReading] = useState<string | null>(null)
   const [readingLoading, setReadingLoading] = useState(false)
   const [readingError, setReadingError] = useState<string | null>(null)
+  const [navOpen, setNavOpen] = useState(false)
+  const [reviewOpen, setReviewOpen] = useState(false)
   const finishedRef = useRef(false)
   const progressRef = useRef(progress)
   progressRef.current = progress
@@ -92,6 +98,13 @@ export function PracticeView({
   const isMock = session.mode === 'mock'
   const isFlashcard = session.mode === 'flashcard'
   const isLast = session.currentIndex === session.questionIds.length - 1
+
+  const total = session.questionIds.length
+  const flags = session.flags ?? {}
+  const isFlagged = !!flags[questionId]
+  const answeredCount = session.questionIds.filter((id) => session.selections[id]?.length).length
+  const flaggedIndexes = session.questionIds.map((id, index) => (flags[id] ? index : -1)).filter((index) => index >= 0)
+  const unansweredIndexes = session.questionIds.map((id, index) => (session.selections[id]?.length ? -1 : index)).filter((index) => index >= 0)
 
   useEffect(() => {
     setGuessed(false)
@@ -185,6 +198,16 @@ export function PracticeView({
         </div>
       </header>
       <div className="practice-progress"><span style={{ width: `${progressPercent}%` }} /></div>
+
+      {isMock ? (
+        <div className="mock-toolbar">
+          <button className={isFlagged ? 'flag-btn flagged' : 'flag-btn'} onClick={() => onToggleFlag(question.id)} type="button">
+            <Flag size={15} fill={isFlagged ? 'currentColor' : 'none'} /> {isFlagged ? 'Flagged' : 'Flag'}
+          </button>
+          <span className="mock-count">{answeredCount}/{total} answered{flaggedIndexes.length ? ` · ${flaggedIndexes.length} flagged` : ''}</span>
+          <button className="nav-open" onClick={() => setNavOpen(true)} type="button"><LayoutGrid size={15} /> Navigator</button>
+        </div>
+      ) : null}
 
       <section className="question-stage">
         <div className="question-meta">
@@ -301,12 +324,62 @@ export function PracticeView({
 
       <footer className="practice-actions">
         <button className="secondary-action" disabled={session.currentIndex === 0} onClick={() => onNavigate(session.currentIndex - 1)} type="button"><ChevronLeft size={19} /> Previous</button>
-        {!isFlashcard && !answer ? (
-          <button className="primary-action" disabled={!selected.length} onClick={() => void submit()} type="button">{isMock ? (isLast ? 'Submit mock' : 'Save & next') : 'Check answer'} <ChevronRight size={19} /></button>
+        {isMock ? (
+          isLast
+            ? <button className="primary-action" onClick={() => setReviewOpen(true)} type="button">Review &amp; submit <ChevronRight size={19} /></button>
+            : <button className="primary-action" onClick={() => onNavigate(session.currentIndex + 1)} type="button">Next <ChevronRight size={19} /></button>
+        ) : !isFlashcard && !answer ? (
+          <button className="primary-action" disabled={!selected.length} onClick={() => void submit()} type="button">Check answer <ChevronRight size={19} /></button>
         ) : !isFlashcard ? (
           <button className="primary-action" onClick={next} type="button">{isLast ? 'Finish session' : 'Next'} <ChevronRight size={19} /></button>
         ) : <span />}
       </footer>
+
+      {isMock && navOpen ? (
+        <div className="mock-overlay" onClick={() => setNavOpen(false)}>
+          <div className="mock-sheet" onClick={(event) => event.stopPropagation()}>
+            <div className="sheet-head"><h2>Questions</h2><button className="icon-button" onClick={() => setNavOpen(false)} aria-label="Close" type="button"><X size={20} /></button></div>
+            <div className="nav-legend">
+              <span><i className="dot current" /> Current</span>
+              <span><i className="dot answered" /> Answered</span>
+              <span><i className="dot" /> Unanswered</span>
+              <span><i className="dot flagged" /> Flagged</span>
+            </div>
+            <div className="nav-grid">
+              {session.questionIds.map((id, index) => {
+                const cls = ['nav-cell', index === session.currentIndex ? 'current' : '', session.selections[id]?.length ? 'answered' : '', flags[id] ? 'flagged' : ''].filter(Boolean).join(' ')
+                return <button className={cls} key={id} onClick={() => { onNavigate(index); setNavOpen(false) }} type="button">{index + 1}</button>
+              })}
+            </div>
+            <button className="primary-action" onClick={() => { setNavOpen(false); setReviewOpen(true) }} type="button">Review &amp; submit</button>
+          </div>
+        </div>
+      ) : null}
+
+      {isMock && reviewOpen ? (
+        <div className="mock-overlay" onClick={() => setReviewOpen(false)}>
+          <div className="mock-sheet" onClick={(event) => event.stopPropagation()}>
+            <div className="sheet-head"><h2>Submit mock?</h2><button className="icon-button" onClick={() => setReviewOpen(false)} aria-label="Close" type="button"><X size={20} /></button></div>
+            <p className="review-summary">{answeredCount} of {total} answered{flaggedIndexes.length ? ` · ${flaggedIndexes.length} flagged` : ''}.</p>
+            {unansweredIndexes.length ? (
+              <div className="review-block">
+                <p className="review-label warn"><AlertTriangle size={15} /> {unansweredIndexes.length} unanswered — tap to jump</p>
+                <div className="chip-row">{unansweredIndexes.map((index) => <button className="chip" key={index} onClick={() => { onNavigate(index); setReviewOpen(false) }} type="button">{index + 1}</button>)}</div>
+              </div>
+            ) : <p className="review-label ok"><Check size={15} /> Every question is answered.</p>}
+            {flaggedIndexes.length ? (
+              <div className="review-block">
+                <p className="review-label"><Flag size={15} /> Flagged — tap to jump</p>
+                <div className="chip-row">{flaggedIndexes.map((index) => <button className="chip" key={index} onClick={() => { onNavigate(index); setReviewOpen(false) }} type="button">{index + 1}</button>)}</div>
+              </div>
+            ) : null}
+            <div className="review-actions">
+              <button className="secondary-action" onClick={() => setReviewOpen(false)} type="button">Keep reviewing</button>
+              <button className="primary-action" onClick={onComplete} type="button">Submit mock</button>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </main>
   )
 }

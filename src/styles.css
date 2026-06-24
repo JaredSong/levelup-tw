@@ -333,6 +333,9 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 [data-theme="dark"] .syllabus-list button:hover,
 [data-theme="dark"] .mode-list button:hover { background: #1b211d; }
 [data-theme="dark"] .option-list button { background: var(--surface); }
+[data-theme="dark"] .option-list > button.selected { background: #22323f; }
+[data-theme="dark"] .option-list > button.wrong { background: #3a2723; }
+[data-theme="dark"] .option-list > button:hover { border-color: #4a554d; }
 [data-theme="dark"] .feedback,
 [data-theme="dark"] .flashcard-answer,
 [data-theme="dark"] .source-figure { background: var(--surface); }

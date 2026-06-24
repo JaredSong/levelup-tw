@@ -24,14 +24,29 @@ export async function onRequest(context) {
 
   if (request.method === 'GET') {
     const stored = await env.SYNC.get(key)
-    return json(200, { data: stored ? JSON.parse(stored) : null })
+    const record = stored ? JSON.parse(stored) : null
+    return json(200, { version: record?.version ?? 0, data: record?.data ?? null })
   }
 
   if (request.method === 'PUT' || request.method === 'POST') {
-    const body = await request.text()
-    if (body.length > 4_000_000) return json(413, { error: 'Backup too large.' })
-    await env.SYNC.put(key, body)
-    return json(200, { ok: true })
+    let body
+    try {
+      body = await request.json()
+    } catch {
+      return json(400, { error: 'Invalid body.' })
+    }
+    if (JSON.stringify(body.data ?? null).length > 4_000_000) return json(413, { error: 'Backup too large.' })
+
+    // Optimistic concurrency: reject if the cloud copy moved since the client read
+    // it, so a concurrent device cannot blindly overwrite the other's merge.
+    const stored = await env.SYNC.get(key)
+    const current = stored ? JSON.parse(stored) : null
+    if (current && current.version !== body.baseVersion) {
+      return json(409, { error: 'conflict', version: current.version, data: current.data })
+    }
+    const next = { version: (current?.version ?? 0) + 1, data: body.data }
+    await env.SYNC.put(key, JSON.stringify(next))
+    return json(200, { ok: true, version: next.version })
   }
 
   return json(405, { error: 'Method not allowed' })

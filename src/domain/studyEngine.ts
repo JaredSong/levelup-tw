@@ -221,11 +221,13 @@ export function buildSprintQueue(
   now = new Date(),
   random = Math.random,
 ): Question[] {
+  // Ranked highest-first: wrong > guessed > due > unseen > settled.
   const priority = (question: Question): number => {
     const progress = progressById[question.id]
-    if (!progress || progress.attempts === 0) return 3 // unseen
-    if ((progress.wrong > 0 || progress.guessed > 0) && progress.streak < 2) return 4 // wrong/guessed, not mastered
-    if (progress.nextReviewAt && new Date(progress.nextReviewAt).getTime() <= now.getTime()) return 2 // due
+    if (!progress || progress.attempts === 0) return 2 // unseen
+    if (progress.wrong > 0 && progress.streak < 2) return 5 // wrong, not mastered
+    if (progress.guessed > 0 && progress.streak < 2) return 4 // guessed, not mastered
+    if (progress.nextReviewAt && new Date(progress.nextReviewAt).getTime() <= now.getTime()) return 3 // due
     return 1 // seen and settled
   }
   // shuffle first, then stable-sort by priority, so ties stay randomised.

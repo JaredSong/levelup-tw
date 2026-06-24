@@ -180,3 +180,26 @@ describe('buildSprintQueue', () => {
     expect(new Set(queue.map((q) => q.id)).size).toBe(20)
   })
 })
+
+describe('buildSprintQueue weighting', () => {
+  const occ = (id: string): Question => ({
+    id, section: '17300-01', number: 1, kind: 'single', prompt: id,
+    options: ['A', 'B', 'C', 'D'], answers: [1], sourceGroup: 'occupation',
+  })
+  const items = [occ('wrong'), occ('guessed'), occ('due'), occ('unseen'), occ('settled')]
+  const past = '2026-06-20T00:00:00.000Z'
+  const future = '2026-12-01T00:00:00.000Z'
+  const progress: Record<string, Progress> = {
+    wrong: { ...createProgress('wrong'), attempts: 2, wrong: 2, streak: 0, nextReviewAt: past },
+    guessed: { ...createProgress('guessed'), attempts: 1, guessed: 1, streak: 0, nextReviewAt: past },
+    due: { ...createProgress('due'), attempts: 1, correct: 1, streak: 1, nextReviewAt: past },
+    settled: { ...createProgress('settled'), attempts: 3, correct: 3, streak: 3, nextReviewAt: future },
+    // 'unseen' has no entry
+  }
+
+  it('selects wrong, guessed and due over unseen and settled', () => {
+    const queue = buildSprintQueue(items, progress, 3, new Date('2026-06-24T00:00:00Z'), () => 0.42)
+    const ids = new Set(queue.map((q) => q.id))
+    expect(ids).toEqual(new Set(['wrong', 'guessed', 'due']))
+  })
+})

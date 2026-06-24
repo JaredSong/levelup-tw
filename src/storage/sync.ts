@@ -54,25 +54,32 @@ export async function syncNow(): Promise<{ hadRemote: boolean }> {
   const pass = getSyncPass()
   if (pass.length < MIN_PASS) throw new Error(`Set a sync passphrase of at least ${MIN_PASS} characters first.`)
 
-  const pull = await fetch('/api/sync', { headers: { 'x-sync-pass': pass } })
-  if (!pull.ok) {
-    const detail = await pull.json().catch(() => null) as { error?: string } | null
-    throw new Error(detail?.error ?? 'Sync is unavailable. It only works on the deployed site.')
-  }
-  const remote = (await pull.json() as { data: BackupData | null }).data
+  // Pull → merge → push, retrying on a version conflict so a concurrent device's
+  // write is merged in rather than overwritten.
+  for (let attempt = 0; attempt < 4; attempt += 1) {
+    const pull = await fetch('/api/sync', { headers: { 'x-sync-pass': pass } })
+    if (!pull.ok) {
+      const detail = await pull.json().catch(() => null) as { error?: string } | null
+      throw new Error(detail?.error ?? 'Sync is unavailable. It only works on the deployed site.')
+    }
+    const { version, data: remote } = await pull.json() as { version: number; data: BackupData | null }
 
-  const merged = mergeData(forSync(await collectData()), remote)
-  await writeData(merged)
+    // Sanitize BOTH sides so a stale session in either copy can never be restored.
+    const merged = mergeData(forSync(await collectData()), remote ? forSync(remote) : null)
+    await writeData(merged)
 
-  const push = await fetch('/api/sync', {
-    method: 'PUT',
-    headers: { 'x-sync-pass': pass, 'Content-Type': 'application/json' },
-    body: JSON.stringify(merged),
-  })
-  if (!push.ok) {
+    const push = await fetch('/api/sync', {
+      method: 'PUT',
+      headers: { 'x-sync-pass': pass, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ baseVersion: version, data: merged }),
+    })
+    if (push.ok) {
+      localStorage.setItem(LAST_KEY, new Date().toISOString())
+      return { hadRemote: !!remote }
+    }
+    if (push.status === 409) continue // another device wrote first; re-pull and re-merge
     const detail = await push.json().catch(() => null) as { error?: string } | null
     throw new Error(detail?.error ?? 'Could not save to the cloud.')
   }
-  localStorage.setItem(LAST_KEY, new Date().toISOString())
-  return { hadRemote: !!remote }
+  throw new Error('Sync kept conflicting with another device. Please try again.')
 }

@@ -201,13 +201,40 @@ export default function App() {
       if (lastIndex >= 0) localStorage.setItem(SEQUENTIAL_KEY, String(lastIndex + 1))
     }
 
+    // Score any option that is selected but never submitted (e.g. the question on
+    // screen when a mock's timer runs out), and persist it as an attempt.
+    const finalAnswers = { ...session.answers }
+    const pending = session.questionIds
+      .map((id) => ({ id, question: bank.byId.get(id), selected: session.selections[id] }))
+      .filter((entry) => entry.question && !finalAnswers[entry.id] && entry.selected?.length)
+    if (pending.length) {
+      const answeredAt = new Date()
+      const updates = pending.map((entry) => {
+        const correct = scoreAnswer(entry.question!, entry.selected!)
+        finalAnswers[entry.id] = { selected: entry.selected!, correct, guessed: false }
+        const next = applyAttempt(progress[entry.id] ?? createProgress(entry.id), { selected: entry.selected!, correct, guessed: false, elapsedMs: 0, answeredAt })
+        return { id: entry.id, correct, selected: entry.selected!, next }
+      })
+      await db.transaction('rw', db.progress, db.attempts, async () => {
+        for (const u of updates) {
+          await db.progress.put(u.next)
+          await db.attempts.add({ questionId: u.id, selected: u.selected, correct: u.correct, guessed: false, elapsedMs: 0, answeredAt: answeredAt.toISOString(), mode: session.mode })
+        }
+      })
+      setProgress((current) => {
+        const next = { ...current }
+        for (const u of updates) next[u.id] = u.next
+        return next
+      })
+    }
+
     if (session.mode !== 'item') {
-      const answers = Object.values(session.answers)
+      const answers = Object.values(finalAnswers)
       const correct = answers.filter((answer) => answer.correct).length
       const isMock = session.mode === 'mock'
       const score = isMock
         ? session.questionIds.reduce((total, id) => {
-          const answer = session.answers[id]
+          const answer = finalAnswers[id]
           return total + (answer?.correct ? (bank.byId.get(id)?.kind === 'multiple' ? 2 : 1) : 0)
         }, 0)
         : correct
@@ -226,7 +253,7 @@ export default function App() {
       })
     }
 
-    setSummary({ ...session, completed: true })
+    setSummary({ ...session, answers: finalAnswers, completed: true })
     setSession(null)
     setPracticeOpen(false)
 

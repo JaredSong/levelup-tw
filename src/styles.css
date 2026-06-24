@@ -456,3 +456,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .glossary-links > span { color: var(--muted); font-size: .72rem; font-weight: 700; }
 .glossary-links button { padding: 4px 10px; border: 1px solid var(--line); border-radius: 6px; background: transparent; color: var(--accent-dark); font-size: .72rem; font-weight: 700; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; cursor: pointer; }
 .glossary-links button:hover { border-color: var(--accent); background: var(--accent-pale); }
+
+/* Glossary pinyin reveal */
+.pinyin-toggle { padding: 2px 9px; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: var(--muted); font-size: .72rem; font-weight: 700; cursor: pointer; }
+.pinyin-toggle:hover { border-color: var(--accent); color: var(--accent); }

@@ -12,11 +12,14 @@ function matches(entry: GlossaryEntry, query: string): boolean {
 }
 
 function EntryCard({ entry, onPracticeSection }: { entry: GlossaryEntry } & Props) {
+  const [showPinyin, setShowPinyin] = useState(false)
   return (
     <article className="glossary-card">
       <div className="glossary-head">
         <strong className="glossary-term">{entry.term}</strong>
-        <span className="glossary-pinyin">{entry.pinyin}</span>
+        {showPinyin
+          ? <span className="glossary-pinyin">{entry.pinyin}</span>
+          : <button className="pinyin-toggle" onClick={() => setShowPinyin(true)} type="button">拼音</button>}
       </div>
       <p className="glossary-en">{entry.en}</p>
       <p className="glossary-cue"><Volume2 size={14} /> {entry.cue}</p>

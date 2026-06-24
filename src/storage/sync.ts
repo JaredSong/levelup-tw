@@ -1,7 +1,19 @@
 import { collectData, mergeData, writeData, type BackupData } from './backup'
+import { SYNC_LOCAL_KEYS } from './merge'
 
 const PASS_KEY = 'level-b-sync-pass'
 const LAST_KEY = 'level-b-sync-last'
+const MIN_PASS = 8
+
+// Drop device-local keys (the live session) so syncing can never resurrect a
+// finished session pulled from another device.
+function forSync(data: BackupData): BackupData {
+  const local: Record<string, string> = {}
+  for (const key of SYNC_LOCAL_KEYS) {
+    if (data.local[key] != null) local[key] = data.local[key]
+  }
+  return { ...data, local }
+}
 
 export function getSyncPass(): string {
   return localStorage.getItem(PASS_KEY) ?? ''
@@ -13,7 +25,7 @@ export function setSyncPass(passphrase: string): void {
 }
 
 export function isSyncEnabled(): boolean {
-  return getSyncPass().length >= 6
+  return getSyncPass().length >= MIN_PASS
 }
 
 export function getLastSync(): string | null {
@@ -40,7 +52,7 @@ export function syncStatusLabel(): string {
  */
 export async function syncNow(): Promise<{ hadRemote: boolean }> {
   const pass = getSyncPass()
-  if (pass.length < 6) throw new Error('Set a sync passphrase of at least 6 characters first.')
+  if (pass.length < MIN_PASS) throw new Error(`Set a sync passphrase of at least ${MIN_PASS} characters first.`)
 
   const pull = await fetch('/api/sync', { headers: { 'x-sync-pass': pass } })
   if (!pull.ok) {
@@ -49,7 +61,7 @@ export async function syncNow(): Promise<{ hadRemote: boolean }> {
   }
   const remote = (await pull.json() as { data: BackupData | null }).data
 
-  const merged = mergeData(await collectData(), remote)
+  const merged = mergeData(forSync(await collectData()), remote)
   await writeData(merged)
 
   const push = await fetch('/api/sync', {

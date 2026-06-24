@@ -19,7 +19,7 @@ export async function onRequest(context) {
   if (!env.SYNC) return json(503, { error: 'Sync storage is not configured (bind a KV namespace named SYNC).' })
 
   const passphrase = request.headers.get('x-sync-pass') ?? ''
-  if (passphrase.length < 6) return json(400, { error: 'Sync passphrase must be at least 6 characters.' })
+  if (passphrase.length < 8) return json(400, { error: 'Sync passphrase must be at least 8 characters.' })
   const key = await keyFor(passphrase)
 
   if (request.method === 'GET') {

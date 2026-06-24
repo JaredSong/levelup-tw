@@ -209,7 +209,7 @@ export function StatsView({ questions, progress, onSaveAiToken }: Props) {
           <p className={getSyncPass() ? 'sync-status ok' : 'sync-status warn'}>{syncStatusLabel()}</p>
         </div>
         <label>
-          <span>Sync passphrase (min 6 characters)</span>
+          <span>Sync passphrase (min 8 characters)</span>
           <input defaultValue={getSyncPass()} onBlur={(event) => setSyncPass(event.target.value.trim())} placeholder="Not set" type="password" />
         </label>
         <button className="secondary-action" disabled={syncing} onClick={() => void handleSync()} type="button"><RefreshCw size={17} /> {syncing ? 'Syncing…' : 'Sync now'}</button>

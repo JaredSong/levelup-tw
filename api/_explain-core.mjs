@@ -7,20 +7,48 @@ const DEFAULT_MODELS = { openai: 'gpt-4o-mini', anthropic: 'claude-3-5-haiku-lat
 const KEY_NAMES = { openai: 'OPENAI_API_KEY', anthropic: 'ANTHROPIC_API_KEY', gemini: 'GEMINI_API_KEY' }
 const MODEL_ENV = { openai: 'OPENAI_MODEL', anthropic: 'ANTHROPIC_MODEL', gemini: 'GEMINI_MODEL' }
 
-const STYLE_NOTES = {
-  metaphor: 'Use a vivid everyday metaphor or analogy to make the concept intuitive, then connect the analogy back to why the official answer is correct.',
-  simpler: 'Explain as if to a complete beginner: very simple words, short sentences, no jargon unless you immediately define it.',
-  deeper: 'Add more depth: the underlying concept, relevant background, and closely related ideas worth knowing for the exam.',
+// Per-style instruction blocks. Default is a structured exam-oriented answer.
+const STYLES = {
+  default: `Structure your answer:
+- State the correct answer first.
+- Explain the governing rule or concept in 1-2 sentences.
+- Briefly say why each other option is wrong or incomplete.
+- End with one short memory cue (a hook or 口訣) to remember it.`,
+  simpler: `Write 80-120 words. Use very short sentences and beginner words.
+Define every technical Chinese term in plain English and add its pinyin.
+Do not use jargon without immediately defining it.`,
+  metaphor: `Start with a vivid everyday analogy, then connect it to the literal exam rule and the correct answer.
+If this is a legal, numerical, or precise-definition question where an analogy could mislead, skip the analogy and explain directly.`,
+  deeper: `Give the underlying concept, the common exam trap for this item, and at most two closely related facts worth knowing.
+Stay focused; do not wander.`,
+  reading: `Focus on understanding the QUESTION itself, not test strategy:
+- Restate the question stem in plain English, with pinyin for key Chinese terms.
+- If the stem contains a negation or odd-one-out phrase (不正確, 不包括, 何者為非, 不屬於, 下列何者錯誤, etc.), flag it clearly and state that the task is to find the FALSE or excluded item.
+- Give a one-line plain-English gloss of each option (pinyin for key terms).
+- Then state the correct answer.`,
 }
 
 function buildPrompt(question, selected, style) {
   const choices = question.options.map((option, index) => `${index + 1}. ${option}`).join('\n')
-  const styleNote = STYLE_NOTES[style] ? `\nExtra instruction: ${STYLE_NOTES[style]}` : ''
-  return `Explain this Taiwan Web Design Level B written-exam question to a beginner.
-Use clear English, but retain important Traditional Chinese technical or legal terms in parentheses.
-Explain why the official answer is correct and why the learner's choice is wrong or incomplete.
-Treat the supplied official answer as authoritative. Be concise and do not invent a different answer.
-Format as short paragraphs. You may use **bold** for key terms and "- " to start list items. Do not use Markdown headings, tables, or backticks.${styleNote}
+  const styleBlock = STYLES[style] ?? STYLES.default
+
+  const isMultiple = question.kind === 'multiple'
+  const isImage = question.hasFigure || question.options.some((option) => option.includes('圖示'))
+  const conditionals = []
+  if (isMultiple) {
+    conditionals.push('This is a MULTIPLE-answer question. Explain why each correct option is required, and explicitly address any correct option the learner missed or any wrong option they added.')
+  }
+  if (isImage) {
+    conditionals.push('You were NOT given the figure/image for this question, and the options may be image-only placeholders. Do not describe, guess, or pretend to see any image. Explain the underlying concept and tell the learner to read the official figure to match the correct option.')
+  }
+  const conditionalBlock = conditionals.length ? `\n${conditionals.join('\n')}\n` : ''
+
+  return `You are tutoring an English-speaking learner (who reads pinyin) for Taiwan's 網頁設計乙級 (Web Design Level B) written exam.
+Write in clear English, but keep important Traditional Chinese technical or legal terms and add pinyin for them.
+Treat the supplied official answer as authoritative; never invent a different answer.
+Format as short paragraphs. Use **bold** for key terms and start list items with "- ". Do not use Markdown headings, tables, or backticks.
+${conditionalBlock}
+${styleBlock}
 
 Question: ${question.prompt}
 Choices:
@@ -35,7 +63,7 @@ async function explainWithOpenAI(prompt, model, env) {
   const response = await fetch(`${base}/responses`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${env.OPENAI_API_KEY}` },
-    body: JSON.stringify({ model, input: prompt, max_output_tokens: 500 }),
+    body: JSON.stringify({ model, input: prompt, max_output_tokens: 800 }),
   })
   const data = await response.json()
   if (!response.ok) throw new Error(data?.error?.message ?? 'OpenAI request failed')
@@ -52,7 +80,7 @@ async function explainWithAnthropic(prompt, model, env) {
       'x-api-key': env.ANTHROPIC_API_KEY,
       'anthropic-version': '2023-06-01',
     },
-    body: JSON.stringify({ model, max_tokens: 500, messages: [{ role: 'user', content: prompt }] }),
+    body: JSON.stringify({ model, max_tokens: 800, messages: [{ role: 'user', content: prompt }] }),
   })
   const data = await response.json()
   if (!response.ok) throw new Error(data?.error?.message ?? 'Anthropic request failed')

@@ -9,6 +9,7 @@ import {
   ExternalLink,
   Flag,
   Image as ImageIcon,
+  Languages,
   Lightbulb,
   RotateCcw,
   X,
@@ -31,15 +32,21 @@ interface Props {
   onExplain: (question: Question, selected: number[], style?: string) => Promise<string>
 }
 
-// Lightweight renderer: turns **bold** and line breaks into real formatting so
-// the model's Markdown doesn't show as literal asterisks. No HTML injection.
+// Lightweight renderer: turns **bold**, line breaks, and "- " bullets into real
+// formatting so the model's Markdown doesn't show as literal text. No HTML injection.
+function renderInline(text: string) {
+  return text.split('**').map((part, index) => (index % 2 ? <strong key={index}>{part}</strong> : part))
+}
+
 function renderExplanation(text: string) {
-  return text.split('\n').map((line, lineIndex) => {
-    if (!line.trim()) return null
-    const parts = line.split('**')
+  return text.split('\n').map((raw, lineIndex) => {
+    const line = raw.trim()
+    if (!line) return null
+    const isBullet = /^[-*•]\s+/.test(line)
+    const content = isBullet ? line.replace(/^[-*•]\s+/, '') : line
     return (
-      <p className="ai-line" key={lineIndex}>
-        {parts.map((part, partIndex) => (partIndex % 2 ? <strong key={partIndex}>{part}</strong> : part))}
+      <p className={isBullet ? 'ai-line ai-bullet' : 'ai-line'} key={lineIndex}>
+        {isBullet ? '• ' : ''}{renderInline(content)}
       </p>
     )
   })
@@ -222,13 +229,19 @@ export function PracticeView({
               <strong>{answer.correct ? (answer.guessed ? 'Correct, but still learning' : 'Correct') : 'Not yet'}</strong>
             </div>
             <p>{answer.correct ? 'This item has been scheduled according to your recall.' : 'You will see this item again soon.'}</p>
-            <button className="explain-button" disabled={explaining} onClick={() => void requestExplanation()} type="button">
-              <BrainCircuit size={18} /> {explaining ? 'Explaining…' : 'Explain this question'}
-            </button>
+            <div className="explain-actions">
+              <button className="explain-button" disabled={explaining} onClick={() => void requestExplanation()} type="button">
+                <BrainCircuit size={18} /> {explaining ? 'Explaining…' : 'Explain this question'}
+              </button>
+              <button className="explain-button alt" disabled={explaining} onClick={() => void requestExplanation('reading')} type="button">
+                <Languages size={18} /> 看懂題目
+              </button>
+            </div>
             {explanation ? <div className="ai-explanation">{renderExplanation(explanation)}</div> : null}
             {explanation ? (
               <div className="explain-styles">
                 <span>Re-explain:</span>
+                <button disabled={explaining} onClick={() => void requestExplanation('reading')} type="button">看懂題目</button>
                 <button disabled={explaining} onClick={() => void requestExplanation('metaphor')} type="button">With a metaphor</button>
                 <button disabled={explaining} onClick={() => void requestExplanation('simpler')} type="button">Simpler</button>
                 <button disabled={explaining} onClick={() => void requestExplanation('deeper')} type="button">Go deeper</button>

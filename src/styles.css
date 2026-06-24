@@ -186,6 +186,9 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .ai-explanation { margin-top: 13px; padding-top: 13px; border-top: 1px solid var(--line); font-size: .85rem; line-height: 1.55; }
 .ai-line { margin: 0 0 9px; }
 .ai-line:last-child { margin-bottom: 0; }
+.ai-bullet { padding-left: 1.2em; text-indent: -1.2em; }
+.explain-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.explain-button.alt { background: var(--accent-pale); border-color: var(--accent-pale); color: var(--accent-dark); }
 .inline-error { color: var(--danger) !important; }
 
 .flashcard-answer { padding: 20px; border: 1px solid var(--line); border-radius: 7px; background: white; }

@@ -3,6 +3,7 @@ import { AlertTriangle, ArrowRight, CheckCircle2, LoaderCircle, RotateCcw } from
 import { BottomNav, type Tab } from './components/BottomNav'
 import { Dashboard } from './components/Dashboard'
 import { LibraryView } from './components/LibraryView'
+import { GlossaryView } from './components/GlossaryView'
 import { PracticeView } from './components/PracticeView'
 import { StatsView } from './components/StatsView'
 import {
@@ -373,6 +374,7 @@ export default function App() {
     <div className="app-frame">
       {tab === 'study' ? <Dashboard seen={seen} total={bank.questions.length} due={due} wrongCount={wrongCount} accuracy={accuracy} hasSession={!!session} sessionLabel={session?.title} onContinue={resumePractice} onSequential={startSequential} onAdaptive={() => begin('adaptive', buildAdaptiveQueue(bank.questions, progress, 10))} onRandom={() => begin('random', buildRandomQueue(bank.questions, 10))} onSubject={(subjectCode, title) => begin('random', buildRandomQueue(bank.questions.filter((question) => question.subjectCode === subjectCode), 10), title)} onWrong={startWrong} onFlashcards={() => begin('flashcard', buildAdaptiveQueue(bank.questions, progress, 10))} onMock={startMock} onSprint={() => begin('sprint', buildSprintQueue(bank.questions, progress, 20))} /> : null}
       {tab === 'library' ? <LibraryView questions={bank.questions} progress={progress} onOpen={(question) => begin('item', [question])} /> : null}
+      {tab === 'glossary' ? <GlossaryView onPracticeSection={(section, title) => begin('adaptive', buildAdaptiveQueue(bank.questions.filter((question) => question.section === section), progress, 10), title)} /> : null}
       {tab === 'stats' ? <StatsView questions={bank.questions} progress={progress} onSaveAiToken={(token) => localStorage.setItem('level-b-ai-access-token', token)} onPracticeGroup={(section, title) => begin('adaptive', buildAdaptiveQueue(bank.questions.filter((question) => question.section === section), progress, 10), `${title} · practice`)} /> : null}
       <BottomNav active={tab} onChange={setTab} />
     </div>

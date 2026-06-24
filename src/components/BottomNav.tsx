@@ -1,6 +1,6 @@
-import { BarChart3, BookOpen, LibraryBig } from 'lucide-react'
+import { BarChart3, BookOpen, LibraryBig, Languages } from 'lucide-react'
 
-export type Tab = 'study' | 'library' | 'stats'
+export type Tab = 'study' | 'library' | 'glossary' | 'stats'
 
 interface Props {
   active: Tab
@@ -10,6 +10,7 @@ interface Props {
 const items = [
   { id: 'study' as const, label: 'Study', Icon: BookOpen },
   { id: 'library' as const, label: 'Items', Icon: LibraryBig },
+  { id: 'glossary' as const, label: 'Terms', Icon: Languages },
   { id: 'stats' as const, label: 'Progress', Icon: BarChart3 },
 ]
 

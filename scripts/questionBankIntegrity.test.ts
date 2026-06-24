@@ -76,3 +76,23 @@ describe('published question bank', () => {
     }
   })
 })
+
+describe('bilingual glossary', () => {
+  it('has complete entries and the required exam-wording terms', () => {
+    const glossary = JSON.parse(
+      readFileSync(new URL('../public/data/glossary.json', import.meta.url), 'utf8'),
+    ) as { term: string; pinyin: string; en: string; cue: string; kind: string }[]
+
+    expect(glossary.length).toBeGreaterThan(40)
+    for (const entry of glossary) {
+      expect(entry.term, entry.term).toBeTruthy()
+      expect(entry.pinyin, entry.term).toBeTruthy()
+      expect(entry.en, entry.term).toBeTruthy()
+      expect(entry.cue, entry.term).toBeTruthy()
+    }
+    const terms = new Set(glossary.map((entry) => entry.term))
+    for (const required of ['何者為非', '不包括', '複選題', '下列何者錯誤']) {
+      expect(terms.has(required), required).toBe(true)
+    }
+  })
+})

@@ -15,6 +15,8 @@ export interface Question {
   sourcePage?: number
   hasFigure?: boolean
   sourceImage?: string
+  /** false for officially deleted questions; absent means active. */
+  active?: boolean
 }
 
 export interface Progress {

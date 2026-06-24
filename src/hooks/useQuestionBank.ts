@@ -12,8 +12,10 @@ export function useQuestionBank() {
         if (!response.ok) throw new Error('Unable to load the question bank.')
         return response.json() as Promise<Question[]>
       })
-      .then((questions) =>
-        setBank({ questions, byId: new Map(questions.map((q) => [q.id, q])) }),
+      .then((all) =>
+        // byId keeps every record (so historical attempts still resolve); the
+        // questions list is active-only, so deleted items leave queues/mocks/UI.
+        setBank({ questions: all.filter((q) => q.active !== false), byId: new Map(all.map((q) => [q.id, q])) }),
       )
       .catch((reason: unknown) =>
         setError(reason instanceof Error ? reason.message : 'Question bank failed.'),

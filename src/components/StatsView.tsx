@@ -130,7 +130,9 @@ export function StatsView({ questions, progress, onSaveAiToken, onPracticeGroup 
   const mockScoresChrono = [...mocks].reverse().map((result) => result.score)
   const bestMock = mocks.reduce((best, result) => Math.max(best, result.score), 0)
 
-  const rows = Object.values(progress)
+  // Active questions only (the questions prop already excludes deleted items).
+  const rows = questions.map((question) => progress[question.id]).filter((item): item is Progress => !!item)
+  const seenCount = rows.filter((item) => item.attempts > 0).length
   const attempts = rows.reduce((sum, item) => sum + item.attempts, 0)
   const correct = rows.reduce((sum, item) => sum + item.correct, 0)
   const wrongItems = rows.filter((item) => item.wrong > 0 && item.streak < 2).length
@@ -145,7 +147,7 @@ export function StatsView({ questions, progress, onSaveAiToken, onPracticeGroup 
       </header>
 
       <section className="stat-grid">
-        <div><Target size={20} /><span>Items seen</span><strong>{rows.filter((r) => r.attempts).length}</strong></div>
+        <div><Target size={20} /><span>Items seen</span><strong>{seenCount}</strong></div>
         <div><CheckCircle2 size={20} /><span>Accuracy</span><strong>{accuracy}%</strong></div>
         <div><RotateCcw size={20} /><span>Total attempts</span><strong>{attempts}</strong></div>
         <div><CircleAlert size={20} /><span>Weak items</span><strong>{wrongItems}</strong></div>

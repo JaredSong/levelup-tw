@@ -2,6 +2,17 @@ import { readFile, writeFile } from 'node:fs/promises'
 import { parseQuestionBank } from './questionParser.mjs'
 import { sanitizeText } from './textCorrections.mjs'
 
+// Questions the official 900080A16 (rev V115041316) marks 本題刪題 (deleted).
+// Kept as source records for provenance but flagged inactive so they are
+// excluded from queues, mocks, readiness, and active counts.
+const INACTIVE_IDS = new Set([
+  '90008-03-030',
+  '90008-03-047',
+  '90008-03-058',
+  '90008-03-072',
+  '90008-03-092',
+])
+
 const outputPath = new URL('../public/data/questions.json', import.meta.url)
 const banks = [
   { code: '17300', file: '173002A13-raw.txt', expected: 846 },
@@ -25,6 +36,7 @@ for (const bank of banks) {
     ...question,
     prompt: sanitizeText(question.prompt),
     options: question.options.map(sanitizeText),
+    ...(INACTIVE_IDS.has(question.id) ? { active: false } : {}),
     sourceImage: question.hasFigure
       ? question.subjectCode === '17300'
         ? `/question-pages/page-${String(question.sourcePage).padStart(2, '0')}.jpg`

@@ -80,7 +80,7 @@ export function Dashboard(props: Props) {
             <p className="eyebrow">Latest syllabus</p>
             <h2>All required banks included</h2>
           </div>
-          <strong>1,365</strong>
+          <strong>{props.total.toLocaleString()}</strong>
         </div>
         <div className="syllabus-list">
           {[
@@ -88,7 +88,7 @@ export function Dashboard(props: Props) {
             ['90011', 'Information common', '119 · A10 · 5 groups'],
             ['90006', 'Safety & health', '100 · A18'],
             ['90007', 'Ethics & law', '100 · A17'],
-            ['90008', 'Environmental protection', '100 · A16'],
+            ['90008', 'Environmental protection', '95 · A16'],
             ['90009', 'Energy & carbon', '100 · A11'],
           ].map(([code, label, meta]) => (
             <button key={code} onClick={() => props.onSubject(code, `${label} · Random 10`)} type="button">

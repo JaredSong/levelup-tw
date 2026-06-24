@@ -86,12 +86,22 @@ export default function App() {
     void syncNow().then(() => refresh()).catch(() => undefined)
   }, [refresh])
 
-  const rows = Object.values(progress)
-  const seen = rows.filter((item) => item.attempts > 0).length
-  const attempts = rows.reduce((sum, item) => sum + item.attempts, 0)
-  const accuracy = attempts ? Math.round((rows.reduce((sum, item) => sum + item.correct, 0) / attempts) * 100) : 0
-  const due = rows.filter((item) => item.nextReviewAt && new Date(item.nextReviewAt).getTime() <= Date.now()).length
-  const wrongCount = rows.filter((item) => item.wrong > 0 && item.streak < 2).length
+  // Stats count active questions only, so deleted items never inflate the UI.
+  const stats = (bank?.questions ?? []).reduce((acc, question) => {
+    const item = progress[question.id]
+    if (!item) return acc
+    acc.attempts += item.attempts
+    acc.correct += item.correct
+    if (item.attempts > 0) acc.seen += 1
+    if (item.nextReviewAt && new Date(item.nextReviewAt).getTime() <= Date.now()) acc.due += 1
+    if (item.wrong > 0 && item.streak < 2) acc.wrong += 1
+    return acc
+  }, { attempts: 0, correct: 0, seen: 0, due: 0, wrong: 0 })
+  const seen = stats.seen
+  const attempts = stats.attempts
+  const accuracy = attempts ? Math.round((stats.correct / attempts) * 100) : 0
+  const due = stats.due
+  const wrongCount = stats.wrong
 
   const sessionQuestions = useMemo(() => {
     if (!session || !bank) return []
@@ -99,7 +109,7 @@ export default function App() {
   }, [bank, session])
 
   if (error) return <div className="fatal-state"><AlertTriangle /><h1>Question bank unavailable</h1><p>{error}</p></div>
-  if (!bank || loading) return <div className="loading-state"><LoaderCircle className="spin" /><strong>Opening your study bank</strong><span>Loading 1,365 syllabus items…</span></div>
+  if (!bank || loading) return <div className="loading-state"><LoaderCircle className="spin" /><strong>Opening your study bank</strong><span>Loading the syllabus…</span></div>
 
   const begin = (mode: SessionMode, questions: Question[], title?: string) => {
     if (!questions.length) return

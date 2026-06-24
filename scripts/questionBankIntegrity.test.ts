@@ -51,8 +51,16 @@ describe('published question bank', () => {
     expect(generated.every((question) => question.answers.length > 0 && question.answers.every((answer) => answer >= 1 && answer <= 4))).toBe(true)
   })
 
+  it('flags exactly the five officially deleted 90008 questions inactive', () => {
+    const generated = loadBank()
+    const inactive = generated.filter((question) => question.active === false).map((question) => question.id).sort()
+    expect(inactive).toEqual(['90008-03-030', '90008-03-047', '90008-03-058', '90008-03-072', '90008-03-092'])
+    expect(generated.filter((question) => question.active !== false)).toHaveLength(1360)
+    expect(generated.filter((question) => question.subjectCode === '90008' && question.active !== false)).toHaveLength(95)
+  })
+
   it('builds official-composition mocks from the real bank across many seeds', () => {
-    const bank = loadBank()
+    const bank = loadBank().filter((question) => question.active !== false)
     for (let i = 0; i < 50; i += 1) {
       const seed = (i + 1) / 51
       const mock = buildMockQueue(bank, () => seed)

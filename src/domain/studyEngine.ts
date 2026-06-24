@@ -133,39 +133,35 @@ export function buildRandomQueue(
   return shuffled(eligible, options.random ?? Math.random).slice(0, limit)
 }
 
+// Official mock composition: 80 questions = four from each general subject (16),
+// nine from 90011, and the rest from 17300, with 60 single + 20 multiple overall.
 export function buildMockQueue(
   questions: Question[],
   random = Math.random,
 ): Question[] {
   const commonCodes = ['90006', '90007', '90008', '90009']
-  const hasOfficialSubjects = commonCodes.every((code) =>
-    questions.some((question) => question.subjectCode === code),
-  )
-  const common = hasOfficialSubjects
-    ? commonCodes.flatMap((code) => shuffled(
-      questions.filter((question) => question.subjectCode === code),
-      random,
-    ).slice(0, 4))
-    : []
-  const core = hasOfficialSubjects
-    ? questions.filter((question) => !commonCodes.includes(question.subjectCode ?? ''))
-    : questions
-  const commonSingles = common.filter((question) => question.kind === 'single').length
-  const commonMultiples = common.length - commonSingles
-  const singles = shuffled(
-    core.filter((question) => question.kind === 'single'),
-    random,
-  ).slice(0, Math.max(0, 60 - commonSingles))
-  const multiples = shuffled(
-    core.filter((question) => question.kind === 'multiple'),
-    random,
-  ).slice(0, Math.max(0, 20 - commonMultiples))
+  const bySubject = (code: string) => questions.filter((question) => question.subjectCode === code)
+  const kindOf = (pool: Question[], kind: QuestionKind) => pool.filter((question) => question.kind === kind)
 
-  if (common.length !== (hasOfficialSubjects ? 16 : 0) || singles.length + commonSingles < 60 || multiples.length + commonMultiples < 20) {
-    throw new Error('The question bank cannot satisfy the official mock format')
-  }
+  const common = commonCodes.flatMap((code) => shuffled(bySubject(code), random).slice(0, 4))
+  const info = shuffled(bySubject('90011'), random).slice(0, 9)
+  const occupation = bySubject('17300')
 
-  return shuffled([...common, ...singles, ...multiples], random)
+  const usedSingles = kindOf(common, 'single').length + kindOf(info, 'single').length
+  const usedMultiples = kindOf(common, 'multiple').length + kindOf(info, 'multiple').length
+  const occSingles = shuffled(kindOf(occupation, 'single'), random).slice(0, 60 - usedSingles)
+  const occMultiples = shuffled(kindOf(occupation, 'multiple'), random).slice(0, 20 - usedMultiples)
+
+  const queue = [...common, ...info, ...occSingles, ...occMultiples]
+  const ok = common.length === 16
+    && info.length === 9
+    && occSingles.length === 60 - usedSingles
+    && occMultiples.length === 20 - usedMultiples
+    && kindOf(queue, 'single').length === 60
+    && kindOf(queue, 'multiple').length === 20
+  if (!ok) throw new Error('The question bank cannot satisfy the official mock format')
+
+  return shuffled(queue, random)
 }
 
 export function buildAdaptiveQueue(

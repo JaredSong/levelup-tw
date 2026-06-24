@@ -24,8 +24,9 @@ export interface Readiness {
 }
 
 const MOCK_TOTAL = 80
-const COMMON_SUBJECTS = 4
-const COMMON_PER_SUBJECT = 4 // four questions from each general subject
+const COMMON_PER_SUBJECT = 4 // four questions from each general subject (16 total)
+const OCCUPATION_IN_MOCK = 55 // 17300 share of an 80-question mock
+const INFO_IN_MOCK = 9 // 90011 share of an 80-question mock
 const RECENT_WINDOW = 20
 const PASS = 0.6
 const READY = 0.8
@@ -58,8 +59,10 @@ export function computeReadiness(
     attemptsBySection.set(section, list)
   }
 
-  const totalCore = questions.filter((question) => question.sourceGroup !== 'general-common').length
-  const coreShare = (MOCK_TOTAL - COMMON_SUBJECTS * COMMON_PER_SUBJECT) / MOCK_TOTAL // 64/80
+  // Each subject's mock share is split across its sections by size: 17300 → 55/80,
+  // 90011 → 9/80, and each of the four general subjects → 4/80.
+  const occupationTotal = questions.filter((question) => question.sourceGroup === 'occupation').length
+  const infoTotal = questions.filter((question) => question.sourceGroup === 'information-common').length
 
   const groups: GroupReadiness[] = []
   for (const [section, qs] of grouped) {
@@ -84,9 +87,10 @@ export function computeReadiness(
     else if (coverage >= READY && acc >= READY) status = 'ready' // ready implies <=20% unseen
     else status = 'building'
 
-    const weight = kind === 'general-common'
-      ? COMMON_PER_SUBJECT / MOCK_TOTAL
-      : (totalCore ? (total / totalCore) * coreShare : 0)
+    let weight: number
+    if (kind === 'general-common') weight = COMMON_PER_SUBJECT / MOCK_TOTAL
+    else if (kind === 'information-common') weight = infoTotal ? (total / infoTotal) * (INFO_IN_MOCK / MOCK_TOTAL) : 0
+    else weight = occupationTotal ? (total / occupationTotal) * (OCCUPATION_IN_MOCK / MOCK_TOTAL) : 0
 
     groups.push({
       section,

@@ -91,6 +91,7 @@ export default function App() {
   const attempts = rows.reduce((sum, item) => sum + item.attempts, 0)
   const accuracy = attempts ? Math.round((rows.reduce((sum, item) => sum + item.correct, 0) / attempts) * 100) : 0
   const due = rows.filter((item) => item.nextReviewAt && new Date(item.nextReviewAt).getTime() <= Date.now()).length
+  const wrongCount = rows.filter((item) => item.wrong > 0 && item.streak < 2).length
 
   const sessionQuestions = useMemo(() => {
     if (!session || !bank) return []
@@ -360,7 +361,7 @@ export default function App() {
 
   return (
     <div className="app-frame">
-      {tab === 'study' ? <Dashboard seen={seen} total={bank.questions.length} due={due} accuracy={accuracy} hasSession={!!session} sessionLabel={session?.title} onContinue={resumePractice} onSequential={startSequential} onAdaptive={() => begin('adaptive', buildAdaptiveQueue(bank.questions, progress, 10))} onRandom={() => begin('random', buildRandomQueue(bank.questions, 10))} onSubject={(subjectCode, title) => begin('random', buildRandomQueue(bank.questions.filter((question) => question.subjectCode === subjectCode), 10), title)} onWrong={startWrong} onFlashcards={() => begin('flashcard', buildAdaptiveQueue(bank.questions, progress, 10))} onMock={startMock} onSprint={() => begin('sprint', buildSprintQueue(bank.questions, progress, 20))} /> : null}
+      {tab === 'study' ? <Dashboard seen={seen} total={bank.questions.length} due={due} wrongCount={wrongCount} accuracy={accuracy} hasSession={!!session} sessionLabel={session?.title} onContinue={resumePractice} onSequential={startSequential} onAdaptive={() => begin('adaptive', buildAdaptiveQueue(bank.questions, progress, 10))} onRandom={() => begin('random', buildRandomQueue(bank.questions, 10))} onSubject={(subjectCode, title) => begin('random', buildRandomQueue(bank.questions.filter((question) => question.subjectCode === subjectCode), 10), title)} onWrong={startWrong} onFlashcards={() => begin('flashcard', buildAdaptiveQueue(bank.questions, progress, 10))} onMock={startMock} onSprint={() => begin('sprint', buildSprintQueue(bank.questions, progress, 20))} /> : null}
       {tab === 'library' ? <LibraryView questions={bank.questions} progress={progress} onOpen={(question) => begin('item', [question])} /> : null}
       {tab === 'stats' ? <StatsView questions={bank.questions} progress={progress} onSaveAiToken={(token) => localStorage.setItem('level-b-ai-access-token', token)} onPracticeGroup={(section, title) => begin('adaptive', buildAdaptiveQueue(bank.questions.filter((question) => question.section === section), progress, 10), `${title} · practice`)} /> : null}
       <BottomNav active={tab} onChange={setTab} />

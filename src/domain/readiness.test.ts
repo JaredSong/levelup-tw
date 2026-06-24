@@ -56,4 +56,17 @@ describe('computeReadiness', () => {
     const { groups } = computeReadiness(bank, {}, [])
     for (const g of groups) expect(g.weight).toBeCloseTo(4 / 80)
   })
+
+  it('weights 17300 to 55/80 and 90011 to 9/80 across their sections', () => {
+    const bank = [
+      ...Array.from({ length: 60 }, (_, i) => q(`o1-${i}`, '17300-01', 'occupation', '17300')),
+      ...Array.from({ length: 40 }, (_, i) => q(`o2-${i}`, '17300-02', 'occupation', '17300')),
+      ...Array.from({ length: 12 }, (_, i) => q(`i1-${i}`, '90011-01', 'information-common', '90011')),
+      ...Array.from({ length: 8 }, (_, i) => q(`i2-${i}`, '90011-02', 'information-common', '90011')),
+    ]
+    const { groups } = computeReadiness(bank, {}, [])
+    const sum = (kind: string) => groups.filter((g) => g.kind === kind).reduce((s, g) => s + g.weight, 0)
+    expect(sum('occupation')).toBeCloseTo(55 / 80)
+    expect(sum('information-common')).toBeCloseTo(9 / 80)
+  })
 })

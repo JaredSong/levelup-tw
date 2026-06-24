@@ -130,29 +130,23 @@ describe('practice queue builders', () => {
     expect(result.every((question) => question.section === '01')).toBe(true)
   })
 
-  it('builds an official-format mock with 60 single and 20 multiple questions', () => {
+  it('builds the official mock: 60/20 split, 55 from 17300, 9 from 90011, 4 per common subject', () => {
     const core: Question[] = [
-      ...Array.from({ length: 70 }, (_, index) => ({
-        ...questions[0],
-        id: `s-${index}`,
-        subjectCode: '17300',
-      })),
-      ...Array.from({ length: 30 }, (_, index) => ({
-        ...questions[1],
-        id: `m-${index}`,
-        subjectCode: '90011',
-      })),
+      ...Array.from({ length: 50 }, (_, index) => ({ ...questions[0], id: `o-s-${index}`, subjectCode: '17300' })),
+      ...Array.from({ length: 25 }, (_, index) => ({ ...questions[1], id: `o-m-${index}`, subjectCode: '17300' })),
+      ...Array.from({ length: 15 }, (_, index) => ({ ...questions[0], id: `i-${index}`, subjectCode: '90011' })), // 90011 is single-only
     ]
-    const common = ['90006', '90007', '90008', '90009'].flatMap((subjectCode) => [
-      ...Array.from({ length: 10 }, (_, index) => ({ ...questions[0], id: `${subjectCode}-s-${index}`, subjectCode })),
-      ...Array.from({ length: 10 }, (_, index) => ({ ...questions[1], id: `${subjectCode}-m-${index}`, subjectCode })),
-    ])
+    const common = ['90006', '90007', '90008', '90009'].flatMap((subjectCode) =>
+      Array.from({ length: 10 }, (_, index) => ({ ...questions[0], id: `${subjectCode}-${index}`, subjectCode })),
+    )
 
     const result = buildMockQueue([...core, ...common], () => 0.25)
 
     expect(result).toHaveLength(80)
     expect(result.filter((question) => question.kind === 'single')).toHaveLength(60)
     expect(result.filter((question) => question.kind === 'multiple')).toHaveLength(20)
+    expect(result.filter((question) => question.subjectCode === '17300')).toHaveLength(55)
+    expect(result.filter((question) => question.subjectCode === '90011')).toHaveLength(9)
     for (const subjectCode of ['90006', '90007', '90008', '90009']) {
       expect(result.filter((question) => question.subjectCode === subjectCode)).toHaveLength(4)
     }

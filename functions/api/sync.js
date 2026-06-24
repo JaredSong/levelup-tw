@@ -22,10 +22,18 @@ export async function onRequest(context) {
   if (passphrase.length < 8) return json(400, { error: 'Sync passphrase must be at least 8 characters.' })
   const key = await keyFor(passphrase)
 
+  // Older clients stored the BackupData directly (no { version, data } wrapper).
+  // Treat such a record as version 0 data so legacy cloud copies still load.
+  const readRecord = (stored) => {
+    if (!stored) return { version: 0, data: null }
+    const parsed = JSON.parse(stored)
+    if (parsed && typeof parsed.version === 'number' && 'data' in parsed) return { version: parsed.version, data: parsed.data }
+    return { version: 0, data: parsed }
+  }
+
   if (request.method === 'GET') {
-    const stored = await env.SYNC.get(key)
-    const record = stored ? JSON.parse(stored) : null
-    return json(200, { version: record?.version ?? 0, data: record?.data ?? null })
+    const record = readRecord(await env.SYNC.get(key))
+    return json(200, { version: record.version, data: record.data })
   }
 
   if (request.method === 'PUT' || request.method === 'POST') {
@@ -40,11 +48,11 @@ export async function onRequest(context) {
     // Optimistic concurrency: reject if the cloud copy moved since the client read
     // it, so a concurrent device cannot blindly overwrite the other's merge.
     const stored = await env.SYNC.get(key)
-    const current = stored ? JSON.parse(stored) : null
-    if (current && current.version !== body.baseVersion) {
+    const current = readRecord(stored)
+    if (stored && current.version !== body.baseVersion) {
       return json(409, { error: 'conflict', version: current.version, data: current.data })
     }
-    const next = { version: (current?.version ?? 0) + 1, data: body.data }
+    const next = { version: current.version + 1, data: body.data }
     await env.SYNC.put(key, JSON.stringify(next))
     return json(200, { ok: true, version: next.version })
   }

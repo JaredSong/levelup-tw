@@ -16,6 +16,7 @@ interface Props {
   seen: number
   total: number
   due: number
+  wrongCount: number
   accuracy: number
   hasSession: boolean
   sessionLabel?: string
@@ -141,7 +142,7 @@ export function Dashboard(props: Props) {
           <button type="button" onClick={props.onWrong}>
             <span className="mode-icon coral"><ListRestart size={21} /></span>
             <span><strong>Wrong answers</strong><small>Stable queue, no jump back to item 1</small></span>
-            <span className="mode-meta">{props.due || '—'}</span>
+            <span className="mode-meta">{props.wrongCount || '—'}</span>
           </button>
           <button type="button" onClick={props.onRandom}>
             <span className="mode-icon blue"><Shuffle size={21} /></span>

@@ -163,7 +163,9 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .question-stage h1 { max-width: 31ch; margin: 22px 0 27px; font-family: "PingFang TC", "Noto Sans TC", system-ui, sans-serif; font-size: clamp(1.28rem, 4vw, 1.85rem); line-height: 1.48; font-weight: 700; }
 .source-figure { margin: -10px 0 22px; border: 1px solid var(--line); border-radius: 6px; background: white; }
 .source-figure summary { display: flex; align-items: center; gap: 8px; padding: 11px; color: var(--blue); font-size: .8rem; font-weight: 700; cursor: pointer; }
-.source-figure img { display: block; width: 100%; border-top: 1px solid var(--line); }
+.source-figure-frame { position: relative; border-top: 1px solid var(--line); overflow: hidden; background: white; }
+.source-figure-frame::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 20%; background: white; z-index: 1; pointer-events: none; }
+.source-figure img { display: block; width: 100%; }
 .option-list { display: grid; gap: 10px; }
 .kind-hint { display: flex; align-items: center; gap: 7px; margin: 0 0 2px; color: var(--accent-dark); font-size: .8rem; font-weight: 700; }
 .option-list > button { width: 100%; min-height: 58px; display: grid; grid-template-columns: 24px 18px minmax(0,1fr) auto; gap: 11px; align-items: center; padding: 11px 13px; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); text-align: left; line-height: 1.42; cursor: pointer; transition: border-color 140ms ease, background 140ms ease, transform 100ms ease; }

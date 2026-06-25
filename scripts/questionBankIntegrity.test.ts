@@ -51,6 +51,45 @@ describe('published question bank', () => {
     expect(generated.every((question) => question.answers.length > 0 && question.answers.every((answer) => answer >= 1 && answer <= 4))).toBe(true)
   })
 
+  it('repairs official PDF text-extraction gaps for code-heavy 17300 questions', () => {
+    const generated = loadBank()
+    const byId = new Map(generated.map((question) => [question.id, question]))
+
+    expect(byId.get('17300-02-150')).toMatchObject({
+      answers: [1],
+      options: [
+        '以<%@符號開頭，以 %>結尾',
+        '以<body符號開頭，以 /body>結尾',
+        '以<?php符號開頭，以 ?>結尾',
+        '以<html符號開頭，以 /html>結尾',
+      ],
+    })
+    expect(byId.get('17300-02-156')).toMatchObject({
+      prompt: 'PHP 程式「$x="Hello"; $y="World"; echo $x+$y;」其輸出為何？',
+      answers: [4],
+      options: ['Hello+World', 'Hello World', 'HelloWorld', '0'],
+    })
+    expect(byId.get('17300-02-236')?.prompt).toBe('JavaScript 程式「<Script>document.write(9 >> 2);</Script>」執行結果為何？')
+    expect(byId.get('17300-02-237')?.prompt).toBe('HTML 語法「<body link="#0000FF" vlink="#FF0000" alink="#FFFF00">」，其功能表示尚未點選超連結過的物件顏色為何？')
+    expect(byId.get('17300-02-238')?.prompt).toBe('HTML 語法標籤 <frameset> 其作用為何？')
+    expect(byId.get('17300-02-253')?.prompt).toBe('關於 PHP 程式『<?php phpinfo(); ?>』的意義為何？')
+    expect(byId.get('17300-02-273')?.prompt).toBe('在 XHTML 中，<form> 標籤的屬性何者用來指定接收表單資料之伺服器端的程式？')
+  })
+
+  it('does not leave active code/tag questions with blank prompts unless a source image is available', () => {
+    const generated = loadBank().filter((question) => question.active !== false)
+    const blankPromptQuestions = generated.filter((question) => {
+      if (question.sourceImage) return false
+      const prompt = question.prompt
+      return /[「『]\s*[」』]/.test(prompt)
+        || /HTML 語法標籤\s+其作用/.test(prompt)
+        || /XHTML 中，\s*標籤/.test(prompt)
+        || /HTML 的\s+標籤/.test(prompt)
+    })
+
+    expect(blankPromptQuestions.map((question) => question.id)).toEqual([])
+  })
+
   it('flags exactly the five officially deleted 90008 questions inactive', () => {
     const generated = loadBank()
     const inactive = generated.filter((question) => question.active === false).map((question) => question.id).sort()

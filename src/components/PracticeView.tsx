@@ -225,7 +225,9 @@ export function PracticeView({
         {question.sourceImage ? (
           <details className="source-figure" open={optionsAreImages}>
             <summary><ExternalLink size={17} /> Open the official figure page</summary>
-            <img src={question.sourceImage} alt={`Official source page ${question.sourcePage} for ${question.id}`} />
+            <div className="source-figure-frame">
+              <img src={question.sourceImage} alt={`Official source page ${question.sourcePage} for ${question.id}`} />
+            </div>
           </details>
         ) : null}
 

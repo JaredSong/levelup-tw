@@ -13,6 +13,38 @@ const INACTIVE_IDS = new Set([
   '90008-03-092',
 ])
 
+// A few official PDF questions contain angle-bracket/code fragments that are
+// dropped by text extraction. Keep these repairs at import time so generated
+// data stays reproducible.
+const QUESTION_OVERRIDES = {
+  '17300-02-150': {
+    options: [
+      '以<%@符號開頭，以 %>結尾',
+      '以<body符號開頭，以 /body>結尾',
+      '以<?php符號開頭，以 ?>結尾',
+      '以<html符號開頭，以 /html>結尾',
+    ],
+  },
+  '17300-02-156': {
+    prompt: 'PHP 程式「$x="Hello"; $y="World"; echo $x+$y;」其輸出為何？',
+  },
+  '17300-02-236': {
+    prompt: 'JavaScript 程式「<Script>document.write(9 >> 2);</Script>」執行結果為何？',
+  },
+  '17300-02-237': {
+    prompt: 'HTML 語法「<body link="#0000FF" vlink="#FF0000" alink="#FFFF00">」，其功能表示尚未點選超連結過的物件顏色為何？',
+  },
+  '17300-02-238': {
+    prompt: 'HTML 語法標籤 <frameset> 其作用為何？',
+  },
+  '17300-02-253': {
+    prompt: '關於 PHP 程式『<?php phpinfo(); ?>』的意義為何？',
+  },
+  '17300-02-273': {
+    prompt: '在 XHTML 中，<form> 標籤的屬性何者用來指定接收表單資料之伺服器端的程式？',
+  },
+}
+
 const outputPath = new URL('../public/data/questions.json', import.meta.url)
 const banks = [
   { code: '17300', file: '173002A13-raw.txt', expected: 846 },
@@ -34,8 +66,8 @@ for (const bank of banks) {
   bankCounts[bank.code] = parsed.length
   questions.push(...parsed.map((question) => ({
     ...question,
-    prompt: sanitizeText(question.prompt),
-    options: question.options.map(sanitizeText),
+    prompt: sanitizeText(QUESTION_OVERRIDES[question.id]?.prompt ?? question.prompt),
+    options: (QUESTION_OVERRIDES[question.id]?.options ?? question.options).map(sanitizeText),
     ...(INACTIVE_IDS.has(question.id) ? { active: false } : {}),
     sourceImage: question.hasFigure
       ? question.subjectCode === '17300'

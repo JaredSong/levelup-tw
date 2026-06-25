@@ -1,13 +1,14 @@
-import { execSync } from 'node:child_process'
+import { readFileSync } from 'node:fs'
 import { defineConfig, loadEnv, type Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 
-// A short build id (date · commit) so the running app can show which build it is.
+// A readable build label (app version + build date) shown in the app, so it's
+// easy to tell at a glance whether the installed PWA is up to date.
 function buildId(): string {
-  const sha = process.env.CF_PAGES_COMMIT_SHA
-    ?? (() => { try { return execSync('git rev-parse --short HEAD').toString().trim() } catch { return 'dev' } })()
-  return `${new Date().toISOString().slice(0, 10)} · ${sha.slice(0, 7)}`
+  const { version } = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 'utf8'))
+  const date = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })
+  return `v${version} · ${date}`
 }
 
 // Serves /api/explain during `npm run dev` so AI explanations work locally,

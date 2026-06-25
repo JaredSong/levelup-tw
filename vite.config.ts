@@ -1,6 +1,14 @@
+import { execSync } from 'node:child_process'
 import { defineConfig, loadEnv, type Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
+
+// A short build id (date · commit) so the running app can show which build it is.
+function buildId(): string {
+  const sha = process.env.CF_PAGES_COMMIT_SHA
+    ?? (() => { try { return execSync('git rev-parse --short HEAD').toString().trim() } catch { return 'dev' } })()
+  return `${new Date().toISOString().slice(0, 10)} · ${sha.slice(0, 7)}`
+}
 
 // Serves /api/explain during `npm run dev` so AI explanations work locally,
 // mirroring how the same handler runs as a serverless function in production.
@@ -26,6 +34,9 @@ function devExplainApi(): Plugin {
 }
 
 export default defineConfig({
+  define: {
+    __APP_VERSION__: JSON.stringify(buildId()),
+  },
   plugins: [
     devExplainApi(),
     react(),

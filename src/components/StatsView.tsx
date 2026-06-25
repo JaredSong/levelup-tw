@@ -267,6 +267,8 @@ export function StatsView({ questions, progress, onSaveAiToken, onPracticeGroup 
           ))}
         </div>
       </section>
+
+      <p className="build-version">Build {__APP_VERSION__}</p>
     </main>
   )
 }

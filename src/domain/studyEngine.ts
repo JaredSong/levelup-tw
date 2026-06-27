@@ -15,6 +15,8 @@ export interface Question {
   sourcePage?: number
   hasFigure?: boolean
   sourceImage?: string
+  sourceImages?: string[]
+  sourcePageImage?: string
   /** false for officially deleted questions; absent means active. */
   active?: boolean
 }

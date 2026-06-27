@@ -47,6 +47,13 @@ describe('scoreAnswer', () => {
     expect(scoreAnswer(questions[1], [1])).toBe(false)
     expect(scoreAnswer(questions[1], [1, 2, 3])).toBe(false)
   })
+
+  it('scores by official option numbers, independent of shuffled display order', () => {
+    const displayOrder = [4, 2, 1, 3]
+    const selectedOfficialOption = displayOrder[0]
+
+    expect(scoreAnswer({ ...questions[0], answers: [4] }, [selectedOfficialOption])).toBe(true)
+  })
 })
 
 describe('applyAttempt', () => {

@@ -50,7 +50,19 @@ function titleForMode(mode: SessionMode) {
   }[mode]
 }
 
-function createSession(mode: SessionMode, questions: Question[], title?: string): StudySession {
+function shuffleOptions(question: Question): number[] {
+  const order = question.options.map((_, index) => index + 1)
+  // Image-option questions refer to numbered figures in the source image; keep
+  // those stable until each image is rendered directly inside its option card.
+  if (question.options.some((option) => option.includes('圖示選項'))) return order
+  for (let index = order.length - 1; index > 0; index -= 1) {
+    const target = Math.floor(Math.random() * (index + 1))
+    ;[order[index], order[target]] = [order[target], order[index]]
+  }
+  return order
+}
+
+function createSession(mode: SessionMode, questions: Question[], title?: string, options: { mockFeedback?: boolean } = {}): StudySession {
   const now = new Date()
   return {
     id: crypto.randomUUID(),
@@ -62,7 +74,9 @@ function createSession(mode: SessionMode, questions: Question[], title?: string)
     questionStartedAt: now.toISOString(),
     answers: {},
     selections: {},
+    optionOrders: Object.fromEntries(questions.map((question) => [question.id, shuffleOptions(question)])),
     flags: {},
+    mockFeedback: options.mockFeedback,
     mockEndsAt: mode === 'mock' ? new Date(now.getTime() + MOCK_DURATION_MS).toISOString() : undefined,
     mockRemainingMs: mode === 'mock' ? MOCK_DURATION_MS : undefined,
   }
@@ -112,16 +126,16 @@ export default function App() {
   if (error) return <div className="fatal-state"><AlertTriangle /><h1>Question bank unavailable</h1><p>{error}</p></div>
   if (!bank || loading) return <div className="loading-state"><LoaderCircle className="spin" /><strong>Opening your study bank</strong><span>Loading the syllabus…</span></div>
 
-  const begin = (mode: SessionMode, questions: Question[], title?: string) => {
+  const begin = (mode: SessionMode, questions: Question[], title?: string, options?: { mockFeedback?: boolean }) => {
     if (!questions.length) return
     setSummary(null)
-    setSession(createSession(mode, questions, title))
+    setSession(createSession(mode, questions, title, options))
     setPracticeOpen(true)
   }
 
-  const startMock = () => {
+  const startMock = (mockFeedback = false) => {
     try {
-      begin('mock', buildMockQueue(bank.questions))
+      begin('mock', buildMockQueue(bank.questions), mockFeedback ? 'Training mock' : 'Official mock', { mockFeedback })
     } catch {
       window.alert('The question bank cannot currently satisfy the official mock format.')
     }
@@ -364,7 +378,7 @@ export default function App() {
 
         <div className="summary-actions">
           <button className="primary-action" onClick={() => { setSummary(null); setTab('study') }} type="button">Back to study</button>
-          <button className="secondary-action" onClick={() => begin(summarySession.mode, summarySession.questionIds.map((id) => bank.byId.get(id)).filter((q): q is Question => !!q))} type="button"><RotateCcw size={17} /> Repeat session</button>
+          <button className="secondary-action" onClick={() => begin(summarySession.mode, summarySession.questionIds.map((id) => bank.byId.get(id)).filter((q): q is Question => !!q), summarySession.title, { mockFeedback: summarySession.mockFeedback })} type="button"><RotateCcw size={17} /> Repeat session</button>
         </div>
       </main>
     )
@@ -372,7 +386,7 @@ export default function App() {
 
   return (
     <div className="app-frame">
-      {tab === 'study' ? <Dashboard seen={seen} total={bank.questions.length} due={due} wrongCount={wrongCount} accuracy={accuracy} hasSession={!!session} sessionLabel={session?.title} onContinue={resumePractice} onSequential={startSequential} onAdaptive={() => begin('adaptive', buildAdaptiveQueue(bank.questions, progress, 10))} onRandom={() => begin('random', buildRandomQueue(bank.questions, 10))} onSubject={(subjectCode, title) => begin('random', buildRandomQueue(bank.questions.filter((question) => question.subjectCode === subjectCode), 10), title)} onWrong={startWrong} onFlashcards={() => begin('flashcard', buildAdaptiveQueue(bank.questions, progress, 10))} onMock={startMock} onSprint={() => begin('sprint', buildSprintQueue(bank.questions, progress, 20))} /> : null}
+      {tab === 'study' ? <Dashboard seen={seen} total={bank.questions.length} due={due} wrongCount={wrongCount} accuracy={accuracy} hasSession={!!session} sessionLabel={session?.title} onContinue={resumePractice} onSequential={startSequential} onAdaptive={() => begin('adaptive', buildAdaptiveQueue(bank.questions, progress, 10))} onRandom={() => begin('random', buildRandomQueue(bank.questions, 10))} onSubject={(subjectCode, title) => begin('random', buildRandomQueue(bank.questions.filter((question) => question.subjectCode === subjectCode), 10), title)} onWrong={startWrong} onFlashcards={() => begin('flashcard', buildAdaptiveQueue(bank.questions, progress, 10))} onMock={() => startMock(false)} onMockTraining={() => startMock(true)} onSprint={() => begin('sprint', buildSprintQueue(bank.questions, progress, 20))} /> : null}
       {tab === 'library' ? <LibraryView questions={bank.questions} progress={progress} onOpen={(question) => begin('item', [question])} /> : null}
       {tab === 'glossary' ? <GlossaryView onPracticeSection={(section, title) => begin('adaptive', buildAdaptiveQueue(bank.questions.filter((question) => question.section === section), progress, 10), title)} /> : null}
       {tab === 'stats' ? <StatsView questions={bank.questions} progress={progress} onSaveAiToken={(token) => localStorage.setItem('level-b-ai-access-token', token)} onPracticeGroup={(section, title) => begin('adaptive', buildAdaptiveQueue(bank.questions.filter((question) => question.section === section), progress, 10), `${title} · practice`)} /> : null}

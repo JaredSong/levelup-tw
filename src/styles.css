@@ -101,6 +101,8 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .mock-copy h2 { margin: 0; font-size: 1rem; }
 .mock-copy p:last-child { margin: 3px 0 0; color: var(--muted); font-size: .75rem; }
 .mock-band > button { display: inline-flex; align-items: center; gap: 6px; padding: 10px 12px; border: 1px solid var(--ink); border-radius: 6px; background: transparent; font-weight: 700; cursor: pointer; }
+.mock-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
+.mock-actions button { display: inline-flex; align-items: center; gap: 6px; padding: 10px 12px; border: 1px solid var(--ink); border-radius: 6px; background: transparent; font-weight: 700; cursor: pointer; }
 .today-note { display: flex; align-items: center; gap: 10px; margin-top: 22px; color: var(--muted); }
 .today-note p { flex: 1; margin: 0; font-size: .78rem; line-height: 1.45; }
 .today-note svg:last-child { color: var(--coral); }
@@ -164,8 +166,9 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .source-figure { margin: -10px 0 22px; border: 1px solid var(--line); border-radius: 6px; background: white; }
 .source-figure summary { display: flex; align-items: center; gap: 8px; padding: 11px; color: var(--blue); font-size: .8rem; font-weight: 700; cursor: pointer; }
 .source-figure-frame { position: relative; border-top: 1px solid var(--line); overflow: hidden; background: white; }
-.source-figure-frame::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 20%; background: white; z-index: 1; pointer-events: none; }
+.source-figure-frame.source-page::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 20%; background: white; z-index: 1; pointer-events: none; }
 .source-figure img { display: block; width: 100%; }
+.source-figure img + img { border-top: 1px solid var(--line); }
 .option-list { display: grid; gap: 10px; }
 .kind-hint { display: flex; align-items: center; gap: 7px; margin: 0 0 2px; color: var(--accent-dark); font-size: .8rem; font-weight: 700; }
 .option-list > button { width: 100%; min-height: 58px; display: grid; grid-template-columns: 24px 18px minmax(0,1fr) auto; gap: 11px; align-items: center; padding: 11px 13px; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); text-align: left; line-height: 1.42; cursor: pointer; transition: border-color 140ms ease, background 140ms ease, transform 100ms ease; }

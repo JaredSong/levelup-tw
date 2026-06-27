@@ -1,5 +1,4 @@
-// Runtime-agnostic explanation logic shared by the Vite dev handler,
-// the Vercel-style handler, and the Netlify function. No req/res coupling:
+// Runtime-agnostic explanation logic shared by API handlers. No req/res coupling:
 // callers pass plain data and get back { status, payload }.
 
 const PROVIDERS = ['openai', 'anthropic', 'gemini']

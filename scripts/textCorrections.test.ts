@@ -10,6 +10,12 @@ describe('sanitizeText', () => {
       'PM2.5, 15μg/m³, and W/m²',
     )
     expect(sanitizeText('TRUE ANDSUM (Salary)')).toBe('TRUE AND SUM (Salary)')
+    expect(sanitizeText('Mod ulation, Presentat ion Layer, Medium-Term Schedu ler')).toBe(
+      'Modulation, Presentation Layer, Medium-Term Scheduler',
+    )
+    expect(sanitizeText('Mutual Exc lusion, dis play, Goo gle, Apa che Server, Uni cast')).toBe(
+      'Mutual Exclusion, display, Google, Apache Server, Unicast',
+    )
   })
 
   it('leaves ambiguous table and hexadecimal-looking values untouched', () => {

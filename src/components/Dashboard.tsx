@@ -28,6 +28,7 @@ interface Props {
   onWrong: () => void
   onFlashcards: () => void
   onMock: () => void
+  onMockTraining: () => void
   onSprint: () => void
 }
 
@@ -166,7 +167,10 @@ export function Dashboard(props: Props) {
             <p>60 single · 20 multiple · four questions from each general subject</p>
           </div>
         </div>
-        <button onClick={props.onMock} type="button">Start mock <ArrowRight size={17} /></button>
+        <div className="mock-actions">
+          <button onClick={props.onMock} type="button">Official <ArrowRight size={17} /></button>
+          <button onClick={props.onMockTraining} type="button">Training <ArrowRight size={17} /></button>
+        </div>
       </section>
 
       <aside className="today-note">

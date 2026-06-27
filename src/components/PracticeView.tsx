@@ -62,6 +62,41 @@ function formatClock(totalSeconds: number) {
   return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`
 }
 
+function QuestionFigure({ optionsAreImages, question }: { optionsAreImages: boolean; question: Question }) {
+  const customImages = question.sourceImages?.length ? question.sourceImages : question.sourceImage ? [question.sourceImage] : []
+  const [useFallback, setUseFallback] = useState(false)
+
+  useEffect(() => {
+    setUseFallback(false)
+  }, [question.id, question.sourceImage, question.sourceImages])
+
+  const figureSources = useFallback || !customImages.length
+    ? question.sourcePageImage ? [question.sourcePageImage] : []
+    : customImages
+
+  if (!figureSources.length) return null
+
+  const showingSourcePage = figureSources.every((source) => source === question.sourcePageImage || source.includes('/question-pages/'))
+
+  return (
+    <details className="source-figure" open={optionsAreImages}>
+      <summary><ExternalLink size={17} /> {showingSourcePage ? 'Open the masked official source page' : 'Open the question figure'}</summary>
+      <div className={showingSourcePage ? 'source-figure-frame source-page' : 'source-figure-frame question-crop'}>
+        {figureSources.map((source, index) => (
+          <img
+            src={source}
+            alt={`Official source figure ${index + 1} for ${question.id}`}
+            key={source}
+            onError={() => {
+              if (question.sourcePageImage && !showingSourcePage) setUseFallback(true)
+            }}
+          />
+        ))}
+      </div>
+    </details>
+  )
+}
+
 export function PracticeView({
   session,
   questions,
@@ -97,6 +132,7 @@ export function PracticeView({
   const selected = session.selections[questionId] ?? []
   const answer = session.answers[questionId]
   const isMock = session.mode === 'mock'
+  const showMockFeedback = isMock && !!session.mockFeedback
   const isFlashcard = session.mode === 'flashcard'
   const isLast = session.currentIndex === session.questionIds.length - 1
 
@@ -140,6 +176,16 @@ export function PracticeView({
 
   if (!question) return null
 
+  const optionOrder = session.optionOrders?.[question.id]?.length === question.options.length
+    ? session.optionOrders[question.id]
+    : question.options.map((_, index) => index + 1)
+  const formatDisplayChoices = (values: number[]) => values
+    .map((value) => {
+      const displayIndex = optionOrder.indexOf(value)
+      return displayIndex >= 0 ? displayIndex + 1 : value
+    })
+    .join('、')
+
   // Some figure questions have image-only options ("圖示選項 N"); the real
   // choices live in the source figure, so surface it instead of looking buggy.
   const optionsAreImages = question.options.some((option) => option.includes('圖示'))
@@ -153,7 +199,7 @@ export function PracticeView({
   const submit = async () => {
     if (!selected.length || answer) return
     await onSubmit(question, selected, guessed)
-    if (isMock && !isLast) onNavigate(session.currentIndex + 1)
+    if (isMock && !showMockFeedback && !isLast) onNavigate(session.currentIndex + 1)
   }
 
   const next = () => {
@@ -222,14 +268,7 @@ export function PracticeView({
 
         <h1>{question.prompt}</h1>
 
-        {question.sourceImage ? (
-          <details className="source-figure" open={optionsAreImages}>
-            <summary><ExternalLink size={17} /> Open the official figure page</summary>
-            <div className="source-figure-frame">
-              <img src={question.sourceImage} alt={`Official source page ${question.sourcePage} for ${question.id}`} />
-            </div>
-          </details>
-        ) : null}
+        <QuestionFigure optionsAreImages={optionsAreImages} question={question} />
 
         {optionsAreImages ? (
           <p className="figure-note"><ImageIcon size={15} /> This question’s options are images — read them on the figure above; pick the matching number below.</p>
@@ -253,7 +292,7 @@ export function PracticeView({
               <>
                 <p className="answer-label">Correct answer</p>
                 <div className="revealed-options">
-                  {question.answers.map((value) => <span key={value}>{value}. {question.options[value - 1]}</span>)}
+                  {question.answers.map((value) => <span key={value}>{formatDisplayChoices([value])}. {question.options[value - 1]}</span>)}
                 </div>
                 {!answer ? (
                   <div className="grade-actions">
@@ -269,8 +308,9 @@ export function PracticeView({
             {question.kind === 'multiple' ? (
               <p className="kind-hint"><CheckSquare size={15} /> 複選題 · select all correct answers</p>
             ) : null}
-            {question.options.map((option, index) => {
-              const value = index + 1
+            {optionOrder.map((value, index) => {
+              const option = question.options[value - 1]
+              const displayValue = index + 1
               const isSelected = selected.includes(value)
               const isCorrectChoice = !!answer && correctChoices.has(value)
               const isWrongChoice = !!answer && isSelected && !isCorrectChoice
@@ -280,7 +320,7 @@ export function PracticeView({
                   <span className="opt-box" aria-hidden="true">
                     {isSelected ? (question.kind === 'multiple' ? <Check size={14} strokeWidth={3} /> : <span className="opt-dot" />) : null}
                   </span>
-                  <span className="opt-num">{value}</span>
+                  <span className="opt-num">{displayValue}</span>
                   <span className="opt-text">{option}</span>
                   {isCorrectChoice ? <Check size={18} /> : isWrongChoice ? <X size={18} /> : null}
                 </button>
@@ -296,7 +336,7 @@ export function PracticeView({
           </label>
         ) : null}
 
-        {!isFlashcard && answer && !isMock ? (
+        {!isFlashcard && answer && (!isMock || showMockFeedback) ? (
           <section className={answer.correct ? 'feedback correct' : 'feedback wrong'}>
             <div>
               {answer.correct ? <Check size={20} /> : <X size={20} />}
@@ -308,10 +348,10 @@ export function PracticeView({
                 : ((progress[question.id]?.streak ?? 0) >= 2 ? 'Mastered — two correct in a row.' : 'Correct — one more in a row to master.'))
               : 'You will see this item again soon.'}</p>
             <div className="answer-summary">
-              <span><strong>You chose:</strong> {selected.length ? selected.join('、') : '—'}</span>
-              <span className="official"><strong>Official:</strong> {question.answers.join('、')}</span>
+              <span><strong>You chose:</strong> {selected.length ? formatDisplayChoices(selected) : '—'}</span>
+              <span className="official"><strong>Correct:</strong> {formatDisplayChoices(question.answers)}</span>
               {priorSelection.length && JSON.stringify([...priorSelection].sort()) !== JSON.stringify([...selected].sort())
-                ? <span className="earlier"><strong>Earlier you chose:</strong> {priorSelection.join('、')}</span>
+                ? <span className="earlier"><strong>Earlier you chose:</strong> {formatDisplayChoices(priorSelection)}</span>
                 : null}
             </div>
             <button className="explain-button" disabled={explaining} onClick={() => void requestExplanation()} type="button">
@@ -337,9 +377,15 @@ export function PracticeView({
           <span className="select-count">{selected.length} selected</span>
         ) : null}
         {isMock ? (
-          isLast
-            ? <button className="primary-action" onClick={() => setReviewOpen(true)} type="button">Review &amp; submit <ChevronRight size={19} /></button>
-            : <button className="primary-action" onClick={() => onNavigate(session.currentIndex + 1)} type="button">Next <ChevronRight size={19} /></button>
+          showMockFeedback
+            ? (!answer
+                ? <button className="primary-action" disabled={!selected.length} onClick={() => void submit()} type="button">Check answer <ChevronRight size={19} /></button>
+                : isLast
+                  ? <button className="primary-action" onClick={() => setReviewOpen(true)} type="button">Review &amp; submit <ChevronRight size={19} /></button>
+                  : <button className="primary-action" onClick={() => onNavigate(session.currentIndex + 1)} type="button">Next <ChevronRight size={19} /></button>)
+            : isLast
+              ? <button className="primary-action" onClick={() => setReviewOpen(true)} type="button">Review &amp; submit <ChevronRight size={19} /></button>
+              : <button className="primary-action" onClick={() => onNavigate(session.currentIndex + 1)} type="button">Next <ChevronRight size={19} /></button>
         ) : !isFlashcard && !answer ? (
           <button className="primary-action" disabled={!selected.length} onClick={() => void submit()} type="button">Check answer <ChevronRight size={19} /></button>
         ) : !isFlashcard ? (

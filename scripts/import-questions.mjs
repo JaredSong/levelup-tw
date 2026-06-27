@@ -28,6 +28,32 @@ const QUESTION_OVERRIDES = {
   '17300-02-156': {
     prompt: 'PHP 程式「$x="Hello"; $y="World"; echo $x+$y;」其輸出為何？',
   },
+  '17300-02-003': {
+    options: ['REMOVE TABLE Books', 'DROP TABLE Books', 'DELETE TABLE Books', 'ALTER TABLE Books'],
+    hasFigure: false,
+  },
+  '17300-02-043': {
+    options: [
+      'header("Content-type:image/png");',
+      'header("Meta http-equiv=html/png");',
+      'header("image-type:html/image");',
+      'header("Http-content:png/bin");',
+    ],
+    hasFigure: false,
+  },
+  '17300-02-045': {
+    options: [
+      'mysql_query("SET NAMES \'BIG5\'");',
+      'mysql_codec("BIG5");',
+      'mysql_set_var("CharacterSet","BIG5")',
+      'mysql_set_var("BIG5")',
+    ],
+    hasFigure: false,
+  },
+  '17300-02-091': {
+    options: ['&', '.', '?', '#'],
+    hasFigure: false,
+  },
   '17300-02-236': {
     prompt: 'JavaScript 程式「<Script>document.write(9 >> 2);</Script>」執行結果為何？',
   },
@@ -43,6 +69,171 @@ const QUESTION_OVERRIDES = {
   '17300-02-273': {
     prompt: '在 XHTML 中，<form> 標籤的屬性何者用來指定接收表單資料之伺服器端的程式？',
   },
+  '17300-02-157': {
+    prompt: 'PHP 程式「echo "\\"escaped character\\"";」其輸出為何？',
+    options: ['""escaped character""', '"escaped character"', '\\escaped character\\', 'escaped character'],
+    hasFigure: false,
+  },
+  '17300-02-158': {
+    prompt: "PHP 程式「$a='abcdefg'; echo strlen($a);」其輸出為何？",
+    options: ['strlen($a)', 'abcdefg', '7', "'abcdefg'"],
+    hasFigure: false,
+  },
+  '17300-02-205': {
+    options: ['<HEAD>...</HEAD>', '<P>...</P>', '<BODY>...</BODY>', '<TITLE>...</TITLE>'],
+    hasFigure: false,
+  },
+  '17300-02-227': {
+    options: ['<style>', '<img>', '<link>', '<p>'],
+    hasFigure: false,
+  },
+  '17300-02-229': {
+    options: ['<href>', '<hr>', '<a>', '<src>'],
+    hasFigure: false,
+  },
+  '17300-02-252': {
+    options: ['<!-- -->', '<? ?>', '<?php ?>', '<script language="php"> </script>'],
+    hasFigure: false,
+  },
+  '17300-02-256': {
+    options: ['<h1>標題一</h1>', '<H1>標題一</H1>', '< h1 >標題一</ h1 >', '<H1>標題一</h1>'],
+    hasFigure: false,
+  },
+  '17300-02-257': {
+    options: ['<body backgroundcolor="yellow">', '<body color="yellow">', '<body bgcolor="yellow">', '<body bg="yellow">'],
+    hasFigure: false,
+  },
+  '17300-02-258': {
+    options: ['<body backgroundimage="bg.jpg">', '<body background="bg.jpg">', '<body bgimage="bg.jpg">', '<body image="bg.jpg">'],
+    hasFigure: false,
+  },
+  '17300-02-259': {
+    options: ['<body color="blue">', '<body text="color">', '<font color="blue">', '<font text="color">'],
+    hasFigure: false,
+  },
+  '17300-02-261': {
+    options: ['/* */', '//', '#', '<!-- -->'],
+    hasFigure: false,
+  },
+  '17300-02-262': {
+    prompt: '何者最不適合置於 HTML 的 <head> 標籤之中？',
+    options: ['<marquee>', '<style>', '<link>', '<base>'],
+    hasFigure: false,
+  },
+  '17300-02-263': {
+    prompt: '關於 HTML 的 <head> 標籤中，欲設定超連結之基準位址的標籤為何？',
+    options: ['<link>', '<url>', '<base>', '<style>'],
+    hasFigure: false,
+  },
+  '17300-02-264': {
+    options: ['<?xml.....?>', '<?xml-stylesheet.....?>', '<!DOCTYPE.....>', '<![CDATA[.....]]>'],
+    hasFigure: false,
+  },
+  '17300-02-267': {
+    options: ['<b>', '<u>', '<i>', '<p>'],
+    hasFigure: false,
+  },
+  '17300-02-268': {
+    options: ['<p>', '<img>', '<br>', '<hr>'],
+    hasFigure: false,
+  },
+  '17300-02-269': {
+    options: ['<div>', '<span>', '<xmp>', '<pre>'],
+    hasFigure: false,
+  },
+  '17300-02-270': {
+    options: ['<div>', '<span>', '<xmp>', '<pre>'],
+    hasFigure: false,
+  },
+  '17300-02-271': {
+    options: [
+      '<img src="logo.gif" href="test.htm" />',
+      '<img src="test.htm" href="logo.gif" />',
+      '<img src="logo.gif"><a href="test.htm"></a></img>',
+      '<a href="test.htm"><img src="logo.gif" /></a>',
+    ],
+    hasFigure: false,
+  },
+  '17300-02-272': {
+    options: ['<title>', '<head>', '<caption>', '<th>'],
+    hasFigure: false,
+  },
+  '17300-02-274': {
+    options: ['<head>', '<title>', '<body>', '<style>'],
+    hasFigure: false,
+  },
+  '17300-02-284': {
+    options: ['<%...%>', '<?...?>', '<!...!>', '<?jsp...?>'],
+    hasFigure: false,
+  },
+  '17300-02-285': {
+    options: [
+      "UPDATE Product SET Price=30 WHERE Pcode='005';",
+      'UPDATE Product SET Price=30 WHERE Price=25;',
+      'UPDATE Product SET Price=30;',
+      "UPDATE Product SET Price=30 WHERE Pcode='005' AND Price=25;",
+    ],
+    hasFigure: false,
+  },
+  '17300-02-303': {
+    options: ["echo('Hello, world!');", 'echo “Hello, world!”;', "print 'Hello, world!'", 'print “Hello, world!”;'],
+    hasFigure: false,
+  },
+  '17300-02-307': {
+    options: ['//css comment', '/*css comment*/', '<!--css comment-->', '<comment>css commont</comment>'],
+    hasFigure: false,
+  },
+  '17300-02-383': {
+    options: ['<b>', '<i>', '<href>', '<hr>'],
+    hasFigure: false,
+  },
+  '17300-02-397': {
+    options: ['color=rgb(128,196,255)', 'color="#0000FF"', 'color="green"', 'color="#FF0"'],
+    hasFigure: false,
+  },
+  '17300-02-400': {
+    options: ['<table>', '<th>', '<tr>', '<tt>'],
+    hasFigure: false,
+  },
+  '17300-02-401': {
+    options: [
+      '<frameset cols="2:3">...</frameset>',
+      '<frameset cols="40%,*">...</frameset>',
+      '<frameset cols="200,*">...</frameset>',
+      '<frameset cols="2*,3*">...</frameset>',
+    ],
+    hasFigure: false,
+  },
+}
+
+const IMAGE_OVERRIDES = {
+  '90008-03-013': [
+    '90008-page-2 13-1.png',
+    '90008-page-2 13-2.png',
+    '90008-page-2 13-3.png',
+    '90008-page-2 13-4.png',
+  ],
+  '90009-04-086': ['90009-page-7.png'],
+  '90011-04-001': ['90011-page-5 1.png'],
+  '90011-04-002': ['90011-page-5 2.png'],
+  '90011-04-003': ['90011-page-6 3.png'],
+  '90011-04-004': [
+    '90011-page-6 4.png',
+    '90011-page-6 4-1.png',
+    '90011-page-6 4-2.png',
+    '90011-page-6 4-3.png',
+    '90011-page-6 4-4.png',
+  ],
+  '90011-04-005': ['90011-page-6 5.png'],
+  '90011-04-009': ['90011-page-7 9.png'],
+  '90011-04-013': ['90011-page-7 13.png'],
+  '90011-04-014': ['90011-page-7 14.png'],
+  '90011-04-015': ['90011-page-7 15.png'],
+  '90011-04-016': ['90011-page-7 16.png'],
+  '90011-04-017': ['90011-page-7 17.png'],
+  '90011-04-018': ['90011-page-7 18.png'],
+  '90011-04-019': ['90011-page-8 19.png'],
+  '90011-04-020': ['90011-page-8 20.png'],
 }
 
 const outputPath = new URL('../public/data/questions.json', import.meta.url)
@@ -55,6 +246,16 @@ const banks = [
   { code: '90009', file: '900090A11-latest-raw.txt', expected: 100 },
 ]
 
+function sourcePageImageFor(question) {
+  if (!question.hasFigure) return undefined
+  if (question.subjectCode === '17300') return `/question-pages/page-${String(question.sourcePage).padStart(2, '0')}.jpg`
+  return `/question-pages/${question.subjectCode}-page-${question.sourcePage}.jpg`
+}
+
+function questionImagePath(fileName) {
+  return `/question-images/${encodeURIComponent(fileName)}`
+}
+
 const questions = []
 const bankCounts = {}
 for (const bank of banks) {
@@ -64,17 +265,25 @@ for (const bank of banks) {
     throw new Error(`${bank.code}: expected ${bank.expected} questions, received ${parsed.length}`)
   }
   bankCounts[bank.code] = parsed.length
-  questions.push(...parsed.map((question) => ({
-    ...question,
-    prompt: sanitizeText(QUESTION_OVERRIDES[question.id]?.prompt ?? question.prompt),
-    options: (QUESTION_OVERRIDES[question.id]?.options ?? question.options).map(sanitizeText),
-    ...(INACTIVE_IDS.has(question.id) ? { active: false } : {}),
-    sourceImage: question.hasFigure
-      ? question.subjectCode === '17300'
-        ? `/question-pages/page-${String(question.sourcePage).padStart(2, '0')}.jpg`
-        : `/question-pages/${question.subjectCode}-page-${question.sourcePage}.jpg`
-      : undefined,
-  })))
+  questions.push(...parsed.map((question) => {
+    const override = QUESTION_OVERRIDES[question.id]
+    const hasFigure = override?.hasFigure ?? question.hasFigure
+    const repaired = {
+      ...question,
+      hasFigure,
+      prompt: sanitizeText(override?.prompt ?? question.prompt),
+      options: (override?.options ?? question.options).map(sanitizeText),
+      ...(INACTIVE_IDS.has(question.id) ? { active: false } : {}),
+      sourceImage: hasFigure
+        ? IMAGE_OVERRIDES[question.id]?.map(questionImagePath)[0] ?? `/question-images/${question.id}.png`
+        : undefined,
+      sourceImages: hasFigure ? IMAGE_OVERRIDES[question.id]?.map(questionImagePath) : undefined,
+    }
+    return {
+      ...repaired,
+      sourcePageImage: sourcePageImageFor(repaired),
+    }
+  }))
 }
 
 const expected = { '17300-01': 242, '17300-02': 405, '17300-03': 124, '17300-04': 75 }

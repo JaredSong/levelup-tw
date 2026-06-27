@@ -21,23 +21,7 @@ Never commit real keys. `.env` is gitignored; on hosts use their dashboard.
 
 ---
 
-## Option A — Netlify (recommended; AI works)
-
-Connect via Git so the function deploys too.
-
-1. Push this repo to GitHub.
-2. app.netlify.com → **Add new site → Import from Git** → pick the repo.
-3. Netlify reads `netlify.toml` automatically (build `npm run build`, publish `dist`,
-   functions in `netlify/functions`). Click **Deploy**.
-4. **Site settings → Environment variables** → add the vars from the table above.
-5. **Deploys → Trigger deploy** (so the new vars take effect).
-
-Manual alternative (no AI): `npm run build`, then drag the `dist` folder onto
-Netlify's "Deploy manually" area. The function will not run this way.
-
----
-
-## Option B — Cloudflare Pages (AI + cloud sync)
+## Cloudflare Pages (AI + cloud sync)
 
 Use the **Pages** product, not "Create a Worker" — our app is a static site plus
 Pages Functions, so `npx wrangler deploy` (the Worker flow) does not apply.

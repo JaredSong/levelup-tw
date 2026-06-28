@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
 import { buildMockQueue, type Question } from '../src/domain/studyEngine'
 import { parseQuestionBank } from './questionParser.mjs'
@@ -90,13 +90,39 @@ describe('published question bank', () => {
     expect(blankPromptQuestions.map((question) => question.id)).toEqual([])
   })
 
-  it('keeps 90009 image labels aligned with their source figures', () => {
+  it('keeps active image questions linked to checked image assets', () => {
+    const generated = loadBank().filter((question) => question.active !== false && question.hasFigure)
+
+    expect(generated).toHaveLength(18)
+    for (const question of generated) {
+      expect(question.sourceImage, question.id).toBeTruthy()
+      expect(question.sourcePageImage, question.id).toBeTruthy()
+      const images = question.sourceImages?.length ? question.sourceImages : [question.sourceImage]
+      for (const image of images) {
+        expect(existsSync(new URL(`../public${decodeURIComponent(image ?? '')}`, import.meta.url)), `${question.id}: ${image}`).toBe(true)
+      }
+      expect(existsSync(new URL(`../public${question.sourcePageImage}`, import.meta.url)), `${question.id}: ${question.sourcePageImage}`).toBe(true)
+    }
+  })
+
+  it('keeps common-subject image labels aligned with their source figures', () => {
     const byId = new Map(loadBank().map((question) => [question.id, question]))
 
+    expect(byId.get('90009-04-002')).toMatchObject({
+      answers: [2],
+      sourceImages: [
+        '/question-images/90009-page-2%202-1.png',
+        '/question-images/90009-page-2%202-2.png',
+        '/question-images/90009-page-2%202-3.png',
+        '/question-images/90009-page-2%202-4.png',
+      ],
+      sourcePageImage: '/question-pages/90009-page-2.jpg',
+      options: ['圖示選項 1', '圖示選項 2', '圖示選項 3', '圖示選項 4'],
+    })
     expect(byId.get('90009-04-069')).toMatchObject({
       answers: [4],
       sourceImage: '/question-images/90009-page-7.png',
-      sourcePageImage: '/question-pages/90009-page-6.jpg',
+      sourcePageImage: '/question-pages/90009-page-7.jpg',
       options: ['省水標章', '環保標章', '奈米標章', '能源效率標示'],
     })
     expect(byId.get('90009-04-086')).toMatchObject({
@@ -104,6 +130,21 @@ describe('published question bank', () => {
       sourceImage: '/question-images/90009-04-086.png',
       sourcePageImage: '/question-pages/90009-page-8.jpg',
       options: ['奈米標章', '環保標章', '省水標章', '節能標章'],
+    })
+  })
+
+  it('keeps split 90011 code figures pointed at the page that contains the code image', () => {
+    const byId = new Map(loadBank().map((question) => [question.id, question]))
+
+    expect(byId.get('90011-04-019')).toMatchObject({
+      answers: [3],
+      sourceImage: '/question-images/90011-page-8%2019.png',
+      sourcePageImage: '/question-pages/90011-page-8.jpg',
+    })
+    expect(byId.get('90011-04-020')).toMatchObject({
+      answers: [3],
+      sourceImage: '/question-images/90011-page-8%2020.png',
+      sourcePageImage: '/question-pages/90011-page-8.jpg',
     })
   })
 

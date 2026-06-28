@@ -207,6 +207,12 @@ const QUESTION_OVERRIDES = {
   '90009-04-086': {
     sourcePage: 8,
   },
+  '90009-04-069': {
+    sourcePage: 7,
+  },
+  '90011-04-019': {
+    sourcePage: 8,
+  },
 }
 
 const IMAGE_OVERRIDES = {
@@ -215,6 +221,12 @@ const IMAGE_OVERRIDES = {
     '90008-page-2 13-2.png',
     '90008-page-2 13-3.png',
     '90008-page-2 13-4.png',
+  ],
+  '90009-04-002': [
+    '90009-page-2 2-1.png',
+    '90009-page-2 2-2.png',
+    '90009-page-2 2-3.png',
+    '90009-page-2 2-4.png',
   ],
   '90009-04-069': ['90009-page-7.png'],
   '90009-04-086': ['90009-04-086.png'],

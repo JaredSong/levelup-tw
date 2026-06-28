@@ -1,6 +1,6 @@
 # Image Question Map
 
-Generated: 2026-06-28T04:17:22.874Z
+Generated: 2026-06-28T04:47:17.666Z
 
 These are the questions that currently need a figure, graph, code screenshot, or image-option reference.
 
@@ -37,7 +37,11 @@ Total active image questions: 18
 
 - Replacement PNG: `public/question-images/90009-04-002.png`
 - App path: `/question-images/90009-04-002.png`
-- Linked uploaded images: none yet
+- Linked uploaded images:
+  - `/question-images/90009-page-2%202-1.png`
+  - `/question-images/90009-page-2%202-2.png`
+  - `/question-images/90009-page-2%202-3.png`
+  - `/question-images/90009-page-2%202-4.png`
 - Current fallback page: `/question-pages/90009-page-2.jpg`
 - Kind: single
 - Official answer: 2
@@ -54,7 +58,7 @@ Total active image questions: 18
 - App path: `/question-images/90009-04-069.png`
 - Linked uploaded image:
   - `/question-images/90009-page-7.png`
-- Current fallback page: `/question-pages/90009-page-6.jpg`
+- Current fallback page: `/question-pages/90009-page-7.jpg`
 - Kind: single
 - Official answer: 4
 - Prompt: 如下圖示為
@@ -282,7 +286,7 @@ Total active image questions: 18
 - App path: `/question-images/90011-04-019.png`
 - Linked uploaded image:
   - `/question-images/90011-page-8%2019.png`
-- Current fallback page: `/question-pages/90011-page-7.jpg`
+- Current fallback page: `/question-pages/90011-page-8.jpg`
 - Kind: single
 - Official answer: 3
 - Prompt: 對於下列 C/C++程式，何者敘述正確？

@@ -46,15 +46,16 @@ ${choices}`
   const cover = isImage
     ? `Cover only, concisely:
 - the correct answer (by option number) and the rule behind it,
+- focus on the learner's selected option(s): why that selection does not match the official answer, or why it matches if correct,
 - you were NOT given the figure and options may be image-only, so do NOT describe or evaluate options — tell the learner to read the official figure,
 - one common exam trap,
 - one short memory cue (a hook or 口訣).`
     : `Cover only, concisely:
 - the correct answer and the rule behind it,
-- why the learner's selection is wrong (skip if they were correct),
+- focus on the learner's selected option(s): why that selection is wrong, or why it is right if correct,
 ${isMultiple ? '- which options are required, and any the learner missed or wrongly added,\n' : ''}- one common exam trap,
 - one short memory cue (a hook or 口訣).
-Do not analyse every option unless asked to go deeper.`
+Do not analyse unselected options unless they are needed to explain the learner's mistake or the learner asked to go deeper.`
 
   const extraLine = variant.extra ? `\n${variant.extra}` : ''
 

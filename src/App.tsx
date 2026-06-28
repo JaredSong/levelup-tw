@@ -26,7 +26,7 @@ const SESSION_KEY = 'level-b-active-session'
 const SEQUENTIAL_KEY = 'level-b-sequential-index'
 const PERSONAL_START_INDEX = 144
 const MOCK_DURATION_MS = 100 * 60_000
-const EXPLAIN_VERSION = 'v4'
+const EXPLAIN_VERSION = 'v5'
 
 function loadSession(): StudySession | null {
   try {
@@ -295,7 +295,8 @@ export default function App() {
 
   const explain = async (question: Question, selected: number[], style = 'default') => {
     // Bump EXPLAIN_VERSION whenever the prompt changes so old cached answers regenerate.
-    const cacheKey = `${question.id}::${style}::${EXPLAIN_VERSION}`
+    const selectedKey = style === 'reading' ? 'reading' : [...selected].sort((a, b) => a - b).join(',')
+    const cacheKey = `${question.id}::${style}::${selectedKey}::${EXPLAIN_VERSION}`
     const cached = await db.explanations.get(cacheKey)
     if (cached) return cached.content
     const token = localStorage.getItem('level-b-ai-access-token')

@@ -90,6 +90,23 @@ describe('published question bank', () => {
     expect(blankPromptQuestions.map((question) => question.id)).toEqual([])
   })
 
+  it('keeps 90009 image labels aligned with their source figures', () => {
+    const byId = new Map(loadBank().map((question) => [question.id, question]))
+
+    expect(byId.get('90009-04-069')).toMatchObject({
+      answers: [4],
+      sourceImage: '/question-images/90009-page-7.png',
+      sourcePageImage: '/question-pages/90009-page-6.jpg',
+      options: ['省水標章', '環保標章', '奈米標章', '能源效率標示'],
+    })
+    expect(byId.get('90009-04-086')).toMatchObject({
+      answers: [3],
+      sourceImage: '/question-images/90009-04-086.png',
+      sourcePageImage: '/question-pages/90009-page-8.jpg',
+      options: ['奈米標章', '環保標章', '省水標章', '節能標章'],
+    })
+  })
+
   it('flags exactly the five officially deleted 90008 questions inactive', () => {
     const generated = loadBank()
     const inactive = generated.filter((question) => question.active === false).map((question) => question.id).sort()

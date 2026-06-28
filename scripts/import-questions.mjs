@@ -204,6 +204,9 @@ const QUESTION_OVERRIDES = {
     ],
     hasFigure: false,
   },
+  '90009-04-086': {
+    sourcePage: 8,
+  },
 }
 
 const IMAGE_OVERRIDES = {
@@ -213,7 +216,8 @@ const IMAGE_OVERRIDES = {
     '90008-page-2 13-3.png',
     '90008-page-2 13-4.png',
   ],
-  '90009-04-086': ['90009-page-7.png'],
+  '90009-04-069': ['90009-page-7.png'],
+  '90009-04-086': ['90009-04-086.png'],
   '90011-04-001': ['90011-page-5 1.png'],
   '90011-04-002': ['90011-page-5 2.png'],
   '90011-04-003': ['90011-page-6 3.png'],
@@ -268,9 +272,11 @@ for (const bank of banks) {
   questions.push(...parsed.map((question) => {
     const override = QUESTION_OVERRIDES[question.id]
     const hasFigure = override?.hasFigure ?? question.hasFigure
+    const sourcePage = override?.sourcePage ?? question.sourcePage
     const repaired = {
       ...question,
       hasFigure,
+      sourcePage,
       prompt: sanitizeText(override?.prompt ?? question.prompt),
       options: (override?.options ?? question.options).map(sanitizeText),
       ...(INACTIVE_IDS.has(question.id) ? { active: false } : {}),

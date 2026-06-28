@@ -1,6 +1,6 @@
 # Image Question Map
 
-Generated: 2026-06-27T08:29:16.732Z
+Generated: 2026-06-28T04:17:22.874Z
 
 These are the questions that currently need a figure, graph, code screenshot, or image-option reference.
 
@@ -52,7 +52,8 @@ Total active image questions: 18
 
 - Replacement PNG: `public/question-images/90009-04-069.png`
 - App path: `/question-images/90009-04-069.png`
-- Linked uploaded images: none yet
+- Linked uploaded image:
+  - `/question-images/90009-page-7.png`
 - Current fallback page: `/question-pages/90009-page-6.jpg`
 - Kind: single
 - Official answer: 4
@@ -68,8 +69,8 @@ Total active image questions: 18
 - Replacement PNG: `public/question-images/90009-04-086.png`
 - App path: `/question-images/90009-04-086.png`
 - Linked uploaded image:
-  - `/question-images/90009-page-7.png`
-- Current fallback page: `/question-pages/90009-page-7.jpg`
+  - `/question-images/90009-04-086.png`
+- Current fallback page: `/question-pages/90009-page-8.jpg`
 - Kind: single
 - Official answer: 3
 - Prompt: 如下圖，這是什麼標章？

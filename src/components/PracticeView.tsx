@@ -8,7 +8,6 @@ import {
   ChevronLeft,
   ChevronRight,
   Clock3,
-  ExternalLink,
   Flag,
   Image as ImageIcon,
   Languages,
@@ -62,7 +61,7 @@ function formatClock(totalSeconds: number) {
   return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`
 }
 
-function QuestionFigure({ optionsAreImages, question }: { optionsAreImages: boolean; question: Question }) {
+function QuestionFigure({ question }: { question: Question }) {
   const customImages = question.sourceImages?.length ? question.sourceImages : question.sourceImage ? [question.sourceImage] : []
   const [useFallback, setUseFallback] = useState(false)
 
@@ -79,21 +78,18 @@ function QuestionFigure({ optionsAreImages, question }: { optionsAreImages: bool
   const showingSourcePage = figureSources.every((source) => source === question.sourcePageImage || source.includes('/question-pages/'))
 
   return (
-    <details className="source-figure" open={optionsAreImages}>
-      <summary><ExternalLink size={17} /> {showingSourcePage ? 'Open the masked official source page' : 'Open the question figure'}</summary>
-      <div className={showingSourcePage ? 'source-figure-frame source-page' : 'source-figure-frame question-crop'}>
-        {figureSources.map((source, index) => (
-          <img
-            src={source}
-            alt={`Official source figure ${index + 1} for ${question.id}`}
-            key={source}
-            onError={() => {
-              if (question.sourcePageImage && !showingSourcePage) setUseFallback(true)
-            }}
-          />
-        ))}
-      </div>
-    </details>
+    <figure className={showingSourcePage ? 'source-figure source-page' : 'source-figure question-crop'}>
+      {figureSources.map((source, index) => (
+        <img
+          src={source}
+          alt={`Official source figure ${index + 1} for ${question.id}`}
+          key={source}
+          onError={() => {
+            if (question.sourcePageImage && !showingSourcePage) setUseFallback(true)
+          }}
+        />
+      ))}
+    </figure>
   )
 }
 
@@ -268,7 +264,7 @@ export function PracticeView({
 
         <h1>{question.prompt}</h1>
 
-        <QuestionFigure optionsAreImages={optionsAreImages} question={question} />
+        <QuestionFigure question={question} />
 
         {optionsAreImages ? (
           <p className="figure-note"><ImageIcon size={15} /> This question’s options are images — read them on the figure above; pick the matching number below.</p>

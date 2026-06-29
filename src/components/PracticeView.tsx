@@ -16,7 +16,7 @@ import {
   RotateCcw,
   X,
 } from 'lucide-react'
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { Progress, Question } from '../domain/studyEngine'
 import type { StudySession } from '../types'
 
@@ -34,6 +34,8 @@ interface Props {
   onComplete: () => void
   onExplain: (question: Question, selected: number[], style?: string) => Promise<string>
 }
+
+const EMPTY_SELECTION: number[] = []
 
 // Lightweight renderer: turns **bold**, line breaks, and "- " bullets into real
 // formatting so the model's Markdown doesn't show as literal text. No HTML injection.
@@ -120,12 +122,13 @@ export function PracticeView({
   const [navOpen, setNavOpen] = useState(false)
   const [reviewOpen, setReviewOpen] = useState(false)
   const finishedRef = useRef(false)
+  const autoExplainRef = useRef('')
   const progressRef = useRef(progress)
   progressRef.current = progress
 
   const questionId = session.questionIds[session.currentIndex]
   const question = questions.get(questionId)
-  const selected = session.selections[questionId] ?? []
+  const selected = session.selections[questionId] ?? EMPTY_SELECTION
   const answer = session.answers[questionId]
   const isMock = session.mode === 'mock'
   const showMockFeedback = isMock && !!session.mockFeedback
@@ -166,6 +169,28 @@ export function PracticeView({
       onComplete()
     }
   }, [isMock, session.mockEndsAt, secondsRemaining, onComplete])
+
+  const requestExplanation = useCallback(async (style = 'default') => {
+    if (!question) return
+    setExplaining(true)
+    setExplainError(null)
+    try {
+      setExplanation(await onExplain(question, selected, style))
+    } catch (reason) {
+      setExplainError(reason instanceof Error ? reason.message : 'Explanation is unavailable.')
+    } finally {
+      setExplaining(false)
+    }
+  }, [onExplain, question, selected])
+
+  useEffect(() => {
+    if (!question || !answer || answer.correct || isFlashcard || (isMock && !showMockFeedback)) return
+    const selectedKey = [...selected].sort((a, b) => a - b).join(',')
+    const autoKey = `${question.id}::${selectedKey}`
+    if (!selectedKey || autoExplainRef.current === autoKey) return
+    autoExplainRef.current = autoKey
+    void requestExplanation()
+  }, [answer, isFlashcard, isMock, question, requestExplanation, selected, showMockFeedback])
 
   const progressPercent = Math.round(((session.currentIndex + 1) / session.questionIds.length) * 100)
   const correctChoices = useMemo(() => new Set(question?.answers ?? []), [question])
@@ -213,18 +238,6 @@ export function PracticeView({
   const next = () => {
     if (isLast) onComplete()
     else onNavigate(session.currentIndex + 1)
-  }
-
-  const requestExplanation = async (style = 'default') => {
-    setExplaining(true)
-    setExplainError(null)
-    try {
-      setExplanation(await onExplain(question, selected, style))
-    } catch (reason) {
-      setExplainError(reason instanceof Error ? reason.message : 'Explanation is unavailable.')
-    } finally {
-      setExplaining(false)
-    }
   }
 
   // Reading help is translation-only; it never sees or reveals the answer.

@@ -107,6 +107,15 @@ function weakness(progress: Progress): number {
   return (progress.wrong + progress.guessed * 0.5) / progress.attempts
 }
 
+function reviewPriority(question: Question, progressById: Record<string, Progress>, now: Date): number {
+  const progress = progressById[question.id]
+  if (!progress || progress.attempts === 0) return 2 // unseen
+  if (progress.wrong > 0 && progress.streak < 2) return 5 // wrong, not mastered
+  if (progress.guessed > 0 && progress.streak < 2) return 4 // guessed, not mastered
+  if (progress.nextReviewAt && new Date(progress.nextReviewAt).getTime() <= now.getTime()) return 3 // due
+  return 1 // seen and settled
+}
+
 function shuffled<T>(items: T[], random: () => number): T[] {
   const result = [...items]
   for (let index = result.length - 1; index > 0; index -= 1) {
@@ -150,6 +159,30 @@ export function buildFreshQueue(
     return (progressById[left.id]?.lastAnsweredAt ?? '').localeCompare(progressById[right.id]?.lastAnsweredAt ?? '')
   })
   return ranked.slice(0, limit)
+}
+
+export function buildHighYieldQueue(
+  questions: Question[],
+  progressById: Record<string, Progress>,
+  limit = 20,
+  now = new Date(),
+  random = Math.random,
+): Question[] {
+  const used = new Set<string>()
+  const ranked = (pool: Question[]) => shuffled(pool, random).sort((a, b) => reviewPriority(b, progressById, now) - reviewPriority(a, progressById, now))
+  const take = (pool: Question[], count: number): Question[] => {
+    const picked = ranked(pool.filter((question) => !used.has(question.id))).slice(0, count)
+    picked.forEach((question) => used.add(question.id))
+    return picked
+  }
+
+  const commonCodes = ['90006', '90007', '90008', '90009']
+  const common = commonCodes.flatMap((code) => take(questions.filter((question) => question.subjectCode === code), 1))
+  const info = take(questions.filter((question) => question.subjectCode === '90011'), 2)
+  const occupation = take(questions.filter((question) => question.subjectCode === '17300'), Math.max(0, limit - common.length - info.length))
+  const backfill = take(questions, Math.max(0, limit - common.length - info.length - occupation.length))
+
+  return shuffled([...common, ...info, ...occupation, ...backfill], random).slice(0, limit)
 }
 
 // Official mock composition: 80 questions = four from each general subject (16),
@@ -236,17 +269,8 @@ export function buildSprintQueue(
   now = new Date(),
   random = Math.random,
 ): Question[] {
-  // Ranked highest-first: wrong > guessed > due > unseen > settled.
-  const priority = (question: Question): number => {
-    const progress = progressById[question.id]
-    if (!progress || progress.attempts === 0) return 2 // unseen
-    if (progress.wrong > 0 && progress.streak < 2) return 5 // wrong, not mastered
-    if (progress.guessed > 0 && progress.streak < 2) return 4 // guessed, not mastered
-    if (progress.nextReviewAt && new Date(progress.nextReviewAt).getTime() <= now.getTime()) return 3 // due
-    return 1 // seen and settled
-  }
   // shuffle first, then stable-sort by priority, so ties stay randomised.
-  const ranked = (pool: Question[]) => shuffled(pool, random).sort((a, b) => priority(b) - priority(a))
+  const ranked = (pool: Question[]) => shuffled(pool, random).sort((a, b) => reviewPriority(b, progressById, now) - reviewPriority(a, progressById, now))
 
   const common = ranked(questions.filter((question) => question.sourceGroup === 'general-common')).slice(0, 4)
   const commonIds = new Set(common.map((question) => question.id))

@@ -7,6 +7,7 @@ import {
   Layers3,
   ListRestart,
   Shuffle,
+  Target,
   Timer,
   Zap,
 } from 'lucide-react'
@@ -25,6 +26,7 @@ interface Props {
   onAdaptive: () => void
   onRandom: () => void
   onFresh: (limit: number) => void
+  onHighYield: () => void
   onSubject: (subjectCode: string, title: string) => void
   onWrong: () => void
   onFlashcards: () => void
@@ -144,6 +146,11 @@ export function Dashboard(props: Props) {
           <button type="button" onClick={() => props.onFresh(20)}>
             <span className="mode-icon blue"><Shuffle size={21} /></span>
             <span><strong>Fresh sprint</strong><small>20 unseen first · no review repeats</small></span>
+            <span className="mode-meta">20</span>
+          </button>
+          <button type="button" onClick={props.onHighYield}>
+            <span className="mode-icon gold"><Target size={21} /></span>
+            <span><strong>High-yield 20</strong><small>Official mock mix · risky items first</small></span>
             <span className="mode-meta">20</span>
           </button>
           <button type="button" onClick={() => props.onFresh(10)}>

@@ -3,6 +3,7 @@ import {
   applyAttempt,
   buildAdaptiveQueue,
   buildFreshQueue,
+  buildHighYieldQueue,
   buildMockQueue,
   buildRandomQueue,
   buildSprintQueue,
@@ -191,6 +192,36 @@ describe('buildSprintQueue', () => {
     const common = queue.filter((q) => q.sourceGroup === 'general-common').length
     expect(common).toBeGreaterThanOrEqual(4)
     expect(new Set(queue.map((q) => q.id)).size).toBe(20)
+  })
+})
+
+describe('buildHighYieldQueue', () => {
+  const make = (subjectCode: string, index: number): Question => ({
+    id: `${subjectCode}-${index}`,
+    section: `${subjectCode}-01`,
+    number: index,
+    kind: 'single',
+    prompt: `${subjectCode} ${index}`,
+    options: ['A', 'B', 'C', 'D'],
+    answers: [1],
+    subjectCode,
+    sourceGroup: subjectCode === '17300' ? 'occupation' : subjectCode === '90011' ? 'information-common' : 'general-common',
+  })
+  const bank = [
+    ...Array.from({ length: 30 }, (_, index) => make('17300', index)),
+    ...Array.from({ length: 8 }, (_, index) => make('90011', index)),
+    ...['90006', '90007', '90008', '90009'].flatMap((code) => Array.from({ length: 4 }, (_, index) => make(code, index))),
+  ]
+
+  it('uses the official mock mix scaled to 20 questions', () => {
+    const queue = buildHighYieldQueue(bank, {}, 20, new Date('2026-07-01T00:00:00Z'), () => 0.42)
+
+    expect(queue).toHaveLength(20)
+    expect(queue.filter((question) => question.subjectCode === '17300')).toHaveLength(14)
+    expect(queue.filter((question) => question.subjectCode === '90011')).toHaveLength(2)
+    for (const code of ['90006', '90007', '90008', '90009']) {
+      expect(queue.filter((question) => question.subjectCode === code)).toHaveLength(1)
+    }
   })
 })
 

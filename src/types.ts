@@ -5,6 +5,7 @@ export type SessionMode =
   | 'adaptive'
   | 'random'
   | 'fresh'
+  | 'highYield'
   | 'wrong'
   | 'flashcard'
   | 'mock'

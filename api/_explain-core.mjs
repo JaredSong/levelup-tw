@@ -12,7 +12,7 @@ Format as short paragraphs. Use **bold** for key terms and start list items with
 
 // Per-style length and emphasis. Default stays tight; only Deeper goes option by option.
 const STYLE = {
-  default: { words: '45-75 words', extra: 'Use 2 short bullets or 2 short paragraphs. Be direct: why the learner picked the trap, what the rule is, and one tiny memory cue.' },
+  default: { words: '55-85 words', extra: 'Use exactly 3 short bullets labelled "Why:", "Rule:", and "Mind note:". The mind note must be a tiny memory cue or exam trap hook.' },
   simpler: { words: '60-90 words', extra: 'Use very short sentences and beginner words; define each technical term in plain English.' },
   metaphor: { words: '100-140 words', extra: 'Open with a vivid everyday analogy, then the rule and the correct answer. Skip the analogy for legal, numerical, or precise-definition items where it could mislead.' },
   deeper: { words: '180-250 words', extra: 'Also go through each option, explaining why the wrong ones are wrong, and add the underlying concept plus at most two closely related facts.' },
@@ -48,12 +48,12 @@ ${choices}`
 - the correct answer (by option number) and the rule behind it,
 - focus on the learner's selected option(s): why that selection does not match the official answer, or why it matches if correct,
 - you were NOT given the figure and options may be image-only, so do NOT describe or evaluate options — tell the learner to read the official figure,
-- one short memory cue (a hook or 口訣).`
+- one short Mind note memory cue (a hook or 口訣).`
     : `Cover only, concisely:
 - the correct answer and the rule behind it,
 - focus on the learner's selected option(s): why that selection is wrong, or why it is right if correct,
 ${isMultiple ? '- which options are required, and any the learner missed or wrongly added,\n' : ''}
-- one short memory cue (a hook or 口訣).
+- one short Mind note memory cue (a hook or 口訣).
 Do not analyse unselected options unless they are needed to explain the learner's mistake or the learner asked to go deeper.`
 
   const extraLine = variant.extra ? `\n${variant.extra}` : ''

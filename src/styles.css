@@ -197,9 +197,6 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .feedback.correct > div:first-child { color: var(--accent-dark); }
 .feedback.wrong > div:first-child { color: var(--danger); }
 .feedback > p { margin: 7px 0 14px; color: var(--muted); font-size: .8rem; }
-.quick-correction { display: grid; gap: 7px; margin: 0 0 13px; padding: 12px; border: 1px solid var(--line); border-radius: 6px; background: var(--paper); font-size: .84rem; line-height: 1.45; }
-.quick-correction p { margin: 0; }
-.quick-correction .answer-label { margin-bottom: 1px; }
 .explain-button { display: inline-flex; align-items: center; gap: 7px; padding: 9px 11px; border: 1px solid var(--line); border-radius: 6px; background: var(--paper); font-size: .78rem; font-weight: 700; cursor: pointer; }
 .ai-explanation { margin-top: 13px; padding-top: 13px; border-top: 1px solid var(--line); font-size: .85rem; line-height: 1.55; }
 .ai-line { margin: 0 0 9px; }

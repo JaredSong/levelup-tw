@@ -206,18 +206,6 @@ export function PracticeView({
       return displayIndex >= 0 ? displayIndex + 1 : value
     })
     .join('、')
-  const formatChoiceDetails = (values: number[]) => values
-    .map((value) => {
-      const displayIndex = optionOrder.indexOf(value)
-      const displayValue = displayIndex >= 0 ? displayIndex + 1 : value
-      return `${displayValue}. ${question.options[value - 1]}`
-    })
-    .join('；')
-  const quickCorrection = question.kind === 'multiple'
-    ? 'For multiple-answer questions, the whole set must match the official key. One missing or extra choice makes it wrong.'
-    : question.hasFigure || question.options.some((option) => option.includes('圖示'))
-      ? 'Use the figure as the anchor, then match the official label. Do not memorize only the screen position.'
-      : 'Anchor this item as prompt plus official option. Use AI only if you need to know why your picked option does not fit.'
 
   // Some figure questions have image-only options ("圖示選項 N"); the real
   // choices live in the source figure, so surface it instead of looking buggy.
@@ -375,16 +363,8 @@ export function PracticeView({
                 ? <span className="earlier"><strong>Earlier you chose:</strong> {formatDisplayChoices(priorSelection)}</span>
                 : null}
             </div>
-            {!answer.correct ? (
-              <div className="quick-correction">
-                <p className="answer-label">Quick correction</p>
-                <p><strong>Correct:</strong> {formatChoiceDetails(question.answers)}</p>
-                <p><strong>Your pick:</strong> {selected.length ? formatChoiceDetails(selected) : '—'}</p>
-                <p>{quickCorrection}</p>
-              </div>
-            ) : null}
             <button className="explain-button" disabled={explaining} onClick={() => void requestExplanation()} type="button">
-              <BrainCircuit size={18} /> {explaining ? 'Explaining…' : 'Ask AI about my choice'}
+              <BrainCircuit size={18} /> {explaining ? 'Writing short explanation…' : 'Ask AI about my choice'}
             </button>
             {explanation ? <div className="ai-explanation">{renderExplanation(explanation)}</div> : null}
             {explanation ? (

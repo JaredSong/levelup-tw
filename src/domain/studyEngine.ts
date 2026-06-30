@@ -137,6 +137,21 @@ export function buildRandomQueue(
   return shuffled(eligible, options.random ?? Math.random).slice(0, limit)
 }
 
+export function buildFreshQueue(
+  questions: Question[],
+  progressById: Record<string, Progress>,
+  limit: number,
+  random = Math.random,
+): Question[] {
+  const ranked = shuffled(questions, random).sort((left, right) => {
+    const a = progressById[left.id]?.attempts ?? 0
+    const b = progressById[right.id]?.attempts ?? 0
+    if (a !== b) return a - b
+    return (progressById[left.id]?.lastAnsweredAt ?? '').localeCompare(progressById[right.id]?.lastAnsweredAt ?? '')
+  })
+  return ranked.slice(0, limit)
+}
+
 // Official mock composition: 80 questions = four from each general subject (16),
 // nine from 90011, and the rest from 17300, with 60 single + 20 multiple overall.
 export function buildMockQueue(

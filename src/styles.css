@@ -207,6 +207,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .inline-error { color: var(--danger) !important; }
 
 .flashcard-answer { padding: 20px; border: 1px solid var(--line); border-radius: 7px; background: white; }
+.flashcard-cue { margin-top: 12px; }
 .answer-label { margin: 0 0 10px; color: var(--muted); font-size: .72rem; text-transform: uppercase; font-weight: 800; }
 .revealed-options { display: grid; gap: 8px; }
 .revealed-options span { padding: 10px; border-left: 3px solid var(--accent); background: var(--accent-pale); font-weight: 700; }

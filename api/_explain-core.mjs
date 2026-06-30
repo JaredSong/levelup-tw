@@ -16,6 +16,7 @@ const STYLE = {
   simpler: { words: '60-90 words', extra: 'Use very short sentences and beginner words; define each technical term in plain English.' },
   metaphor: { words: '100-140 words', extra: 'Open with a vivid everyday analogy, then the rule and the correct answer. Skip the analogy for legal, numerical, or precise-definition items where it could mislead.' },
   deeper: { words: '180-250 words', extra: 'Also go through each option, explaining why the wrong ones are wrong, and add the underlying concept plus at most two closely related facts.' },
+  cue: { words: '35-55 words', extra: 'Write exactly two short bullets labelled "Answer:" and "Mind note:". The Mind note must be a compact memory cue, contrast, or trap hook for recall-card study.' },
 }
 
 // Reading mode is translation-only and never sees or reveals the answer.
@@ -36,6 +37,18 @@ ${READING}
 Question: ${question.prompt}
 Choices:
 ${choices}`
+  }
+
+  if (style === 'cue') {
+    return `${BASE}
+Treat the supplied official answer as authoritative; never invent or override it.
+Create a recall-card back side, not a full explanation.
+Keep the whole answer to about ${STYLE.cue.words}. ${STYLE.cue.extra}
+
+Question: ${question.prompt}
+Choices:
+${choices}
+Official answer: ${question.answers.join(', ')}`
   }
 
   const variant = STYLE[style] ?? STYLE.default
@@ -72,7 +85,7 @@ Learner selected: ${selected.length ? selected.join(', ') : 'none'}`
 }
 
 // Token caps sized to each style's word limit, so calls are short and cheap.
-const STYLE_TOKENS = { default: 180, simpler: 220, metaphor: 300, deeper: 540, reading: 240 }
+const STYLE_TOKENS = { default: 180, simpler: 220, metaphor: 300, deeper: 540, reading: 240, cue: 160 }
 function tokensFor(style) {
   return STYLE_TOKENS[style] ?? STYLE_TOKENS.default
 }

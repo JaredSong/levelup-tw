@@ -24,6 +24,7 @@ interface Props {
   onSequential: () => void
   onAdaptive: () => void
   onRandom: () => void
+  onFresh: (limit: number) => void
   onSubject: (subjectCode: string, title: string) => void
   onWrong: () => void
   onFlashcards: () => void
@@ -138,6 +139,16 @@ export function Dashboard(props: Props) {
           <button type="button" onClick={props.onAdaptive}>
             <span className="mode-icon accent"><Brain size={21} /></span>
             <span><strong>Adaptive 10</strong><small>Due, wrong, weak, then new</small></span>
+            <span className="mode-meta">10</span>
+          </button>
+          <button type="button" onClick={() => props.onFresh(20)}>
+            <span className="mode-icon blue"><Shuffle size={21} /></span>
+            <span><strong>Fresh sprint</strong><small>20 unseen first · no review repeats</small></span>
+            <span className="mode-meta">20</span>
+          </button>
+          <button type="button" onClick={() => props.onFresh(10)}>
+            <span className="mode-icon blue"><Shuffle size={21} /></span>
+            <span><strong>Fresh 10</strong><small>Short new-question set for busy moments</small></span>
             <span className="mode-meta">10</span>
           </button>
           <button type="button" onClick={props.onWrong}>

@@ -4,6 +4,7 @@ export type SessionMode =
   | 'sequential'
   | 'adaptive'
   | 'random'
+  | 'fresh'
   | 'wrong'
   | 'flashcard'
   | 'mock'

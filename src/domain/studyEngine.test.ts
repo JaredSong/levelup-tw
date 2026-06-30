@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import {
   applyAttempt,
   buildAdaptiveQueue,
+  buildFreshQueue,
   buildMockQueue,
   buildRandomQueue,
   buildSprintQueue,
@@ -135,6 +136,17 @@ describe('practice queue builders', () => {
     expect(result).toHaveLength(2)
     expect(new Set(result.map((question) => question.id)).size).toBe(2)
     expect(result.every((question) => question.section === '01')).toBe(true)
+  })
+
+  it('builds fresh queues from unseen first, then least-attempted items', () => {
+    const progress: Record<string, Progress> = {
+      '01-001': { ...createProgress('01-001'), attempts: 3, lastAnsweredAt: '2026-06-23T08:00:00.000Z' },
+      '01-002': { ...createProgress('01-002'), attempts: 1, lastAnsweredAt: '2026-06-24T08:00:00.000Z' },
+    }
+
+    const result = buildFreshQueue(questions, progress, 2, () => 0.4)
+
+    expect(result.map((question) => question.id)).toEqual(['02-001', '01-002'])
   })
 
   it('builds the official mock: 60/20 split, 55 from 17300, 9 from 90011, 4 per common subject', () => {

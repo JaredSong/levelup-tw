@@ -192,6 +192,15 @@ export function PracticeView({
     void requestExplanation()
   }, [answer, isFlashcard, isMock, question, requestExplanation, selected, showMockFeedback])
 
+  useEffect(() => {
+    if (!question || !isFlashcard || !revealed || explanation || explaining) return
+    if (!window.localStorage.getItem('level-b-ai-access-token')) return
+    const autoKey = `${question.id}::cue`
+    if (autoExplainRef.current === autoKey) return
+    autoExplainRef.current = autoKey
+    void requestExplanation('cue')
+  }, [explaining, explanation, isFlashcard, question, requestExplanation, revealed])
+
   const progressPercent = Math.round(((session.currentIndex + 1) / session.questionIds.length) * 100)
   const correctChoices = useMemo(() => new Set(question?.answers ?? []), [question])
 
@@ -303,6 +312,11 @@ export function PracticeView({
                 <div className="revealed-options">
                   {question.answers.map((value) => <span key={value}>{formatDisplayChoices([value])}. {question.options[value - 1]}</span>)}
                 </div>
+                <button className="explain-button flashcard-cue" disabled={explaining} onClick={() => void requestExplanation('cue')} type="button">
+                  <BrainCircuit size={18} /> {explaining ? 'Writing mind note…' : 'Mind note'}
+                </button>
+                {explanation ? <div className="ai-explanation">{renderExplanation(explanation)}</div> : null}
+                {explainError ? <p className="inline-error">{explainError}</p> : null}
                 {!answer ? (
                   <div className="grade-actions">
                     <button onClick={() => void onFlashcardGrade(question, false)} type="button"><RotateCcw size={18} /> Need review</button>

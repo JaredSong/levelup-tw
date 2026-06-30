@@ -42,10 +42,10 @@ function loadSession(): StudySession | null {
 function titleForMode(mode: SessionMode) {
   return {
     sequential: 'New questions',
-    adaptive: 'Adaptive 10',
+    adaptive: 'Due review 10',
     random: 'Random 10',
     fresh: 'Fresh sprint',
-    highYield: 'High-yield 20',
+    highYield: 'Mini mock 20',
     wrong: 'Wrong answers',
     flashcard: 'Recall cards',
     mock: 'Official mock',

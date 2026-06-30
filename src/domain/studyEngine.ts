@@ -163,15 +163,13 @@ export function buildFreshQueue(
 
 export function buildHighYieldQueue(
   questions: Question[],
-  progressById: Record<string, Progress>,
+  _progressById: Record<string, Progress>,
   limit = 20,
-  now = new Date(),
   random = Math.random,
 ): Question[] {
   const used = new Set<string>()
-  const ranked = (pool: Question[]) => shuffled(pool, random).sort((a, b) => reviewPriority(b, progressById, now) - reviewPriority(a, progressById, now))
   const take = (pool: Question[], count: number): Question[] => {
-    const picked = ranked(pool.filter((question) => !used.has(question.id))).slice(0, count)
+    const picked = shuffled(pool.filter((question) => !used.has(question.id)), random).slice(0, count)
     picked.forEach((question) => used.add(question.id))
     return picked
   }

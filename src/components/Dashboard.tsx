@@ -3,6 +3,7 @@ import {
   Brain,
   Clock3,
   CloudOff,
+  Compass,
   Flame,
   Layers3,
   ListRestart,
@@ -140,23 +141,18 @@ export function Dashboard(props: Props) {
           </button>
           <button type="button" onClick={props.onAdaptive}>
             <span className="mode-icon accent"><Brain size={21} /></span>
-            <span><strong>Adaptive 10</strong><small>Due, wrong, weak, then new</small></span>
+            <span><strong>Due review 10</strong><small>Scheduled review queue · then weak/new</small></span>
             <span className="mode-meta">10</span>
           </button>
           <button type="button" onClick={() => props.onFresh(20)}>
-            <span className="mode-icon blue"><Shuffle size={21} /></span>
+            <span className="mode-icon blue"><Compass size={21} /></span>
             <span><strong>Fresh sprint</strong><small>20 unseen first · no review repeats</small></span>
             <span className="mode-meta">20</span>
           </button>
           <button type="button" onClick={props.onHighYield}>
             <span className="mode-icon gold"><Target size={21} /></span>
-            <span><strong>High-yield 20</strong><small>Official mock mix · risky items first</small></span>
+            <span><strong>Mini mock 20</strong><small>Official mock mix · normal sampling</small></span>
             <span className="mode-meta">20</span>
-          </button>
-          <button type="button" onClick={() => props.onFresh(10)}>
-            <span className="mode-icon blue"><Shuffle size={21} /></span>
-            <span><strong>Fresh 10</strong><small>Short new-question set for busy moments</small></span>
-            <span className="mode-meta">10</span>
           </button>
           <button type="button" onClick={props.onWrong}>
             <span className="mode-icon coral"><ListRestart size={21} /></span>

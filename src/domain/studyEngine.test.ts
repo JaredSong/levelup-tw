@@ -213,8 +213,8 @@ describe('buildHighYieldQueue', () => {
     ...['90006', '90007', '90008', '90009'].flatMap((code) => Array.from({ length: 4 }, (_, index) => make(code, index))),
   ]
 
-  it('uses the official mock mix scaled to 20 questions', () => {
-    const queue = buildHighYieldQueue(bank, {}, 20, new Date('2026-07-01T00:00:00Z'), () => 0.42)
+  it('uses the official mock mix scaled to 20 questions without weak-item weighting', () => {
+    const queue = buildHighYieldQueue(bank, {}, 20, () => 0.42)
 
     expect(queue).toHaveLength(20)
     expect(queue.filter((question) => question.subjectCode === '17300')).toHaveLength(14)

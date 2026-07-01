@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { AlertTriangle, ArrowRight, CheckCircle2, LoaderCircle, RotateCcw } from 'lucide-react'
 import { BottomNav, type Tab } from './components/BottomNav'
 import { Dashboard } from './components/Dashboard'
@@ -86,6 +86,31 @@ function createSession(mode: SessionMode, questions: Question[], title?: string,
   }
 }
 
+async function explainQuestion(question: Question, selected: number[], style = 'default') {
+  // Bump EXPLAIN_VERSION whenever the prompt changes so old cached answers regenerate.
+  const selectedKey = style === 'reading' ? 'reading' : [...selected].sort((a, b) => a - b).join(',')
+  const cacheKey = `${question.id}::${style}::${selectedKey}::${EXPLAIN_VERSION}`
+  const cached = await db.explanations.get(cacheKey)
+  if (cached) return cached.content
+  const token = localStorage.getItem('level-b-ai-access-token')
+  if (!token) throw new Error('AI is ready to connect after you choose Claude or OpenAI and add a private access token.')
+  // Reading mode is pre-answer translation help: never send the answer key or selection.
+  const isReading = style === 'reading'
+  const payloadQuestion = isReading ? { ...question, answers: [] } : question
+  const response = await fetch('/api/explain', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+    body: JSON.stringify({ question: payloadQuestion, selected: isReading ? [] : selected, provider: localStorage.getItem('level-b-ai-provider') ?? undefined, style: style === 'default' ? undefined : style }),
+  })
+  if (!response.ok) {
+    const detail = await response.json().catch(() => null) as { error?: string } | null
+    throw new Error(detail?.error ?? 'The AI explanation service is not available yet.')
+  }
+  const data = await response.json() as { explanation: string; provider?: string }
+  await db.explanations.put({ questionId: cacheKey, content: data.explanation, provider: data.provider ?? 'ai', updatedAt: new Date().toISOString() })
+  return data.explanation
+}
+
 export default function App() {
   const { bank, error } = useQuestionBank()
   const { progress, setProgress, loading, refresh } = useStudyData()
@@ -93,6 +118,7 @@ export default function App() {
   const [session, setSession] = useState<StudySession | null>(() => loadSession())
   const [practiceOpen, setPracticeOpen] = useState(false)
   const [summary, setSummary] = useState<StudySession | null>(null)
+  const prefetchedCueSessionRef = useRef('')
 
   useEffect(() => {
     if (session) localStorage.setItem(SESSION_KEY, JSON.stringify(session))
@@ -126,6 +152,23 @@ export default function App() {
     if (!session || !bank) return []
     return session.questionIds.map((id) => bank.byId.get(id)).filter((question): question is Question => !!question)
   }, [bank, session])
+
+  useEffect(() => {
+    if (!session || session.mode !== 'flashcard' || !sessionQuestions.length) return
+    if (!localStorage.getItem('level-b-ai-access-token')) return
+    if (prefetchedCueSessionRef.current === session.id) return
+    prefetchedCueSessionRef.current = session.id
+
+    let cancelled = false
+    void (async () => {
+      for (const question of sessionQuestions) {
+        if (cancelled) return
+        await explainQuestion(question, [], 'cue').catch(() => undefined)
+      }
+    })()
+
+    return () => { cancelled = true }
+  }, [session, sessionQuestions])
 
   if (error) return <div className="fatal-state"><AlertTriangle /><h1>Question bank unavailable</h1><p>{error}</p></div>
   if (!bank || loading) return <div className="loading-state"><LoaderCircle className="spin" /><strong>Opening your study bank</strong><span>Loading the syllabus…</span></div>
@@ -298,28 +341,7 @@ export default function App() {
   }
 
   const explain = async (question: Question, selected: number[], style = 'default') => {
-    // Bump EXPLAIN_VERSION whenever the prompt changes so old cached answers regenerate.
-    const selectedKey = style === 'reading' ? 'reading' : [...selected].sort((a, b) => a - b).join(',')
-    const cacheKey = `${question.id}::${style}::${selectedKey}::${EXPLAIN_VERSION}`
-    const cached = await db.explanations.get(cacheKey)
-    if (cached) return cached.content
-    const token = localStorage.getItem('level-b-ai-access-token')
-    if (!token) throw new Error('AI is ready to connect after you choose Claude or OpenAI and add a private access token.')
-    // Reading mode is pre-answer translation help: never send the answer key or selection.
-    const isReading = style === 'reading'
-    const payloadQuestion = isReading ? { ...question, answers: [] } : question
-    const response = await fetch('/api/explain', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
-      body: JSON.stringify({ question: payloadQuestion, selected: isReading ? [] : selected, provider: localStorage.getItem('level-b-ai-provider') ?? undefined, style: style === 'default' ? undefined : style }),
-    })
-    if (!response.ok) {
-      const detail = await response.json().catch(() => null) as { error?: string } | null
-      throw new Error(detail?.error ?? 'The AI explanation service is not available yet.')
-    }
-    const data = await response.json() as { explanation: string; provider?: string }
-    await db.explanations.put({ questionId: cacheKey, content: data.explanation, provider: data.provider ?? 'ai', updatedAt: new Date().toISOString() })
-    return data.explanation
+    return explainQuestion(question, selected, style)
   }
 
   if (practiceOpen && session && sessionQuestions.length) {

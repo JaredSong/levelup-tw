@@ -140,7 +140,7 @@ export function Dashboard(props: Props) {
             <span className="mode-meta">20</span>
           </button>
           <button type="button" onClick={props.onAdaptive}>
-            <span className="mode-icon accent"><Brain size={21} /></span>
+            <span className="mode-icon violet"><Brain size={21} /></span>
             <span><strong>Due review 10</strong><small>Scheduled review queue · then weak/new</small></span>
             <span className="mode-meta">10</span>
           </button>
@@ -165,7 +165,7 @@ export function Dashboard(props: Props) {
             <ArrowRight size={18} />
           </button>
           <button type="button" onClick={props.onFlashcards}>
-            <span className="mode-icon accent"><Layers3 size={21} /></span>
+            <span className="mode-icon violet"><Layers3 size={21} /></span>
             <span><strong>Recall cards</strong><small>Reveal, then grade what you knew</small></span>
             <ArrowRight size={18} />
           </button>

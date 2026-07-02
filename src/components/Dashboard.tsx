@@ -5,6 +5,7 @@ import {
   CloudOff,
   Compass,
   Flame,
+  Headphones,
   Layers3,
   ListRestart,
   Shuffle,
@@ -31,6 +32,7 @@ interface Props {
   onSubject: (subjectCode: string, title: string) => void
   onWrong: () => void
   onFlashcards: () => void
+  onCommuteNotes: () => void
   onMock: () => void
   onMockTraining: () => void
   onSprint: () => void
@@ -168,6 +170,11 @@ export function Dashboard(props: Props) {
             <span className="mode-icon violet"><Layers3 size={21} /></span>
             <span><strong>Recall cards</strong><small>Reveal, then grade what you knew</small></span>
             <ArrowRight size={18} />
+          </button>
+          <button type="button" onClick={props.onCommuteNotes}>
+            <span className="mode-icon slate"><Headphones size={21} /></span>
+            <span><strong>Commute notes</strong><small>All wrong answers · cached voice memory cues</small></span>
+            <span className="mode-meta">{props.wrongCount || '—'}</span>
           </button>
         </div>
       </section>

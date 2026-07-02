@@ -28,7 +28,7 @@ const SESSION_KEY = 'level-b-active-session'
 const SEQUENTIAL_KEY = 'level-b-sequential-index'
 const PERSONAL_START_INDEX = 144
 const MOCK_DURATION_MS = 100 * 60_000
-const EXPLAIN_VERSION = 'v8'
+const EXPLAIN_VERSION = 'v9'
 
 function loadSession(): StudySession | null {
   try {
@@ -48,6 +48,7 @@ function titleForMode(mode: SessionMode) {
     highYield: 'Mini mock 20',
     wrong: 'Wrong answers',
     flashcard: 'Recall cards',
+    commute: 'Commute notes',
     mock: 'Official mock',
     sprint: 'Exam sprint',
     item: 'Item review',
@@ -154,7 +155,7 @@ export default function App() {
   }, [bank, session])
 
   useEffect(() => {
-    if (!session || session.mode !== 'flashcard' || !sessionQuestions.length) return
+    if (!session || !['flashcard', 'commute'].includes(session.mode) || !sessionQuestions.length) return
     if (!localStorage.getItem('level-b-ai-access-token')) return
     if (prefetchedCueSessionRef.current === session.id) return
     prefetchedCueSessionRef.current = session.id
@@ -163,12 +164,13 @@ export default function App() {
     void (async () => {
       for (const question of sessionQuestions) {
         if (cancelled) return
-        await explainQuestion(question, [], 'cue').catch(() => undefined)
+        const selected = session.mode === 'commute' ? (progress[question.id]?.lastSelected ?? []) : []
+        await explainQuestion(question, selected, session.mode === 'commute' ? 'commute' : 'cue').catch(() => undefined)
       }
     })()
 
     return () => { cancelled = true }
-  }, [session, sessionQuestions])
+  }, [progress, session, sessionQuestions])
 
   if (error) return <div className="fatal-state"><AlertTriangle /><h1>Question bank unavailable</h1><p>{error}</p></div>
   if (!bank || loading) return <div className="loading-state"><LoaderCircle className="spin" /><strong>Opening your study bank</strong><span>Loading the syllabus…</span></div>
@@ -220,6 +222,22 @@ export default function App() {
   const startWrong = () => {
     const wrong = bank.questions.filter((question) => progress[question.id]?.wrong > 0 && progress[question.id].streak < 2)
     begin('wrong', wrong.length ? wrong : bank.questions.slice(0, PERSONAL_START_INDEX))
+  }
+
+  const startCommuteNotes = () => {
+    const wrong = bank.questions
+      .filter((question) => progress[question.id]?.wrong > 0 && progress[question.id].streak < 2)
+      .sort((left, right) => {
+        const a = progress[left.id]
+        const b = progress[right.id]
+        if ((a?.wrong ?? 0) !== (b?.wrong ?? 0)) return (b?.wrong ?? 0) - (a?.wrong ?? 0)
+        return (b?.lastAnsweredAt ?? '').localeCompare(a?.lastAnsweredAt ?? '')
+      })
+    if (!wrong.length) {
+      window.alert('No active wrong answers yet. Missed items will appear here after practice or mocks.')
+      return
+    }
+    begin('commute', wrong, `Commute notes · ${wrong.length} wrong`)
   }
 
   const updateSession = (updater: (current: StudySession) => StudySession) => {
@@ -278,6 +296,11 @@ export default function App() {
       const lastId = session.questionIds.at(-1)
       const lastIndex = bank.questions.findIndex((question) => question.id === lastId)
       if (lastIndex >= 0) localStorage.setItem(SEQUENTIAL_KEY, String(lastIndex + 1))
+    }
+    if (session.mode === 'commute') {
+      setSession(null)
+      setPracticeOpen(false)
+      return
     }
 
     // Score any option that is selected but never submitted (e.g. the question on
@@ -413,7 +436,7 @@ export default function App() {
 
   return (
     <div className="app-frame">
-      {tab === 'study' ? <Dashboard seen={seen} total={bank.questions.length} due={due} wrongCount={wrongCount} accuracy={accuracy} hasSession={!!session} sessionLabel={session?.title} onContinue={resumePractice} onSequential={startSequential} onAdaptive={() => begin('adaptive', buildAdaptiveQueue(bank.questions, progress, 10))} onRandom={() => begin('random', buildRandomQueue(bank.questions, 10))} onFresh={(limit) => begin('fresh', buildFreshQueue(bank.questions, progress, limit), `Fresh ${limit}`)} onHighYield={() => begin('highYield', buildHighYieldQueue(bank.questions, progress, 20))} onSubject={(subjectCode, title) => begin('random', buildRandomQueue(bank.questions.filter((question) => question.subjectCode === subjectCode), 10), title)} onWrong={startWrong} onFlashcards={() => begin('flashcard', buildAdaptiveQueue(bank.questions, progress, 10), 'Recall cards · mind notes')} onMock={() => startMock(false)} onMockTraining={() => startMock(true)} onSprint={() => begin('sprint', buildSprintQueue(bank.questions, progress, 20))} /> : null}
+      {tab === 'study' ? <Dashboard seen={seen} total={bank.questions.length} due={due} wrongCount={wrongCount} accuracy={accuracy} hasSession={!!session} sessionLabel={session?.title} onContinue={resumePractice} onSequential={startSequential} onAdaptive={() => begin('adaptive', buildAdaptiveQueue(bank.questions, progress, 10))} onRandom={() => begin('random', buildRandomQueue(bank.questions, 10))} onFresh={(limit) => begin('fresh', buildFreshQueue(bank.questions, progress, limit), `Fresh ${limit}`)} onHighYield={() => begin('highYield', buildHighYieldQueue(bank.questions, progress, 20))} onSubject={(subjectCode, title) => begin('random', buildRandomQueue(bank.questions.filter((question) => question.subjectCode === subjectCode), 10), title)} onWrong={startWrong} onFlashcards={() => begin('flashcard', buildAdaptiveQueue(bank.questions, progress, 10), 'Recall cards · mind notes')} onCommuteNotes={startCommuteNotes} onMock={() => startMock(false)} onMockTraining={() => startMock(true)} onSprint={() => begin('sprint', buildSprintQueue(bank.questions, progress, 20))} /> : null}
       {tab === 'library' ? <LibraryView questions={bank.questions} progress={progress} onOpen={(question) => begin('item', [question])} /> : null}
       {tab === 'glossary' ? <GlossaryView onPracticeSection={(section, title) => begin('adaptive', buildAdaptiveQueue(bank.questions.filter((question) => question.section === section), progress, 10), title)} /> : null}
       {tab === 'stats' ? <StatsView questions={bank.questions} progress={progress} onSaveAiToken={(token) => localStorage.setItem('level-b-ai-access-token', token)} onPracticeGroup={(section, title) => begin('adaptive', buildAdaptiveQueue(bank.questions.filter((question) => question.section === section), progress, 10), `${title} · practice`)} /> : null}

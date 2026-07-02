@@ -13,7 +13,10 @@ import {
   Languages,
   LayoutGrid,
   Lightbulb,
+  LoaderCircle,
   RotateCcw,
+  Square,
+  Volume2,
   X,
 } from 'lucide-react'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
@@ -133,7 +136,9 @@ export function PracticeView({
   const isMock = session.mode === 'mock'
   const showMockFeedback = isMock && !!session.mockFeedback
   const isFlashcard = session.mode === 'flashcard'
+  const isCommute = session.mode === 'commute'
   const isLast = session.currentIndex === session.questionIds.length - 1
+  const [speaking, setSpeaking] = useState(false)
 
   const total = session.questionIds.length
   const flags = session.flags ?? {}
@@ -141,6 +146,12 @@ export function PracticeView({
   const answeredCount = session.questionIds.filter((id) => session.selections[id]?.length).length
   const flaggedIndexes = session.questionIds.map((id, index) => (flags[id] ? index : -1)).filter((index) => index >= 0)
   const unansweredIndexes = session.questionIds.map((id, index) => (session.selections[id]?.length ? -1 : index)).filter((index) => index >= 0)
+  const selectedForExplain = useMemo(
+    () => isCommute
+      ? (priorSelection.length ? priorSelection : progress[questionId]?.lastSelected ?? [])
+      : selected,
+    [isCommute, priorSelection, progress, questionId, selected],
+  )
 
   useEffect(() => {
     setGuessed(false)
@@ -149,9 +160,13 @@ export function PracticeView({
     setExplainError(null)
     setReading(null)
     setReadingError(null)
+    setSpeaking(false)
+    window.speechSynthesis?.cancel()
     // Capture the previous answer once per question, before this session overwrites it.
     setPriorSelection(progressRef.current[questionId]?.lastSelected ?? [])
   }, [questionId])
+
+  useEffect(() => () => window.speechSynthesis?.cancel(), [])
 
   useEffect(() => {
     const timer = window.setInterval(() => setNow(Date.now()), 1000)
@@ -175,22 +190,22 @@ export function PracticeView({
     setExplaining(true)
     setExplainError(null)
     try {
-      setExplanation(await onExplain(question, selected, style))
+      setExplanation(await onExplain(question, selectedForExplain, style))
     } catch (reason) {
       setExplainError(reason instanceof Error ? reason.message : 'Explanation is unavailable.')
     } finally {
       setExplaining(false)
     }
-  }, [onExplain, question, selected])
+  }, [onExplain, question, selectedForExplain])
 
   useEffect(() => {
     if (!question || !answer || answer.correct || isFlashcard || (isMock && !showMockFeedback)) return
-    const selectedKey = [...selected].sort((a, b) => a - b).join(',')
+    const selectedKey = [...selectedForExplain].sort((a, b) => a - b).join(',')
     const autoKey = `${question.id}::${selectedKey}`
     if (!selectedKey || autoExplainRef.current === autoKey) return
     autoExplainRef.current = autoKey
     void requestExplanation()
-  }, [answer, isFlashcard, isMock, question, requestExplanation, selected, showMockFeedback])
+  }, [answer, isFlashcard, isMock, question, requestExplanation, selectedForExplain, showMockFeedback])
 
   useEffect(() => {
     if (!question || !isFlashcard || !revealed || explanation || explaining) return
@@ -200,6 +215,16 @@ export function PracticeView({
     autoExplainRef.current = autoKey
     void requestExplanation('cue')
   }, [explaining, explanation, isFlashcard, question, requestExplanation, revealed])
+
+  useEffect(() => {
+    if (!question || !isCommute || explanation || explaining) return
+    if (!window.localStorage.getItem('level-b-ai-access-token')) return
+    const selectedKey = [...selectedForExplain].sort((a, b) => a - b).join(',')
+    const autoKey = `${question.id}::commute::${selectedKey}`
+    if (autoExplainRef.current === autoKey) return
+    autoExplainRef.current = autoKey
+    void requestExplanation('commute')
+  }, [explaining, explanation, isCommute, question, requestExplanation, selectedForExplain])
 
   const progressPercent = Math.round(((session.currentIndex + 1) / session.questionIds.length) * 100)
   const correctChoices = useMemo(() => new Set(question?.answers ?? []), [question])
@@ -235,6 +260,28 @@ export function PracticeView({
   const next = () => {
     if (isLast) onComplete()
     else onNavigate(session.currentIndex + 1)
+  }
+
+  const speakNote = () => {
+    if (!explanation || !('speechSynthesis' in window)) return
+    window.speechSynthesis.cancel()
+    const plain = explanation
+      .replace(/\*\*/g, '')
+      .replace(/^[-*•]\s+/gm, '')
+      .replace(/\s+/g, ' ')
+      .trim()
+    const utterance = new SpeechSynthesisUtterance(plain)
+    utterance.lang = 'en-US'
+    utterance.rate = 0.92
+    utterance.onend = () => setSpeaking(false)
+    utterance.onerror = () => setSpeaking(false)
+    setSpeaking(true)
+    window.speechSynthesis.speak(utterance)
+  }
+
+  const stopSpeaking = () => {
+    window.speechSynthesis?.cancel()
+    setSpeaking(false)
   }
 
   // Reading help is translation-only; it never sees or reveals the answer.
@@ -292,7 +339,25 @@ export function PracticeView({
           <p className="figure-note"><ImageIcon size={15} /> This question’s options are images — read them on the figure above; pick the matching number below.</p>
         ) : null}
 
-        {!isFlashcard ? (
+        {isCommute ? (
+          <section className="commute-card">
+            <p className="answer-label">Cached voice note</p>
+            <div className="answer-summary">
+              <span><strong>Your last choice:</strong> {priorSelection.length ? formatDisplayChoices(priorSelection) : '—'}</span>
+              <span className="official"><strong>Correct:</strong> {formatDisplayChoices(question.answers)}</span>
+            </div>
+            {explanation ? <div className="ai-explanation commute-note">{renderExplanation(explanation)}</div> : null}
+            {explaining ? <p className="commute-loading"><LoaderCircle className="spin" size={16} /> Generating and caching this memory cue…</p> : null}
+            {explainError ? <p className="inline-error">{explainError}</p> : null}
+            <div className="commute-actions">
+              <button className="primary-action" disabled={!explanation || speaking} onClick={speakNote} type="button"><Volume2 size={18} /> Play note</button>
+              <button className="secondary-action" disabled={!speaking} onClick={stopSpeaking} type="button"><Square size={16} /> Stop</button>
+              <button className="secondary-action" disabled={explaining} onClick={() => void requestExplanation('commute')} type="button"><BrainCircuit size={18} /> Regenerate</button>
+            </div>
+          </section>
+        ) : null}
+
+        {!isFlashcard && !isCommute ? (
           <div className="reading-help">
             <button className="reading-button" disabled={readingLoading} onClick={() => void requestReading()} type="button">
               <Languages size={17} /> {readingLoading ? '解析中…' : '看懂題目 · understand the question'}
@@ -326,7 +391,7 @@ export function PracticeView({
               </>
             )}
           </div>
-        ) : (
+        ) : !isCommute ? (
           <div className={`option-list ${question.kind}`}>
             {question.kind === 'multiple' ? (
               <p className="kind-hint"><CheckSquare size={15} /> 複選題 · select all correct answers</p>
@@ -350,16 +415,16 @@ export function PracticeView({
               )
             })}
           </div>
-        )}
+        ) : null}
 
-        {!isFlashcard && !answer && !isMock ? (
+        {!isFlashcard && !isCommute && !answer && !isMock ? (
           <label className="guess-toggle">
             <input checked={guessed} onChange={(event) => setGuessed(event.target.checked)} type="checkbox" />
             <span><Flag size={16} /> I am guessing; keep this in review even if correct.</span>
           </label>
         ) : null}
 
-        {!isFlashcard && answer && (!isMock || showMockFeedback) ? (
+        {!isFlashcard && !isCommute && answer && (!isMock || showMockFeedback) ? (
           <section className={answer.correct ? 'feedback correct' : 'feedback wrong'}>
             <div>
               {answer.correct ? <Check size={20} /> : <X size={20} />}
@@ -396,7 +461,7 @@ export function PracticeView({
 
       <footer className="practice-actions">
         <button className="secondary-action" disabled={session.currentIndex === 0} onClick={() => onNavigate(session.currentIndex - 1)} type="button"><ChevronLeft size={19} /> Previous</button>
-        {question.kind === 'multiple' && !answer && !isFlashcard ? (
+        {question.kind === 'multiple' && !answer && !isFlashcard && !isCommute ? (
           <span className="select-count">{selected.length} selected</span>
         ) : null}
         {isMock ? (
@@ -409,6 +474,8 @@ export function PracticeView({
             : isLast
               ? <button className="primary-action" onClick={() => setReviewOpen(true)} type="button">Review &amp; submit <ChevronRight size={19} /></button>
               : <button className="primary-action" onClick={() => onNavigate(session.currentIndex + 1)} type="button">Next <ChevronRight size={19} /></button>
+        ) : isCommute ? (
+          <button className="primary-action" onClick={next} type="button">{isLast ? 'Finish notes' : 'Next note'} <ChevronRight size={19} /></button>
         ) : !isFlashcard && !answer ? (
           <button className="primary-action" disabled={!selected.length} onClick={() => void submit()} type="button">Check answer <ChevronRight size={19} /></button>
         ) : !isFlashcard ? (

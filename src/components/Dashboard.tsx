@@ -150,7 +150,7 @@ export function Dashboard(props: Props) {
             <span className="mode-meta">20</span>
           </button>
           <button type="button" onClick={props.onHighYield}>
-            <span className="mode-icon gold"><Target size={21} /></span>
+            <span className="mode-icon slate"><Target size={21} /></span>
             <span><strong>Mini mock 20</strong><small>Official mock mix · normal sampling</small></span>
             <span className="mode-meta">20</span>
           </button>
@@ -165,7 +165,7 @@ export function Dashboard(props: Props) {
             <ArrowRight size={18} />
           </button>
           <button type="button" onClick={props.onFlashcards}>
-            <span className="mode-icon gold"><Layers3 size={21} /></span>
+            <span className="mode-icon accent"><Layers3 size={21} /></span>
             <span><strong>Recall cards</strong><small>Reveal, then grade what you knew</small></span>
             <ArrowRight size={18} />
           </button>

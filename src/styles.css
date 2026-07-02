@@ -94,7 +94,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .mode-icon.blue { background: #dfeaf4; color: var(--blue); }
 .mode-icon.gold { background: #f3e8cf; color: var(--gold); }
 .mode-icon.slate { background: #e5e9e6; color: #526058; }
-.mode-icon.violet { background: #e8e4f0; color: #665983; }
+.mode-icon.violet { background: #e0d7ff; color: #5a33b5; }
 .mode-icon.dark { background: #26322a; color: #fff; }
 .mode-meta { min-width: 28px; color: var(--muted); font-size: .82rem; text-align: right; }
 
@@ -343,7 +343,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 [data-theme="dark"] .mode-icon.blue { background: #22323f; color: var(--blue); }
 [data-theme="dark"] .mode-icon.gold { background: #39301a; color: var(--gold); }
 [data-theme="dark"] .mode-icon.slate { background: #2a302d; color: #b5beb8; }
-[data-theme="dark"] .mode-icon.violet { background: #2e2938; color: #c3b5db; }
+[data-theme="dark"] .mode-icon.violet { background: #302653; color: #c9b8ff; }
 [data-theme="dark"] .ai-settings input,
 [data-theme="dark"] .cloud-sync input { background: var(--surface); color: var(--ink); border-color: var(--line); }
 [data-theme="dark"] .history-badge { background: #2a2622; color: var(--coral); }

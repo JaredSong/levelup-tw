@@ -210,6 +210,10 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 
 .flashcard-answer { padding: 20px; border: 1px solid var(--line); border-radius: 7px; background: white; }
 .flashcard-cue { margin-top: 12px; }
+.commute-card { padding: 18px; border: 1px solid var(--line); border-radius: 7px; background: white; }
+.commute-note { border-top: 0; padding-top: 4px; font-size: .92rem; line-height: 1.65; }
+.commute-loading { display: flex; align-items: center; gap: 8px; margin: 12px 0 0; color: var(--muted); font-size: .82rem; font-weight: 700; }
+.commute-actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 16px; }
 .answer-label { margin: 0 0 10px; color: var(--muted); font-size: .72rem; text-transform: uppercase; font-weight: 800; }
 .revealed-options { display: grid; gap: 8px; }
 .revealed-options span { padding: 10px; border-left: 3px solid var(--accent); background: var(--accent-pale); font-weight: 700; }
@@ -357,6 +361,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 [data-theme="dark"] .option-list > button:hover { border-color: #4a554d; }
 [data-theme="dark"] .feedback,
 [data-theme="dark"] .flashcard-answer,
+[data-theme="dark"] .commute-card,
 [data-theme="dark"] .source-figure { background: var(--surface); }
 [data-theme="dark"] img.app-shot, [data-theme="dark"] .source-figure img { filter: none; }
 

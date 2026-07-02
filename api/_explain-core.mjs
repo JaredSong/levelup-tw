@@ -17,6 +17,7 @@ const STYLE = {
   metaphor: { words: '100-140 words', extra: 'Open with a vivid everyday analogy, then the rule and the correct answer. Skip the analogy for legal, numerical, or precise-definition items where it could mislead.' },
   deeper: { words: '180-250 words', extra: 'Also go through each option, explaining why the wrong ones are wrong, and add the underlying concept plus at most two closely related facts.' },
   cue: { words: '35-55 words', extra: 'Write exactly two short bullets labelled "Answer:" and "Mind note:". The Mind note must be a compact memory cue, contrast, or trap hook for recall-card study.' },
+  commute: { words: '70-105 words', extra: 'Write like a calm voice note for commuting. Use no bullets. Include: the question gist, the learner trap, the correct answer, and one vivid memory cue or metaphor. Keep option numbers clear.' },
 }
 
 // Reading mode is translation-only and never sees or reveals the answer.
@@ -49,6 +50,20 @@ Question: ${question.prompt}
 Choices:
 ${choices}
 Official answer: ${question.answers.join(', ')}`
+  }
+
+  if (style === 'commute') {
+    return `${BASE}
+Treat the supplied official answer as authoritative; never invent or override it.
+Create one spoken study note for a wrong-answer playlist.
+Keep the whole answer to about ${STYLE.commute.words}. ${STYLE.commute.extra}
+Avoid Markdown bullets and avoid saying "as an AI". If the question has a figure, say to remember the visual cue without inventing details not present in the prompt.
+
+Question: ${question.prompt}
+Choices:
+${choices}
+Official answer: ${question.answers.join(', ')}
+Learner selected: ${selected.length ? selected.join(', ') : 'unknown'}`
   }
 
   const variant = STYLE[style] ?? STYLE.default
@@ -85,7 +100,7 @@ Learner selected: ${selected.length ? selected.join(', ') : 'none'}`
 }
 
 // Token caps sized to each style's word limit, so calls are short and cheap.
-const STYLE_TOKENS = { default: 180, simpler: 220, metaphor: 300, deeper: 540, reading: 240, cue: 160 }
+const STYLE_TOKENS = { default: 180, simpler: 220, metaphor: 300, deeper: 540, reading: 240, cue: 160, commute: 240 }
 function tokensFor(style) {
   return STYLE_TOKENS[style] ?? STYLE_TOKENS.default
 }

@@ -8,6 +8,7 @@ export type SessionMode =
   | 'highYield'
   | 'wrong'
   | 'flashcard'
+  | 'commute'
   | 'mock'
   | 'sprint'
   | 'item'

@@ -30,6 +30,11 @@ Keep it to about 60-100 words.`
 function buildPrompt(question, selected, style) {
   const choices = question.options.map((option, index) => `${index + 1}. ${option}`).join('\n')
   const numbering = 'Use the option numbers exactly as listed in Choices below. Do not refer to any other ordering.'
+  const formatRefs = (values) => values.length
+    ? values.map((value) => `${value}. ${question.options[value - 1] ?? '(missing option text)'}`).join('\n')
+    : 'none'
+  const officialRefs = formatRefs(question.answers)
+  const selectedRefs = formatRefs(selected)
 
   if (style === 'reading') {
     return `${BASE}
@@ -52,7 +57,8 @@ ${numbering}
 Question: ${question.prompt}
 Choices:
 ${choices}
-Official answer: ${question.answers.join(', ')}`
+Official answer:
+${officialRefs}`
   }
 
   if (style === 'commute') {
@@ -72,8 +78,10 @@ Tone: human, interesting, calm, like a cram-school podcast. No pinyin. Avoid Mar
 Question: ${question.prompt}
 Choices:
 ${choices}
-Official answer: ${question.answers.join(', ')}
-Learner selected: ${selected.length ? selected.join(', ') : 'unknown'}`
+Correct answer:
+${officialRefs}
+Learner selected:
+${selectedRefs}`
   }
 
   const variant = STYLE[style] ?? STYLE.default
@@ -106,8 +114,10 @@ Keep the whole answer to about ${variant.words}.${extraLine}
 Question: ${question.prompt}
 Choices:
 ${choices}
-Official answer: ${question.answers.join(', ')}
-Learner selected: ${selected.length ? selected.join(', ') : 'none'}`
+Correct answer:
+${officialRefs}
+Learner selected:
+${selectedRefs}`
 }
 
 // Token caps sized to each style's word limit, so calls are short and cheap.

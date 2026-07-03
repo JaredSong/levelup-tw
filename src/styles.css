@@ -214,6 +214,10 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .commute-note { border-top: 0; padding-top: 4px; font-size: .92rem; line-height: 1.65; }
 .commute-loading { display: flex; align-items: center; gap: 8px; margin: 12px 0 0; color: var(--muted); font-size: .82rem; font-weight: 700; }
 .commute-actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 16px; }
+.commute-reference { display: grid; gap: 7px; margin: 12px 0 14px; padding: 12px; border: 1px solid var(--line); border-radius: 7px; background: var(--paper); }
+.commute-reference .answer-label { margin-bottom: 2px; }
+.commute-reference span { color: var(--muted); font-size: .82rem; line-height: 1.45; }
+.commute-reference .correct-ref { color: var(--accent-dark); font-weight: 800; }
 .answer-label { margin: 0 0 10px; color: var(--muted); font-size: .72rem; text-transform: uppercase; font-weight: 800; }
 .revealed-options { display: grid; gap: 8px; }
 .revealed-options span { padding: 10px; border-left: 3px solid var(--accent); background: var(--accent-pale); font-weight: 700; }

@@ -17,7 +17,7 @@ const STYLE = {
   metaphor: { words: '100-140 words', extra: 'Open with a vivid everyday analogy, then the rule and the correct answer. Skip the analogy for legal, numerical, or precise-definition items where it could mislead.' },
   deeper: { words: '180-250 words', extra: 'Also go through each option, explaining why the wrong ones are wrong, and add the underlying concept plus at most two closely related facts.' },
   cue: { words: '35-55 words', extra: 'Write exactly two short bullets labelled "Answer:" and "Mind note:". The Mind note must be a compact memory cue, contrast, or trap hook for recall-card study.' },
-  commute: { words: '70-105 words', extra: 'Write like a calm voice note for commuting. Use no bullets. Include: the question gist, the learner trap, the correct answer, and one vivid memory cue or metaphor. Keep option numbers clear.' },
+  commute: { words: '90-130 words', extra: 'Write a two-person podcast-style study note in Traditional Chinese. The goal is memorising the official right answer for the Chinese exam.' },
 }
 
 // Reading mode is translation-only and never sees or reveals the answer.
@@ -55,9 +55,15 @@ Official answer: ${question.answers.join(', ')}`
   if (style === 'commute') {
     return `${BASE}
 Treat the supplied official answer as authoritative; never invent or override it.
-Create one spoken study note for a wrong-answer playlist.
+Create one spoken study note for a wrong-answer commute playlist.
 Keep the whole answer to about ${STYLE.commute.words}. ${STYLE.commute.extra}
-Avoid Markdown bullets and avoid saying "as an AI". If the question has a figure, say to remember the visual cue without inventing details not present in the prompt.
+Use this exact dialogue shape, with each line starting with the speaker label:
+主持人：用繁體中文自然念出題目重點，不要念完整選項。
+老師：用繁體中文解釋為什麼官方正解是對的，重點放在「正解」和考試記憶點，不要逐一分析所有錯選項。
+老師：給一個短短的 English metaphor or bilingual metaphor, then immediately connect it back in Traditional Chinese.
+主持人：最後用繁體中文說「答案記住：第 X 項，……」，如果是複選題就說全部正確項。
+
+Tone: human, interesting, calm, like a cram-school podcast. No pinyin. Avoid Markdown bullets/headings/tables. Do not speak the whole choices; choices are only reference text in the app. If the question has a figure, say to remember the visual cue without inventing details not present in the prompt.
 
 Question: ${question.prompt}
 Choices:

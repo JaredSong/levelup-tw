@@ -60,6 +60,10 @@ function renderExplanation(text: string) {
   })
 }
 
+function stripSpeakerLabel(text: string) {
+  return text.replace(/^(主持人|老師|Teacher|Host)\s*[:：]\s*/i, '')
+}
+
 function formatClock(totalSeconds: number) {
   const minutes = Math.max(0, Math.floor(totalSeconds / 60))
   const seconds = Math.max(0, totalSeconds % 60)
@@ -233,22 +237,40 @@ export function PracticeView({
   const speakNote = useCallback((continuePlaylist = false) => {
     if (!explanation || !('speechSynthesis' in window)) return
     window.speechSynthesis.cancel()
-    const plain = explanation
+    const plainLines = explanation
       .replace(/\*\*/g, '')
-      .replace(/^[-*•]\s+/gm, '')
-      .replace(/\s+/g, ' ')
-      .trim()
-    const utterance = new SpeechSynthesisUtterance(plain)
-    utterance.lang = 'en-US'
-    utterance.rate = 0.92
-    utterance.onend = () => {
+      .split('\n')
+      .map((line) => stripSpeakerLabel(line.replace(/^[-*•]\s+/, '').trim()))
+      .filter(Boolean)
+    const segments = plainLines.length ? plainLines : [stripSpeakerLabel(explanation.replace(/\*\*/g, '').replace(/\s+/g, ' ').trim())]
+    const voices = window.speechSynthesis.getVoices()
+    const zhVoices = voices.filter((voice) => voice.lang.toLowerCase().startsWith('zh'))
+    const finish = () => {
       setSpeaking(false)
       if (continuePlaylist && !isLast) onNavigate(session.currentIndex + 1)
       else setPlaylist(false)
     }
-    utterance.onerror = () => setSpeaking(false)
+    let index = 0
+    const speakNext = () => {
+      const segment = segments[index]
+      if (!segment) {
+        finish()
+        return
+      }
+      const utterance = new SpeechSynthesisUtterance(segment)
+      utterance.lang = 'zh-TW'
+      utterance.rate = 0.94
+      utterance.pitch = index % 2 === 0 ? 1 : 0.92
+      utterance.voice = zhVoices[index % Math.max(1, zhVoices.length)] ?? null
+      utterance.onend = () => {
+        index += 1
+        speakNext()
+      }
+      utterance.onerror = finish
+      window.speechSynthesis.speak(utterance)
+    }
     setSpeaking(true)
-    window.speechSynthesis.speak(utterance)
+    speakNext()
   }, [explanation, isLast, onNavigate, session.currentIndex])
 
   const stopSpeaking = () => {
@@ -356,6 +378,14 @@ export function PracticeView({
             <div className="answer-summary">
               <span><strong>Your last choice:</strong> {priorSelection.length ? formatDisplayChoices(priorSelection) : '—'}</span>
               <span className="official"><strong>Correct:</strong> {formatDisplayChoices(question.answers)}</span>
+            </div>
+            <div className="commute-reference">
+              <p className="answer-label">Choices reference</p>
+              {optionOrder.map((value, index) => (
+                <span className={correctChoices.has(value) ? 'correct-ref' : ''} key={value}>
+                  {index + 1}. {question.options[value - 1]}
+                </span>
+              ))}
             </div>
             {explanation ? <div className="ai-explanation commute-note">{renderExplanation(explanation)}</div> : null}
             {explaining ? <p className="commute-loading"><LoaderCircle className="spin" size={16} /> Generating and caching this memory cue…</p> : null}

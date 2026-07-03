@@ -64,6 +64,34 @@ function stripSpeakerLabel(text: string) {
   return text.replace(/^(主持人|老師|Teacher|Host)\s*[:：]\s*/i, '')
 }
 
+function speakerForLine(text: string): 'host' | 'teacher' {
+  return /^(老師|Teacher)\s*[:：]/i.test(text.trim()) ? 'teacher' : 'host'
+}
+
+function chooseVoice(voices: SpeechSynthesisVoice[], speaker: 'host' | 'teacher') {
+  const zhVoices = voices.filter((voice) => voice.lang.toLowerCase().startsWith('zh'))
+  const zhTwVoices = zhVoices.filter((voice) => voice.lang.toLowerCase() === 'zh-tw')
+  const pool = zhTwVoices.length ? zhTwVoices : zhVoices
+  if (!pool.length) return null
+
+  const maleHints = ['male', '男', 'li-mu', 'limu', 'yunxi', 'yunjian', 'yunye']
+  const femaleHints = ['female', '女', 'mei', 'ting', 'yating', 'sinji', 'hsiao', 'xiaoxiao']
+  const matches = (voice: SpeechSynthesisVoice, hints: string[]) => {
+    const label = `${voice.name} ${voice.voiceURI}`.toLowerCase()
+    return hints.some((hint) => label.includes(hint.toLowerCase()))
+  }
+
+  if (speaker === 'teacher') {
+    return pool.find((voice) => matches(voice, maleHints))
+      ?? pool.find((voice) => !matches(voice, femaleHints))
+      ?? pool[Math.min(1, pool.length - 1)]
+  }
+
+  return pool.find((voice) => matches(voice, femaleHints))
+    ?? pool.find((voice) => !matches(voice, maleHints))
+    ?? pool[0]
+}
+
 function formatClock(totalSeconds: number) {
   const minutes = Math.max(0, Math.floor(totalSeconds / 60))
   const seconds = Math.max(0, totalSeconds % 60)
@@ -82,10 +110,10 @@ function buildBasicCommuteNote(question: Question, optionOrder: number[]) {
   const kind = question.kind === 'multiple' ? '複選題' : '單選題'
 
   return [
-    `主持人：這題是${kind}，題目重點是：${question.prompt}`,
-    `老師：先記官方正解。正確答案是${correctChoices}。考試時不要背你上次選的位置，要背「正確敘述本身」。`,
-    `老師：English memory cue: treat the right answer like the label on a drawer. You find the label first, then match the number.`,
-    `主持人：答案記住：${answerNumbers}。`,
+    `主持人：來，這題是${kind}。題目重點是：${question.prompt}`,
+    `老師：先抓官方正解。這題要記的是：${correctChoices}。你考試時，不要只背位置，要背正確敘述本身。`,
+    `老師：English memory cue: treat the right answer like the label on a drawer. Find the label first, then match the number.`,
+    `主持人：好，答案記住：${answerNumbers}。下一題。`,
   ].join('\n')
 }
 
@@ -283,14 +311,19 @@ export function PracticeView({
     }
     window.speechSynthesis.cancel()
     setExplainError(null)
-    const plainLines = note
+    const segments = note
       .replace(/\*\*/g, '')
       .split('\n')
-      .map((line) => stripSpeakerLabel(line.replace(/^[-*•]\s+/, '').trim()))
+      .map((line) => line.replace(/^[-*•]\s+/, '').trim())
       .filter(Boolean)
-    const segments = plainLines.length ? plainLines : [stripSpeakerLabel(note.replace(/\*\*/g, '').replace(/\s+/g, ' ').trim())]
+      .map((line) => ({
+        speaker: speakerForLine(line),
+        text: stripSpeakerLabel(line),
+      }))
+    const spokenSegments = segments.length
+      ? segments
+      : [{ speaker: 'host' as const, text: stripSpeakerLabel(note.replace(/\*\*/g, '').replace(/\s+/g, ' ').trim()) }]
     const voices = window.speechSynthesis.getVoices()
-    const zhVoices = voices.filter((voice) => voice.lang.toLowerCase().startsWith('zh'))
     const finish = () => {
       setSpeaking(false)
       if (continuePlaylist && !isLast) onNavigate(session.currentIndex + 1)
@@ -298,19 +331,20 @@ export function PracticeView({
     }
     let index = 0
     const speakNext = () => {
-      const segment = segments[index]
+      const segment = spokenSegments[index]
       if (!segment) {
         finish()
         return
       }
-      const utterance = new SpeechSynthesisUtterance(segment)
+      const utterance = new SpeechSynthesisUtterance(segment.text)
       utterance.lang = 'zh-TW'
-      utterance.rate = 0.94
-      utterance.pitch = index % 2 === 0 ? 1 : 0.92
-      utterance.voice = zhVoices[index % Math.max(1, zhVoices.length)] ?? null
+      utterance.rate = segment.speaker === 'teacher' ? 0.86 : 0.93
+      utterance.pitch = segment.speaker === 'teacher' ? 0.72 : 1.04
+      utterance.volume = 1
+      utterance.voice = chooseVoice(voices, segment.speaker)
       utterance.onend = () => {
         index += 1
-        speakNext()
+        window.setTimeout(speakNext, segment.speaker === 'teacher' ? 520 : 360)
       }
       utterance.onerror = finish
       window.speechSynthesis.speak(utterance)

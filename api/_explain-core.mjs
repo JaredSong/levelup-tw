@@ -29,11 +29,13 @@ Keep it to about 60-100 words.`
 
 function buildPrompt(question, selected, style) {
   const choices = question.options.map((option, index) => `${index + 1}. ${option}`).join('\n')
+  const numbering = 'Use the option numbers exactly as listed in Choices below. Do not refer to any other ordering.'
 
   if (style === 'reading') {
     return `${BASE}
 
 ${READING}
+${numbering}
 
 Question: ${question.prompt}
 Choices:
@@ -45,6 +47,7 @@ ${choices}`
 Treat the supplied official answer as authoritative; never invent or override it.
 Create a recall-card back side, not a full explanation.
 Keep the whole answer to about ${STYLE.cue.words}. ${STYLE.cue.extra}
+${numbering}
 
 Question: ${question.prompt}
 Choices:
@@ -57,6 +60,7 @@ Official answer: ${question.answers.join(', ')}`
 Treat the supplied official answer as authoritative; never invent or override it.
 Create one spoken study note for a wrong-answer commute playlist.
 Keep the whole answer to about ${STYLE.commute.words}. ${STYLE.commute.extra}
+${numbering}
 Use this exact dialogue shape, with each line starting with the speaker label:
 主持人：用繁體中文自然念出題目重點，不要念完整選項。
 老師：用繁體中文解釋為什麼官方正解是對的，重點放在「正解」和考試記憶點，不要逐一分析所有錯選項。
@@ -94,6 +98,7 @@ Do not analyse unselected options unless they are needed to explain the learner'
 
   return `${BASE}
 Treat the supplied official answer as authoritative; never invent or override it.
+${numbering}
 
 ${cover}
 Keep the whole answer to about ${variant.words}.${extraLine}

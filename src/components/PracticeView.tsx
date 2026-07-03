@@ -221,6 +221,19 @@ export function PracticeView({
       return displayIndex >= 0 ? displayIndex + 1 : value
     })
     .join('、'), [optionOrder])
+  const toDisplayValues = useCallback((values: number[]) => values
+    .map((value) => {
+      const displayIndex = optionOrder.indexOf(value)
+      return displayIndex >= 0 ? displayIndex + 1 : value
+    }), [optionOrder])
+  const questionForScreenOrder = useMemo(() => {
+    if (!question || !optionOrder.length) return question
+    return {
+      ...question,
+      options: optionOrder.map((value) => question.options[value - 1]),
+      answers: toDisplayValues(question.answers),
+    }
+  }, [optionOrder, question, toDisplayValues])
   const aiCommuteNote = explanation?.trim() ?? ''
   const basicCommuteNote = useMemo(
     () => question && isCommute ? buildBasicCommuteNote(question) : '',
@@ -262,16 +275,18 @@ export function PracticeView({
 
   const requestExplanation = useCallback(async (style = 'default') => {
     if (!question) return
+    const explainQuestion = isCommute ? question : (questionForScreenOrder ?? question)
+    const explainSelected = isCommute || style === 'reading' ? selectedForExplain : toDisplayValues(selectedForExplain)
     setExplaining(true)
     setExplainError(null)
     try {
-      setExplanation(await onExplain(question, selectedForExplain, style))
+      setExplanation(await onExplain(explainQuestion, explainSelected, style))
     } catch (reason) {
       setExplainError(reason instanceof Error ? reason.message : 'Explanation is unavailable.')
     } finally {
       setExplaining(false)
     }
-  }, [onExplain, question, selectedForExplain])
+  }, [isCommute, onExplain, question, questionForScreenOrder, selectedForExplain, toDisplayValues])
 
   useEffect(() => {
     if (!question || !answer || answer.correct || isFlashcard || (isMock && !showMockFeedback)) return
@@ -401,7 +416,7 @@ export function PracticeView({
     setReadingLoading(true)
     setReadingError(null)
     try {
-      setReading(await onExplain(question, [], 'reading'))
+      setReading(await onExplain(isCommute ? question : (questionForScreenOrder ?? question), [], 'reading'))
     } catch (reason) {
       setReadingError(reason instanceof Error ? reason.message : 'Reading help is unavailable.')
     } finally {

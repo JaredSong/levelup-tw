@@ -28,7 +28,7 @@ const SESSION_KEY = 'level-b-active-session'
 const SEQUENTIAL_KEY = 'level-b-sequential-index'
 const PERSONAL_START_INDEX = 144
 const MOCK_DURATION_MS = 100 * 60_000
-const EXPLAIN_VERSION = 'v11'
+const EXPLAIN_VERSION = 'v12'
 
 function loadSession(): StudySession | null {
   try {
@@ -90,7 +90,8 @@ function createSession(mode: SessionMode, questions: Question[], title?: string,
 async function explainQuestion(question: Question, selected: number[], style = 'default') {
   // Bump EXPLAIN_VERSION whenever the prompt changes so old cached answers regenerate.
   const selectedKey = style === 'reading' ? 'reading' : [...selected].sort((a, b) => a - b).join(',')
-  const cacheKey = `${question.id}::${style}::${selectedKey}::${EXPLAIN_VERSION}`
+  const optionKey = question.options.join('¦')
+  const cacheKey = `${question.id}::${style}::${selectedKey}::${optionKey}::${EXPLAIN_VERSION}`
   const cached = await db.explanations.get(cacheKey)
   if (cached?.content.trim()) return cached.content
   if (cached) await db.explanations.delete(cacheKey)

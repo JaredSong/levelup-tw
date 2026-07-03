@@ -17,7 +17,7 @@ const STYLE = {
   metaphor: { words: '100-140 words', extra: 'Open with a vivid everyday analogy, then the rule and the correct answer. Skip the analogy for legal, numerical, or precise-definition items where it could mislead.' },
   deeper: { words: '180-250 words', extra: 'Also go through each option, explaining why the wrong ones are wrong, and add the underlying concept plus at most two closely related facts.' },
   cue: { words: '35-55 words', extra: 'Write exactly two short bullets labelled "Answer:" and "Mind note:". The Mind note must be a compact memory cue, contrast, or trap hook for recall-card study.' },
-  commute: { words: '100-150 words', extra: 'Write a two-person podcast-style study note in Traditional Chinese. The goal is understanding why the correct answer is true, then memorising it for the Chinese exam.' },
+  commute: { words: '90-130 words', extra: '' },
 }
 
 // Reading mode is translation-only and never sees or reveals the answer.
@@ -64,16 +64,15 @@ ${officialRefs}`
   if (style === 'commute') {
     return `${BASE}
 Treat the supplied official answer as authoritative; never invent or override it.
-Create one spoken study note for a wrong-answer commute playlist.
-Keep the whole answer to about ${STYLE.commute.words}. ${STYLE.commute.extra}
+Write ONE short spoken study note that will be read aloud in ENGLISH for a learner reviewing a wrong answer on their commute.
 ${numbering}
-Use this exact dialogue shape, with each line starting with the speaker label:
-主持人：用繁體中文自然念出題目重點，不要念完整選項。
-老師：用繁體中文說出正確選項的完整意思，然後重點解釋「為什麼這些選項是對的」。不要說「官方第 X 項」，只說「第 X 項」。
-老師：補一個很短的中文記憶點或考試陷阱。不要用英文 memory cue，除非題目本身是英文技術名詞。
-主持人：最後用繁體中文說「答案記住：第 X 項、第 Y 項……」，如果是複選題就說全部正確項。
-
-Tone: human, interesting, calm, like a cram-school podcast. No pinyin. Avoid Markdown bullets/headings/tables. Do not speak every wrong choice. If the question has a figure, say to remember the visual cue without inventing details not present in the prompt.
+Write in clear, natural spoken English — flowing sentences, no bullets, headings, tables, or speaker labels, so it sounds good read aloud. Keep it to about ${STYLE.commute.words}.
+Say, conversationally:
+- what the question is really asking,
+- which option is correct and the simple reason it is right,
+- why the learner's choice is wrong,
+- a short memory hook to lock it in.
+When you name a Traditional Chinese term, say it once and immediately give its English meaning. Do NOT use pinyin. Refer to options by their number ("option 2"). Do not read out every choice. If there is a figure, tell the learner what visual cue to remember without inventing details.
 
 Question: ${question.prompt}
 Choices:

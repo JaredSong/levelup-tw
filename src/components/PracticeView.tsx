@@ -68,37 +68,13 @@ function speakerForLine(text: string): 'host' | 'teacher' {
   return /^(老師|Teacher)\s*[:：]/i.test(text.trim()) ? 'teacher' : 'host'
 }
 
-function chooseVoicePair(voices: SpeechSynthesisVoice[]) {
-  const zhVoices = voices.filter((voice) => voice.lang.toLowerCase().startsWith('zh'))
-  if (!zhVoices.length) return { host: null, teacher: null }
-
-  const maleHints = ['male', '男', 'li-mu', 'limu', 'yunxi', 'yunjian', 'yunye']
-  const femaleHints = ['female', '女', 'mei', 'ting', 'yating', 'sinji', 'hsiao', 'xiaoxiao']
-  const matches = (voice: SpeechSynthesisVoice, hints: string[]) => {
-    const label = `${voice.name} ${voice.voiceURI}`.toLowerCase()
-    return hints.some((hint) => label.includes(hint.toLowerCase()))
-  }
-  const langRank = (voice: SpeechSynthesisVoice) => {
-    const lang = voice.lang.toLowerCase()
-    if (lang === 'zh-tw') return 0
-    if (lang === 'zh-hk') return 1
-    if (lang === 'zh-cn') return 2
-    return 3
-  }
-  const sorted = [...zhVoices].sort((left, right) => langRank(left) - langRank(right))
-  const isSameVoice = (left: SpeechSynthesisVoice | null, right: SpeechSynthesisVoice | null) => (
-    !!left && !!right && left.name === right.name && left.lang === right.lang
-  )
-
-  const host = sorted.find((voice) => matches(voice, femaleHints))
-    ?? sorted.find((voice) => voice.lang.toLowerCase() === 'zh-tw')
-    ?? sorted[0]
-  const teacher = sorted.find((voice) => matches(voice, maleHints) && !isSameVoice(voice, host))
-    ?? sorted.find((voice) => !matches(voice, femaleHints) && !isSameVoice(voice, host))
-    ?? sorted.find((voice) => !isSameVoice(voice, host))
-    ?? host
-
-  return { host, teacher }
+// Commute notes are English, so read them with a natural English voice.
+function chooseEnglishVoice(voices: SpeechSynthesisVoice[]): SpeechSynthesisVoice | null {
+  const en = voices.filter((voice) => voice.lang.toLowerCase().startsWith('en'))
+  if (!en.length) return null
+  const preferred = ['samantha', 'aria', 'jenny', 'google us english', 'natural', 'siri']
+  const byName = en.find((voice) => preferred.some((hint) => voice.name.toLowerCase().includes(hint)))
+  return byName ?? en.find((voice) => voice.lang.toLowerCase() === 'en-us') ?? en[0]
 }
 
 function formatClock(totalSeconds: number) {
@@ -109,16 +85,14 @@ function formatClock(totalSeconds: number) {
 
 function buildBasicCommuteNote(question: Question) {
   const correctChoices = question.answers
-    .map((value) => `第 ${value} 項，${question.options[value - 1]}`)
-    .join('；')
-  const answerNumbers = question.answers.map((value) => `第 ${value} 項`).join('、')
-  const kind = question.kind === 'multiple' ? '複選題' : '單選題'
+    .map((value) => `option ${value} (${question.options[value - 1]})`)
+    .join(', ')
+  const kind = question.kind === 'multiple' ? 'a multiple-answer question' : 'a single-answer question'
 
   return [
-    `主持人：來，這題是${kind}。題目重點是：${question.prompt}`,
-    `老師：正解是：${correctChoices}。`,
-    `老師：這是基本版語音，先幫你把正解和關鍵敘述唸熟。要聽原因和記憶點，按「Upgrade with AI」。`,
-    `主持人：好，答案記住：${answerNumbers}。下一題。`,
+    `Quick review. This is ${kind}. The question asks: ${question.prompt}`,
+    `The correct answer is ${correctChoices}.`,
+    `This is the basic voice note — it reads the question and the official answer. For the reason and a memory hook, tap "Upgrade with AI".`,
   ].join('\n')
 }
 
@@ -357,10 +331,7 @@ export function PracticeView({
       ? segments
       : [{ speaker: 'host' as const, text: stripSpeakerLabel(note.replace(/\*\*/g, '').replace(/\s+/g, ' ').trim()) }]
     const voices = window.speechSynthesis.getVoices()
-    const voicePair = chooseVoicePair(voices)
-    const sameVoice = voicePair.host && voicePair.teacher
-      ? voicePair.host.name === voicePair.teacher.name && voicePair.host.lang === voicePair.teacher.lang
-      : true
+    const enVoice = chooseEnglishVoice(voices)
     const finish = () => {
       setSpeaking(false)
       if (continuePlaylist && !isLast) onNavigate(session.currentIndex + 1)
@@ -374,14 +345,14 @@ export function PracticeView({
         return
       }
       const utterance = new SpeechSynthesisUtterance(segment.text)
-      utterance.lang = 'zh-TW'
-      utterance.rate = segment.speaker === 'teacher' ? (sameVoice ? 0.78 : 0.84) : 0.96
-      utterance.pitch = segment.speaker === 'teacher' ? (sameVoice ? 0.55 : 0.72) : 1.08
+      utterance.lang = 'en-US'
+      utterance.rate = 0.98
+      utterance.pitch = 1
       utterance.volume = 1
-      utterance.voice = segment.speaker === 'teacher' ? voicePair.teacher : voicePair.host
+      if (enVoice) utterance.voice = enVoice
       utterance.onend = () => {
         index += 1
-        window.setTimeout(speakNext, segment.speaker === 'teacher' ? 520 : 360)
+        window.setTimeout(speakNext, 320)
       }
       utterance.onerror = finish
       window.speechSynthesis.speak(utterance)

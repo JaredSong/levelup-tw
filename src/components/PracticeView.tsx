@@ -68,11 +68,9 @@ function speakerForLine(text: string): 'host' | 'teacher' {
   return /^(老師|Teacher)\s*[:：]/i.test(text.trim()) ? 'teacher' : 'host'
 }
 
-function chooseVoice(voices: SpeechSynthesisVoice[], speaker: 'host' | 'teacher') {
+function chooseVoicePair(voices: SpeechSynthesisVoice[]) {
   const zhVoices = voices.filter((voice) => voice.lang.toLowerCase().startsWith('zh'))
-  const zhTwVoices = zhVoices.filter((voice) => voice.lang.toLowerCase() === 'zh-tw')
-  const pool = zhTwVoices.length ? zhTwVoices : zhVoices
-  if (!pool.length) return null
+  if (!zhVoices.length) return { host: null, teacher: null }
 
   const maleHints = ['male', '男', 'li-mu', 'limu', 'yunxi', 'yunjian', 'yunye']
   const femaleHints = ['female', '女', 'mei', 'ting', 'yating', 'sinji', 'hsiao', 'xiaoxiao']
@@ -80,16 +78,27 @@ function chooseVoice(voices: SpeechSynthesisVoice[], speaker: 'host' | 'teacher'
     const label = `${voice.name} ${voice.voiceURI}`.toLowerCase()
     return hints.some((hint) => label.includes(hint.toLowerCase()))
   }
-
-  if (speaker === 'teacher') {
-    return pool.find((voice) => matches(voice, maleHints))
-      ?? pool.find((voice) => !matches(voice, femaleHints))
-      ?? pool[Math.min(1, pool.length - 1)]
+  const langRank = (voice: SpeechSynthesisVoice) => {
+    const lang = voice.lang.toLowerCase()
+    if (lang === 'zh-tw') return 0
+    if (lang === 'zh-hk') return 1
+    if (lang === 'zh-cn') return 2
+    return 3
   }
+  const sorted = [...zhVoices].sort((left, right) => langRank(left) - langRank(right))
+  const isSameVoice = (left: SpeechSynthesisVoice | null, right: SpeechSynthesisVoice | null) => (
+    !!left && !!right && left.name === right.name && left.lang === right.lang
+  )
 
-  return pool.find((voice) => matches(voice, femaleHints))
-    ?? pool.find((voice) => !matches(voice, maleHints))
-    ?? pool[0]
+  const host = sorted.find((voice) => matches(voice, femaleHints))
+    ?? sorted.find((voice) => voice.lang.toLowerCase() === 'zh-tw')
+    ?? sorted[0]
+  const teacher = sorted.find((voice) => matches(voice, maleHints) && !isSameVoice(voice, host))
+    ?? sorted.find((voice) => !matches(voice, femaleHints) && !isSameVoice(voice, host))
+    ?? sorted.find((voice) => !isSameVoice(voice, host))
+    ?? host
+
+  return { host, teacher }
 }
 
 function formatClock(totalSeconds: number) {
@@ -324,6 +333,10 @@ export function PracticeView({
       ? segments
       : [{ speaker: 'host' as const, text: stripSpeakerLabel(note.replace(/\*\*/g, '').replace(/\s+/g, ' ').trim()) }]
     const voices = window.speechSynthesis.getVoices()
+    const voicePair = chooseVoicePair(voices)
+    const sameVoice = voicePair.host && voicePair.teacher
+      ? voicePair.host.name === voicePair.teacher.name && voicePair.host.lang === voicePair.teacher.lang
+      : true
     const finish = () => {
       setSpeaking(false)
       if (continuePlaylist && !isLast) onNavigate(session.currentIndex + 1)
@@ -338,10 +351,10 @@ export function PracticeView({
       }
       const utterance = new SpeechSynthesisUtterance(segment.text)
       utterance.lang = 'zh-TW'
-      utterance.rate = segment.speaker === 'teacher' ? 0.86 : 0.93
-      utterance.pitch = segment.speaker === 'teacher' ? 0.72 : 1.04
+      utterance.rate = segment.speaker === 'teacher' ? (sameVoice ? 0.78 : 0.84) : 0.96
+      utterance.pitch = segment.speaker === 'teacher' ? (sameVoice ? 0.55 : 0.72) : 1.08
       utterance.volume = 1
-      utterance.voice = chooseVoice(voices, segment.speaker)
+      utterance.voice = segment.speaker === 'teacher' ? voicePair.teacher : voicePair.host
       utterance.onend = () => {
         index += 1
         window.setTimeout(speakNext, segment.speaker === 'teacher' ? 520 : 360)

@@ -107,15 +107,11 @@ function formatClock(totalSeconds: number) {
   return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`
 }
 
-function buildBasicCommuteNote(question: Question, optionOrder: number[]) {
-  const displayFor = (value: number) => {
-    const displayIndex = optionOrder.indexOf(value)
-    return displayIndex >= 0 ? displayIndex + 1 : value
-  }
+function buildBasicCommuteNote(question: Question) {
   const correctChoices = question.answers
-    .map((value) => `第 ${displayFor(value)} 項，${question.options[value - 1]}`)
+    .map((value) => `官方第 ${value} 項，${question.options[value - 1]}`)
     .join('；')
-  const answerNumbers = question.answers.map((value) => `第 ${displayFor(value)} 項`).join('、')
+  const answerNumbers = question.answers.map((value) => `官方第 ${value} 項`).join('、')
   const kind = question.kind === 'multiple' ? '複選題' : '單選題'
 
   return [
@@ -227,8 +223,8 @@ export function PracticeView({
     .join('、'), [optionOrder])
   const aiCommuteNote = explanation?.trim() ?? ''
   const basicCommuteNote = useMemo(
-    () => question && isCommute && optionOrder.length ? buildBasicCommuteNote(question, optionOrder) : '',
-    [isCommute, optionOrder, question],
+    () => question && isCommute ? buildBasicCommuteNote(question) : '',
+    [isCommute, question],
   )
   const playableExplanation = aiCommuteNote || basicCommuteNote
 
@@ -459,19 +455,24 @@ export function PracticeView({
           <section className="commute-card">
               <p className="answer-label">{aiCommuteNote ? 'AI commute voice note' : 'Basic commute voice note'}</p>
               <div className="answer-summary">
-                <span><strong>Your last choice:</strong> {priorSelection.length ? formatDisplayChoices(priorSelection) : '—'}</span>
-                <span className="official"><strong>Correct:</strong> {formatDisplayChoices(question.answers)}</span>
+                <span><strong>Your last choice:</strong> {priorSelection.length ? priorSelection.join('、') : '—'}</span>
+                <span className="official"><strong>Official correct:</strong> {question.answers.join('、')}</span>
               </div>
               {playableExplanation ? (
                 <div className="ai-explanation commute-note commute-transcript">{renderExplanation(playableExplanation)}</div>
               ) : null}
             <div className="commute-reference">
-              <p className="answer-label">Choices reference</p>
-              {optionOrder.map((value, index) => (
-                <span className={correctChoices.has(value) ? 'correct-ref' : ''} key={value}>
-                  {index + 1}. {question.options[value - 1]}
+              <p className="answer-label">Official choices reference</p>
+              {question.options.map((option, index) => {
+                const officialValue = index + 1
+                // Commute notes are for exam memorisation, so keep the official
+                // source order even though normal practice shuffles options.
+                return (
+                <span className={correctChoices.has(officialValue) ? 'correct-ref' : ''} key={officialValue}>
+                  {officialValue}. {option}
                 </span>
-              ))}
+                )
+              })}
             </div>
             {explaining ? <p className="commute-loading"><LoaderCircle className="spin" size={16} /> Generating and caching this memory cue…</p> : null}
             {explainError ? <p className="inline-error">{explainError}</p> : null}

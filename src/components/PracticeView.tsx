@@ -182,6 +182,8 @@ export function PracticeView({
   const [reviewOpen, setReviewOpen] = useState(false)
   const finishedRef = useRef(false)
   const autoExplainRef = useRef('')
+  const explainRequestRef = useRef(0)
+  const readingRequestRef = useRef(0)
   const progressRef = useRef(progress)
   progressRef.current = progress
 
@@ -242,6 +244,8 @@ export function PracticeView({
   const playableExplanation = aiCommuteNote || basicCommuteNote
 
   useEffect(() => {
+    explainRequestRef.current += 1
+    readingRequestRef.current += 1
     setGuessed(false)
     setRevealed(false)
     setExplanation(null)
@@ -275,18 +279,27 @@ export function PracticeView({
 
   const requestExplanation = useCallback(async (style = 'default') => {
     if (!question) return
+    const requestId = ++explainRequestRef.current
+    const requestQuestionId = question.id
     const explainQuestion = isCommute ? question : (questionForScreenOrder ?? question)
     const explainSelected = isCommute || style === 'reading' ? selectedForExplain : toDisplayValues(selectedForExplain)
     setExplaining(true)
     setExplainError(null)
     try {
-      setExplanation(await onExplain(explainQuestion, explainSelected, style))
+      const result = await onExplain(explainQuestion, explainSelected, style)
+      if (explainRequestRef.current === requestId && questionId === requestQuestionId) {
+        setExplanation(result)
+      }
     } catch (reason) {
-      setExplainError(reason instanceof Error ? reason.message : 'Explanation is unavailable.')
+      if (explainRequestRef.current === requestId && questionId === requestQuestionId) {
+        setExplainError(reason instanceof Error ? reason.message : 'Explanation is unavailable.')
+      }
     } finally {
-      setExplaining(false)
+      if (explainRequestRef.current === requestId && questionId === requestQuestionId) {
+        setExplaining(false)
+      }
     }
-  }, [isCommute, onExplain, question, questionForScreenOrder, selectedForExplain, toDisplayValues])
+  }, [isCommute, onExplain, question, questionForScreenOrder, questionId, selectedForExplain, toDisplayValues])
 
   useEffect(() => {
     if (!question || !answer || answer.correct || isFlashcard || (isMock && !showMockFeedback)) return
@@ -413,14 +426,23 @@ export function PracticeView({
 
   // Reading help is translation-only; it never sees or reveals the answer.
   const requestReading = async () => {
+    const requestId = ++readingRequestRef.current
+    const requestQuestionId = question.id
     setReadingLoading(true)
     setReadingError(null)
     try {
-      setReading(await onExplain(isCommute ? question : (questionForScreenOrder ?? question), [], 'reading'))
+      const result = await onExplain(isCommute ? question : (questionForScreenOrder ?? question), [], 'reading')
+      if (readingRequestRef.current === requestId && questionId === requestQuestionId) {
+        setReading(result)
+      }
     } catch (reason) {
-      setReadingError(reason instanceof Error ? reason.message : 'Reading help is unavailable.')
+      if (readingRequestRef.current === requestId && questionId === requestQuestionId) {
+        setReadingError(reason instanceof Error ? reason.message : 'Reading help is unavailable.')
+      }
     } finally {
-      setReadingLoading(false)
+      if (readingRequestRef.current === requestId && questionId === requestQuestionId) {
+        setReadingLoading(false)
+      }
     }
   }
 

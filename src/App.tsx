@@ -28,7 +28,7 @@ const SESSION_KEY = 'level-b-active-session'
 const SEQUENTIAL_KEY = 'level-b-sequential-index'
 const PERSONAL_START_INDEX = 144
 const MOCK_DURATION_MS = 100 * 60_000
-const EXPLAIN_VERSION = 'v10'
+const EXPLAIN_VERSION = 'v11'
 
 function loadSession(): StudySession | null {
   try {
@@ -92,7 +92,8 @@ async function explainQuestion(question: Question, selected: number[], style = '
   const selectedKey = style === 'reading' ? 'reading' : [...selected].sort((a, b) => a - b).join(',')
   const cacheKey = `${question.id}::${style}::${selectedKey}::${EXPLAIN_VERSION}`
   const cached = await db.explanations.get(cacheKey)
-  if (cached) return cached.content
+  if (cached?.content.trim()) return cached.content
+  if (cached) await db.explanations.delete(cacheKey)
   const token = localStorage.getItem('level-b-ai-access-token')
   if (!token) throw new Error('AI is ready to connect after you choose Claude or OpenAI and add a private access token.')
   // Reading mode is pre-answer translation help: never send the answer key or selection.
@@ -108,6 +109,7 @@ async function explainQuestion(question: Question, selected: number[], style = '
     throw new Error(detail?.error ?? 'The AI explanation service is not available yet.')
   }
   const data = await response.json() as { explanation: string; provider?: string }
+  if (!data.explanation.trim()) throw new Error('AI returned an empty explanation. Please regenerate this note.')
   await db.explanations.put({ questionId: cacheKey, content: data.explanation, provider: data.provider ?? 'ai', updatedAt: new Date().toISOString() })
   return data.explanation
 }

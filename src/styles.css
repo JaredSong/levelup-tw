@@ -212,6 +212,8 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .flashcard-cue { margin-top: 12px; }
 .commute-card { padding: 18px; border: 1px solid var(--line); border-radius: 7px; background: white; }
 .commute-note { border-top: 0; padding-top: 4px; font-size: .92rem; line-height: 1.65; }
+.commute-transcript { margin: 12px 0 14px; padding: 12px 13px; border: 1px solid var(--line); border-radius: 7px; background: var(--paper); }
+.commute-empty { margin: 12px 0 14px; color: var(--muted); font-size: .84rem; line-height: 1.5; }
 .commute-loading { display: flex; align-items: center; gap: 8px; margin: 12px 0 0; color: var(--muted); font-size: .82rem; font-weight: 700; }
 .commute-actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 16px; }
 .commute-reference { display: grid; gap: 7px; margin: 12px 0 14px; padding: 12px; border: 1px solid var(--line); border-radius: 7px; background: var(--paper); }

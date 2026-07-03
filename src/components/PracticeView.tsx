@@ -157,6 +157,7 @@ export function PracticeView({
       : selected,
     [isCommute, priorSelection, progress, questionId, selected],
   )
+  const playableExplanation = explanation?.trim() ?? ''
 
   useEffect(() => {
     setGuessed(false)
@@ -235,14 +236,23 @@ export function PracticeView({
   const correctChoices = useMemo(() => new Set(question?.answers ?? []), [question])
 
   const speakNote = useCallback((continuePlaylist = false) => {
-    if (!explanation || !('speechSynthesis' in window)) return
+    const note = explanation?.trim() ?? ''
+    if (!note) {
+      setExplainError('This note is empty. Regenerate it once, then play.')
+      return
+    }
+    if (!('speechSynthesis' in window)) {
+      setExplainError('Voice playback is not supported in this browser. Open the app in Safari or Chrome.')
+      return
+    }
     window.speechSynthesis.cancel()
-    const plainLines = explanation
+    setExplainError(null)
+    const plainLines = note
       .replace(/\*\*/g, '')
       .split('\n')
       .map((line) => stripSpeakerLabel(line.replace(/^[-*•]\s+/, '').trim()))
       .filter(Boolean)
-    const segments = plainLines.length ? plainLines : [stripSpeakerLabel(explanation.replace(/\*\*/g, '').replace(/\s+/g, ' ').trim())]
+    const segments = plainLines.length ? plainLines : [stripSpeakerLabel(note.replace(/\*\*/g, '').replace(/\s+/g, ' ').trim())]
     const voices = window.speechSynthesis.getVoices()
     const zhVoices = voices.filter((voice) => voice.lang.toLowerCase().startsWith('zh'))
     const finish = () => {
@@ -374,11 +384,16 @@ export function PracticeView({
 
         {isCommute ? (
           <section className="commute-card">
-            <p className="answer-label">Cached voice note</p>
-            <div className="answer-summary">
-              <span><strong>Your last choice:</strong> {priorSelection.length ? formatDisplayChoices(priorSelection) : '—'}</span>
-              <span className="official"><strong>Correct:</strong> {formatDisplayChoices(question.answers)}</span>
-            </div>
+              <p className="answer-label">{playableExplanation ? 'Commute voice note' : 'Commute voice note pending'}</p>
+              <div className="answer-summary">
+                <span><strong>Your last choice:</strong> {priorSelection.length ? formatDisplayChoices(priorSelection) : '—'}</span>
+                <span className="official"><strong>Correct:</strong> {formatDisplayChoices(question.answers)}</span>
+              </div>
+              {playableExplanation ? (
+                <div className="ai-explanation commute-note commute-transcript">{renderExplanation(playableExplanation)}</div>
+              ) : !explaining ? (
+                <p className="commute-empty">No playable note is cached for this item yet. Tap Regenerate to create one.</p>
+              ) : null}
             <div className="commute-reference">
               <p className="answer-label">Choices reference</p>
               {optionOrder.map((value, index) => (
@@ -387,12 +402,11 @@ export function PracticeView({
                 </span>
               ))}
             </div>
-            {explanation ? <div className="ai-explanation commute-note">{renderExplanation(explanation)}</div> : null}
             {explaining ? <p className="commute-loading"><LoaderCircle className="spin" size={16} /> Generating and caching this memory cue…</p> : null}
             {explainError ? <p className="inline-error">{explainError}</p> : null}
             <div className="commute-actions">
-              <button className="primary-action" disabled={!explanation || speaking} onClick={() => { setPlaylist(false); speakNote(false) }} type="button"><Volume2 size={18} /> Play note</button>
-              <button className="secondary-action" disabled={!explanation || speaking || isLast} onClick={() => { setPlaylist(true); speakNote(true) }} type="button"><Volume2 size={18} /> Play playlist</button>
+              <button className="primary-action" disabled={!playableExplanation || speaking} onClick={() => { setPlaylist(false); speakNote(false) }} type="button"><Volume2 size={18} /> Play note</button>
+              <button className="secondary-action" disabled={!playableExplanation || speaking || isLast} onClick={() => { setPlaylist(true); speakNote(true) }} type="button"><Volume2 size={18} /> Play playlist</button>
               <button className="secondary-action" disabled={!speaking} onClick={stopSpeaking} type="button"><Square size={16} /> Stop</button>
               <button className="secondary-action" disabled={explaining} onClick={() => void requestExplanation('commute')} type="button"><BrainCircuit size={18} /> Regenerate</button>
             </div>

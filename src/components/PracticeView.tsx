@@ -70,6 +70,25 @@ function formatClock(totalSeconds: number) {
   return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`
 }
 
+function buildBasicCommuteNote(question: Question, optionOrder: number[]) {
+  const displayFor = (value: number) => {
+    const displayIndex = optionOrder.indexOf(value)
+    return displayIndex >= 0 ? displayIndex + 1 : value
+  }
+  const correctChoices = question.answers
+    .map((value) => `第 ${displayFor(value)} 項，${question.options[value - 1]}`)
+    .join('；')
+  const answerNumbers = question.answers.map((value) => `第 ${displayFor(value)} 項`).join('、')
+  const kind = question.kind === 'multiple' ? '複選題' : '單選題'
+
+  return [
+    `主持人：這題是${kind}，題目重點是：${question.prompt}`,
+    `老師：先記官方正解。正確答案是${correctChoices}。考試時不要背你上次選的位置，要背「正確敘述本身」。`,
+    `老師：English memory cue: treat the right answer like the label on a drawer. You find the label first, then match the number.`,
+    `主持人：答案記住：${answerNumbers}。`,
+  ].join('\n')
+}
+
 function QuestionFigure({ question }: { question: Question }) {
   const customImages = question.sourceImages?.length ? question.sourceImages : question.sourceImage ? [question.sourceImage] : []
   const [useFallback, setUseFallback] = useState(false)
@@ -157,7 +176,24 @@ export function PracticeView({
       : selected,
     [isCommute, priorSelection, progress, questionId, selected],
   )
-  const playableExplanation = explanation?.trim() ?? ''
+  const optionOrder = useMemo(() => {
+    if (!question) return []
+    return session.optionOrders?.[question.id]?.length === question.options.length
+      ? session.optionOrders[question.id]
+      : question.options.map((_, index) => index + 1)
+  }, [question, session.optionOrders])
+  const formatDisplayChoices = useCallback((values: number[]) => values
+    .map((value) => {
+      const displayIndex = optionOrder.indexOf(value)
+      return displayIndex >= 0 ? displayIndex + 1 : value
+    })
+    .join('、'), [optionOrder])
+  const aiCommuteNote = explanation?.trim() ?? ''
+  const basicCommuteNote = useMemo(
+    () => question && isCommute && optionOrder.length ? buildBasicCommuteNote(question, optionOrder) : '',
+    [isCommute, optionOrder, question],
+  )
+  const playableExplanation = aiCommuteNote || basicCommuteNote
 
   useEffect(() => {
     setGuessed(false)
@@ -236,7 +272,7 @@ export function PracticeView({
   const correctChoices = useMemo(() => new Set(question?.answers ?? []), [question])
 
   const speakNote = useCallback((continuePlaylist = false) => {
-    const note = explanation?.trim() ?? ''
+    const note = playableExplanation.trim()
     if (!note) {
       setExplainError('This note is empty. Regenerate it once, then play.')
       return
@@ -281,7 +317,7 @@ export function PracticeView({
     }
     setSpeaking(true)
     speakNext()
-  }, [explanation, isLast, onNavigate, session.currentIndex])
+  }, [isLast, onNavigate, playableExplanation, session.currentIndex])
 
   const stopSpeaking = () => {
     window.speechSynthesis?.cancel()
@@ -290,21 +326,11 @@ export function PracticeView({
   }
 
   useEffect(() => {
-    if (!playlist || !isCommute || !explanation || speaking) return
+    if (!playlist || !isCommute || !playableExplanation || speaking) return
     speakNote(true)
-  }, [explanation, isCommute, playlist, speakNote, speaking])
+  }, [isCommute, playableExplanation, playlist, speakNote, speaking])
 
   if (!question) return null
-
-  const optionOrder = session.optionOrders?.[question.id]?.length === question.options.length
-    ? session.optionOrders[question.id]
-    : question.options.map((_, index) => index + 1)
-  const formatDisplayChoices = (values: number[]) => values
-    .map((value) => {
-      const displayIndex = optionOrder.indexOf(value)
-      return displayIndex >= 0 ? displayIndex + 1 : value
-    })
-    .join('、')
 
   // Some figure questions have image-only options ("圖示選項 N"); the real
   // choices live in the source figure, so surface it instead of looking buggy.
@@ -384,15 +410,13 @@ export function PracticeView({
 
         {isCommute ? (
           <section className="commute-card">
-              <p className="answer-label">{playableExplanation ? 'Commute voice note' : 'Commute voice note pending'}</p>
+              <p className="answer-label">{aiCommuteNote ? 'AI commute voice note' : 'Basic commute voice note'}</p>
               <div className="answer-summary">
                 <span><strong>Your last choice:</strong> {priorSelection.length ? formatDisplayChoices(priorSelection) : '—'}</span>
                 <span className="official"><strong>Correct:</strong> {formatDisplayChoices(question.answers)}</span>
               </div>
               {playableExplanation ? (
                 <div className="ai-explanation commute-note commute-transcript">{renderExplanation(playableExplanation)}</div>
-              ) : !explaining ? (
-                <p className="commute-empty">No playable note is cached for this item yet. Tap Regenerate to create one.</p>
               ) : null}
             <div className="commute-reference">
               <p className="answer-label">Choices reference</p>
@@ -408,7 +432,7 @@ export function PracticeView({
               <button className="primary-action" disabled={!playableExplanation || speaking} onClick={() => { setPlaylist(false); speakNote(false) }} type="button"><Volume2 size={18} /> Play note</button>
               <button className="secondary-action" disabled={!playableExplanation || speaking || isLast} onClick={() => { setPlaylist(true); speakNote(true) }} type="button"><Volume2 size={18} /> Play playlist</button>
               <button className="secondary-action" disabled={!speaking} onClick={stopSpeaking} type="button"><Square size={16} /> Stop</button>
-              <button className="secondary-action" disabled={explaining} onClick={() => void requestExplanation('commute')} type="button"><BrainCircuit size={18} /> Regenerate</button>
+              <button className="secondary-action" disabled={explaining} onClick={() => void requestExplanation('commute')} type="button"><BrainCircuit size={18} /> {aiCommuteNote ? 'Regenerate AI' : 'Upgrade with AI'}</button>
             </div>
           </section>
         ) : null}

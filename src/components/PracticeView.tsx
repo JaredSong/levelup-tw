@@ -109,15 +109,15 @@ function formatClock(totalSeconds: number) {
 
 function buildBasicCommuteNote(question: Question) {
   const correctChoices = question.answers
-    .map((value) => `官方第 ${value} 項，${question.options[value - 1]}`)
+    .map((value) => `第 ${value} 項，${question.options[value - 1]}`)
     .join('；')
-  const answerNumbers = question.answers.map((value) => `官方第 ${value} 項`).join('、')
+  const answerNumbers = question.answers.map((value) => `第 ${value} 項`).join('、')
   const kind = question.kind === 'multiple' ? '複選題' : '單選題'
 
   return [
     `主持人：來，這題是${kind}。題目重點是：${question.prompt}`,
-    `老師：先抓官方正解。這題要記的是：${correctChoices}。你考試時，不要只背位置，要背正確敘述本身。`,
-    `老師：English memory cue: treat the right answer like the label on a drawer. Find the label first, then match the number.`,
+    `老師：正解是：${correctChoices}。`,
+    `老師：這是基本版語音，先幫你把正解和關鍵敘述唸熟。要聽原因和記憶點，按「Upgrade with AI」。`,
     `主持人：好，答案記住：${answerNumbers}。下一題。`,
   ].join('\n')
 }

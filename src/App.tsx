@@ -28,7 +28,7 @@ const SESSION_KEY = 'level-b-active-session'
 const SEQUENTIAL_KEY = 'level-b-sequential-index'
 const PERSONAL_START_INDEX = 144
 const MOCK_DURATION_MS = 100 * 60_000
-const EXPLAIN_VERSION = 'v12'
+const EXPLAIN_VERSION = 'v13'
 
 function loadSession(): StudySession | null {
   try {

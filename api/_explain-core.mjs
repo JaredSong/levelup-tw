@@ -8,15 +8,16 @@ const MODEL_ENV = { openai: 'OPENAI_MODEL', anthropic: 'ANTHROPIC_MODEL', gemini
 
 const BASE = `You are tutoring an English-speaking learner for Taiwan's 網頁設計乙級 (Web Design Level B) written exam.
 Write in clear English. When you mention a Traditional Chinese technical or legal term, follow it with a concise English meaning. Do NOT add pinyin.
+Any memory cue, memory hook, 口訣, or 記憶點 must be written in Traditional Chinese, not English, and must explain the exam trap in plain words.
 Format as short paragraphs. Use **bold** for key terms and start list items with "- ". Do not use Markdown headings, tables, or backticks.`
 
 // Per-style length and emphasis. Default stays tight; only Deeper goes option by option.
 const STYLE = {
-  default: { words: '55-85 words', extra: 'Use exactly 3 short bullets labelled "Why:", "Rule:", and "Mind note:". The mind note must be a tiny memory cue or exam trap hook.' },
+  default: { words: '55-85 words', extra: 'Use exactly 3 short bullets labelled "Why:", "Rule:", and "記憶點:". The 記憶點 must be a short Traditional Chinese cue that says what to remember for the exam.' },
   simpler: { words: '60-90 words', extra: 'Use very short sentences and beginner words; define each technical term in plain English.' },
   metaphor: { words: '100-140 words', extra: 'Open with a vivid everyday analogy, then the rule and the correct answer. Skip the analogy for legal, numerical, or precise-definition items where it could mislead.' },
   deeper: { words: '180-250 words', extra: 'Also go through each option, explaining why the wrong ones are wrong, and add the underlying concept plus at most two closely related facts.' },
-  cue: { words: '35-55 words', extra: 'Write exactly two short bullets labelled "Answer:" and "Mind note:". The Mind note must be a compact memory cue, contrast, or trap hook for recall-card study.' },
+  cue: { words: '35-55 words', extra: 'Write exactly two short bullets labelled "答案:" and "記憶點:". The 記憶點 must be Traditional Chinese, compact, and useful for recall-card study.' },
   commute: { words: '90-130 words', extra: '' },
 }
 
@@ -64,15 +65,15 @@ ${officialRefs}`
   if (style === 'commute') {
     return `${BASE}
 Treat the supplied official answer as authoritative; never invent or override it.
-Write ONE short spoken study note that will be read aloud in ENGLISH for a learner reviewing a wrong answer on their commute.
+Write ONE short spoken study note in Traditional Chinese for a learner reviewing a wrong answer on their commute.
 ${numbering}
-Write in clear, natural spoken English — flowing sentences, no bullets, headings, tables, or speaker labels, so it sounds good read aloud. Keep it to about ${STYLE.commute.words}.
-Say, conversationally:
+Write in clear, natural spoken Chinese — flowing sentences, no bullets, headings, tables, or speaker labels, so it sounds good read aloud. Keep it to about ${STYLE.commute.words}.
+Say, conversationally and briefly:
 - what the question is really asking,
-- which option is correct and the simple reason it is right,
-- why the learner's choice is wrong,
-- a short memory hook to lock it in.
-When you name a Traditional Chinese term, say it once and immediately give its English meaning. Do NOT use pinyin. Refer to options by their number ("option 2"). Do not read out every choice. If there is a figure, tell the learner what visual cue to remember without inventing details.
+- which option text is correct and the simple reason it is right,
+- why the learner's choice is wrong if it was wrong,
+- one Chinese 記憶點 that locks in the trap.
+Do NOT add an English memory hook. Do NOT use pinyin. Refer to options by their number only when needed. Do not read out every choice. If there is a figure, tell the learner what visual cue to remember without inventing details.
 
 Question: ${question.prompt}
 Choices:
@@ -93,12 +94,12 @@ ${selectedRefs}`
 - the correct answer (by option number) and the rule behind it,
 - focus on the learner's selected option(s): why that selection does not match the official answer, or why it matches if correct,
 - you were NOT given the figure and options may be image-only, so do NOT describe or evaluate options — tell the learner to read the official figure,
-- one short Mind note memory cue (a hook or 口訣).`
+- one short 記憶點 in Traditional Chinese.`
     : `Cover only, concisely:
 - the correct answer and the rule behind it,
 - focus on the learner's selected option(s): why that selection is wrong, or why it is right if correct,
 ${isMultiple ? '- which options are required, and any the learner missed or wrongly added,\n' : ''}
-- one short Mind note memory cue (a hook or 口訣).
+- one short 記憶點 in Traditional Chinese.
 Do not analyse unselected options unless they are needed to explain the learner's mistake or the learner asked to go deeper.`
 
   const extraLine = variant.extra ? `\n${variant.extra}` : ''

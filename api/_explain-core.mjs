@@ -6,26 +6,26 @@ const DEFAULT_MODELS = { openai: 'gpt-4o-mini', anthropic: 'claude-haiku-4-5-202
 const KEY_NAMES = { openai: 'OPENAI_API_KEY', anthropic: 'ANTHROPIC_API_KEY', gemini: 'GEMINI_API_KEY' }
 const MODEL_ENV = { openai: 'OPENAI_MODEL', anthropic: 'ANTHROPIC_MODEL', gemini: 'GEMINI_MODEL' }
 
-const BASE = `You are tutoring an English-speaking learner for Taiwan's 網頁設計乙級 (Web Design Level B) written exam.
-Write in clear English. When you mention a Traditional Chinese technical or legal term, follow it with a concise English meaning. Do NOT add pinyin.
+const BASE = `You are tutoring a learner for Taiwan's 網頁設計乙級 (Web Design Level B) written exam.
+Write the explanation primarily in Traditional Chinese, because the exam is in Chinese. You may add a short English meaning in parentheses after difficult technical terms when it helps, but do not make English the main language. Do NOT add pinyin.
 Any memory cue, memory hook, 口訣, or 記憶點 must be written in Traditional Chinese, not English, and must explain the exam trap in plain words.
 Format as short paragraphs. Use **bold** for key terms and start list items with "- ". Do not use Markdown headings, tables, or backticks.`
 
 // Per-style length and emphasis. Default stays tight; only Deeper goes option by option.
 const STYLE = {
-  default: { words: '55-85 words', extra: 'Use exactly 3 short bullets labelled "Why:", "Rule:", and "記憶點:". The 記憶點 must be a short Traditional Chinese cue that says what to remember for the exam.' },
-  simpler: { words: '60-90 words', extra: 'Use very short sentences and beginner words; define each technical term in plain English.' },
-  metaphor: { words: '100-140 words', extra: 'Open with a vivid everyday analogy, then the rule and the correct answer. Skip the analogy for legal, numerical, or precise-definition items where it could mislead.' },
-  deeper: { words: '180-250 words', extra: 'Also go through each option, explaining why the wrong ones are wrong, and add the underlying concept plus at most two closely related facts.' },
+  default: { words: '55-85 words', extra: 'Use exactly 3 short bullets labelled "為什麼:", "規則:", and "記憶點:". The 記憶點 must be a short Traditional Chinese cue that says what to remember for the exam.' },
+  simpler: { words: '60-90 words', extra: 'Use very short Traditional Chinese sentences and beginner words; define each technical term simply.' },
+  metaphor: { words: '100-140 words', extra: 'Open with a vivid everyday analogy in Traditional Chinese, then the rule and the correct answer. Skip the analogy for legal, numerical, or precise-definition items where it could mislead.' },
+  deeper: { words: '180-250 words', extra: 'Also go through each option in Traditional Chinese, explaining why the wrong ones are wrong, and add the underlying concept plus at most two closely related facts.' },
   cue: { words: '35-55 words', extra: 'Write exactly two short bullets labelled "答案:" and "記憶點:". The 記憶點 must be Traditional Chinese, compact, and useful for recall-card study.' },
   commute: { words: '90-130 words', extra: '' },
 }
 
 // Reading mode is translation-only and never sees or reveals the answer.
-const READING = `Translate and explain the question only — reading help. Do NOT reveal, hint at, or eliminate any option, and do not say which answer is correct.
-- Restate the question stem in plain English. When you mention a Chinese term, give a short English meaning (no pinyin).
-- If the stem has a negation or odd-one-out phrase (不正確, 不包括, 何者為非, 不屬於, 下列何者錯誤, etc.), flag it clearly and explain the task is to find the FALSE or excluded item.
-- Give a one-line plain-English gloss of each option.
+const READING = `Explain the question only — reading help. Do NOT reveal, hint at, or eliminate any option, and do not say which answer is correct.
+- Restate the question stem in plain Traditional Chinese. Add short English meanings in parentheses only for difficult technical terms.
+- If the stem has a negation or odd-one-out phrase (不正確, 不包括, 何者為非, 不屬於, 下列何者錯誤, etc.), flag it clearly in Traditional Chinese and explain the task is to find the false or excluded item.
+- Give a one-line Traditional Chinese gloss of each option without judging it.
 Keep it to about 60-100 words.`
 
 function buildPrompt(question, selected, style) {

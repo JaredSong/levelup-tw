@@ -96,14 +96,35 @@ function buildBasicCommuteNote(question: Question) {
   ].join('\n')
 }
 
-function QuestionFigure({ question }: { question: Question }) {
+function usesImageOptionPlaceholders(question: Question) {
+  return question.options.some((option) => option.includes('圖示選項'))
+}
+
+function optionImageSources(question: Question) {
+  if (!usesImageOptionPlaceholders(question) || !question.sourceImages?.length) return []
+  if (question.sourceImages.length === question.options.length) return question.sourceImages
+  if (question.sourceImages.length === question.options.length + 1) return question.sourceImages.slice(1)
+  return []
+}
+
+function figureImageSources(question: Question) {
   const customImages = question.sourceImages?.length ? question.sourceImages : question.sourceImage ? [question.sourceImage] : []
+  if (usesImageOptionPlaceholders(question)) {
+    if (question.sourceImages?.length === question.options.length + 1) return [question.sourceImages[0]]
+    if (question.sourceImage && !question.sourceImages?.length) return [question.sourceImage]
+    return []
+  }
+  return customImages
+}
+
+function QuestionFigure({ question }: { question: Question }) {
   const [useFallback, setUseFallback] = useState(false)
 
   useEffect(() => {
     setUseFallback(false)
   }, [question.id, question.sourceImage, question.sourceImages])
 
+  const customImages = figureImageSources(question)
   const figureSources = useFallback || !customImages.length
     ? question.sourcePageImage ? [question.sourcePageImage] : []
     : customImages
@@ -374,9 +395,10 @@ export function PracticeView({
 
   if (!question) return null
 
-  // Some figure questions have image-only options ("圖示選項 N"); the real
-  // choices live in the source figure, so surface it instead of looking buggy.
-  const optionsAreImages = question.options.some((option) => option.includes('圖示'))
+  // Some questions have image-only options. Keep the official option numbers
+  // stable and render each crop directly inside its answer card when available.
+  const optionsAreImages = usesImageOptionPlaceholders(question)
+  const optionImages = optionImageSources(question)
 
   const toggleOption = (option: number) => {
     if (answer || isFlashcard) return
@@ -456,7 +478,7 @@ export function PracticeView({
         <QuestionFigure question={question} />
 
         {optionsAreImages ? (
-          <p className="figure-note"><ImageIcon size={15} /> This question’s options are images — read them on the figure above; pick the matching number below.</p>
+          <p className="figure-note"><ImageIcon size={15} /> 圖片選項已放在下方各選項內；請依官方 1、2、3、4 作答。</p>
         ) : null}
 
         {isCommute ? (
@@ -534,6 +556,7 @@ export function PracticeView({
             ) : null}
             {optionOrder.map((value, index) => {
               const option = question.options[value - 1]
+              const optionImage = optionImages[value - 1]
               const displayValue = index + 1
               const isSelected = selected.includes(value)
               const isCorrectChoice = !!answer && correctChoices.has(value)
@@ -545,7 +568,11 @@ export function PracticeView({
                     {isSelected ? (question.kind === 'multiple' ? <Check size={14} strokeWidth={3} /> : <span className="opt-dot" />) : null}
                   </span>
                   <span className="opt-num">{displayValue}</span>
-                  <span className="opt-text">{option}</span>
+                  <span className="opt-text">
+                    {optionImage ? (
+                      <img className="option-image" src={optionImage} alt={`圖示選項 ${displayValue}`} />
+                    ) : option}
+                  </span>
                   {isCorrectChoice ? <Check size={18} /> : isWrongChoice ? <X size={18} /> : null}
                 </button>
               )

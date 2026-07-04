@@ -7,7 +7,9 @@ import { VitePWA } from 'vite-plugin-pwa'
 // easy to tell at a glance whether the installed PWA is up to date.
 function buildId(): string {
   const { version } = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 'utf8'))
-  const date = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })
+  // Cloudflare builds in UTC; show the date in Taiwan time so it always
+  // matches "today" for the learner instead of sometimes reading a day early.
+  const date = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'Asia/Taipei' })
   return `v${version} · ${date}`
 }
 

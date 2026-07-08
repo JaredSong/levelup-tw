@@ -5,6 +5,7 @@ import {
   buildFreshQueue,
   buildHighYieldQueue,
   buildMockQueue,
+  buildOptionOrder,
   buildRandomQueue,
   buildSprintQueue,
   createProgress,
@@ -55,6 +56,21 @@ describe('scoreAnswer', () => {
     const selectedOfficialOption = displayOrder[0]
 
     expect(scoreAnswer({ ...questions[0], answers: [4] }, [selectedOfficialOption])).toBe(true)
+  })
+})
+
+describe('buildOptionOrder', () => {
+  it('keeps official option order when randomization is disabled', () => {
+    expect(buildOptionOrder(questions[0], { randomize: false, random: () => 0 })).toEqual([1, 2, 3, 4])
+  })
+
+  it('keeps image-option questions in official order even when randomization is enabled', () => {
+    const imageQuestion: Question = {
+      ...questions[0],
+      options: ['圖示選項 1', '圖示選項 2', '圖示選項 3', '圖示選項 4'],
+    }
+
+    expect(buildOptionOrder(imageQuestion, { randomize: true, random: () => 0 })).toEqual([1, 2, 3, 4])
   })
 })
 

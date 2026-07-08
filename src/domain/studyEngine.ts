@@ -125,6 +125,16 @@ function shuffled<T>(items: T[], random: () => number): T[] {
   return result
 }
 
+export function buildOptionOrder(
+  question: Question,
+  options: { randomize: boolean; random?: () => number },
+): number[] {
+  const order = question.options.map((_, index) => index + 1)
+  if (!options.randomize) return order
+  if (question.options.some((option) => option.includes('圖示選項'))) return order
+  return shuffled(order, options.random ?? Math.random)
+}
+
 export interface RandomQueueOptions {
   section?: string | 'all'
   kind?: QuestionKind | 'all'

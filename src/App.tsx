@@ -12,6 +12,7 @@ import {
   buildFreshQueue,
   buildHighYieldQueue,
   buildMockQueue,
+  buildOptionOrder,
   buildRandomQueue,
   buildSprintQueue,
   createProgress,
@@ -29,6 +30,7 @@ const SEQUENTIAL_KEY = 'level-b-sequential-index'
 const PERSONAL_START_INDEX = 144
 const MOCK_DURATION_MS = 100 * 60_000
 const EXPLAIN_VERSION = 'v17'
+const OPTION_RANDOMIZE_KEY = 'level-b-randomize-options'
 
 function loadSession(): StudySession | null {
   try {
@@ -55,20 +57,13 @@ function titleForMode(mode: SessionMode) {
   }[mode]
 }
 
-function shuffleOptions(question: Question): number[] {
-  const order = question.options.map((_, index) => index + 1)
-  // Image-option questions refer to numbered figures in the source image; keep
-  // those stable until each image is rendered directly inside its option card.
-  if (question.options.some((option) => option.includes('圖示選項'))) return order
-  for (let index = order.length - 1; index > 0; index -= 1) {
-    const target = Math.floor(Math.random() * (index + 1))
-    ;[order[index], order[target]] = [order[target], order[index]]
-  }
-  return order
+function shouldRandomizeOptions() {
+  return localStorage.getItem(OPTION_RANDOMIZE_KEY) !== 'false'
 }
 
 function createSession(mode: SessionMode, questions: Question[], title?: string, options: { mockFeedback?: boolean } = {}): StudySession {
   const now = new Date()
+  const randomizeOptions = shouldRandomizeOptions()
   return {
     id: crypto.randomUUID(),
     mode,
@@ -79,7 +74,7 @@ function createSession(mode: SessionMode, questions: Question[], title?: string,
     questionStartedAt: now.toISOString(),
     answers: {},
     selections: {},
-    optionOrders: Object.fromEntries(questions.map((question) => [question.id, shuffleOptions(question)])),
+    optionOrders: Object.fromEntries(questions.map((question) => [question.id, buildOptionOrder(question, { randomize: randomizeOptions })])),
     flags: {},
     mockFeedback: options.mockFeedback,
     mockEndsAt: mode === 'mock' ? new Date(now.getTime() + MOCK_DURATION_MS).toISOString() : undefined,

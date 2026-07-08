@@ -1,4 +1,4 @@
-import { ArrowRight, CheckCircle2, CircleAlert, Download, FileWarning, Gauge, History, Moon, RefreshCw, RotateCcw, Sun, Target, Upload } from 'lucide-react'
+import { ArrowRight, CheckCircle2, CircleAlert, Download, FileWarning, Gauge, History, Moon, RefreshCw, RotateCcw, Shuffle, Sun, Target, Upload } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
 import type { Progress, Question } from '../domain/studyEngine'
 import { computeReadiness } from '../domain/readiness'
@@ -14,6 +14,7 @@ interface Props {
 }
 
 const STATUS_LABEL = { weak: 'Needs work', building: 'Building', ready: 'Ready' } as const
+const OPTION_RANDOMIZE_KEY = 'level-b-randomize-options'
 const pct = (value: number) => Math.round(value * 100)
 
 function formatWhen(iso: string) {
@@ -51,11 +52,17 @@ export function StatsView({ questions, progress, onSaveAiToken, onPracticeGroup 
   const [syncMsg, setSyncMsg] = useState<string | null>(null)
   const [syncing, setSyncing] = useState(false)
   const [theme, setTheme] = useState(() => (document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light'))
+  const [randomizeOptions, setRandomizeOptions] = useState(() => localStorage.getItem(OPTION_RANDOMIZE_KEY) !== 'false')
 
   const chooseTheme = (value: 'light' | 'dark') => {
     setTheme(value)
     localStorage.setItem('level-b-theme', value)
     document.documentElement.dataset.theme = value
+  }
+
+  const chooseRandomizeOptions = (value: boolean) => {
+    setRandomizeOptions(value)
+    localStorage.setItem(OPTION_RANDOMIZE_KEY, value ? 'true' : 'false')
   }
 
   const handleSync = async () => {
@@ -159,6 +166,15 @@ export function StatsView({ questions, progress, onSaveAiToken, onPracticeGroup 
         <div className="theme-toggle" role="group" aria-label="Theme">
           <button className={theme === 'light' ? 'active' : ''} onClick={() => chooseTheme('light')} type="button"><Sun size={16} /> Light</button>
           <button className={theme === 'dark' ? 'active' : ''} onClick={() => chooseTheme('dark')} type="button"><Moon size={16} /> Dark</button>
+        </div>
+      </section>
+
+      <section className="appearance">
+        <h2>Practice options</h2>
+        <p>Choose whether new sessions shuffle answer choices or keep the official 1-4 order. Image-option questions always stay in official order.</p>
+        <div className="theme-toggle" role="group" aria-label="Answer choice order">
+          <button className={randomizeOptions ? 'active' : ''} onClick={() => chooseRandomizeOptions(true)} type="button"><Shuffle size={16} /> Random</button>
+          <button className={!randomizeOptions ? 'active' : ''} onClick={() => chooseRandomizeOptions(false)} type="button"><RotateCcw size={16} /> Official order</button>
         </div>
       </section>
 

@@ -65,7 +65,7 @@ export async function exportBackup(): Promise<string> {
 export async function importBackup(json: string): Promise<void> {
   const parsed = JSON.parse(json) as Partial<BackupFile>
   if (parsed.app !== 'level-b-study' || !parsed.data) {
-    throw new Error('This file is not a Level B Study backup.')
+    throw new Error('This file is not a Level Up backup.')
   }
   await writeData(parsed.data as BackupData)
 }

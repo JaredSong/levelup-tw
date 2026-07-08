@@ -1,4 +1,4 @@
-# Deploy guide — Level B Study
+# Deploy guide — Level Up
 
 The app is a static site (`dist/`) plus one serverless function for AI explanations.
 Everything except AI runs fully in the browser.

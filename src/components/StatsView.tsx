@@ -94,7 +94,7 @@ export function StatsView({ questions, progress, onSaveAiToken, onPracticeGroup 
   }
 
   const handleExport = async () => {
-    download(await exportBackup(), `level-b-backup-${new Date().toISOString().slice(0, 10)}.json`, 'application/json')
+    download(await exportBackup(), `level-up-backup-${new Date().toISOString().slice(0, 10)}.json`, 'application/json')
   }
 
   const handleExportWrong = () => {
@@ -111,8 +111,8 @@ export function StatsView({ questions, progress, onSaveAiToken, onPracticeGroup 
         .join('\n')
       return `${index + 1}. [${question.id}] ${question.sectionTitle ?? ''} · wrong ${item?.wrong ?? 0}×${mastered}\n${question.prompt}\n${options}`
     })
-    const header = `Level B — Wrong questions (${wrong.length})\nExported ${new Date().toLocaleString()}\n✓ marks the official answer.\n`
-    download(`${header}\n${blocks.join('\n\n')}\n`, `level-b-wrong-${new Date().toISOString().slice(0, 10)}.txt`, 'text/plain;charset=utf-8')
+    const header = `Level Up — Wrong questions (${wrong.length})\nExported ${new Date().toLocaleString()}\n✓ marks the official answer.\n`
+    download(`${header}\n${blocks.join('\n\n')}\n`, `level-up-wrong-${new Date().toISOString().slice(0, 10)}.txt`, 'text/plain;charset=utf-8')
     setDataMsg(`Exported ${wrong.length} wrong questions.`)
   }
 
@@ -284,7 +284,7 @@ export function StatsView({ questions, progress, onSaveAiToken, onPracticeGroup 
         </div>
       </section>
 
-      <p className="build-version">Level B Study {__APP_VERSION__}</p>
+      <p className="build-version">Level Up · 升級吧 {__APP_VERSION__}</p>
     </main>
   )
 }

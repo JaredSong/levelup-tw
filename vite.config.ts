@@ -47,9 +47,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['app-icon.svg'],
       manifest: {
-        name: 'Level B Study',
-        short_name: 'Level B',
-        description: 'Offline practice for Taiwan Web Design Level B written exam.',
+        name: 'Level Up · 升級吧',
+        short_name: 'Level Up',
+        description: 'Offline practice for Taiwan skill certification exams.',
         theme_color: '#111713',
         background_color: '#f3f1eb',
         display: 'standalone',

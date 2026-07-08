@@ -52,9 +52,9 @@ export function Dashboard(props: Props) {
     <main className="page dashboard-page">
       <header className="app-header">
         <div>
-          <p className="eyebrow">17300 A13 · current shared banks</p>
-          <h1>Level B Study</h1>
-          <p className="header-subtitle">網頁設計乙級 · personal study bank</p>
+          <p className="eyebrow">目前題庫：網頁設計乙級 A13</p>
+          <h1>Level Up</h1>
+          <p className="header-subtitle">升級吧 · 技檢題庫練習</p>
         </div>
         <div className="exam-countdown" aria-label={`${daysUntilExam()} days until written exam`}>
           <strong>{daysUntilExam()}</strong>

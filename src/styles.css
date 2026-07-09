@@ -109,7 +109,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .today-note p { flex: 1; margin: 0; font-size: .78rem; line-height: 1.45; }
 .today-note svg:last-child { color: var(--coral); }
 
-.bottom-nav { position: fixed; z-index: 20; left: 50%; bottom: 0; transform: translateX(-50%); width: min(100%, 680px); display: grid; grid-template-columns: repeat(4, 1fr); padding: 8px 14px calc(8px + env(safe-area-inset-bottom)); border: 1px solid var(--line); border-bottom: 0; border-radius: 8px 8px 0 0; background: rgba(248,249,245,.94); backdrop-filter: blur(16px); box-shadow: 0 -8px 24px rgba(24,32,27,.07); }
+.bottom-nav { position: fixed; z-index: 20; left: 50%; bottom: 0; transform: translateX(-50%); width: min(100%, 760px); display: grid; grid-template-columns: repeat(5, 1fr); padding: 8px 10px calc(8px + env(safe-area-inset-bottom)); border: 1px solid var(--line); border-bottom: 0; border-radius: 8px 8px 0 0; background: rgba(248,249,245,.94); backdrop-filter: blur(16px); box-shadow: 0 -8px 24px rgba(24,32,27,.07); }
 .nav-item { display: grid; justify-items: center; gap: 3px; padding: 7px 8px; border: 0; border-radius: 6px; color: #727b75; background: transparent; font-size: .68rem; cursor: pointer; }
 .nav-item.active { color: var(--accent-dark); background: var(--accent-pale); }
 

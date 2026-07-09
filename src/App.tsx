@@ -1,11 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { AlertTriangle, ArrowRight, CheckCircle2, LoaderCircle, RotateCcw } from 'lucide-react'
 import { BottomNav, type Tab } from './components/BottomNav'
-import { Dashboard } from './components/Dashboard'
-import { LibraryView } from './components/LibraryView'
-import { GlossaryView } from './components/GlossaryView'
 import { PracticeView } from './components/PracticeView'
-import { StatsView } from './components/StatsView'
+import { HomePage } from './app/pages/HomePage'
+import { InsightsPage } from './app/pages/InsightsPage'
+import { MockExamPage } from './app/pages/MockExamPage'
+import { PracticePage } from './app/pages/PracticePage'
+import { ReviewPage } from './app/pages/ReviewPage'
 import {
   applyAttempt,
   buildAdaptiveQueue,
@@ -113,7 +114,7 @@ async function explainQuestion(question: Question, selected: number[], style = '
 export default function App() {
   const { bank, error } = useQuestionBank()
   const { progress, setProgress, loading, refresh } = useStudyData()
-  const [tab, setTab] = useState<Tab>('study')
+  const [tab, setTab] = useState<Tab>('home')
   const [session, setSession] = useState<StudySession | null>(() => loadSession())
   const [practiceOpen, setPracticeOpen] = useState(false)
   const [summary, setSummary] = useState<StudySession | null>(null)
@@ -425,7 +426,7 @@ export default function App() {
         ) : null}
 
         <div className="summary-actions">
-          <button className="primary-action" onClick={() => { setSummary(null); setTab('study') }} type="button">Back to study</button>
+          <button className="primary-action" onClick={() => { setSummary(null); setTab('home') }} type="button">Back to home</button>
           <button className="secondary-action" onClick={() => begin(summarySession.mode, summarySession.questionIds.map((id) => bank.byId.get(id)).filter((q): q is Question => !!q), summarySession.title, { mockFeedback: summarySession.mockFeedback })} type="button"><RotateCcw size={17} /> Repeat session</button>
         </div>
       </main>
@@ -434,10 +435,11 @@ export default function App() {
 
   return (
     <div className="app-frame">
-      {tab === 'study' ? <Dashboard seen={seen} total={bank.questions.length} due={due} wrongCount={wrongCount} accuracy={accuracy} hasSession={!!session} sessionLabel={session?.title} onContinue={resumePractice} onSequential={startSequential} onAdaptive={() => begin('adaptive', buildAdaptiveQueue(bank.questions, progress, 10))} onRandom={() => begin('random', buildRandomQueue(bank.questions, 10))} onFresh={(limit) => begin('fresh', buildFreshQueue(bank.questions, progress, limit), `Fresh ${limit}`)} onHighYield={() => begin('highYield', buildHighYieldQueue(bank.questions, progress, 20))} onSubject={(subjectCode, title) => begin('random', buildRandomQueue(bank.questions.filter((question) => question.subjectCode === subjectCode), 10), title)} onWrong={startWrong} onFlashcards={() => begin('flashcard', buildAdaptiveQueue(bank.questions, progress, 10), 'Recall cards · mind notes')} onCommuteNotes={startCommuteNotes} onMock={() => startMock(false)} onMockTraining={() => startMock(true)} onSprint={() => begin('sprint', buildSprintQueue(bank.questions, progress, 20))} /> : null}
-      {tab === 'library' ? <LibraryView questions={bank.questions} progress={progress} onOpen={(question) => begin('item', [question])} /> : null}
-      {tab === 'glossary' ? <GlossaryView onPracticeSection={(section, title) => begin('adaptive', buildAdaptiveQueue(bank.questions.filter((question) => question.section === section), progress, 10), title)} /> : null}
-      {tab === 'stats' ? <StatsView questions={bank.questions} progress={progress} onSaveAiToken={(token) => localStorage.setItem('level-b-ai-access-token', token)} onPracticeGroup={(section, title) => begin('adaptive', buildAdaptiveQueue(bank.questions.filter((question) => question.section === section), progress, 10), `${title} · practice`)} /> : null}
+      {tab === 'home' ? <HomePage seen={seen} total={bank.questions.length} due={due} accuracy={accuracy} hasSession={!!session} sessionLabel={session?.title} onContinue={resumePractice} onSequential={startSequential} /> : null}
+      {tab === 'practice' ? <PracticePage questions={bank.questions} progress={progress} total={bank.questions.length} onSequential={startSequential} onRandom={() => begin('random', buildRandomQueue(bank.questions, 10))} onFresh={(limit) => begin('fresh', buildFreshQueue(bank.questions, progress, limit), `Fresh ${limit}`)} onHighYield={() => begin('highYield', buildHighYieldQueue(bank.questions, progress, 20))} onSubject={(subjectCode, title) => begin('random', buildRandomQueue(bank.questions.filter((question) => question.subjectCode === subjectCode), 10), title)} onOpenQuestion={(question) => begin('item', [question])} onSprint={() => begin('sprint', buildSprintQueue(bank.questions, progress, 20))} /> : null}
+      {tab === 'review' ? <ReviewPage due={due} wrongCount={wrongCount} onAdaptive={() => begin('adaptive', buildAdaptiveQueue(bank.questions, progress, 10))} onWrong={startWrong} onFlashcards={() => begin('flashcard', buildAdaptiveQueue(bank.questions, progress, 10), 'Recall cards · mind notes')} onCommuteNotes={startCommuteNotes} onPracticeSection={(section, title) => begin('adaptive', buildAdaptiveQueue(bank.questions.filter((question) => question.section === section), progress, 10), title)} /> : null}
+      {tab === 'mock' ? <MockExamPage onMock={() => startMock(false)} onMockTraining={() => startMock(true)} /> : null}
+      {tab === 'insights' ? <InsightsPage questions={bank.questions} progress={progress} onSaveAiToken={(token) => localStorage.setItem('level-b-ai-access-token', token)} onPracticeGroup={(section, title) => begin('adaptive', buildAdaptiveQueue(bank.questions.filter((question) => question.section === section), progress, 10), `${title} · practice`)} /> : null}
       <BottomNav active={tab} onChange={setTab} />
     </div>
   )

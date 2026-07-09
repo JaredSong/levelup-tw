@@ -1,6 +1,6 @@
-import { BarChart3, BookOpen, LibraryBig, Languages } from 'lucide-react'
+import { BarChart3, Dumbbell, Home, Layers3, Timer } from 'lucide-react'
 
-export type Tab = 'study' | 'library' | 'glossary' | 'stats'
+export type Tab = 'home' | 'practice' | 'review' | 'mock' | 'insights'
 
 interface Props {
   active: Tab
@@ -8,10 +8,11 @@ interface Props {
 }
 
 const items = [
-  { id: 'study' as const, label: 'Study', Icon: BookOpen },
-  { id: 'library' as const, label: 'Items', Icon: LibraryBig },
-  { id: 'glossary' as const, label: 'Terms', Icon: Languages },
-  { id: 'stats' as const, label: 'Progress', Icon: BarChart3 },
+  { id: 'home' as const, label: 'Home', Icon: Home },
+  { id: 'practice' as const, label: 'Practice', Icon: Dumbbell },
+  { id: 'review' as const, label: 'Review', Icon: Layers3 },
+  { id: 'mock' as const, label: 'Mock', Icon: Timer },
+  { id: 'insights' as const, label: 'Insights', Icon: BarChart3 },
 ]
 
 export function BottomNav({ active, onChange }: Props) {

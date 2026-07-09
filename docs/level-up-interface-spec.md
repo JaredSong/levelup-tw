@@ -22,6 +22,16 @@ Use five primary destinations:
 
 Mobile uses bottom tabs. Desktop uses the same five destinations in a left rail. The mental model should stay identical across form factors.
 
+The shortest product rule set:
+
+- **Home = decide for me.**
+- **Practice = let me work full questions.**
+- **Review = let me clear due memory items.**
+- **Mock Exam = test me under exam conditions.**
+- **Insights = show me where I am weak.**
+- **Catalog = choose exam.**
+- **Settings = manage local app behavior.**
+
 ## Home
 
 Home is the daily entry point. It should remove decision friction and feel encouraging.
@@ -32,6 +42,10 @@ Primary jobs:
 - Show today’s study bundle.
 - Provide one obvious continue action.
 - Surface recent mistakes and due work without overwhelming the user.
+- Surface wrong-answer retry count.
+- Surface weak-area recommendation.
+- Surface mini mock or last mock summary.
+- Show daily streak or daily completion status lightly.
 
 Suggested layout:
 
@@ -52,6 +66,9 @@ Primary jobs:
 - Answer one question at a time with large tap targets.
 - Capture wrong answers, bookmarks, and review candidates.
 - Show short feedback after answering.
+- Preserve official option numbering even when display order is randomized.
+- Show the relevant media/image crop when needed.
+- Support retry later and high-yield/review-candidate marking.
 
 Suggested layout:
 
@@ -71,6 +88,10 @@ Primary jobs:
 - Reveal answer/explanation.
 - Grade recall quickly.
 - Keep scheduling state separate from full-question attempts.
+- Show next interval preview.
+- Link back to the source official question.
+- Support suspend or skip for a card.
+- Keep review history separate from question-attempt history.
 
 Suggested layout:
 
@@ -91,6 +112,10 @@ Primary jobs:
 - Support free navigation, flags, unanswered review, and submit confirmation.
 - Hide answers during official mock mode.
 - Feed missed items back into wrong-answer and memory workflows.
+- Build the question set from exam rules.
+- Show answered, unanswered, and flagged counts.
+- Support training mock mode with immediate feedback.
+- Score pass/fail against the exam threshold.
 
 Suggested layout:
 
@@ -112,6 +137,9 @@ Primary jobs:
 - Show mock trend against pass line.
 - Show habit consistency.
 - Point the user toward the next useful action.
+- Show unresolved wrong-answer clusters.
+- Show tomorrow or near-future review load forecast.
+- Show readiness by section or exam.
 
 Suggested cards:
 
@@ -186,6 +214,33 @@ Insights:
 - `LoadForecastCard`
 - `MockTrendCard`
 - `HabitCard`
+
+Catalog, Exam Pack, and Settings are secondary shell surfaces for the multi-exam phase. They should stay out of the bottom navigation until the app has more than one public exam pack.
+
+Catalog:
+
+- `CatalogPage`
+- `ExamCatalogList`
+- `ExamCatalogCard`
+- `DownloadExamPackButton`
+- `IntegrityStatusBadge`
+
+Exam Pack:
+
+- `ExamPackPage`
+- `ExamPackHeader`
+- `ExamPackStats`
+- `ExamPackSections`
+- `ExamPackActions`
+
+Settings:
+
+- `SettingsPage`
+- `AnswerOrderSetting`
+- `ThemeSetting`
+- `BackupActions`
+- `OfflinePackManager`
+- `VersionInfo`
 
 ## Implementation Notes
 

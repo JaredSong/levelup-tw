@@ -1,0 +1,16 @@
+import { describe, expect, it } from 'vitest'
+import { chooseActiveExamId, INSTALLED_EXAMS } from './activeExam'
+
+describe('active exam selection', () => {
+  it('opens the saved exam when that exam is installed', () => {
+    expect(chooseActiveExamId(INSTALLED_EXAMS, 'web-design-b')).toBe('web-design-b')
+  })
+
+  it('falls back to the first installed exam when the saved exam is missing', () => {
+    expect(chooseActiveExamId(INSTALLED_EXAMS, 'missing-exam')).toBe('web-design-b')
+  })
+
+  it('returns null when no exams are installed', () => {
+    expect(chooseActiveExamId([], 'web-design-b')).toBeNull()
+  })
+})

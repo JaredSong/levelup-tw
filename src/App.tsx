@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { AlertTriangle, ArrowRight, CheckCircle2, LoaderCircle, RotateCcw } from 'lucide-react'
+import { ActiveExamHeader } from './app/ActiveExamHeader'
 import { BottomNav, type Tab } from './components/BottomNav'
 import { PracticeView } from './components/PracticeView'
 import { HomePage } from './app/pages/HomePage'
@@ -435,6 +436,7 @@ export default function App() {
 
   return (
     <div className="app-frame">
+      <ActiveExamHeader />
       {tab === 'home' ? <HomePage seen={seen} total={bank.questions.length} due={due} accuracy={accuracy} hasSession={!!session} sessionLabel={session?.title} onContinue={resumePractice} onSequential={startSequential} /> : null}
       {tab === 'practice' ? <PracticePage questions={bank.questions} progress={progress} total={bank.questions.length} onSequential={startSequential} onRandom={() => begin('random', buildRandomQueue(bank.questions, 10))} onFresh={(limit) => begin('fresh', buildFreshQueue(bank.questions, progress, limit), `Fresh ${limit}`)} onHighYield={() => begin('highYield', buildHighYieldQueue(bank.questions, progress, 20))} onSubject={(subjectCode, title) => begin('random', buildRandomQueue(bank.questions.filter((question) => question.subjectCode === subjectCode), 10), title)} onOpenQuestion={(question) => begin('item', [question])} onSprint={() => begin('sprint', buildSprintQueue(bank.questions, progress, 20))} /> : null}
       {tab === 'review' ? <ReviewPage due={due} wrongCount={wrongCount} onAdaptive={() => begin('adaptive', buildAdaptiveQueue(bank.questions, progress, 10))} onWrong={startWrong} onFlashcards={() => begin('flashcard', buildAdaptiveQueue(bank.questions, progress, 10), 'Recall cards · mind notes')} onCommuteNotes={startCommuteNotes} onPracticeSection={(section, title) => begin('adaptive', buildAdaptiveQueue(bank.questions.filter((question) => question.section === section), progress, 10), title)} /> : null}

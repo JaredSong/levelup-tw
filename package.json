@@ -1,7 +1,7 @@
 {
   "name": "level-up-study",
   "private": true,
-  "version": "1.1.32",
+  "version": "1.1.33",
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",

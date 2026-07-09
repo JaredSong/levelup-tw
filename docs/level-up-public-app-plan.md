@@ -101,6 +101,8 @@ Cost basis supports this: static hosting on Cloudflare Pages is near-free and th
   - Memory cues must explain the concept, not just say "do not memorize position."
   - Image questions show the relevant crop directly, not full official pages unless fallback is needed.
 
+The screen-level interface direction lives in `docs/level-up-interface-spec.md`. Treat that file as the UI compass: Home for the daily next action, Practice for full official questions, Review for due memory cards, Mock Exam for timed tests, and Insights for coaching/readiness.
+
 ## Learning Model
 
 Level Up should combine three layers without confusing them:

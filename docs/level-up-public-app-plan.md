@@ -111,6 +111,88 @@ Level Up should combine three layers without confusing them:
 
 The daily routine should feel like: finish a small fresh set, clear scheduled review, repair wrong answers, then periodically run a timed mock.
 
+## MVP Roadmap
+
+The MVP should prove one loop: **practice official questions -> capture mistakes -> schedule review -> validate with timed mocks**. Do not build leagues, social features, broad AI automation, or native apps before that loop works end to end.
+
+### Phase 0: Product Contracts
+
+Freeze the entity contracts before expanding UI:
+
+- `Question`: official exam metadata, prompt, options, answers, media, source version, tags.
+- `Attempt`: selected answers, correctness, response time, confidence/guessing, timestamp, mode.
+- `WrongBookItem`: question key, wrong count, recovery state, last wrong choice, retry priority.
+- `KnowledgeAtom`: one rule, threshold, distinction, process step, or misconception extracted from a question.
+- `ReviewCard`: atom/question reference, prompt format, answer format, scheduling state, next due date.
+- `MockExamRun`: timed session, question set, selections, score, pass/fail, per-section breakdown.
+- `DailyMission`: due reviews, new questions, weak-topic drills, and optional mini mock.
+
+Use one source of truth for official question-bank version, level, category, sections, and source revision: the exam manifest. The review scheduler should be FSRS-compatible in shape (`stability`, `difficulty`, `retrievability`, `nextDueAt`) even if v1 starts with a simplified implementation.
+
+MVP metrics:
+
+- daily completion rate
+- review backlog size
+- wrong-answer recovery rate
+- mock retake improvement
+
+### Phase 1: Exam-Prep Spine
+
+Ship the conventional exam app first:
+
+- normalized official question bank with category, level, section, answers, explanations, source metadata
+- Question Bank and Practice screens
+- instant feedback, bookmarks, wrong-answer capture, retry sets
+- Mock Exam mode with configurable count, timer, pass-line display, score report, and exam history
+- sync for progress, wrong answers, bookmarks, and mock history
+
+At the end of this phase, the app is already useful without atom cards.
+
+### Phase 2: Memory Layer
+
+Turn mistakes and high-value questions into schedulable memory work:
+
+- extract `KnowledgeAtom` records from selected wrong/high-yield questions
+- generate `ReviewCard` records from those atoms
+- add Review screen with due queue and simple grading (`Again`, `Good`, `Easy`; add `Hard` later if needed)
+- store FSRS-compatible scheduling fields and next due date
+- handle lapses and prevent overdue backlog from becoming discouraging
+
+At the end of this phase, a missed full question can return later as a smaller memory unit.
+
+### Phase 3: Habit Loop
+
+Add light Duolingo-style structure only after the learning loop works:
+
+- Home screen with due today, daily goal, streak, and one-tap resume
+- Daily Missions combining due reviews, weak-topic drills, and one mini mock
+- shallow XP/badges/streaks that reinforce studying without dominating it
+- weak-area recommendations from wrong-answer clusters and overdue cards
+
+### Phase 4: Smarter Automation
+
+Only after the core loop is stable:
+
+- AI-assisted explanation rewriting for short correction vs deeper study
+- smarter atom extraction suggestions from high-error questions
+- pass-readiness dashboard from topic mastery, recent mocks, and overdue burden
+- adaptive mission planner based on review load and recent mock performance
+
+### 10-Week Pilot Sequence
+
+| Weeks | Goal | Deliverable |
+| --- | --- | --- |
+| 1 | Contracts and architecture | Frozen schemas, entity map, scheduler boundary, MVP metrics |
+| 2-3 | Question-bank foundation | Import pipeline, normalized questions, category filters, bookmarks |
+| 4 | Practice flow | Instant feedback, wrong-answer capture, explanation panel, retry set |
+| 5 | Mock exams | Timed exam mode, pass threshold, score report, exam history |
+| 6-7 | Review engine | Knowledge atoms, review cards, due queue, grading UI |
+| 8 | Scheduling | FSRS-compatible next-due logic, lapse handling, backlog protection |
+| 9 | Home and missions | Today screen, streak, daily mission bundle, weak-area tasks |
+| 10 | QA and launch gate | End-to-end test, data integrity, retention telemetry, pilot release |
+
+Launch gate: a pilot user must complete one full cycle from first practice to wrong-answer capture to scheduled review to timed re-validation without manual workarounds.
+
 ## Personal Banks
 
 Personal imports are phase 2, not the core public promise.

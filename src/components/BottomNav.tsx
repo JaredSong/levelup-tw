@@ -1,4 +1,5 @@
 import { BarChart3, Dumbbell, Home, Layers3, Timer } from 'lucide-react'
+import { zhTW } from '../i18n/zh-TW'
 
 export type Tab = 'home' | 'practice' | 'review' | 'mock' | 'insights'
 
@@ -8,11 +9,11 @@ interface Props {
 }
 
 const items = [
-  { id: 'home' as const, label: 'Home', Icon: Home },
-  { id: 'practice' as const, label: 'Practice', Icon: Dumbbell },
-  { id: 'review' as const, label: 'Review', Icon: Layers3 },
-  { id: 'mock' as const, label: 'Mock', Icon: Timer },
-  { id: 'insights' as const, label: 'Insights', Icon: BarChart3 },
+  { id: 'home' as const, label: zhTW.nav.home, Icon: Home },
+  { id: 'practice' as const, label: zhTW.nav.practice, Icon: Dumbbell },
+  { id: 'review' as const, label: zhTW.nav.review, Icon: Layers3 },
+  { id: 'mock' as const, label: zhTW.nav.mock, Icon: Timer },
+  { id: 'insights' as const, label: zhTW.nav.insights, Icon: BarChart3 },
 ]
 
 export function BottomNav({ active, onChange }: Props) {

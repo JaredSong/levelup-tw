@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Search, Volume2 } from 'lucide-react'
 import { useGlossary, type GlossaryEntry } from '../hooks/useGlossary'
+import { zhTW } from '../i18n/zh-TW'
 
 interface Props {
   onPracticeSection: (section: string, title: string) => void
@@ -28,7 +29,7 @@ function EntryCard({ entry, onPracticeSection }: { entry: GlossaryEntry } & Prop
       ) : null}
       {entry.sections.length ? (
         <div className="glossary-links">
-          <span>{entry.qids.length} question{entry.qids.length === 1 ? '' : 's'}</span>
+          <span>{zhTW.glossary.questionCount(entry.qids.length)}</span>
           {entry.sections.map((section) => (
             <button key={section} onClick={() => onPracticeSection(section, `${entry.term} · ${section}`)} type="button">{section}</button>
           ))}
@@ -50,31 +51,31 @@ export function GlossaryView({ onPracticeSection }: Props) {
   return (
     <main className="page glossary-page">
       <header className="page-title">
-        <p className="eyebrow">Bilingual glossary</p>
-        <h1>Terms</h1>
-        <p>Chinese term, pinyin, plain English, and a memory cue. Tap a section to practise it.</p>
+        <p className="eyebrow">{zhTW.glossary.eyebrow}</p>
+        <h1>{zhTW.glossary.title}</h1>
+        <p>{zhTW.glossary.description}</p>
       </header>
 
       <label className="search-field">
         <Search size={18} />
-        <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search 中文, pinyin, or English…" type="search" />
+        <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder={zhTW.glossary.searchPlaceholder} type="search" />
       </label>
 
       {examTerms.length ? (
         <section className="glossary-group">
-          <div className="section-heading compact"><div><p className="eyebrow">Question wording</p><h2>How the exam phrases things</h2></div></div>
+          <div className="section-heading compact"><div><p className="eyebrow">{zhTW.glossary.questionWording}</p><h2>{zhTW.glossary.questionWordingHint}</h2></div></div>
           <div className="glossary-list">{examTerms.map((entry) => <EntryCard entry={entry} key={entry.term} onPracticeSection={onPracticeSection} />)}</div>
         </section>
       ) : null}
 
       {terms.length ? (
         <section className="glossary-group">
-          <div className="section-heading compact"><div><p className="eyebrow">Vocabulary</p><h2>Technical &amp; legal terms</h2></div></div>
+          <div className="section-heading compact"><div><p className="eyebrow">{zhTW.glossary.vocabulary}</p><h2>{zhTW.glossary.vocabularyHint}</h2></div></div>
           <div className="glossary-list">{terms.map((entry) => <EntryCard entry={entry} key={entry.term} onPracticeSection={onPracticeSection} />)}</div>
         </section>
       ) : null}
 
-      {!filtered.length ? <p className="history-empty">No terms match “{query}”.</p> : null}
+      {!filtered.length ? <p className="history-empty">{zhTW.glossary.noMatch(query)}</p> : null}
     </main>
   )
 }

@@ -1,6 +1,7 @@
 import { ArrowRight, Compass, Shuffle, Target, Zap } from 'lucide-react'
 import { LibraryView } from '../../components/LibraryView'
 import type { Question, Progress } from '../../domain/studyEngine'
+import { zhTW } from '../../i18n/zh-TW'
 
 interface Props {
   questions: Question[]
@@ -19,16 +20,16 @@ export function PracticePage(props: Props) {
   return (
     <main className="page dashboard-page">
       <header className="page-title">
-        <p className="eyebrow">Practice</p>
-        <h1>Official questions</h1>
-        <p>Fresh questions, random drills, high-yield mixes, and the full searchable bank.</p>
+        <p className="eyebrow">{zhTW.practice.eyebrow}</p>
+        <h1>{zhTW.practice.title}</h1>
+        <p>{zhTW.practice.description}</p>
       </header>
 
       <section className="syllabus-section">
         <div className="section-heading compact">
           <div>
-            <p className="eyebrow">Latest syllabus</p>
-            <h2>All required banks included</h2>
+            <p className="eyebrow">{zhTW.practice.latestSyllabus}</p>
+            <h2>{zhTW.practice.allBanksIncluded}</h2>
           </div>
           <strong>{props.total.toLocaleString()}</strong>
         </div>
@@ -51,34 +52,34 @@ export function PracticePage(props: Props) {
       <section className="mode-section">
         <div className="section-heading compact">
           <div>
-            <p className="eyebrow">Question modes</p>
-            <h2>Choose the kind of practice</h2>
+            <p className="eyebrow">{zhTW.practice.modes}</p>
+            <h2>{zhTW.practice.choosePractice}</h2>
           </div>
         </div>
         <div className="mode-list">
           <button type="button" onClick={props.onSprint}>
             <span className="mode-icon coral"><Zap size={21} /></span>
-            <span><strong>Exam sprint</strong><small>20 weighted to weak spots · for a short break</small></span>
+            <span><strong>{zhTW.practice.examSprint}</strong><small>{zhTW.practice.examSprintHint}</small></span>
             <span className="mode-meta">20</span>
           </button>
           <button type="button" onClick={() => props.onFresh(20)}>
             <span className="mode-icon blue"><Compass size={21} /></span>
-            <span><strong>Fresh sprint</strong><small>20 unseen first · no review repeats</small></span>
+            <span><strong>{zhTW.practice.freshSprint}</strong><small>{zhTW.practice.freshSprintHint}</small></span>
             <span className="mode-meta">20</span>
           </button>
           <button type="button" onClick={props.onHighYield}>
             <span className="mode-icon slate"><Target size={21} /></span>
-            <span><strong>Mini mock 20</strong><small>Official mock mix · normal sampling</small></span>
+            <span><strong>{zhTW.practice.miniMock}</strong><small>{zhTW.practice.miniMockHint}</small></span>
             <span className="mode-meta">20</span>
           </button>
           <button type="button" onClick={props.onRandom}>
             <span className="mode-icon blue"><Shuffle size={21} /></span>
-            <span><strong>Random 10</strong><small>Mixed across all 13 syllabus groups</small></span>
+            <span><strong>{zhTW.practice.random10}</strong><small>{zhTW.practice.random10Hint}</small></span>
             <ArrowRight size={18} />
           </button>
           <button type="button" onClick={props.onSequential}>
             <span className="mode-icon accent"><ArrowRight size={21} /></span>
-            <span><strong>Sequential set</strong><small>Continue the official bank in order</small></span>
+            <span><strong>{zhTW.practice.sequential}</strong><small>{zhTW.practice.sequentialHint}</small></span>
             <ArrowRight size={18} />
           </button>
         </div>

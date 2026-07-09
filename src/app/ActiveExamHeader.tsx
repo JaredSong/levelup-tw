@@ -1,5 +1,6 @@
 import { ChevronDown, Database, HardDrive, Plus, X } from 'lucide-react'
 import { useState } from 'react'
+import { zhTW } from '../i18n/zh-TW'
 import { formatExamSwitcherItem } from './activeExam'
 import { useActiveExam } from './useActiveExam'
 
@@ -8,8 +9,8 @@ export function ActiveExamHeader() {
   const [open, setOpen] = useState(false)
 
   return (
-    <div className="active-exam-bar" aria-label="Active exam">
-      <button className="active-exam-chip" onClick={() => setOpen(true)} title="Switch exam" type="button">
+    <div className="active-exam-bar" aria-label={zhTW.shell.activeExam}>
+      <button className="active-exam-chip" onClick={() => setOpen(true)} title={zhTW.shell.switchExam} type="button">
         <Database size={16} />
         <span>
           <strong>{activeExam.titleZh}</strong>
@@ -17,16 +18,16 @@ export function ActiveExamHeader() {
         </span>
         <ChevronDown size={16} />
       </button>
-      <span className="active-exam-status"><HardDrive size={14} /> Offline</span>
+      <span className="active-exam-status"><HardDrive size={14} /> {zhTW.shell.offline}</span>
       {open ? (
         <div className="exam-switcher-overlay" role="presentation" onClick={() => setOpen(false)}>
-          <section className="exam-switcher-sheet" aria-modal="true" role="dialog" aria-label="Choose exam" onClick={(event) => event.stopPropagation()}>
+          <section className="exam-switcher-sheet" aria-modal="true" role="dialog" aria-label={zhTW.shell.chooseExam} onClick={(event) => event.stopPropagation()}>
             <div className="sheet-head">
               <div>
-                <p className="eyebrow">Choose exam</p>
-                <h2>Study one exam at a time</h2>
+                <p className="eyebrow">{zhTW.shell.chooseExam}</p>
+                <h2>{zhTW.shell.studyOneExam}</h2>
               </div>
-              <button className="icon-button" onClick={() => setOpen(false)} aria-label="Close exam switcher" type="button"><X size={18} /></button>
+              <button className="icon-button" onClick={() => setOpen(false)} aria-label="關閉考科選單" type="button"><X size={18} /></button>
             </div>
             <div className="exam-switcher-list">
               {installedExams.map((exam) => {
@@ -55,8 +56,8 @@ export function ActiveExamHeader() {
             <button className="exam-catalog-link" type="button" disabled>
               <Plus size={17} />
               <span>
-                <strong>Add more exams</strong>
-                <small>Catalog unlocks when the next verified pack is ready.</small>
+                <strong>{zhTW.shell.addMoreExams}</strong>
+                <small>{zhTW.shell.catalogComingSoon}</small>
               </span>
             </button>
           </section>

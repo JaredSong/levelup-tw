@@ -1,4 +1,5 @@
 import type { ExamManifest } from '../core/exam'
+import { zhTW } from '../i18n/zh-TW'
 
 export const ACTIVE_EXAM_KEY = 'level-up-active-exam-id'
 
@@ -60,8 +61,8 @@ export function formatExamSwitcherItem(exam: ExamManifest, active: boolean) {
     examId: exam.examId,
     title: exam.titleZh,
     meta: `${exam.category} · ${exam.level} · ${exam.version}`,
-    countLabel: `${exam.activeQuestionCount.toLocaleString()} active questions`,
-    statusLabel: `${active ? 'Active' : 'Installed'} · Offline`,
+    countLabel: zhTW.shell.activeQuestionCount(exam.activeQuestionCount),
+    statusLabel: active ? zhTW.shell.activeOffline : zhTW.shell.installedOffline,
   }
 }
 

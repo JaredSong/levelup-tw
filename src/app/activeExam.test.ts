@@ -19,8 +19,8 @@ describe('active exam selection', () => {
       examId: 'web-design-b',
       title: '網頁設計乙級',
       meta: '技能檢定 · 乙級 · A13',
-      countLabel: '1,360 active questions',
-      statusLabel: 'Active · Offline',
+      countLabel: '1,360 題可練習',
+      statusLabel: '目前使用 · 離線',
     })
   })
 })

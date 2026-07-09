@@ -1,4 +1,5 @@
 import { ArrowRight, Clock3, CloudOff, Flame } from 'lucide-react'
+import { zhTW } from '../../i18n/zh-TW'
 import { isSyncEnabled } from '../../storage/sync'
 
 interface Props {
@@ -20,15 +21,15 @@ function daysUntilExam() {
 
 export function HomePage(props: Props) {
   const completion = props.total ? Math.round((props.seen / props.total) * 100) : 0
-  const primaryLabel = props.hasSession ? props.sessionLabel : 'Continue from question 145'
+  const primaryLabel = props.hasSession ? props.sessionLabel : zhTW.home.continueFrom
 
   return (
     <main className="page dashboard-page">
       <header className="app-header">
         <div>
-          <p className="eyebrow">目前題庫：網頁設計乙級 A13</p>
+          <p className="eyebrow">{zhTW.home.currentBank}：網頁設計乙級 A13</p>
           <h1>Level Up</h1>
-          <p className="header-subtitle">升級吧 · 今日任務</p>
+          <p className="header-subtitle">{zhTW.home.subtitle}</p>
         </div>
         <div className="exam-countdown" aria-label={`${daysUntilExam()} days until written exam`}>
           <strong>{daysUntilExam()}</strong>
@@ -37,20 +38,20 @@ export function HomePage(props: Props) {
       </header>
 
       {!isSyncEnabled() ? (
-        <p className="sync-nudge"><CloudOff size={16} /> Cloud sync is off — set a passphrase in Insights so your progress is saved across devices.</p>
+        <p className="sync-nudge"><CloudOff size={16} /> {zhTW.home.syncOff}</p>
       ) : null}
 
       <section className="readiness-strip" aria-label="Study overview">
         <div>
-          <span>Seen</span>
+          <span>{zhTW.home.seen}</span>
           <strong>{props.seen}</strong>
         </div>
         <div>
-          <span>Due now</span>
+          <span>{zhTW.home.dueNow}</span>
           <strong>{props.due}</strong>
         </div>
         <div>
-          <span>Accuracy</span>
+          <span>{zhTW.home.accuracy}</span>
           <strong>{props.accuracy}%</strong>
         </div>
       </section>
@@ -58,9 +59,9 @@ export function HomePage(props: Props) {
       <button className="continue-panel" onClick={props.hasSession ? props.onContinue : props.onSequential} type="button">
         <span className="continue-icon"><ArrowRight size={23} strokeWidth={2} /></span>
         <span className="continue-copy">
-          <span className="action-kicker">Next useful step</span>
+          <span className="action-kicker">{zhTW.home.nextStep}</span>
           <strong>{primaryLabel}</strong>
-          <span>{props.hasSession ? 'Your exact position is saved.' : 'Start with a small fresh set.'}</span>
+          <span>{props.hasSession ? zhTW.home.exactPositionSaved : zhTW.home.startSmallFreshSet}</span>
         </span>
         <ArrowRight className="continue-arrow" size={22} strokeWidth={1.8} />
       </button>
@@ -68,8 +69,8 @@ export function HomePage(props: Props) {
       <section className="coverage-block">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">Coverage</p>
-            <h2>{props.seen} of {props.total} recorded</h2>
+            <p className="eyebrow">{zhTW.home.coverage}</p>
+            <h2>{zhTW.home.recorded(props.seen, props.total)}</h2>
           </div>
           <span>{completion}%</span>
         </div>
@@ -80,7 +81,7 @@ export function HomePage(props: Props) {
 
       <aside className="today-note">
         <Clock3 size={18} />
-        <p><strong>Short session is enough.</strong> Clear due review, then do a small fresh set or one mock when you have room.</p>
+        <p><strong>{zhTW.home.shortSessionTitle}</strong> {zhTW.home.shortSessionBody}</p>
         <Flame size={18} />
       </aside>
     </main>

@@ -55,6 +55,16 @@ export function chooseActiveExamId(exams: Pick<ExamManifest, 'examId'>[], savedE
   return exams[0]?.examId ?? null
 }
 
+export function formatExamSwitcherItem(exam: ExamManifest, active: boolean) {
+  return {
+    examId: exam.examId,
+    title: exam.titleZh,
+    meta: `${exam.category} · ${exam.level} · ${exam.version}`,
+    countLabel: `${exam.activeQuestionCount.toLocaleString()} active questions`,
+    statusLabel: `${active ? 'Active' : 'Installed'} · Offline`,
+  }
+}
+
 export function readSavedActiveExamId(storage: Pick<Storage, 'getItem'> = localStorage): string | null {
   return storage.getItem(ACTIVE_EXAM_KEY)
 }

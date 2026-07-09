@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { chooseActiveExamId, INSTALLED_EXAMS } from './activeExam'
+import { chooseActiveExamId, formatExamSwitcherItem, INSTALLED_EXAMS } from './activeExam'
 
 describe('active exam selection', () => {
   it('opens the saved exam when that exam is installed', () => {
@@ -12,5 +12,15 @@ describe('active exam selection', () => {
 
   it('returns null when no exams are installed', () => {
     expect(chooseActiveExamId([], 'web-design-b')).toBeNull()
+  })
+
+  it('formats installed exams for the switcher sheet', () => {
+    expect(formatExamSwitcherItem(INSTALLED_EXAMS[0], true)).toEqual({
+      examId: 'web-design-b',
+      title: '網頁設計乙級',
+      meta: '技能檢定 · 乙級 · A13',
+      countLabel: '1,360 active questions',
+      statusLabel: 'Active · Offline',
+    })
   })
 })

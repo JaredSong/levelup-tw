@@ -8,6 +8,46 @@ function loadBank(): Question[] {
 }
 
 describe('published question bank', () => {
+  it('publishes the current bank as the web-design-b exam pack', () => {
+    const generated = loadBank() as Array<Question & { examId?: string }>
+    const manifest = JSON.parse(
+      readFileSync(new URL('../public/data/exams/web-design-b/manifest.json', import.meta.url), 'utf8'),
+    ) as {
+      examId: string
+      titleZh: string
+      level: string
+      questionCount: number
+      activeQuestionCount: number
+      sections: Array<{ id: string; questionCount: number }>
+      mockRules: { totalQuestions: number; singleCount: number; multipleCount: number }
+    }
+
+    expect(manifest).toMatchObject({
+      examId: 'web-design-b',
+      titleZh: '網頁設計乙級',
+      level: '乙級',
+      questionCount: 1365,
+      activeQuestionCount: 1360,
+      mockRules: { totalQuestions: 80, singleCount: 60, multipleCount: 20 },
+    })
+    expect(Object.fromEntries(manifest.sections.map((section) => [section.id, section.questionCount]))).toEqual({
+      '17300-01': 242,
+      '17300-02': 405,
+      '17300-03': 124,
+      '17300-04': 75,
+      '90006-01': 100,
+      '90007-01': 100,
+      '90008-03': 100,
+      '90009-04': 100,
+      '90011-01': 20,
+      '90011-02': 29,
+      '90011-03': 10,
+      '90011-04': 20,
+      '90011-05': 40,
+    })
+    expect(generated.every((question) => question.examId === 'web-design-b')).toBe(true)
+  })
+
   it('keeps every generated 90011 answer key aligned with official A10', () => {
     const official = parseQuestionBank(
       readFileSync(new URL('../source/900110A10-raw.txt', import.meta.url), 'utf8'),

@@ -13,6 +13,7 @@ import {
   type Progress,
   type Question,
 } from './studyEngine'
+import { questionKey } from '../core/exam'
 
 const questions: Question[] = [
   {
@@ -43,6 +44,24 @@ const questions: Question[] = [
     answers: [4],
   },
 ]
+
+describe('questionKey', () => {
+  it('builds stable multi-exam storage keys without changing official question ids', () => {
+    const question: Question = {
+      examId: 'web-design-b',
+      id: '17300-02-247',
+      section: '17300-02',
+      number: 247,
+      kind: 'single',
+      prompt: 'q',
+      options: ['A', 'B', 'C', 'D'],
+      answers: [1],
+    }
+
+    expect(questionKey('web-design-b', question.id)).toBe('web-design-b:17300-02-247')
+    expect(question.id).toBe('17300-02-247')
+  })
+})
 
 describe('scoreAnswer', () => {
   it('requires an exact match for multiple-answer questions', () => {

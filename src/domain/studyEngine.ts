@@ -1,6 +1,7 @@
 export type QuestionKind = 'single' | 'multiple'
 
 export interface Question {
+  examId?: string
   id: string
   subjectCode?: string
   subjectTitle?: string

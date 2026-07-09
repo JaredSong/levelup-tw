@@ -1,6 +1,9 @@
-import { readFile, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { parseQuestionBank } from './questionParser.mjs'
 import { sanitizeText } from './textCorrections.mjs'
+
+const EXAM_ID = 'web-design-b'
+const EXAM_TITLE_ZH = '網頁設計乙級'
 
 // Questions the official 900080A16 (rev V115041316) marks 本題刪題 (deleted).
 // Kept as source records for provenance but flagged inactive so they are
@@ -253,6 +256,7 @@ const IMAGE_OVERRIDES = {
 }
 
 const outputPath = new URL('../public/data/questions.json', import.meta.url)
+const manifestPath = new URL(`../public/data/exams/${EXAM_ID}/manifest.json`, import.meta.url)
 const banks = [
   { code: '17300', file: '173002A13-raw.txt', expected: 846 },
   { code: '90011', file: '900110A10-raw.txt', expected: 119 },
@@ -287,6 +291,7 @@ for (const bank of banks) {
     const sourcePage = override?.sourcePage ?? question.sourcePage
     const repaired = {
       ...question,
+      examId: EXAM_ID,
       hasFigure,
       sourcePage,
       prompt: sanitizeText(override?.prompt ?? question.prompt),
@@ -323,6 +328,58 @@ for (const [section, count] of Object.entries(expected)) {
 }
 
 await writeFile(outputPath, `${JSON.stringify(questions)}\n`)
+await mkdir(new URL('.', manifestPath), { recursive: true })
+await writeFile(manifestPath, `${JSON.stringify({
+  examId: EXAM_ID,
+  level: '乙級',
+  titleZh: EXAM_TITLE_ZH,
+  titleEn: 'Web Design (Class B)',
+  category: '資訊',
+  version: 'A13',
+  sourceUrl: 'https://techbank.wdasec.gov.tw/',
+  sourceRevision: '173002A13 + 900060A18/900070A17/900080A16/900090A11/900110A10',
+  questionCount: questions.length,
+  activeQuestionCount: questions.filter((question) => question.active !== false).length,
+  sections: Object.entries(
+    questions.reduce((acc, question) => {
+      const existing = acc[question.section] ?? {
+        id: question.section,
+        subjectCode: question.subjectCode,
+        sourceGroup: question.sourceGroup,
+        titleZh: question.sectionTitle ?? question.section,
+        questionCount: 0,
+        activeQuestionCount: 0,
+      }
+      existing.questionCount += 1
+      if (question.active !== false) existing.activeQuestionCount += 1
+      acc[question.section] = existing
+      return acc
+    }, {}),
+  ).map(([, section]) => section),
+  mockRules: {
+    totalQuestions: 80,
+    singleCount: 60,
+    multipleCount: 20,
+    durationMinutes: 100,
+    passScore: 60,
+    maxScore: 100,
+    weightSingle: 1,
+    weightMultiple: 2,
+    subjectQuota: [
+      { subjectCode: '17300', count: 55 },
+      { subjectCode: '90011', count: 9 },
+      { subjectCode: '90006', count: 4 },
+      { subjectCode: '90007', count: 4 },
+      { subjectCode: '90008', count: 4 },
+      { subjectCode: '90009', count: 4 },
+    ],
+  },
+  integrity: {
+    status: 'spot_checked',
+    inactiveQuestionCount: questions.filter((question) => question.active === false).length,
+    imageQuestionCount: questions.filter((question) => question.active !== false && question.hasFigure).length,
+  },
+}, null, 2)}\n`)
 console.log(
   JSON.stringify({
     total: questions.length,

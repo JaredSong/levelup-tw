@@ -30,6 +30,7 @@ import { useQuestionBank } from './hooks/useQuestionBank'
 import { useReviewCards } from './hooks/useReviewCards'
 import { useStudyData } from './hooks/useStudyData'
 import { useTodayActivity } from './hooks/useTodayActivity'
+import { zhTW } from './i18n/zh-TW'
 import { db } from './storage/db'
 import { isSyncEnabled, syncNow } from './storage/sync'
 import type { SessionMode, StudySession } from './types'
@@ -51,19 +52,7 @@ function loadSession(): StudySession | null {
 }
 
 function titleForMode(mode: SessionMode) {
-  return {
-    sequential: 'New questions',
-    adaptive: 'Due review 10',
-    random: 'Random 10',
-    fresh: 'Fresh sprint',
-    highYield: 'Mini mock 20',
-    wrong: 'Wrong answers',
-    flashcard: 'Recall cards',
-    commute: 'Commute notes',
-    mock: 'Official mock',
-    sprint: 'Exam sprint',
-    item: 'Item review',
-  }[mode]
+  return zhTW.session.titles[mode]
 }
 
 function shouldRandomizeOptions() {
@@ -183,8 +172,8 @@ export default function App() {
     return () => { cancelled = true }
   }, [examId, progress, session, sessionQuestions])
 
-  if (error) return <div className="fatal-state"><AlertTriangle /><h1>Question bank unavailable</h1><p>{error}</p></div>
-  if (!bank || loading) return <div className="loading-state"><LoaderCircle className="spin" /><strong>Opening your study bank</strong><span>Loading the syllabus…</span></div>
+  if (error) return <div className="fatal-state"><AlertTriangle /><h1>{zhTW.session.bankUnavailable}</h1><p>{error}</p></div>
+  if (!bank || loading) return <div className="loading-state"><LoaderCircle className="spin" /><strong>{zhTW.session.loadingTitle}</strong><span>{zhTW.session.loadingBody}</span></div>
 
   const begin = (mode: SessionMode, questions: Question[], title?: string, options?: { mockFeedback?: boolean }) => {
     if (!questions.length) return
@@ -195,9 +184,9 @@ export default function App() {
 
   const startMock = (mockFeedback = false) => {
     try {
-      begin('mock', buildMockQueue(bank.questions), mockFeedback ? 'Training mock' : 'Official mock', { mockFeedback })
+      begin('mock', buildMockQueue(bank.questions), mockFeedback ? zhTW.session.trainingMock : zhTW.session.titles.mock, { mockFeedback })
     } catch {
-      window.alert('The question bank cannot currently satisfy the official mock format.')
+      window.alert(zhTW.session.mockUnavailable)
     }
   }
 
@@ -245,7 +234,7 @@ export default function App() {
         return (b?.lastAnsweredAt ?? '').localeCompare(a?.lastAnsweredAt ?? '')
       })
     if (!wrong.length) {
-      window.alert('No active wrong answers yet. Missed items will appear here after practice or mocks.')
+      window.alert(zhTW.session.noWrongForCommute)
       return
     }
     begin('commute', wrong, `Commute notes · ${wrong.length} wrong`)
@@ -466,14 +455,14 @@ export default function App() {
     return (
       <main className="session-summary">
         <CheckCircle2 size={34} />
-        <p className="eyebrow">Session recorded</p>
+        <p className="eyebrow">{zhTW.session.recorded}</p>
         <h1>{summarySession.title}</h1>
         <strong className="summary-score">{mockScore !== null ? `${mockScore}/100` : `${correct}/${answers.length}`}</strong>
-        <p>{mockScore !== null ? (mockScore >= 60 ? 'Passing score in this mock.' : 'Not passing yet; the missed items are now in review.') : 'Every answer updated its item history and next review time.'}</p>
+        <p>{mockScore !== null ? (mockScore >= 60 ? zhTW.session.mockPassNote : zhTW.session.mockFailNote) : zhTW.session.practiceNote}</p>
 
         {isMock ? (
           <div className="mock-breakdown">
-            <div className="section-heading compact"><div><p className="eyebrow">Breakdown</p><h2>By work group</h2></div></div>
+            <div className="section-heading compact"><div><p className="eyebrow">{zhTW.session.breakdownEyebrow}</p><h2>{zhTW.session.breakdownTitle}</h2></div></div>
             <div className="breakdown-list">
               {groupBreakdown.map((group) => {
                 const accuracyPct = Math.round((group.correct / group.total) * 100)
@@ -481,20 +470,20 @@ export default function App() {
                   <div className={accuracyPct < 60 ? 'breakdown-row weak' : 'breakdown-row'} key={group.section}>
                     <div className="breakdown-head"><strong>{group.label}</strong><span>{group.correct}/{group.total}</span></div>
                     <div className="mini-track"><span style={{ width: `${accuracyPct}%` }} /></div>
-                    {group.missed ? <button className="group-practice" onClick={() => begin('adaptive', buildAdaptiveQueue(bank.questions.filter((question) => question.section === group.section), progress, 10), `${group.label} · practice`)} type="button">Practice this group <ArrowRight size={15} /></button> : null}
+                    {group.missed ? <button className="group-practice" onClick={() => begin('adaptive', buildAdaptiveQueue(bank.questions.filter((question) => question.section === group.section), progress, 10), zhTW.session.practiceSuffix(group.label))} type="button">{zhTW.session.practiceGroup} <ArrowRight size={15} /></button> : null}
                   </div>
                 )
               })}
             </div>
             {missed.length ? (
-              <button className="secondary-action wide" onClick={() => begin('wrong', missed, 'Review missed')} type="button"><RotateCcw size={16} /> Review {missed.length} missed</button>
+              <button className="secondary-action wide" onClick={() => begin('wrong', missed, zhTW.session.reviewMissedTitle)} type="button"><RotateCcw size={16} /> {zhTW.session.reviewMissed(missed.length)}</button>
             ) : null}
           </div>
         ) : null}
 
         <div className="summary-actions">
-          <button className="primary-action" onClick={() => { setSummary(null); setTab('home') }} type="button">Back to home</button>
-          <button className="secondary-action" onClick={() => begin(summarySession.mode, summarySession.questionIds.map((id) => bank.byId.get(id)).filter((q): q is Question => !!q), summarySession.title, { mockFeedback: summarySession.mockFeedback })} type="button"><RotateCcw size={17} /> Repeat session</button>
+          <button className="primary-action" onClick={() => { setSummary(null); setTab('home') }} type="button">{zhTW.session.backToHome}</button>
+          <button className="secondary-action" onClick={() => begin(summarySession.mode, summarySession.questionIds.map((id) => bank.byId.get(id)).filter((q): q is Question => !!q), summarySession.title, { mockFeedback: summarySession.mockFeedback })} type="button"><RotateCcw size={17} /> {zhTW.session.repeatSession}</button>
         </div>
       </main>
     )
@@ -504,10 +493,10 @@ export default function App() {
     <div className="app-frame">
       <ActiveExamHeader />
       {tab === 'home' ? <HomePage seen={seen} total={bank.questions.length} due={due} accuracy={accuracy} hasSession={!!session} sessionLabel={session?.title} streak={streak} mission={mission} onGoReview={() => setTab('review')} onWrongFix={startWrong} onContinue={resumePractice} onSequential={startSequential} /> : null}
-      {tab === 'practice' ? <PracticePage questions={bank.questions} progress={progress} total={bank.questions.length} onSequential={startSequential} onRandom={() => begin('random', buildRandomQueue(bank.questions, 10))} onFresh={(limit) => begin('fresh', buildFreshQueue(bank.questions, progress, limit), `Fresh ${limit}`)} onHighYield={() => begin('highYield', buildHighYieldQueue(bank.questions, progress, 20))} onSubject={(subjectCode, title) => begin('random', buildRandomQueue(bank.questions.filter((question) => question.subjectCode === subjectCode), 10), title)} onOpenQuestion={(question) => begin('item', [question])} onSprint={() => begin('sprint', buildSprintQueue(bank.questions, progress, 20))} /> : null}
-      {tab === 'review' ? <ReviewPage due={due} wrongCount={wrongCount} dueCards={dueCards} totalCards={reviewCards.length} wrongWithoutCards={wrongWithoutCards} onGradeCard={gradeReviewCard} onOpenCardSource={openCardSource} onCreateWrongCards={createWrongCards} onAdaptive={() => begin('adaptive', buildAdaptiveQueue(bank.questions, progress, 10))} onWrong={startWrong} onFlashcards={() => begin('flashcard', buildAdaptiveQueue(bank.questions, progress, 10), 'Recall cards · mind notes')} onCommuteNotes={startCommuteNotes} onPracticeSection={(section, title) => begin('adaptive', buildAdaptiveQueue(bank.questions.filter((question) => question.section === section), progress, 10), title)} /> : null}
+      {tab === 'practice' ? <PracticePage questions={bank.questions} progress={progress} total={bank.questions.length} onSequential={startSequential} onRandom={() => begin('random', buildRandomQueue(bank.questions, 10))} onFresh={(limit) => begin('fresh', buildFreshQueue(bank.questions, progress, limit), zhTW.session.freshTitle(limit))} onHighYield={() => begin('highYield', buildHighYieldQueue(bank.questions, progress, 20))} onSubject={(subjectCode, title) => begin('random', buildRandomQueue(bank.questions.filter((question) => question.subjectCode === subjectCode), 10), title)} onOpenQuestion={(question) => begin('item', [question])} onSprint={() => begin('sprint', buildSprintQueue(bank.questions, progress, 20))} /> : null}
+      {tab === 'review' ? <ReviewPage due={due} wrongCount={wrongCount} dueCards={dueCards} totalCards={reviewCards.length} wrongWithoutCards={wrongWithoutCards} onGradeCard={gradeReviewCard} onOpenCardSource={openCardSource} onCreateWrongCards={createWrongCards} onAdaptive={() => begin('adaptive', buildAdaptiveQueue(bank.questions, progress, 10))} onWrong={startWrong} onFlashcards={() => begin('flashcard', buildAdaptiveQueue(bank.questions, progress, 10), zhTW.session.titles.flashcard)} onCommuteNotes={startCommuteNotes} onPracticeSection={(section, title) => begin('adaptive', buildAdaptiveQueue(bank.questions.filter((question) => question.section === section), progress, 10), title)} /> : null}
       {tab === 'mock' ? <MockExamPage onMock={() => startMock(false)} onMockTraining={() => startMock(true)} /> : null}
-      {tab === 'insights' ? <InsightsPage questions={bank.questions} progress={progress} onSaveAiToken={(token) => localStorage.setItem('level-b-ai-access-token', token)} onPracticeGroup={(section, title) => begin('adaptive', buildAdaptiveQueue(bank.questions.filter((question) => question.section === section), progress, 10), `${title} · practice`)} /> : null}
+      {tab === 'insights' ? <InsightsPage questions={bank.questions} progress={progress} onSaveAiToken={(token) => localStorage.setItem('level-b-ai-access-token', token)} onPracticeGroup={(section, title) => begin('adaptive', buildAdaptiveQueue(bank.questions.filter((question) => question.section === section), progress, 10), zhTW.session.practiceSuffix(title))} /> : null}
       <BottomNav active={tab} onChange={setTab} />
     </div>
   )

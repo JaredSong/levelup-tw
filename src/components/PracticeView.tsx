@@ -171,6 +171,9 @@ export function PracticeView({
 }: Props) {
   const [guessed, setGuessed] = useState(false)
   const [revealed, setRevealed] = useState(false)
+  // Live AI is a private feature; without a configured token the AI buttons hide
+  // entirely instead of dead-ending in a "connect first" error.
+  const aiEnabled = !!localStorage.getItem('level-b-ai-access-token')
   const [now, setNow] = useState(Date.now())
   const [explanation, setExplanation] = useState<string | null>(null)
   const [explainError, setExplainError] = useState<string | null>(null)
@@ -304,12 +307,13 @@ export function PracticeView({
 
   useEffect(() => {
     if (!question || !answer || answer.correct || isFlashcard || (isMock && !showMockFeedback)) return
+    if (!aiEnabled) return
     const selectedKey = [...selectedForExplain].sort((a, b) => a - b).join(',')
     const autoKey = `${question.id}::${selectedKey}`
     if (!selectedKey || autoExplainRef.current === autoKey) return
     autoExplainRef.current = autoKey
     void requestExplanation()
-  }, [answer, isFlashcard, isMock, question, requestExplanation, selectedForExplain, showMockFeedback])
+  }, [aiEnabled, answer, isFlashcard, isMock, question, requestExplanation, selectedForExplain, showMockFeedback])
 
   useEffect(() => {
     if (!question || !isFlashcard || !revealed || explanation || explaining) return
@@ -448,10 +452,10 @@ export function PracticeView({
   return (
     <main className="practice-shell">
       <header className="practice-header">
-        <button className="icon-button" onClick={onExit} aria-label="Exit session" type="button"><ArrowLeft size={21} /></button>
+        <button className="icon-button" onClick={onExit} aria-label={zhTW.practiceView.exitAria} type="button"><ArrowLeft size={21} /></button>
         <div className="practice-title">
           <strong>{session.title}</strong>
-          <span>{session.currentIndex + 1} of {session.questionIds.length}</span>
+          <span>{zhTW.practiceView.positionOf(session.currentIndex + 1, session.questionIds.length)}</span>
         </div>
         <div className={isMock && secondsRemaining < 600 ? 'session-clock urgent' : 'session-clock'}>
           <Clock3 size={15} /> {formatClock(secondsRemaining)}
@@ -462,10 +466,10 @@ export function PracticeView({
       {isMock ? (
         <div className="mock-toolbar">
           <button className={isFlagged ? 'flag-btn flagged' : 'flag-btn'} onClick={() => onToggleFlag(question.id)} type="button">
-            <Flag size={15} fill={isFlagged ? 'currentColor' : 'none'} /> {isFlagged ? 'Flagged' : 'Flag'}
+            <Flag size={15} fill={isFlagged ? 'currentColor' : 'none'} /> {isFlagged ? zhTW.practiceView.flagged : zhTW.practiceView.flag}
           </button>
-          <span className="mock-count">{answeredCount}/{total} answered{flaggedIndexes.length ? ` · ${flaggedIndexes.length} flagged` : ''}</span>
-          <button className="nav-open" onClick={() => setNavOpen(true)} type="button"><LayoutGrid size={15} /> Navigator</button>
+          <span className="mock-count">{zhTW.practiceView.answeredCount(answeredCount, total)}{flaggedIndexes.length ? zhTW.practiceView.flaggedCount(flaggedIndexes.length) : ''}</span>
+          <button className="nav-open" onClick={() => setNavOpen(true)} type="button"><LayoutGrid size={15} /> {zhTW.practiceView.navigator}</button>
         </div>
       ) : null}
 
@@ -473,8 +477,8 @@ export function PracticeView({
         <div className="question-meta">
           <span>{question.id}</span>
           <span>{question.sectionTitle}</span>
-          <span>{question.kind === 'multiple' ? 'Multiple answer' : 'Single answer'}</span>
-          <button className={progress[question.id]?.bookmarked ? 'saved' : ''} onClick={() => void onToggleBookmark(question.id)} aria-label="Bookmark question" type="button">
+          <span>{question.kind === 'multiple' ? zhTW.practiceView.multiple : zhTW.practiceView.single}</span>
+          <button className={progress[question.id]?.bookmarked ? 'saved' : ''} onClick={() => void onToggleBookmark(question.id)} aria-label={zhTW.practiceView.bookmarkAria} type="button">
             <Bookmark size={18} fill={progress[question.id]?.bookmarked ? 'currentColor' : 'none'} />
           </button>
         </div>
@@ -516,12 +520,14 @@ export function PracticeView({
               <button className="primary-action" disabled={!playableExplanation || speaking} onClick={() => { setPlaylist(false); speakNote(false) }} type="button"><Volume2 size={18} /> Play note</button>
               <button className="secondary-action" disabled={!playableExplanation || speaking || isLast} onClick={() => { setPlaylist(true); speakNote(true) }} type="button"><Volume2 size={18} /> Play playlist</button>
               <button className="secondary-action" disabled={!speaking} onClick={stopSpeaking} type="button"><Square size={16} /> Stop</button>
-              <button className="secondary-action" disabled={explaining} onClick={() => void requestExplanation('commute')} type="button"><BrainCircuit size={18} /> {aiCommuteNote ? 'Regenerate AI' : 'Upgrade with AI'}</button>
+              {aiEnabled ? (
+                <button className="secondary-action" disabled={explaining} onClick={() => void requestExplanation('commute')} type="button"><BrainCircuit size={18} /> {aiCommuteNote ? 'Regenerate AI' : 'Upgrade with AI'}</button>
+              ) : null}
             </div>
           </section>
         ) : null}
 
-        {!isFlashcard && !isCommute ? (
+        {!isFlashcard && !isCommute && aiEnabled ? (
           <div className="reading-help">
             <button className="reading-button" disabled={readingLoading} onClick={() => void requestReading()} type="button">
               <Languages size={17} /> {readingLoading ? '解析中…' : '看懂題目 · understand the question'}
@@ -534,31 +540,33 @@ export function PracticeView({
         {isFlashcard ? (
           <div className="flashcard-answer">
             {!revealed && !answer ? (
-              <button className="primary-action" onClick={() => setRevealed(true)} type="button"><Lightbulb size={19} /> Reveal answer</button>
+              <button className="primary-action" onClick={() => setRevealed(true)} type="button"><Lightbulb size={19} /> {zhTW.practiceView.revealAnswer}</button>
             ) : (
               <>
-                <p className="answer-label">Correct answer</p>
+                <p className="answer-label">{zhTW.practiceView.correctAnswerLabel}</p>
                 <div className="revealed-options">
                   {question.answers.map((value) => <span key={value}>{formatDisplayChoices([value])}. {question.options[value - 1]}</span>)}
                 </div>
-                <button className="explain-button flashcard-cue" disabled={explaining} onClick={() => void requestExplanation('cue')} type="button">
-                  <BrainCircuit size={18} /> {explaining ? 'Writing mind note…' : 'Mind note'}
-                </button>
+                {aiEnabled ? (
+                  <button className="explain-button flashcard-cue" disabled={explaining} onClick={() => void requestExplanation('cue')} type="button">
+                    <BrainCircuit size={18} /> {explaining ? 'Writing mind note…' : 'Mind note'}
+                  </button>
+                ) : null}
                 {explanation ? <div className="ai-explanation">{renderExplanation(explanation)}</div> : null}
                 {explainError ? <p className="inline-error">{explainError}</p> : null}
                 {!answer ? (
                   <div className="grade-actions">
-                    <button onClick={() => void onFlashcardGrade(question, false)} type="button"><RotateCcw size={18} /> Need review</button>
-                    <button className="success" onClick={() => void onFlashcardGrade(question, true)} type="button"><Check size={18} /> Knew it</button>
+                    <button onClick={() => void onFlashcardGrade(question, false)} type="button"><RotateCcw size={18} /> {zhTW.practiceView.needReview}</button>
+                    <button className="success" onClick={() => void onFlashcardGrade(question, true)} type="button"><Check size={18} /> {zhTW.practiceView.knewIt}</button>
                   </div>
-                ) : <button className="primary-action" onClick={next} type="button">{isLast ? 'Finish session' : 'Next card'} <ChevronRight size={18} /></button>}
+                ) : <button className="primary-action" onClick={next} type="button">{isLast ? zhTW.practiceView.finishCards : zhTW.practiceView.nextCard} <ChevronRight size={18} /></button>}
               </>
             )}
           </div>
         ) : !isCommute ? (
           <div className={`option-list ${question.kind}`}>
             {question.kind === 'multiple' ? (
-              <p className="kind-hint"><CheckSquare size={15} /> 複選題 · select all correct answers</p>
+              <p className="kind-hint"><CheckSquare size={15} /> {zhTW.practiceView.multipleHint}</p>
             ) : null}
             {optionOrder.map((value, index) => {
               const option = question.options[value - 1]
@@ -589,7 +597,7 @@ export function PracticeView({
         {!isFlashcard && !isCommute && !answer && !isMock ? (
           <label className="guess-toggle">
             <input checked={guessed} onChange={(event) => setGuessed(event.target.checked)} type="checkbox" />
-            <span><Flag size={16} /> I am guessing; keep this in review even if correct.</span>
+            <span><Flag size={16} /> {zhTW.practiceView.guessToggle}</span>
           </label>
         ) : null}
 
@@ -597,28 +605,30 @@ export function PracticeView({
           <section className={answer.correct ? 'feedback correct' : 'feedback wrong'}>
             <div>
               {answer.correct ? <Check size={20} /> : <X size={20} />}
-              <strong>{answer.correct ? (answer.guessed ? 'Correct, but still learning' : 'Correct') : 'Not yet'}</strong>
+              <strong>{answer.correct ? (answer.guessed ? zhTW.practiceView.feedbackCorrectGuessed : zhTW.practiceView.feedbackCorrect) : zhTW.practiceView.feedbackWrong}</strong>
             </div>
             <p>{answer.correct
               ? (answer.guessed
-                ? 'Marked as a guess — it stays in review.'
-                : ((progress[question.id]?.streak ?? 0) >= 2 ? 'Mastered — two correct in a row.' : 'Correct — one more in a row to master.'))
-              : 'You will see this item again soon.'}</p>
+                ? zhTW.practiceView.guessedNote
+                : ((progress[question.id]?.streak ?? 0) >= 2 ? zhTW.practiceView.masteredNote : zhTW.practiceView.oneMoreNote))
+              : zhTW.practiceView.seeAgainNote}</p>
             <div className="answer-summary">
-              <span><strong>You chose:</strong> {selected.length ? formatDisplayChoices(selected) : '—'}</span>
-              <span className="official"><strong>Correct:</strong> {formatDisplayChoices(question.answers)}</span>
+              <span><strong>{zhTW.practiceView.youChose}：</strong> {selected.length ? formatDisplayChoices(selected) : '—'}</span>
+              <span className="official"><strong>{zhTW.practiceView.officialCorrect}：</strong> {formatDisplayChoices(question.answers)}</span>
               {priorSelection.length && JSON.stringify([...priorSelection].sort()) !== JSON.stringify([...selected].sort())
-                ? <span className="earlier"><strong>Earlier you chose:</strong> {formatDisplayChoices(priorSelection)}</span>
+                ? <span className="earlier"><strong>{zhTW.practiceView.earlierChose}：</strong> {formatDisplayChoices(priorSelection)}</span>
                 : null}
             </div>
             <button className="explain-button" disabled={hasReviewCard(question.id)} onClick={() => void onAddReviewCard(question)} type="button">
               <Layers3 size={18} /> {hasReviewCard(question.id) ? zhTW.review.addedToReview : zhTW.review.addToReview}
             </button>
-            <button className="explain-button" disabled={explaining} onClick={() => void requestExplanation()} type="button">
-              <BrainCircuit size={18} /> {explaining ? 'Writing short explanation…' : 'Ask AI about my choice'}
-            </button>
+            {aiEnabled ? (
+              <button className="explain-button" disabled={explaining} onClick={() => void requestExplanation()} type="button">
+                <BrainCircuit size={18} /> {explaining ? 'Writing short explanation…' : 'Ask AI about my choice'}
+              </button>
+            ) : null}
             {explanation ? <div className="ai-explanation">{renderExplanation(explanation)}</div> : null}
-            {explanation ? (
+            {explanation && aiEnabled ? (
               <div className="explain-styles">
                 <span>Re-explain:</span>
                 <button disabled={explaining} onClick={() => void requestExplanation('metaphor')} type="button">With a metaphor</button>
@@ -632,38 +642,38 @@ export function PracticeView({
       </section>
 
       <footer className="practice-actions">
-        <button className="secondary-action" disabled={session.currentIndex === 0} onClick={() => onNavigate(session.currentIndex - 1)} type="button"><ChevronLeft size={19} /> Previous</button>
+        <button className="secondary-action" disabled={session.currentIndex === 0} onClick={() => onNavigate(session.currentIndex - 1)} type="button"><ChevronLeft size={19} /> {zhTW.practiceView.previous}</button>
         {question.kind === 'multiple' && !answer && !isFlashcard && !isCommute ? (
-          <span className="select-count">{selected.length} selected</span>
+          <span className="select-count">{zhTW.practiceView.selectedCount(selected.length)}</span>
         ) : null}
         {isMock ? (
           showMockFeedback
             ? (!answer
-                ? <button className="primary-action" disabled={!selected.length} onClick={() => void submit()} type="button">Check answer <ChevronRight size={19} /></button>
+                ? <button className="primary-action" disabled={!selected.length} onClick={() => void submit()} type="button">{zhTW.practiceView.checkAnswer} <ChevronRight size={19} /></button>
                 : isLast
-                  ? <button className="primary-action" onClick={() => setReviewOpen(true)} type="button">Review &amp; submit <ChevronRight size={19} /></button>
-                  : <button className="primary-action" onClick={() => onNavigate(session.currentIndex + 1)} type="button">Next <ChevronRight size={19} /></button>)
+                  ? <button className="primary-action" onClick={() => setReviewOpen(true)} type="button">{zhTW.practiceView.reviewSubmit} <ChevronRight size={19} /></button>
+                  : <button className="primary-action" onClick={() => onNavigate(session.currentIndex + 1)} type="button">{zhTW.practiceView.next} <ChevronRight size={19} /></button>)
             : isLast
-              ? <button className="primary-action" onClick={() => setReviewOpen(true)} type="button">Review &amp; submit <ChevronRight size={19} /></button>
-              : <button className="primary-action" onClick={() => onNavigate(session.currentIndex + 1)} type="button">Next <ChevronRight size={19} /></button>
+              ? <button className="primary-action" onClick={() => setReviewOpen(true)} type="button">{zhTW.practiceView.reviewSubmit} <ChevronRight size={19} /></button>
+              : <button className="primary-action" onClick={() => onNavigate(session.currentIndex + 1)} type="button">{zhTW.practiceView.next} <ChevronRight size={19} /></button>
         ) : isCommute ? (
-          <button className="primary-action" onClick={next} type="button">{isLast ? 'Finish notes' : 'Next note'} <ChevronRight size={19} /></button>
+          <button className="primary-action" onClick={next} type="button">{isLast ? zhTW.practiceView.finishNotes : zhTW.practiceView.nextNote} <ChevronRight size={19} /></button>
         ) : !isFlashcard && !answer ? (
-          <button className="primary-action" disabled={!selected.length} onClick={() => void submit()} type="button">Check answer <ChevronRight size={19} /></button>
+          <button className="primary-action" disabled={!selected.length} onClick={() => void submit()} type="button">{zhTW.practiceView.checkAnswer} <ChevronRight size={19} /></button>
         ) : !isFlashcard ? (
-          <button className="primary-action" onClick={next} type="button">{isLast ? 'Finish session' : 'Next'} <ChevronRight size={19} /></button>
+          <button className="primary-action" onClick={next} type="button">{isLast ? zhTW.practiceView.finishSession : zhTW.practiceView.next} <ChevronRight size={19} /></button>
         ) : <span />}
       </footer>
 
       {isMock && navOpen ? (
         <div className="mock-overlay" onClick={() => setNavOpen(false)}>
           <div className="mock-sheet" onClick={(event) => event.stopPropagation()}>
-            <div className="sheet-head"><h2>Questions</h2><button className="icon-button" onClick={() => setNavOpen(false)} aria-label="Close" type="button"><X size={20} /></button></div>
+            <div className="sheet-head"><h2>{zhTW.practiceView.questionsSheet}</h2><button className="icon-button" onClick={() => setNavOpen(false)} aria-label={zhTW.practiceView.closeAria} type="button"><X size={20} /></button></div>
             <div className="nav-legend">
-              <span><i className="dot current" /> Current</span>
-              <span><i className="dot answered" /> Answered</span>
-              <span><i className="dot" /> Unanswered</span>
-              <span><i className="dot flagged" /> Flagged</span>
+              <span><i className="dot current" /> {zhTW.practiceView.legendCurrent}</span>
+              <span><i className="dot answered" /> {zhTW.practiceView.legendAnswered}</span>
+              <span><i className="dot" /> {zhTW.practiceView.legendUnanswered}</span>
+              <span><i className="dot flagged" /> {zhTW.practiceView.legendFlagged}</span>
             </div>
             <div className="nav-grid">
               {session.questionIds.map((id, index) => {
@@ -671,7 +681,7 @@ export function PracticeView({
                 return <button className={cls} key={id} onClick={() => { onNavigate(index); setNavOpen(false) }} type="button">{index + 1}</button>
               })}
             </div>
-            <button className="primary-action" onClick={() => { setNavOpen(false); setReviewOpen(true) }} type="button">Review &amp; submit</button>
+            <button className="primary-action" onClick={() => { setNavOpen(false); setReviewOpen(true) }} type="button">{zhTW.practiceView.reviewSubmit}</button>
           </div>
         </div>
       ) : null}
@@ -679,23 +689,23 @@ export function PracticeView({
       {isMock && reviewOpen ? (
         <div className="mock-overlay" onClick={() => setReviewOpen(false)}>
           <div className="mock-sheet" onClick={(event) => event.stopPropagation()}>
-            <div className="sheet-head"><h2>Submit mock?</h2><button className="icon-button" onClick={() => setReviewOpen(false)} aria-label="Close" type="button"><X size={20} /></button></div>
-            <p className="review-summary">{answeredCount} of {total} answered{flaggedIndexes.length ? ` · ${flaggedIndexes.length} flagged` : ''}.</p>
+            <div className="sheet-head"><h2>{zhTW.practiceView.submitMockTitle}</h2><button className="icon-button" onClick={() => setReviewOpen(false)} aria-label={zhTW.practiceView.closeAria} type="button"><X size={20} /></button></div>
+            <p className="review-summary">{zhTW.practiceView.reviewSummary(answeredCount, total)}{flaggedIndexes.length ? zhTW.practiceView.flaggedCount(flaggedIndexes.length) : ''}</p>
             {unansweredIndexes.length ? (
               <div className="review-block">
-                <p className="review-label warn"><AlertTriangle size={15} /> {unansweredIndexes.length} unanswered — tap to jump</p>
+                <p className="review-label warn"><AlertTriangle size={15} /> {zhTW.practiceView.unansweredJump(unansweredIndexes.length)}</p>
                 <div className="chip-row">{unansweredIndexes.map((index) => <button className="chip" key={index} onClick={() => { onNavigate(index); setReviewOpen(false) }} type="button">{index + 1}</button>)}</div>
               </div>
-            ) : <p className="review-label ok"><Check size={15} /> Every question is answered.</p>}
+            ) : <p className="review-label ok"><Check size={15} /> {zhTW.practiceView.allAnswered}</p>}
             {flaggedIndexes.length ? (
               <div className="review-block">
-                <p className="review-label"><Flag size={15} /> Flagged — tap to jump</p>
+                <p className="review-label"><Flag size={15} /> {zhTW.practiceView.flaggedJump}</p>
                 <div className="chip-row">{flaggedIndexes.map((index) => <button className="chip" key={index} onClick={() => { onNavigate(index); setReviewOpen(false) }} type="button">{index + 1}</button>)}</div>
               </div>
             ) : null}
             <div className="review-actions">
-              <button className="secondary-action" onClick={() => setReviewOpen(false)} type="button">Keep reviewing</button>
-              <button className="primary-action" onClick={onComplete} type="button">Submit mock</button>
+              <button className="secondary-action" onClick={() => setReviewOpen(false)} type="button">{zhTW.practiceView.keepReviewing}</button>
+              <button className="primary-action" onClick={onComplete} type="button">{zhTW.practiceView.submitMock}</button>
             </div>
           </div>
         </div>

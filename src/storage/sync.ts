@@ -35,15 +35,15 @@ export function getLastSync(): string | null {
 
 /** Human-readable "x ago" for the last successful sync, or a prompt if never. */
 export function syncStatusLabel(): string {
-  if (!isSyncEnabled()) return 'Not set — your progress is not backed up to the cloud.'
+  if (!isSyncEnabled()) return '尚未設定 — 進度沒有備份到雲端。'
   const last = getLastSync()
-  if (!last) return 'Passphrase set, but not synced yet.'
+  if (!last) return '已設定通關密語，但尚未同步。'
   const mins = Math.floor((Date.now() - new Date(last).getTime()) / 60000)
-  if (mins < 1) return 'Last synced just now.'
-  if (mins < 60) return `Last synced ${mins} min ago.`
+  if (mins < 1) return '剛剛同步完成。'
+  if (mins < 60) return `上次同步：${mins} 分鐘前。`
   const hours = Math.floor(mins / 60)
-  if (hours < 24) return `Last synced ${hours} h ago.`
-  return `Last synced ${Math.floor(hours / 24)} d ago.`
+  if (hours < 24) return `上次同步：${hours} 小時前。`
+  return `上次同步：${Math.floor(hours / 24)} 天前。`
 }
 
 /**
@@ -53,7 +53,7 @@ export function syncStatusLabel(): string {
  */
 export async function syncNow(): Promise<{ hadRemote: boolean }> {
   const pass = getSyncPass()
-  if (pass.length < MIN_PASS) throw new Error(`Set a sync passphrase of at least ${MIN_PASS} characters first.`)
+  if (pass.length < MIN_PASS) throw new Error(`請先設定至少 ${MIN_PASS} 個字元的同步通關密語。`)
 
   // Pull → merge → push, retrying on a version conflict so a concurrent device's
   // write is merged in rather than overwritten.
@@ -61,7 +61,7 @@ export async function syncNow(): Promise<{ hadRemote: boolean }> {
     const pull = await fetch('/api/sync', { headers: { 'x-sync-pass': pass } })
     if (!pull.ok) {
       const detail = await pull.json().catch(() => null) as { error?: string } | null
-      throw new Error(detail?.error ?? 'Sync is unavailable. It only works on the deployed site.')
+      throw new Error(detail?.error ?? '目前無法同步；同步只在正式網址上可用。')
     }
     const { version, data: remote } = await pull.json() as { version: number; data: BackupData | null }
 
@@ -82,7 +82,7 @@ export async function syncNow(): Promise<{ hadRemote: boolean }> {
     }
     if (push.status === 409) continue // another device wrote first; re-pull and re-merge
     const detail = await push.json().catch(() => null) as { error?: string } | null
-    throw new Error(detail?.error ?? 'Could not save to the cloud.')
+    throw new Error(detail?.error ?? '無法儲存到雲端。')
   }
-  throw new Error('Sync kept conflicting with another device. Please try again.')
+  throw new Error('同步一直和另一台裝置衝突，請再試一次。')
 }

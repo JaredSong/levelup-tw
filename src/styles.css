@@ -138,6 +138,10 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .page-title { padding: 13px 0 24px; }
 .search-field { display: flex; align-items: center; gap: 10px; padding: 12px 13px; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); }
 .search-field input { width: 100%; border: 0; outline: 0; background: transparent; }
+.glossary-tools { display: flex; gap: 9px; align-items: stretch; }
+.glossary-tools .search-field { flex: 1; }
+.english-aid-toggle { display: inline-flex; align-items: center; gap: 6px; padding: 0 13px; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); color: var(--muted); font-size: .8rem; font-weight: 750; white-space: nowrap; cursor: pointer; }
+.english-aid-toggle.active { border-color: var(--accent); background: var(--accent-pale); color: var(--accent-dark); }
 .filter-row { display: flex; gap: 7px; overflow-x: auto; padding: 13px 0; scrollbar-width: none; }
 .filter-row button { flex: 0 0 auto; padding: 7px 11px; border: 1px solid var(--line); border-radius: 6px; color: var(--muted); background: transparent; font-size: .78rem; cursor: pointer; }
 .filter-row button.selected { color: white; border-color: var(--accent-dark); background: var(--accent-dark); }

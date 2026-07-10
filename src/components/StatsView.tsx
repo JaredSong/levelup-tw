@@ -1,5 +1,7 @@
 import { ArrowRight, CheckCircle2, CircleAlert, Download, FileWarning, Gauge, History, Moon, RefreshCw, RotateCcw, Shuffle, Sun, Target, Upload } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
+import { useActiveExam } from '../app/useActiveExam'
+import { QUESTION_KEY_SEPARATOR } from '../core/exam'
 import type { Progress, Question } from '../domain/studyEngine'
 import { computeReadiness } from '../domain/readiness'
 import { db, type AttemptRecord, type SessionResult } from '../storage/db'
@@ -44,6 +46,8 @@ function MockTrend({ scores }: { scores: number[] }) {
 }
 
 export function StatsView({ questions, progress, onSaveAiToken, onPracticeGroup }: Props) {
+  const { activeExam } = useActiveExam()
+  const examId = activeExam.examId
   const [results, setResults] = useState<SessionResult[]>([])
   const [attemptLog, setAttemptLog] = useState<AttemptRecord[]>([])
   const [aiProvider, setAiProvider] = useState(() => localStorage.getItem('level-b-ai-provider') ?? 'openai')
@@ -128,8 +132,13 @@ export function StatsView({ questions, progress, onSaveAiToken, onPracticeGroup 
 
   useEffect(() => {
     void db.results.orderBy('finishedAt').reverse().toArray().then(setResults)
-    void db.attempts.toArray().then(setAttemptLog)
-  }, [])
+    // Attempts store namespaced keys; readiness matches on bare question ids,
+    // so keep this exam's rows and strip the prefix before computing.
+    const prefix = `${examId}${QUESTION_KEY_SEPARATOR}`
+    void db.attempts.where('questionId').startsWith(prefix).toArray().then((rows) => {
+      setAttemptLog(rows.map((row) => ({ ...row, questionId: row.questionId.slice(prefix.length) })))
+    })
+  }, [examId])
 
   const readiness = useMemo(() => computeReadiness(questions, progress, attemptLog), [questions, progress, attemptLog])
 

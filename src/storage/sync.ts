@@ -1,5 +1,6 @@
 import { collectData, mergeData, writeData, type BackupData } from './backup'
 import { SYNC_LOCAL_KEYS } from './merge'
+import { normalizeBackupData } from './migrate'
 
 const PASS_KEY = 'level-b-sync-pass'
 const LAST_KEY = 'level-b-sync-last'
@@ -64,8 +65,10 @@ export async function syncNow(): Promise<{ hadRemote: boolean }> {
     }
     const { version, data: remote } = await pull.json() as { version: number; data: BackupData | null }
 
-    // Sanitize BOTH sides so a stale session in either copy can never be restored.
-    const merged = mergeData(forSync(await collectData()), remote ? forSync(remote) : null)
+    // Sanitize BOTH sides so a stale session in either copy can never be restored,
+    // and normalize both to namespaced question keys so a cloud copy written by an
+    // un-migrated device merges (and dedupes) with migrated local data.
+    const merged = mergeData(normalizeBackupData(forSync(await collectData())), remote ? normalizeBackupData(forSync(remote)) : null)
     await writeData(merged)
 
     const push = await fetch('/api/sync', {

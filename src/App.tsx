@@ -21,6 +21,8 @@ import {
   scoreAnswer,
   type Question,
 } from './domain/studyEngine'
+import { useActiveExam } from './app/useActiveExam'
+import { questionKey } from './core/exam'
 import { useQuestionBank } from './hooks/useQuestionBank'
 import { useStudyData } from './hooks/useStudyData'
 import { db } from './storage/db'
@@ -84,11 +86,11 @@ function createSession(mode: SessionMode, questions: Question[], title?: string,
   }
 }
 
-async function explainQuestion(question: Question, selected: number[], style = 'default') {
+async function explainQuestion(examId: string, question: Question, selected: number[], style = 'default') {
   // Bump EXPLAIN_VERSION whenever the prompt changes so old cached answers regenerate.
   const selectedKey = style === 'reading' ? 'reading' : [...selected].sort((a, b) => a - b).join(',')
   const optionKey = question.options.join('¦')
-  const cacheKey = `${question.id}::${style}::${selectedKey}::${optionKey}::${EXPLAIN_VERSION}`
+  const cacheKey = `${questionKey(examId, question.id)}::${style}::${selectedKey}::${optionKey}::${EXPLAIN_VERSION}`
   const cached = await db.explanations.get(cacheKey)
   if (cached?.content.trim()) return cached.content
   if (cached) await db.explanations.delete(cacheKey)
@@ -114,7 +116,9 @@ async function explainQuestion(question: Question, selected: number[], style = '
 
 export default function App() {
   const { bank, error } = useQuestionBank()
-  const { progress, setProgress, loading, refresh } = useStudyData()
+  const { activeExam } = useActiveExam()
+  const examId = activeExam.examId
+  const { progress, setProgress, loading, refresh } = useStudyData(examId)
   const [tab, setTab] = useState<Tab>('home')
   const [session, setSession] = useState<StudySession | null>(() => loadSession())
   const [practiceOpen, setPracticeOpen] = useState(false)
@@ -165,12 +169,12 @@ export default function App() {
       for (const question of sessionQuestions) {
         if (cancelled) return
         const selected = session.mode === 'commute' ? (progress[question.id]?.lastSelected ?? []) : []
-        await explainQuestion(question, selected, session.mode === 'commute' ? 'commute' : 'cue').catch(() => undefined)
+        await explainQuestion(examId, question, selected, session.mode === 'commute' ? 'commute' : 'cue').catch(() => undefined)
       }
     })()
 
     return () => { cancelled = true }
-  }, [progress, session, sessionQuestions])
+  }, [examId, progress, session, sessionQuestions])
 
   if (error) return <div className="fatal-state"><AlertTriangle /><h1>Question bank unavailable</h1><p>{error}</p></div>
   if (!bank || loading) return <div className="loading-state"><LoaderCircle className="spin" /><strong>Opening your study bank</strong><span>Loading the syllabus…</span></div>
@@ -254,7 +258,7 @@ export default function App() {
     const correct = forcedCorrect ?? scoreAnswer(question, selected)
     const answeredAt = new Date()
     const elapsedMs = answeredAt.getTime() - new Date(session.questionStartedAt).getTime()
-    const nextProgress = applyAttempt(progress[question.id] ?? createProgress(question.id), {
+    const nextProgress = applyAttempt(progress[question.id] ?? createProgress(questionKey(examId, question.id)), {
       selected,
       correct,
       guessed,
@@ -264,7 +268,7 @@ export default function App() {
 
     await db.transaction('rw', db.progress, db.attempts, async () => {
       await db.progress.put(nextProgress)
-      await db.attempts.add({ questionId: question.id, selected, correct, guessed, elapsedMs, answeredAt: answeredAt.toISOString(), mode: session.mode })
+      await db.attempts.add({ questionId: questionKey(examId, question.id), selected, correct, guessed, elapsedMs, answeredAt: answeredAt.toISOString(), mode: session.mode })
     })
     setProgress((current) => ({ ...current, [question.id]: nextProgress }))
     updateSession((current) => ({
@@ -285,7 +289,7 @@ export default function App() {
   }))
 
   const toggleBookmark = async (questionId: string) => {
-    const next = { ...(progress[questionId] ?? createProgress(questionId)), bookmarked: !(progress[questionId]?.bookmarked ?? false) }
+    const next = { ...(progress[questionId] ?? createProgress(questionKey(examId, questionId))), bookmarked: !(progress[questionId]?.bookmarked ?? false) }
     await db.progress.put(next)
     setProgress((current) => ({ ...current, [questionId]: next }))
   }
@@ -314,13 +318,13 @@ export default function App() {
       const updates = pending.map((entry) => {
         const correct = scoreAnswer(entry.question!, entry.selected!)
         finalAnswers[entry.id] = { selected: entry.selected!, correct, guessed: false }
-        const next = applyAttempt(progress[entry.id] ?? createProgress(entry.id), { selected: entry.selected!, correct, guessed: false, elapsedMs: 0, answeredAt })
+        const next = applyAttempt(progress[entry.id] ?? createProgress(questionKey(examId, entry.id)), { selected: entry.selected!, correct, guessed: false, elapsedMs: 0, answeredAt })
         return { id: entry.id, correct, selected: entry.selected!, next }
       })
       await db.transaction('rw', db.progress, db.attempts, async () => {
         for (const u of updates) {
           await db.progress.put(u.next)
-          await db.attempts.add({ questionId: u.id, selected: u.selected, correct: u.correct, guessed: false, elapsedMs: 0, answeredAt: answeredAt.toISOString(), mode: session.mode })
+          await db.attempts.add({ questionId: questionKey(examId, u.id), selected: u.selected, correct: u.correct, guessed: false, elapsedMs: 0, answeredAt: answeredAt.toISOString(), mode: session.mode })
         }
       })
       setProgress((current) => {
@@ -364,7 +368,7 @@ export default function App() {
   }
 
   const explain = async (question: Question, selected: number[], style = 'default') => {
-    return explainQuestion(question, selected, style)
+    return explainQuestion(examId, question, selected, style)
   }
 
   if (practiceOpen && session && sessionQuestions.length) {

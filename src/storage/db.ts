@@ -1,5 +1,6 @@
 import Dexie, { type EntityTable } from 'dexie'
 import type { Progress } from '../domain/studyEngine'
+import { migrateTablesToQuestionKeys } from './migrate'
 
 export interface AttemptRecord {
   id?: number
@@ -50,3 +51,8 @@ db.version(1).stores({
 db.version(2).stores({
   results: '++id, finishedAt, mode',
 })
+
+// v3 keeps the schema but rewrites bare question ids ("17300-01-001") to
+// namespaced question keys ("web-design-b:17300-01-001") so storage is
+// multi-exam-safe. See docs/level-up-public-app-plan.md rollout step 2.
+db.version(3).upgrade((tx) => migrateTablesToQuestionKeys(tx))

@@ -1,5 +1,6 @@
 import { db } from './db'
 import type { BackupData } from './merge'
+import { normalizeBackupData } from './migrate'
 
 export { mergeData, type BackupData } from './merge'
 
@@ -55,7 +56,8 @@ export async function writeData(data: BackupData): Promise<void> {
 export async function exportBackup(): Promise<string> {
   const file: BackupFile = {
     app: 'level-b-study',
-    version: 2,
+    // v3 backups store namespaced question keys ("web-design-b:17300-01-001").
+    version: 3,
     exportedAt: new Date().toISOString(),
     data: await collectData(),
   }
@@ -67,5 +69,7 @@ export async function importBackup(json: string): Promise<void> {
   if (parsed.app !== 'level-b-study' || !parsed.data) {
     throw new Error('This file is not a Level Up backup.')
   }
-  await writeData(parsed.data as BackupData)
+  // Old (version <= 2) backups carry bare question ids; normalizing is idempotent,
+  // so it is safe to apply to every import.
+  await writeData(normalizeBackupData(parsed.data as BackupData))
 }

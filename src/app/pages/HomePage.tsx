@@ -2,6 +2,7 @@ import { ArrowRight, Check, Clock3, CloudOff, Flame, Layers3, ListRestart, Spark
 import type { DailyMissionView, MissionItemView } from '../../domain/dailyMission'
 import { zhTW } from '../../i18n/zh-TW'
 import { isSyncEnabled } from '../../storage/sync'
+import { daysUntilExam, getExamDate } from '../examCountdown'
 
 interface Props {
   seen: number
@@ -37,15 +38,12 @@ function MissionRow({ item, onGo }: { item: MissionItemView; onGo: () => void })
   )
 }
 
-function daysUntilExam() {
-  const now = new Date()
-  const exam = new Date('2026-07-05T14:00:00+08:00')
-  return Math.max(0, Math.ceil((exam.getTime() - now.getTime()) / 86_400_000))
-}
-
 export function HomePage(props: Props) {
   const completion = props.total ? Math.round((props.seen / props.total) * 100) : 0
   const primaryLabel = props.hasSession ? props.sessionLabel : zhTW.home.continueFrom
+  // Null when no date is set or it has already passed — the countdown hides
+  // itself rather than showing a stale/negative number in either case.
+  const examDays = daysUntilExam(getExamDate(), new Date())
 
   return (
     <main className="page dashboard-page">
@@ -55,10 +53,12 @@ export function HomePage(props: Props) {
           <h1>Level Up</h1>
           <p className="header-subtitle">{zhTW.home.subtitle}</p>
         </div>
-        <div className="exam-countdown" aria-label={`${daysUntilExam()} days until written exam`}>
-          <strong>{daysUntilExam()}</strong>
-          <span>days</span>
-        </div>
+        {examDays !== null ? (
+          <div className="exam-countdown" aria-label={examDays === 0 ? zhTW.home.examTodayAria : zhTW.home.examDaysAria(examDays)}>
+            <strong>{examDays === 0 ? zhTW.home.examTodayBig : examDays}</strong>
+            <span>{examDays === 0 ? zhTW.home.examTodaySmall : zhTW.home.examDaysUnit}</span>
+          </div>
+        ) : null}
       </header>
 
       {!isSyncEnabled() ? (

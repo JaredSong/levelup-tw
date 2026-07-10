@@ -1,6 +1,7 @@
 import { ArrowRight, CheckCircle2, CircleAlert, Download, FileWarning, Gauge, History, Moon, RefreshCw, RotateCcw, Shuffle, Sun, Target, Upload } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
 import { useActiveExam } from '../app/useActiveExam'
+import { getExamDate, setExamDate } from '../app/examCountdown'
 import { QUESTION_KEY_SEPARATOR } from '../core/exam'
 import type { Progress, Question } from '../domain/studyEngine'
 import { computeReadiness } from '../domain/readiness'
@@ -187,6 +188,15 @@ export function StatsView({ questions, progress, onSaveAiToken, onPracticeGroup 
           <button className={randomizeOptions ? 'active' : ''} onClick={() => chooseRandomizeOptions(true)} type="button"><Shuffle size={16} /> {zhTW.stats.optionRandom}</button>
           <button className={!randomizeOptions ? 'active' : ''} onClick={() => chooseRandomizeOptions(false)} type="button"><RotateCcw size={16} /> {zhTW.stats.optionOfficial}</button>
         </div>
+      </section>
+
+      <section className="appearance">
+        <h2>{zhTW.stats.examDateTitle}</h2>
+        <p>{zhTW.stats.examDateHint}</p>
+        <label className="exam-date-field">
+          <span>{zhTW.stats.examDateLabel}</span>
+          <input defaultValue={getExamDate() ?? ''} onBlur={(event) => setExamDate(event.target.value)} type="date" />
+        </label>
       </section>
 
       <section className="mock-history">

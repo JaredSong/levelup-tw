@@ -441,6 +441,9 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .appearance { padding: 22px 0; border-top: 1px solid var(--line); }
 .appearance h2 { margin: 0 0 4px; font-size: 1rem; }
 .appearance > p { margin: 0 0 12px; color: var(--muted); font-size: .82rem; }
+.exam-date-field { display: grid; gap: 7px; max-width: 220px; color: var(--muted); font-size: .72rem; font-weight: 700; }
+.exam-date-field input { width: 100%; padding: 10px 11px; border: 1px solid var(--line); border-radius: 6px; background: white; color: var(--ink); }
+[data-theme="dark"] .exam-date-field input { background: var(--surface); color: var(--ink); border-color: var(--line); }
 .theme-toggle { display: inline-flex; padding: 3px; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); gap: 3px; }
 .theme-toggle button { display: inline-flex; align-items: center; gap: 6px; padding: 7px 16px; border: 0; border-radius: 6px; background: transparent; color: var(--muted); font-size: .85rem; font-weight: 700; cursor: pointer; }
 .theme-toggle button.active { background: var(--accent); color: #fff; }

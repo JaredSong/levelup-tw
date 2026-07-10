@@ -22,8 +22,11 @@ import {
   type Question,
 } from './domain/studyEngine'
 import { useActiveExam } from './app/useActiveExam'
-import { questionKey } from './core/exam'
+import type { ReviewCard, ReviewRating } from './core/contracts'
+import { parseQuestionKey, questionKey } from './core/exam'
+import { buildDueCardQueue, createQuestionCard, gradeCard, questionCardId } from './domain/reviewScheduler'
 import { useQuestionBank } from './hooks/useQuestionBank'
+import { useReviewCards } from './hooks/useReviewCards'
 import { useStudyData } from './hooks/useStudyData'
 import { db } from './storage/db'
 import { isSyncEnabled, syncNow } from './storage/sync'
@@ -119,6 +122,7 @@ export default function App() {
   const { activeExam } = useActiveExam()
   const examId = activeExam.examId
   const { progress, setProgress, loading, refresh } = useStudyData(examId)
+  const { cards: reviewCards, refresh: refreshReviewCards } = useReviewCards(examId)
   const [tab, setTab] = useState<Tab>('home')
   const [session, setSession] = useState<StudySession | null>(() => loadSession())
   const [practiceOpen, setPracticeOpen] = useState(false)
@@ -133,8 +137,8 @@ export default function App() {
   // Pull the cloud copy on open and merge it in (no-op if sync is off or fails).
   useEffect(() => {
     if (!isSyncEnabled()) return
-    void syncNow().then(() => refresh()).catch(() => undefined)
-  }, [refresh])
+    void syncNow().then(() => Promise.all([refresh(), refreshReviewCards()])).catch(() => undefined)
+  }, [refresh, refreshReviewCards])
 
   // Stats count active questions only, so deleted items never inflate the UI.
   const stats = (bank?.questions ?? []).reduce((acc, question) => {
@@ -294,6 +298,43 @@ export default function App() {
     setProgress((current) => ({ ...current, [questionId]: next }))
   }
 
+  // --- Review cards (Phase 2 memory layer) ---
+
+  const cardQuestionIds = new Set(reviewCards.map((card) => parseQuestionKey(card.questionKeys[0]).questionId))
+  const dueCards = buildDueCardQueue(reviewCards, new Date())
+  const wrongQuestions = () => bank.questions.filter((question) => progress[question.id]?.wrong > 0 && progress[question.id].streak < 2)
+  const wrongWithoutCards = wrongQuestions().filter((question) => !cardQuestionIds.has(question.id)).length
+
+  const addReviewCard = async (question: Question) => {
+    if (await db.reviewCards.get(questionCardId(examId, question.id))) return
+    await db.reviewCards.put(createQuestionCard(examId, question, new Date()))
+    await refreshReviewCards()
+  }
+
+  const createWrongCards = async () => {
+    const now = new Date()
+    const missingCards = wrongQuestions()
+      .filter((question) => !cardQuestionIds.has(question.id))
+      .map((question) => createQuestionCard(examId, question, now))
+    if (!missingCards.length) return
+    await db.reviewCards.bulkPut(missingCards)
+    await refreshReviewCards()
+  }
+
+  const gradeReviewCard = async (card: ReviewCard, rating: ReviewRating) => {
+    const { card: graded, log } = gradeCard(card, rating, new Date())
+    await db.transaction('rw', db.reviewCards, db.reviewLogs, async () => {
+      await db.reviewCards.put(graded)
+      await db.reviewLogs.put({ ...log, id: crypto.randomUUID() })
+    })
+    await refreshReviewCards()
+  }
+
+  const openCardSource = (card: ReviewCard) => {
+    const question = bank.byId.get(parseQuestionKey(card.questionKeys[0]).questionId)
+    if (question) begin('item', [question])
+  }
+
   const complete = async () => {
     if (!session) return
     if (session.mode === 'sequential') {
@@ -372,7 +413,7 @@ export default function App() {
   }
 
   if (practiceOpen && session && sessionQuestions.length) {
-    return <PracticeView session={session} questions={bank.byId} progress={progress} onExit={pausePractice} onSelect={onSelect} onSubmit={recordAttempt} onFlashcardGrade={async (question, knewIt) => recordAttempt(question, [], false, knewIt)} onNavigate={navigate} onToggleBookmark={toggleBookmark} onToggleFlag={toggleFlag} onComplete={() => void complete()} onExplain={explain} />
+    return <PracticeView session={session} questions={bank.byId} progress={progress} onExit={pausePractice} onSelect={onSelect} onSubmit={recordAttempt} onFlashcardGrade={async (question, knewIt) => recordAttempt(question, [], false, knewIt)} onNavigate={navigate} onToggleBookmark={toggleBookmark} onToggleFlag={toggleFlag} onComplete={() => void complete()} onExplain={explain} hasReviewCard={(questionId) => cardQuestionIds.has(questionId)} onAddReviewCard={addReviewCard} />
   }
 
   if (summary) {
@@ -443,7 +484,7 @@ export default function App() {
       <ActiveExamHeader />
       {tab === 'home' ? <HomePage seen={seen} total={bank.questions.length} due={due} accuracy={accuracy} hasSession={!!session} sessionLabel={session?.title} onContinue={resumePractice} onSequential={startSequential} /> : null}
       {tab === 'practice' ? <PracticePage questions={bank.questions} progress={progress} total={bank.questions.length} onSequential={startSequential} onRandom={() => begin('random', buildRandomQueue(bank.questions, 10))} onFresh={(limit) => begin('fresh', buildFreshQueue(bank.questions, progress, limit), `Fresh ${limit}`)} onHighYield={() => begin('highYield', buildHighYieldQueue(bank.questions, progress, 20))} onSubject={(subjectCode, title) => begin('random', buildRandomQueue(bank.questions.filter((question) => question.subjectCode === subjectCode), 10), title)} onOpenQuestion={(question) => begin('item', [question])} onSprint={() => begin('sprint', buildSprintQueue(bank.questions, progress, 20))} /> : null}
-      {tab === 'review' ? <ReviewPage due={due} wrongCount={wrongCount} onAdaptive={() => begin('adaptive', buildAdaptiveQueue(bank.questions, progress, 10))} onWrong={startWrong} onFlashcards={() => begin('flashcard', buildAdaptiveQueue(bank.questions, progress, 10), 'Recall cards · mind notes')} onCommuteNotes={startCommuteNotes} onPracticeSection={(section, title) => begin('adaptive', buildAdaptiveQueue(bank.questions.filter((question) => question.section === section), progress, 10), title)} /> : null}
+      {tab === 'review' ? <ReviewPage due={due} wrongCount={wrongCount} dueCards={dueCards} totalCards={reviewCards.length} wrongWithoutCards={wrongWithoutCards} onGradeCard={gradeReviewCard} onOpenCardSource={openCardSource} onCreateWrongCards={createWrongCards} onAdaptive={() => begin('adaptive', buildAdaptiveQueue(bank.questions, progress, 10))} onWrong={startWrong} onFlashcards={() => begin('flashcard', buildAdaptiveQueue(bank.questions, progress, 10), 'Recall cards · mind notes')} onCommuteNotes={startCommuteNotes} onPracticeSection={(section, title) => begin('adaptive', buildAdaptiveQueue(bank.questions.filter((question) => question.section === section), progress, 10), title)} /> : null}
       {tab === 'mock' ? <MockExamPage onMock={() => startMock(false)} onMockTraining={() => startMock(true)} /> : null}
       {tab === 'insights' ? <InsightsPage questions={bank.questions} progress={progress} onSaveAiToken={(token) => localStorage.setItem('level-b-ai-access-token', token)} onPracticeGroup={(section, title) => begin('adaptive', buildAdaptiveQueue(bank.questions.filter((question) => question.section === section), progress, 10), `${title} · practice`)} /> : null}
       <BottomNav active={tab} onChange={setTab} />

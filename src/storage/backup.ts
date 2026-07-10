@@ -23,28 +23,33 @@ function withoutId<T extends { id?: number }>(record: T): Omit<T, 'id'> {
 
 // Snapshot everything currently in this browser.
 export async function collectData(): Promise<BackupData> {
-  const [progress, attempts, results, explanations] = await Promise.all([
+  const [progress, attempts, results, explanations, reviewCards, reviewLogs] = await Promise.all([
     db.progress.toArray(),
     db.attempts.toArray(),
     db.results.toArray(),
     db.explanations.toArray(),
+    db.reviewCards.toArray(),
+    db.reviewLogs.toArray(),
   ])
   const local: Record<string, string> = {}
   for (const key of LOCAL_KEYS) {
     const value = localStorage.getItem(key)
     if (value != null) local[key] = value
   }
-  return { progress, attempts, results, explanations, local }
+  return { progress, attempts, results, explanations, reviewCards, reviewLogs, local }
 }
 
 // Replace this browser's data with the given snapshot.
 export async function writeData(data: BackupData): Promise<void> {
-  await db.transaction('rw', db.progress, db.attempts, db.results, db.explanations, async () => {
+  await db.transaction('rw', [db.progress, db.attempts, db.results, db.explanations, db.reviewCards, db.reviewLogs], async () => {
     if (data.progress) { await db.progress.clear(); await db.progress.bulkPut(data.progress) }
     // attempts/results use auto-increment ids; strip them so merged rows re-key cleanly.
     if (data.attempts) { await db.attempts.clear(); await db.attempts.bulkAdd(data.attempts.map(withoutId)) }
     if (data.results) { await db.results.clear(); await db.results.bulkAdd(data.results.map(withoutId)) }
     if (data.explanations) { await db.explanations.clear(); await db.explanations.bulkPut(data.explanations) }
+    // Review cards/logs carry stable string ids; older backups simply omit them.
+    if (data.reviewCards) { await db.reviewCards.clear(); await db.reviewCards.bulkPut(data.reviewCards) }
+    if (data.reviewLogs) { await db.reviewLogs.clear(); await db.reviewLogs.bulkPut(data.reviewLogs) }
   })
   if (data.local) {
     for (const [key, value] of Object.entries(data.local)) {
@@ -56,8 +61,8 @@ export async function writeData(data: BackupData): Promise<void> {
 export async function exportBackup(): Promise<string> {
   const file: BackupFile = {
     app: 'level-b-study',
-    // v3 backups store namespaced question keys ("web-design-b:17300-01-001").
-    version: 3,
+    // v3: namespaced question keys. v4: adds reviewCards/reviewLogs.
+    version: 4,
     exportedAt: new Date().toISOString(),
     data: await collectData(),
   }

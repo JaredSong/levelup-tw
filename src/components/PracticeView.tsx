@@ -12,6 +12,7 @@ import {
   Image as ImageIcon,
   Languages,
   LayoutGrid,
+  Layers3,
   Lightbulb,
   LoaderCircle,
   RotateCcw,
@@ -21,6 +22,7 @@ import {
 } from 'lucide-react'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { Progress, Question } from '../domain/studyEngine'
+import { zhTW } from '../i18n/zh-TW'
 import type { StudySession } from '../types'
 
 interface Props {
@@ -36,6 +38,8 @@ interface Props {
   onToggleFlag: (questionId: string) => void
   onComplete: () => void
   onExplain: (question: Question, selected: number[], style?: string) => Promise<string>
+  hasReviewCard: (questionId: string) => boolean
+  onAddReviewCard: (question: Question) => Promise<void>
 }
 
 const EMPTY_SELECTION: number[] = []
@@ -162,6 +166,8 @@ export function PracticeView({
   onToggleFlag,
   onComplete,
   onExplain,
+  hasReviewCard,
+  onAddReviewCard,
 }: Props) {
   const [guessed, setGuessed] = useState(false)
   const [revealed, setRevealed] = useState(false)
@@ -605,6 +611,9 @@ export function PracticeView({
                 ? <span className="earlier"><strong>Earlier you chose:</strong> {formatDisplayChoices(priorSelection)}</span>
                 : null}
             </div>
+            <button className="explain-button" disabled={hasReviewCard(question.id)} onClick={() => void onAddReviewCard(question)} type="button">
+              <Layers3 size={18} /> {hasReviewCard(question.id) ? zhTW.review.addedToReview : zhTW.review.addToReview}
+            </button>
             <button className="explain-button" disabled={explaining} onClick={() => void requestExplanation()} type="button">
               <BrainCircuit size={18} /> {explaining ? 'Writing short explanation…' : 'Ask AI about my choice'}
             </button>

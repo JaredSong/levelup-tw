@@ -251,6 +251,26 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .grade-actions button { display: flex; justify-content: center; align-items: center; gap: 7px; padding: 11px; border: 1px solid var(--line); border-radius: 6px; background: var(--paper); font-weight: 700; cursor: pointer; }
 .grade-actions button.success { color: white; border-color: var(--accent-dark); background: var(--accent-dark); }
 
+/* Review card stack (Phase 2 memory layer): kept quiet and almost blank on purpose. */
+.review-card-stack { margin: 18px 0 6px; padding: 18px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.review-card-stack.empty { display: grid; justify-items: center; gap: 6px; padding: 26px 18px; color: var(--muted); text-align: center; }
+.review-card-stack.empty svg { color: var(--accent); }
+.review-card-stack.empty strong { color: var(--ink); }
+.review-card-strip { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.review-card-count { display: inline-flex; align-items: center; gap: 6px; color: var(--accent-dark); font-size: .78rem; font-weight: 800; }
+.review-card-source { display: inline-flex; align-items: center; gap: 4px; padding: 4px 6px; border: 0; background: transparent; color: var(--muted); font-size: .76rem; font-weight: 700; cursor: pointer; }
+.review-card-source:hover { color: var(--accent-dark); }
+.review-card-front { margin: 0 0 14px; font-size: 1.02rem; font-weight: 700; line-height: 1.55; }
+.review-card-back { display: grid; gap: 8px; margin-bottom: 4px; }
+.review-card-back span { padding: 10px; border-left: 3px solid var(--accent); background: var(--accent-pale); font-weight: 700; }
+.review-grade-bar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 16px; }
+.review-grade-bar button { display: grid; justify-items: center; gap: 3px; padding: 10px 6px; border: 1px solid var(--line); border-radius: 6px; background: var(--paper); font-weight: 750; cursor: pointer; }
+.review-grade-bar button small { color: var(--muted); font-size: .7rem; font-weight: 700; }
+.review-grade-bar button.good { border-color: var(--accent-dark); background: var(--accent-dark); color: white; }
+.review-grade-bar button.good small { color: rgba(255,255,255,.75); }
+.review-grade-bar button.easy { border-color: var(--accent); background: var(--accent-pale); color: var(--accent-dark); }
+.primary-action.wide { width: 100%; }
+
 .practice-actions { position: fixed; z-index: 10; left: 0; right: 0; bottom: 0; display: flex; justify-content: space-between; gap: 12px; padding: 12px max(16px, calc((100vw - 820px) / 2)) calc(12px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); background: rgba(248,249,245,.96); backdrop-filter: blur(16px); }
 .primary-action, .secondary-action { min-height: 44px; display: inline-flex; justify-content: center; align-items: center; gap: 7px; padding: 10px 15px; border-radius: 6px; font-weight: 750; cursor: pointer; }
 .primary-action { color: white; border: 1px solid var(--accent-dark); background: var(--accent-dark); }

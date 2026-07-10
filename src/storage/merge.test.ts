@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { mergeData, SYNC_LOCAL_KEYS, type BackupData } from './merge'
 import { createProgress } from '../domain/studyEngine'
+import { createQuestionCard, gradeCard } from '../domain/reviewScheduler'
 import type { AttemptRecord } from './db'
 
 function attempt(questionId: string, answeredAt: string, correct = true): AttemptRecord {
@@ -49,5 +50,26 @@ describe('mergeData', () => {
 
   it('never syncs the live session key', () => {
     expect(SYNC_LOCAL_KEYS).not.toContain('level-b-active-session')
+  })
+
+  it('merges review cards by id, most recently updated wins', () => {
+    const question = { id: '17300-01-001', prompt: 'p', options: ['a', 'b', 'c', 'd'], answers: [1] }
+    const fresh = createQuestionCard('web-design-b', question, new Date('2026-01-01T00:00:00Z'))
+    // Same deterministic id on both devices; the remote copy was graded later.
+    const graded = gradeCard(fresh, 'good', new Date('2026-01-02T00:00:00Z')).card
+    const merged = mergeData({ ...empty(), reviewCards: [fresh] }, { ...empty(), reviewCards: [graded] })
+    expect(merged.reviewCards).toHaveLength(1)
+    expect(merged.reviewCards![0].reps).toBe(1) // graded copy won
+    expect(merged.reviewCards![0].state).toBe('review')
+  })
+
+  it('unions review logs by id and tolerates pre-v4 snapshots without the fields', () => {
+    const log = { id: 'log-1', profileId: 'local', cardId: 'c1', examId: 'web-design-b', rating: 'good' as const, reviewedAt: '2026-01-01T00:00:00Z', elapsedMs: 0, previousDueAt: '2026-01-01T00:00:00Z', nextDueAt: '2026-01-02T00:00:00Z' }
+    const oldSnapshot = empty()
+    delete (oldSnapshot as Partial<BackupData>).reviewCards
+    delete (oldSnapshot as Partial<BackupData>).reviewLogs
+    const merged = mergeData({ ...empty(), reviewLogs: [log, { ...log }] }, oldSnapshot)
+    expect(merged.reviewLogs).toHaveLength(1)
+    expect(merged.reviewCards).toEqual([])
   })
 })

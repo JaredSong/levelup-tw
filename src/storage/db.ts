@@ -1,4 +1,5 @@
 import Dexie, { type EntityTable } from 'dexie'
+import type { ReviewCard, ReviewLog } from '../core/contracts'
 import type { Progress } from '../domain/studyEngine'
 import { migrateTablesToQuestionKeys } from './migrate'
 
@@ -40,6 +41,8 @@ export const db = new Dexie('level-b-study') as Dexie & {
   attempts: EntityTable<AttemptRecord, 'id'>
   explanations: EntityTable<ExplanationRecord, 'questionId'>
   results: EntityTable<SessionResult, 'id'>
+  reviewCards: EntityTable<ReviewCard, 'id'>
+  reviewLogs: EntityTable<ReviewLog, 'id'>
 }
 
 db.version(1).stores({
@@ -56,3 +59,11 @@ db.version(2).stores({
 // namespaced question keys ("web-design-b:17300-01-001") so storage is
 // multi-exam-safe. See docs/level-up-public-app-plan.md rollout step 2.
 db.version(3).upgrade((tx) => migrateTablesToQuestionKeys(tx))
+
+// v4 adds the Phase 2 memory layer: review cards with FSRS-shaped scheduling
+// and their grading logs. Card ids are deterministic per question, so merges
+// and re-adds dedupe naturally.
+db.version(4).stores({
+  reviewCards: 'id, examId, dueAt, state, *questionKeys',
+  reviewLogs: 'id, cardId, examId, reviewedAt',
+})

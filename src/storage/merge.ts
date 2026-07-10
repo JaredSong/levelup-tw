@@ -1,3 +1,4 @@
+import type { ReviewCard, ReviewLog } from '../core/contracts'
 import { applyAttempt, createProgress, type Progress } from '../domain/studyEngine'
 import type { AttemptRecord, ExplanationRecord, SessionResult } from './db'
 
@@ -6,6 +7,9 @@ export interface BackupData {
   attempts: AttemptRecord[]
   results: SessionResult[]
   explanations: ExplanationRecord[]
+  /** Absent in backups exported before version 4. */
+  reviewCards?: ReviewCard[]
+  reviewLogs?: ReviewLog[]
   local: Record<string, string>
 }
 
@@ -92,8 +96,30 @@ export function mergeData(local: BackupData, remote: BackupData | null): BackupD
     attempts: [...attempts.values()],
     results: [...results.values()],
     explanations: mergeExplanations(local, remote),
+    reviewCards: mergeReviewCards(local, remote),
+    reviewLogs: mergeReviewLogs(local, remote),
     local: local2,
   }
+}
+
+// Card ids are deterministic per question, so two devices adding the same
+// question collide on id; the most recently graded copy carries the freshest
+// scheduling state and wins.
+function mergeReviewCards(local: BackupData, remote: BackupData): ReviewCard[] {
+  const cards = new Map<string, ReviewCard>()
+  for (const card of [...(remote.reviewCards ?? []), ...(local.reviewCards ?? [])]) {
+    const existing = cards.get(card.id)
+    if (!existing || new Date(card.updatedAt) >= new Date(existing.updatedAt)) cards.set(card.id, card)
+  }
+  return [...cards.values()]
+}
+
+function mergeReviewLogs(local: BackupData, remote: BackupData): ReviewLog[] {
+  const logs = new Map<string, ReviewLog>()
+  for (const log of [...(remote.reviewLogs ?? []), ...(local.reviewLogs ?? [])]) {
+    logs.set(log.id, log)
+  }
+  return [...logs.values()]
 }
 
 function mergeExplanations(local: BackupData, remote: BackupData): ExplanationRecord[] {

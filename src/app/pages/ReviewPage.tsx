@@ -1,10 +1,18 @@
-import { ArrowRight, Brain, Headphones, Layers3, ListRestart } from 'lucide-react'
+import { ArrowRight, Brain, Headphones, Layers3, ListRestart, PlusCircle } from 'lucide-react'
 import { GlossaryView } from '../../components/GlossaryView'
+import { ReviewCardStack } from '../../components/ReviewCardStack'
+import type { ReviewCard, ReviewRating } from '../../core/contracts'
 import { zhTW } from '../../i18n/zh-TW'
 
 interface Props {
   due: number
   wrongCount: number
+  dueCards: ReviewCard[]
+  totalCards: number
+  wrongWithoutCards: number
+  onGradeCard: (card: ReviewCard, rating: ReviewRating) => Promise<void> | void
+  onOpenCardSource: (card: ReviewCard) => void
+  onCreateWrongCards: () => Promise<void> | void
   onAdaptive: () => void
   onWrong: () => void
   onFlashcards: () => void
@@ -21,6 +29,18 @@ export function ReviewPage(props: Props) {
         <p>{zhTW.review.description}</p>
       </header>
 
+      <ReviewCardStack
+        dueCards={props.dueCards}
+        totalCards={props.totalCards}
+        onGrade={props.onGradeCard}
+        onOpenSource={props.onOpenCardSource}
+      />
+      {props.wrongWithoutCards > 0 ? (
+        <button className="secondary-action wide" onClick={() => void props.onCreateWrongCards()} type="button">
+          <PlusCircle size={17} /> {zhTW.review.makeWrongCards(props.wrongWithoutCards)}
+        </button>
+      ) : null}
+
       <section className="readiness-strip" aria-label="Review overview">
         <div>
           <span>{zhTW.review.dueNow}</span>
@@ -31,8 +51,8 @@ export function ReviewPage(props: Props) {
           <strong>{props.wrongCount}</strong>
         </div>
         <div>
-          <span>{zhTW.review.mode}</span>
-          <strong>{zhTW.nav.review}</strong>
+          <span>{zhTW.review.cards}</span>
+          <strong>{props.totalCards}</strong>
         </div>
       </section>
 

@@ -203,7 +203,7 @@ describe('normalizeBackupData', () => {
 })
 
 describe('backup round trip', () => {
-  it('imports an old version-2 backup and normalizes it; exports version 3', async () => {
+  it('imports an old version-2 backup and normalizes it; exports the current version', async () => {
     // Imported lazily so the localStorage stub is installed first.
     const { exportBackup, importBackup } = await import('./backup')
     const { db } = await import('./db')
@@ -225,7 +225,7 @@ describe('backup round trip', () => {
     expect((await db.attempts.toArray()).map((row) => row.questionId)).toEqual(['web-design-b:17300-01-001'])
 
     const exported = JSON.parse(await exportBackup()) as { version: number; data: BackupData }
-    expect(exported.version).toBe(3)
+    expect(exported.version).toBe(4)
     expect(exported.data.progress[0].questionId).toBe('web-design-b:17300-01-001')
   })
 })

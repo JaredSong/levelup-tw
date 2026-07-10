@@ -33,6 +33,13 @@ export const zhTW = {
     recorded: (seen: number, total: number) => `${seen} / ${total} 題已記錄`,
     shortSessionTitle: '短時間也可以。',
     shortSessionBody: '先清待複習，再做一小組新題；有完整時間再做模擬測驗。',
+    missionTitle: '今日任務',
+    missionAllDone: '今日任務完成，明天見！',
+    missionDueReview: '清複習卡',
+    missionWrongFix: '修錯題',
+    missionFresh: '做新題',
+    missionProgress: (completed: number, target: number) => `${completed} / ${target}`,
+    streak: (days: number) => `連續 ${days} 天`,
   },
   practice: {
     eyebrow: '練習',

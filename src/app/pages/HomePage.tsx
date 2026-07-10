@@ -1,4 +1,5 @@
-import { ArrowRight, Clock3, CloudOff, Flame } from 'lucide-react'
+import { ArrowRight, Check, Clock3, CloudOff, Flame, Layers3, ListRestart, Sparkles } from 'lucide-react'
+import type { DailyMissionView, MissionItemView } from '../../domain/dailyMission'
 import { zhTW } from '../../i18n/zh-TW'
 import { isSyncEnabled } from '../../storage/sync'
 
@@ -9,8 +10,31 @@ interface Props {
   accuracy: number
   hasSession: boolean
   sessionLabel?: string
+  streak: number
+  mission: DailyMissionView
+  onGoReview: () => void
+  onWrongFix: () => void
   onContinue: () => void
   onSequential: () => void
+}
+
+const MISSION_META = {
+  'due-review': { label: () => zhTW.home.missionDueReview, icon: Layers3 },
+  'wrong-fix': { label: () => zhTW.home.missionWrongFix, icon: ListRestart },
+  'fresh-questions': { label: () => zhTW.home.missionFresh, icon: Sparkles },
+} as const
+
+function MissionRow({ item, onGo }: { item: MissionItemView; onGo: () => void }) {
+  const meta = MISSION_META[item.type as keyof typeof MISSION_META]
+  if (!meta || item.target === 0) return null
+  const Icon = meta.icon
+  return (
+    <button className={item.done ? 'mission-row done' : 'mission-row'} disabled={item.done} onClick={onGo} type="button">
+      <span className="mission-icon"><Icon size={17} /></span>
+      <span className="mission-label">{meta.label()}</span>
+      <span className="mission-count">{item.done ? <Check size={16} /> : zhTW.home.missionProgress(item.completed, item.target)}</span>
+    </button>
+  )
 }
 
 function daysUntilExam() {
@@ -40,6 +64,27 @@ export function HomePage(props: Props) {
       {!isSyncEnabled() ? (
         <p className="sync-nudge"><CloudOff size={16} /> {zhTW.home.syncOff}</p>
       ) : null}
+
+      <section className="mission-card" aria-label={zhTW.home.missionTitle}>
+        <div className="mission-head">
+          <p className="eyebrow">{zhTW.home.missionTitle}</p>
+          {props.streak > 0 ? (
+            <span className="streak-chip"><Flame size={14} /> {zhTW.home.streak(props.streak)}</span>
+          ) : null}
+        </div>
+        {props.mission.allDone ? (
+          <p className="mission-all-done"><Sparkles size={17} /> {zhTW.home.missionAllDone}</p>
+        ) : null}
+        <div className="mission-rows">
+          {props.mission.items.map((item) => (
+            <MissionRow
+              item={item}
+              key={item.type}
+              onGo={item.type === 'due-review' ? props.onGoReview : item.type === 'wrong-fix' ? props.onWrongFix : props.onSequential}
+            />
+          ))}
+        </div>
+      </section>
 
       <section className="readiness-strip" aria-label="Study overview">
         <div>

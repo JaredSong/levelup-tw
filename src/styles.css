@@ -251,6 +251,24 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .grade-actions button { display: flex; justify-content: center; align-items: center; gap: 7px; padding: 11px; border: 1px solid var(--line); border-radius: 6px; background: var(--paper); font-weight: 700; cursor: pointer; }
 .grade-actions button.success { color: white; border-color: var(--accent-dark); background: var(--accent-dark); }
 
+/* Daily mission (Phase 3 habit loop): light structure, not gamification. */
+.mission-card { margin: 16px 0 4px; padding: 15px 16px 8px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.mission-head { display: flex; justify-content: space-between; align-items: center; }
+.mission-head .eyebrow { margin: 0; }
+.streak-chip { display: inline-flex; align-items: center; gap: 4px; padding: 3px 9px; border-radius: 999px; background: #fdf1dc; color: #9a6a12; font-size: .74rem; font-weight: 800; }
+.mission-all-done { display: flex; align-items: center; gap: 7px; margin: 10px 0 4px; color: var(--accent-dark); font-weight: 750; }
+.mission-rows { margin-top: 6px; }
+.mission-row { width: 100%; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 11px; align-items: center; padding: 11px 2px; border: 0; border-bottom: 1px solid var(--line); background: transparent; text-align: left; cursor: pointer; }
+.mission-row:last-child { border-bottom: 0; }
+.mission-row:hover:not(:disabled) { background: #f0f3ee; }
+.mission-row:disabled { cursor: default; }
+.mission-row.done .mission-label { color: var(--muted); text-decoration: line-through; }
+.mission-icon { display: grid; place-content: center; width: 30px; height: 30px; border-radius: 7px; background: var(--accent-pale); color: var(--accent-dark); }
+.mission-row.done .mission-icon { background: transparent; color: var(--muted); }
+.mission-label { font-size: .92rem; font-weight: 750; }
+.mission-count { display: inline-flex; align-items: center; color: var(--accent-dark); font-size: .84rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+.mission-row.done .mission-count { color: var(--accent); }
+
 /* Review card stack (Phase 2 memory layer): kept quiet and almost blank on purpose. */
 .review-card-stack { margin: 18px 0 6px; padding: 18px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
 .review-card-stack.empty { display: grid; justify-items: center; gap: 6px; padding: 26px 18px; color: var(--muted); text-align: center; }

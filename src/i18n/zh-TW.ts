@@ -17,6 +17,9 @@ export const zhTW = {
     activeOffline: '目前使用 · 離線',
     installedOffline: '已安裝 · 離線',
     activeQuestionCount: (count: number) => `${count.toLocaleString()} 題可練習`,
+    settingsButton: '設定',
+    settingsEyebrow: '設定',
+    settingsTitle: '外觀、資料與同步',
   },
   home: {
     currentBank: '目前題庫',
@@ -182,6 +185,15 @@ export const zhTW = {
     statusWeak: '要加強',
     statusBuilding: '進步中',
     statusReady: '已準備',
+    habitEyebrow: '習慣',
+    habitTitle: '學習節奏',
+    habitStreak: (days: number) => `連續 ${days} 天有練習`,
+    habitNoStreak: '今天開始，養成每天一小步的習慣。',
+    loadEyebrow: '複習負擔',
+    loadTitle: '複習量',
+    loadTotal: (count: number) => `共 ${count} 張複習卡`,
+    loadOverdue: '逾期未複習',
+    loadDueToday: '今天到期',
   },
   session: {
     titles: {

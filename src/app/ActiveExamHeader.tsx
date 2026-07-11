@@ -1,12 +1,20 @@
-import { ChevronDown, Database, HardDrive, Plus, X } from 'lucide-react'
+import { ChevronDown, Database, HardDrive, Plus, Settings, X } from 'lucide-react'
 import { useState } from 'react'
+import { SettingsView } from '../components/SettingsView'
+import type { Progress, Question } from '../domain/studyEngine'
 import { zhTW } from '../i18n/zh-TW'
 import { formatExamSwitcherItem } from './activeExam'
 import { useActiveExam } from './useActiveExam'
 
-export function ActiveExamHeader() {
+interface Props {
+  questions: Question[]
+  progress: Record<string, Progress>
+}
+
+export function ActiveExamHeader({ questions, progress }: Props) {
   const { activeExam, installedExams, setActiveExamId } = useActiveExam()
   const [open, setOpen] = useState(false)
+  const [settingsOpen, setSettingsOpen] = useState(false)
 
   return (
     <div className="active-exam-bar" aria-label={zhTW.shell.activeExam}>
@@ -18,7 +26,12 @@ export function ActiveExamHeader() {
         </span>
         <ChevronDown size={16} />
       </button>
-      <span className="active-exam-status"><HardDrive size={14} /> {zhTW.shell.offline}</span>
+      <div className="active-exam-meta">
+        <span className="active-exam-status"><HardDrive size={14} /> {zhTW.shell.offline}</span>
+        <button className="icon-button" onClick={() => setSettingsOpen(true)} title={zhTW.shell.settingsButton} aria-label={zhTW.shell.settingsButton} type="button">
+          <Settings size={17} />
+        </button>
+      </div>
       {open ? (
         <div className="exam-switcher-overlay" role="presentation" onClick={() => setOpen(false)}>
           <section className="exam-switcher-sheet" aria-modal="true" role="dialog" aria-label={zhTW.shell.chooseExam} onClick={(event) => event.stopPropagation()}>
@@ -60,6 +73,20 @@ export function ActiveExamHeader() {
                 <small>{zhTW.shell.catalogComingSoon}</small>
               </span>
             </button>
+          </section>
+        </div>
+      ) : null}
+      {settingsOpen ? (
+        <div className="mock-overlay" role="presentation" onClick={() => setSettingsOpen(false)}>
+          <section className="mock-sheet settings-sheet" aria-modal="true" role="dialog" aria-label={zhTW.shell.settingsTitle} onClick={(event) => event.stopPropagation()}>
+            <div className="sheet-head">
+              <div>
+                <p className="eyebrow">{zhTW.shell.settingsEyebrow}</p>
+                <h2>{zhTW.shell.settingsTitle}</h2>
+              </div>
+              <button className="icon-button" onClick={() => setSettingsOpen(false)} aria-label="關閉設定" type="button"><X size={18} /></button>
+            </div>
+            <SettingsView progress={progress} questions={questions} />
           </section>
         </div>
       ) : null}

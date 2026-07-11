@@ -1,19 +1,22 @@
-import { StatsView } from '../../components/StatsView'
+import { InsightsView } from '../../components/InsightsView'
+import type { ReviewCard } from '../../core/contracts'
 import type { Question, Progress } from '../../domain/studyEngine'
 
 interface Props {
   questions: Question[]
   progress: Record<string, Progress>
-  onSaveAiToken: (token: string) => void
+  reviewCards: ReviewCard[]
+  streak: number
   onPracticeGroup: (section: string, title: string) => void
 }
 
 export function InsightsPage(props: Props) {
   return (
-    <StatsView
+    <InsightsView
       questions={props.questions}
       progress={props.progress}
-      onSaveAiToken={props.onSaveAiToken}
+      reviewCards={props.reviewCards}
+      streak={props.streak}
       onPracticeGroup={props.onPracticeGroup}
     />
   )

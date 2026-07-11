@@ -7,6 +7,7 @@ import {
   isCardDue,
   previewInterval,
   questionCardId,
+  reviewLoadSummary,
 } from './reviewScheduler'
 
 const NOW = new Date('2026-07-10T08:00:00.000Z')
@@ -119,6 +120,21 @@ describe('buildDueCardQueue', () => {
     const queue = buildDueCardQueue([due1, due2, relearn, future, suspended], NOW)
     expect(queue.map((card) => card.id)).toEqual(['c3', 'c2', 'c1'])
     expect(buildDueCardQueue([due1, due2, relearn], NOW, 2)).toHaveLength(2)
+  })
+})
+
+describe('reviewLoadSummary', () => {
+  it('splits due cards into overdue (before today) vs due today', () => {
+    const overdue = { ...newCard(), id: 'c1', dueAt: '2026-07-09T12:00:00.000Z', state: 'review' as const }
+    const dueToday = { ...newCard(), id: 'c2', dueAt: '2026-07-10T01:00:00.000Z', state: 'review' as const }
+    const future = { ...newCard(), id: 'c3', dueAt: '2026-07-12T00:00:00.000Z', state: 'review' as const }
+    const suspended = { ...newCard(), id: 'c4', dueAt: '2026-07-01T00:00:00.000Z', state: 'suspended' as const }
+    const summary = reviewLoadSummary([overdue, dueToday, future, suspended], NOW)
+    expect(summary).toEqual({ overdueCount: 1, dueTodayCount: 1, totalCards: 4 })
+  })
+
+  it('returns zeros for an empty deck', () => {
+    expect(reviewLoadSummary([], NOW)).toEqual({ overdueCount: 0, dueTodayCount: 0, totalCards: 0 })
   })
 })
 

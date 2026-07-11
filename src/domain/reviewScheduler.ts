@@ -144,6 +144,27 @@ export function isCardDue(card: ReviewCard, now: Date): boolean {
   return card.state !== 'suspended' && card.dueAt <= now.toISOString()
 }
 
+export interface ReviewLoadSummary {
+  /** Due before today started — the backlog. */
+  overdueCount: number
+  /** Due today (including already-graded-today cards would no longer be due, so this is what's left). */
+  dueTodayCount: number
+  totalCards: number
+}
+
+/** Split the due queue into backlog (overdue) vs today's fresh load, for the Insights "Review Load" card. */
+export function reviewLoadSummary(cards: ReviewCard[], now: Date): ReviewLoadSummary {
+  const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate()).toISOString()
+  let overdueCount = 0
+  let dueTodayCount = 0
+  for (const card of cards) {
+    if (!isCardDue(card, now)) continue
+    if (card.dueAt < startOfToday) overdueCount += 1
+    else dueTodayCount += 1
+  }
+  return { overdueCount, dueTodayCount, totalCards: cards.length }
+}
+
 /**
  * Due queue: (re)learning steps first so the same-sitting loop closes, then by
  * how long a card has waited. Capped so an overdue backlog stays approachable.

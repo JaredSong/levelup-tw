@@ -1,4 +1,4 @@
-const SECTION_PATTERN = /^(\d{5})\s+(.+?)\s+(?:乙級|不分級)\s+工作項目\s+(\d{2})：(.+)$/
+const SECTION_PATTERN = /^(\d{5})\s+(.+?)\s+(?:甲級|乙級|丙級|單一級|不分級)\s+工作項目\s+(\d{2})：(.+)$/
 const QUESTION_PATTERN = /^(\d+)\.\s*\(([1-4]+)\)\s*(.*)$/
 const PAGE_PATTERN = /^@@PAGE:(\d+)@@$/
 const OPTION_MARKERS = ['①', '②', '③', '④']
@@ -98,11 +98,13 @@ export function parseQuestionBank(source) {
       flush()
       subjectCode = sectionMatch[1]
       subjectTitle = sectionMatch[2].trim()
-      sourceGroup = subjectCode === '17300'
-        ? 'occupation'
-        : subjectCode === '90011'
+      sourceGroup = subjectCode === '90011'
           ? 'information-common'
-          : 'general-common'
+          : subjectCode === '90012'
+            ? 'beauty-hair-common'
+            : subjectCode.startsWith('900')
+              ? 'general-common'
+              : 'occupation'
       section = sectionMatch[3]
       sectionTitle = sectionMatch[4].trim()
       continue

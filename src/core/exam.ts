@@ -1,7 +1,7 @@
 // Pure exam-model layer. MUST stay free of DOM, Dexie, React, or browser storage
 // imports so it can be shared by web and mobile. See docs/level-up-public-app-plan.md.
 
-export type SourceGroup = 'occupation' | 'information-common' | 'general-common'
+export type SourceGroup = 'occupation' | 'information-common' | 'beauty-hair-common' | 'general-common'
 
 export interface ExamSection {
   /** Section id as it appears in question ids, e.g. "17300-01". */

@@ -9,7 +9,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "lint": "eslint .",
-    "import:questions": "node scripts/import-questions.mjs && node scripts/build-glossary.mjs && node scripts/build-image-question-map.mjs",
+    "import:questions": "node scripts/import-questions.mjs && node scripts/build-exam-packs.mjs && node scripts/build-glossary.mjs && node scripts/build-image-question-map.mjs",
     "audit:ocr": "node scripts/ocrAudit.mjs",
     "build:glossary": "node scripts/build-glossary.mjs",
     "build:image-map": "node scripts/build-image-question-map.mjs"

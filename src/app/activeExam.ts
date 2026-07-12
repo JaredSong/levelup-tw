@@ -1,5 +1,6 @@
 import type { ExamManifest } from '../core/exam'
 import { zhTW } from '../i18n/zh-TW'
+import { GENERATED_EXAM_MANIFESTS } from './generatedExamManifests'
 
 export const ACTIVE_EXAM_KEY = 'level-up-active-exam-id'
 
@@ -49,7 +50,7 @@ export const WEB_DESIGN_B_MANIFEST: ExamManifest = {
   },
 }
 
-export const INSTALLED_EXAMS: ExamManifest[] = [WEB_DESIGN_B_MANIFEST]
+export const INSTALLED_EXAMS: ExamManifest[] = [WEB_DESIGN_B_MANIFEST, ...GENERATED_EXAM_MANIFESTS]
 
 export function chooseActiveExamId(exams: Pick<ExamManifest, 'examId'>[], savedExamId: string | null | undefined): string | null {
   if (savedExamId && exams.some((exam) => exam.examId === savedExamId)) return savedExamId

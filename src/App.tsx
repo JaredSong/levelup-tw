@@ -35,16 +35,21 @@ import { db } from './storage/db'
 import { isSyncEnabled, syncNow } from './storage/sync'
 import type { SessionMode, StudySession } from './types'
 
-const SESSION_KEY = 'level-b-active-session'
+const LEGACY_SESSION_KEY = 'level-b-active-session'
 const SEQUENTIAL_KEY = 'level-b-sequential-index'
 const PERSONAL_START_INDEX = 144
 const MOCK_DURATION_MS = 100 * 60_000
 const EXPLAIN_VERSION = 'v17'
 const OPTION_RANDOMIZE_KEY = 'level-b-randomize-options'
 
-function loadSession(): StudySession | null {
+function sessionKey(examId: string) {
+  return `${LEGACY_SESSION_KEY}:${examId}`
+}
+
+function loadSession(examId: string): StudySession | null {
   try {
-    const value = localStorage.getItem(SESSION_KEY)
+    const value = localStorage.getItem(sessionKey(examId))
+      ?? (examId === 'web-design-b' ? localStorage.getItem(LEGACY_SESSION_KEY) : null)
     return value ? JSON.parse(value) as StudySession : null
   } catch {
     return null
@@ -109,22 +114,30 @@ async function explainQuestion(examId: string, question: Question, selected: num
 }
 
 export default function App() {
-  const { bank, error } = useQuestionBank()
   const { activeExam } = useActiveExam()
   const examId = activeExam.examId
+  const { bank, error } = useQuestionBank()
   const { progress, setProgress, loading, refresh } = useStudyData(examId)
   const { cards: reviewCards, refresh: refreshReviewCards } = useReviewCards(examId)
   const activity = useTodayActivity(examId, progress, reviewCards)
   const [tab, setTab] = useState<Tab>('home')
-  const [session, setSession] = useState<StudySession | null>(() => loadSession())
+  const [session, setSession] = useState<StudySession | null>(() => loadSession(examId))
   const [practiceOpen, setPracticeOpen] = useState(false)
   const [summary, setSummary] = useState<StudySession | null>(null)
   const prefetchedCueSessionRef = useRef('')
 
   useEffect(() => {
-    if (session) localStorage.setItem(SESSION_KEY, JSON.stringify(session))
-    else localStorage.removeItem(SESSION_KEY)
-  }, [session])
+    if (session) localStorage.setItem(sessionKey(examId), JSON.stringify(session))
+    else localStorage.removeItem(sessionKey(examId))
+    localStorage.removeItem(LEGACY_SESSION_KEY)
+  }, [examId, session])
+
+  useEffect(() => {
+    setSession(loadSession(examId))
+    setPracticeOpen(false)
+    setSummary(null)
+    prefetchedCueSessionRef.current = ''
+  }, [examId])
 
   // Pull the cloud copy on open and merge it in (no-op if sync is off or fails).
   useEffect(() => {
@@ -184,7 +197,7 @@ export default function App() {
 
   const startMock = (mockFeedback = false) => {
     try {
-      begin('mock', buildMockQueue(bank.questions), mockFeedback ? zhTW.session.trainingMock : zhTW.session.titles.mock, { mockFeedback })
+      begin('mock', buildMockQueue(bank.questions, activeExam.mockRules), mockFeedback ? zhTW.session.trainingMock : zhTW.session.titles.mock, { mockFeedback })
     } catch {
       window.alert(zhTW.session.mockUnavailable)
     }
@@ -392,10 +405,12 @@ export default function App() {
       const score = isMock
         ? session.questionIds.reduce((total, id) => {
           const answer = finalAnswers[id]
-          return total + (answer?.correct ? (bank.byId.get(id)?.kind === 'multiple' ? 2 : 1) : 0)
+          const question = bank.byId.get(id)
+          const weight = question?.kind === 'multiple' ? activeExam.mockRules.weightMultiple : activeExam.mockRules.weightSingle
+          return total + (answer?.correct ? weight : 0)
         }, 0)
         : correct
-      const maxScore = isMock ? 100 : answers.length
+      const maxScore = isMock ? activeExam.mockRules.maxScore : answers.length
       await db.results.add({
         sessionId: session.id,
         mode: session.mode,
@@ -405,7 +420,7 @@ export default function App() {
         correct,
         score,
         maxScore,
-        passed: isMock ? score >= 60 : maxScore > 0 && correct / maxScore >= 0.6,
+        passed: isMock ? score >= activeExam.mockRules.passScore : maxScore > 0 && correct / maxScore >= 0.6,
         durationMs: Date.now() - new Date(session.startedAt).getTime(),
       })
     }
@@ -433,7 +448,8 @@ export default function App() {
     const mockScore = isMock ? summarySession.questionIds.reduce((score, id) => {
       const question = bank.byId.get(id)
       const answer = summarySession.answers[id]
-      return score + (answer?.correct ? (question?.kind === 'multiple' ? 2 : 1) : 0)
+      const weight = question?.kind === 'multiple' ? activeExam.mockRules.weightMultiple : activeExam.mockRules.weightSingle
+      return score + (answer?.correct ? weight : 0)
     }, 0) : null
     const correct = answers.filter((answer) => answer.correct).length
 
@@ -457,8 +473,8 @@ export default function App() {
         <CheckCircle2 size={34} />
         <p className="eyebrow">{zhTW.session.recorded}</p>
         <h1>{summarySession.title}</h1>
-        <strong className="summary-score">{mockScore !== null ? `${mockScore}/100` : `${correct}/${answers.length}`}</strong>
-        <p>{mockScore !== null ? (mockScore >= 60 ? zhTW.session.mockPassNote : zhTW.session.mockFailNote) : zhTW.session.practiceNote}</p>
+        <strong className="summary-score">{mockScore !== null ? `${Math.round(mockScore * 10) / 10}/${activeExam.mockRules.maxScore}` : `${correct}/${answers.length}`}</strong>
+        <p>{mockScore !== null ? (mockScore >= activeExam.mockRules.passScore ? zhTW.session.mockPassNote : zhTW.session.mockFailNote) : zhTW.session.practiceNote}</p>
 
         {isMock ? (
           <div className="mock-breakdown">

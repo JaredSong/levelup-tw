@@ -1,0 +1,184 @@
+{
+  "examId": "man-haircut-c",
+  "level": "丙級",
+  "titleZh": "男子理髮丙級",
+  "titleEn": "Men Haircutting (Class C)",
+  "category": "美容美髮",
+  "version": "A12",
+  "sourceUrl": "https://techbank.wdasec.gov.tw/",
+  "sourceRevision": "060003A12 + 900060A18/900070A17/900080A16/900090A11/900120A10",
+  "questionCount": 1139,
+  "activeQuestionCount": 1134,
+  "sections": [
+    {
+      "id": "06000-01",
+      "subjectCode": "06000",
+      "sourceGroup": "occupation",
+      "titleZh": "毛髮與皮膚之認識",
+      "questionCount": 59,
+      "activeQuestionCount": 59
+    },
+    {
+      "id": "06000-02",
+      "subjectCode": "06000",
+      "sourceGroup": "occupation",
+      "titleZh": "髮型設計",
+      "questionCount": 29,
+      "activeQuestionCount": 29
+    },
+    {
+      "id": "06000-03",
+      "subjectCode": "06000",
+      "sourceGroup": "occupation",
+      "titleZh": "手工機、器具之運用",
+      "questionCount": 52,
+      "activeQuestionCount": 52
+    },
+    {
+      "id": "06000-04",
+      "subjectCode": "06000",
+      "sourceGroup": "occupation",
+      "titleZh": "應用機、器具之使用",
+      "questionCount": 36,
+      "activeQuestionCount": 36
+    },
+    {
+      "id": "06000-05",
+      "subjectCode": "06000",
+      "sourceGroup": "occupation",
+      "titleZh": "認識美髮用品及功能",
+      "questionCount": 30,
+      "activeQuestionCount": 30
+    },
+    {
+      "id": "06000-06",
+      "subjectCode": "06000",
+      "sourceGroup": "occupation",
+      "titleZh": "修剪頭髮",
+      "questionCount": 63,
+      "activeQuestionCount": 63
+    },
+    {
+      "id": "06000-07",
+      "subjectCode": "06000",
+      "sourceGroup": "occupation",
+      "titleZh": "清洗頭髮",
+      "questionCount": 29,
+      "activeQuestionCount": 29
+    },
+    {
+      "id": "06000-08",
+      "subjectCode": "06000",
+      "sourceGroup": "occupation",
+      "titleZh": "修剃臉部",
+      "questionCount": 70,
+      "activeQuestionCount": 70
+    },
+    {
+      "id": "06000-09",
+      "subjectCode": "06000",
+      "sourceGroup": "occupation",
+      "titleZh": "染髮操作",
+      "questionCount": 52,
+      "activeQuestionCount": 52
+    },
+    {
+      "id": "06000-10",
+      "subjectCode": "06000",
+      "sourceGroup": "occupation",
+      "titleZh": "髮型整理",
+      "questionCount": 19,
+      "activeQuestionCount": 19
+    },
+    {
+      "id": "90012-01",
+      "subjectCode": "90012",
+      "sourceGroup": "beauty-hair-common",
+      "titleZh": "化粧品認識",
+      "questionCount": 150,
+      "activeQuestionCount": 150
+    },
+    {
+      "id": "90012-02",
+      "subjectCode": "90012",
+      "sourceGroup": "beauty-hair-common",
+      "titleZh": "衛生及急救知識",
+      "questionCount": 150,
+      "activeQuestionCount": 150
+    },
+    {
+      "id": "90006-01",
+      "subjectCode": "90006",
+      "sourceGroup": "general-common",
+      "titleZh": "職業安全衛生",
+      "questionCount": 100,
+      "activeQuestionCount": 100
+    },
+    {
+      "id": "90007-01",
+      "subjectCode": "90007",
+      "sourceGroup": "general-common",
+      "titleZh": "工作倫理與職業道德",
+      "questionCount": 100,
+      "activeQuestionCount": 100
+    },
+    {
+      "id": "90008-03",
+      "subjectCode": "90008",
+      "sourceGroup": "general-common",
+      "titleZh": "環境保護",
+      "questionCount": 100,
+      "activeQuestionCount": 95
+    },
+    {
+      "id": "90009-04",
+      "subjectCode": "90009",
+      "sourceGroup": "general-common",
+      "titleZh": "節能減碳",
+      "questionCount": 100,
+      "activeQuestionCount": 100
+    }
+  ],
+  "mockRules": {
+    "totalQuestions": 80,
+    "singleCount": 80,
+    "multipleCount": 0,
+    "durationMinutes": 100,
+    "passScore": 60,
+    "maxScore": 100,
+    "weightSingle": 1.25,
+    "weightMultiple": 0,
+    "subjectQuota": [
+      {
+        "subjectCode": "06000",
+        "count": 60
+      },
+      {
+        "subjectCode": "90012",
+        "count": 4
+      },
+      {
+        "subjectCode": "90006",
+        "count": 4
+      },
+      {
+        "subjectCode": "90007",
+        "count": 4
+      },
+      {
+        "subjectCode": "90008",
+        "count": 4
+      },
+      {
+        "subjectCode": "90009",
+        "count": 4
+      }
+    ]
+  },
+  "integrity": {
+    "status": "unchecked",
+    "inactiveQuestionCount": 5,
+    "imageQuestionCount": 4,
+    "note": "Official PDFs parsed locally; answer keys should be spot-checked before public release."
+  }
+}

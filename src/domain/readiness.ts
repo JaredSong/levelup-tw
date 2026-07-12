@@ -7,7 +7,7 @@ export interface GroupReadiness {
   section: string
   label: string
   subjectCode: string
-  kind: 'occupation' | 'information-common' | 'general-common'
+  kind: 'occupation' | 'information-common' | 'beauty-hair-common' | 'general-common'
   total: number
   attempted: number
   coverage: number
@@ -26,7 +26,9 @@ export interface Readiness {
 const MOCK_TOTAL = 80
 const COMMON_PER_SUBJECT = 4 // four questions from each general subject (16 total)
 const OCCUPATION_IN_MOCK = 55 // 17300 share of an 80-question mock
+const HAIRDRESSING_OCCUPATION_IN_MOCK = 60 // 06000/06700 share while hair packs are single-answer mocks
 const INFO_IN_MOCK = 9 // 90011 share of an 80-question mock
+const BEAUTY_HAIR_COMMON_IN_MOCK = 4 // 90012 share in the current hairdressing pack mock
 const RECENT_WINDOW = 20
 const PASS = 0.6
 const READY = 0.8
@@ -63,6 +65,8 @@ export function computeReadiness(
   // 90011 → 9/80, and each of the four general subjects → 4/80.
   const occupationTotal = questions.filter((question) => question.sourceGroup === 'occupation').length
   const infoTotal = questions.filter((question) => question.sourceGroup === 'information-common').length
+  const beautyHairTotal = questions.filter((question) => question.sourceGroup === 'beauty-hair-common').length
+  const isHairdressingPack = questions.some((question) => ['06000', '06700'].includes(question.subjectCode ?? ''))
 
   const groups: GroupReadiness[] = []
   for (const [section, qs] of grouped) {
@@ -90,7 +94,11 @@ export function computeReadiness(
     let weight: number
     if (kind === 'general-common') weight = COMMON_PER_SUBJECT / MOCK_TOTAL
     else if (kind === 'information-common') weight = infoTotal ? (total / infoTotal) * (INFO_IN_MOCK / MOCK_TOTAL) : 0
-    else weight = occupationTotal ? (total / occupationTotal) * (OCCUPATION_IN_MOCK / MOCK_TOTAL) : 0
+    else if (kind === 'beauty-hair-common') weight = beautyHairTotal ? (total / beautyHairTotal) * (BEAUTY_HAIR_COMMON_IN_MOCK / MOCK_TOTAL) : 0
+    else {
+      const occupationShare = isHairdressingPack ? HAIRDRESSING_OCCUPATION_IN_MOCK : OCCUPATION_IN_MOCK
+      weight = occupationTotal ? (total / occupationTotal) * (occupationShare / MOCK_TOTAL) : 0
+    }
 
     groups.push({
       section,

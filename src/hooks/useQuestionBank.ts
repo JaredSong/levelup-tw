@@ -1,13 +1,20 @@
 import { useEffect, useState } from 'react'
 import type { BankState } from '../types'
 import type { Question } from '../domain/studyEngine'
+import { useActiveExam } from '../app/useActiveExam'
 
 export function useQuestionBank() {
+  const { activeExam } = useActiveExam()
   const [bank, setBank] = useState<BankState | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    fetch('/data/questions.json')
+    setBank(null)
+    setError(null)
+    const url = activeExam.examId === 'web-design-b'
+      ? '/data/exams/web-design-b/questions.json'
+      : `/data/exams/${activeExam.examId}/questions.json`
+    fetch(url)
       .then((response) => {
         if (!response.ok) throw new Error('Unable to load the question bank.')
         return response.json() as Promise<Question[]>
@@ -20,7 +27,7 @@ export function useQuestionBank() {
       .catch((reason: unknown) =>
         setError(reason instanceof Error ? reason.message : 'Question bank failed.'),
       )
-  }, [])
+  }, [activeExam.examId])
 
   return { bank, error }
 }

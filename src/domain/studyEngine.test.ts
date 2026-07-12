@@ -206,6 +206,36 @@ describe('practice queue builders', () => {
       expect(result.filter((question) => question.subjectCode === subjectCode)).toHaveLength(4)
     }
   })
+
+  it('builds a manifest-driven single-answer mock for hairdressing exams', () => {
+    const pool = [
+      ...Array.from({ length: 80 }, (_, index) => ({ ...questions[0], id: `06000-${index}`, subjectCode: '06000' })),
+      ...Array.from({ length: 10 }, (_, index) => ({ ...questions[0], id: `90012-${index}`, subjectCode: '90012' })),
+      ...['90006', '90007', '90008', '90009'].flatMap((subjectCode) =>
+        Array.from({ length: 10 }, (_, index) => ({ ...questions[0], id: `${subjectCode}-${index}`, subjectCode })),
+      ),
+    ]
+
+    const result = buildMockQueue(pool, {
+      totalQuestions: 80,
+      singleCount: 80,
+      multipleCount: 0,
+      subjectQuota: [
+        { subjectCode: '06000', count: 60 },
+        { subjectCode: '90012', count: 4 },
+        { subjectCode: '90006', count: 4 },
+        { subjectCode: '90007', count: 4 },
+        { subjectCode: '90008', count: 4 },
+        { subjectCode: '90009', count: 4 },
+      ],
+    }, () => 0.25)
+
+    expect(result).toHaveLength(80)
+    expect(result.filter((question) => question.kind === 'single')).toHaveLength(80)
+    expect(result.filter((question) => question.kind === 'multiple')).toHaveLength(0)
+    expect(result.filter((question) => question.subjectCode === '06000')).toHaveLength(60)
+    expect(result.filter((question) => question.subjectCode === '90012')).toHaveLength(4)
+  })
 })
 
 describe('buildSprintQueue', () => {

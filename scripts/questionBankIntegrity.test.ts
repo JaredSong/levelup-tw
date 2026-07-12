@@ -7,6 +7,10 @@ function loadBank(): Question[] {
   return JSON.parse(readFileSync(new URL('../public/data/questions.json', import.meta.url), 'utf8')) as Question[]
 }
 
+function loadExamBank(examId: string): Question[] {
+  return JSON.parse(readFileSync(new URL(`../public/data/exams/${examId}/questions.json`, import.meta.url), 'utf8')) as Question[]
+}
+
 describe('published question bank', () => {
   it('publishes the current bank as the web-design-b exam pack', () => {
     const generated = loadBank() as Array<Question & { examId?: string }>
@@ -210,6 +214,70 @@ describe('published question bank', () => {
         expect(mock.filter((q) => q.subjectCode === code)).toHaveLength(4)
       }
       expect(new Set(mock.map((q) => q.id)).size).toBe(80)
+    }
+  })
+
+  it('publishes hairdressing class C exam packs without occupation-bank figures', () => {
+    const cases = [
+      { examId: 'man-haircut-c', titleZh: '男子理髮丙級', occupationCode: '06000', total: 1139, active: 1134, sections: 16 },
+      { examId: 'women-hairdressing-c', titleZh: '女子美髮丙級', occupationCode: '06700', total: 1308, active: 1303, sections: 15 },
+    ]
+
+    for (const item of cases) {
+      const generated = loadExamBank(item.examId)
+      const manifest = JSON.parse(
+        readFileSync(new URL(`../public/data/exams/${item.examId}/manifest.json`, import.meta.url), 'utf8'),
+      ) as {
+        examId: string
+        titleZh: string
+        questionCount: number
+        activeQuestionCount: number
+        sections: unknown[]
+        mockRules: { totalQuestions: number; singleCount: number; multipleCount: number }
+      }
+
+      expect(manifest).toMatchObject({
+        examId: item.examId,
+        titleZh: item.titleZh,
+        questionCount: item.total,
+        activeQuestionCount: item.active,
+        mockRules: { totalQuestions: 80, singleCount: 80, multipleCount: 0 },
+      })
+      expect(manifest.sections).toHaveLength(item.sections)
+      expect(generated).toHaveLength(item.total)
+      expect(generated.filter((question) => question.active !== false)).toHaveLength(item.active)
+      expect(generated.every((question) => question.examId === item.examId)).toBe(true)
+      expect(generated.filter((question) => question.subjectCode === item.occupationCode && question.hasFigure)).toEqual([])
+      expect(generated.filter((question) => question.subjectCode === '90012' && question.hasFigure)).toEqual([])
+      expect(generated.filter((question) => question.active !== false && question.hasFigure)).toHaveLength(4)
+      expect(generated.filter((question) => question.subjectCode === '90008' && question.active !== false)).toHaveLength(95)
+    }
+  })
+
+  it('builds hairdressing mocks from active-only question packs', () => {
+    const cases = [
+      { examId: 'man-haircut-c', occupationCode: '06000' },
+      { examId: 'women-hairdressing-c', occupationCode: '06700' },
+    ]
+
+    for (const item of cases) {
+      const bank = loadExamBank(item.examId).filter((question) => question.active !== false)
+      const manifest = JSON.parse(
+        readFileSync(new URL(`../public/data/exams/${item.examId}/manifest.json`, import.meta.url), 'utf8'),
+      ) as { mockRules: Parameters<typeof buildMockQueue>[1] }
+
+      for (let i = 0; i < 10; i += 1) {
+        const mock = buildMockQueue(bank, manifest.mockRules, () => (i + 1) / 11)
+        expect(mock).toHaveLength(80)
+        expect(mock.filter((question) => question.kind === 'single')).toHaveLength(80)
+        expect(mock.filter((question) => question.kind === 'multiple')).toHaveLength(0)
+        expect(mock.filter((question) => question.subjectCode === item.occupationCode)).toHaveLength(60)
+        expect(mock.filter((question) => question.subjectCode === '90012')).toHaveLength(4)
+        for (const code of ['90006', '90007', '90008', '90009']) {
+          expect(mock.filter((question) => question.subjectCode === code)).toHaveLength(4)
+        }
+        expect(new Set(mock.map((question) => question.id)).size).toBe(80)
+      }
     }
   })
 })

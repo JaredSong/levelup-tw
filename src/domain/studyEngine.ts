@@ -5,7 +5,7 @@ export interface Question {
   id: string
   subjectCode?: string
   subjectTitle?: string
-  sourceGroup?: 'occupation' | 'information-common' | 'general-common'
+  sourceGroup?: 'occupation' | 'information-common' | 'beauty-hair-common' | 'general-common'
   section: string
   sectionTitle?: string
   number: number
@@ -194,32 +194,58 @@ export function buildHighYieldQueue(
   return shuffled([...common, ...info, ...occupation, ...backfill], random).slice(0, limit)
 }
 
-// Official mock composition: 80 questions = four from each general subject (16),
-// nine from 90011, and the rest from 17300, with 60 single + 20 multiple overall.
+interface MockRules {
+  totalQuestions: number
+  singleCount: number
+  multipleCount: number
+  subjectQuota: { subjectCode: string; count: number }[]
+}
+
+const WEB_DESIGN_MOCK_RULES: MockRules = {
+  totalQuestions: 80,
+  singleCount: 60,
+  multipleCount: 20,
+  subjectQuota: [
+    { subjectCode: '17300', count: 55 },
+    { subjectCode: '90011', count: 9 },
+    { subjectCode: '90006', count: 4 },
+    { subjectCode: '90007', count: 4 },
+    { subjectCode: '90008', count: 4 },
+    { subjectCode: '90009', count: 4 },
+  ],
+}
+
+// Mock composition is manifest-driven so each installed exam can keep its own
+// official subject mix while sharing the same queue builder.
 export function buildMockQueue(
   questions: Question[],
-  random = Math.random,
+  rulesOrRandom: MockRules | (() => number) = WEB_DESIGN_MOCK_RULES,
+  randomArg = Math.random,
 ): Question[] {
-  const commonCodes = ['90006', '90007', '90008', '90009']
+  const rules = typeof rulesOrRandom === 'function' ? WEB_DESIGN_MOCK_RULES : rulesOrRandom
+  const random = typeof rulesOrRandom === 'function' ? rulesOrRandom : randomArg
   const bySubject = (code: string) => questions.filter((question) => question.subjectCode === code)
   const kindOf = (pool: Question[], kind: QuestionKind) => pool.filter((question) => question.kind === kind)
 
-  const common = commonCodes.flatMap((code) => shuffled(bySubject(code), random).slice(0, 4))
-  const info = shuffled(bySubject('90011'), random).slice(0, 9)
-  const occupation = bySubject('17300')
+  const byQuota = new Map(rules.subjectQuota.map((item) => [item.subjectCode, item.count]))
+  const nonOccupation = rules.subjectQuota
+    .filter((quota) => !['17300', '06000', '06700'].includes(quota.subjectCode))
+    .flatMap((quota) => shuffled(bySubject(quota.subjectCode), random).slice(0, quota.count))
+  const occupationQuota = rules.subjectQuota.find((quota) => ['17300', '06000', '06700'].includes(quota.subjectCode))
+  const occupation = occupationQuota ? bySubject(occupationQuota.subjectCode) : []
 
-  const usedSingles = kindOf(common, 'single').length + kindOf(info, 'single').length
-  const usedMultiples = kindOf(common, 'multiple').length + kindOf(info, 'multiple').length
-  const occSingles = shuffled(kindOf(occupation, 'single'), random).slice(0, 60 - usedSingles)
-  const occMultiples = shuffled(kindOf(occupation, 'multiple'), random).slice(0, 20 - usedMultiples)
+  const usedSingles = kindOf(nonOccupation, 'single').length
+  const usedMultiples = kindOf(nonOccupation, 'multiple').length
+  const occupationSinglesNeeded = Math.max(0, rules.singleCount - usedSingles)
+  const occupationMultiplesNeeded = Math.max(0, rules.multipleCount - usedMultiples)
+  const occupationSingles = shuffled(kindOf(occupation, 'single'), random).slice(0, occupationSinglesNeeded)
+  const occupationMultiples = shuffled(kindOf(occupation, 'multiple'), random).slice(0, occupationMultiplesNeeded)
 
-  const queue = [...common, ...info, ...occSingles, ...occMultiples]
-  const ok = common.length === 16
-    && info.length === 9
-    && occSingles.length === 60 - usedSingles
-    && occMultiples.length === 20 - usedMultiples
-    && kindOf(queue, 'single').length === 60
-    && kindOf(queue, 'multiple').length === 20
+  const queue = [...nonOccupation, ...occupationSingles, ...occupationMultiples]
+  const ok = queue.length === rules.totalQuestions
+    && kindOf(queue, 'single').length === rules.singleCount
+    && kindOf(queue, 'multiple').length === rules.multipleCount
+    && rules.subjectQuota.every((quota) => queue.filter((question) => question.subjectCode === quota.subjectCode).length === byQuota.get(quota.subjectCode))
   if (!ok) throw new Error('The question bank cannot satisfy the official mock format')
 
   return shuffled(queue, random)

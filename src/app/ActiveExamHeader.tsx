@@ -1,5 +1,5 @@
-import { ArrowLeft, ChevronDown, Database, HardDrive, Plus, Settings, X } from 'lucide-react'
-import { useState } from 'react'
+import { ArrowLeft, ChevronDown, Database, HardDrive, Plus, Search, Settings, X } from 'lucide-react'
+import { useMemo, useState } from 'react'
 import { SettingsView } from '../components/SettingsView'
 import type { Progress, Question } from '../domain/studyEngine'
 import { zhTW } from '../i18n/zh-TW'
@@ -15,7 +15,35 @@ export function ActiveExamHeader({ questions, progress }: Props) {
   const { activeExam, installedExams, setActiveExamId } = useActiveExam()
   const [open, setOpen] = useState(false)
   const [catalogOpen, setCatalogOpen] = useState(false)
+  const [catalogSearch, setCatalogSearch] = useState('')
   const [settingsOpen, setSettingsOpen] = useState(false)
+  const normalizedCatalogSearch = catalogSearch.trim().toLowerCase()
+  const catalogGroups = useMemo(() => {
+    const matches = installedExams.filter((exam) => {
+      if (!normalizedCatalogSearch) return true
+      const haystack = [
+        exam.examId,
+        exam.titleZh,
+        exam.titleEn,
+        exam.category,
+        exam.level,
+        exam.version,
+        exam.sourceRevision,
+        ...exam.sections.flatMap((section) => [section.id, section.subjectCode, section.titleZh]),
+      ].join(' ').toLowerCase()
+      return haystack.includes(normalizedCatalogSearch)
+    })
+    return Array.from(
+      matches.reduce((groups, exam) => {
+        const key = `${exam.category} · ${exam.level}`
+        const group = groups.get(key) ?? []
+        group.push(exam)
+        groups.set(key, group)
+        return groups
+      }, new Map<string, typeof installedExams>()),
+      ([label, exams]) => ({ label, exams }),
+    )
+  }, [installedExams, normalizedCatalogSearch])
 
   return (
     <div className="active-exam-bar" aria-label={zhTW.shell.activeExam}>
@@ -93,40 +121,65 @@ export function ActiveExamHeader({ questions, progress }: Props) {
               <ArrowLeft size={16} />
               {zhTW.shell.chooseExam}
             </button>
+            <label className="catalog-search">
+              <Search size={17} />
+              <input
+                aria-label={zhTW.shell.catalogSearch}
+                onChange={(event) => setCatalogSearch(event.target.value)}
+                placeholder={zhTW.shell.catalogSearchPlaceholder}
+                type="search"
+                value={catalogSearch}
+              />
+            </label>
             <div className="catalog-list">
-              {installedExams.map((exam) => {
-                const isActive = exam.examId === activeExam.examId
-                const imageQuestionCount = exam.examId === 'web-design-b'
-                  ? 18
-                  : exam.examId === 'man-haircut-c' || exam.examId === 'women-hairdressing-c'
-                    ? 4
-                    : 0
-                return (
-                  <article className={isActive ? 'catalog-card active' : 'catalog-card'} key={exam.examId}>
-                    <div>
-                      <p className="eyebrow">{exam.category} · {exam.level}</p>
-                      <h3>{exam.titleZh}</h3>
-                      <p>{exam.sourceRevision}</p>
-                      <div className="catalog-meta">
-                        <span>{zhTW.shell.questionPack(exam.activeQuestionCount)}</span>
-                        <span>{zhTW.shell.sectionsCount(exam.sections.length)}</span>
-                        <span>{zhTW.shell.imageQuestionsCount(imageQuestionCount)}</span>
-                      </div>
-                    </div>
-                    <button
-                      className={isActive ? 'secondary-action compact active' : 'primary-action compact'}
-                      onClick={() => {
-                        setActiveExamId(exam.examId)
-                        setCatalogOpen(false)
-                        setOpen(false)
-                      }}
-                      type="button"
-                    >
-                      {isActive ? zhTW.shell.currentExam : zhTW.shell.useExam}
-                    </button>
-                  </article>
-                )
-              })}
+              {catalogGroups.map((group) => (
+                <section className="catalog-group" key={group.label}>
+                  <div className="catalog-group-head">
+                    <strong>{group.label}</strong>
+                    <span>{zhTW.shell.catalogGroupCount(group.exams.length)}</span>
+                  </div>
+                  {group.exams.map((exam) => {
+                    const isActive = exam.examId === activeExam.examId
+                    const imageQuestionCount = exam.examId === 'web-design-b'
+                      ? 18
+                      : exam.examId === 'man-haircut-c' || exam.examId === 'women-hairdressing-c'
+                        ? 4
+                        : 0
+                    const subjectCodes = Array.from(new Set(exam.sections.map((section) => section.subjectCode))).join(' / ')
+                    return (
+                      <article className={isActive ? 'catalog-card active' : 'catalog-card'} key={exam.examId}>
+                        <div>
+                          <p className="eyebrow">{subjectCodes}</p>
+                          <h3>{exam.titleZh}</h3>
+                          <p>{exam.sourceRevision}</p>
+                          <div className="catalog-meta">
+                            <span>{zhTW.shell.questionPack(exam.activeQuestionCount)}</span>
+                            <span>{zhTW.shell.sectionsCount(exam.sections.length)}</span>
+                            <span>{zhTW.shell.imageQuestionsCount(imageQuestionCount)}</span>
+                          </div>
+                        </div>
+                        <button
+                          className={isActive ? 'secondary-action compact active' : 'primary-action compact'}
+                          onClick={() => {
+                            setActiveExamId(exam.examId)
+                            setCatalogOpen(false)
+                            setOpen(false)
+                          }}
+                          type="button"
+                        >
+                          {isActive ? zhTW.shell.currentExam : zhTW.shell.useExam}
+                        </button>
+                      </article>
+                    )
+                  })}
+                </section>
+              ))}
+              {!catalogGroups.length ? (
+                <div className="catalog-empty">
+                  <strong>{zhTW.shell.catalogNoResults}</strong>
+                  <span>{zhTW.shell.catalogNoResultsHint}</span>
+                </div>
+              ) : null}
             </div>
           </section>
         </div>

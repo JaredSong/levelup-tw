@@ -1,5 +1,7 @@
 import { ArrowRight, Timer } from 'lucide-react'
 import { zhTW } from '../../i18n/zh-TW'
+import { formatMockFormatHint } from '../activeExam'
+import { useActiveExam } from '../useActiveExam'
 
 interface Props {
   onMock: () => void
@@ -7,6 +9,8 @@ interface Props {
 }
 
 export function MockExamPage(props: Props) {
+  const { activeExam } = useActiveExam()
+
   return (
     <main className="page dashboard-page">
       <header className="page-title">
@@ -21,7 +25,7 @@ export function MockExamPage(props: Props) {
           <div>
             <p className="eyebrow">{zhTW.mock.officialFormat}</p>
             <h2>{zhTW.mock.mock80}</h2>
-            <p>{zhTW.mock.formatHint}</p>
+            <p>{formatMockFormatHint(activeExam)}</p>
           </div>
         </div>
         <div className="mock-actions">

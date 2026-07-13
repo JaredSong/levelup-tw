@@ -2,7 +2,7 @@ import { ArrowRight, Check, Clock3, CloudOff, Flame, Layers3, ListRestart, Spark
 import type { DailyMissionView, MissionItemView } from '../../domain/dailyMission'
 import { zhTW } from '../../i18n/zh-TW'
 import { isSyncEnabled } from '../../storage/sync'
-import { formatCurrentBankLabel } from '../activeExam'
+import { formatCurrentBankLabel, homeStudyCopyForExam } from '../activeExam'
 import { daysUntilExam, getExamDate } from '../examCountdown'
 import { useActiveExam } from '../useActiveExam'
 
@@ -42,8 +42,9 @@ function MissionRow({ item, onGo }: { item: MissionItemView; onGo: () => void })
 
 export function HomePage(props: Props) {
   const { activeExam } = useActiveExam()
+  const studyCopy = homeStudyCopyForExam(activeExam)
   const completion = props.total ? Math.round((props.seen / props.total) * 100) : 0
-  const primaryLabel = props.hasSession ? props.sessionLabel : zhTW.home.continueFrom
+  const primaryLabel = props.hasSession ? props.sessionLabel : studyCopy.continueFrom
   // Null when no date is set or it has already passed — the countdown hides
   // itself rather than showing a stale/negative number in either case.
   const examDays = daysUntilExam(getExamDate(), new Date())
@@ -54,7 +55,7 @@ export function HomePage(props: Props) {
         <div>
           <p className="eyebrow">{zhTW.home.currentBank}：{formatCurrentBankLabel(activeExam)}</p>
           <h1>Level Up</h1>
-          <p className="header-subtitle">{zhTW.home.subtitle}</p>
+          <p className="header-subtitle">{studyCopy.subtitle}</p>
         </div>
         {examDays !== null ? (
           <div className="exam-countdown" aria-label={examDays === 0 ? zhTW.home.examTodayAria : zhTW.home.examDaysAria(examDays)}>
@@ -109,7 +110,7 @@ export function HomePage(props: Props) {
         <span className="continue-copy">
           <span className="action-kicker">{zhTW.home.nextStep}</span>
           <strong>{primaryLabel}</strong>
-          <span>{props.hasSession ? zhTW.home.exactPositionSaved : zhTW.home.startSmallFreshSet}</span>
+          <span>{props.hasSession ? zhTW.home.exactPositionSaved : studyCopy.startSmallFreshSet}</span>
         </span>
         <ArrowRight className="continue-arrow" size={22} strokeWidth={1.8} />
       </button>
@@ -129,7 +130,7 @@ export function HomePage(props: Props) {
 
       <aside className="today-note">
         <Clock3 size={18} />
-        <p><strong>{zhTW.home.shortSessionTitle}</strong> {zhTW.home.shortSessionBody}</p>
+        <p><strong>{studyCopy.shortSessionTitle}</strong> {studyCopy.shortSessionBody}</p>
         <Flame size={18} />
       </aside>
     </main>

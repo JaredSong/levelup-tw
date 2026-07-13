@@ -71,6 +71,94 @@ export function formatCurrentBankLabel(exam: Pick<ExamManifest, 'titleZh' | 'ver
   return `${exam.titleZh} ${exam.version}`
 }
 
+export interface SyllabusItem {
+  code: string
+  label: string
+  meta: string
+}
+
+function labelForSourceGroup(sourceGroup: ExamManifest['sections'][number]['sourceGroup']): string {
+  if (sourceGroup === 'general-common') return '共同科目'
+  if (sourceGroup === 'information-common') return '資訊共同科目'
+  if (sourceGroup === 'beauty-hair-common') return '美容美髮共同科目'
+  return '專業科目'
+}
+
+export function formatSyllabusItems(exam: ExamManifest): SyllabusItem[] {
+  const bySubject = new Map<string, {
+    activeQuestionCount: number
+    sectionCount: number
+    sourceGroup: ExamManifest['sections'][number]['sourceGroup']
+    firstTitle: string
+  }>()
+
+  for (const section of exam.sections) {
+    const current = bySubject.get(section.subjectCode) ?? {
+      activeQuestionCount: 0,
+      sectionCount: 0,
+      sourceGroup: section.sourceGroup,
+      firstTitle: section.titleZh,
+    }
+    current.activeQuestionCount += section.activeQuestionCount
+    current.sectionCount += 1
+    bySubject.set(section.subjectCode, current)
+  }
+
+  return [...bySubject.entries()].map(([code, item]) => {
+    const isOccupation = item.sourceGroup === 'occupation'
+    return {
+      code,
+      label: isOccupation ? `${exam.titleZh.replace(exam.level, '')}專業科目` : item.firstTitle,
+      meta: isOccupation
+        ? `${item.activeQuestionCount.toLocaleString()} 題 · ${item.sectionCount} 個工作項目`
+        : `${item.activeQuestionCount.toLocaleString()} 題 · ${labelForSourceGroup(item.sourceGroup) === '共同科目' ? item.firstTitle : labelForSourceGroup(item.sourceGroup)}`,
+    }
+  })
+}
+
+export function formatMockFormatHint(exam: ExamManifest): string {
+  const parts = []
+  if (exam.mockRules.singleCount) parts.push(`${exam.mockRules.singleCount} 題單選`)
+  if (exam.mockRules.multipleCount) parts.push(`${exam.mockRules.multipleCount} 題複選`)
+
+  const occupationCodes = new Set(
+    exam.sections
+      .filter((section) => section.sourceGroup === 'occupation')
+      .map((section) => section.subjectCode),
+  )
+  const occupationQuota = exam.mockRules.subjectQuota.find((quota) => occupationCodes.has(quota.subjectCode))
+  if (occupationQuota) parts.push(`${occupationQuota.subjectCode} 專業科目 ${occupationQuota.count} 題`)
+
+  const commonQuotas = exam.mockRules.subjectQuota.filter((quota) => !occupationCodes.has(quota.subjectCode))
+  const commonCounts = new Set(commonQuotas.map((quota) => quota.count))
+  if (commonQuotas.length && commonCounts.size === 1) parts.push(`共同科目各 ${commonQuotas[0].count} 題`)
+  else {
+    for (const quota of commonQuotas) parts.push(`${quota.subjectCode} ${quota.count} 題`)
+  }
+
+  return parts.join(' · ')
+}
+
+export function homeStudyCopyForExam(exam: Pick<ExamManifest, 'examId'>) {
+  if (exam.examId === 'employment-service-b') {
+    return {
+      subtitle: '就服法規、勞動法令、職涯諮詢、人力仲介',
+      continueFrom: '繼續練法規題庫',
+      startSmallFreshSet: '先做一小組新題，累積法規手感。',
+      shortSessionTitle: '以模擬分數當主指標。',
+      shortSessionBody: '這科沒有術科；練題、錯題、記憶複習和 80 題模擬就是完整備考主線。',
+    }
+  }
+
+  return {
+    subtitle: zhTW.home.subtitle,
+    continueFrom: zhTW.home.continueFrom,
+    startSmallFreshSet: zhTW.home.startSmallFreshSet,
+    shortSessionTitle: zhTW.home.shortSessionTitle,
+    shortSessionBody: zhTW.home.shortSessionBody,
+  }
+}
+
 export function readSavedActiveExamId(storage: Pick<Storage, 'getItem'> = localStorage): string | null {
   return storage.getItem(ACTIVE_EXAM_KEY)
 }

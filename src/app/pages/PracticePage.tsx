@@ -2,6 +2,8 @@ import { ArrowRight, Compass, Shuffle, Target, Zap } from 'lucide-react'
 import { LibraryView } from '../../components/LibraryView'
 import type { Question, Progress } from '../../domain/studyEngine'
 import { zhTW } from '../../i18n/zh-TW'
+import { formatSyllabusItems } from '../activeExam'
+import { useActiveExam } from '../useActiveExam'
 
 interface Props {
   questions: Question[]
@@ -17,6 +19,9 @@ interface Props {
 }
 
 export function PracticePage(props: Props) {
+  const { activeExam } = useActiveExam()
+  const syllabusItems = formatSyllabusItems(activeExam)
+
   return (
     <main className="page dashboard-page">
       <header className="page-title">
@@ -34,15 +39,8 @@ export function PracticePage(props: Props) {
           <strong>{props.total.toLocaleString()}</strong>
         </div>
         <div className="syllabus-list">
-          {[
-            ['17300', 'Web design', '846 · A13'],
-            ['90011', 'Information common', '119 · A10 · 5 groups'],
-            ['90006', 'Safety & health', '100 · A18'],
-            ['90007', 'Ethics & law', '100 · A17'],
-            ['90008', 'Environmental protection', '95 · A16'],
-            ['90009', 'Energy & carbon', '100 · A11'],
-          ].map(([code, label, meta]) => (
-            <button key={code} onClick={() => props.onSubject(code, `${label} · Random 10`)} type="button">
+          {syllabusItems.map(({ code, label, meta }) => (
+            <button key={code} onClick={() => props.onSubject(code, `${label} · 隨機 10 題`)} type="button">
               <span>{code}</span><strong>{label}</strong><small>{meta}</small><ArrowRight size={16} />
             </button>
           ))}

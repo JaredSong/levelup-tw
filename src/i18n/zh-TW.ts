@@ -78,7 +78,7 @@ export const zhTW = {
     miniMock: '小模擬 20',
     miniMockHint: '依正式比例抽題 · 一般取樣',
     random10: '隨機 10 題',
-    random10Hint: '混合 13 個工作項目',
+    random10Hint: '混合目前考科範圍',
     sequential: '依序練習',
     sequentialHint: '照官方題庫順序繼續',
     allQuestionsEyebrow: '題目清單',

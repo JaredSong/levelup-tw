@@ -13,7 +13,7 @@ import {
   Timer,
   Zap,
 } from 'lucide-react'
-import { formatCurrentBankLabel } from '../app/activeExam'
+import { formatCurrentBankLabel, formatMockFormatHint, formatSyllabusItems, homeStudyCopyForExam } from '../app/activeExam'
 import { useActiveExam } from '../app/useActiveExam'
 import { isSyncEnabled } from '../storage/sync'
 
@@ -48,8 +48,10 @@ function daysUntilExam() {
 
 export function Dashboard(props: Props) {
   const { activeExam } = useActiveExam()
+  const syllabusItems = formatSyllabusItems(activeExam)
+  const studyCopy = homeStudyCopyForExam(activeExam)
   const completion = props.total ? Math.round((props.seen / props.total) * 100) : 0
-  const primaryLabel = props.hasSession ? props.sessionLabel : 'Continue from question 145'
+  const primaryLabel = props.hasSession ? props.sessionLabel : studyCopy.continueFrom
 
   return (
     <main className="page dashboard-page">
@@ -57,7 +59,7 @@ export function Dashboard(props: Props) {
         <div>
           <p className="eyebrow">目前題庫：{formatCurrentBankLabel(activeExam)}</p>
           <h1>Level Up</h1>
-          <p className="header-subtitle">升級吧 · 技檢題庫練習</p>
+          <p className="header-subtitle">{studyCopy.subtitle}</p>
         </div>
         <div className="exam-countdown" aria-label={`${daysUntilExam()} days until written exam`}>
           <strong>{daysUntilExam()}</strong>
@@ -93,15 +95,8 @@ export function Dashboard(props: Props) {
           <strong>{props.total.toLocaleString()}</strong>
         </div>
         <div className="syllabus-list">
-          {[
-            ['17300', 'Web design', '846 · A13'],
-            ['90011', 'Information common', '119 · A10 · 5 groups'],
-            ['90006', 'Safety & health', '100 · A18'],
-            ['90007', 'Ethics & law', '100 · A17'],
-            ['90008', 'Environmental protection', '95 · A16'],
-            ['90009', 'Energy & carbon', '100 · A11'],
-          ].map(([code, label, meta]) => (
-            <button key={code} onClick={() => props.onSubject(code, `${label} · Random 10`)} type="button">
+          {syllabusItems.map(({ code, label, meta }) => (
+            <button key={code} onClick={() => props.onSubject(code, `${label} · 隨機 10 題`)} type="button">
               <span>{code}</span><strong>{label}</strong><small>{meta}</small><ArrowRight size={16} />
             </button>
           ))}
@@ -110,10 +105,10 @@ export function Dashboard(props: Props) {
 
       <button className="continue-panel" onClick={props.hasSession ? props.onContinue : props.onSequential} type="button">
         <span className="continue-icon"><ArrowRight size={23} strokeWidth={2} /></span>
-        <span className="continue-copy">
-          <span className="action-kicker">Next useful step</span>
-          <strong>{primaryLabel}</strong>
-          <span>{props.hasSession ? 'Your exact position is saved.' : 'Your earlier 144 remain available for review.'}</span>
+          <span className="continue-copy">
+            <span className="action-kicker">Next useful step</span>
+            <strong>{primaryLabel}</strong>
+          <span>{props.hasSession ? 'Your exact position is saved.' : studyCopy.startSmallFreshSet}</span>
         </span>
         <ArrowRight className="continue-arrow" size={22} strokeWidth={1.8} />
       </button>
@@ -166,7 +161,7 @@ export function Dashboard(props: Props) {
           </button>
           <button type="button" onClick={props.onRandom}>
             <span className="mode-icon blue"><Shuffle size={21} /></span>
-            <span><strong>Random 10</strong><small>Mixed across all 13 syllabus groups</small></span>
+            <span><strong>Random 10</strong><small>Mixed across the current exam scope</small></span>
             <ArrowRight size={18} />
           </button>
           <button type="button" onClick={props.onFlashcards}>
@@ -188,7 +183,7 @@ export function Dashboard(props: Props) {
           <div>
             <p className="eyebrow">Official format</p>
             <h2>80-question mock</h2>
-            <p>60 single · 20 multiple · four questions from each general subject</p>
+            <p>{formatMockFormatHint(activeExam)}</p>
           </div>
         </div>
         <div className="mock-actions">
@@ -199,7 +194,7 @@ export function Dashboard(props: Props) {
 
       <aside className="today-note">
         <Clock3 size={18} />
-        <p><strong>Short session is enough.</strong> Ten corrected items beat another hundred unreviewed ones.</p>
+        <p><strong>{studyCopy.shortSessionTitle}</strong> {studyCopy.shortSessionBody}</p>
         <Flame size={18} />
       </aside>
     </main>

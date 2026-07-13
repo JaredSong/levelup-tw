@@ -11,6 +11,15 @@ if (savedTheme === 'dark' || savedTheme === 'light') {
   document.documentElement.dataset.theme = savedTheme
 }
 
+let reloadingForUpdate = false
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (reloadingForUpdate) return
+    reloadingForUpdate = true
+    window.location.reload()
+  })
+}
+
 const updateServiceWorker = registerSW({
   immediate: true,
   onNeedRefresh() {

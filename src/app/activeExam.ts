@@ -67,6 +67,10 @@ export function formatExamSwitcherItem(exam: ExamManifest, active: boolean) {
   }
 }
 
+export function formatCurrentBankLabel(exam: Pick<ExamManifest, 'titleZh' | 'version'>): string {
+  return `${exam.titleZh} ${exam.version}`
+}
+
 export function readSavedActiveExamId(storage: Pick<Storage, 'getItem'> = localStorage): string | null {
   return storage.getItem(ACTIVE_EXAM_KEY)
 }

@@ -13,6 +13,8 @@ import {
   Timer,
   Zap,
 } from 'lucide-react'
+import { formatCurrentBankLabel } from '../app/activeExam'
+import { useActiveExam } from '../app/useActiveExam'
 import { isSyncEnabled } from '../storage/sync'
 
 interface Props {
@@ -45,6 +47,7 @@ function daysUntilExam() {
 }
 
 export function Dashboard(props: Props) {
+  const { activeExam } = useActiveExam()
   const completion = props.total ? Math.round((props.seen / props.total) * 100) : 0
   const primaryLabel = props.hasSession ? props.sessionLabel : 'Continue from question 145'
 
@@ -52,7 +55,7 @@ export function Dashboard(props: Props) {
     <main className="page dashboard-page">
       <header className="app-header">
         <div>
-          <p className="eyebrow">目前題庫：網頁設計乙級 A13</p>
+          <p className="eyebrow">目前題庫：{formatCurrentBankLabel(activeExam)}</p>
           <h1>Level Up</h1>
           <p className="header-subtitle">升級吧 · 技檢題庫練習</p>
         </div>

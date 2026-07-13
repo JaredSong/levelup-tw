@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { chooseActiveExamId, formatExamSwitcherItem, INSTALLED_EXAMS } from './activeExam'
+import { chooseActiveExamId, formatCurrentBankLabel, formatExamSwitcherItem, INSTALLED_EXAMS } from './activeExam'
 
 describe('active exam selection', () => {
   it('opens the saved exam when that exam is installed', () => {
@@ -22,5 +22,13 @@ describe('active exam selection', () => {
       countLabel: '1,360 題可練習',
       statusLabel: '目前使用 · 離線',
     })
+  })
+
+  it('formats the current bank label from the active exam instead of a fixed syllabus', () => {
+    const womenHair = INSTALLED_EXAMS.find((exam) => exam.examId === 'women-hairdressing-c')!
+    const employment = INSTALLED_EXAMS.find((exam) => exam.examId === 'employment-service-b')!
+
+    expect(formatCurrentBankLabel(womenHair)).toBe('女子美髮丙級 A13')
+    expect(formatCurrentBankLabel(employment)).toBe('就業服務乙級 A19')
   })
 })

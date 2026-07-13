@@ -226,12 +226,21 @@ export function buildMockQueue(
   const random = typeof rulesOrRandom === 'function' ? rulesOrRandom : randomArg
   const bySubject = (code: string) => questions.filter((question) => question.subjectCode === code)
   const kindOf = (pool: Question[], kind: QuestionKind) => pool.filter((question) => question.kind === kind)
+  const occupationSubjectCodes = new Set(
+    questions
+      .filter((question) => question.sourceGroup === 'occupation')
+      .map((question) => question.subjectCode)
+      .filter(Boolean),
+  )
+  if (!occupationSubjectCodes.size) {
+    for (const code of ['17300', '06000', '06700']) occupationSubjectCodes.add(code)
+  }
 
   const byQuota = new Map(rules.subjectQuota.map((item) => [item.subjectCode, item.count]))
   const nonOccupation = rules.subjectQuota
-    .filter((quota) => !['17300', '06000', '06700'].includes(quota.subjectCode))
+    .filter((quota) => !occupationSubjectCodes.has(quota.subjectCode))
     .flatMap((quota) => shuffled(bySubject(quota.subjectCode), random).slice(0, quota.count))
-  const occupationQuota = rules.subjectQuota.find((quota) => ['17300', '06000', '06700'].includes(quota.subjectCode))
+  const occupationQuota = rules.subjectQuota.find((quota) => occupationSubjectCodes.has(quota.subjectCode))
   const occupation = occupationQuota ? bySubject(occupationQuota.subjectCode) : []
 
   const usedSingles = kindOf(nonOccupation, 'single').length

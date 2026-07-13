@@ -280,6 +280,65 @@ describe('published question bank', () => {
       }
     }
   })
+
+  it('publishes employment service class B from the official 195002A19 bank', () => {
+    const generated = loadExamBank('employment-service-b')
+    const manifest = JSON.parse(
+      readFileSync(new URL('../public/data/exams/employment-service-b/manifest.json', import.meta.url), 'utf8'),
+    ) as {
+      examId: string
+      titleZh: string
+      level: string
+      questionCount: number
+      activeQuestionCount: number
+      sections: Array<{ id: string; subjectCode: string; questionCount: number }>
+      mockRules: { totalQuestions: number; singleCount: number; multipleCount: number }
+    }
+
+    expect(manifest).toMatchObject({
+      examId: 'employment-service-b',
+      titleZh: '就業服務乙級',
+      level: '乙級',
+      questionCount: 1614,
+      activeQuestionCount: 1609,
+      mockRules: { totalQuestions: 80, singleCount: 60, multipleCount: 20 },
+    })
+    expect(Object.fromEntries(manifest.sections.map((section) => [section.id, section.questionCount]))).toEqual({
+      '19500-01': 777,
+      '19500-02': 226,
+      '19500-03': 211,
+      '90006-01': 100,
+      '90007-01': 100,
+      '90008-03': 100,
+      '90009-04': 100,
+    })
+    expect(generated).toHaveLength(1614)
+    expect(generated.filter((question) => question.active !== false)).toHaveLength(1609)
+    expect(generated.filter((question) => question.subjectCode === '19500')).toHaveLength(1214)
+    expect(generated.filter((question) => question.subjectCode === '19500' && question.hasFigure)).toEqual([])
+    expect(generated.filter((question) => question.active !== false && question.hasFigure)).toHaveLength(4)
+    expect(generated.filter((question) => question.subjectCode === '90008' && question.active !== false)).toHaveLength(95)
+    expect(generated.every((question) => question.examId === 'employment-service-b')).toBe(true)
+  })
+
+  it('builds employment service mocks from active-only question packs', () => {
+    const bank = loadExamBank('employment-service-b').filter((question) => question.active !== false)
+    const manifest = JSON.parse(
+      readFileSync(new URL('../public/data/exams/employment-service-b/manifest.json', import.meta.url), 'utf8'),
+    ) as { mockRules: Parameters<typeof buildMockQueue>[1] }
+
+    for (let i = 0; i < 20; i += 1) {
+      const mock = buildMockQueue(bank, manifest.mockRules, () => (i + 1) / 21)
+      expect(mock).toHaveLength(80)
+      expect(mock.filter((question) => question.kind === 'single')).toHaveLength(60)
+      expect(mock.filter((question) => question.kind === 'multiple')).toHaveLength(20)
+      expect(mock.filter((question) => question.subjectCode === '19500')).toHaveLength(64)
+      for (const code of ['90006', '90007', '90008', '90009']) {
+        expect(mock.filter((question) => question.subjectCode === code)).toHaveLength(4)
+      }
+      expect(new Set(mock.map((question) => question.id)).size).toBe(80)
+    }
+  })
 })
 
 describe('bilingual glossary', () => {

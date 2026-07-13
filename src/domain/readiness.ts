@@ -26,6 +26,7 @@ export interface Readiness {
 const MOCK_TOTAL = 80
 const COMMON_PER_SUBJECT = 4 // four questions from each general subject (16 total)
 const OCCUPATION_IN_MOCK = 55 // 17300 share of an 80-question mock
+const GENERIC_OCCUPATION_IN_MOCK = 64 // occupation share when only the four general common subjects are mixed in
 const HAIRDRESSING_OCCUPATION_IN_MOCK = 60 // 06000/06700 share while hair packs are single-answer mocks
 const INFO_IN_MOCK = 9 // 90011 share of an 80-question mock
 const BEAUTY_HAIR_COMMON_IN_MOCK = 4 // 90012 share in the current hairdressing pack mock
@@ -96,7 +97,11 @@ export function computeReadiness(
     else if (kind === 'information-common') weight = infoTotal ? (total / infoTotal) * (INFO_IN_MOCK / MOCK_TOTAL) : 0
     else if (kind === 'beauty-hair-common') weight = beautyHairTotal ? (total / beautyHairTotal) * (BEAUTY_HAIR_COMMON_IN_MOCK / MOCK_TOTAL) : 0
     else {
-      const occupationShare = isHairdressingPack ? HAIRDRESSING_OCCUPATION_IN_MOCK : OCCUPATION_IN_MOCK
+      const occupationShare = isHairdressingPack
+        ? HAIRDRESSING_OCCUPATION_IN_MOCK
+        : infoTotal
+          ? OCCUPATION_IN_MOCK
+          : GENERIC_OCCUPATION_IN_MOCK
       weight = occupationTotal ? (total / occupationTotal) * (occupationShare / MOCK_TOTAL) : 0
     }
 

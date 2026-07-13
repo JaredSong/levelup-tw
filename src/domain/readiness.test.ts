@@ -69,4 +69,20 @@ describe('computeReadiness', () => {
     expect(sum('occupation')).toBeCloseTo(55 / 80)
     expect(sum('information-common')).toBeCloseTo(9 / 80)
   })
+
+  it('weights generic class B occupation banks to 64/80 when only general common subjects are present', () => {
+    const bank = [
+      ...Array.from({ length: 70 }, (_, i) => q(`e1-${i}`, '19500-01', 'occupation', '19500')),
+      ...Array.from({ length: 30 }, (_, i) => q(`e2-${i}`, '19500-02', 'occupation', '19500')),
+      ...['90006-01', '90007-01', '90008-03', '90009-04'].flatMap((section) =>
+        Array.from({ length: 10 }, (_, i) => q(`${section}-${i}`, section, 'general-common', section.slice(0, 5))),
+      ),
+    ]
+    const { groups } = computeReadiness(bank, {}, [])
+    const occupationWeight = groups.filter((g) => g.kind === 'occupation').reduce((sum, g) => sum + g.weight, 0)
+    const generalWeight = groups.filter((g) => g.kind === 'general-common').reduce((sum, g) => sum + g.weight, 0)
+
+    expect(occupationWeight).toBeCloseTo(64 / 80)
+    expect(generalWeight).toBeCloseTo(16 / 80)
+  })
 })

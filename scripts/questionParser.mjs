@@ -1,4 +1,4 @@
-const SECTION_PATTERN = /^(\d{5})\s+(.+?)\s+(?:甲級|乙級|丙級|單一級|不分級)\s+工作項目\s+(\d{2})：(.+)$/
+const SECTION_PATTERN = /^(\d{5})\s+(.+?)\s+(?:甲級|乙級|丙級|甲|乙|丙|單一級|不分級)\s+工作項目\s+(\d{2})：(.+)$/
 const QUESTION_PATTERN = /^(\d+)\.\s*\(([1-4]+)\)\s*(.*)$/
 const PAGE_PATTERN = /^@@PAGE:(\d+)@@$/
 const OPTION_MARKERS = ['①', '②', '③', '④']
@@ -42,6 +42,7 @@ function splitPromptAndOptions(id, content) {
 
 export function parseQuestionBank(source) {
   const prepared = source
+    .replace(/Pag[ \t]*e[ \t]+[\d \t]+o[ \t]*f[ \t]+[\d \t]+/gi, '\n')
     .replace(/Page\s+(\d+)\s+of\s+\d+\s*\f/g, (_, page) => `\n@@PAGE:${Number(page) + 1}@@\n`)
     .replace(/\f/g, '\n@@PAGE_BREAK@@\n')
 

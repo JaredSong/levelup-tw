@@ -142,7 +142,7 @@ export function ActiveExamHeader({ questions, progress }: Props) {
                     const isActive = exam.examId === activeExam.examId
                     const imageQuestionCount = exam.examId === 'web-design-b'
                       ? 18
-                      : exam.examId === 'man-haircut-c' || exam.examId === 'women-hairdressing-c'
+                      : exam.examId === 'man-haircut-c' || exam.examId === 'women-hairdressing-c' || exam.examId === 'employment-service-b'
                         ? 4
                         : 0
                     const subjectCodes = Array.from(new Set(exam.sections.map((section) => section.subjectCode))).join(' / ')

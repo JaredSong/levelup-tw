@@ -51,7 +51,15 @@ const EXAMS = [
     occupationExpected: 439,
     version: 'A12',
     sourceRevision: '060003A12 + 900060A18/900070A17/900080A16/900090A11/900120A10',
-    occupationQuota: 60,
+    extraCommonCodes: ['90012'],
+    mockRules: {
+      occupationQuota: 60,
+      singleCount: 80,
+      multipleCount: 0,
+      weightSingle: 1.25,
+      weightMultiple: 0,
+      extraSubjectQuota: [{ subjectCode: '90012', count: 4 }],
+    },
   },
   {
     examId: 'women-hairdressing-c',
@@ -64,7 +72,36 @@ const EXAMS = [
     occupationExpected: 608,
     version: 'A13',
     sourceRevision: '067003A13 + 900060A18/900070A17/900080A16/900090A11/900120A10',
-    occupationQuota: 60,
+    extraCommonCodes: ['90012'],
+    mockRules: {
+      occupationQuota: 60,
+      singleCount: 80,
+      multipleCount: 0,
+      weightSingle: 1.25,
+      weightMultiple: 0,
+      extraSubjectQuota: [{ subjectCode: '90012', count: 4 }],
+    },
+  },
+  {
+    examId: 'employment-service-b',
+    titleZh: '就業服務乙級',
+    titleEn: 'Employment Service (Class B)',
+    level: '乙級',
+    category: '商業服務',
+    occupationCode: '19500',
+    occupationFile: '195002A19-raw.txt',
+    occupationExpected: 1214,
+    version: 'A19',
+    sourceRevision: '195002A19 + 900060A18/900070A17/900080A16/900090A11',
+    extraCommonCodes: [],
+    mockRules: {
+      occupationQuota: 64,
+      singleCount: 60,
+      multipleCount: 20,
+      weightSingle: 1,
+      weightMultiple: 2,
+      extraSubjectQuota: [],
+    },
   },
 ]
 
@@ -136,24 +173,25 @@ function buildSections(questions) {
 function buildMockRules(exam) {
   return {
     totalQuestions: 80,
-    singleCount: 80,
-    multipleCount: 0,
+    singleCount: exam.mockRules.singleCount,
+    multipleCount: exam.mockRules.multipleCount,
     durationMinutes: 100,
     passScore: 60,
     maxScore: 100,
-    weightSingle: 1.25,
-    weightMultiple: 0,
+    weightSingle: exam.mockRules.weightSingle,
+    weightMultiple: exam.mockRules.weightMultiple,
     subjectQuota: [
-      { subjectCode: exam.occupationCode, count: exam.occupationQuota },
-      { subjectCode: BEAUTY_HAIR_COMMON_BANK.code, count: BEAUTY_HAIR_COMMON_BANK.quota },
+      { subjectCode: exam.occupationCode, count: exam.mockRules.occupationQuota },
+      ...exam.mockRules.extraSubjectQuota,
       ...GENERAL_COMMON_BANKS.map((bank) => ({ subjectCode: bank.code, count: 4 })),
     ],
   }
 }
 
-async function writeExamPack(exam, commonQuestions, beautyHairCommonQuestions) {
+async function writeExamPack(exam, commonQuestions, extraQuestionsByCode) {
   const occupation = await loadParsed({ code: exam.occupationCode, file: exam.occupationFile, expected: exam.occupationExpected })
-  const questions = [...occupation, ...beautyHairCommonQuestions, ...commonQuestions]
+  const extraQuestions = (exam.extraCommonCodes ?? []).flatMap((code) => extraQuestionsByCode.get(code) ?? [])
+  const questions = [...occupation, ...extraQuestions, ...commonQuestions]
     .map((question) => normalizeQuestion(question, exam.examId))
   const active = questions.filter((question) => question.active !== false)
   const figures = active.filter((question) => question.hasFigure)
@@ -187,9 +225,11 @@ async function writeExamPack(exam, commonQuestions, beautyHairCommonQuestions) {
 
 async function main() {
   const commonQuestions = (await Promise.all(GENERAL_COMMON_BANKS.map(loadParsed))).flat()
-  const beautyHairCommonQuestions = await loadParsed(BEAUTY_HAIR_COMMON_BANK)
+  const extraQuestionsByCode = new Map([
+    [BEAUTY_HAIR_COMMON_BANK.code, await loadParsed(BEAUTY_HAIR_COMMON_BANK)],
+  ])
   const manifests = []
-  for (const exam of EXAMS) manifests.push(await writeExamPack(exam, commonQuestions, beautyHairCommonQuestions))
+  for (const exam of EXAMS) manifests.push(await writeExamPack(exam, commonQuestions, extraQuestionsByCode))
 
   const webQuestions = await readFile(new URL('../public/data/questions.json', import.meta.url), 'utf8')
   await mkdir(new URL('../public/data/exams/web-design-b/', import.meta.url), { recursive: true })

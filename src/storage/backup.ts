@@ -6,7 +6,8 @@ export { mergeData, type BackupData } from './merge'
 
 // localStorage keys worth carrying in a full export. The AI access token and the
 // sync passphrase are intentionally excluded so backups never contain a secret.
-const LOCAL_KEYS = ['level-b-active-session', 'level-b-sequential-index', 'level-b-ai-provider']
+const LOCAL_KEYS = ['level-b-active-session', 'level-b-ai-provider']
+const LOCAL_KEY_PREFIXES = ['level-b-sequential-index:']
 
 interface BackupFile {
   app: 'level-b-study'
@@ -36,6 +37,12 @@ export async function collectData(): Promise<BackupData> {
     const value = localStorage.getItem(key)
     if (value != null) local[key] = value
   }
+  for (let index = 0; index < localStorage.length; index += 1) {
+    const key = localStorage.key(index)
+    if (!key || !LOCAL_KEY_PREFIXES.some((prefix) => key.startsWith(prefix))) continue
+    const value = localStorage.getItem(key)
+    if (value != null) local[key] = value
+  }
   return { progress, attempts, results, explanations, reviewCards, reviewLogs, local }
 }
 
@@ -53,7 +60,7 @@ export async function writeData(data: BackupData): Promise<void> {
   })
   if (data.local) {
     for (const [key, value] of Object.entries(data.local)) {
-      if (LOCAL_KEYS.includes(key)) localStorage.setItem(key, value)
+      if (LOCAL_KEYS.includes(key) || LOCAL_KEY_PREFIXES.some((prefix) => key.startsWith(prefix))) localStorage.setItem(key, value)
     }
   }
 }
@@ -62,7 +69,8 @@ export async function exportBackup(): Promise<string> {
   const file: BackupFile = {
     app: 'level-b-study',
     // v3: namespaced question keys. v4: adds reviewCards/reviewLogs.
-    version: 4,
+    // v5: completed mock/session results are scoped by examId.
+    version: 5,
     exportedAt: new Date().toISOString(),
     data: await collectData(),
   }

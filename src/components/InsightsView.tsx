@@ -26,7 +26,7 @@ function formatWhen(iso: string) {
     + ' · ' + date.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })
 }
 
-function MockTrend({ scores }: { scores: number[] }) {
+function MockTrend({ scores, passScore }: { scores: number[]; passScore: number }) {
   if (scores.length < 2) return null
   const width = 100
   const height = 36
@@ -34,13 +34,13 @@ function MockTrend({ scores }: { scores: number[] }) {
   const step = width / (scores.length - 1)
   const y = (score: number) => height - (score / max) * height
   const points = scores.map((score, index) => `${index * step},${y(score)}`).join(' ')
-  const passY = y(60)
+  const passY = y(passScore)
   return (
     <svg className="mock-trend" viewBox={`0 0 ${width} ${height}`} preserveAspectRatio="none" role="img" aria-label="Mock score trend">
       <line x1="0" x2={width} y1={passY} y2={passY} className="trend-pass" />
       <polyline points={points} className="trend-line" fill="none" />
       {scores.map((score, index) => (
-        <circle key={index} cx={index * step} cy={y(score)} r="1.6" className={score >= 60 ? 'trend-dot pass' : 'trend-dot'} />
+        <circle key={index} cx={index * step} cy={y(score)} r="1.6" className={score >= passScore ? 'trend-dot pass' : 'trend-dot'} />
       ))}
     </svg>
   )
@@ -56,7 +56,8 @@ export function InsightsView({ questions, progress, reviewCards, streak, onPract
   const [attemptLog, setAttemptLog] = useState<AttemptRecord[]>([])
 
   useEffect(() => {
-    void db.results.orderBy('finishedAt').reverse().toArray().then(setResults)
+    void db.results.where('examId').equals(examId).toArray()
+      .then((rows) => setResults(rows.sort((a, b) => b.finishedAt.localeCompare(a.finishedAt))))
     // Attempts store namespaced keys; readiness matches on bare question ids,
     // so keep this exam's rows and strip the prefix before computing.
     const prefix = `${examId}${QUESTION_KEY_SEPARATOR}`
@@ -161,7 +162,7 @@ export function InsightsView({ questions, progress, reviewCards, streak, onPract
         </div>
         {mocks.length ? (
           <>
-            <MockTrend scores={mockScoresChrono} />
+            <MockTrend scores={mockScoresChrono} passScore={activeExam.mockRules.passScore} />
             <div className="history-list">
               {mocks.map((result) => (
                 <div className={result.passed ? 'history-row pass' : 'history-row'} key={result.id}>

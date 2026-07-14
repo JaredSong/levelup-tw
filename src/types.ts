@@ -21,6 +21,7 @@ export interface SessionAnswer {
 
 export interface StudySession {
   id: string
+  examId: string
   mode: SessionMode
   title: string
   questionIds: string[]

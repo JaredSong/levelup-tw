@@ -67,7 +67,31 @@ export default defineConfig({
         cleanupOutdatedCaches: true,
         clientsClaim: true,
         skipWaiting: true,
-        globPatterns: ['**/*.{js,css,html,svg,json,jpg}'],
+        globPatterns: ['**/*.{js,css,html,svg,webmanifest}'],
+        runtimeCaching: [
+          {
+            urlPattern: /\/data\/.*\.json$/,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'level-up-data-packs',
+              expiration: {
+                maxEntries: 40,
+                maxAgeSeconds: 30 * 24 * 60 * 60,
+              },
+            },
+          },
+          {
+            urlPattern: /\/question-(?:images|pages)\/.*\.(?:png|jpe?g|webp)$/,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'level-up-question-media',
+              expiration: {
+                maxEntries: 200,
+                maxAgeSeconds: 30 * 24 * 60 * 60,
+              },
+            },
+          },
+        ],
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
       },
     }),

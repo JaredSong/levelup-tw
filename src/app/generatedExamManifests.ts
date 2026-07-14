@@ -177,6 +177,12 @@ export const GENERATED_EXAM_MANIFESTS = [
           "count": 4
         }
       ]
+    },
+    "integrity": {
+      "status": "unchecked",
+      "inactiveQuestionCount": 5,
+      "imageQuestionCount": 4,
+      "note": "Official PDFs parsed locally; answer keys should be spot-checked before public release."
     }
   },
   {
@@ -347,6 +353,12 @@ export const GENERATED_EXAM_MANIFESTS = [
           "count": 4
         }
       ]
+    },
+    "integrity": {
+      "status": "unchecked",
+      "inactiveQuestionCount": 5,
+      "imageQuestionCount": 4,
+      "note": "Official PDFs parsed locally; answer keys should be spot-checked before public release."
     }
   },
   {
@@ -449,6 +461,12 @@ export const GENERATED_EXAM_MANIFESTS = [
           "count": 4
         }
       ]
+    },
+    "integrity": {
+      "status": "unchecked",
+      "inactiveQuestionCount": 5,
+      "imageQuestionCount": 4,
+      "note": "Official PDFs parsed locally; answer keys should be spot-checked before public release."
     }
   }
 ] as ExamManifest[]

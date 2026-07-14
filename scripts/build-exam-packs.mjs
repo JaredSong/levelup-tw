@@ -235,12 +235,7 @@ async function main() {
   await mkdir(new URL('../public/data/exams/web-design-b/', import.meta.url), { recursive: true })
   await writeFile(new URL('../public/data/exams/web-design-b/questions.json', import.meta.url), webQuestions)
 
-  const appManifests = manifests.map((manifest) => {
-    const appManifest = { ...manifest }
-    delete appManifest.integrity
-    return appManifest
-  })
-  const generated = `import type { ExamManifest } from '../core/exam'\n\nexport const GENERATED_EXAM_MANIFESTS = ${JSON.stringify(appManifests, null, 2)} as ExamManifest[]\n`
+  const generated = `import type { ExamManifest } from '../core/exam'\n\nexport const GENERATED_EXAM_MANIFESTS = ${JSON.stringify(manifests, null, 2)} as ExamManifest[]\n`
   await writeFile(new URL('../src/app/generatedExamManifests.ts', import.meta.url), generated)
 
   console.log(JSON.stringify(manifests.map((manifest) => ({

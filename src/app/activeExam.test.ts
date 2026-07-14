@@ -4,6 +4,7 @@ import {
   chooseSelectedExamIds,
   formatCurrentBankLabel,
   formatExamSwitcherItem,
+  formatIntegrityLabel,
   formatMockFormatHint,
   formatSyllabusItems,
   homeStudyCopyForExam,
@@ -44,10 +45,24 @@ describe('active exam selection', () => {
     expect(formatExamSwitcherItem(INSTALLED_EXAMS[0], true)).toEqual({
       examId: 'web-design-b',
       title: '網頁設計乙級',
-      meta: '技能檢定 · 乙級 · A13',
+      meta: '資訊 · 乙級 · A13',
       countLabel: '1,360 題可練習',
       statusLabel: '目前使用 · 離線',
+      integrityLabel: '已抽查',
     })
+  })
+
+  it('keeps the web design manifest generated data as the UI source of truth', () => {
+    const webDesign = INSTALLED_EXAMS[0]
+    expect(webDesign.category).toBe('資訊')
+    expect(webDesign.sections.find((section) => section.id === '17300-03')?.activeQuestionCount).toBe(124)
+    expect(webDesign.sections.find((section) => section.id === '17300-04')?.activeQuestionCount).toBe(75)
+    expect(formatIntegrityLabel(webDesign)).toBe('已抽查')
+  })
+
+  it('badges unchecked expansion packs before public verification', () => {
+    const employment = INSTALLED_EXAMS.find((exam) => exam.examId === 'employment-service-b')!
+    expect(formatIntegrityLabel(employment)).toBe('未校對')
   })
 
   it('formats the current bank label from the active exam instead of a fixed syllabus', () => {

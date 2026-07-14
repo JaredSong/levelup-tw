@@ -44,6 +44,12 @@ export interface ExamManifest {
   mockRules: MockRules
   questionCount: number
   activeQuestionCount: number
+  integrity?: {
+    status: 'unchecked' | 'spot_checked' | 'fully_verified'
+    inactiveQuestionCount?: number
+    imageQuestionCount?: number
+    note?: string
+  }
 }
 
 /** Separator between examId and the local (official) question id in a questionKey. */

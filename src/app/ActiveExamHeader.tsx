@@ -3,7 +3,7 @@ import { useMemo, useState } from 'react'
 import { SettingsView } from '../components/SettingsView'
 import type { Progress, Question } from '../domain/studyEngine'
 import { zhTW } from '../i18n/zh-TW'
-import { formatExamSwitcherItem } from './activeExam'
+import { formatExamSwitcherItem, formatIntegrityLabel } from './activeExam'
 import { useActiveExam } from './useActiveExam'
 
 interface Props {
@@ -90,6 +90,7 @@ export function ActiveExamHeader({ questions, progress }: Props) {
                       <strong>{item.title}</strong>
                       <small>{item.meta}</small>
                       <small>{item.countLabel}</small>
+                      <small>{item.integrityLabel}</small>
                     </span>
                     <em>{item.statusLabel}</em>
                   </button>
@@ -156,6 +157,7 @@ export function ActiveExamHeader({ questions, progress }: Props) {
                             <span>{zhTW.shell.questionPack(exam.activeQuestionCount)}</span>
                             <span>{zhTW.shell.sectionsCount(exam.sections.length)}</span>
                             <span>{zhTW.shell.imageQuestionsCount(imageQuestionCount)}</span>
+                            <span className={exam.integrity?.status === 'unchecked' ? 'warn' : ''}>{formatIntegrityLabel(exam)}</span>
                           </div>
                         </div>
                         <button

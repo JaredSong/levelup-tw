@@ -23,6 +23,7 @@ export interface ExplanationRecord {
 
 export interface SessionResult {
   id?: number
+  examId: string
   sessionId: string
   mode: string
   title: string
@@ -67,3 +68,14 @@ db.version(4).stores({
   reviewCards: 'id, examId, dueAt, state, *questionKeys',
   reviewLogs: 'id, cardId, examId, reviewedAt',
 })
+
+// v5 scopes completed sessions to the exam that produced them. Existing rows
+// predate multi-exam support and therefore belong to the original web-design-b
+// bank.
+db.version(5).stores({
+  results: '++id, examId, finishedAt, mode',
+}).upgrade((tx) =>
+  tx.table<SessionResult, number>('results').toCollection().modify((result) => {
+    result.examId = result.examId ?? 'web-design-b'
+  }),
+)

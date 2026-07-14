@@ -39,7 +39,6 @@ import type { SessionMode, StudySession } from './types'
 
 const LEGACY_SESSION_KEY = 'level-b-active-session'
 const SEQUENTIAL_KEY = 'level-b-sequential-index'
-const PERSONAL_START_INDEX = 144
 const MOCK_DURATION_MS = 100 * 60_000
 const EXPLAIN_VERSION = 'v17'
 const OPTION_RANDOMIZE_KEY = 'level-b-randomize-options'
@@ -48,11 +47,16 @@ function sessionKey(examId: string) {
   return `${LEGACY_SESSION_KEY}:${examId}`
 }
 
+function sequentialKey(examId: string) {
+  return `${SEQUENTIAL_KEY}:${examId}`
+}
+
 function loadSession(examId: string): StudySession | null {
   try {
     const value = localStorage.getItem(sessionKey(examId))
       ?? (examId === 'web-design-b' ? localStorage.getItem(LEGACY_SESSION_KEY) : null)
-    return value ? JSON.parse(value) as StudySession : null
+    const session = value ? JSON.parse(value) as StudySession : null
+    return session ? { ...session, examId: session.examId ?? examId } : null
   } catch {
     return null
   }
@@ -80,11 +84,12 @@ function shouldRandomizeOptions() {
   return localStorage.getItem(OPTION_RANDOMIZE_KEY) !== 'false'
 }
 
-function createSession(mode: SessionMode, questions: Question[], title?: string, options: { mockFeedback?: boolean } = {}): StudySession {
+function createSession(examId: string, mode: SessionMode, questions: Question[], title?: string, options: { mockFeedback?: boolean } = {}): StudySession {
   const now = new Date()
   const randomizeOptions = shouldRandomizeOptions()
   return {
     id: crypto.randomUUID(),
+    examId,
     mode,
     title: title ?? titleForMode(mode),
     questionIds: questions.map((question) => question.id),
@@ -144,6 +149,7 @@ export default function App() {
   const prefetchedCueSessionRef = useRef('')
 
   useEffect(() => {
+    if (session?.examId && session.examId !== examId) return
     if (session) localStorage.setItem(sessionKey(examId), JSON.stringify(session))
     else localStorage.removeItem(sessionKey(examId))
     localStorage.removeItem(LEGACY_SESSION_KEY)
@@ -209,7 +215,7 @@ export default function App() {
   const begin = (mode: SessionMode, questions: Question[], title?: string, options?: { mockFeedback?: boolean }) => {
     if (!questions.length) return
     setSummary(null)
-    setSession(createSession(mode, questions, title, options))
+    setSession(createSession(examId, mode, questions, title, options))
     setPracticeOpen(true)
   }
 
@@ -246,13 +252,14 @@ export default function App() {
   }
 
   const startSequential = () => {
-    const saved = Number(localStorage.getItem(SEQUENTIAL_KEY) ?? PERSONAL_START_INDEX)
+    const legacy = examId === 'web-design-b' ? localStorage.getItem(SEQUENTIAL_KEY) : null
+    const saved = Number(localStorage.getItem(sequentialKey(examId)) ?? legacy ?? 0)
     begin('sequential', bank.questions.slice(Math.min(saved, bank.questions.length - 1), saved + 20))
   }
 
   const startWrong = () => {
     const wrong = bank.questions.filter((question) => progress[question.id]?.wrong > 0 && progress[question.id].streak < 2)
-    begin('wrong', wrong.length ? wrong : bank.questions.slice(0, PERSONAL_START_INDEX))
+    begin('wrong', wrong.length ? wrong : bank.questions.slice(0, 20))
   }
 
   const startCommuteNotes = () => {
@@ -381,7 +388,7 @@ export default function App() {
     if (session.mode === 'sequential') {
       const lastId = session.questionIds.at(-1)
       const lastIndex = bank.questions.findIndex((question) => question.id === lastId)
-      if (lastIndex >= 0) localStorage.setItem(SEQUENTIAL_KEY, String(lastIndex + 1))
+      if (lastIndex >= 0) localStorage.setItem(sequentialKey(examId), String(lastIndex + 1))
     }
     if (session.mode === 'commute') {
       setSession(null)
@@ -430,6 +437,7 @@ export default function App() {
         : correct
       const maxScore = isMock ? activeExam.mockRules.maxScore : answers.length
       await db.results.add({
+        examId,
         sessionId: session.id,
         mode: session.mode,
         title: session.title,

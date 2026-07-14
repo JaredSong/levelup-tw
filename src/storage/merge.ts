@@ -16,7 +16,7 @@ export interface BackupData {
 // Keys that are safe to carry between devices. The live session is intentionally
 // NOT synced — pulling another device's stale session makes finished sessions
 // reappear. Export/backup may still include it via its own key list.
-export const SYNC_LOCAL_KEYS = ['level-b-sequential-index', 'level-b-ai-provider']
+export const SYNC_LOCAL_KEYS = ['level-b-ai-provider']
 
 // Rebuild a question's progress by replaying every attempt in chronological
 // order. This correctly combines history from both devices instead of picking
@@ -85,11 +85,6 @@ export function mergeData(local: BackupData, remote: BackupData | null): BackupD
   }
 
   const local2: Record<string, string> = { ...(remote.local ?? {}), ...(local.local ?? {}) }
-  const furthest = Math.max(
-    Number(remote.local?.['level-b-sequential-index'] ?? 0),
-    Number(local.local?.['level-b-sequential-index'] ?? 0),
-  )
-  if (furthest) local2['level-b-sequential-index'] = String(furthest)
 
   return {
     progress: [...progress.values()],

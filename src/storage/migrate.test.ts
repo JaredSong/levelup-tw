@@ -31,7 +31,7 @@ type TestDb = Dexie & {
   progress: Dexie.Table<Progress, string>
   attempts: Dexie.Table<AttemptRecord, number>
   explanations: Dexie.Table<ExplanationRecord, string>
-  results: Dexie.Table<SessionResult, number>
+  results: Dexie.Table<Partial<SessionResult>, number>
 }
 
 // Mirror the schema history in db.ts, stopping at v2 (pre-migration).
@@ -97,7 +97,7 @@ describe('dexie v3 upgrade', () => {
       'web-design-b:17300-01-001::default::1::a¦b::v17',
     ])
 
-    expect(await v3.results.count()).toBe(1)
+    expect(await v3.results.toArray()).toMatchObject([{ examId: 'web-design-b' }])
     v3.close()
   })
 
@@ -225,7 +225,7 @@ describe('backup round trip', () => {
     expect((await db.attempts.toArray()).map((row) => row.questionId)).toEqual(['web-design-b:17300-01-001'])
 
     const exported = JSON.parse(await exportBackup()) as { version: number; data: BackupData }
-    expect(exported.version).toBe(4)
+    expect(exported.version).toBe(5)
     expect(exported.data.progress[0].questionId).toBe('web-design-b:17300-01-001')
   })
 })

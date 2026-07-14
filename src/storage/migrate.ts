@@ -39,6 +39,7 @@ export function normalizeBackupData(data: BackupData, examId = LEGACY_EXAM_ID): 
     // writeData's per-table guards behave the same as before.
     progress: data.progress?.map((row) => ({ ...row, questionId: namespaceQuestionId(row.questionId, examId) })),
     attempts: data.attempts?.map((row) => ({ ...row, questionId: namespaceQuestionId(row.questionId, examId) })),
+    results: data.results?.map((row) => ({ ...row, examId: row.examId ?? examId })),
     explanations: data.explanations?.map((row) => ({ ...row, questionId: namespaceExplanationKey(row.questionId, examId) })),
   } as BackupData
 }
@@ -72,5 +73,7 @@ export async function migrateTablesToQuestionKeys(tx: Transaction, examId = LEGA
     await explanationsTable.bulkPut(bareExplanations.map((row) => ({ ...row, questionId: namespaceExplanationKey(row.questionId, examId) })))
   }
 
-  // results carry no questionId; nothing to rewrite.
+  await tx.table<{ examId?: string }, number>('results').toCollection().modify((result) => {
+    result.examId = result.examId ?? examId
+  })
 }

@@ -11,9 +11,7 @@ export function useQuestionBank() {
   useEffect(() => {
     setBank(null)
     setError(null)
-    const url = activeExam.examId === 'web-design-b'
-      ? '/data/exams/web-design-b/questions.json'
-      : `/data/exams/${activeExam.examId}/questions.json`
+    const url = `/data/exams/${activeExam.examId}/questions.json`
     fetch(url)
       .then((response) => {
         if (!response.ok) throw new Error('Unable to load the question bank.')

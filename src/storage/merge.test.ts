@@ -43,7 +43,7 @@ describe('mergeData', () => {
   })
 
   it('unions completed results by sessionId without duplicating', () => {
-    const r = { sessionId: 's1', mode: 'mock', title: 'm', finishedAt: '2026-01-01T00:00:00Z', answered: 80, correct: 60, score: 60, maxScore: 100, passed: true, durationMs: 1000 }
+    const r = { examId: 'web-design-b', sessionId: 's1', mode: 'mock', title: 'm', finishedAt: '2026-01-01T00:00:00Z', answered: 80, correct: 60, score: 60, maxScore: 100, passed: true, durationMs: 1000 }
     const merged = mergeData({ ...empty(), results: [r] }, { ...empty(), results: [r] })
     expect(merged.results).toHaveLength(1)
   })

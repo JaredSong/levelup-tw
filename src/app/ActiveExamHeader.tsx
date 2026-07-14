@@ -12,7 +12,7 @@ interface Props {
 }
 
 export function ActiveExamHeader({ questions, progress }: Props) {
-  const { activeExam, installedExams, setActiveExamId } = useActiveExam()
+  const { activeExam, installedExams, selectedExams, setActiveExamId } = useActiveExam()
   const [open, setOpen] = useState(false)
   const [catalogOpen, setCatalogOpen] = useState(false)
   const [catalogSearch, setCatalogSearch] = useState('')
@@ -73,7 +73,7 @@ export function ActiveExamHeader({ questions, progress }: Props) {
               <button className="icon-button" onClick={() => setOpen(false)} aria-label="關閉考科選單" type="button"><X size={18} /></button>
             </div>
             <div className="exam-switcher-list">
-              {installedExams.map((exam) => {
+              {selectedExams.map((exam) => {
                 const item = formatExamSwitcherItem(exam, exam.examId === activeExam.examId)
                 return (
                   <button

@@ -3,6 +3,7 @@ import type { ExamManifest } from '../core/exam'
 
 export interface ActiveExamContextValue {
   installedExams: ExamManifest[]
+  selectedExams: ExamManifest[]
   activeExam: ExamManifest
   setActiveExamId: (examId: string) => void
 }

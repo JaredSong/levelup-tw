@@ -3,6 +3,7 @@ import { zhTW } from '../i18n/zh-TW'
 import { GENERATED_EXAM_MANIFESTS } from './generatedExamManifests'
 
 export const ACTIVE_EXAM_KEY = 'level-up-active-exam-id'
+export const SELECTED_EXAMS_KEY = 'level-up-selected-exam-ids'
 
 export const WEB_DESIGN_B_MANIFEST: ExamManifest = {
   examId: 'web-design-b',
@@ -52,9 +53,33 @@ export const WEB_DESIGN_B_MANIFEST: ExamManifest = {
 
 export const INSTALLED_EXAMS: ExamManifest[] = [WEB_DESIGN_B_MANIFEST, ...GENERATED_EXAM_MANIFESTS]
 
+function uniqueValidExamIds(exams: Pick<ExamManifest, 'examId'>[], ids: string[]): string[] {
+  const validIds = new Set(exams.map((exam) => exam.examId))
+  const seen = new Set<string>()
+  return ids.filter((id) => {
+    if (!validIds.has(id) || seen.has(id)) return false
+    seen.add(id)
+    return true
+  })
+}
+
 export function chooseActiveExamId(exams: Pick<ExamManifest, 'examId'>[], savedExamId: string | null | undefined): string | null {
   if (savedExamId && exams.some((exam) => exam.examId === savedExamId)) return savedExamId
   return exams[0]?.examId ?? null
+}
+
+export function chooseSelectedExamIds(
+  exams: Pick<ExamManifest, 'examId'>[],
+  savedExamIds: string[] | null | undefined,
+  activeExamId: string | null | undefined,
+): string[] {
+  const selected = uniqueValidExamIds(exams, savedExamIds ?? [])
+  const fallback = activeExamId && exams.some((exam) => exam.examId === activeExamId)
+    ? activeExamId
+    : exams[0]?.examId
+
+  if (fallback && !selected.includes(fallback)) selected.unshift(fallback)
+  return selected
 }
 
 export function formatExamSwitcherItem(exam: ExamManifest, active: boolean) {
@@ -163,6 +188,21 @@ export function readSavedActiveExamId(storage: Pick<Storage, 'getItem'> = localS
   return storage.getItem(ACTIVE_EXAM_KEY)
 }
 
+export function readSelectedExamIds(storage: Pick<Storage, 'getItem'> = localStorage): string[] | null {
+  const raw = storage.getItem(SELECTED_EXAMS_KEY)
+  if (!raw) return null
+  try {
+    const parsed = JSON.parse(raw)
+    return Array.isArray(parsed) ? parsed.filter((id): id is string => typeof id === 'string') : null
+  } catch {
+    return null
+  }
+}
+
 export function saveActiveExamId(examId: string, storage: Pick<Storage, 'setItem'> = localStorage) {
   storage.setItem(ACTIVE_EXAM_KEY, examId)
+}
+
+export function saveSelectedExamIds(examIds: string[], storage: Pick<Storage, 'setItem'> = localStorage) {
+  storage.setItem(SELECTED_EXAMS_KEY, JSON.stringify(examIds))
 }

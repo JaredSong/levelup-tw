@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import {
   chooseActiveExamId,
+  chooseSelectedExamIds,
   formatCurrentBankLabel,
   formatExamSwitcherItem,
   formatMockFormatHint,
@@ -20,6 +21,23 @@ describe('active exam selection', () => {
 
   it('returns null when no exams are installed', () => {
     expect(chooseActiveExamId([], 'web-design-b')).toBeNull()
+  })
+
+  it('keeps the subject switcher scoped to selected exams and the active exam', () => {
+    const exams = [
+      { examId: 'web-design-b' },
+      { examId: 'employment-service-b' },
+      { examId: 'missing-from-catalog' },
+    ]
+
+    expect(chooseSelectedExamIds(exams, ['employment-service-b', 'employment-service-b', 'unknown'], 'web-design-b')).toEqual([
+      'web-design-b',
+      'employment-service-b',
+    ])
+  })
+
+  it('defaults selected exams to only the active exam when nothing was chosen yet', () => {
+    expect(chooseSelectedExamIds(INSTALLED_EXAMS, null, 'employment-service-b')).toEqual(['employment-service-b'])
   })
 
   it('formats installed exams for the switcher sheet', () => {

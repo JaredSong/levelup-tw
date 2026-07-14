@@ -46,6 +46,10 @@ export const zhTW = {
     currentBank: '目前題庫',
     brandTitle: '升級吧',
     welcomeTitle: (name?: string) => name ? `歡迎使用升級吧，${name}! 👏` : '歡迎使用升級吧! 👏',
+    // Split around the brand so Home can highlight 升級吧 while keeping welcomeTitle
+    // as the plain-text form for aria labels and the document title.
+    welcomeBrand: '升級吧',
+    welcomeParts: (name?: string) => ({ before: '歡迎使用', after: name ? `，${name}! 👏` : '! 👏' }),
     subtitle: '升級吧 · 今日任務',
     syncOff: '雲端同步尚未開啟；可到「進度」設定通關密語，讓不同裝置共用進度。',
     seen: '已練',

@@ -111,6 +111,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 
 .app-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 12px 0 27px; border-bottom: 1px solid var(--line); }
 .app-header h1, .page-title h1 { margin: 0; font-size: clamp(1.75rem, 4vw, 2.65rem); line-height: 1.06; }
+.brand-mark { color: var(--accent); }
 .header-subtitle, .page-title > p:last-child { margin: 7px 0 0; color: var(--muted); font-size: 0.92rem; }
 .exam-countdown { min-width: 70px; display: grid; justify-items: end; border-left: 1px solid var(--line); padding-left: 20px; }
 .exam-countdown strong { font-variant-numeric: tabular-nums; font-size: 2rem; line-height: 1; }

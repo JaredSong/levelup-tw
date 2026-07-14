@@ -60,7 +60,11 @@ export function HomePage(props: Props) {
       <header className="app-header">
         <div>
           <p className="eyebrow">{zhTW.home.currentBank}：{formatCurrentBankLabel(activeExam)}</p>
-          <h1>{zhTW.home.welcomeTitle(profileName)}</h1>
+          <h1 aria-label={zhTW.home.welcomeTitle(profileName)}>
+            {zhTW.home.welcomeParts(profileName).before}
+            <span className="brand-mark">{zhTW.home.welcomeBrand}</span>
+            {zhTW.home.welcomeParts(profileName).after}
+          </h1>
           <p className="header-subtitle">{studyCopy.subtitle}</p>
         </div>
         {examDays !== null ? (

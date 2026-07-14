@@ -71,6 +71,10 @@ export const zhTW = {
     examTodaySmall: '應試',
     examDaysAria: (days: number) => `${days} 天後應試`,
     examTodayAria: '今天應試',
+    regOpenToday: (round: string) => `${round}報名今天截止！`,
+    regOpen: (round: string, days: number) => `${round}報名中，剩 ${days} 天（截止後就要等下一梯次）。`,
+    regUpcoming: (round: string, days: number, date: string) => `${round}報名 ${days} 天後開始（${date}）。`,
+    regAction: '前往報名',
   },
   practice: {
     eyebrow: '練習',

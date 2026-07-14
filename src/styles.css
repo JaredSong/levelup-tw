@@ -465,6 +465,16 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .sync-status.ok { color: var(--accent-dark); }
 .sync-status.warn { color: var(--coral); }
 .sync-nudge { display: flex; align-items: center; gap: 8px; margin: 14px 0 0; padding: 9px 12px; border-radius: 7px; background: #fbeee9; color: var(--coral); font-size: .82rem; font-weight: 600; }
+/* Registration deadline: gold while the window is open, escalating to danger in
+   the last few days. Only rendered while the window is actionable. */
+.reg-nudge { display: flex; align-items: center; gap: 8px; margin: 14px 0 0; padding: 9px 12px; border: 1px solid #ecd9a8; border-radius: 7px; background: #fdf6e3; color: #8a6410; font-size: .82rem; font-weight: 700; }
+.reg-nudge > span { flex: 1; min-width: 0; }
+.reg-nudge svg { flex: 0 0 auto; }
+.reg-nudge a { flex: 0 0 auto; padding: 4px 9px; border-radius: 6px; background: var(--gold); color: white; font-size: .76rem; font-weight: 800; text-decoration: none; white-space: nowrap; }
+.reg-nudge.urgent { border-color: #e7b3ab; background: #fbeee9; color: var(--danger); }
+.reg-nudge.urgent a { background: var(--danger); }
+[data-theme="dark"] .reg-nudge { border-color: #4a3d20; background: #2f2a1c; color: #e0be74; }
+[data-theme="dark"] .reg-nudge.urgent { border-color: #4d302c; background: #3a2723; color: #e79f95; }
 
 /* ===== Dark theme ===== */
 [data-theme="dark"] {

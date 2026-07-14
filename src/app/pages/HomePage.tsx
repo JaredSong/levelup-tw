@@ -1,9 +1,10 @@
-import { ArrowRight, Check, Clock3, CloudOff, Flame, Layers3, ListRestart, Sparkles } from 'lucide-react'
+import { ArrowRight, CalendarClock, Check, Clock3, CloudOff, Flame, Layers3, ListRestart, Sparkles } from 'lucide-react'
 import type { DailyMissionView, MissionItemView } from '../../domain/dailyMission'
 import { zhTW } from '../../i18n/zh-TW'
 import { isSyncEnabled } from '../../storage/sync'
 import { formatCurrentBankLabel, homeStudyCopyForExam } from '../activeExam'
 import { daysUntilExam, getEffectiveExamDate } from '../examCountdown'
+import { getRegistrationNotice, NATIONAL_EXAM_SCHEDULE_SOURCE } from '../nationalExamSchedule'
 import { PROFILE_NAME_KEY } from '../onboardingState'
 import { useActiveExam } from '../useActiveExam'
 
@@ -50,6 +51,9 @@ export function HomePage(props: Props) {
   // Null when no date is set or it has already passed — the countdown hides
   // itself rather than showing a stale/negative number in either case.
   const examDays = daysUntilExam(getEffectiveExamDate(new Date()), new Date())
+  // Null outside the actionable window, so this stays a deadline warning rather
+  // than permanent furniture on the one screen meant to show a single next action.
+  const registration = getRegistrationNotice(new Date())
 
   return (
     <main className="page dashboard-page">
@@ -66,6 +70,20 @@ export function HomePage(props: Props) {
           </div>
         ) : null}
       </header>
+
+      {registration ? (
+        <p className={registration.urgent ? 'reg-nudge urgent' : 'reg-nudge'}>
+          <CalendarClock size={16} />
+          <span>
+            {registration.phase === 'upcoming'
+              ? zhTW.home.regUpcoming(registration.entry.label, registration.daysRemaining, registration.entry.registrationStart)
+              : registration.daysRemaining === 0
+                ? zhTW.home.regOpenToday(registration.entry.label)
+                : zhTW.home.regOpen(registration.entry.label, registration.daysRemaining)}
+          </span>
+          <a href={NATIONAL_EXAM_SCHEDULE_SOURCE} rel="noreferrer" target="_blank">{zhTW.home.regAction}</a>
+        </p>
+      ) : null}
 
       {!isSyncEnabled() ? (
         <p className="sync-nudge"><CloudOff size={16} /> {zhTW.home.syncOff}</p>

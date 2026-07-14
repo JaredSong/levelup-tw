@@ -254,7 +254,9 @@ export const zhTW = {
   onboarding: {
     eyebrow: '第一次設定',
     title: '先把升級吧變成你的題庫',
-    description: '選一個正在準備的考科。同步通關密語可以現在設定，也可以之後到「進度」再補。',
+    description: '先設定名字與同步通關密語，再選一個正在準備的考科。同步也可以之後到「進度」再補。',
+    stepProfile: '1 / 2 基本資料',
+    stepSubject: '2 / 2 選擇考科',
     nameLabel: '你的名字',
     namePlaceholder: '例如：考生',
     syncLabel: '同步通關密語（選填，至少 8 個字元）',
@@ -265,6 +267,8 @@ export const zhTW = {
     subjectCount: (count: number) => `${count.toLocaleString()} 題`,
     noSubjectMatch: '找不到符合的考科',
     start: '開始使用',
+    next: '下一步',
+    back: '上一步',
     skipSync: '先不設定同步',
   },
   practiceView: {

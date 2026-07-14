@@ -11,6 +11,7 @@ interface Props {
 
 export function OnboardingGate({ onComplete }: Props) {
   const { activeExam, installedExams, setActiveExamId } = useActiveExam()
+  const [step, setStep] = useState<1 | 2>(1)
   const [name, setName] = useState(() => localStorage.getItem(PROFILE_NAME_KEY) ?? '')
   const [passphrase, setPassphrase] = useState('')
   const [examId, setExamId] = useState(activeExam.examId)
@@ -51,52 +52,65 @@ export function OnboardingGate({ onComplete }: Props) {
     <div className="onboarding-screen">
       <section className="onboarding-card" aria-label={zhTW.onboarding.title}>
         <header>
-          <p className="eyebrow">{zhTW.onboarding.eyebrow}</p>
+          <p className="eyebrow">{step === 1 ? zhTW.onboarding.stepProfile : zhTW.onboarding.stepSubject}</p>
           <h1>{zhTW.onboarding.title}</h1>
           <p>{zhTW.onboarding.description}</p>
         </header>
 
-        <div className="onboarding-fields">
-          <label>
-            <span><UserRound size={16} /> {zhTW.onboarding.nameLabel}</span>
-            <input value={name} onChange={(event) => setName(event.target.value)} placeholder={zhTW.onboarding.namePlaceholder} />
-          </label>
-          <label>
-            <span><KeyRound size={16} /> {zhTW.onboarding.syncLabel}</span>
-            <input value={passphrase} onChange={(event) => setPassphrase(event.target.value)} placeholder={zhTW.onboarding.syncPlaceholder} type="password" />
-          </label>
-        </div>
-
-        <div className="onboarding-subjects">
-          <p className="eyebrow">{zhTW.onboarding.subjectLabel}</p>
-          <label className="onboarding-subject-search">
-            <Search size={17} />
-            <input
-              aria-label={zhTW.onboarding.subjectSearch}
-              onChange={(event) => setSubjectSearch(event.target.value)}
-              placeholder={zhTW.onboarding.subjectSearchPlaceholder}
-              type="search"
-              value={subjectSearch}
-            />
-          </label>
-          <div className="onboarding-subject-list">
-            {filteredExams.map((exam) => (
-              <button className={exam.examId === selectedExamId ? 'selected' : ''} key={exam.examId} onClick={() => setExamId(exam.examId)} type="button">
-                <Database size={18} />
-                <span>
-                  <strong>{exam.titleZh}</strong>
-                  <small>{exam.category} · {exam.level} · {exam.version}</small>
-                </span>
-                <em>{zhTW.onboarding.subjectCount(exam.activeQuestionCount)}</em>
-              </button>
-            ))}
-            {!filteredExams.length ? <p className="onboarding-empty">{zhTW.onboarding.noSubjectMatch}</p> : null}
+        {step === 1 ? (
+          <div className="onboarding-fields">
+            <label>
+              <span><UserRound size={16} /> {zhTW.onboarding.nameLabel}</span>
+              <input value={name} onChange={(event) => setName(event.target.value)} placeholder={zhTW.onboarding.namePlaceholder} />
+            </label>
+            <label>
+              <span><KeyRound size={16} /> {zhTW.onboarding.syncLabel}</span>
+              <input value={passphrase} onChange={(event) => setPassphrase(event.target.value)} placeholder={zhTW.onboarding.syncPlaceholder} type="password" />
+            </label>
           </div>
-        </div>
+        ) : null}
+
+        {step === 2 ? (
+          <div className="onboarding-subjects">
+            <p className="eyebrow">{zhTW.onboarding.subjectLabel}</p>
+            <label className="onboarding-subject-search">
+              <Search size={17} />
+              <input
+                aria-label={zhTW.onboarding.subjectSearch}
+                onChange={(event) => setSubjectSearch(event.target.value)}
+                placeholder={zhTW.onboarding.subjectSearchPlaceholder}
+                type="search"
+                value={subjectSearch}
+              />
+            </label>
+            <div className="onboarding-subject-list">
+              {filteredExams.map((exam) => (
+                <button className={exam.examId === selectedExamId ? 'selected' : ''} key={exam.examId} onClick={() => setExamId(exam.examId)} type="button">
+                  <Database size={18} />
+                  <span>
+                    <strong>{exam.titleZh}</strong>
+                    <small>{exam.category} · {exam.level} · {exam.version}</small>
+                  </span>
+                  <em>{zhTW.onboarding.subjectCount(exam.activeQuestionCount)}</em>
+                </button>
+              ))}
+              {!filteredExams.length ? <p className="onboarding-empty">{zhTW.onboarding.noSubjectMatch}</p> : null}
+            </div>
+          </div>
+        ) : null}
 
         <div className="onboarding-actions">
-          <button className="primary-action" onClick={() => complete()} type="button">{zhTW.onboarding.start}</button>
-          <button className="secondary-action" onClick={() => complete('')} type="button">{zhTW.onboarding.skipSync}</button>
+          {step === 1 ? (
+            <>
+              <button className="primary-action" onClick={() => setStep(2)} type="button">{zhTW.onboarding.next}</button>
+              <button className="secondary-action" onClick={() => { setPassphrase(''); setStep(2) }} type="button">{zhTW.onboarding.skipSync}</button>
+            </>
+          ) : (
+            <>
+              <button className="primary-action" onClick={() => complete()} type="button">{zhTW.onboarding.start}</button>
+              <button className="secondary-action" onClick={() => setStep(1)} type="button">{zhTW.onboarding.back}</button>
+            </>
+          )}
         </div>
       </section>
     </div>

@@ -1,4 +1,4 @@
-import { ArrowRight, Timer } from 'lucide-react'
+import { ArrowRight, CheckCircle2, Clock3, Timer } from 'lucide-react'
 import { zhTW } from '../../i18n/zh-TW'
 import { formatMockFormatHint } from '../activeExam'
 import { useActiveExam } from '../useActiveExam'
@@ -10,6 +10,11 @@ interface Props {
 
 export function MockExamPage(props: Props) {
   const { activeExam } = useActiveExam()
+  const rules = activeExam.mockRules
+  const typeSummary = [
+    rules.singleCount ? `${rules.singleCount} 題單選` : null,
+    rules.multipleCount ? `${rules.multipleCount} 題複選` : null,
+  ].filter(Boolean).join(' · ')
 
   return (
     <main className="page dashboard-page">
@@ -19,8 +24,8 @@ export function MockExamPage(props: Props) {
         <p>{zhTW.mock.description}</p>
       </header>
 
-      <section className="mock-band">
-        <div className="mock-copy">
+      <section className="mock-panel">
+        <div className="mock-panel-head">
           <span className="mode-icon dark"><Timer size={22} /></span>
           <div>
             <p className="eyebrow">{zhTW.mock.officialFormat}</p>
@@ -28,9 +33,28 @@ export function MockExamPage(props: Props) {
             <p>{formatMockFormatHint(activeExam)}</p>
           </div>
         </div>
-        <div className="mock-actions">
-          <button onClick={props.onMock} type="button">{zhTW.mock.official} <ArrowRight size={17} /></button>
-          <button onClick={props.onMockTraining} type="button">{zhTW.mock.training} <ArrowRight size={17} /></button>
+
+        <div className="mock-facts">
+          <span><Clock3 size={16} /><strong>{rules.durationMinutes}</strong><small>分鐘</small></span>
+          <span><CheckCircle2 size={16} /><strong>{rules.passScore}</strong><small>及格</small></span>
+          <span><strong>{typeSummary}</strong><small>題型</small></span>
+        </div>
+
+        <div className="mock-mode-grid">
+          <button className="mock-mode-card primary" onClick={props.onMock} type="button">
+            <span>
+              <strong>{zhTW.mock.official}</strong>
+              <small>{zhTW.mock.officialHint}</small>
+            </span>
+            <ArrowRight size={18} />
+          </button>
+          <button className="mock-mode-card" onClick={props.onMockTraining} type="button">
+            <span>
+              <strong>{zhTW.mock.training}</strong>
+              <small>{zhTW.mock.trainingHint}</small>
+            </span>
+            <ArrowRight size={18} />
+          </button>
         </div>
       </section>
     </main>

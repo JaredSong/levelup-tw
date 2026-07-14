@@ -1,4 +1,8 @@
 export const zhTW = {
+  common: {
+    expand: '展開',
+    collapse: '收合',
+  },
   nav: {
     home: '首頁',
     practice: '練習',
@@ -141,6 +145,8 @@ export const zhTW = {
     formatHint: '60 題單選 · 20 題複選 · 共同科目各 4 題',
     official: '正式',
     training: '訓練',
+    officialHint: '答案藏到交卷後，最接近正式考。',
+    trainingHint: '每題可看回饋，用來修正速度與觀念。',
   },
   stats: {
     eyebrow: '成效紀錄',

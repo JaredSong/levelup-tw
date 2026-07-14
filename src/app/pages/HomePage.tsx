@@ -3,7 +3,8 @@ import type { DailyMissionView, MissionItemView } from '../../domain/dailyMissio
 import { zhTW } from '../../i18n/zh-TW'
 import { isSyncEnabled } from '../../storage/sync'
 import { formatCurrentBankLabel, homeStudyCopyForExam } from '../activeExam'
-import { daysUntilExam, getExamDate } from '../examCountdown'
+import { daysUntilExam, getEffectiveExamDate } from '../examCountdown'
+import { PROFILE_NAME_KEY } from '../onboardingState'
 import { useActiveExam } from '../useActiveExam'
 
 interface Props {
@@ -45,16 +46,17 @@ export function HomePage(props: Props) {
   const studyCopy = homeStudyCopyForExam(activeExam)
   const completion = props.total ? Math.round((props.seen / props.total) * 100) : 0
   const primaryLabel = props.hasSession ? props.sessionLabel : studyCopy.continueFrom
+  const profileName = localStorage.getItem(PROFILE_NAME_KEY)?.trim()
   // Null when no date is set or it has already passed — the countdown hides
   // itself rather than showing a stale/negative number in either case.
-  const examDays = daysUntilExam(getExamDate(), new Date())
+  const examDays = daysUntilExam(getEffectiveExamDate(new Date()), new Date())
 
   return (
     <main className="page dashboard-page">
       <header className="app-header">
         <div>
           <p className="eyebrow">{zhTW.home.currentBank}：{formatCurrentBankLabel(activeExam)}</p>
-          <h1>{zhTW.home.brandTitle}</h1>
+          <h1>{zhTW.home.welcomeTitle(profileName)}</h1>
           <p className="header-subtitle">{studyCopy.subtitle}</p>
         </div>
         {examDays !== null ? (

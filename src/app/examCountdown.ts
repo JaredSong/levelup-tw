@@ -1,11 +1,16 @@
 // User-set target exam date for the Home countdown. This is a per-user setting,
 // not exam content: two learners studying the same manifest sit the written
 // test on different dates, so it does not belong in ExamManifest.
+import { getNextNationalExamEntry } from './nationalExamSchedule'
 
 export const EXAM_DATE_KEY = 'level-up-target-exam-date'
 
 export function getExamDate(storage: Pick<Storage, 'getItem'> = localStorage): string | null {
   return storage.getItem(EXAM_DATE_KEY)
+}
+
+export function getEffectiveExamDate(now: Date, storage: Pick<Storage, 'getItem'> = localStorage): string | null {
+  return getExamDate(storage) ?? getNextNationalExamEntry(now)?.writtenDate ?? null
 }
 
 /** Empty/whitespace-only input clears the setting. */

@@ -1,6 +1,7 @@
 import { Download, FileWarning, Moon, RefreshCw, RotateCcw, Shuffle, Sun, Upload } from 'lucide-react'
 import { useState } from 'react'
 import { getExamDate, setExamDate } from '../app/examCountdown'
+import { getNextNationalExamEntry, isScheduleEntryPast, NATIONAL_EXAM_SCHEDULE_115, NATIONAL_EXAM_SCHEDULE_SOURCE } from '../app/nationalExamSchedule'
 import type { Progress, Question } from '../domain/studyEngine'
 import { zhTW } from '../i18n/zh-TW'
 import { exportBackup, importBackup } from '../storage/backup'
@@ -23,7 +24,10 @@ export function SettingsView({ questions, progress }: Props) {
   const [syncing, setSyncing] = useState(false)
   const [theme, setTheme] = useState(() => (document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light'))
   const [randomizeOptions, setRandomizeOptions] = useState(() => localStorage.getItem(OPTION_RANDOMIZE_KEY) !== 'false')
+  const [examDateValue, setExamDateValue] = useState(() => getExamDate() ?? '')
   const showAiSettings = !!localStorage.getItem('level-b-ai-access-token') || new URLSearchParams(window.location.search).has('ai')
+  const now = new Date()
+  const nextNationalExam = getNextNationalExamEntry(now)
 
   const chooseTheme = (value: 'light' | 'dark') => {
     setTheme(value)
@@ -120,10 +124,38 @@ export function SettingsView({ questions, progress }: Props) {
       <section className="appearance">
         <h2>{zhTW.stats.examDateTitle}</h2>
         <p>{zhTW.stats.examDateHint}</p>
+        <div className="schedule-buttons" role="group" aria-label={zhTW.stats.examDateOfficial}>
+          {NATIONAL_EXAM_SCHEDULE_115.map((entry) => {
+            const isPast = isScheduleEntryPast(entry, now)
+            const isNext = nextNationalExam?.id === entry.id
+            const isSelected = examDateValue === entry.writtenDate
+            return (
+              <button
+                className={isSelected ? 'active' : ''}
+                key={entry.id}
+                onClick={() => {
+                  setExamDate(entry.writtenDate)
+                  setExamDateValue(entry.writtenDate)
+                }}
+                type="button"
+              >
+                <strong>{entry.label}</strong>
+                <span>{entry.writtenDate}</span>
+                <em>{isNext ? zhTW.stats.examDateNext : isPast ? zhTW.stats.examDatePast : ''}</em>
+              </button>
+            )
+          })}
+        </div>
         <label className="exam-date-field">
-          <span>{zhTW.stats.examDateLabel}</span>
-          <input defaultValue={getExamDate() ?? ''} onBlur={(event) => setExamDate(event.target.value)} type="date" />
+          <span>{zhTW.stats.examDateManual}</span>
+          <input
+            onBlur={(event) => setExamDate(event.target.value)}
+            onChange={(event) => setExamDateValue(event.target.value)}
+            type="date"
+            value={examDateValue}
+          />
         </label>
+        <p className="source-note"><a href={NATIONAL_EXAM_SCHEDULE_SOURCE} rel="noreferrer" target="_blank">{zhTW.stats.examDateSource}</a></p>
       </section>
 
       <section className="data-backup">

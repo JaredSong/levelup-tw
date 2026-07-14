@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { daysUntilExam, EXAM_DATE_KEY, getExamDate, setExamDate } from './examCountdown'
+import { daysUntilExam, EXAM_DATE_KEY, getEffectiveExamDate, getExamDate, setExamDate } from './examCountdown'
 
 function fakeStorage(initial: Record<string, string> = {}) {
   const store = new Map(Object.entries(initial))
@@ -65,5 +65,20 @@ describe('daysUntilExam', () => {
   it('returns null once the date has passed, instead of a negative number', () => {
     expect(daysUntilExam('2026-07-10', now)).toBeNull()
     expect(daysUntilExam('2026-01-01', now)).toBeNull()
+  })
+})
+
+describe('getEffectiveExamDate', () => {
+  it('uses the manually stored date first', () => {
+    const storage = fakeStorage({ [EXAM_DATE_KEY]: '2026-08-01' })
+    expect(getEffectiveExamDate(new Date('2026-07-14T12:00:00'), storage)).toBe('2026-08-01')
+  })
+
+  it('falls back to the next official national skills test round', () => {
+    expect(getEffectiveExamDate(new Date('2026-07-14T12:00:00'), fakeStorage())).toBe('2026-11-08')
+  })
+
+  it('returns null when all bundled official rounds have passed and no manual date is set', () => {
+    expect(getEffectiveExamDate(new Date('2026-11-09T12:00:00'), fakeStorage())).toBeNull()
   })
 })

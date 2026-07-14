@@ -6,6 +6,12 @@
   "category": "美容美髮",
   "version": "A12",
   "sourceUrl": "https://techbank.wdasec.gov.tw/",
+  "officialLinks": {
+    "registration": "https://skill.tcte.edu.tw/notice.php",
+    "scoreLookup": "https://eservice.wdasec.gov.tw/",
+    "handbook": "https://skill.tcte.edu.tw/download.php",
+    "questionBank": "https://techbank.wdasec.gov.tw/"
+  },
   "sourceRevision": "060003A12 + 900060A18/900070A17/900080A16/900090A11/900120A10",
   "questionCount": 1139,
   "activeQuestionCount": 1134,

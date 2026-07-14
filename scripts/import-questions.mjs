@@ -257,6 +257,12 @@ const IMAGE_OVERRIDES = {
 
 const outputPath = new URL('../source/questions.json', import.meta.url)
 const manifestPath = new URL(`../public/data/exams/${EXAM_ID}/manifest.json`, import.meta.url)
+const OFFICIAL_LINKS = {
+  registration: 'https://skill.tcte.edu.tw/notice.php',
+  scoreLookup: 'https://eservice.wdasec.gov.tw/',
+  handbook: 'https://skill.tcte.edu.tw/download.php',
+  questionBank: 'https://techbank.wdasec.gov.tw/',
+}
 const banks = [
   { code: '17300', file: '173002A13-raw.txt', expected: 846 },
   { code: '90011', file: '900110A10-raw.txt', expected: 119 },
@@ -337,6 +343,7 @@ await writeFile(manifestPath, `${JSON.stringify({
   category: '資訊',
   version: 'A13',
   sourceUrl: 'https://techbank.wdasec.gov.tw/',
+  officialLinks: OFFICIAL_LINKS,
   sourceRevision: '173002A13 + 900060A18/900070A17/900080A16/900090A11/900110A10',
   questionCount: questions.length,
   activeQuestionCount: questions.filter((question) => question.active !== false).length,

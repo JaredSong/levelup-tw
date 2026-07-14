@@ -9,6 +9,12 @@ export const GENERATED_EXAM_MANIFESTS = [
     "category": "美容美髮",
     "version": "A12",
     "sourceUrl": "https://techbank.wdasec.gov.tw/",
+    "officialLinks": {
+      "registration": "https://skill.tcte.edu.tw/notice.php",
+      "scoreLookup": "https://eservice.wdasec.gov.tw/",
+      "handbook": "https://skill.tcte.edu.tw/download.php",
+      "questionBank": "https://techbank.wdasec.gov.tw/"
+    },
     "sourceRevision": "060003A12 + 900060A18/900070A17/900080A16/900090A11/900120A10",
     "questionCount": 1139,
     "activeQuestionCount": 1134,
@@ -193,6 +199,12 @@ export const GENERATED_EXAM_MANIFESTS = [
     "category": "美容美髮",
     "version": "A13",
     "sourceUrl": "https://techbank.wdasec.gov.tw/",
+    "officialLinks": {
+      "registration": "https://skill.tcte.edu.tw/notice.php",
+      "scoreLookup": "https://eservice.wdasec.gov.tw/",
+      "handbook": "https://skill.tcte.edu.tw/download.php",
+      "questionBank": "https://techbank.wdasec.gov.tw/"
+    },
     "sourceRevision": "067003A13 + 900060A18/900070A17/900080A16/900090A11/900120A10",
     "questionCount": 1308,
     "activeQuestionCount": 1303,
@@ -369,6 +381,12 @@ export const GENERATED_EXAM_MANIFESTS = [
     "category": "商業服務",
     "version": "A19",
     "sourceUrl": "https://techbank.wdasec.gov.tw/",
+    "officialLinks": {
+      "registration": "https://skill.tcte.edu.tw/notice.php",
+      "scoreLookup": "https://eservice.wdasec.gov.tw/",
+      "handbook": "https://skill.tcte.edu.tw/download.php",
+      "questionBank": "https://techbank.wdasec.gov.tw/"
+    },
     "sourceRevision": "195002A19 + 900060A18/900070A17/900080A16/900090A11",
     "questionCount": 1614,
     "activeQuestionCount": 1609,

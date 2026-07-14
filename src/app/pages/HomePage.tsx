@@ -54,6 +54,7 @@ export function HomePage(props: Props) {
   // Null outside the actionable window, so this stays a deadline warning rather
   // than permanent furniture on the one screen meant to show a single next action.
   const registration = getRegistrationNotice(new Date())
+  const registrationHref = activeExam.officialLinks?.registration ?? NATIONAL_EXAM_SCHEDULE_SOURCE
 
   return (
     <main className="page dashboard-page">
@@ -85,7 +86,7 @@ export function HomePage(props: Props) {
                 ? zhTW.home.regOpenToday(registration.entry.label)
                 : zhTW.home.regOpen(registration.entry.label, registration.daysRemaining)}
           </span>
-          <a href={NATIONAL_EXAM_SCHEDULE_SOURCE} rel="noreferrer" target="_blank">{zhTW.home.regAction}</a>
+          <a href={registrationHref} rel="noreferrer" target="_blank">{zhTW.home.regAction}</a>
         </p>
       ) : null}
 

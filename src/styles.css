@@ -402,6 +402,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
   .onboarding-subject-list button { grid-template-columns: auto minmax(0, 1fr); }
   .onboarding-subject-list em { grid-column: 2; }
   .onboarding-actions button { width: 100%; }
+  .official-link-grid { grid-template-columns: 1fr; }
   .question-stage { padding: 22px 16px 125px; }
   .question-meta > span:nth-child(2) { display: none; }
   .practice-actions { padding-left: 16px; padding-right: 16px; }
@@ -540,6 +541,13 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 [data-theme="dark"] .exam-date-field input { background: var(--surface); color: var(--ink); border-color: var(--line); }
 .source-note { margin-top: 8px; font-size: .74rem; }
 .source-note a { color: var(--muted); }
+.official-info { padding: 22px 0; border-top: 1px solid var(--line); }
+.official-info h2 { margin: 0 0 4px; font-size: 1rem; }
+.official-info p:not(.eyebrow) { margin: 0; color: var(--muted); font-size: .82rem; line-height: 1.5; }
+.official-info .official-deadline { margin-top: 9px; color: var(--accent-dark); font-weight: 800; }
+.official-link-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; margin-top: 14px; }
+.official-link-grid a { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 44px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 7px; color: var(--ink); background: var(--surface); font-size: .84rem; font-weight: 800; text-decoration: none; }
+.official-link-grid a:hover { border-color: var(--accent); background: var(--accent-pale); color: var(--accent-dark); }
 .theme-toggle { display: inline-flex; padding: 3px; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); gap: 3px; }
 .theme-toggle button { display: inline-flex; align-items: center; gap: 6px; padding: 7px 16px; border: 0; border-radius: 6px; background: transparent; color: var(--muted); font-size: .85rem; font-weight: 700; cursor: pointer; }
 .theme-toggle button.active { background: var(--accent); color: #fff; }

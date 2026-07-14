@@ -55,6 +55,12 @@ describe('active exam selection', () => {
   it('keeps the web design manifest generated data as the UI source of truth', () => {
     const webDesign = INSTALLED_EXAMS[0]
     expect(webDesign.category).toBe('資訊')
+    expect(webDesign.officialLinks).toMatchObject({
+      handbook: 'https://skill.tcte.edu.tw/download.php',
+      questionBank: 'https://techbank.wdasec.gov.tw/',
+      registration: 'https://skill.tcte.edu.tw/notice.php',
+      scoreLookup: 'https://eservice.wdasec.gov.tw/',
+    })
     expect(webDesign.sections.find((section) => section.id === '17300-03')?.activeQuestionCount).toBe(124)
     expect(webDesign.sections.find((section) => section.id === '17300-04')?.activeQuestionCount).toBe(75)
     expect(formatIntegrityLabel(webDesign)).toBe('已抽查')

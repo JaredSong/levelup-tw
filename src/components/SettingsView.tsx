@@ -1,7 +1,8 @@
-import { Download, FileWarning, Moon, RefreshCw, RotateCcw, Shuffle, Sun, Upload } from 'lucide-react'
+import { Download, ExternalLink, FileWarning, Moon, RefreshCw, RotateCcw, Shuffle, Sun, Upload } from 'lucide-react'
 import { useState } from 'react'
 import { getExamDate, setExamDate } from '../app/examCountdown'
 import { getNextNationalExamEntry, isScheduleEntryPast, NATIONAL_EXAM_SCHEDULE_115, NATIONAL_EXAM_SCHEDULE_SOURCE } from '../app/nationalExamSchedule'
+import { useActiveExam } from '../app/useActiveExam'
 import type { Progress, Question } from '../domain/studyEngine'
 import { zhTW } from '../i18n/zh-TW'
 import { exportBackup, importBackup } from '../storage/backup'
@@ -14,10 +15,16 @@ interface Props {
   progress: Record<string, Progress>
 }
 
+interface OfficialLinkItem {
+  label: string
+  href: string
+}
+
 // Settings is a secondary shell surface (docs/level-up-interface-spec.md): local
 // app behavior only, reached from the gear icon rather than the bottom nav, so
 // it stays out of the way until there is more than one exam pack to manage.
 export function SettingsView({ questions, progress }: Props) {
+  const { activeExam } = useActiveExam()
   const [aiProvider, setAiProvider] = useState(() => localStorage.getItem('level-b-ai-provider') ?? 'openai')
   const [dataMsg, setDataMsg] = useState<string | null>(null)
   const [syncMsg, setSyncMsg] = useState<string | null>(null)
@@ -28,6 +35,12 @@ export function SettingsView({ questions, progress }: Props) {
   const showAiSettings = !!localStorage.getItem('level-b-ai-access-token') || new URLSearchParams(window.location.search).has('ai')
   const now = new Date()
   const nextNationalExam = getNextNationalExamEntry(now)
+  const officialLinks = activeExam.officialLinks
+  const officialLinkItems: OfficialLinkItem[] = []
+  if (officialLinks?.registration) officialLinkItems.push({ label: zhTW.stats.officialRegistration, href: officialLinks.registration })
+  if (officialLinks?.handbook) officialLinkItems.push({ label: zhTW.stats.officialHandbook, href: officialLinks.handbook })
+  if (officialLinks?.scoreLookup) officialLinkItems.push({ label: zhTW.stats.officialScoreLookup, href: officialLinks.scoreLookup })
+  if (officialLinks?.questionBank) officialLinkItems.push({ label: zhTW.stats.officialQuestionBank, href: officialLinks.questionBank })
 
   const chooseTheme = (value: 'light' | 'dark') => {
     setTheme(value)
@@ -156,6 +169,25 @@ export function SettingsView({ questions, progress }: Props) {
           />
         </label>
         <p className="source-note"><a href={NATIONAL_EXAM_SCHEDULE_SOURCE} rel="noreferrer" target="_blank">{zhTW.stats.examDateSource}</a></p>
+      </section>
+
+      <section className="official-info">
+        <div>
+          <p className="eyebrow">{zhTW.stats.officialInfoEyebrow}</p>
+          <h2>{zhTW.stats.officialInfoTitle}</h2>
+          <p>{zhTW.stats.officialInfoHint}</p>
+          {nextNationalExam ? (
+            <p className="official-deadline">{zhTW.stats.officialInfoSchedule(nextNationalExam.label, nextNationalExam.registrationStart, nextNationalExam.registrationEnd)}</p>
+          ) : null}
+        </div>
+        <div className="official-link-grid">
+          {officialLinkItems.map((item) => (
+            <a href={item.href} key={item.label} rel="noreferrer" target="_blank">
+              {item.label}
+              <ExternalLink size={15} />
+            </a>
+          ))}
+        </div>
       </section>
 
       <section className="data-backup">

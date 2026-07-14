@@ -39,6 +39,12 @@ export interface ExamManifest {
   category: string
   version: string
   sourceUrl?: string
+  officialLinks?: {
+    registration?: string
+    scoreLookup?: string
+    handbook?: string
+    questionBank?: string
+  }
   sourceRevision?: string
   sections: ExamSection[]
   mockRules: MockRules

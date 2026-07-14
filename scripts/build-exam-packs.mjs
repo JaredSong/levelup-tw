@@ -113,6 +113,13 @@ const BEAUTY_HAIR_COMMON_BANK = {
   quota: 4,
 }
 
+const OFFICIAL_LINKS = {
+  registration: 'https://skill.tcte.edu.tw/notice.php',
+  scoreLookup: 'https://eservice.wdasec.gov.tw/',
+  handbook: 'https://skill.tcte.edu.tw/download.php',
+  questionBank: 'https://techbank.wdasec.gov.tw/',
+}
+
 function questionImagePath(fileName) {
   return `/question-images/${encodeURIComponent(fileName)}`
 }
@@ -203,6 +210,7 @@ async function writeExamPack(exam, commonQuestions, extraQuestionsByCode) {
     category: exam.category,
     version: exam.version,
     sourceUrl: 'https://techbank.wdasec.gov.tw/',
+    officialLinks: OFFICIAL_LINKS,
     sourceRevision: exam.sourceRevision,
     questionCount: questions.length,
     activeQuestionCount: active.length,

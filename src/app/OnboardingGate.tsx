@@ -1,5 +1,5 @@
-import { Database, KeyRound, UserRound } from 'lucide-react'
-import { useState } from 'react'
+import { Database, KeyRound, Search, UserRound } from 'lucide-react'
+import { useMemo, useState } from 'react'
 import { zhTW } from '../i18n/zh-TW'
 import { setSyncPass } from '../storage/sync'
 import { ONBOARDING_DONE_KEY, PROFILE_NAME_KEY } from './onboardingState'
@@ -14,6 +14,27 @@ export function OnboardingGate({ onComplete }: Props) {
   const [name, setName] = useState(() => localStorage.getItem(PROFILE_NAME_KEY) ?? '')
   const [passphrase, setPassphrase] = useState('')
   const [examId, setExamId] = useState(activeExam.examId)
+  const [subjectSearch, setSubjectSearch] = useState('')
+  const normalizedSearch = subjectSearch.trim().toLowerCase()
+  const filteredExams = useMemo(() => {
+    if (!normalizedSearch) return installedExams
+    return installedExams.filter((exam) => {
+      const haystack = [
+        exam.examId,
+        exam.titleZh,
+        exam.titleEn,
+        exam.category,
+        exam.level,
+        exam.version,
+        exam.sourceRevision,
+        ...exam.sections.flatMap((section) => [section.id, section.subjectCode, section.titleZh]),
+      ].join(' ').toLowerCase()
+      return haystack.includes(normalizedSearch)
+    })
+  }, [installedExams, normalizedSearch])
+  const selectedExamId = filteredExams.some((exam) => exam.examId === examId)
+    ? examId
+    : filteredExams[0]?.examId ?? examId
 
   const complete = (syncValue = passphrase) => {
     const trimmedName = name.trim()
@@ -21,7 +42,7 @@ export function OnboardingGate({ onComplete }: Props) {
     if (trimmedName) localStorage.setItem(PROFILE_NAME_KEY, trimmedName)
     else localStorage.removeItem(PROFILE_NAME_KEY)
     if (trimmedPassphrase) setSyncPass(trimmedPassphrase)
-    setActiveExamId(examId)
+    setActiveExamId(selectedExamId)
     localStorage.setItem(ONBOARDING_DONE_KEY, 'true')
     onComplete()
   }
@@ -48,9 +69,19 @@ export function OnboardingGate({ onComplete }: Props) {
 
         <div className="onboarding-subjects">
           <p className="eyebrow">{zhTW.onboarding.subjectLabel}</p>
+          <label className="onboarding-subject-search">
+            <Search size={17} />
+            <input
+              aria-label={zhTW.onboarding.subjectSearch}
+              onChange={(event) => setSubjectSearch(event.target.value)}
+              placeholder={zhTW.onboarding.subjectSearchPlaceholder}
+              type="search"
+              value={subjectSearch}
+            />
+          </label>
           <div className="onboarding-subject-list">
-            {installedExams.map((exam) => (
-              <button className={exam.examId === examId ? 'selected' : ''} key={exam.examId} onClick={() => setExamId(exam.examId)} type="button">
+            {filteredExams.map((exam) => (
+              <button className={exam.examId === selectedExamId ? 'selected' : ''} key={exam.examId} onClick={() => setExamId(exam.examId)} type="button">
                 <Database size={18} />
                 <span>
                   <strong>{exam.titleZh}</strong>
@@ -59,6 +90,7 @@ export function OnboardingGate({ onComplete }: Props) {
                 <em>{zhTW.onboarding.subjectCount(exam.activeQuestionCount)}</em>
               </button>
             ))}
+            {!filteredExams.length ? <p className="onboarding-empty">{zhTW.onboarding.noSubjectMatch}</p> : null}
           </div>
         </div>
 

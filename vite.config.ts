@@ -70,8 +70,12 @@ export default defineConfig({
         globPatterns: ['**/*.{js,css,html,svg,webmanifest}'],
         runtimeCaching: [
           {
+            // Question banks are served from cache instantly (offline-first), but
+            // revalidated in the background: these URLs are unversioned, so
+            // CacheFirst would pin a corrected answer key out of reach until the
+            // entry expired. Answer-key fixes must reach the next open.
             urlPattern: /\/data\/.*\.json$/,
-            handler: 'CacheFirst',
+            handler: 'StaleWhileRevalidate',
             options: {
               cacheName: 'level-up-data-packs',
               expiration: {
@@ -81,6 +85,8 @@ export default defineConfig({
             },
           },
           {
+            // Official artwork is immutable once published, so CacheFirst is right
+            // here: no revalidation request per question image.
             urlPattern: /\/question-(?:images|pages)\/.*\.(?:png|jpe?g|webp)$/,
             handler: 'CacheFirst',
             options: {

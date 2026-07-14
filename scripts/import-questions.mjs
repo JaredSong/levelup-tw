@@ -255,7 +255,7 @@ const IMAGE_OVERRIDES = {
   '90011-04-020': ['90011-page-8 20.png'],
 }
 
-const outputPath = new URL('../public/data/questions.json', import.meta.url)
+const outputPath = new URL('../source/questions.json', import.meta.url)
 const manifestPath = new URL(`../public/data/exams/${EXAM_ID}/manifest.json`, import.meta.url)
 const banks = [
   { code: '17300', file: '173002A13-raw.txt', expected: 846 },

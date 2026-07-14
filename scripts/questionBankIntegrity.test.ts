@@ -4,7 +4,7 @@ import { buildMockQueue, type Question } from '../src/domain/studyEngine'
 import { parseQuestionBank } from './questionParser.mjs'
 
 function loadBank(): Question[] {
-  return JSON.parse(readFileSync(new URL('../public/data/questions.json', import.meta.url), 'utf8')) as Question[]
+  return JSON.parse(readFileSync(new URL('../source/questions.json', import.meta.url), 'utf8')) as Question[]
 }
 
 function loadExamBank(examId: string): Question[] {
@@ -57,7 +57,7 @@ describe('published question bank', () => {
       readFileSync(new URL('../source/900110A10-raw.txt', import.meta.url), 'utf8'),
     )
     const generated = JSON.parse(
-      readFileSync(new URL('../public/data/questions.json', import.meta.url), 'utf8'),
+      readFileSync(new URL('../source/questions.json', import.meta.url), 'utf8'),
     ) as Question[]
     const informationCommon = generated.filter((question) => question.subjectCode === '90011')
     const generatedById = new Map(informationCommon.map((question) => [question.id, question]))
@@ -86,7 +86,7 @@ describe('published question bank', () => {
 
   it('contains 1,365 unique, structurally valid questions', () => {
     const generated = JSON.parse(
-      readFileSync(new URL('../public/data/questions.json', import.meta.url), 'utf8'),
+      readFileSync(new URL('../source/questions.json', import.meta.url), 'utf8'),
     ) as Question[]
 
     expect(generated).toHaveLength(1365)

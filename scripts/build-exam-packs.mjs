@@ -231,7 +231,7 @@ async function main() {
   const manifests = []
   for (const exam of EXAMS) manifests.push(await writeExamPack(exam, commonQuestions, extraQuestionsByCode))
 
-  const webQuestions = await readFile(new URL('../public/data/questions.json', import.meta.url), 'utf8')
+  const webQuestions = await readFile(new URL('../source/questions.json', import.meta.url), 'utf8')
   await mkdir(new URL('../public/data/exams/web-design-b/', import.meta.url), { recursive: true })
   await writeFile(new URL('../public/data/exams/web-design-b/questions.json', import.meta.url), webQuestions)
 

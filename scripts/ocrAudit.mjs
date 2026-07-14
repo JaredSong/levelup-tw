@@ -63,7 +63,7 @@ function main() {
     process.exit(1)
   }
 
-  const questions = loadJson(new URL('../public/data/questions.json', import.meta.url))
+  const questions = loadJson(new URL('../source/questions.json', import.meta.url))
   const raw = loadJson(ocrPath)
   const records = Array.isArray(raw) ? raw : raw.records
   if (!Array.isArray(records)) throw new Error('OCR JSON must be an array or an object with a records array.')

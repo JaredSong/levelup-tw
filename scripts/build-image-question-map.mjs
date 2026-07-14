@@ -1,7 +1,7 @@
 import { access, mkdir, readFile, writeFile } from 'node:fs/promises'
 
 const questions = JSON.parse(
-  await readFile(new URL('../public/data/questions.json', import.meta.url), 'utf8'),
+  await readFile(new URL('../source/questions.json', import.meta.url), 'utf8'),
 )
 
 const imageQuestions = questions

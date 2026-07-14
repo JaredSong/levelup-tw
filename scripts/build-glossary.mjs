@@ -3,7 +3,7 @@ import { readFile, writeFile } from 'node:fs/promises'
 // Hybrid glossary: curated language content (human-approved) + auto-linked
 // question IDs/sections computed from the active bank, so links never drift.
 const curated = JSON.parse(await readFile(new URL('../source/glossary.curated.json', import.meta.url), 'utf8'))
-const bank = JSON.parse(await readFile(new URL('../public/data/questions.json', import.meta.url), 'utf8'))
+const bank = JSON.parse(await readFile(new URL('../source/questions.json', import.meta.url), 'utf8'))
   .filter((question) => question.active !== false)
 
 const MAX_IDS = 12

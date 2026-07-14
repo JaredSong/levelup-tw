@@ -18,7 +18,7 @@ const items = [
 
 export function BottomNav({ active, onChange }: Props) {
   return (
-    <nav className="bottom-nav" aria-label="Main navigation">
+    <nav className="bottom-nav" aria-label="主要導覽">
       {items.map(({ id, label, Icon }) => (
         <button
           className={active === id ? 'nav-item active' : 'nav-item'}

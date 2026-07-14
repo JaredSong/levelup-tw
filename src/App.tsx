@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { AlertTriangle, ArrowRight, CheckCircle2, LoaderCircle, RotateCcw } from 'lucide-react'
 import { ActiveExamHeader } from './app/ActiveExamHeader'
+import { OnboardingGate } from './app/OnboardingGate'
+import { hasCompletedOnboarding } from './app/onboardingState'
 import { BottomNav, type Tab } from './components/BottomNav'
 import { PracticeView } from './components/PracticeView'
 import { HomePage } from './app/pages/HomePage'
@@ -58,6 +60,20 @@ function loadSession(examId: string): StudySession | null {
 
 function titleForMode(mode: SessionMode) {
   return zhTW.session.titles[mode]
+}
+
+function displaySessionTitle(session: Pick<StudySession, 'mode' | 'title'>): string {
+  const legacyTitles: Record<string, string> = {
+    'Wrong answers': zhTW.session.titles.wrong,
+    'Random 10': zhTW.session.titles.random,
+    'Fresh sprint': zhTW.session.titles.fresh,
+    'Mini mock 20': zhTW.session.titles.highYield,
+    'Due review 10': zhTW.session.titles.adaptive,
+    'Commute notes': zhTW.session.titles.commute,
+    'Official mock': zhTW.session.titles.mock,
+    'Training mock': zhTW.session.trainingMock,
+  }
+  return legacyTitles[session.title] ?? session.title ?? titleForMode(session.mode)
 }
 
 function shouldRandomizeOptions() {
@@ -124,6 +140,7 @@ export default function App() {
   const [session, setSession] = useState<StudySession | null>(() => loadSession(examId))
   const [practiceOpen, setPracticeOpen] = useState(false)
   const [summary, setSummary] = useState<StudySession | null>(null)
+  const [onboarded, setOnboarded] = useState(hasCompletedOnboarding)
   const prefetchedCueSessionRef = useRef('')
 
   useEffect(() => {
@@ -187,6 +204,7 @@ export default function App() {
 
   if (error) return <div className="fatal-state"><AlertTriangle /><h1>{zhTW.session.bankUnavailable}</h1><p>{error}</p></div>
   if (!bank || loading) return <div className="loading-state"><LoaderCircle className="spin" /><strong>{zhTW.session.loadingTitle}</strong><span>{zhTW.session.loadingBody}</span></div>
+  if (!onboarded) return <OnboardingGate onComplete={() => setOnboarded(true)} />
 
   const begin = (mode: SessionMode, questions: Question[], title?: string, options?: { mockFeedback?: boolean }) => {
     if (!questions.length) return
@@ -250,7 +268,7 @@ export default function App() {
       window.alert(zhTW.session.noWrongForCommute)
       return
     }
-    begin('commute', wrong, `Commute notes · ${wrong.length} wrong`)
+    begin('commute', wrong, zhTW.session.commuteTitle(wrong.length))
   }
 
   const updateSession = (updater: (current: StudySession) => StudySession) => {
@@ -472,7 +490,7 @@ export default function App() {
       <main className="session-summary">
         <CheckCircle2 size={34} />
         <p className="eyebrow">{zhTW.session.recorded}</p>
-        <h1>{summarySession.title}</h1>
+        <h1>{displaySessionTitle(summarySession)}</h1>
         <strong className="summary-score">{mockScore !== null ? `${Math.round(mockScore * 10) / 10}/${activeExam.mockRules.maxScore}` : `${correct}/${answers.length}`}</strong>
         <p>{mockScore !== null ? (mockScore >= activeExam.mockRules.passScore ? zhTW.session.mockPassNote : zhTW.session.mockFailNote) : zhTW.session.practiceNote}</p>
 
@@ -499,7 +517,7 @@ export default function App() {
 
         <div className="summary-actions">
           <button className="primary-action" onClick={() => { setSummary(null); setTab('home') }} type="button">{zhTW.session.backToHome}</button>
-          <button className="secondary-action" onClick={() => begin(summarySession.mode, summarySession.questionIds.map((id) => bank.byId.get(id)).filter((q): q is Question => !!q), summarySession.title, { mockFeedback: summarySession.mockFeedback })} type="button"><RotateCcw size={17} /> {zhTW.session.repeatSession}</button>
+          <button className="secondary-action" onClick={() => begin(summarySession.mode, summarySession.questionIds.map((id) => bank.byId.get(id)).filter((q): q is Question => !!q), displaySessionTitle(summarySession), { mockFeedback: summarySession.mockFeedback })} type="button"><RotateCcw size={17} /> {zhTW.session.repeatSession}</button>
         </div>
       </main>
     )
@@ -508,7 +526,7 @@ export default function App() {
   return (
     <div className="app-frame">
       <ActiveExamHeader progress={progress} questions={bank.questions} />
-      {tab === 'home' ? <HomePage seen={seen} total={bank.questions.length} due={due} accuracy={accuracy} hasSession={!!session} sessionLabel={session?.title} streak={streak} mission={mission} onGoReview={() => setTab('review')} onWrongFix={startWrong} onContinue={resumePractice} onSequential={startSequential} /> : null}
+      {tab === 'home' ? <HomePage seen={seen} total={bank.questions.length} due={due} accuracy={accuracy} hasSession={!!session} sessionLabel={session ? displaySessionTitle(session) : undefined} streak={streak} mission={mission} onGoReview={() => setTab('review')} onWrongFix={startWrong} onContinue={resumePractice} onSequential={startSequential} /> : null}
       {tab === 'practice' ? <PracticePage questions={bank.questions} progress={progress} total={bank.questions.length} onSequential={startSequential} onRandom={() => begin('random', buildRandomQueue(bank.questions, 10))} onFresh={(limit) => begin('fresh', buildFreshQueue(bank.questions, progress, limit), zhTW.session.freshTitle(limit))} onHighYield={() => begin('highYield', buildHighYieldQueue(bank.questions, progress, 20))} onSubject={(subjectCode, title) => begin('random', buildRandomQueue(bank.questions.filter((question) => question.subjectCode === subjectCode), 10), title)} onOpenQuestion={(question) => begin('item', [question])} onSprint={() => begin('sprint', buildSprintQueue(bank.questions, progress, 20))} /> : null}
       {tab === 'review' ? <ReviewPage due={due} wrongCount={wrongCount} dueCards={dueCards} totalCards={reviewCards.length} wrongWithoutCards={wrongWithoutCards} onGradeCard={gradeReviewCard} onOpenCardSource={openCardSource} onCreateWrongCards={createWrongCards} onAdaptive={() => begin('adaptive', buildAdaptiveQueue(bank.questions, progress, 10))} onWrong={startWrong} onFlashcards={() => begin('flashcard', buildAdaptiveQueue(bank.questions, progress, 10), zhTW.session.titles.flashcard)} onCommuteNotes={startCommuteNotes} onPracticeSection={(section, title) => begin('adaptive', buildAdaptiveQueue(bank.questions.filter((question) => question.section === section), progress, 10), title)} /> : null}
       {tab === 'mock' ? <MockExamPage onMock={() => startMock(false)} onMockTraining={() => startMock(true)} /> : null}

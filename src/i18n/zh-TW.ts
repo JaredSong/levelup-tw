@@ -41,6 +41,7 @@ export const zhTW = {
   },
   home: {
     currentBank: '目前題庫',
+    brandTitle: '升級吧',
     subtitle: '升級吧 · 今日任務',
     syncOff: '雲端同步尚未開啟；可到「進度」設定通關密語，讓不同裝置共用進度。',
     seen: '已練',
@@ -248,6 +249,20 @@ export const zhTW = {
     backToHome: '回首頁',
     repeatSession: '再練一次',
     practiceGroup: '練習這一組',
+    commuteTitle: (count: number) => `通勤筆記 · ${count} 題錯題`,
+  },
+  onboarding: {
+    eyebrow: '第一次設定',
+    title: '先把升級吧變成你的題庫',
+    description: '選一個正在準備的考科。同步通關密語可以現在設定，也可以之後到「進度」再補。',
+    nameLabel: '你的名字',
+    namePlaceholder: '例如：Jared',
+    syncLabel: '同步通關密語（選填，至少 8 個字元）',
+    syncPlaceholder: '不同裝置輸入同一組即可同步',
+    subjectLabel: '選擇考科',
+    subjectCount: (count: number) => `${count.toLocaleString()} 題`,
+    start: '開始使用',
+    skipSync: '先不設定同步',
   },
   practiceView: {
     exitAria: '離開練習',

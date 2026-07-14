@@ -41,7 +41,7 @@ export function ReviewPage(props: Props) {
         </button>
       ) : null}
 
-      <section className="readiness-strip" aria-label="Review overview">
+      <section className="readiness-strip" aria-label="複習概況">
         <div>
           <span>{zhTW.review.dueNow}</span>
           <strong>{props.due}</strong>

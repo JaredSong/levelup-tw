@@ -54,7 +54,7 @@ export function HomePage(props: Props) {
       <header className="app-header">
         <div>
           <p className="eyebrow">{zhTW.home.currentBank}：{formatCurrentBankLabel(activeExam)}</p>
-          <h1>Level Up</h1>
+          <h1>{zhTW.home.brandTitle}</h1>
           <p className="header-subtitle">{studyCopy.subtitle}</p>
         </div>
         {examDays !== null ? (
@@ -90,7 +90,7 @@ export function HomePage(props: Props) {
         </div>
       </section>
 
-      <section className="readiness-strip" aria-label="Study overview">
+      <section className="readiness-strip" aria-label="學習概況">
         <div>
           <span>{zhTW.home.seen}</span>
           <strong>{props.seen}</strong>

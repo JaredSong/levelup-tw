@@ -76,13 +76,13 @@ export function SettingsView({ questions, progress }: Props) {
     }
     const blocks = wrong.map((question, index) => {
       const item = progress[question.id]
-      const mastered = (item?.streak ?? 0) >= 2 ? ' [now mastered]' : ''
+      const mastered = (item?.streak ?? 0) >= 2 ? ' [已熟練]' : ''
       const options = question.options
         .map((option, optionIndex) => `   ${question.answers.includes(optionIndex + 1) ? '✓' : ' '} ${optionIndex + 1}. ${option}`)
         .join('\n')
-      return `${index + 1}. [${question.id}] ${question.sectionTitle ?? ''} · wrong ${item?.wrong ?? 0}×${mastered}\n${question.prompt}\n${options}`
+      return `${index + 1}. [${question.id}] ${question.sectionTitle ?? ''} · 錯 ${item?.wrong ?? 0} 次${mastered}\n${question.prompt}\n${options}`
     })
-    const header = `Level Up — Wrong questions (${wrong.length})\nExported ${new Date().toLocaleString()}\n✓ marks the official answer.\n`
+    const header = `升級吧 — 錯題匯出（${wrong.length} 題）\n匯出時間：${new Date().toLocaleString()}\n✓ 為官方正確答案。\n`
     download(`${header}\n${blocks.join('\n\n')}\n`, `level-up-wrong-${new Date().toISOString().slice(0, 10)}.txt`, 'text/plain;charset=utf-8')
     setDataMsg(zhTW.stats.exportedWrong(wrong.length))
   }
@@ -180,7 +180,7 @@ export function SettingsView({ questions, progress }: Props) {
         </section>
       ) : null}
 
-      <p className="build-version">Level Up · 升級吧 {__APP_VERSION__}</p>
+      <p className="build-version">升級吧 · Level Up {__APP_VERSION__}</p>
     </div>
   )
 }

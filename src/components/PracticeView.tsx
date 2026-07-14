@@ -72,13 +72,10 @@ function speakerForLine(text: string): 'host' | 'teacher' {
   return /^(老師|Teacher)\s*[:：]/i.test(text.trim()) ? 'teacher' : 'host'
 }
 
-// Commute notes are English, so read them with a natural English voice.
-function chooseEnglishVoice(voices: SpeechSynthesisVoice[]): SpeechSynthesisVoice | null {
-  const en = voices.filter((voice) => voice.lang.toLowerCase().startsWith('en'))
-  if (!en.length) return null
-  const preferred = ['samantha', 'aria', 'jenny', 'google us english', 'natural', 'siri']
-  const byName = en.find((voice) => preferred.some((hint) => voice.name.toLowerCase().includes(hint)))
-  return byName ?? en.find((voice) => voice.lang.toLowerCase() === 'en-us') ?? en[0]
+function chooseChineseVoice(voices: SpeechSynthesisVoice[]): SpeechSynthesisVoice | null {
+  const zh = voices.filter((voice) => voice.lang.toLowerCase().startsWith('zh'))
+  if (!zh.length) return null
+  return zh.find((voice) => ['zh-tw', 'zh-hant'].some((hint) => voice.lang.toLowerCase().includes(hint))) ?? zh[0]
 }
 
 function formatClock(totalSeconds: number) {
@@ -142,7 +139,7 @@ function QuestionFigure({ question }: { question: Question }) {
       {figureSources.map((source, index) => (
         <img
           src={source}
-          alt={`Official source figure ${index + 1} for ${question.id}`}
+          alt={`官方圖片 ${index + 1}：${question.id}`}
           key={source}
           onError={() => {
             if (question.sourcePageImage && !showingSourcePage) setUseFallback(true)
@@ -340,11 +337,11 @@ export function PracticeView({
   const speakNote = useCallback((continuePlaylist = false) => {
     const note = playableExplanation.trim()
     if (!note) {
-      setExplainError('This note is empty. Regenerate it once, then play.')
+      setExplainError('這則筆記是空的。請先重新產生，再播放。')
       return
     }
     if (!('speechSynthesis' in window)) {
-      setExplainError('Voice playback is not supported in this browser. Open the app in Safari or Chrome.')
+      setExplainError('這個瀏覽器不支援語音播放。請用 Safari 或 Chrome 開啟。')
       return
     }
     window.speechSynthesis.cancel()
@@ -362,7 +359,7 @@ export function PracticeView({
       ? segments
       : [{ speaker: 'host' as const, text: stripSpeakerLabel(note.replace(/\*\*/g, '').replace(/\s+/g, ' ').trim()) }]
     const voices = window.speechSynthesis.getVoices()
-    const enVoice = chooseEnglishVoice(voices)
+    const zhVoice = chooseChineseVoice(voices)
     const finish = () => {
       setSpeaking(false)
       if (continuePlaylist && !isLast) onNavigate(session.currentIndex + 1)
@@ -376,11 +373,11 @@ export function PracticeView({
         return
       }
       const utterance = new SpeechSynthesisUtterance(segment.text)
-      utterance.lang = 'en-US'
+      utterance.lang = 'zh-TW'
       utterance.rate = 0.98
       utterance.pitch = 1
       utterance.volume = 1
-      if (enVoice) utterance.voice = enVoice
+      if (zhVoice) utterance.voice = zhVoice
       utterance.onend = () => {
         index += 1
         window.setTimeout(speakNext, 320)
@@ -493,16 +490,16 @@ export function PracticeView({
 
         {isCommute ? (
           <section className="commute-card">
-              <p className="answer-label">{aiCommuteNote ? 'AI commute voice note' : 'Basic commute voice note'}</p>
+              <p className="answer-label">{aiCommuteNote ? 'AI 通勤筆記' : '基本通勤筆記'}</p>
               <div className="answer-summary">
-                <span><strong>Your last choice:</strong> {priorSelection.length ? priorSelection.join('、') : '—'}</span>
-                <span className="official"><strong>Official correct:</strong> {question.answers.join('、')}</span>
+                <span><strong>上次選擇：</strong>{priorSelection.length ? priorSelection.join('、') : '—'}</span>
+                <span className="official"><strong>正確答案：</strong>{question.answers.join('、')}</span>
               </div>
               {playableExplanation ? (
                 <div className="ai-explanation commute-note commute-transcript">{renderExplanation(playableExplanation)}</div>
               ) : null}
             <div className="commute-reference">
-              <p className="answer-label">Official choices reference</p>
+              <p className="answer-label">選項參考</p>
               {question.options.map((option, index) => {
                 const officialValue = index + 1
                 // Commute notes are for exam memorisation, so keep the official

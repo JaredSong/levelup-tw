@@ -72,7 +72,7 @@ export async function exportBackup(): Promise<string> {
 export async function importBackup(json: string): Promise<void> {
   const parsed = JSON.parse(json) as Partial<BackupFile>
   if (parsed.app !== 'level-b-study' || !parsed.data) {
-    throw new Error('This file is not a Level Up backup.')
+    throw new Error('這不是升級吧的備份檔。')
   }
   // Old (version <= 2) backups carry bare question ids; normalizing is idempotent,
   // so it is safe to apply to every import.

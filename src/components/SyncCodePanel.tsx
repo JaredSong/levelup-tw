@@ -17,9 +17,9 @@ interface Props {
  * phone uses.
  */
 function qrPath(text: string) {
-  // Type 0 = smallest version that fits; M = ~15% error correction, enough to
-  // survive a screenshot re-crop without bloating the module count.
-  const qr = qrcode(0, 'M')
+  // Type 0 = smallest version that fits; H = ~30% error correction, which gives
+  // enough room for a small center logo without making the handoff fragile.
+  const qr = qrcode(0, 'H')
   qr.addData(text)
   qr.make()
   const count = qr.getModuleCount()
@@ -30,6 +30,61 @@ function qrPath(text: string) {
     }
   }
   return { d, count }
+}
+
+function logoGeometry(count: number) {
+  const box = count * 0.24
+  const x = (count - box) / 2
+  const y = x
+  return { box, x, y }
+}
+
+function QrCenterLogo({ count }: { count: number }) {
+  const { box, x, y } = logoGeometry(count)
+  const pad = box * 0.08
+  const inner = box - pad * 2
+  const header = inner * 0.26
+  const arrowTop = y + pad + header + inner * 0.16
+  const arrowMid = y + pad + header + inner * 0.36
+  const arrowBottom = y + pad + header + inner * 0.74
+  const arrowLeft = x + pad + inner * 0.2
+  const arrowRight = x + pad + inner * 0.8
+  const arrowCenter = x + box / 2
+  const stemLeft = x + pad + inner * 0.42
+  const stemRight = x + pad + inner * 0.58
+
+  return (
+    <g aria-hidden="true">
+      <rect fill="#ffffff" height={box + 1.2} rx="1.4" width={box + 1.2} x={x - 0.6} y={y - 0.6} />
+      <rect fill="#111713" height={box} rx="1.15" width={box} x={x} y={y} />
+      <rect fill="#eef0e9" height={inner} width={inner} x={x + pad} y={y + pad} />
+      <rect fill="#2b7650" height={header} width={inner} x={x + pad} y={y + pad} />
+      <path
+        d={`M${arrowCenter} ${arrowTop}L${arrowRight} ${arrowMid}H${stemRight}V${arrowBottom}H${stemLeft}V${arrowMid}H${arrowLeft}Z`}
+        fill="#2f9b6d"
+        stroke="#111713"
+        strokeLinejoin="round"
+        strokeWidth={box * 0.06}
+      />
+    </g>
+  )
+}
+
+function qrCenterLogoMarkup(count: number) {
+  const { box, x, y } = logoGeometry(count)
+  const pad = box * 0.08
+  const inner = box - pad * 2
+  const header = inner * 0.26
+  const arrowTop = y + pad + header + inner * 0.16
+  const arrowMid = y + pad + header + inner * 0.36
+  const arrowBottom = y + pad + header + inner * 0.74
+  const arrowLeft = x + pad + inner * 0.2
+  const arrowRight = x + pad + inner * 0.8
+  const arrowCenter = x + box / 2
+  const stemLeft = x + pad + inner * 0.42
+  const stemRight = x + pad + inner * 0.58
+  const arrow = `M${arrowCenter} ${arrowTop}L${arrowRight} ${arrowMid}H${stemRight}V${arrowBottom}H${stemLeft}V${arrowMid}H${arrowLeft}Z`
+  return `<g aria-hidden="true"><rect fill="#ffffff" x="${x - 0.6}" y="${y - 0.6}" width="${box + 1.2}" height="${box + 1.2}" rx="1.4"/><rect fill="#111713" x="${x}" y="${y}" width="${box}" height="${box}" rx="1.15"/><rect fill="#eef0e9" x="${x + pad}" y="${y + pad}" width="${inner}" height="${inner}"/><rect fill="#2b7650" x="${x + pad}" y="${y + pad}" width="${inner}" height="${header}"/><path fill="#2f9b6d" stroke="#111713" stroke-width="${box * 0.06}" stroke-linejoin="round" d="${arrow}"/></g>`
 }
 
 function QrSvg({ text, size = 168 }: { text: string; size?: number }) {
@@ -47,6 +102,7 @@ function QrSvg({ text, size = 168 }: { text: string; size?: number }) {
     >
       <rect fill="#ffffff" height={path.count + 2} width={path.count + 2} x="-1" y="-1" />
       <path d={path.d} fill="#18201b" />
+      <QrCenterLogo count={path.count} />
     </svg>
   )
 }
@@ -54,7 +110,7 @@ function QrSvg({ text, size = 168 }: { text: string; size?: number }) {
 function qrSvgMarkup(text: string) {
   const path = qrPath(text)
   const size = path.count + 2
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 ${size} ${size}" width="640" height="640"><rect fill="#ffffff" x="-1" y="-1" width="${size}" height="${size}"/><path fill="#18201b" d="${path.d}"/></svg>`
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 ${size} ${size}" width="640" height="640"><rect fill="#ffffff" x="-1" y="-1" width="${size}" height="${size}"/><path fill="#18201b" d="${path.d}"/>${qrCenterLogoMarkup(path.count)}</svg>`
 }
 
 // The sync code replaces "remember a passphrase". It cannot be remembered, so it

@@ -11,6 +11,9 @@ interface Props {
   onCodeChange: (code: string) => void
 }
 
+const APP_ICON_SVG = '<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_19_191)"><path d="M408 0H104C46.5624 0 0 46.5624 0 104V408C0 465.438 46.5624 512 104 512H408C465.438 512 512 465.438 512 408V104C512 46.5624 465.438 0 408 0Z" fill="#111713"/><path d="M112 124H400V388H112V124Z" fill="#EEF0E9"/><path d="M112 124H400V196H112V124Z" fill="#2B7650"/><path d="M151 170C156.523 170 161 165.523 161 160C161 154.477 156.523 150 151 150C145.477 150 141 154.477 141 160C141 165.523 145.477 170 151 170Z" fill="#EF765E"/><path d="M183 170C188.523 170 193 165.523 193 160C193 154.477 188.523 150 183 150C177.477 150 173 154.477 173 160C173 165.523 177.477 170 183 170Z" fill="#E5B64B"/><path d="M215 170C220.523 170 225 165.523 225 160C225 154.477 220.523 150 215 150C209.477 150 205 154.477 205 160C205 165.523 209.477 170 215 170Z" fill="#EEF0E9"/><path d="M256 233L322 299H283.5V343H228.5V299H190L256 233Z" fill="#2F9B6D"/><path opacity="0.16" d="M256 252L211 296.584H241V331H271V296.584H301L256 252Z" fill="#111713"/><path d="M256 233L322 299H283.5V343H228.5V299H190L256 233Z" stroke="#111713" stroke-width="10" stroke-linejoin="round"/></g><defs><clipPath id="clip0_19_191"><rect width="512" height="512" fill="white"/></clipPath></defs></svg>'
+const APP_ICON_DATA_URI = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(APP_ICON_SVG)}`
+
 /**
  * Renders the handoff link as an inline SVG. SVG rather than canvas so it stays
  * crisp at any size, prints, and survives a screenshot at whatever DPI the
@@ -41,50 +44,18 @@ function logoGeometry(count: number) {
 
 function QrCenterLogo({ count }: { count: number }) {
   const { box, x, y } = logoGeometry(count)
-  const pad = box * 0.08
-  const inner = box - pad * 2
-  const header = inner * 0.26
-  const arrowTop = y + pad + header + inner * 0.16
-  const arrowMid = y + pad + header + inner * 0.36
-  const arrowBottom = y + pad + header + inner * 0.74
-  const arrowLeft = x + pad + inner * 0.2
-  const arrowRight = x + pad + inner * 0.8
-  const arrowCenter = x + box / 2
-  const stemLeft = x + pad + inner * 0.42
-  const stemRight = x + pad + inner * 0.58
 
   return (
     <g aria-hidden="true">
       <rect fill="#ffffff" height={box + 1.2} rx="1.4" width={box + 1.2} x={x - 0.6} y={y - 0.6} />
-      <rect fill="#111713" height={box} rx="1.15" width={box} x={x} y={y} />
-      <rect fill="#eef0e9" height={inner} width={inner} x={x + pad} y={y + pad} />
-      <rect fill="#2b7650" height={header} width={inner} x={x + pad} y={y + pad} />
-      <path
-        d={`M${arrowCenter} ${arrowTop}L${arrowRight} ${arrowMid}H${stemRight}V${arrowBottom}H${stemLeft}V${arrowMid}H${arrowLeft}Z`}
-        fill="#2f9b6d"
-        stroke="#111713"
-        strokeLinejoin="round"
-        strokeWidth={box * 0.06}
-      />
+      <image height={box} href={APP_ICON_DATA_URI} preserveAspectRatio="xMidYMid meet" width={box} x={x} y={y} />
     </g>
   )
 }
 
 function qrCenterLogoMarkup(count: number) {
   const { box, x, y } = logoGeometry(count)
-  const pad = box * 0.08
-  const inner = box - pad * 2
-  const header = inner * 0.26
-  const arrowTop = y + pad + header + inner * 0.16
-  const arrowMid = y + pad + header + inner * 0.36
-  const arrowBottom = y + pad + header + inner * 0.74
-  const arrowLeft = x + pad + inner * 0.2
-  const arrowRight = x + pad + inner * 0.8
-  const arrowCenter = x + box / 2
-  const stemLeft = x + pad + inner * 0.42
-  const stemRight = x + pad + inner * 0.58
-  const arrow = `M${arrowCenter} ${arrowTop}L${arrowRight} ${arrowMid}H${stemRight}V${arrowBottom}H${stemLeft}V${arrowMid}H${arrowLeft}Z`
-  return `<g aria-hidden="true"><rect fill="#ffffff" x="${x - 0.6}" y="${y - 0.6}" width="${box + 1.2}" height="${box + 1.2}" rx="1.4"/><rect fill="#111713" x="${x}" y="${y}" width="${box}" height="${box}" rx="1.15"/><rect fill="#eef0e9" x="${x + pad}" y="${y + pad}" width="${inner}" height="${inner}"/><rect fill="#2b7650" x="${x + pad}" y="${y + pad}" width="${inner}" height="${header}"/><path fill="#2f9b6d" stroke="#111713" stroke-width="${box * 0.06}" stroke-linejoin="round" d="${arrow}"/></g>`
+  return `<g aria-hidden="true"><rect fill="#ffffff" x="${x - 0.6}" y="${y - 0.6}" width="${box + 1.2}" height="${box + 1.2}" rx="1.4"/><image href="${APP_ICON_DATA_URI}" x="${x}" y="${y}" width="${box}" height="${box}" preserveAspectRatio="xMidYMid meet"/></g>`
 }
 
 function QrSvg({ text, size = 168 }: { text: string; size?: number }) {

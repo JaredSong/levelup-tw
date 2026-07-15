@@ -1,5 +1,6 @@
-import { Database, KeyRound, Search, UserRound } from 'lucide-react'
+import { Camera, Database, KeyRound, Search, UserRound } from 'lucide-react'
 import { useMemo, useState } from 'react'
+import { formatSyncCode, isValidSyncCode, normalizeSyncCode, readSyncLink } from '../app/syncCode'
 import { zhTW } from '../i18n/zh-TW'
 import { setSyncPass } from '../storage/sync'
 import { ONBOARDING_DONE_KEY, PROFILE_NAME_KEY } from './onboardingState'
@@ -17,8 +18,9 @@ export function OnboardingGate({ onComplete }: Props) {
   const { activeExam, installedExams, setActiveExamId } = useActiveExam()
   const [step, setStep] = useState<1 | 2>(1)
   const [name, setName] = useState(() => localStorage.getItem(PROFILE_NAME_KEY) ?? '')
-  const [restoring, setRestoring] = useState(false)
-  const [passphrase, setPassphrase] = useState('')
+  const scannedCode = readSyncLink(window.location.hash)
+  const [restoring, setRestoring] = useState(() => Boolean(scannedCode))
+  const [passphrase, setPassphrase] = useState(() => scannedCode ? formatSyncCode(scannedCode) : '')
   const [examId, setExamId] = useState(activeExam.examId)
   const [subjectNameSearch, setSubjectNameSearch] = useState('')
   const [subjectCodeSearch, setSubjectCodeSearch] = useState('')
@@ -49,25 +51,23 @@ export function OnboardingGate({ onComplete }: Props) {
     : filteredExams[0]?.examId ?? examId
 
   const trimmedName = name.trim()
-  const trimmedPassphrase = passphrase.trim()
+  const normalizedPassphrase = normalizeSyncCode(passphrase)
   // Restoring keys the cloud record on name + passphrase, so an empty name or a
   // too-short passphrase would quietly resolve to somebody else's record (or an
   // empty one) instead of this learner's progress. Block rather than mislead.
   const restoreError = !restoring
     ? null
-    : !trimmedName
-      ? zhTW.onboarding.restoreNeedsName
-      : trimmedPassphrase.length < 8
-        ? zhTW.onboarding.syncTooShort
-        : null
+    : !isValidSyncCode(passphrase)
+      ? zhTW.onboarding.syncInvalidCode
+      : null
 
   const complete = () => {
     if (restoreError) return
     if (trimmedName) localStorage.setItem(PROFILE_NAME_KEY, trimmedName)
     else localStorage.removeItem(PROFILE_NAME_KEY)
-    // Only a deliberate restore stores a passphrase; leaving the panel closed is
+    // Only a deliberate restore stores a sync code; leaving the panel closed is
     // what "local only" means, so a half-typed value can never enable sync.
-    if (restoring && trimmedPassphrase) setSyncPass(trimmedPassphrase)
+    if (restoring && normalizedPassphrase) setSyncPass(normalizedPassphrase)
     setActiveExamId(selectedExamId)
     localStorage.setItem(ONBOARDING_DONE_KEY, 'true')
     onComplete()
@@ -84,6 +84,28 @@ export function OnboardingGate({ onComplete }: Props) {
 
         {step === 1 ? (
           <div className="onboarding-subjects">
+            <section className="onboarding-scan-card">
+              <div>
+                <p className="onboarding-restore-head"><Camera size={15} /> {zhTW.onboarding.scanTitle}</p>
+                <p className="onboarding-restore-hint">{zhTW.onboarding.scanHint}</p>
+              </div>
+              {restoring ? (
+                <label className="onboarding-code-field">
+                  <span>{scannedCode ? zhTW.onboarding.scannedCodeDetected : zhTW.onboarding.syncCodeLabel}</span>
+                  <input
+                    inputMode="text"
+                    onChange={(event) => setPassphrase(event.target.value)}
+                    placeholder={zhTW.onboarding.syncCodePlaceholder}
+                    value={passphrase}
+                  />
+                  {restoreError ? <em>{restoreError}</em> : null}
+                </label>
+              ) : (
+                <button className="onboarding-restore-toggle" onClick={() => setRestoring(true)} type="button">
+                  <KeyRound size={15} /> {zhTW.onboarding.restoreToggle}
+                </button>
+              )}
+            </section>
             <div className="onboarding-search-grid">
               <label className="onboarding-subject-search">
                 <Search size={17} />
@@ -136,8 +158,8 @@ export function OnboardingGate({ onComplete }: Props) {
                 <p className="onboarding-restore-head"><KeyRound size={15} /> {zhTW.onboarding.restoreTitle}</p>
                 <p className="onboarding-restore-hint">{zhTW.onboarding.restoreHint}</p>
                 <label>
-                  <span>{zhTW.onboarding.syncLabel}</span>
-                  <input value={passphrase} onChange={(event) => setPassphrase(event.target.value)} placeholder={zhTW.onboarding.syncPlaceholder} type="password" />
+                  <span>{zhTW.onboarding.syncCodeLabel}</span>
+                  <input value={passphrase} onChange={(event) => setPassphrase(event.target.value)} placeholder={zhTW.onboarding.syncCodePlaceholder} />
                 </label>
                 {restoreError ? <p className="inline-error">{restoreError}</p> : null}
               </div>

@@ -48,6 +48,7 @@ export function HomePage(props: Props) {
   const completion = props.total ? Math.round((props.seen / props.total) * 100) : 0
   const primaryLabel = props.hasSession ? props.sessionLabel : studyCopy.continueFrom
   const profileName = localStorage.getItem(PROFILE_NAME_KEY)?.trim()
+  const welcome = zhTW.home.welcomeParts(profileName)
   // Null when no date is set or it has already passed — the countdown hides
   // itself rather than showing a stale/negative number in either case.
   const examDays = daysUntilExam(getEffectiveExamDate(new Date()), new Date())
@@ -62,9 +63,11 @@ export function HomePage(props: Props) {
         <div>
           <p className="eyebrow">{zhTW.home.currentBank}：{formatCurrentBankLabel(activeExam)}</p>
           <h1 aria-label={zhTW.home.welcomeTitle(profileName)}>
-            {zhTW.home.welcomeParts(profileName).before}
+            {welcome.before}
             <span className="brand-mark">{zhTW.home.welcomeBrand}</span>
-            {zhTW.home.welcomeParts(profileName).after}
+            {welcome.comma}
+            {welcome.nameOnOwnLine ? <br /> : null}
+            {welcome.after}
           </h1>
           <p className="header-subtitle">{studyCopy.subtitle}</p>
         </div>

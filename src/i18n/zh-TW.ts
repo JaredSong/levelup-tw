@@ -49,7 +49,14 @@ export const zhTW = {
     // Split around the brand so Home can highlight 升級吧 while keeping welcomeTitle
     // as the plain-text form for aria labels and the document title.
     welcomeBrand: '升級吧',
-    welcomeParts: (name?: string) => ({ before: '歡迎使用', after: name ? `，${name}! 👏` : '! 👏' }),
+    // The name goes on its own line: it is the one variable-length part, so
+    // wrapping it keeps 升級吧 whole instead of breaking the brand mid-word.
+    welcomeParts: (name?: string) => ({
+      before: '歡迎使用',
+      comma: name ? '，' : '',
+      after: name ? `${name}! 👏` : '! 👏',
+      nameOnOwnLine: !!name,
+    }),
     subtitle: '升級吧 · 今日任務',
     syncOff: '雲端同步尚未開啟；可到「進度」設定通關密語，讓不同裝置共用進度。',
     seen: '已練',
@@ -100,7 +107,8 @@ export const zhTW = {
     sequentialHint: '照官方題庫順序繼續',
     allQuestionsEyebrow: '題目清單',
     allQuestionsTitle: '全部題目',
-    allQuestionsDescription: '每次作答都會保留在同一題紀錄下。',
+    allQuestionsDescription: '查特定題號或翻整個題庫；每次作答都會保留在同一題紀錄下。',
+    filterAria: '題目狀態篩選',
     searchPlaceholder: '搜尋題號或題目',
     filters: {
       all: '全部',

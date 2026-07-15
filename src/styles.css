@@ -121,7 +121,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .app-header h1, .page-title h1 { margin: 0; font-size: clamp(1.75rem, 4vw, 2.65rem); line-height: 1.06; }
 .brand-mark { color: var(--accent); }
 .header-subtitle, .page-title > p:last-child { margin: 7px 0 0; color: var(--muted); font-size: 0.92rem; }
-.exam-countdown { min-width: 70px; display: grid; justify-items: end; border-left: 1px solid var(--line); padding-left: 20px; }
+.exam-countdown { min-width: 70px; display: grid; justify-items: end; border-left: 1px solid var(--line); padding-left: 20px; padding-right: 8px; }
 .exam-countdown strong { font-variant-numeric: tabular-nums; font-size: 2rem; line-height: 1; }
 .exam-countdown span { margin-top: 5px; color: var(--muted); font-size: 0.75rem; }
 
@@ -394,8 +394,8 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
   .mock-band > button { flex: 0 0 auto; font-size: .74rem; }
   .mock-panel { padding: 16px; }
   .mock-facts, .mock-mode-grid { grid-template-columns: 1fr; }
-  .glossary-summary { grid-template-columns: 1fr; }
-  .glossary-toggle { width: 100%; justify-content: center; }
+  .collapse-head { grid-template-columns: 1fr; }
+  .collapse-toggle { width: 100%; justify-content: center; }
   .glossary-tools { flex-direction: column; }
   .today-note svg:last-child { display: none; }
   .stat-grid { grid-template-columns: 1fr 1fr; }
@@ -656,17 +656,21 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 [data-theme="dark"] .flag-btn.flagged { background: #39301a; }
 
 /* Bilingual glossary (Terms tab) */
-.glossary-page { margin-top: 24px; padding: 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
-.glossary-summary { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; gap: 14px; }
-.glossary-summary h2 { margin: 0; font-size: 1.08rem; }
-.glossary-summary p:last-child { margin: 5px 0 0; color: var(--muted); font-size: .8rem; line-height: 1.5; }
-.glossary-toggle { display: inline-flex; align-items: center; gap: 6px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 7px; background: transparent; color: var(--ink); font-size: .76rem; font-weight: 800; cursor: pointer; }
-.glossary-toggle:hover { border-color: var(--accent); background: var(--accent-pale); color: var(--accent-dark); }
-.glossary-toggle svg { transition: transform 150ms ease; }
-.glossary-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
-.glossary-preview { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 13px; }
-.glossary-preview span { padding: 5px 9px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); background: var(--paper); font-size: .75rem; font-weight: 750; }
-.glossary-page .glossary-tools { margin-top: 15px; }
+/* Collapsible panel: a long secondary block that lives inside a page without
+   dominating it. Shared by the glossary (Review) and the question library
+   (Practice) so the two cannot drift apart. */
+.collapse-panel { margin-top: 24px; padding: 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.collapse-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; gap: 14px; }
+.collapse-head h2 { margin: 0; font-size: 1.08rem; }
+.collapse-head p:last-child { margin: 5px 0 0; color: var(--muted); font-size: .8rem; line-height: 1.5; }
+.collapse-toggle { display: inline-flex; align-items: center; gap: 6px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 7px; background: transparent; color: var(--ink); font-size: .76rem; font-weight: 800; white-space: nowrap; cursor: pointer; }
+.collapse-toggle:hover { border-color: var(--accent); background: var(--accent-pale); color: var(--accent-dark); }
+.collapse-toggle svg { transition: transform 150ms ease; }
+.collapse-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+.collapse-preview { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 13px; }
+.collapse-preview span { padding: 5px 9px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); background: var(--paper); font-size: .75rem; font-weight: 750; }
+.collapse-panel .glossary-tools { margin-top: 15px; }
+.collapse-panel > .search-field { margin-top: 15px; }
 .glossary-group { padding: 18px 0 4px; border-top: 1px solid var(--line); }
 .glossary-list { margin-top: 12px; display: grid; gap: 10px; }
 .glossary-card { padding: 13px 14px; border: 1px solid var(--line); border-radius: 9px; background: var(--surface); }

@@ -65,21 +65,21 @@ export function GlossaryView({ onPracticeSection }: Props) {
   const previewTerms = glossary.filter((entry) => entry.kind === 'exam').slice(0, 4)
 
   return (
-    <section className={expanded ? 'glossary-page expanded' : 'glossary-page'}>
-      <header className="glossary-summary">
+    <section className={expanded ? 'collapse-panel expanded' : 'collapse-panel'}>
+      <header className="collapse-head">
         <div>
           <p className="eyebrow">{zhTW.glossary.eyebrow}</p>
           <h2>{zhTW.glossary.title}</h2>
           <p>{zhTW.glossary.description}</p>
         </div>
-        <button aria-expanded={expanded} className="glossary-toggle" onClick={() => setExpanded((current) => !current)} type="button">
+        <button aria-expanded={expanded} className="collapse-toggle" onClick={() => setExpanded((current) => !current)} type="button">
           {expanded ? zhTW.common.collapse : zhTW.common.expand}
           <ChevronDown size={17} />
         </button>
       </header>
 
       {!expanded ? (
-        <div className="glossary-preview">
+        <div className="collapse-preview">
           {previewTerms.map((entry) => <span key={entry.term}>{entry.term}</span>)}
         </div>
       ) : null}

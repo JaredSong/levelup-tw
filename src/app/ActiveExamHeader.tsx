@@ -19,28 +19,22 @@ export function ActiveExamHeader({ questions, progress, settingsOpen, onSettings
   const { activeExam, installedExams, selectedExams, setActiveExamId } = useActiveExam()
   const [open, setOpen] = useState(false)
   const [catalogOpen, setCatalogOpen] = useState(false)
-  const [catalogNameSearch, setCatalogNameSearch] = useState('')
-  const [catalogCodeSearch, setCatalogCodeSearch] = useState('')
+  const [catalogSearch, setCatalogSearch] = useState('')
   const setSettingsOpen = onSettingsOpenChange
-  const normalizedCatalogNameSearch = catalogNameSearch.trim().toLowerCase()
-  const normalizedCatalogCodeSearch = catalogCodeSearch.trim().toLowerCase()
+  const normalizedCatalogSearch = catalogSearch.trim().toLowerCase()
   const catalogGroups = useMemo(() => {
     const matches = installedExams.filter((exam) => {
-      const nameHaystack = [
+      const haystack = [
         exam.titleZh,
         exam.titleEn,
         exam.category,
         exam.level,
-        ...exam.sections.map((section) => section.titleZh),
-      ].join(' ').toLowerCase()
-      const codeHaystack = [
         exam.examId,
         exam.version,
         exam.sourceRevision,
-        ...exam.sections.flatMap((section) => [section.id, section.subjectCode]),
+        ...exam.sections.flatMap((section) => [section.id, section.subjectCode, section.titleZh]),
       ].join(' ').toLowerCase()
-      return (!normalizedCatalogNameSearch || nameHaystack.includes(normalizedCatalogNameSearch))
-        && (!normalizedCatalogCodeSearch || codeHaystack.includes(normalizedCatalogCodeSearch))
+      return !normalizedCatalogSearch || haystack.includes(normalizedCatalogSearch)
     })
     return Array.from(
       matches.reduce((groups, exam) => {
@@ -52,7 +46,7 @@ export function ActiveExamHeader({ questions, progress, settingsOpen, onSettings
       }, new Map<string, typeof installedExams>()),
       ([label, exams]) => ({ label, exams }),
     )
-  }, [installedExams, normalizedCatalogCodeSearch, normalizedCatalogNameSearch])
+  }, [installedExams, normalizedCatalogSearch])
 
   return (
     <div className="active-exam-bar" aria-label={zhTW.shell.activeExam}>
@@ -134,24 +128,12 @@ export function ActiveExamHeader({ questions, progress, settingsOpen, onSettings
             <div className="catalog-search-grid">
               <label className="catalog-search">
                 <Search size={17} />
-                <span>{zhTW.shell.catalogCodeSearch}</span>
                 <input
-                  aria-label={zhTW.shell.catalogCodeSearch}
-                  onChange={(event) => setCatalogCodeSearch(event.target.value)}
-                  placeholder={zhTW.shell.catalogCodeSearchPlaceholder}
+                  aria-label={zhTW.shell.catalogSearch}
+                  onChange={(event) => setCatalogSearch(event.target.value)}
+                  placeholder={zhTW.shell.catalogSearchPlaceholder}
                   type="search"
-                  value={catalogCodeSearch}
-                />
-              </label>
-              <label className="catalog-search">
-                <Search size={17} />
-                <span>{zhTW.shell.catalogNameSearch}</span>
-                <input
-                  aria-label={zhTW.shell.catalogNameSearch}
-                  onChange={(event) => setCatalogNameSearch(event.target.value)}
-                  placeholder={zhTW.shell.catalogNameSearchPlaceholder}
-                  type="search"
-                  value={catalogNameSearch}
+                  value={catalogSearch}
                 />
               </label>
             </div>

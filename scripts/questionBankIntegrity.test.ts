@@ -386,6 +386,91 @@ describe('published question bank', () => {
       expect(new Set(mock.map((question) => question.id)).size).toBe(80)
     }
   })
+
+  it('publishes the first high-demand class C expansion packs from official banks', () => {
+    const cases = [
+      {
+        examId: 'computer-software-application-c',
+        titleZh: '電腦軟體應用丙級',
+        occupationCode: '11800',
+        version: 'A14',
+        occupationPublished: 748,
+        occupationActive: 748,
+        extraCommonCode: '90011',
+        extraCommonActive: 119,
+      },
+      {
+        examId: 'chinese-cooking-meat-c',
+        titleZh: '中餐烹調－葷食丙級',
+        occupationCode: '07602',
+        version: 'A13',
+        occupationPublished: 640,
+        occupationActive: 637,
+        extraCommonCode: '90010',
+        extraCommonActive: 280,
+      },
+      {
+        examId: 'baking-food-c',
+        titleZh: '烘焙食品丙級',
+        occupationCode: '07700',
+        version: 'A12',
+        occupationPublished: 513,
+        occupationActive: 512,
+        extraCommonCode: '90010',
+        extraCommonActive: 280,
+      },
+    ]
+
+    for (const item of cases) {
+      const generated = loadExamBank(item.examId)
+      const manifest = JSON.parse(
+        readFileSync(new URL(`../public/data/exams/${item.examId}/manifest.json`, import.meta.url), 'utf8'),
+      ) as {
+        examId: string
+        titleZh: string
+        version: string
+        questionCount: number
+        activeQuestionCount: number
+        mockRules: Parameters<typeof buildMockQueue>[1]
+      }
+      const occupation = generated.filter((question) => question.subjectCode === item.occupationCode)
+      const extraCommon = generated.filter((question) => question.subjectCode === item.extraCommonCode)
+
+      expect(manifest).toMatchObject({
+        examId: item.examId,
+        titleZh: item.titleZh,
+        version: item.version,
+        mockRules: { totalQuestions: 80, singleCount: 80, multipleCount: 0 },
+      })
+      expect(occupation).toHaveLength(item.occupationPublished)
+      expect(occupation.filter((question) => question.active !== false)).toHaveLength(item.occupationActive)
+      expect(extraCommon.filter((question) => question.active !== false)).toHaveLength(item.extraCommonActive)
+      expect(generated.every((question) => question.examId === item.examId)).toBe(true)
+
+      const active = generated.filter((question) => question.active !== false)
+      const mock = buildMockQueue(active, manifest.mockRules, () => 0.41)
+      expect(mock).toHaveLength(80)
+      expect(mock.filter((question) => question.subjectCode === item.occupationCode)).toHaveLength(60)
+      expect(mock.filter((question) => question.subjectCode === item.extraCommonCode)).toHaveLength(4)
+      for (const code of ['90006', '90007', '90008', '90009']) {
+        expect(mock.filter((question) => question.subjectCode === code)).toHaveLength(4)
+      }
+    }
+  })
+
+  it('ships a complete crop set for the baking image-option question', () => {
+    const baking = loadExamBank('baking-food-c')
+    const question = baking.find((item) => item.id === '07700-03-003')
+
+    expect(question).toMatchObject({
+      answers: [1],
+      options: ['圖示選項 1', '圖示選項 2', '圖示選項 3', '圖示選項 4'],
+    })
+    expect(question?.sourceImages).toHaveLength(4)
+    for (const image of question?.sourceImages ?? []) {
+      expect(existsSync(new URL(`../public${decodeURIComponent(image)}`, import.meta.url)), image).toBe(true)
+    }
+  })
 })
 
 describe('bilingual glossary', () => {

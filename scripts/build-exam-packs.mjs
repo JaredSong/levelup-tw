@@ -3,11 +3,16 @@ import { parseQuestionBank } from './questionParser.mjs'
 import { sanitizeText } from './textCorrections.mjs'
 
 const INACTIVE_IDS = new Set([
+  '07602-01-067',
+  '07602-04-009',
+  '07602-10-011',
+  '07700-02-071',
   '90008-03-030',
   '90008-03-047',
   '90008-03-058',
   '90008-03-072',
   '90008-03-092',
+  '90010-01-100',
 ])
 
 const IMAGE_OVERRIDES = {
@@ -25,12 +30,27 @@ const IMAGE_OVERRIDES = {
   ],
   '90009-04-069': ['90009-page-7.png'],
   '90009-04-086': ['90009-04-086.png'],
+  '07700-03-003': [
+    '07700-03-003-1.png',
+    '07700-03-003-2.png',
+    '07700-03-003-3.png',
+    '07700-03-003-4.png',
+  ],
 }
 
 const SOURCE_PAGE_OVERRIDES = {
   '90009-04-069': 7,
   '90009-04-086': 8,
 }
+
+const QUESTION_OPTION_OVERRIDES = {
+  '11800-03-054': ['Windows 鍵+Ctrl+右方向鍵', 'Windows 鍵+Ctrl+下方向鍵', 'Windows 鍵+Ctrl+L', 'Windows 鍵+Ctrl+R'],
+  '11800-03-056': ['Windows 鍵+Ctrl+D', 'Windows 鍵+Ctrl+A', 'Windows 鍵+Ctrl+C', 'Windows 鍵+Ctrl+L'],
+  '11800-03-071': ['Windows 鍵+Ctrl+F1', 'Windows 鍵+Ctrl+F4', 'Windows 鍵+Ctrl+F8', 'Windows 鍵+Ctrl+F9'],
+  '11800-03-078': ['Windows 鍵+Tab', 'Windows 鍵+Ctrl', 'Windows 鍵+Alt', 'Windows 鍵+Shift'],
+}
+
+const NO_SOURCE_PAGE_IMAGE = new Set(['07700-03-003'])
 
 const GENERAL_COMMON_BANKS = [
   { code: '90006', file: '900060A18-raw.txt', expected: 100, version: 'A18' },
@@ -103,12 +123,91 @@ const EXAMS = [
       extraSubjectQuota: [],
     },
   },
+  {
+    examId: 'computer-software-application-c',
+    titleZh: '電腦軟體應用丙級',
+    titleEn: 'Computer Software Application (Class C)',
+    level: '丙級',
+    category: '資訊',
+    occupationCode: '11800',
+    occupationFile: '118003A14-raw.txt',
+    occupationExpected: 748,
+    version: 'A14',
+    sourceRevision: '118003A14 + 900110A10 + 900060A18/900070A17/900080A16/900090A11',
+    extraCommonCodes: ['90011'],
+    mockRules: {
+      occupationQuota: 60,
+      singleCount: 80,
+      multipleCount: 0,
+      weightSingle: 1.25,
+      weightMultiple: 0,
+      extraSubjectQuota: [{ subjectCode: '90011', count: 4 }],
+    },
+  },
+  {
+    examId: 'chinese-cooking-meat-c',
+    titleZh: '中餐烹調－葷食丙級',
+    titleEn: 'Chinese Cuisine - Meat (Class C)',
+    level: '丙級',
+    category: '餐飲食品',
+    occupationCode: '07602',
+    occupationFile: '076023A13-raw.txt',
+    occupationExpected: 640,
+    version: 'A13',
+    sourceRevision: '076023A13 + 900100A16 + 900060A18/900070A17/900080A16/900090A11',
+    extraCommonCodes: ['90010'],
+    mockRules: {
+      occupationQuota: 60,
+      singleCount: 80,
+      multipleCount: 0,
+      weightSingle: 1.25,
+      weightMultiple: 0,
+      extraSubjectQuota: [{ subjectCode: '90010', count: 4 }],
+    },
+  },
+  {
+    examId: 'baking-food-c',
+    titleZh: '烘焙食品丙級',
+    titleEn: 'Baking Food (Class C)',
+    level: '丙級',
+    category: '餐飲食品',
+    occupationCode: '07700',
+    occupationFile: '077003A12-raw.txt',
+    occupationExpected: 513,
+    version: 'A12',
+    sourceRevision: '077003A12 + 900100A16 + 900060A18/900070A17/900080A16/900090A11',
+    extraCommonCodes: ['90010'],
+    mockRules: {
+      occupationQuota: 60,
+      singleCount: 80,
+      multipleCount: 0,
+      weightSingle: 1.25,
+      weightMultiple: 0,
+      extraSubjectQuota: [{ subjectCode: '90010', count: 4 }],
+    },
+  },
 ]
 
 const BEAUTY_HAIR_COMMON_BANK = {
   code: '90012',
   file: '900120A10-raw.txt',
   expected: 300,
+  version: 'A10',
+  quota: 4,
+}
+
+const FOOD_COMMON_BANK = {
+  code: '90010',
+  file: '900100A16-raw.txt',
+  expected: 281,
+  version: 'A16',
+  quota: 4,
+}
+
+const INFORMATION_COMMON_BANK = {
+  code: '90011',
+  file: '900110A10-raw.txt',
+  expected: 119,
   version: 'A10',
   quota: 4,
 }
@@ -125,7 +224,7 @@ function questionImagePath(fileName) {
 }
 
 function sourcePageImageFor(question) {
-  if (!question.hasFigure) return undefined
+  if (!question.hasFigure || NO_SOURCE_PAGE_IMAGE.has(question.id)) return undefined
   return `/question-pages/${question.subjectCode}-page-${question.sourcePage}.jpg`
 }
 
@@ -145,7 +244,7 @@ function normalizeQuestion(question, examId) {
     examId,
     sourcePage,
     prompt: sanitizeText(question.prompt),
-    options: question.options.map(sanitizeText),
+    options: QUESTION_OPTION_OVERRIDES[question.id] ?? question.options.map(sanitizeText),
     ...(INACTIVE_IDS.has(question.id) ? { active: false } : {}),
   }
   if (!repaired.hasFigure) {
@@ -235,6 +334,8 @@ async function main() {
   const commonQuestions = (await Promise.all(GENERAL_COMMON_BANKS.map(loadParsed))).flat()
   const extraQuestionsByCode = new Map([
     [BEAUTY_HAIR_COMMON_BANK.code, await loadParsed(BEAUTY_HAIR_COMMON_BANK)],
+    [FOOD_COMMON_BANK.code, await loadParsed(FOOD_COMMON_BANK)],
+    [INFORMATION_COMMON_BANK.code, await loadParsed(INFORMATION_COMMON_BANK)],
   ])
   const manifests = []
   for (const exam of EXAMS) manifests.push(await writeExamPack(exam, commonQuestions, extraQuestionsByCode))

@@ -73,6 +73,14 @@ describe('active exam selection', () => {
     expect(formatIntegrityLabel(employment)).toBe('未校對')
   })
 
+  it('includes the high-demand class C packs in the searchable catalog', () => {
+    expect(INSTALLED_EXAMS.map((exam) => exam.examId)).toEqual(expect.arrayContaining([
+      'computer-software-application-c',
+      'chinese-cooking-meat-c',
+      'baking-food-c',
+    ]))
+  })
+
   it('formats the current bank label from the active exam instead of a fixed syllabus', () => {
     const womenHair = INSTALLED_EXAMS.find((exam) => exam.examId === 'women-hairdressing-c')!
     const employment = INSTALLED_EXAMS.find((exam) => exam.examId === 'employment-service-b')!

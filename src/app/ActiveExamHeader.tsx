@@ -19,23 +19,28 @@ export function ActiveExamHeader({ questions, progress, settingsOpen, onSettings
   const { activeExam, installedExams, selectedExams, setActiveExamId } = useActiveExam()
   const [open, setOpen] = useState(false)
   const [catalogOpen, setCatalogOpen] = useState(false)
-  const [catalogSearch, setCatalogSearch] = useState('')
+  const [catalogNameSearch, setCatalogNameSearch] = useState('')
+  const [catalogCodeSearch, setCatalogCodeSearch] = useState('')
   const setSettingsOpen = onSettingsOpenChange
-  const normalizedCatalogSearch = catalogSearch.trim().toLowerCase()
+  const normalizedCatalogNameSearch = catalogNameSearch.trim().toLowerCase()
+  const normalizedCatalogCodeSearch = catalogCodeSearch.trim().toLowerCase()
   const catalogGroups = useMemo(() => {
     const matches = installedExams.filter((exam) => {
-      if (!normalizedCatalogSearch) return true
-      const haystack = [
-        exam.examId,
+      const nameHaystack = [
         exam.titleZh,
         exam.titleEn,
         exam.category,
         exam.level,
+        ...exam.sections.map((section) => section.titleZh),
+      ].join(' ').toLowerCase()
+      const codeHaystack = [
+        exam.examId,
         exam.version,
         exam.sourceRevision,
-        ...exam.sections.flatMap((section) => [section.id, section.subjectCode, section.titleZh]),
+        ...exam.sections.flatMap((section) => [section.id, section.subjectCode]),
       ].join(' ').toLowerCase()
-      return haystack.includes(normalizedCatalogSearch)
+      return (!normalizedCatalogNameSearch || nameHaystack.includes(normalizedCatalogNameSearch))
+        && (!normalizedCatalogCodeSearch || codeHaystack.includes(normalizedCatalogCodeSearch))
     })
     return Array.from(
       matches.reduce((groups, exam) => {
@@ -47,7 +52,7 @@ export function ActiveExamHeader({ questions, progress, settingsOpen, onSettings
       }, new Map<string, typeof installedExams>()),
       ([label, exams]) => ({ label, exams }),
     )
-  }, [installedExams, normalizedCatalogSearch])
+  }, [installedExams, normalizedCatalogCodeSearch, normalizedCatalogNameSearch])
 
   return (
     <div className="active-exam-bar" aria-label={zhTW.shell.activeExam}>
@@ -126,16 +131,30 @@ export function ActiveExamHeader({ questions, progress, settingsOpen, onSettings
               <ArrowLeft size={16} />
               {zhTW.shell.chooseExam}
             </button>
-            <label className="catalog-search">
-              <Search size={17} />
-              <input
-                aria-label={zhTW.shell.catalogSearch}
-                onChange={(event) => setCatalogSearch(event.target.value)}
-                placeholder={zhTW.shell.catalogSearchPlaceholder}
-                type="search"
-                value={catalogSearch}
-              />
-            </label>
+            <div className="catalog-search-grid">
+              <label className="catalog-search">
+                <Search size={17} />
+                <span>{zhTW.shell.catalogNameSearch}</span>
+                <input
+                  aria-label={zhTW.shell.catalogNameSearch}
+                  onChange={(event) => setCatalogNameSearch(event.target.value)}
+                  placeholder={zhTW.shell.catalogNameSearchPlaceholder}
+                  type="search"
+                  value={catalogNameSearch}
+                />
+              </label>
+              <label className="catalog-search">
+                <Search size={17} />
+                <span>{zhTW.shell.catalogCodeSearch}</span>
+                <input
+                  aria-label={zhTW.shell.catalogCodeSearch}
+                  onChange={(event) => setCatalogCodeSearch(event.target.value)}
+                  placeholder={zhTW.shell.catalogCodeSearchPlaceholder}
+                  type="search"
+                  value={catalogCodeSearch}
+                />
+              </label>
+            </div>
             <div className="catalog-list">
               {catalogGroups.map((group) => (
                 <section className="catalog-group" key={group.label}>
@@ -145,11 +164,7 @@ export function ActiveExamHeader({ questions, progress, settingsOpen, onSettings
                   </div>
                   {group.exams.map((exam) => {
                     const isActive = exam.examId === activeExam.examId
-                    const imageQuestionCount = exam.examId === 'web-design-b'
-                      ? 18
-                      : exam.examId === 'man-haircut-c' || exam.examId === 'women-hairdressing-c' || exam.examId === 'employment-service-b'
-                        ? 4
-                        : 0
+                    const imageQuestionCount = exam.integrity?.imageQuestionCount ?? 0
                     const subjectCodes = Array.from(new Set(exam.sections.map((section) => section.subjectCode))).join(' / ')
                     return (
                       <article className={isActive ? 'catalog-card active' : 'catalog-card'} key={exam.examId}>

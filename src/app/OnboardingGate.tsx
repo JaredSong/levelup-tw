@@ -20,24 +20,30 @@ export function OnboardingGate({ onComplete }: Props) {
   const [restoring, setRestoring] = useState(false)
   const [passphrase, setPassphrase] = useState('')
   const [examId, setExamId] = useState(activeExam.examId)
-  const [subjectSearch, setSubjectSearch] = useState('')
-  const normalizedSearch = subjectSearch.trim().toLowerCase()
+  const [subjectNameSearch, setSubjectNameSearch] = useState('')
+  const [subjectCodeSearch, setSubjectCodeSearch] = useState('')
+  const normalizedNameSearch = subjectNameSearch.trim().toLowerCase()
+  const normalizedCodeSearch = subjectCodeSearch.trim().toLowerCase()
   const filteredExams = useMemo(() => {
-    if (!normalizedSearch) return installedExams
+    if (!normalizedNameSearch && !normalizedCodeSearch) return installedExams
     return installedExams.filter((exam) => {
-      const haystack = [
-        exam.examId,
+      const nameHaystack = [
         exam.titleZh,
         exam.titleEn,
         exam.category,
         exam.level,
+        ...exam.sections.map((section) => section.titleZh),
+      ].join(' ').toLowerCase()
+      const codeHaystack = [
+        exam.examId,
         exam.version,
         exam.sourceRevision,
-        ...exam.sections.flatMap((section) => [section.id, section.subjectCode, section.titleZh]),
+        ...exam.sections.flatMap((section) => [section.id, section.subjectCode]),
       ].join(' ').toLowerCase()
-      return haystack.includes(normalizedSearch)
+      return (!normalizedNameSearch || nameHaystack.includes(normalizedNameSearch))
+        && (!normalizedCodeSearch || codeHaystack.includes(normalizedCodeSearch))
     })
-  }, [installedExams, normalizedSearch])
+  }, [installedExams, normalizedCodeSearch, normalizedNameSearch])
   const selectedExamId = filteredExams.some((exam) => exam.examId === examId)
     ? examId
     : filteredExams[0]?.examId ?? examId
@@ -78,16 +84,30 @@ export function OnboardingGate({ onComplete }: Props) {
 
         {step === 1 ? (
           <div className="onboarding-subjects">
-            <label className="onboarding-subject-search">
-              <Search size={17} />
-              <input
-                aria-label={zhTW.onboarding.subjectSearch}
-                onChange={(event) => setSubjectSearch(event.target.value)}
-                placeholder={zhTW.onboarding.subjectSearchPlaceholder}
-                type="search"
-                value={subjectSearch}
-              />
-            </label>
+            <div className="onboarding-search-grid">
+              <label className="onboarding-subject-search">
+                <Search size={17} />
+                <span>{zhTW.onboarding.subjectNameSearch}</span>
+                <input
+                  aria-label={zhTW.onboarding.subjectNameSearch}
+                  onChange={(event) => setSubjectNameSearch(event.target.value)}
+                  placeholder={zhTW.onboarding.subjectNameSearchPlaceholder}
+                  type="search"
+                  value={subjectNameSearch}
+                />
+              </label>
+              <label className="onboarding-subject-search">
+                <Search size={17} />
+                <span>{zhTW.onboarding.subjectCodeSearch}</span>
+                <input
+                  aria-label={zhTW.onboarding.subjectCodeSearch}
+                  onChange={(event) => setSubjectCodeSearch(event.target.value)}
+                  placeholder={zhTW.onboarding.subjectCodeSearchPlaceholder}
+                  type="search"
+                  value={subjectCodeSearch}
+                />
+              </label>
+            </div>
             <div className="onboarding-subject-list">
               {filteredExams.map((exam) => (
                 <button className={exam.examId === selectedExamId ? 'selected' : ''} key={exam.examId} onClick={() => setExamId(exam.examId)} type="button">

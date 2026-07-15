@@ -31,6 +31,10 @@ export function ReviewCardStack({ dueCards, totalCards, onGrade, onOpenSource }:
   if (!card) {
     return (
       <section className="review-card-stack empty">
+        <div className="review-card-hero">
+          <span><Layers3 size={18} /> {zhTW.review.memoryLayerTitle}</span>
+          <small>{zhTW.review.memoryLayerHint}</small>
+        </div>
         <Sparkles size={20} />
         <strong>{totalCards ? zhTW.review.allClear : zhTW.review.noCardsYet}</strong>
         {totalCards ? <small>{zhTW.review.cardsTotal(totalCards)}</small> : null}
@@ -40,6 +44,10 @@ export function ReviewCardStack({ dueCards, totalCards, onGrade, onOpenSource }:
 
   return (
     <section className="review-card-stack" aria-label={zhTW.review.cards}>
+      <div className="review-card-hero">
+        <span><Layers3 size={18} /> {zhTW.review.memoryLayerTitle}</span>
+        <small>{zhTW.review.memoryLayerHint}</small>
+      </div>
       <div className="review-card-strip">
         <span className="review-card-count"><Layers3 size={15} /> {zhTW.review.cardsDue(dueCards.length)}</span>
         <button className="review-card-source" onClick={() => onOpenSource(card)} type="button">

@@ -337,10 +337,19 @@ export default function App() {
       answeredAt,
     })
 
-    await db.transaction('rw', db.progress, db.attempts, async () => {
+    let createdReviewCard = false
+    await db.transaction('rw', db.progress, db.attempts, db.reviewCards, async () => {
       await db.progress.put(nextProgress)
       await db.attempts.add({ questionId: questionKey(examId, question.id), selected, correct, guessed, elapsedMs, answeredAt: answeredAt.toISOString(), mode: session.mode })
+      if (!correct) {
+        const id = questionCardId(examId, question.id)
+        if (!(await db.reviewCards.get(id))) {
+          await db.reviewCards.put(createQuestionCard(examId, question, answeredAt))
+          createdReviewCard = true
+        }
+      }
     })
+    if (createdReviewCard) await refreshReviewCards()
     setProgress((current) => ({ ...current, [question.id]: nextProgress }))
     updateSession((current) => ({
       ...current,

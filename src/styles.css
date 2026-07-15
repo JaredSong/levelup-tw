@@ -66,10 +66,10 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .exam-catalog-link strong { color: var(--ink); font-size: .85rem; }
 .exam-catalog-link small { font-size: .72rem; }
 .catalog-back { display: inline-flex; align-items: center; gap: 7px; margin-top: 14px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); color: var(--muted); font-size: .76rem; font-weight: 800; cursor: pointer; }
-.catalog-search-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
-.catalog-search { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 4px 9px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--muted); }
-.catalog-search span { color: var(--accent-dark); font-size: .7rem; font-weight: 850; }
-.catalog-search input { grid-column: 2; width: 100%; border: 0; outline: 0; background: transparent; color: var(--ink); font-size: .85rem; }
+.catalog-search-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; padding: 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); }
+.catalog-search { min-height: 34px; display: grid; grid-template-columns: auto auto minmax(0, 1fr); align-items: center; gap: 7px; padding: 5px 8px; border: 1px solid var(--line); border-radius: 5px; background: var(--surface); color: var(--muted); }
+.catalog-search span { color: var(--ink); font-size: .78rem; font-weight: 850; white-space: nowrap; }
+.catalog-search input { width: 100%; border: 0; outline: 0; background: transparent; color: var(--ink); font-size: .82rem; }
 .catalog-search input::placeholder { color: var(--muted); opacity: .82; }
 .catalog-list { display: grid; gap: 10px; margin-top: 12px; }
 .catalog-group { display: grid; gap: 9px; }
@@ -112,10 +112,10 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .onboarding-code-field { grid-column: 1 / -1; display: grid; gap: 6px; color: var(--muted); font-size: .74rem; font-weight: 800; }
 .onboarding-code-field input { width: 100%; padding: 11px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink); font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
 .onboarding-code-field em { color: var(--danger); font-size: .72rem; font-style: normal; font-weight: 800; }
-.onboarding-search-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.onboarding-subject-search { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 4px 9px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); color: var(--muted); }
-.onboarding-subject-search span { color: var(--accent-dark); font-size: .7rem; font-weight: 850; }
-.onboarding-subject-search input { grid-column: 2; width: 100%; border: 0; outline: 0; background: transparent; color: var(--ink); }
+.onboarding-search-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); }
+.onboarding-subject-search { min-height: 34px; display: grid; grid-template-columns: auto auto minmax(0, 1fr); align-items: center; gap: 7px; padding: 5px 8px; border: 1px solid var(--line); border-radius: 5px; background: var(--surface); color: var(--muted); }
+.onboarding-subject-search span { color: var(--ink); font-size: .78rem; font-weight: 850; white-space: nowrap; }
+.onboarding-subject-search input { width: 100%; border: 0; outline: 0; background: transparent; color: var(--ink); font-size: .82rem; }
 .onboarding-subject-list { position: relative; display: grid; gap: 9px; max-height: min(360px, 38dvh); overflow-y: auto; padding: 0 2px 22px 0; }
 .onboarding-subjects::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 38px; pointer-events: none; background: linear-gradient(to bottom, rgba(255,255,255,0), var(--surface)); }
 .onboarding-subject-list button { width: 100%; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 11px; align-items: center; padding: 13px; border: 1px solid var(--line); border-radius: 9px; background: transparent; color: var(--ink); text-align: left; cursor: pointer; }

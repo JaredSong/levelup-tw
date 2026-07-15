@@ -207,7 +207,6 @@ export function OnboardingGate({ onComplete }: Props) {
             <div className="onboarding-search-grid single">
               <label className="onboarding-subject-search">
                 <Search size={17} />
-                <span>{zhTW.onboarding.subjectSearch}</span>
                 <input
                   aria-label={zhTW.onboarding.subjectSearch}
                   onChange={(event) => setSubjectSearch(event.target.value)}

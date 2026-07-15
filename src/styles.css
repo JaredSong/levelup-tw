@@ -125,10 +125,9 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .scan-msg.ok { color: var(--accent-dark); font-weight: 800; }
 .onboarding-search-grid { display: grid; grid-template-columns: minmax(150px, .72fr) minmax(220px, 1.28fr); gap: 8px; padding: 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); }
 .onboarding-search-grid.single { grid-template-columns: 1fr; padding: 0; border: 0; background: transparent; }
-.onboarding-subject-search { min-height: 34px; display: grid; grid-template-columns: auto auto minmax(0, 1fr); align-items: center; gap: 7px; padding: 5px 8px; border: 1px solid var(--line); border-radius: 5px; background: var(--surface); color: var(--muted); }
+.onboarding-subject-search { min-height: 34px; display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 10px; padding: 5px 8px; border: 1px solid var(--line); border-radius: 5px; background: var(--surface); color: var(--muted); }
 .onboarding-search-grid.single .onboarding-subject-search { min-height: 44px; padding: 9px 12px; border-radius: 8px; }
-.onboarding-subject-search span { color: var(--ink); font-size: .78rem; font-weight: 850; white-space: nowrap; }
-.onboarding-subject-search input { width: 100%; border: 0; outline: 0; background: transparent; color: var(--ink); font-size: .82rem; }
+.onboarding-subject-search input { width: 100%; border: 0; outline: 0; background: transparent; color: var(--ink); font-size: .95rem; font-weight: 750; }
 .onboarding-subject-list { position: relative; display: grid; gap: 9px; max-height: min(360px, 38dvh); overflow-y: auto; padding: 0 2px 22px 0; }
 .onboarding-subjects::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 38px; pointer-events: none; background: linear-gradient(to bottom, rgba(255,255,255,0), var(--surface)); }
 .onboarding-subject-list button { width: 100%; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 11px; align-items: center; padding: 13px; border: 1px solid var(--line); border-radius: 9px; background: transparent; color: var(--ink); text-align: left; cursor: pointer; }

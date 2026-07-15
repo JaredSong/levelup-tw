@@ -9,10 +9,15 @@ interface Props {
   onComplete: () => void
 }
 
+// Subject comes first because it is the only answer the app actually needs to
+// work, and it is the shortest path to studying. The name is a greeting and the
+// passphrase only matters to the minority who already have another device, so
+// both wait until after the real choice is made.
 export function OnboardingGate({ onComplete }: Props) {
   const { activeExam, installedExams, setActiveExamId } = useActiveExam()
   const [step, setStep] = useState<1 | 2>(1)
   const [name, setName] = useState(() => localStorage.getItem(PROFILE_NAME_KEY) ?? '')
+  const [restoring, setRestoring] = useState(false)
   const [passphrase, setPassphrase] = useState('')
   const [examId, setExamId] = useState(activeExam.examId)
   const [subjectSearch, setSubjectSearch] = useState('')
@@ -37,12 +42,26 @@ export function OnboardingGate({ onComplete }: Props) {
     ? examId
     : filteredExams[0]?.examId ?? examId
 
-  const complete = (syncValue = passphrase) => {
-    const trimmedName = name.trim()
-    const trimmedPassphrase = syncValue.trim()
+  const trimmedName = name.trim()
+  const trimmedPassphrase = passphrase.trim()
+  // Restoring keys the cloud record on name + passphrase, so an empty name or a
+  // too-short passphrase would quietly resolve to somebody else's record (or an
+  // empty one) instead of this learner's progress. Block rather than mislead.
+  const restoreError = !restoring
+    ? null
+    : !trimmedName
+      ? zhTW.onboarding.restoreNeedsName
+      : trimmedPassphrase.length < 8
+        ? zhTW.onboarding.syncTooShort
+        : null
+
+  const complete = () => {
+    if (restoreError) return
     if (trimmedName) localStorage.setItem(PROFILE_NAME_KEY, trimmedName)
     else localStorage.removeItem(PROFILE_NAME_KEY)
-    if (trimmedPassphrase) setSyncPass(trimmedPassphrase)
+    // Only a deliberate restore stores a passphrase; leaving the panel closed is
+    // what "local only" means, so a half-typed value can never enable sync.
+    if (restoring && trimmedPassphrase) setSyncPass(trimmedPassphrase)
     setActiveExamId(selectedExamId)
     localStorage.setItem(ONBOARDING_DONE_KEY, 'true')
     onComplete()
@@ -50,29 +69,15 @@ export function OnboardingGate({ onComplete }: Props) {
 
   return (
     <div className="onboarding-screen">
-      <section className="onboarding-card" aria-label={zhTW.onboarding.title}>
+      <section className="onboarding-card" aria-label={zhTW.onboarding.eyebrow}>
         <header>
-          <p className="eyebrow">{step === 1 ? zhTW.onboarding.stepProfile : zhTW.onboarding.stepSubject}</p>
-          <h1>{zhTW.onboarding.title}</h1>
-          <p>{zhTW.onboarding.description}</p>
+          <p className="eyebrow">{step === 1 ? zhTW.onboarding.stepSubject : zhTW.onboarding.stepProfile}</p>
+          <h1>{step === 1 ? zhTW.onboarding.subjectTitle : zhTW.onboarding.profileTitle}</h1>
+          <p>{step === 1 ? zhTW.onboarding.subjectDescription : zhTW.onboarding.profileDescription}</p>
         </header>
 
         {step === 1 ? (
-          <div className="onboarding-fields">
-            <label>
-              <span><UserRound size={16} /> {zhTW.onboarding.nameLabel}</span>
-              <input value={name} onChange={(event) => setName(event.target.value)} placeholder={zhTW.onboarding.namePlaceholder} />
-            </label>
-            <label>
-              <span><KeyRound size={16} /> {zhTW.onboarding.syncLabel}</span>
-              <input value={passphrase} onChange={(event) => setPassphrase(event.target.value)} placeholder={zhTW.onboarding.syncPlaceholder} type="password" />
-            </label>
-          </div>
-        ) : null}
-
-        {step === 2 ? (
           <div className="onboarding-subjects">
-            <p className="eyebrow">{zhTW.onboarding.subjectLabel}</p>
             <label className="onboarding-subject-search">
               <Search size={17} />
               <input
@@ -99,15 +104,37 @@ export function OnboardingGate({ onComplete }: Props) {
           </div>
         ) : null}
 
+        {step === 2 ? (
+          <div className="onboarding-fields">
+            <label>
+              <span><UserRound size={16} /> {zhTW.onboarding.nameLabel} <em>{zhTW.onboarding.nameOptional}</em></span>
+              <input value={name} onChange={(event) => setName(event.target.value)} placeholder={zhTW.onboarding.namePlaceholder} />
+            </label>
+
+            {restoring ? (
+              <div className="onboarding-restore">
+                <p className="onboarding-restore-head"><KeyRound size={15} /> {zhTW.onboarding.restoreTitle}</p>
+                <p className="onboarding-restore-hint">{zhTW.onboarding.restoreHint}</p>
+                <label>
+                  <span>{zhTW.onboarding.syncLabel}</span>
+                  <input value={passphrase} onChange={(event) => setPassphrase(event.target.value)} placeholder={zhTW.onboarding.syncPlaceholder} type="password" />
+                </label>
+                {restoreError ? <p className="inline-error">{restoreError}</p> : null}
+              </div>
+            ) : (
+              <button className="onboarding-restore-toggle" onClick={() => setRestoring(true)} type="button">
+                <KeyRound size={15} /> {zhTW.onboarding.restoreToggle}
+              </button>
+            )}
+          </div>
+        ) : null}
+
         <div className="onboarding-actions">
           {step === 1 ? (
-            <>
-              <button className="primary-action" onClick={() => setStep(2)} type="button">{zhTW.onboarding.next}</button>
-              <button className="secondary-action" onClick={() => { setPassphrase(''); setStep(2) }} type="button">{zhTW.onboarding.skipSync}</button>
-            </>
+            <button className="primary-action" onClick={() => setStep(2)} type="button">{zhTW.onboarding.next}</button>
           ) : (
             <>
-              <button className="primary-action" onClick={() => complete()} type="button">{zhTW.onboarding.start}</button>
+              <button className="primary-action" disabled={!!restoreError} onClick={complete} type="button">{zhTW.onboarding.start}</button>
               <button className="secondary-action" onClick={() => setStep(1)} type="button">{zhTW.onboarding.back}</button>
             </>
           )}

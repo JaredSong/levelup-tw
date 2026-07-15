@@ -278,23 +278,34 @@ export const zhTW = {
   },
   onboarding: {
     eyebrow: '裝置設定',
-    title: '設定升級吧',
-    description: '在這台裝置建立或恢復進度。可輸入同步通關密語載入其他裝置的紀錄，再選擇要練習的考科。',
-    stepProfile: '1 / 2 名字與同步',
-    stepSubject: '2 / 2 選擇考科',
+    // Each step states only its own job; the old copy described the whole flow
+    // on both screens before the learner had done anything.
+    stepSubject: '1 / 2',
+    stepProfile: '2 / 2',
+    subjectTitle: '要準備哪一個考科？',
+    subjectDescription: '進度、錯題與模擬紀錄會依考科分開保存，之後可以再新增其他考科。',
+    profileTitle: '怎麼稱呼你？',
+    profileDescription: '首頁會用這個名字跟你打招呼。',
     nameLabel: '你的名字',
+    nameOptional: '選填',
     namePlaceholder: '例如：考生',
-    syncLabel: '同步通關密語（選填，至少 8 個字元）',
-    syncPlaceholder: '已有進度時，輸入同一組通關密語',
-    subjectLabel: '選擇考科',
+    restoreToggle: '我在其他裝置用過，要載入進度',
+    restoreTitle: '載入其他裝置的進度',
+    // The cloud record is keyed by name + passphrase together (see
+    // functions/api/sync.js), so both must match or the learner silently gets an
+    // empty record instead of their progress. Say so where they type it.
+    restoreHint: '名字和通關密語都要和另一台裝置一模一樣，才會找到同一份進度。',
+    syncLabel: '同步通關密語',
+    syncPlaceholder: '至少 8 個字元',
+    syncTooShort: '通關密語至少要 8 個字元。',
+    restoreNeedsName: '載入進度時請填名字，要和另一台裝置相同。',
     subjectSearch: '搜尋考科',
     subjectSearchPlaceholder: '輸入考科名稱、代碼、級別或版本',
     subjectCount: (count: number) => `${count.toLocaleString()} 題`,
     noSubjectMatch: '找不到符合的考科',
-    start: '進入題庫',
+    start: '開始練習',
     next: '下一步',
     back: '上一步',
-    skipSync: '略過同步',
   },
   practiceView: {
     exitAria: '離開練習',

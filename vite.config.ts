@@ -54,7 +54,7 @@ export default defineConfig({
         background_color: '#f3f1eb',
         lang: 'zh-Hant-TW',
         display: 'standalone',
-        start_url: '/',
+        start_url: '/app',
         icons: [
           {
             src: '/app-icon.svg',

@@ -148,11 +148,12 @@ export default function App() {
     onboarded: hasCompletedOnboarding(),
     hasSyncLink: Boolean(readSyncLink(window.location.hash)),
     forceWelcome: window.location.pathname === '/welcome',
+    forceApp: window.location.pathname === '/app',
   }))
 
   const enterApp = (examId?: string) => {
     if (examId) setActiveExamId(examId)
-    if (window.location.pathname === '/welcome') history.replaceState(null, '', '/')
+    if (window.location.pathname !== '/app') history.replaceState(null, '', '/app')
     setLandingOpen(false)
   }
 

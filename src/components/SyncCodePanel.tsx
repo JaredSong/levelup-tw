@@ -1,5 +1,5 @@
 import qrcode from 'qrcode-generator'
-import { Check, Copy, QrCode, RefreshCw } from 'lucide-react'
+import { Check, Copy, Download, QrCode, RefreshCw } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import { buildSyncLink, formatSyncCode, generateSyncCode, isValidSyncCode } from '../app/syncCode'
 import { zhTW } from '../i18n/zh-TW'
@@ -16,22 +16,24 @@ interface Props {
  * crisp at any size, prints, and survives a screenshot at whatever DPI the
  * phone uses.
  */
-function QrSvg({ text, size = 168 }: { text: string; size?: number }) {
-  const path = useMemo(() => {
-    // Type 0 = smallest version that fits; M = ~15% error correction, enough to
-    // survive a screenshot re-crop without bloating the module count.
-    const qr = qrcode(0, 'M')
-    qr.addData(text)
-    qr.make()
-    const count = qr.getModuleCount()
-    let d = ''
-    for (let row = 0; row < count; row += 1) {
-      for (let col = 0; col < count; col += 1) {
-        if (qr.isDark(row, col)) d += `M${col} ${row}h1v1h-1z`
-      }
+function qrPath(text: string) {
+  // Type 0 = smallest version that fits; M = ~15% error correction, enough to
+  // survive a screenshot re-crop without bloating the module count.
+  const qr = qrcode(0, 'M')
+  qr.addData(text)
+  qr.make()
+  const count = qr.getModuleCount()
+  let d = ''
+  for (let row = 0; row < count; row += 1) {
+    for (let col = 0; col < count; col += 1) {
+      if (qr.isDark(row, col)) d += `M${col} ${row}h1v1h-1z`
     }
-    return { d, count }
-  }, [text])
+  }
+  return { d, count }
+}
+
+function QrSvg({ text, size = 168 }: { text: string; size?: number }) {
+  const path = useMemo(() => qrPath(text), [text])
 
   return (
     <svg
@@ -47,6 +49,12 @@ function QrSvg({ text, size = 168 }: { text: string; size?: number }) {
       <path d={path.d} fill="#18201b" />
     </svg>
   )
+}
+
+function qrSvgMarkup(text: string) {
+  const path = qrPath(text)
+  const size = path.count + 2
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 ${size} ${size}" width="640" height="640"><rect fill="#ffffff" x="-1" y="-1" width="${size}" height="${size}"/><path fill="#18201b" d="${path.d}"/></svg>`
 }
 
 // The sync code replaces "remember a passphrase". It cannot be remembered, so it
@@ -82,6 +90,17 @@ export function SyncCodePanel({ secret, onCodeChange }: Props) {
     }
   }
 
+  const downloadQr = () => {
+    if (!link) return
+    const blob = new Blob([qrSvgMarkup(link)], { type: 'image/svg+xml;charset=utf-8' })
+    const url = URL.createObjectURL(blob)
+    const anchor = document.createElement('a')
+    anchor.href = url
+    anchor.download = `level-up-sync-${formatSyncCode(secret)}.svg`
+    anchor.click()
+    URL.revokeObjectURL(url)
+  }
+
   return (
     <section className="sync-code">
       <div>
@@ -109,6 +128,9 @@ export function SyncCodePanel({ secret, onCodeChange }: Props) {
           {showQr && link ? (
             <div className="sync-qr-block">
               <QrSvg text={link} />
+              <button className="secondary-action compact" onClick={downloadQr} type="button">
+                <Download size={15} /> {zhTW.stats.syncCodeDownloadQr}
+              </button>
               <p>{zhTW.stats.syncCodeQrHint}</p>
             </div>
           ) : null}

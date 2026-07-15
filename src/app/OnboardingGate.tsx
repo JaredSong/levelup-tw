@@ -109,17 +109,6 @@ export function OnboardingGate({ onComplete }: Props) {
             <div className="onboarding-search-grid">
               <label className="onboarding-subject-search">
                 <Search size={17} />
-                <span>{zhTW.onboarding.subjectNameSearch}</span>
-                <input
-                  aria-label={zhTW.onboarding.subjectNameSearch}
-                  onChange={(event) => setSubjectNameSearch(event.target.value)}
-                  placeholder={zhTW.onboarding.subjectNameSearchPlaceholder}
-                  type="search"
-                  value={subjectNameSearch}
-                />
-              </label>
-              <label className="onboarding-subject-search">
-                <Search size={17} />
                 <span>{zhTW.onboarding.subjectCodeSearch}</span>
                 <input
                   aria-label={zhTW.onboarding.subjectCodeSearch}
@@ -127,6 +116,17 @@ export function OnboardingGate({ onComplete }: Props) {
                   placeholder={zhTW.onboarding.subjectCodeSearchPlaceholder}
                   type="search"
                   value={subjectCodeSearch}
+                />
+              </label>
+              <label className="onboarding-subject-search">
+                <Search size={17} />
+                <span>{zhTW.onboarding.subjectNameSearch}</span>
+                <input
+                  aria-label={zhTW.onboarding.subjectNameSearch}
+                  onChange={(event) => setSubjectNameSearch(event.target.value)}
+                  placeholder={zhTW.onboarding.subjectNameSearchPlaceholder}
+                  type="search"
+                  value={subjectNameSearch}
                 />
               </label>
             </div>

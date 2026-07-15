@@ -134,17 +134,6 @@ export function ActiveExamHeader({ questions, progress, settingsOpen, onSettings
             <div className="catalog-search-grid">
               <label className="catalog-search">
                 <Search size={17} />
-                <span>{zhTW.shell.catalogNameSearch}</span>
-                <input
-                  aria-label={zhTW.shell.catalogNameSearch}
-                  onChange={(event) => setCatalogNameSearch(event.target.value)}
-                  placeholder={zhTW.shell.catalogNameSearchPlaceholder}
-                  type="search"
-                  value={catalogNameSearch}
-                />
-              </label>
-              <label className="catalog-search">
-                <Search size={17} />
                 <span>{zhTW.shell.catalogCodeSearch}</span>
                 <input
                   aria-label={zhTW.shell.catalogCodeSearch}
@@ -152,6 +141,17 @@ export function ActiveExamHeader({ questions, progress, settingsOpen, onSettings
                   placeholder={zhTW.shell.catalogCodeSearchPlaceholder}
                   type="search"
                   value={catalogCodeSearch}
+                />
+              </label>
+              <label className="catalog-search">
+                <Search size={17} />
+                <span>{zhTW.shell.catalogNameSearch}</span>
+                <input
+                  aria-label={zhTW.shell.catalogNameSearch}
+                  onChange={(event) => setCatalogNameSearch(event.target.value)}
+                  placeholder={zhTW.shell.catalogNameSearchPlaceholder}
+                  type="search"
+                  value={catalogNameSearch}
                 />
               </label>
             </div>

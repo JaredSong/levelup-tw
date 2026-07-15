@@ -34,36 +34,30 @@ export function OnboardingGate({ onComplete }: Props) {
   const [restoring, setRestoring] = useState(() => Boolean(scannedCode))
   const [passphrase, setPassphrase] = useState(() => scannedCode ? formatSyncCode(scannedCode) : '')
   const [examId, setExamId] = useState(activeExam.examId)
-  const [subjectNameSearch, setSubjectNameSearch] = useState('')
-  const [subjectCodeSearch, setSubjectCodeSearch] = useState('')
+  const [subjectSearch, setSubjectSearch] = useState('')
   const [scannerOpen, setScannerOpen] = useState(false)
   const [scannerMsg, setScannerMsg] = useState<string | null>(null)
   const videoRef = useRef<HTMLVideoElement | null>(null)
   const streamRef = useRef<MediaStream | null>(null)
   const frameRef = useRef<number | null>(null)
   const scannerActiveRef = useRef(false)
-  const normalizedNameSearch = subjectNameSearch.trim().toLowerCase()
-  const normalizedCodeSearch = subjectCodeSearch.trim().toLowerCase()
+  const normalizedSubjectSearch = subjectSearch.trim().toLowerCase()
   const filteredExams = useMemo(() => {
-    if (!normalizedNameSearch && !normalizedCodeSearch) return installedExams
+    if (!normalizedSubjectSearch) return installedExams
     return installedExams.filter((exam) => {
-      const nameHaystack = [
+      const haystack = [
+        exam.examId,
         exam.titleZh,
         exam.titleEn,
         exam.category,
         exam.level,
-        ...exam.sections.map((section) => section.titleZh),
-      ].join(' ').toLowerCase()
-      const codeHaystack = [
-        exam.examId,
         exam.version,
         exam.sourceRevision,
-        ...exam.sections.flatMap((section) => [section.id, section.subjectCode]),
+        ...exam.sections.flatMap((section) => [section.id, section.subjectCode, section.titleZh]),
       ].join(' ').toLowerCase()
-      return (!normalizedNameSearch || nameHaystack.includes(normalizedNameSearch))
-        && (!normalizedCodeSearch || codeHaystack.includes(normalizedCodeSearch))
+      return haystack.includes(normalizedSubjectSearch)
     })
-  }, [installedExams, normalizedCodeSearch, normalizedNameSearch])
+  }, [installedExams, normalizedSubjectSearch])
   const selectedExamId = filteredExams.some((exam) => exam.examId === examId)
     ? examId
     : filteredExams[0]?.examId ?? examId
@@ -207,27 +201,16 @@ export function OnboardingGate({ onComplete }: Props) {
               ) : null}
               {scannerMsg ? <p className={scannerMsg === zhTW.onboarding.scanSuccess ? 'scan-msg ok' : 'scan-msg'}>{scannerMsg}</p> : null}
             </section>
-            <div className="onboarding-search-grid">
+            <div className="onboarding-search-grid single">
               <label className="onboarding-subject-search">
                 <Search size={17} />
-                <span>{zhTW.onboarding.subjectCodeSearch}</span>
+                <span>{zhTW.onboarding.subjectSearch}</span>
                 <input
-                  aria-label={zhTW.onboarding.subjectCodeSearch}
-                  onChange={(event) => setSubjectCodeSearch(event.target.value)}
-                  placeholder={zhTW.onboarding.subjectCodeSearchPlaceholder}
+                  aria-label={zhTW.onboarding.subjectSearch}
+                  onChange={(event) => setSubjectSearch(event.target.value)}
+                  placeholder={zhTW.onboarding.subjectSearchPlaceholder}
                   type="search"
-                  value={subjectCodeSearch}
-                />
-              </label>
-              <label className="onboarding-subject-search">
-                <Search size={17} />
-                <span>{zhTW.onboarding.subjectNameSearch}</span>
-                <input
-                  aria-label={zhTW.onboarding.subjectNameSearch}
-                  onChange={(event) => setSubjectNameSearch(event.target.value)}
-                  placeholder={zhTW.onboarding.subjectNameSearchPlaceholder}
-                  type="search"
-                  value={subjectNameSearch}
+                  value={subjectSearch}
                 />
               </label>
             </div>

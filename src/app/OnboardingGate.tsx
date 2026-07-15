@@ -172,9 +172,16 @@ export function OnboardingGate({ onComplete }: Props) {
                 <p className="onboarding-restore-head"><Camera size={15} /> {zhTW.onboarding.scanTitle}</p>
                 <p className="onboarding-restore-hint">{zhTW.onboarding.scanHint}</p>
               </div>
-              <button className="onboarding-restore-toggle" onClick={() => void startScanner()} type="button">
-                <Camera size={15} /> {zhTW.onboarding.scanCamera}
-              </button>
+              <div className="onboarding-scan-actions">
+                <button className="scan-primary" onClick={() => void startScanner()} type="button">
+                  <Camera size={15} /> {zhTW.onboarding.scanCamera}
+                </button>
+                {!restoring ? (
+                  <button className="scan-secondary" onClick={() => setRestoring(true)} type="button">
+                    <KeyRound size={15} /> {zhTW.onboarding.restoreToggle}
+                  </button>
+                ) : null}
+              </div>
               {restoring ? (
                 <label className="onboarding-code-field">
                   <span>{scannedCode ? zhTW.onboarding.scannedCodeDetected : zhTW.onboarding.syncCodeLabel}</span>
@@ -186,11 +193,7 @@ export function OnboardingGate({ onComplete }: Props) {
                   />
                   {restoreError ? <em>{restoreError}</em> : null}
                 </label>
-              ) : (
-                <button className="onboarding-restore-toggle" onClick={() => setRestoring(true)} type="button">
-                  <KeyRound size={15} /> {zhTW.onboarding.restoreToggle}
-                </button>
-              )}
+              ) : null}
               {scannerOpen ? (
                 <div className="onboarding-scanner">
                   <video ref={videoRef} playsInline muted />

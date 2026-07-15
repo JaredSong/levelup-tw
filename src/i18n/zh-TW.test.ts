@@ -16,4 +16,10 @@ describe('zh-TW interface copy', () => {
     expect(zhTW.practice.allQuestionsTitle).toBe('全部題目')
     expect(zhTW.practice.searchPlaceholder).toBe('搜尋題號或題目')
   })
+
+  it('keeps the public entry Chinese-first and exam-focused', () => {
+    expect(zhTW.landing.brand).toBe('升級吧')
+    expect(zhTW.landing.primaryAction).toBe('開始選考科')
+    expect(zhTW.landing.examSectionTitle).toBe('選一科，馬上開始')
+  })
 })

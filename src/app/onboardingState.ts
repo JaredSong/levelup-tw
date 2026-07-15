@@ -4,3 +4,16 @@ export const PROFILE_NAME_KEY = 'level-up-profile-name'
 export function hasCompletedOnboarding(): boolean {
   return localStorage.getItem(ONBOARDING_DONE_KEY) === 'true'
 }
+
+export function shouldShowLanding({
+  onboarded,
+  hasSyncLink,
+  forceWelcome = false,
+}: {
+  onboarded: boolean
+  hasSyncLink: boolean
+  forceWelcome?: boolean
+}): boolean {
+  if (hasSyncLink) return false
+  return forceWelcome || !onboarded
+}

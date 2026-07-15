@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { AlertTriangle, ArrowRight, CheckCircle2, LoaderCircle, RotateCcw } from 'lucide-react'
 import { ActiveExamHeader } from './app/ActiveExamHeader'
+import { LandingPage } from './app/LandingPage'
 import { OnboardingGate } from './app/OnboardingGate'
-import { hasCompletedOnboarding, PROFILE_NAME_KEY } from './app/onboardingState'
+import { hasCompletedOnboarding, PROFILE_NAME_KEY, shouldShowLanding } from './app/onboardingState'
 import { readSyncLink } from './app/syncCode'
 import { BottomNav, type Tab } from './components/BottomNav'
 import { PracticeView } from './components/PracticeView'
@@ -141,6 +142,35 @@ async function explainQuestion(examId: string, question: Question, selected: num
 }
 
 export default function App() {
+  const { installedExams, setActiveExamId } = useActiveExam()
+  const [onboarded, setOnboarded] = useState(hasCompletedOnboarding)
+  const [landingOpen, setLandingOpen] = useState(() => shouldShowLanding({
+    onboarded: hasCompletedOnboarding(),
+    hasSyncLink: Boolean(readSyncLink(window.location.hash)),
+    forceWelcome: window.location.pathname === '/welcome',
+  }))
+
+  const enterApp = (examId?: string) => {
+    if (examId) setActiveExamId(examId)
+    if (window.location.pathname === '/welcome') history.replaceState(null, '', '/')
+    setLandingOpen(false)
+  }
+
+  if (landingOpen) {
+    return (
+      <LandingPage
+        exams={installedExams}
+        onEnter={() => enterApp()}
+        onSelectExam={enterApp}
+        returning={onboarded}
+      />
+    )
+  }
+  if (!onboarded) return <OnboardingGate onComplete={() => setOnboarded(true)} />
+  return <StudyApp />
+}
+
+function StudyApp() {
   const { activeExam } = useActiveExam()
   const examId = activeExam.examId
   const { bank, error } = useQuestionBank()
@@ -151,7 +181,6 @@ export default function App() {
   const [session, setSession] = useState<StudySession | null>(() => loadSession(examId))
   const [practiceOpen, setPracticeOpen] = useState(false)
   const [summary, setSummary] = useState<StudySession | null>(null)
-  const [onboarded, setOnboarded] = useState(hasCompletedOnboarding)
   const [settingsOpen, setSettingsOpen] = useState(false)
   const prefetchedCueSessionRef = useRef('')
 
@@ -247,8 +276,6 @@ export default function App() {
 
   if (error) return <div className="fatal-state"><AlertTriangle /><h1>{zhTW.session.bankUnavailable}</h1><p>{error}</p></div>
   if (!bank || loading) return <div className="loading-state"><LoaderCircle className="spin" /><strong>{zhTW.session.loadingTitle}</strong><span>{zhTW.session.loadingBody}</span></div>
-  if (!onboarded) return <OnboardingGate onComplete={() => setOnboarded(true)} />
-
   const begin = (mode: SessionMode, questions: Question[], title?: string, options?: { mockFeedback?: boolean }) => {
     if (!questions.length) return
     setSummary(null)

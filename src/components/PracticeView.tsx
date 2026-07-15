@@ -118,6 +118,17 @@ function figureImageSources(question: Question) {
   return customImages
 }
 
+/**
+ * Image-option questions ask the learner to tell four marks apart, so the whole
+ * answer is visible in the source page scan. Falling back to that scan doesn't
+ * just look bad — it hands over the answer. Better to show no figure and let the
+ * option images speak, so a missing crop degrades into a broken option (loud,
+ * caught by the integrity test) instead of a leaked answer (silent).
+ */
+function allowsSourcePageFallback(question: Question) {
+  return !usesImageOptionPlaceholders(question)
+}
+
 function QuestionFigure({ question }: { question: Question }) {
   const [useFallback, setUseFallback] = useState(false)
 
@@ -126,8 +137,9 @@ function QuestionFigure({ question }: { question: Question }) {
   }, [question.id, question.sourceImage, question.sourceImages])
 
   const customImages = figureImageSources(question)
+  const canFallBack = allowsSourcePageFallback(question)
   const figureSources = useFallback || !customImages.length
-    ? question.sourcePageImage ? [question.sourcePageImage] : []
+    ? canFallBack && question.sourcePageImage ? [question.sourcePageImage] : []
     : customImages
 
   if (!figureSources.length) return null
@@ -142,7 +154,7 @@ function QuestionFigure({ question }: { question: Question }) {
           alt={`官方圖片 ${index + 1}：${question.id}`}
           key={source}
           onError={() => {
-            if (question.sourcePageImage && !showingSourcePage) setUseFallback(true)
+            if (canFallBack && question.sourcePageImage && !showingSourcePage) setUseFallback(true)
           }}
         />
       ))}

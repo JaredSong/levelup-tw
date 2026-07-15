@@ -149,6 +149,28 @@ describe('published question bank', () => {
     }
   })
 
+  // An image-option question renders one <img> per option, matched by count. If
+  // the count drifts, every option silently degrades to its alt text and the
+  // page scan takes over as the figure — which for these questions shows all
+  // four marks together, i.e. leaks the answer. Assert the pairing here so a
+  // missing or extra crop fails the build instead of the exam.
+  it('gives every image-option question exactly one image per option', () => {
+    const imageOptionQuestions = loadBank().filter((question) =>
+      question.active !== false && question.options.some((option) => option.includes('圖示選項')))
+
+    expect(imageOptionQuestions.length).toBeGreaterThan(0)
+    for (const question of imageOptionQuestions) {
+      const images = question.sourceImages ?? []
+      // Either one image per option, or a stem figure followed by one per option.
+      const optionImages = images.length === question.options.length + 1 ? images.slice(1) : images
+      expect(optionImages, `${question.id}: ${images.length} images for ${question.options.length} options`)
+        .toHaveLength(question.options.length)
+      for (const image of optionImages) {
+        expect(existsSync(new URL(`../public${decodeURIComponent(image)}`, import.meta.url)), `${question.id}: ${image}`).toBe(true)
+      }
+    }
+  })
+
   it('keeps common-subject image labels aligned with their source figures', () => {
     const byId = new Map(loadBank().map((question) => [question.id, question]))
 

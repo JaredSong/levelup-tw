@@ -1,6 +1,16 @@
 // Cloudflare Pages Function — cross-device study-log sync via Workers KV.
 // Bind a KV namespace named SYNC in the Pages project settings.
-// The passphrase is never stored: its SHA-256 hash is the KV key.
+// The passphrase (and name, see below) is never stored: its SHA-256 hash is
+// the KV key.
+//
+// The record is keyed by passphrase + profile name, not passphrase alone.
+// Short human-typeable passphrases collide across strangers (the whole design
+// point is "no account, no password rules"), and a collision here isn't a
+// login error — it silently merges two people's exam history into one record
+// with no warning either side. Name is already collected in the same
+// onboarding step as the passphrase, so this is free entropy, not new typing.
+// It doesn't eliminate collisions (a blank name, or a common name + common
+// passphrase, still can), but it closes the overwhelmingly common case.
 
 const json = (status, payload) =>
   new Response(JSON.stringify(payload), {
@@ -8,10 +18,21 @@ const json = (status, payload) =>
     headers: { 'Content-Type': 'application/json; charset=utf-8' },
   })
 
-async function keyFor(passphrase) {
-  const bytes = new TextEncoder().encode(`level-b-study::${passphrase}`)
+async function digestHex(input) {
+  const bytes = new TextEncoder().encode(input)
   const digest = await crypto.subtle.digest('SHA-256', bytes)
-  return 'sync:' + [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, '0')).join('')
+  return [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, '0')).join('')
+}
+
+async function keyFor(passphrase, name) {
+  const normalizedName = (name ?? '').trim().toLowerCase()
+  return 'sync:' + await digestHex(`level-b-study::${normalizedName}::${passphrase}`)
+}
+
+// Pre-name scheme, kept only so a device that synced before this change isn't
+// orphaned. Never written to again once a record exists under the new key.
+async function legacyKeyFor(passphrase) {
+  return 'sync:' + await digestHex(`level-b-study::${passphrase}`)
 }
 
 export async function onRequest(context) {
@@ -20,7 +41,8 @@ export async function onRequest(context) {
 
   const passphrase = request.headers.get('x-sync-pass') ?? ''
   if (passphrase.length < 8) return json(400, { error: 'Sync passphrase must be at least 8 characters.' })
-  const key = await keyFor(passphrase)
+  const name = request.headers.get('x-sync-name') ?? ''
+  const key = await keyFor(passphrase, name)
 
   // Older clients stored the BackupData directly (no { version, data } wrapper).
   // Treat such a record as version 0 data so legacy cloud copies still load.
@@ -32,7 +54,15 @@ export async function onRequest(context) {
   }
 
   if (request.method === 'GET') {
-    const record = readRecord(await env.SYNC.get(key))
+    let record = readRecord(await env.SYNC.get(key))
+    // First read under the new name+passphrase key: nothing there yet, so check
+    // the pre-name key once. If it has data, hand it back as this device's
+    // starting point; the next PUT (below) always targets the new key, so the
+    // record migrates forward on its own without the learner doing anything.
+    if (!record.data) {
+      const legacy = readRecord(await env.SYNC.get(await legacyKeyFor(passphrase)))
+      if (legacy.data) record = legacy
+    }
     return json(200, { version: record.version, data: record.data })
   }
 

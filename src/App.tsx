@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { AlertTriangle, ArrowRight, CheckCircle2, LoaderCircle, RotateCcw } from 'lucide-react'
 import { ActiveExamHeader } from './app/ActiveExamHeader'
 import { OnboardingGate } from './app/OnboardingGate'
-import { hasCompletedOnboarding } from './app/onboardingState'
+import { hasCompletedOnboarding, PROFILE_NAME_KEY } from './app/onboardingState'
 import { BottomNav, type Tab } from './components/BottomNav'
 import { PracticeView } from './components/PracticeView'
 import { HomePage } from './app/pages/HomePage'
@@ -165,7 +165,7 @@ export default function App() {
   // Pull the cloud copy on open and merge it in (no-op if sync is off or fails).
   useEffect(() => {
     if (!isSyncEnabled()) return
-    void syncNow().then(() => Promise.all([refresh(), refreshReviewCards()])).catch(() => undefined)
+    void syncNow(localStorage.getItem(PROFILE_NAME_KEY) ?? '').then(() => Promise.all([refresh(), refreshReviewCards()])).catch(() => undefined)
   }, [refresh, refreshReviewCards])
 
   // Stats count active questions only, so deleted items never inflate the UI.
@@ -456,7 +456,7 @@ export default function App() {
     setPracticeOpen(false)
 
     // Push this session up to the cloud (no-op if sync is off or offline).
-    if (isSyncEnabled()) void syncNow().catch(() => undefined)
+    if (isSyncEnabled()) void syncNow(localStorage.getItem(PROFILE_NAME_KEY) ?? '').catch(() => undefined)
   }
 
   const explain = async (question: Question, selected: number[], style = 'default') => {

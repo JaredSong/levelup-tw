@@ -2,6 +2,7 @@ import { Download, ExternalLink, FileWarning, Moon, RefreshCw, RotateCcw, Shuffl
 import { useState } from 'react'
 import { getExamDate, setExamDate } from '../app/examCountdown'
 import { getNextNationalExamEntry, isScheduleEntryPast, NATIONAL_EXAM_SCHEDULE_115, NATIONAL_EXAM_SCHEDULE_SOURCE } from '../app/nationalExamSchedule'
+import { PROFILE_NAME_KEY } from '../app/onboardingState'
 import { useActiveExam } from '../app/useActiveExam'
 import type { Progress, Question } from '../domain/studyEngine'
 import { zhTW } from '../i18n/zh-TW'
@@ -57,7 +58,7 @@ export function SettingsView({ questions, progress }: Props) {
     setSyncing(true)
     setSyncMsg(null)
     try {
-      const { hadRemote } = await syncNow()
+      const { hadRemote } = await syncNow(localStorage.getItem(PROFILE_NAME_KEY) ?? '')
       setSyncMsg(hadRemote ? zhTW.stats.syncMerged : zhTW.stats.syncUploaded)
       if (hadRemote) window.setTimeout(() => window.location.reload(), 900)
     } catch (error) {

@@ -50,15 +50,22 @@ export function syncStatusLabel(): string {
  * Pull the cloud copy, merge it with local data, save the merge locally, and
  * push the merged result back. Safe to call on load and after each session.
  * Returns whether a remote copy existed.
+ *
+ * `name` scopes the cloud record alongside the passphrase (see
+ * functions/api/sync.js): a short, easy-to-type passphrase collides across
+ * strangers, and a collision here silently merges two people's exam history
+ * with no warning. Callers should pass the profile name from onboarding
+ * (`PROFILE_NAME_KEY`) — this module stays storage-only and does not read it
+ * itself.
  */
-export async function syncNow(): Promise<{ hadRemote: boolean }> {
+export async function syncNow(name: string): Promise<{ hadRemote: boolean }> {
   const pass = getSyncPass()
   if (pass.length < MIN_PASS) throw new Error(`請先設定至少 ${MIN_PASS} 個字元的同步通關密語。`)
 
   // Pull → merge → push, retrying on a version conflict so a concurrent device's
   // write is merged in rather than overwritten.
   for (let attempt = 0; attempt < 4; attempt += 1) {
-    const pull = await fetch('/api/sync', { headers: { 'x-sync-pass': pass } })
+    const pull = await fetch('/api/sync', { headers: { 'x-sync-pass': pass, 'x-sync-name': name } })
     if (!pull.ok) {
       const detail = await pull.json().catch(() => null) as { error?: string } | null
       throw new Error(detail?.error ?? '目前無法同步；同步只在正式網址上可用。')
@@ -73,7 +80,7 @@ export async function syncNow(): Promise<{ hadRemote: boolean }> {
 
     const push = await fetch('/api/sync', {
       method: 'PUT',
-      headers: { 'x-sync-pass': pass, 'Content-Type': 'application/json' },
+      headers: { 'x-sync-pass': pass, 'x-sync-name': name, 'Content-Type': 'application/json' },
       body: JSON.stringify({ baseVersion: version, data: merged }),
     })
     if (push.ok) {

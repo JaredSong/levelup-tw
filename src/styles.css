@@ -305,8 +305,10 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .option-list.single > button.selected .opt-box { border-color: var(--accent); }
 .option-list > button.correct .opt-box { border-color: var(--accent); background: var(--accent); }
 .option-list > button.wrong .opt-box { border-color: var(--danger); background: var(--danger); }
+.option-list > button.wrong .opt-dot { background: var(--danger); }
 .opt-num { color: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .78rem; font-weight: 700; }
 .option-list > button.selected .opt-num { color: var(--accent-dark); }
+.option-list > button.wrong .opt-num { color: var(--danger); }
 .option-image { display: block; width: auto; max-width: 100%; max-height: 92px; object-fit: contain; }
 .option-list > button:has(.option-image) { min-height: 92px; align-items: center; }
 .option-list > button:has(.code-block) { min-height: 82px; align-items: center; }

@@ -48,7 +48,7 @@ describe('active exam selection', () => {
       meta: '資訊 · 乙級 · A13',
       countLabel: '1,360 題可練習',
       statusLabel: '目前使用 · 離線',
-      integrityLabel: '已抽查',
+      integrityLabel: '已完整校對',
     })
   })
 
@@ -63,7 +63,9 @@ describe('active exam selection', () => {
     })
     expect(webDesign.sections.find((section) => section.id === '17300-03')?.activeQuestionCount).toBe(124)
     expect(webDesign.sections.find((section) => section.id === '17300-04')?.activeQuestionCount).toBe(75)
-    expect(formatIntegrityLabel(webDesign)).toBe('已抽查')
+    // Every key re-checked against the official PDFs; scripts/answerKeyVerification.test.ts
+    // re-proves that on each run, so this label stays honest rather than aspirational.
+    expect(formatIntegrityLabel(webDesign)).toBe('已完整校對')
   })
 
   it('badges unchecked expansion packs before public verification', () => {

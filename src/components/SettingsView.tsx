@@ -265,7 +265,7 @@ export function SettingsView({ questions, progress }: Props) {
         </section>
       ) : null}
 
-      <p className="build-version">升級吧 · Level Up {__APP_VERSION__}</p>
+      <p className="build-version">升級吧 {__APP_VERSION__}</p>
     </div>
   )
 }

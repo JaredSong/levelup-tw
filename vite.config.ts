@@ -47,11 +47,12 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['app-icon.svg'],
       manifest: {
-        name: 'Level Up · 升級吧',
-        short_name: 'Level Up',
-        description: 'Offline practice for Taiwan skill certification exams.',
+        name: '升級吧',
+        short_name: '升級吧',
+        description: '台灣技術士技能檢定離線題庫練習。',
         theme_color: '#111713',
         background_color: '#f3f1eb',
+        lang: 'zh-Hant-TW',
         display: 'standalone',
         start_url: '/',
         icons: [

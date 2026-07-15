@@ -64,6 +64,30 @@ function renderExplanation(text: string) {
   })
 }
 
+function renderCodeInline(line: string) {
+  const tokenPattern = /("(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|\b(?:int|if|else|switch|case|default|while|for|return|cout|cin)\b|\d+|==|<=|>=|&&|\|\||<<|>>|[{}()[\];?:,+\-*/=<>])/g
+  const parts = line.split(tokenPattern).filter((part) => part.length > 0)
+  return parts.map((part, index) => {
+    let className = ''
+    if (/^"(?:\\.|[^"\\])*"$|^'(?:\\.|[^'\\])*'$/.test(part)) className = 'code-string'
+    else if (/^\d+$/.test(part)) className = 'code-number'
+    else if (/^(?:int|if|else|switch|case|default|while|for|return)$/.test(part)) className = 'code-keyword'
+    else if (/^(?:cout|cin)$/.test(part)) className = 'code-io'
+    else if (/^(?:==|<=|>=|&&|\|\||<<|>>|[{}()[\];?:,+\-*/=<>])$/.test(part)) className = 'code-punct'
+    return <span className={className || undefined} key={`${part}-${index}`}>{part}</span>
+  })
+}
+
+function CodeBlock({ code, compact = false }: { code: string; compact?: boolean }) {
+  return (
+    <pre className={compact ? 'code-block compact' : 'code-block'}><code>
+      {code.split('\n').map((line, index) => (
+        <span className="code-line" key={index}>{renderCodeInline(line || ' ')}</span>
+      ))}
+    </code></pre>
+  )
+}
+
 function stripSpeakerLabel(text: string) {
   return text.replace(/^(主持人|老師|Teacher|Host)\s*[:：]\s*/i, '')
 }
@@ -102,6 +126,7 @@ function usesImageOptionPlaceholders(question: Question) {
 }
 
 function optionImageSources(question: Question) {
+  if (question.optionCodeBlocks?.some(Boolean)) return []
   if (!usesImageOptionPlaceholders(question) || !question.sourceImages?.length) return []
   if (question.sourceImages.length === question.options.length) return question.sourceImages
   if (question.sourceImages.length === question.options.length + 1) return question.sourceImages.slice(1)
@@ -246,6 +271,9 @@ export function PracticeView({
     return {
       ...question,
       options: optionOrder.map((value) => question.options[value - 1]),
+      optionCodeBlocks: question.optionCodeBlocks
+        ? optionOrder.map((value) => question.optionCodeBlocks?.[value - 1] ?? null)
+        : undefined,
       answers: toDisplayValues(question.answers),
     }
   }, [optionOrder, question, toDisplayValues])
@@ -494,6 +522,8 @@ export function PracticeView({
 
         <h1>{question.prompt}</h1>
 
+        {question.codeBlock ? <CodeBlock code={question.codeBlock} /> : null}
+
         <QuestionFigure question={question} />
 
         {optionsAreImages ? (
@@ -579,6 +609,7 @@ export function PracticeView({
             ) : null}
             {optionOrder.map((value, index) => {
               const option = question.options[value - 1]
+              const optionCode = question.optionCodeBlocks?.[value - 1]
               const optionImage = optionImages[value - 1]
               const displayValue = index + 1
               const isSelected = selected.includes(value)
@@ -592,7 +623,9 @@ export function PracticeView({
                   </span>
                   <span className="opt-num">{displayValue}</span>
                   <span className="opt-text">
-                    {optionImage ? (
+                    {optionCode ? (
+                      <CodeBlock code={optionCode} compact />
+                    ) : optionImage ? (
                       <img className="option-image" src={optionImage} alt={`圖示選項 ${displayValue}`} />
                     ) : option}
                   </span>

@@ -70,6 +70,8 @@ export interface Question {
   source: QuestionSource
   sourcePage?: number
   hasFigure?: boolean
+  codeBlock?: string
+  optionCodeBlocks?: (string | null)[]
   sourceImage?: string
   sourceImages?: string[]
   sourcePageImage?: string

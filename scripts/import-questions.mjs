@@ -216,6 +216,9 @@ const QUESTION_OVERRIDES = {
   '90011-04-019': {
     sourcePage: 8,
   },
+  '90011-04-004': {
+    sourcePage: 6,
+  },
 }
 
 const IMAGE_OVERRIDES = {
@@ -253,6 +256,47 @@ const IMAGE_OVERRIDES = {
   '90011-04-018': ['90011-page-7 18.png'],
   '90011-04-019': ['90011-page-8 19.png'],
   '90011-04-020': ['90011-page-8 20.png'],
+}
+
+const CODE_BLOCK_OVERRIDES = {
+  '90011-04-004': {
+    optionCodeBlocks: [
+      'X>3? cout<<B:cout<<A;\nX=X+1',
+      'if (X>3) cout<<A; else cout<<B;\nX=X+1;',
+      'switch(X) {\n  case 1: cout<<A;\n  case 2: cout<<A;\n  case 3: cout<<A;\n  default: cout<<B;',
+      'while (X>3) cout<<A;\ncout<<B;\nX=X+1;',
+    ],
+  },
+  '90011-04-005': {
+    codeBlock: 'int a,b,c;\ncin>>a;\ncin>>b;\nc=a;\nif(b>c)\n    c=b;\ncout<<"the output is:"<<c;',
+  },
+  '90011-04-009': {
+    codeBlock: 'While (sum <= 1000)\n    sum = sum + 30;',
+  },
+  '90011-04-013': {
+    codeBlock: 'int x = 3;\nint a[] = {1,2,3,4};\nint *z;\nz = a;\nz = z + x;\ncout << *z << "\\n";',
+  },
+  '90011-04-014': {
+    codeBlock: 'int x = 3;\nint a[] = {1,2,3,4};\nint * z;\nz = &x;\ncout << *z << "\\n";',
+  },
+  '90011-04-015': {
+    codeBlock: 'int y = !(12 < 5 || 3 <= 5 && 3 > x) ? 7 : 9;',
+  },
+  '90011-04-016': {
+    codeBlock: "int x;\nx = (5 <= 3 && 'A' < 'F') ? 3 : 4",
+  },
+  '90011-04-017': {
+    codeBlock: 'int a=0, b=0, c=0;\nint x=(a<b+4);',
+  },
+  '90011-04-018': {
+    codeBlock: 'int f(int x, int y) {\n    if(x == y) return 0;\n    else return f(x-1, y) + 1;\n}',
+  },
+  '90011-04-019': {
+    codeBlock: 'for (i=0;i<=m-1;i++){\n    for (j=0;j<=p-1;j++){\n        c[i][j]=0;\n        for (k=0;k<=n-1;k++){\n            c[i][j]=c[i][j]+a[i][k]*b[k][j];\n        }\n    }\n}',
+  },
+  '90011-04-020': {
+    codeBlock: 'x1=2;y1=4;\nx2=6;y2=8;\na=y2-y1;\nb=x2-x1;\nc=-a*x1+b*y1;\ncout<<a<<"x+"<<-b<<"y+"<<c<<"=0";',
+  },
 }
 
 const outputPath = new URL('../source/questions.json', import.meta.url)
@@ -293,20 +337,30 @@ for (const bank of banks) {
   bankCounts[bank.code] = parsed.length
   questions.push(...parsed.map((question) => {
     const override = QUESTION_OVERRIDES[question.id]
-    const hasFigure = override?.hasFigure ?? question.hasFigure
+    const codeOverride = CODE_BLOCK_OVERRIDES[question.id]
+    const hasCodeBlock = !!codeOverride?.codeBlock
+    const hasFigure = override?.hasFigure ?? (hasCodeBlock ? false : question.hasFigure)
     const sourcePage = override?.sourcePage ?? question.sourcePage
+    const imageOverrides = IMAGE_OVERRIDES[question.id]
+    const figureImages = hasFigure
+      ? codeOverride?.optionCodeBlocks
+        ? imageOverrides?.slice(0, 1).map(questionImagePath)
+        : imageOverrides?.map(questionImagePath)
+      : undefined
     const repaired = {
       ...question,
       examId: EXAM_ID,
       hasFigure,
+      ...(codeOverride?.codeBlock ? { codeBlock: codeOverride.codeBlock } : {}),
+      ...(codeOverride?.optionCodeBlocks ? { optionCodeBlocks: codeOverride.optionCodeBlocks } : {}),
       sourcePage,
       prompt: sanitizeText(override?.prompt ?? question.prompt),
       options: (override?.options ?? question.options).map(sanitizeText),
       ...(INACTIVE_IDS.has(question.id) ? { active: false } : {}),
       sourceImage: hasFigure
-        ? IMAGE_OVERRIDES[question.id]?.map(questionImagePath)[0] ?? `/question-images/${question.id}.png`
+        ? figureImages?.[0] ?? `/question-images/${question.id}.png`
         : undefined,
-      sourceImages: hasFigure ? IMAGE_OVERRIDES[question.id]?.map(questionImagePath) : undefined,
+      sourceImages: figureImages,
     }
     return {
       ...repaired,

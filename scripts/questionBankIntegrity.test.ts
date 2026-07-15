@@ -137,7 +137,7 @@ describe('published question bank', () => {
   it('keeps active image questions linked to checked image assets', () => {
     const generated = loadBank().filter((question) => question.active !== false && question.hasFigure)
 
-    expect(generated).toHaveLength(18)
+    expect(generated).toHaveLength(8)
     for (const question of generated) {
       expect(question.sourceImage, question.id).toBeTruthy()
       expect(question.sourcePageImage, question.id).toBeTruthy()
@@ -156,7 +156,9 @@ describe('published question bank', () => {
   // missing or extra crop fails the build instead of the exam.
   it('gives every image-option question exactly one image per option', () => {
     const imageOptionQuestions = loadBank().filter((question) =>
-      question.active !== false && question.options.some((option) => option.includes('圖示選項')))
+      question.active !== false &&
+      question.options.some((option) => option.includes('圖示選項')) &&
+      !question.optionCodeBlocks?.some(Boolean))
 
     expect(imageOptionQuestions.length).toBeGreaterThan(0)
     for (const question of imageOptionQuestions) {
@@ -199,19 +201,42 @@ describe('published question bank', () => {
     })
   })
 
-  it('keeps split 90011 code figures pointed at the page that contains the code image', () => {
+  it('keeps 90011 code questions transcribed as selectable code instead of screenshots', () => {
     const byId = new Map(loadBank().map((question) => [question.id, question]))
 
-    expect(byId.get('90011-04-019')).toMatchObject({
-      answers: [3],
-      sourceImage: '/question-images/90011-page-8%2019.png',
-      sourcePageImage: '/question-pages/90011-page-8.jpg',
+    expect(byId.get('90011-04-004')).toMatchObject({
+      answers: [2],
+      hasFigure: true,
+      sourceImage: '/question-images/90011-page-6%204.png',
+      sourceImages: ['/question-images/90011-page-6%204.png'],
+      sourcePageImage: '/question-pages/90011-page-6.jpg',
+      optionCodeBlocks: [
+        expect.stringContaining('X>3? cout<<B'),
+        expect.stringContaining('if (X>3)'),
+        expect.stringContaining('switch(X)'),
+        expect.stringContaining('while (X>3)'),
+      ],
     })
-    expect(byId.get('90011-04-020')).toMatchObject({
-      answers: [3],
-      sourceImage: '/question-images/90011-page-8%2020.png',
-      sourcePageImage: '/question-pages/90011-page-8.jpg',
-    })
+    for (const id of [
+      '90011-04-005',
+      '90011-04-009',
+      '90011-04-013',
+      '90011-04-014',
+      '90011-04-015',
+      '90011-04-016',
+      '90011-04-017',
+      '90011-04-018',
+      '90011-04-019',
+      '90011-04-020',
+    ]) {
+      const question = byId.get(id)
+      expect(question?.hasFigure, id).toBe(false)
+      expect(question?.codeBlock, id).toBeTruthy()
+      expect(question?.sourceImage, id).toBeUndefined()
+      expect(question?.sourceImages, id).toBeUndefined()
+      expect(question?.sourcePageImage, id).toBeUndefined()
+    }
+    expect(byId.get('90011-04-020')?.codeBlock).toContain('cout<<a<<"x+"<<-b<<"y+"<<c<<"=0";')
   })
 
   it('flags exactly the five officially deleted 90008 questions inactive', () => {

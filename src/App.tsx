@@ -3,6 +3,7 @@ import { AlertTriangle, ArrowRight, CheckCircle2, LoaderCircle, RotateCcw } from
 import { ActiveExamHeader } from './app/ActiveExamHeader'
 import { OnboardingGate } from './app/OnboardingGate'
 import { hasCompletedOnboarding, PROFILE_NAME_KEY } from './app/onboardingState'
+import { readSyncLink } from './app/syncCode'
 import { BottomNav, type Tab } from './components/BottomNav'
 import { PracticeView } from './components/PracticeView'
 import { HomePage } from './app/pages/HomePage'
@@ -34,7 +35,7 @@ import { useStudyData } from './hooks/useStudyData'
 import { useTodayActivity } from './hooks/useTodayActivity'
 import { zhTW } from './i18n/zh-TW'
 import { db } from './storage/db'
-import { isSyncEnabled, syncNow } from './storage/sync'
+import { isSyncEnabled, setSyncPass, syncNow } from './storage/sync'
 import type { SessionMode, StudySession } from './types'
 
 const LEGACY_SESSION_KEY = 'level-b-active-session'
@@ -109,7 +110,11 @@ function createSession(examId: string, mode: SessionMode, questions: Question[],
 async function explainQuestion(examId: string, question: Question, selected: number[], style = 'default') {
   // Bump EXPLAIN_VERSION whenever the prompt changes so old cached answers regenerate.
   const selectedKey = style === 'reading' ? 'reading' : [...selected].sort((a, b) => a - b).join(',')
-  const optionKey = question.options.join('¦')
+  const optionKey = [
+    question.options.join('¦'),
+    question.codeBlock ?? '',
+    question.optionCodeBlocks?.join('¦') ?? '',
+  ].join('§')
   const cacheKey = `${questionKey(examId, question.id)}::${style}::${selectedKey}::${optionKey}::${EXPLAIN_VERSION}`
   const cached = await db.explanations.get(cacheKey)
   if (cached?.content.trim()) return cached.content
@@ -161,6 +166,16 @@ export default function App() {
     setSummary(null)
     prefetchedCueSessionRef.current = ''
   }, [examId])
+
+  // A QR scanned with the phone's own camera lands here as /#sync=CODE. Adopt the
+  // code before the sync effect below reads it, and strip it from the URL so it
+  // stays out of history and out of any link the learner later shares.
+  useEffect(() => {
+    const scanned = readSyncLink(window.location.hash)
+    if (!scanned) return
+    setSyncPass(scanned)
+    history.replaceState(null, '', window.location.pathname + window.location.search)
+  }, [])
 
   // Pull the cloud copy on open and merge it in (no-op if sync is off or fails).
   useEffect(() => {

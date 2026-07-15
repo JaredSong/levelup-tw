@@ -29,10 +29,19 @@ const READING = `Explain the question only — reading help. Do NOT reveal, hint
 Keep it to about 60-100 words.`
 
 function buildPrompt(question, selected, style) {
-  const choices = question.options.map((option, index) => `${index + 1}. ${option}`).join('\n')
+  const formatOption = (option, index) => {
+    const code = question.optionCodeBlocks?.[index]
+    return code ? `${index + 1}. ${option}\n${code}` : `${index + 1}. ${option}`
+  }
+  const choices = question.options.map(formatOption).join('\n')
+  const codeContext = question.codeBlock ? `\nCode:\n${question.codeBlock}` : ''
   const numbering = 'Use the option numbers exactly as listed in Choices below. Do not refer to any other ordering.'
   const formatRefs = (values) => values.length
-    ? values.map((value) => `${value}. ${question.options[value - 1] ?? '(missing option text)'}`).join('\n')
+    ? values.map((value) => {
+      const option = question.options[value - 1] ?? '(missing option text)'
+      const code = question.optionCodeBlocks?.[value - 1]
+      return code ? `${value}. ${option}\n${code}` : `${value}. ${option}`
+    }).join('\n')
     : 'none'
   const officialRefs = formatRefs(question.answers)
   const selectedRefs = formatRefs(selected)
@@ -44,6 +53,7 @@ ${READING}
 ${numbering}
 
 Question: ${question.prompt}
+${codeContext}
 Choices:
 ${choices}`
   }
@@ -56,6 +66,7 @@ Keep the whole answer to about ${STYLE.cue.words}. ${STYLE.cue.extra}
 ${numbering}
 
 Question: ${question.prompt}
+${codeContext}
 Choices:
 ${choices}
 Official answer:
@@ -76,6 +87,7 @@ Say, conversationally and briefly:
 Do NOT add an English memory hook. Do NOT use pinyin. Refer to options by their number only when needed. Do not read out every choice. If there is a figure, tell the learner what visual cue to remember without inventing details.
 
 Question: ${question.prompt}
+${codeContext}
 Choices:
 ${choices}
 Correct answer:
@@ -112,6 +124,7 @@ ${cover}
 Keep the whole answer to about ${variant.words}.${extraLine}
 
 Question: ${question.prompt}
+${codeContext}
 Choices:
 ${choices}
 Correct answer:

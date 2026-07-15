@@ -15,6 +15,8 @@ export interface Question {
   answers: number[]
   sourcePage?: number
   hasFigure?: boolean
+  codeBlock?: string
+  optionCodeBlocks?: (string | null)[]
   sourceImage?: string
   sourceImages?: string[]
   sourcePageImage?: string
@@ -133,6 +135,7 @@ export function buildOptionOrder(
   const order = question.options.map((_, index) => index + 1)
   if (!options.randomize) return order
   if (question.options.some((option) => option.includes('圖示選項'))) return order
+  if (question.optionCodeBlocks?.some(Boolean)) return order
   return shuffled(order, options.random ?? Math.random)
 }
 

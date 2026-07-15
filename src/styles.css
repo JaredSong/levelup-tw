@@ -318,8 +318,10 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .option-list.single > button.selected .opt-box { border-color: var(--accent); }
 .option-list > button.correct .opt-box { border-color: var(--accent); background: var(--accent); }
 .option-list > button.wrong .opt-box { border-color: var(--danger); background: var(--danger); }
-.option-list.single > button.wrong .opt-box,
+.option-list.single > button.correct .opt-box { border-color: var(--accent); background: transparent; }
+.option-list.single > button.wrong .opt-box { border-color: var(--danger-dark); background: transparent; }
 .option-list.multiple > button.wrong .opt-box { border-color: var(--danger-dark); background: var(--danger); }
+.option-list > button.correct .opt-dot { background: var(--accent); }
 .option-list > button.wrong .opt-dot { background: var(--danger); }
 .opt-num { color: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .78rem; font-weight: 700; }
 .option-list > button.selected .opt-num { color: var(--accent-dark); }

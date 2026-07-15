@@ -66,3 +66,27 @@ export function isValidSyncCode(input: string): boolean {
   return normalized.length === SYNC_CODE_LENGTH
     && [...normalized].every((character) => ALPHABET.includes(character))
 }
+
+/**
+ * Handoff link for the QR. A fragment, never a query string: fragments are not
+ * sent to the server or logged by it, and the code is the whole secret.
+ *
+ * The QR carries this link rather than the study data — a record runs to
+ * hundreds of KB against a QR ceiling of ~3KB — so the second device still
+ * pulls from the cloud. Encoding a URL also means the phone's own camera opens
+ * it: no in-app scanner, no camera permission, no decoder to ship.
+ */
+export const SYNC_LINK_FRAGMENT = 'sync='
+
+export function buildSyncLink(code: string, origin: string): string {
+  return `${origin.replace(/\/$/, '')}/#${SYNC_LINK_FRAGMENT}${normalizeSyncCode(code)}`
+}
+
+/** The code carried by a scanned link, or null. Tolerates a full URL or a bare fragment. */
+export function readSyncLink(hashOrUrl: string): string | null {
+  const at = hashOrUrl.indexOf(SYNC_LINK_FRAGMENT)
+  if (at === -1) return null
+  const raw = hashOrUrl.slice(at + SYNC_LINK_FRAGMENT.length).split(/[&/?]/)[0]
+  const code = normalizeSyncCode(decodeURIComponent(raw))
+  return isValidSyncCode(code) ? code : null
+}

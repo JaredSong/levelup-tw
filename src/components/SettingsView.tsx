@@ -1,11 +1,13 @@
 import { Download, ExternalLink, FileWarning, Moon, RefreshCw, RotateCcw, Shuffle, Sun, Upload } from 'lucide-react'
 import { useState } from 'react'
 import { getExamDate, setExamDate } from '../app/examCountdown'
+import { normalizeSyncCode } from '../app/syncCode'
 import { getNextNationalExamEntry, isScheduleEntryPast, NATIONAL_EXAM_SCHEDULE_115, NATIONAL_EXAM_SCHEDULE_SOURCE } from '../app/nationalExamSchedule'
 import { PROFILE_NAME_KEY } from '../app/onboardingState'
 import { useActiveExam } from '../app/useActiveExam'
 import type { Progress, Question } from '../domain/studyEngine'
 import { zhTW } from '../i18n/zh-TW'
+import { SyncCodePanel } from './SyncCodePanel'
 import { exportBackup, importBackup } from '../storage/backup'
 import { getSyncPass, setSyncPass, syncNow, syncStatusLabel } from '../storage/sync'
 
@@ -33,6 +35,9 @@ export function SettingsView({ questions, progress }: Props) {
   const [theme, setTheme] = useState(() => (document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light'))
   const [randomizeOptions, setRandomizeOptions] = useState(() => localStorage.getItem(OPTION_RANDOMIZE_KEY) !== 'false')
   const [examDateValue, setExamDateValue] = useState(() => getExamDate() ?? '')
+  // One owner for the sync secret: the code panel and the adopt field both read
+  // and write this, so they cannot show contradictory state.
+  const [syncSecret, setSyncSecret] = useState(() => getSyncPass())
   const showAiSettings = !!localStorage.getItem('level-b-ai-access-token') || new URLSearchParams(window.location.search).has('ai')
   const now = new Date()
   const nextNationalExam = getNextNationalExamEntry(now)
@@ -208,16 +213,31 @@ export function SettingsView({ questions, progress }: Props) {
         {dataMsg ? <p className="backup-msg">{dataMsg}</p> : null}
       </section>
 
+      <SyncCodePanel onCodeChange={setSyncSecret} secret={syncSecret} />
+
       <section className="cloud-sync">
         <div>
           <p className="eyebrow">{zhTW.stats.syncEyebrow}</p>
           <h2>{zhTW.stats.syncTitle}</h2>
           <p>{zhTW.stats.syncHint}</p>
-          <p className={getSyncPass() ? 'sync-status ok' : 'sync-status warn'}>{syncStatusLabel()}</p>
+          <p className={syncSecret ? 'sync-status ok' : 'sync-status warn'}>{syncStatusLabel()}</p>
         </div>
+        {/* The panel above owns this device's own code. This field is the other
+            direction: adopting a code (or an old passphrase) from a device the
+            learner already has. Controlled by the same state so the two can
+            never disagree about what the secret currently is. */}
         <label>
-          <span>{zhTW.stats.syncPassLabel}</span>
-          <input defaultValue={getSyncPass()} onBlur={(event) => setSyncPass(event.target.value.trim())} placeholder={zhTW.stats.syncPassPlaceholder} type="password" />
+          <span>{zhTW.stats.syncAdoptLabel}</span>
+          <input
+            onBlur={(event) => {
+              const next = normalizeSyncCode(event.target.value)
+              setSyncPass(next)
+              setSyncSecret(next)
+            }}
+            onChange={(event) => setSyncSecret(event.target.value)}
+            placeholder={zhTW.stats.syncAdoptPlaceholder}
+            value={syncSecret}
+          />
         </label>
         <button className="secondary-action" disabled={syncing} onClick={() => void handleSync()} type="button"><RefreshCw size={17} /> {syncing ? zhTW.stats.syncing : zhTW.stats.syncNow}</button>
         {syncMsg ? <p className="backup-msg">{syncMsg}</p> : null}

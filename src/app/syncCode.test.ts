@@ -1,9 +1,11 @@
 import { describe, expect, it } from 'vitest'
 import {
+  buildSyncLink,
   formatSyncCode,
   generateSyncCode,
   isValidSyncCode,
   normalizeSyncCode,
+  readSyncLink,
   SYNC_CODE_LENGTH,
   type RandomSource,
 } from './syncCode'
@@ -81,6 +83,41 @@ describe('normalizeSyncCode', () => {
     // failing later as "no progress found" instead of "that code is wrong".
     expect(normalizeSyncCode('K7M2-P4Q9-RSTO')).toBe('K7M2P4Q9RSTO')
     expect(isValidSyncCode('K7M2-P4Q9-RSTO')).toBe(false)
+  })
+})
+
+describe('buildSyncLink / readSyncLink', () => {
+  it('round-trips a code through a link', () => {
+    const code = generateSyncCode()
+    const link = buildSyncLink(code, 'https://levelup-tw.pages.dev')
+    expect(readSyncLink(link)).toBe(code)
+  })
+
+  it('puts the code in the fragment, never the query string', () => {
+    // A fragment is not sent to the server; the code is the whole secret.
+    const link = buildSyncLink('K7M2P4Q9RSTV', 'https://levelup-tw.pages.dev')
+    expect(link).toBe('https://levelup-tw.pages.dev/#sync=K7M2P4Q9RSTV')
+    expect(link).not.toContain('?')
+  })
+
+  it('tolerates a trailing slash on the origin', () => {
+    expect(buildSyncLink('K7M2P4Q9RSTV', 'https://levelup-tw.pages.dev/'))
+      .toBe('https://levelup-tw.pages.dev/#sync=K7M2P4Q9RSTV')
+  })
+
+  it('reads a bare fragment as well as a full URL', () => {
+    expect(readSyncLink('#sync=K7M2P4Q9RSTV')).toBe('K7M2P4Q9RSTV')
+  })
+
+  it('returns null when there is no code to read', () => {
+    expect(readSyncLink('')).toBeNull()
+    expect(readSyncLink('https://levelup-tw.pages.dev/')).toBeNull()
+    expect(readSyncLink('#tab=home')).toBeNull()
+  })
+
+  it('returns null rather than a broken code when the link is malformed', () => {
+    expect(readSyncLink('#sync=TOOSHORT')).toBeNull()
+    expect(readSyncLink('#sync=K7M2P4Q9RSTO')).toBeNull() // O is not in the alphabet
   })
 })
 

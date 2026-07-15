@@ -170,12 +170,24 @@ export default function App() {
   // A QR scanned with the phone's own camera lands here as /#sync=CODE. Adopt the
   // code before the sync effect below reads it, and strip it from the URL so it
   // stays out of history and out of any link the learner later shares.
+  //
+  // Also listens for hashchange: an installed PWA that is already open does not
+  // reload when the same origin is opened again, so the link would otherwise
+  // arrive as a hash change into a mounted app and be ignored.
   useEffect(() => {
-    const scanned = readSyncLink(window.location.hash)
-    if (!scanned) return
-    setSyncPass(scanned)
-    history.replaceState(null, '', window.location.pathname + window.location.search)
-  }, [])
+    const adopt = () => {
+      const scanned = readSyncLink(window.location.hash)
+      if (!scanned) return
+      setSyncPass(scanned)
+      history.replaceState(null, '', window.location.pathname + window.location.search)
+      void syncNow(localStorage.getItem(PROFILE_NAME_KEY) ?? '')
+        .then(() => Promise.all([refresh(), refreshReviewCards()]))
+        .catch(() => undefined)
+    }
+    adopt()
+    window.addEventListener('hashchange', adopt)
+    return () => window.removeEventListener('hashchange', adopt)
+  }, [refresh, refreshReviewCards])
 
   // Pull the cloud copy on open and merge it in (no-op if sync is off or fails).
   useEffect(() => {

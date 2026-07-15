@@ -1,16 +1,19 @@
 // Cloudflare Pages Function — cross-device study-log sync via Workers KV.
 // Bind a KV namespace named SYNC in the Pages project settings.
-// The passphrase (and name, see below) is never stored: its SHA-256 hash is
-// the KV key.
+// The secret is never stored: its SHA-256 hash is the KV key.
 //
-// The record is keyed by passphrase + profile name, not passphrase alone.
-// Short human-typeable passphrases collide across strangers (the whole design
-// point is "no account, no password rules"), and a collision here isn't a
-// login error — it silently merges two people's exam history into one record
-// with no warning either side. Name is already collected in the same
-// onboarding step as the passphrase, so this is free entropy, not new typing.
-// It doesn't eliminate collisions (a blank name, or a common name + common
-// passphrase, still can), but it closes the overwhelmingly common case.
+// Key history, all read on GET so no device is ever orphaned, with writes
+// always going to the canonical scheme so records migrate forward by use:
+//
+//   canonical  hash(secret)            — a generated ~58-bit sync code
+//   legacy v2  hash(name::secret)      — brief attempt to shore up weak
+//                                        passphrases with the profile name
+//   (v1 was hash(secret) too, so canonical also covers pre-v2 devices.)
+//
+// The name is gone from the key. It was only ever propping up a passphrase
+// short enough to guess, and it made a cosmetic field into an un-editable
+// credential — a name is not a secret, and a secret should not be a greeting.
+// A generated code carries its own entropy, so neither crutch is needed.
 
 const json = (status, payload) =>
   new Response(JSON.stringify(payload), {
@@ -24,25 +27,24 @@ async function digestHex(input) {
   return [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, '0')).join('')
 }
 
-async function keyFor(passphrase, name) {
-  const normalizedName = (name ?? '').trim().toLowerCase()
-  return 'sync:' + await digestHex(`level-b-study::${normalizedName}::${passphrase}`)
+async function keyFor(secret) {
+  return 'sync:' + await digestHex(`level-b-study::${secret}`)
 }
 
-// Pre-name scheme, kept only so a device that synced before this change isn't
-// orphaned. Never written to again once a record exists under the new key.
-async function legacyKeyFor(passphrase) {
-  return 'sync:' + await digestHex(`level-b-study::${passphrase}`)
+async function legacyNameKeyFor(secret, name) {
+  const normalizedName = (name ?? '').trim().toLowerCase()
+  return 'sync:' + await digestHex(`level-b-study::${normalizedName}::${secret}`)
 }
 
 export async function onRequest(context) {
   const { request, env } = context
   if (!env.SYNC) return json(503, { error: 'Sync storage is not configured (bind a KV namespace named SYNC).' })
 
-  const passphrase = request.headers.get('x-sync-pass') ?? ''
-  if (passphrase.length < 8) return json(400, { error: 'Sync passphrase must be at least 8 characters.' })
+  const secret = request.headers.get('x-sync-pass') ?? ''
+  if (secret.length < 8) return json(400, { error: 'Sync passphrase must be at least 8 characters.' })
   const name = request.headers.get('x-sync-name') ?? ''
-  const key = await keyFor(passphrase, name)
+  // Writes always land here; reads fall back through older schemes.
+  const key = await keyFor(secret)
 
   // Older clients stored the BackupData directly (no { version, data } wrapper).
   // Treat such a record as version 0 data so legacy cloud copies still load.
@@ -55,12 +57,12 @@ export async function onRequest(context) {
 
   if (request.method === 'GET') {
     let record = readRecord(await env.SYNC.get(key))
-    // First read under the new name+passphrase key: nothing there yet, so check
-    // the pre-name key once. If it has data, hand it back as this device's
-    // starting point; the next PUT (below) always targets the new key, so the
-    // record migrates forward on its own without the learner doing anything.
-    if (!record.data) {
-      const legacy = readRecord(await env.SYNC.get(await legacyKeyFor(passphrase)))
+    // Nothing under the canonical key yet — this device may predate it. Check the
+    // name-scoped scheme and hand back whatever is there as the starting point;
+    // the next PUT targets the canonical key, so the record migrates forward on
+    // its own without the learner doing anything.
+    if (!record.data && name) {
+      const legacy = readRecord(await env.SYNC.get(await legacyNameKeyFor(secret, name)))
       if (legacy.data) record = legacy
     }
     return json(200, { version: record.version, data: record.data })

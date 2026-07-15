@@ -3,7 +3,7 @@ import { useMemo, useState } from 'react'
 import { SettingsView } from '../components/SettingsView'
 import type { Progress, Question } from '../domain/studyEngine'
 import { zhTW } from '../i18n/zh-TW'
-import { formatExamSwitcherItem, formatIntegrityLabel } from './activeExam'
+import { formatExamSwitcherItem, formatIntegrityLabel, groupExamsByCategory } from './activeExam'
 import { useActiveExam } from './useActiveExam'
 
 interface Props {
@@ -36,16 +36,7 @@ export function ActiveExamHeader({ questions, progress, settingsOpen, onSettings
       ].join(' ').toLowerCase()
       return !normalizedCatalogSearch || haystack.includes(normalizedCatalogSearch)
     })
-    return Array.from(
-      matches.reduce((groups, exam) => {
-        const key = `${exam.category} · ${exam.level}`
-        const group = groups.get(key) ?? []
-        group.push(exam)
-        groups.set(key, group)
-        return groups
-      }, new Map<string, typeof installedExams>()),
-      ([label, exams]) => ({ label, exams }),
-    )
+    return groupExamsByCategory(matches)
   }, [installedExams, normalizedCatalogSearch])
 
   return (
@@ -139,9 +130,9 @@ export function ActiveExamHeader({ questions, progress, settingsOpen, onSettings
             </div>
             <div className="catalog-list">
               {catalogGroups.map((group) => (
-                <section className="catalog-group" key={group.label}>
+                <section className="catalog-group" key={group.category}>
                   <div className="catalog-group-head">
-                    <strong>{group.label}</strong>
+                    <strong>{group.category}</strong>
                     <span>{zhTW.shell.catalogGroupCount(group.exams.length)}</span>
                   </div>
                   {group.exams.map((exam) => {

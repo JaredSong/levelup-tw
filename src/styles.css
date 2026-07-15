@@ -68,7 +68,13 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .landing-section-head { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(280px, .95fr); align-items: end; gap: 52px; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
 .landing-section-head h2, .landing-method h2, .landing-trust h2 { margin: 0; font-size: clamp(1.75rem, 4vw, 3.15rem); line-height: 1.1; letter-spacing: 0; }
 .landing-section-head > p, .landing-method-copy > p:last-child, .landing-trust > p { margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.7; }
-.landing-exam-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 20px; }
+.landing-exam-groups { display: grid; gap: 34px; margin-top: 24px; }
+.landing-exam-group { display: grid; gap: 12px; }
+.landing-exam-group + .landing-exam-group { padding-top: 26px; border-top: 1px solid var(--line); }
+.landing-exam-group-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+.landing-exam-group-head h3 { margin: 0; color: var(--accent-dark); font-size: 1rem; }
+.landing-exam-group-head span { color: var(--muted); font-size: .72rem; font-weight: 750; }
+.landing-exam-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .landing-exam-card { --landing-index: 0; width: 100%; min-height: 130px; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; grid-template-rows: 1fr auto; gap: 8px 14px; align-items: start; padding: 18px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink); text-align: left; cursor: pointer; opacity: 0; animation: landing-enter 420ms cubic-bezier(.16,1,.3,1) forwards; animation-delay: calc(var(--landing-index) * 70ms); transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease; }
 .landing-exam-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 14px 30px rgba(24,32,27,.08); }
 .landing-exam-card:active { transform: translateY(0); }
@@ -213,6 +219,11 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .onboarding-search-grid.single .onboarding-subject-search { min-height: 44px; padding: 9px 12px; border-radius: 8px; }
 .onboarding-subject-search input { width: 100%; border: 0; outline: 0; background: transparent; color: var(--ink); font-size: .95rem; font-weight: 750; }
 .onboarding-subject-list { position: relative; display: grid; gap: 9px; max-height: min(360px, 38dvh); overflow-y: auto; padding: 0 2px 22px 0; }
+.onboarding-subject-group { display: grid; gap: 8px; }
+.onboarding-subject-group + .onboarding-subject-group { margin-top: 8px; padding-top: 14px; border-top: 1px solid var(--line); }
+.onboarding-subject-group-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 0 2px; }
+.onboarding-subject-group-head strong { color: var(--accent-dark); font-size: .76rem; }
+.onboarding-subject-group-head span { color: var(--muted); font-size: .7rem; font-weight: 750; }
 .onboarding-subjects::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 38px; pointer-events: none; background: linear-gradient(to bottom, rgba(255,255,255,0), var(--surface)); }
 .onboarding-subject-list button { width: 100%; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 11px; align-items: center; padding: 13px; border: 1px solid var(--line); border-radius: 9px; background: transparent; color: var(--ink); text-align: left; cursor: pointer; }
 .onboarding-subject-list button.selected { border-color: var(--accent); background: var(--accent-pale); }

@@ -11,7 +11,7 @@ import {
 import type { CSSProperties } from 'react'
 import type { ExamManifest } from '../core/exam'
 import { zhTW } from '../i18n/zh-TW'
-import { formatIntegrityLabel } from './activeExam'
+import { formatIntegrityLabel, groupExamsByCategory } from './activeExam'
 
 interface Props {
   exams: ExamManifest[]
@@ -28,6 +28,8 @@ const learningLoop = [
 ]
 
 export function LandingPage({ exams, returning, onEnter, onSelectExam }: Props) {
+  const examGroups = groupExamsByCategory(exams)
+
   return (
     <main className="landing-page">
       <nav className="landing-nav" aria-label={zhTW.landing.brand}>
@@ -73,26 +75,36 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam }: Props) 
           </div>
           <p>{zhTW.landing.examSectionDescription}</p>
         </header>
-        <div className="landing-exam-grid">
-          {exams.map((exam, index) => (
-            <button
-              className="landing-exam-card"
-              key={exam.examId}
-              onClick={() => onSelectExam(exam.examId)}
-              style={{ '--landing-index': index } as CSSProperties}
-              type="button"
-            >
-              <Database size={21} />
-              <span className="landing-exam-copy">
-                <small>{exam.sections[0]?.subjectCode ?? exam.examId} · {exam.category} · {exam.level}</small>
-                <strong>{exam.titleZh}</strong>
-                <span>{zhTW.landing.examQuestions(exam.activeQuestionCount)} · {exam.version}</span>
-              </span>
-              <span className={`landing-integrity ${exam.integrity?.status ?? 'unchecked'}`}>
-                {formatIntegrityLabel(exam)}
-              </span>
-              <span className="landing-exam-arrow" aria-label={zhTW.landing.examAction(exam.titleZh)}><ArrowRight size={19} /></span>
-            </button>
+        <div className="landing-exam-groups">
+          {examGroups.map((group) => (
+            <section className="landing-exam-group" key={group.category}>
+              <header className="landing-exam-group-head">
+                <h3>{group.category}</h3>
+                <span>{zhTW.shell.catalogGroupCount(group.exams.length)}</span>
+              </header>
+              <div className="landing-exam-grid">
+                {group.exams.map((exam) => (
+                  <button
+                    className="landing-exam-card"
+                    key={exam.examId}
+                    onClick={() => onSelectExam(exam.examId)}
+                    style={{ '--landing-index': exams.indexOf(exam) } as CSSProperties}
+                    type="button"
+                  >
+                    <Database size={21} />
+                    <span className="landing-exam-copy">
+                      <small>{exam.sections[0]?.subjectCode ?? exam.examId} · {exam.level}</small>
+                      <strong>{exam.titleZh}</strong>
+                      <span>{zhTW.landing.examQuestions(exam.activeQuestionCount)} · {exam.version}</span>
+                    </span>
+                    <span className={`landing-integrity ${exam.integrity?.status ?? 'unchecked'}`}>
+                      {formatIntegrityLabel(exam)}
+                    </span>
+                    <span className="landing-exam-arrow" aria-label={zhTW.landing.examAction(exam.titleZh)}><ArrowRight size={19} /></span>
+                  </button>
+                ))}
+              </div>
+            </section>
           ))}
         </div>
       </section>

@@ -7,6 +7,7 @@ import {
   formatIntegrityLabel,
   formatMockFormatHint,
   formatSyllabusItems,
+  groupExamsByCategory,
   homeStudyCopyForExam,
   INSTALLED_EXAMS,
 } from './activeExam'
@@ -79,6 +80,25 @@ describe('active exam selection', () => {
       'chinese-cooking-meat-c',
       'baking-food-c',
     ]))
+  })
+
+  it('groups the subject catalog by professional category while preserving exam order', () => {
+    const groups = groupExamsByCategory(INSTALLED_EXAMS)
+
+    expect(groups.map((group) => group.category)).toEqual([
+      '資訊',
+      '美容美髮',
+      '商業服務',
+      '餐飲食品',
+    ])
+    expect(groups.find((group) => group.category === '資訊')?.exams.map((exam) => exam.examId)).toEqual([
+      'web-design-b',
+      'computer-software-application-c',
+    ])
+    expect(groups.find((group) => group.category === '餐飲食品')?.exams.map((exam) => exam.examId)).toEqual([
+      'chinese-cooking-meat-c',
+      'baking-food-c',
+    ])
   })
 
   it('formats the current bank label from the active exam instead of a fixed syllabus', () => {

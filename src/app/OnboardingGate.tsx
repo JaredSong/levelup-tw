@@ -4,6 +4,7 @@ import { formatSyncCode, isValidSyncCode, normalizeSyncCode, readSyncLink } from
 import { zhTW } from '../i18n/zh-TW'
 import { setSyncPass } from '../storage/sync'
 import { ONBOARDING_DONE_KEY, PROFILE_NAME_KEY } from './onboardingState'
+import { groupExamsByCategory } from './activeExam'
 import { useActiveExam } from './useActiveExam'
 
 interface Props {
@@ -58,6 +59,7 @@ export function OnboardingGate({ onComplete }: Props) {
       return haystack.includes(normalizedSubjectSearch)
     })
   }, [installedExams, normalizedSubjectSearch])
+  const filteredExamGroups = useMemo(() => groupExamsByCategory(filteredExams), [filteredExams])
   const selectedExamId = filteredExams.some((exam) => exam.examId === examId)
     ? examId
     : filteredExams[0]?.examId ?? examId
@@ -217,15 +219,23 @@ export function OnboardingGate({ onComplete }: Props) {
               </label>
             </div>
             <div className="onboarding-subject-list">
-              {filteredExams.map((exam) => (
-                <button className={exam.examId === selectedExamId ? 'selected' : ''} key={exam.examId} onClick={() => setExamId(exam.examId)} type="button">
-                  <Database size={18} />
-                  <span>
-                    <strong>{exam.titleZh}</strong>
-                    <small>{exam.category} · {exam.level} · {exam.version}</small>
-                  </span>
-                  <em>{zhTW.onboarding.subjectCount(exam.activeQuestionCount)}</em>
-                </button>
+              {filteredExamGroups.map((group) => (
+                <section className="onboarding-subject-group" key={group.category}>
+                  <div className="onboarding-subject-group-head">
+                    <strong>{group.category}</strong>
+                    <span>{zhTW.shell.catalogGroupCount(group.exams.length)}</span>
+                  </div>
+                  {group.exams.map((exam) => (
+                    <button className={exam.examId === selectedExamId ? 'selected' : ''} key={exam.examId} onClick={() => setExamId(exam.examId)} type="button">
+                      <Database size={18} />
+                      <span>
+                        <strong>{exam.titleZh}</strong>
+                        <small>{exam.level} · {exam.version}</small>
+                      </span>
+                      <em>{zhTW.onboarding.subjectCount(exam.activeQuestionCount)}</em>
+                    </button>
+                  ))}
+                </section>
               ))}
               {!filteredExams.length ? <p className="onboarding-empty">{zhTW.onboarding.noSubjectMatch}</p> : null}
             </div>

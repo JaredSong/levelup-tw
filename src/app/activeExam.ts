@@ -10,6 +10,23 @@ export const WEB_DESIGN_B_MANIFEST = WEB_DESIGN_B_MANIFEST_JSON as ExamManifest
 
 export const INSTALLED_EXAMS: ExamManifest[] = [WEB_DESIGN_B_MANIFEST, ...GENERATED_EXAM_MANIFESTS]
 
+export interface ExamCategoryGroup {
+  category: string
+  exams: ExamManifest[]
+}
+
+export function groupExamsByCategory(exams: ExamManifest[]): ExamCategoryGroup[] {
+  return Array.from(
+    exams.reduce((groups, exam) => {
+      const group = groups.get(exam.category) ?? []
+      group.push(exam)
+      groups.set(exam.category, group)
+      return groups
+    }, new Map<string, ExamManifest[]>()),
+    ([category, groupedExams]) => ({ category, exams: groupedExams }),
+  )
+}
+
 function uniqueValidExamIds(exams: Pick<ExamManifest, 'examId'>[], ids: string[]): string[] {
   const validIds = new Set(exams.map((exam) => exam.examId))
   const seen = new Set<string>()

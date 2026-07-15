@@ -10,5 +10,6 @@ describe('public landing entry', () => {
 
   it('never puts the public landing page in front of the PWA app entry', () => {
     expect(shouldShowLanding({ onboarded: false, hasSyncLink: false, forceApp: true })).toBe(false)
+    expect(shouldShowLanding({ onboarded: false, hasSyncLink: false, standalone: true })).toBe(false)
   })
 })

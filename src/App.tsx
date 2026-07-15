@@ -144,11 +144,14 @@ async function explainQuestion(examId: string, question: Question, selected: num
 export default function App() {
   const { installedExams, setActiveExamId } = useActiveExam()
   const [onboarded, setOnboarded] = useState(hasCompletedOnboarding)
+  const standalone = window.matchMedia('(display-mode: standalone)').matches
+    || Boolean((navigator as Navigator & { standalone?: boolean }).standalone)
   const [landingOpen, setLandingOpen] = useState(() => shouldShowLanding({
     onboarded: hasCompletedOnboarding(),
     hasSyncLink: Boolean(readSyncLink(window.location.hash)),
     forceWelcome: window.location.pathname === '/welcome',
     forceApp: window.location.pathname === '/app',
+    standalone,
   }))
 
   const enterApp = (examId?: string) => {

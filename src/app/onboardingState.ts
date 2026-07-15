@@ -10,13 +10,15 @@ export function shouldShowLanding({
   hasSyncLink,
   forceWelcome = false,
   forceApp = false,
+  standalone = false,
 }: {
   onboarded: boolean
   hasSyncLink: boolean
   forceWelcome?: boolean
   forceApp?: boolean
+  standalone?: boolean
 }): boolean {
   if (hasSyncLink) return false
-  if (forceApp) return false
+  if (forceApp || standalone) return false
   return forceWelcome || !onboarded
 }

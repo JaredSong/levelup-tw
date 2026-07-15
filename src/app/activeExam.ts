@@ -63,14 +63,7 @@ export function formatExamSwitcherItem(exam: ExamManifest, active: boolean) {
     meta: `${exam.category} · ${exam.level} · ${exam.version}`,
     countLabel: zhTW.shell.activeQuestionCount(exam.activeQuestionCount),
     statusLabel: active ? zhTW.shell.activeOffline : zhTW.shell.installedOffline,
-    integrityLabel: formatIntegrityLabel(exam),
   }
-}
-
-export function formatIntegrityLabel(exam: Pick<ExamManifest, 'integrity'>): string {
-  if (exam.integrity?.status === 'fully_verified') return zhTW.shell.integrityFullyVerified
-  if (exam.integrity?.status === 'spot_checked') return zhTW.shell.integritySpotChecked
-  return zhTW.shell.integrityUnchecked
 }
 
 export function formatCurrentBankLabel(exam: Pick<ExamManifest, 'titleZh' | 'version'>): string {

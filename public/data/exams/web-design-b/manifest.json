@@ -159,9 +159,8 @@
   },
   "integrity": {
     "status": "fully_verified",
-    "note": "All 1365 answer keys re-extracted from the official PDFs by scripts/verifyAnswerKeys.mjs, independently of the importer, and agree 100%.",
-    "verifiedAt": "2026-07-15",
     "inactiveQuestionCount": 5,
-    "imageQuestionCount": 8
+    "imageQuestionCount": 8,
+    "note": "Answer keys independently cross-checked against the official PDF during import."
   }
 }

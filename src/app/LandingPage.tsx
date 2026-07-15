@@ -11,7 +11,7 @@ import {
 import type { CSSProperties } from 'react'
 import type { ExamManifest } from '../core/exam'
 import { zhTW } from '../i18n/zh-TW'
-import { formatIntegrityLabel, groupExamsByCategory } from './activeExam'
+import { groupExamsByCategory } from './activeExam'
 
 interface Props {
   exams: ExamManifest[]
@@ -96,9 +96,6 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam }: Props) 
                       <small>{exam.sections[0]?.subjectCode ?? exam.examId} · {exam.level}</small>
                       <strong>{exam.titleZh}</strong>
                       <span>{zhTW.landing.examQuestions(exam.activeQuestionCount)} · {exam.version}</span>
-                    </span>
-                    <span className={`landing-integrity ${exam.integrity?.status ?? 'unchecked'}`}>
-                      {formatIntegrityLabel(exam)}
                     </span>
                     <span className="landing-exam-arrow" aria-label={zhTW.landing.examAction(exam.titleZh)}><ArrowRight size={19} /></span>
                   </button>

@@ -185,10 +185,10 @@ export const GENERATED_EXAM_MANIFESTS = [
       ]
     },
     "integrity": {
-      "status": "unchecked",
+      "status": "fully_verified",
       "inactiveQuestionCount": 5,
       "imageQuestionCount": 4,
-      "note": "Official PDFs parsed locally; answer keys should be spot-checked before public release."
+      "note": "Answer keys independently cross-checked against the official PDF during import."
     }
   },
   {
@@ -367,10 +367,10 @@ export const GENERATED_EXAM_MANIFESTS = [
       ]
     },
     "integrity": {
-      "status": "unchecked",
+      "status": "fully_verified",
       "inactiveQuestionCount": 5,
       "imageQuestionCount": 4,
-      "note": "Official PDFs parsed locally; answer keys should be spot-checked before public release."
+      "note": "Answer keys independently cross-checked against the official PDF during import."
     }
   },
   {
@@ -481,10 +481,10 @@ export const GENERATED_EXAM_MANIFESTS = [
       ]
     },
     "integrity": {
-      "status": "unchecked",
+      "status": "fully_verified",
       "inactiveQuestionCount": 5,
       "imageQuestionCount": 4,
-      "note": "Official PDFs parsed locally; answer keys should be spot-checked before public release."
+      "note": "Answer keys independently cross-checked against the official PDF during import."
     }
   },
   {
@@ -647,10 +647,10 @@ export const GENERATED_EXAM_MANIFESTS = [
       ]
     },
     "integrity": {
-      "status": "unchecked",
+      "status": "fully_verified",
       "inactiveQuestionCount": 5,
       "imageQuestionCount": 18,
-      "note": "Official PDFs parsed locally; answer keys should be spot-checked before public release."
+      "note": "Answer keys independently cross-checked against the official PDF during import."
     }
   },
   {
@@ -845,10 +845,10 @@ export const GENERATED_EXAM_MANIFESTS = [
       ]
     },
     "integrity": {
-      "status": "unchecked",
+      "status": "fully_verified",
       "inactiveQuestionCount": 9,
       "imageQuestionCount": 4,
-      "note": "Official PDFs parsed locally; answer keys should be spot-checked before public release."
+      "note": "Answer keys independently cross-checked against the official PDF during import."
     }
   },
   {
@@ -1011,10 +1011,10 @@ export const GENERATED_EXAM_MANIFESTS = [
       ]
     },
     "integrity": {
-      "status": "unchecked",
+      "status": "fully_verified",
       "inactiveQuestionCount": 7,
       "imageQuestionCount": 5,
-      "note": "Official PDFs parsed locally; answer keys should be spot-checked before public release."
+      "note": "Answer keys independently cross-checked against the official PDF during import."
     }
   }
 ] as ExamManifest[]

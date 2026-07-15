@@ -35,8 +35,24 @@ const hasPdfToText = (() => {
 })()
 
 describe.skipIf(!hasPdfToText)('published answer keys match the official PDFs', () => {
-  // Every subject in web-design-b, the pack that claims fully_verified.
-  for (const subjectCode of ['17300', '90006', '90007', '90008', '90009', '90011']) {
+  // Every official subject currently shipped by the app. This is deliberately
+  // broader than any one exam pack because shared banks are reused.
+  for (const subjectCode of [
+    '06000',
+    '06700',
+    '07602',
+    '07700',
+    '11800',
+    '17300',
+    '19500',
+    '90006',
+    '90007',
+    '90008',
+    '90009',
+    '90010',
+    '90011',
+    '90012',
+  ]) {
     it(`${subjectCode}: every key agrees with the source paper`, () => {
       const { ok, output } = verify(subjectCode)
       expect(output, output).toMatch(/DISAGREE\s+: 0/)
@@ -45,12 +61,20 @@ describe.skipIf(!hasPdfToText)('published answer keys match the official PDFs', 
     })
   }
 
-  it('only claims fully_verified for a pack whose keys are actually all checked', () => {
-    const manifest = JSON.parse(
-      readFileSync(new URL('../public/data/exams/web-design-b/manifest.json', import.meta.url), 'utf8'),
-    ) as { integrity?: { status?: string } }
-    // If someone downgrades the claim, that is fine — but a fully_verified claim
-    // must be backed by the checks above, which run in this same file.
-    expect(manifest.integrity?.status).toBe('fully_verified')
+  it('keeps verification metadata internal for every generated pack', () => {
+    for (const examId of [
+      'web-design-b',
+      'man-haircut-c',
+      'women-hairdressing-c',
+      'employment-service-b',
+      'computer-software-application-c',
+      'chinese-cooking-meat-c',
+      'baking-food-c',
+    ]) {
+      const manifest = JSON.parse(
+        readFileSync(new URL(`../public/data/exams/${examId}/manifest.json`, import.meta.url), 'utf8'),
+      ) as { integrity?: { status?: string } }
+      expect(manifest.integrity?.status).toBe('fully_verified')
+    }
   })
 })

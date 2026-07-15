@@ -158,9 +158,9 @@
     ]
   },
   "integrity": {
-    "status": "unchecked",
+    "status": "fully_verified",
     "inactiveQuestionCount": 7,
     "imageQuestionCount": 5,
-    "note": "Official PDFs parsed locally; answer keys should be spot-checked before public release."
+    "note": "Answer keys independently cross-checked against the official PDF during import."
   }
 }

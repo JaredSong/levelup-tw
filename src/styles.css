@@ -113,6 +113,11 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .onboarding-code-field { grid-column: 1 / -1; display: grid; gap: 6px; color: var(--muted); font-size: .74rem; font-weight: 800; }
 .onboarding-code-field input { width: 100%; padding: 11px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink); font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
 .onboarding-code-field em { color: var(--danger); font-size: .72rem; font-style: normal; font-weight: 800; }
+.onboarding-scanner { grid-column: 1 / -1; display: grid; gap: 9px; }
+.onboarding-scanner video { width: 100%; max-height: 260px; border: 1px solid var(--line); border-radius: 8px; background: #0a0f0c; object-fit: cover; }
+.onboarding-scanner .secondary-action { justify-self: start; display: inline-flex; align-items: center; gap: 7px; }
+.scan-msg { grid-column: 1 / -1; margin: 0; color: var(--muted); font-size: .74rem; line-height: 1.45; }
+.scan-msg.ok { color: var(--accent-dark); font-weight: 800; }
 .onboarding-search-grid { display: grid; grid-template-columns: minmax(150px, .72fr) minmax(220px, 1.28fr); gap: 8px; padding: 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); }
 .onboarding-subject-search { min-height: 34px; display: grid; grid-template-columns: auto auto minmax(0, 1fr); align-items: center; gap: 7px; padding: 5px 8px; border: 1px solid var(--line); border-radius: 5px; background: var(--surface); color: var(--muted); }
 .onboarding-subject-search span { color: var(--ink); font-size: .78rem; font-weight: 850; white-space: nowrap; }

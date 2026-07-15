@@ -1,5 +1,5 @@
-import { Camera, Database, KeyRound, Search, UserRound } from 'lucide-react'
-import { useMemo, useState } from 'react'
+import { Camera, Database, KeyRound, Search, UserRound, X } from 'lucide-react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { formatSyncCode, isValidSyncCode, normalizeSyncCode, readSyncLink } from '../app/syncCode'
 import { zhTW } from '../i18n/zh-TW'
 import { setSyncPass } from '../storage/sync'
@@ -8,6 +8,18 @@ import { useActiveExam } from './useActiveExam'
 
 interface Props {
   onComplete: () => void
+}
+
+interface BarcodeDetection {
+  rawValue?: string
+}
+
+type BarcodeDetectorCtor = new (options?: { formats?: string[] }) => {
+  detect(source: HTMLVideoElement): Promise<BarcodeDetection[]>
+}
+
+function getBarcodeDetector(): BarcodeDetectorCtor | null {
+  return (window as typeof window & { BarcodeDetector?: BarcodeDetectorCtor }).BarcodeDetector ?? null
 }
 
 // Subject comes first because it is the only answer the app actually needs to
@@ -24,6 +36,12 @@ export function OnboardingGate({ onComplete }: Props) {
   const [examId, setExamId] = useState(activeExam.examId)
   const [subjectNameSearch, setSubjectNameSearch] = useState('')
   const [subjectCodeSearch, setSubjectCodeSearch] = useState('')
+  const [scannerOpen, setScannerOpen] = useState(false)
+  const [scannerMsg, setScannerMsg] = useState<string | null>(null)
+  const videoRef = useRef<HTMLVideoElement | null>(null)
+  const streamRef = useRef<MediaStream | null>(null)
+  const frameRef = useRef<number | null>(null)
+  const scannerActiveRef = useRef(false)
   const normalizedNameSearch = subjectNameSearch.trim().toLowerCase()
   const normalizedCodeSearch = subjectCodeSearch.trim().toLowerCase()
   const filteredExams = useMemo(() => {
@@ -61,6 +79,77 @@ export function OnboardingGate({ onComplete }: Props) {
       ? zhTW.onboarding.syncInvalidCode
       : null
 
+  const stopScanner = useCallback(() => {
+    scannerActiveRef.current = false
+    if (frameRef.current !== null) {
+      cancelAnimationFrame(frameRef.current)
+      frameRef.current = null
+    }
+    streamRef.current?.getTracks().forEach((track) => track.stop())
+    streamRef.current = null
+    if (videoRef.current) videoRef.current.srcObject = null
+    setScannerOpen(false)
+  }, [])
+
+  useEffect(() => () => stopScanner(), [stopScanner])
+
+  const acceptScannedValue = useCallback((value: string) => {
+    const code = readSyncLink(value) ?? (isValidSyncCode(value) ? normalizeSyncCode(value) : null)
+    if (!code) return false
+    setRestoring(true)
+    setPassphrase(formatSyncCode(code))
+    setScannerMsg(zhTW.onboarding.scanSuccess)
+    stopScanner()
+    return true
+  }, [stopScanner])
+
+  const startScanner = async () => {
+    setRestoring(true)
+    setScannerMsg(null)
+    const Detector = getBarcodeDetector()
+    if (!Detector || !navigator.mediaDevices?.getUserMedia) {
+      setScannerMsg(zhTW.onboarding.scanUnsupported)
+      return
+    }
+
+    setScannerOpen(true)
+    setScannerMsg(zhTW.onboarding.scanStarting)
+    scannerActiveRef.current = true
+
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({
+        audio: false,
+        video: { facingMode: { ideal: 'environment' } },
+      })
+      if (!scannerActiveRef.current) {
+        stream.getTracks().forEach((track) => track.stop())
+        return
+      }
+      streamRef.current = stream
+      if (!videoRef.current) return
+      videoRef.current.srcObject = stream
+      await videoRef.current.play()
+      setScannerMsg(zhTW.onboarding.scanLooking)
+
+      const detector = new Detector({ formats: ['qr_code'] })
+      const scan = async () => {
+        if (!scannerActiveRef.current || !videoRef.current) return
+        try {
+          const codes = await detector.detect(videoRef.current)
+          const found = codes.some((code) => code.rawValue ? acceptScannedValue(code.rawValue) : false)
+          if (found) return
+        } catch {
+          // Keep scanning; a half-ready video frame can fail transiently.
+        }
+        if (scannerActiveRef.current) frameRef.current = requestAnimationFrame(() => void scan())
+      }
+      frameRef.current = requestAnimationFrame(() => void scan())
+    } catch {
+      stopScanner()
+      setScannerMsg(zhTW.onboarding.scanPermissionDenied)
+    }
+  }
+
   const complete = () => {
     if (restoreError) return
     if (trimmedName) localStorage.setItem(PROFILE_NAME_KEY, trimmedName)
@@ -89,6 +178,9 @@ export function OnboardingGate({ onComplete }: Props) {
                 <p className="onboarding-restore-head"><Camera size={15} /> {zhTW.onboarding.scanTitle}</p>
                 <p className="onboarding-restore-hint">{zhTW.onboarding.scanHint}</p>
               </div>
+              <button className="onboarding-restore-toggle" onClick={() => void startScanner()} type="button">
+                <Camera size={15} /> {zhTW.onboarding.scanCamera}
+              </button>
               {restoring ? (
                 <label className="onboarding-code-field">
                   <span>{scannedCode ? zhTW.onboarding.scannedCodeDetected : zhTW.onboarding.syncCodeLabel}</span>
@@ -105,6 +197,15 @@ export function OnboardingGate({ onComplete }: Props) {
                   <KeyRound size={15} /> {zhTW.onboarding.restoreToggle}
                 </button>
               )}
+              {scannerOpen ? (
+                <div className="onboarding-scanner">
+                  <video ref={videoRef} playsInline muted />
+                  <button className="secondary-action" onClick={stopScanner} type="button">
+                    <X size={16} /> {zhTW.onboarding.scanCancel}
+                  </button>
+                </div>
+              ) : null}
+              {scannerMsg ? <p className={scannerMsg === zhTW.onboarding.scanSuccess ? 'scan-msg ok' : 'scan-msg'}>{scannerMsg}</p> : null}
             </section>
             <div className="onboarding-search-grid">
               <label className="onboarding-subject-search">

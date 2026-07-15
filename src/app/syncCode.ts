@@ -74,7 +74,8 @@ export function isValidSyncCode(input: string): boolean {
  * The QR carries this link rather than the study data — a record runs to
  * hundreds of KB against a QR ceiling of ~3KB — so the second device still
  * pulls from the cloud. Encoding a URL also means the phone's own camera opens
- * it: no in-app scanner, no camera permission, no decoder to ship.
+ * it: the phone's own camera can open it, while the onboarding scanner can also
+ * read the same payload when the browser supports BarcodeDetector.
  */
 export const SYNC_LINK_FRAGMENT = 'sync='
 

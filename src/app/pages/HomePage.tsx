@@ -21,7 +21,11 @@ interface Props {
   onWrongFix: () => void
   onContinue: () => void
   onSequential: () => void
+  onOpenSettings: () => void
 }
+
+/** Roughly two sessions: enough progress that losing it would actually sting. */
+const NUDGE_BACKUP_AFTER_SEEN = 20
 
 const MISSION_META = {
   'due-review': { label: () => zhTW.home.missionDueReview, icon: Layers3 },
@@ -55,6 +59,7 @@ export function HomePage(props: Props) {
   // Null outside the actionable window, so this stays a deadline warning rather
   // than permanent furniture on the one screen meant to show a single next action.
   const registration = getRegistrationNotice(new Date())
+  const showBackupNudge = !isSyncEnabled() && props.seen >= NUDGE_BACKUP_AFTER_SEEN
   const registrationHref = activeExam.officialLinks?.registration ?? NATIONAL_EXAM_SCHEDULE_SOURCE
 
   return (
@@ -93,8 +98,16 @@ export function HomePage(props: Props) {
         </p>
       ) : null}
 
-      {!isSyncEnabled() ? (
-        <p className="sync-nudge"><CloudOff size={16} /> {zhTW.home.syncOff}</p>
+      {/* Earned, not permanent: nobody needs a backup prompt on question three,
+          and a banner that is always there is furniture the eye learns to skip.
+          It appears once there is progress worth losing, and goes away for good
+          the moment a code exists. */}
+      {showBackupNudge ? (
+        <p className="sync-nudge">
+          <CloudOff size={16} />
+          <span>{zhTW.home.syncOff(props.seen)}</span>
+          <button onClick={props.onOpenSettings} type="button">{zhTW.home.syncOffAction}</button>
+        </p>
       ) : null}
 
       <section className="mission-card" aria-label={zhTW.home.missionTitle}>

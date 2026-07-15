@@ -35,6 +35,7 @@ import { useStudyData } from './hooks/useStudyData'
 import { useTodayActivity } from './hooks/useTodayActivity'
 import { zhTW } from './i18n/zh-TW'
 import { db } from './storage/db'
+import { requestPersistence, shouldRequestPersistence } from './storage/persistence'
 import { isSyncEnabled, setSyncPass, syncNow } from './storage/sync'
 import type { SessionMode, StudySession } from './types'
 
@@ -151,6 +152,7 @@ export default function App() {
   const [practiceOpen, setPracticeOpen] = useState(false)
   const [summary, setSummary] = useState<StudySession | null>(null)
   const [onboarded, setOnboarded] = useState(hasCompletedOnboarding)
+  const [settingsOpen, setSettingsOpen] = useState(false)
   const prefetchedCueSessionRef = useRef('')
 
   useEffect(() => {
@@ -211,6 +213,14 @@ export default function App() {
   const accuracy = attempts ? Math.round((stats.correct / attempts) * 100) : 0
   const due = stats.due
   const wrongCount = stats.wrong
+
+  // Browsers treat IndexedDB as disposable cache — Safari clears it after ~7 days
+  // idle, with no warning. Ask them not to, once there is progress worth keeping
+  // (asking on first paint is likeliest to be refused, and pointless anyway).
+  useEffect(() => {
+    if (!shouldRequestPersistence(attempts)) return
+    void requestPersistence()
+  }, [attempts])
 
   const sessionQuestions = useMemo(() => {
     if (!session || !bank) return []
@@ -560,8 +570,8 @@ export default function App() {
 
   return (
     <div className="app-frame">
-      <ActiveExamHeader progress={progress} questions={bank.questions} />
-      {tab === 'home' ? <HomePage seen={seen} total={bank.questions.length} due={due} accuracy={accuracy} hasSession={!!session} sessionLabel={session ? displaySessionTitle(session) : undefined} streak={streak} mission={mission} onGoReview={() => setTab('review')} onWrongFix={startWrong} onContinue={resumePractice} onSequential={startSequential} /> : null}
+      <ActiveExamHeader onSettingsOpenChange={setSettingsOpen} progress={progress} questions={bank.questions} settingsOpen={settingsOpen} />
+      {tab === 'home' ? <HomePage onOpenSettings={() => setSettingsOpen(true)} seen={seen} total={bank.questions.length} due={due} accuracy={accuracy} hasSession={!!session} sessionLabel={session ? displaySessionTitle(session) : undefined} streak={streak} mission={mission} onGoReview={() => setTab('review')} onWrongFix={startWrong} onContinue={resumePractice} onSequential={startSequential} /> : null}
       {tab === 'practice' ? <PracticePage questions={bank.questions} progress={progress} total={bank.questions.length} onSequential={startSequential} onRandom={() => begin('random', buildRandomQueue(bank.questions, 10))} onFresh={(limit) => begin('fresh', buildFreshQueue(bank.questions, progress, limit), zhTW.session.freshTitle(limit))} onHighYield={() => begin('highYield', buildHighYieldQueue(bank.questions, progress, 20))} onSubject={(subjectCode, title) => begin('random', buildRandomQueue(bank.questions.filter((question) => question.subjectCode === subjectCode), 10), title)} onOpenQuestion={(question) => begin('item', [question])} onSprint={() => begin('sprint', buildSprintQueue(bank.questions, progress, 20))} /> : null}
       {tab === 'review' ? <ReviewPage due={due} wrongCount={wrongCount} dueCards={dueCards} totalCards={reviewCards.length} wrongWithoutCards={wrongWithoutCards} onGradeCard={gradeReviewCard} onOpenCardSource={openCardSource} onCreateWrongCards={createWrongCards} onAdaptive={() => begin('adaptive', buildAdaptiveQueue(bank.questions, progress, 10))} onWrong={startWrong} onFlashcards={() => begin('flashcard', buildAdaptiveQueue(bank.questions, progress, 10), zhTW.session.titles.flashcard)} onCommuteNotes={startCommuteNotes} onPracticeSection={(section, title) => begin('adaptive', buildAdaptiveQueue(bank.questions.filter((question) => question.section === section), progress, 10), title)} /> : null}
       {tab === 'mock' ? <MockExamPage onMock={() => startMock(false)} onMockTraining={() => startMock(true)} /> : null}

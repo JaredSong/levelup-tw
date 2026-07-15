@@ -9,14 +9,18 @@ import { useActiveExam } from './useActiveExam'
 interface Props {
   questions: Question[]
   progress: Record<string, Progress>
+  /** Owned by App so the Home backup nudge can open Settings directly, rather
+      than telling the learner to go find it. */
+  settingsOpen: boolean
+  onSettingsOpenChange: (open: boolean) => void
 }
 
-export function ActiveExamHeader({ questions, progress }: Props) {
+export function ActiveExamHeader({ questions, progress, settingsOpen, onSettingsOpenChange }: Props) {
   const { activeExam, installedExams, selectedExams, setActiveExamId } = useActiveExam()
   const [open, setOpen] = useState(false)
   const [catalogOpen, setCatalogOpen] = useState(false)
   const [catalogSearch, setCatalogSearch] = useState('')
-  const [settingsOpen, setSettingsOpen] = useState(false)
+  const setSettingsOpen = onSettingsOpenChange
   const normalizedCatalogSearch = catalogSearch.trim().toLowerCase()
   const catalogGroups = useMemo(() => {
     const matches = installedExams.filter((exam) => {

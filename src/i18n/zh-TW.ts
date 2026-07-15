@@ -58,7 +58,10 @@ export const zhTW = {
       nameOnOwnLine: !!name,
     }),
     subtitle: '升級吧 · 今日任務',
-    syncOff: '雲端同步尚未開啟；可到「進度」設定通關密語，讓不同裝置共用進度。',
+    // Not "progress isn't saved" — it is saved, locally, which is the whole
+    // design. The honest risk is that it lives in exactly one place.
+    syncOff: (seen: number) => `已練的 ${seen} 題只存在這台裝置。手機掉了或清瀏覽器資料就沒了。`,
+    syncOffAction: '建立進度代碼',
     seen: '已練',
     dueNow: '待複習',
     accuracy: '正確率',

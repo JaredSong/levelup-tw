@@ -504,6 +504,10 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .sync-status.ok { color: var(--accent-dark); }
 .sync-status.warn { color: var(--coral); }
 .sync-nudge { display: flex; align-items: center; gap: 8px; margin: 14px 0 0; padding: 9px 12px; border-radius: 7px; background: #fbeee9; color: var(--coral); font-size: .82rem; font-weight: 600; }
+.sync-nudge > span { flex: 1; min-width: 0; }
+.sync-nudge svg { flex: 0 0 auto; }
+.sync-nudge button { flex: 0 0 auto; padding: 5px 10px; border: 0; border-radius: 6px; background: var(--coral); color: white; font-size: .76rem; font-weight: 800; white-space: nowrap; cursor: pointer; }
+.sync-nudge button:hover { background: var(--danger); }
 /* Registration deadline: gold while the window is open, escalating to danger in
    the last few days. Only rendered while the window is actionable. */
 .reg-nudge { display: flex; align-items: center; gap: 8px; margin: 14px 0 0; padding: 9px 12px; border: 1px solid #ecd9a8; border-radius: 7px; background: #fdf6e3; color: #8a6410; font-size: .82rem; font-weight: 700; }

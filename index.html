@@ -31,8 +31,13 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content="升級吧" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <!-- SVG for modern browsers; .ico + PNG for Google Search and older clients,
+         which don't reliably pick up an SVG-only favicon. -->
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="icon" href="/app-icon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/app-icon.svg" />
+    <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <title>升級吧 Level Up｜技術士技能檢定學科題庫・免費刷題與模擬考</title>
     <script type="application/ld+json">
       {

@@ -26,6 +26,12 @@ import type { ExamManifest } from '../core/exam'
 import { zhTW } from '../i18n/zh-TW'
 import { GENERATED_LANDING_CATALOG } from './generatedLandingCatalog'
 import { applyTheme, currentTheme, type Theme } from './theme'
+import { QrSvg } from '../components/QrCode'
+
+// A fixed absolute URL, not window.location: the QR must resolve to the public
+// site even when this renders during the build-time prerender (no window) or on
+// a preview deploy.
+const SITE_URL = 'https://levelup.tw/'
 
 interface Props {
   exams: ExamManifest[]
@@ -338,6 +344,13 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam }: Props) 
             <ShieldCheck size={17} />
             <span>{zhTW.landing.installNote}</span>
           </p>
+          <div className="landing-install-qr">
+            <QrSvg text={SITE_URL} ariaLabel={zhTW.landing.installQrAlt} size={116} className="landing-qr" />
+            <div>
+              <strong>{zhTW.landing.installQrTitle}</strong>
+              <p>{zhTW.landing.installQrBody}</p>
+            </div>
+          </div>
         </div>
         <div className="landing-install-cards">
           <div>

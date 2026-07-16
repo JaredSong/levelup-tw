@@ -168,12 +168,30 @@ export default function App() {
 
   const enterApp = (examId?: string) => {
     if (examId) setActiveExamId(examId)
-    if (window.location.pathname !== '/app') history.replaceState(null, '', '/app')
+    // pushState, not replaceState: entering the app is a step forward from the
+    // landing, so the browser back button should return to it rather than leave
+    // the site. Guard against stacking duplicate /app entries on repeat calls.
+    if (window.location.pathname !== '/app') history.pushState(null, '', '/app')
     setLandingOpen(false)
     // The landing's one job: this is the conversion, and it has no pageview of
     // its own because the document never navigates.
     trackEnterApp(examId)
   }
+
+  // Back/forward re-derives the surface from the URL with the same rules as the
+  // first render, so leaving the landing and coming back stays consistent (and a
+  // returning visitor, who never pushed a landing entry, still exits cleanly).
+  useEffect(() => {
+    const onPopState = () => setLandingOpen(shouldShowLanding({
+      onboarded: hasCompletedOnboarding(),
+      hasSyncLink: Boolean(readSyncLink(window.location.hash)),
+      forceWelcome: window.location.pathname === '/welcome',
+      forceApp: window.location.pathname === '/app',
+      standalone,
+    }))
+    window.addEventListener('popstate', onPopState)
+    return () => window.removeEventListener('popstate', onPopState)
+  }, [standalone])
 
   if (landingOpen) {
     return (

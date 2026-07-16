@@ -631,6 +631,11 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .review-card-front { margin: 0 0 14px; font-size: 1.02rem; font-weight: 700; line-height: 1.55; }
 .review-card-back { display: grid; gap: 8px; margin-bottom: 4px; }
 .review-card-back span { padding: 10px; border-left: 3px solid var(--accent); background: var(--accent-pale); font-weight: 700; }
+/* Gold, not green: the answer is correct, but it changed — that is a heads-up,
+   not a result. Same palette as the gold mode icons. */
+.review-card-corrected { display: flex; align-items: flex-start; gap: 7px; margin: 2px 0 0; padding: 9px 11px; border-radius: 7px; background: #f3e8cf; color: #7a5510; font-size: .76rem; font-weight: 700; line-height: 1.55; }
+.review-card-corrected svg { flex: 0 0 auto; margin-top: 2px; }
+[data-theme="dark"] .review-card-corrected { background: #39301a; color: var(--gold); }
 .review-grade-bar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 16px; }
 .review-grade-bar button { display: grid; justify-items: center; gap: 3px; padding: 10px 6px; border: 1px solid var(--line); border-radius: 6px; background: var(--paper); font-weight: 750; cursor: pointer; }
 .review-grade-bar button small { color: var(--muted); font-size: .7rem; font-weight: 700; }

@@ -8,6 +8,7 @@ import {
   CheckCircle2,
   Clock,
   Database,
+  Github,
   Menu,
   Moon,
   Plus,
@@ -33,6 +34,7 @@ interface Props {
 }
 
 const JKOPAY_CODE = zhTW.landing.donateCode
+const REPO_URL = 'https://github.com/JaredSong/levelup-tw'
 
 const navLinks = [
   { href: '#landing-exams', label: zhTW.landing.navExams },
@@ -422,6 +424,9 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam }: Props) 
           <div className="landing-footer-actions">
             <a href="https://techbank.wdasec.gov.tw/" rel="noreferrer" target="_blank">
               {zhTW.landing.officialSource}<ArrowUpRight size={15} />
+            </a>
+            <a href={REPO_URL} rel="noreferrer" target="_blank">
+              <Github size={15} />{zhTW.landing.sourceCode}<ArrowUpRight size={15} />
             </a>
             <button className="landing-primary" onClick={onEnter} type="button">
               {zhTW.landing.primaryAction}<ArrowRight size={16} />

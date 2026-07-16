@@ -145,6 +145,7 @@ export const zhTW = {
     donateCopied: '已複製 ✓',
     donateCode: '396-910699497',
     officialSource: '官方技能檢定題庫',
+    sourceCode: '原始碼',
     // Disclaimer. Covers, in order: no affiliation, source + practice-only scope,
     // best-effort accuracy with official material as the authority, no guarantee
     // of passing / no liability, third-party marks, and what analytics collect.

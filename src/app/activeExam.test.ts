@@ -86,6 +86,9 @@ describe('active exam selection', () => {
       'forklift-operation-single',
       'interior-decoration-management-b',
       'beverage-preparation-c',
+      'computer-software-application-b',
+      'indoor-wiring-b',
+      'indoor-wiring-c',
     ]))
   })
 
@@ -96,6 +99,7 @@ describe('active exam selection', () => {
       '資訊',
       '美容美髮',
       '商業服務',
+      '電機工程',
       '餐飲食品',
       '車輛修護',
       '照護服務',
@@ -106,6 +110,11 @@ describe('active exam selection', () => {
     expect(groups.find((group) => group.category === '資訊')?.exams.map((exam) => exam.examId)).toEqual([
       'web-design-b',
       'computer-software-application-c',
+      'computer-software-application-b',
+    ])
+    expect(groups.find((group) => group.category === '電機工程')?.exams.map((exam) => exam.examId)).toEqual([
+      'indoor-wiring-b',
+      'indoor-wiring-c',
     ])
     expect(groups.find((group) => group.category === '餐飲食品')?.exams.map((exam) => exam.examId)).toEqual([
       'chinese-cooking-meat-c',

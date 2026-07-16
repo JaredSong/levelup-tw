@@ -23,4 +23,9 @@ describe('sanitizeText', () => {
       'E 1, X 1, 3 x 3, AFCB DE',
     )
   })
+
+  it('removes PDF extraction spaces inside Traditional Chinese prose', () => {
+    expect(sanitizeText('下列何者正 確？可 以避免損 耗。')).toBe('下列何者正確？可以避免損耗。')
+    expect(sanitizeText('在 Microsoft Word 環境')).toBe('在 Microsoft Word 環境')
+  })
 })

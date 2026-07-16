@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-16T07:16:01.530Z",
+  "generatedAt": "2026-07-16T13:49:21.662Z",
   "source": "https://techcerti.bookmarks.tw/exams",
   "authority": "secondary-discovery-only",
   "claimedTotal": 272,
@@ -8,8 +8,8 @@
     "Rendered total 272 differs from metadata total 270."
   ],
   "catalogTotal": 272,
-  "installedCount": 16,
-  "pendingCount": 256,
+  "installedCount": 19,
+  "pendingCount": 253,
   "entries": [
     {
       "slug": "acalpha",
@@ -372,7 +372,10 @@
       "questionCount": 862,
       "sectionCount": 19,
       "version": "A14",
-      "installed": false
+      "installed": true,
+      "examId": "indoor-wiring-b",
+      "installedVersion": "A15",
+      "versionMatchesTechcerti": false
     },
     {
       "slug": "bricklayingbeta",
@@ -955,7 +958,10 @@
       "questionCount": 776,
       "sectionCount": 4,
       "version": "A15",
-      "installed": false
+      "installed": true,
+      "examId": "computer-software-application-b",
+      "installedVersion": "A15",
+      "versionMatchesTechcerti": true
     },
     {
       "slug": "softwarejavabeta",
@@ -1594,7 +1600,10 @@
       "questionCount": 618,
       "sectionCount": 19,
       "version": "A13",
-      "installed": false
+      "installed": true,
+      "examId": "indoor-wiring-c",
+      "installedVersion": "A13",
+      "versionMatchesTechcerti": true
     },
     {
       "slug": "bricklaying",

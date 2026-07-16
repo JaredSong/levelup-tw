@@ -11,30 +11,33 @@
 import { execFileSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 
-const SUBJECTS = {
-  '02000': { pdf: 'source/020003A11.pdf', bank: 'public/data/exams/car-repair-c/questions.json' },
-  '06000': { pdf: 'source/060003A12.pdf', bank: 'public/data/exams/man-haircut-c/questions.json' },
-  '06700': { pdf: 'source/067003A13.pdf', bank: 'public/data/exams/women-hairdressing-c/questions.json' },
-  '07602': { pdf: 'source/076023A13.pdf', bank: 'public/data/exams/chinese-cooking-meat-c/questions.json' },
-  '07700': { pdf: 'source/077003A12.pdf', bank: 'public/data/exams/baking-food-c/questions.json' },
-  '10000': { pdf: 'source/100003A15.pdf', bank: 'public/data/exams/beauty-c/questions.json' },
-  '11800': { pdf: 'source/118003A14.pdf', bank: 'public/data/exams/computer-software-application-c/questions.json' },
-  '12600': { pdf: 'source/126002A12.pdf', bank: 'public/data/exams/interior-decoration-management-b/questions.json' },
-  '14900': { pdf: 'source/149003A15.pdf', bank: 'public/data/exams/accounting-c/questions.json' },
-  '15100': { pdf: 'source/151004A14.pdf', bank: 'public/data/exams/forklift-operation-single/questions.json' },
-  '15400': { pdf: 'source/154004A17.pdf', bank: 'public/data/exams/childcare-single/questions.json' },
-  '17800': { pdf: 'source/178004A13.pdf', bank: 'public/data/exams/care-service-single/questions.json' },
-  '17300': { pdf: 'source/173002A13.pdf', bank: 'public/data/exams/web-design-b/questions.json' },
-  '19500': { pdf: 'source/195002A17.pdf', bank: 'public/data/exams/employment-service-b/questions.json' },
-  '20600': { pdf: 'source/206003A13.pdf', bank: 'public/data/exams/beverage-preparation-c/questions.json' },
-  '22200': { pdf: 'source/222002A15.pdf', bank: 'public/data/exams/occupational-safety-health-management-b/questions.json' },
-  '90006': { pdf: 'source/900060A18.pdf', bank: 'public/data/exams/web-design-b/questions.json' },
-  '90007': { pdf: 'source/900070A17.pdf', bank: 'public/data/exams/web-design-b/questions.json' },
-  '90008': { pdf: 'source/900080A16.pdf', bank: 'public/data/exams/web-design-b/questions.json' },
-  '90009': { pdf: 'source/900090A11-latest.pdf', bank: 'public/data/exams/web-design-b/questions.json' },
-  '90010': { pdf: 'source/900100A16.pdf', bank: 'public/data/exams/chinese-cooking-meat-c/questions.json' },
-  '90011': { pdf: 'source/900110A10.pdf', bank: 'public/data/exams/web-design-b/questions.json' },
-  '90012': { pdf: 'source/900120A10.pdf', bank: 'public/data/exams/man-haircut-c/questions.json' },
+const TARGETS = {
+  'car-repair-c': { subjectCode: '02000', pdf: 'source/020003A11.pdf', bank: 'public/data/exams/car-repair-c/questions.json' },
+  'man-haircut-c': { subjectCode: '06000', pdf: 'source/060003A12.pdf', bank: 'public/data/exams/man-haircut-c/questions.json' },
+  'women-hairdressing-c': { subjectCode: '06700', pdf: 'source/067003A13.pdf', bank: 'public/data/exams/women-hairdressing-c/questions.json' },
+  'chinese-cooking-meat-c': { subjectCode: '07602', pdf: 'source/076023A13.pdf', bank: 'public/data/exams/chinese-cooking-meat-c/questions.json' },
+  'baking-food-c': { subjectCode: '07700', pdf: 'source/077003A12.pdf', bank: 'public/data/exams/baking-food-c/questions.json' },
+  'beauty-c': { subjectCode: '10000', pdf: 'source/100003A15.pdf', bank: 'public/data/exams/beauty-c/questions.json' },
+  'computer-software-application-c': { subjectCode: '11800', pdf: 'source/118003A14.pdf', bank: 'public/data/exams/computer-software-application-c/questions.json' },
+  'computer-software-application-b': { subjectCode: '11800', pdf: 'source/118002A15.pdf', bank: 'public/data/exams/computer-software-application-b/questions.json' },
+  'indoor-wiring-b': { subjectCode: '00700', pdf: 'source/007002A15.pdf', bank: 'public/data/exams/indoor-wiring-b/questions.json' },
+  'indoor-wiring-c': { subjectCode: '00700', pdf: 'source/007003A13.pdf', bank: 'public/data/exams/indoor-wiring-c/questions.json' },
+  'interior-decoration-management-b': { subjectCode: '12600', pdf: 'source/126002A12.pdf', bank: 'public/data/exams/interior-decoration-management-b/questions.json' },
+  'accounting-c': { subjectCode: '14900', pdf: 'source/149003A15.pdf', bank: 'public/data/exams/accounting-c/questions.json' },
+  'forklift-operation-single': { subjectCode: '15100', pdf: 'source/151004A14.pdf', bank: 'public/data/exams/forklift-operation-single/questions.json' },
+  'childcare-single': { subjectCode: '15400', pdf: 'source/154004A17.pdf', bank: 'public/data/exams/childcare-single/questions.json' },
+  'care-service-single': { subjectCode: '17800', pdf: 'source/178004A13.pdf', bank: 'public/data/exams/care-service-single/questions.json' },
+  'web-design-b': { subjectCode: '17300', pdf: 'source/173002A13.pdf', bank: 'public/data/exams/web-design-b/questions.json' },
+  'employment-service-b': { subjectCode: '19500', pdf: 'source/195002A17.pdf', bank: 'public/data/exams/employment-service-b/questions.json' },
+  'beverage-preparation-c': { subjectCode: '20600', pdf: 'source/206003A13.pdf', bank: 'public/data/exams/beverage-preparation-c/questions.json' },
+  'occupational-safety-health-management-b': { subjectCode: '22200', pdf: 'source/222002A15.pdf', bank: 'public/data/exams/occupational-safety-health-management-b/questions.json' },
+  '90006': { subjectCode: '90006', pdf: 'source/900060A18.pdf', bank: 'public/data/exams/web-design-b/questions.json' },
+  '90007': { subjectCode: '90007', pdf: 'source/900070A17.pdf', bank: 'public/data/exams/web-design-b/questions.json' },
+  '90008': { subjectCode: '90008', pdf: 'source/900080A16.pdf', bank: 'public/data/exams/web-design-b/questions.json' },
+  '90009': { subjectCode: '90009', pdf: 'source/900090A11-latest.pdf', bank: 'public/data/exams/web-design-b/questions.json' },
+  '90010': { subjectCode: '90010', pdf: 'source/900100A16.pdf', bank: 'public/data/exams/chinese-cooking-meat-c/questions.json' },
+  '90011': { subjectCode: '90011', pdf: 'source/900110A10.pdf', bank: 'public/data/exams/web-design-b/questions.json' },
+  '90012': { subjectCode: '90012', pdf: 'source/900120A10.pdf', bank: 'public/data/exams/man-haircut-c/questions.json' },
 }
 
 const sectionPattern = /工作項目\s*(\d{2})/
@@ -63,12 +66,13 @@ function extractOfficialKeys(pdf) {
   return keys
 }
 
-function verifySubject(subjectCode) {
-  const source = SUBJECTS[subjectCode]
+function verifyTarget(target) {
+  const source = TARGETS[target]
   if (!source) {
-    console.error(`No official source mapped for subject ${subjectCode}. Known: ${Object.keys(SUBJECTS).join(', ')}`)
+    console.error(`No official source mapped for ${target}. Known: ${Object.keys(TARGETS).join(', ')}`)
     return false
   }
+  const { subjectCode } = source
 
   const fromPdf = extractOfficialKeys(source.pdf)
   const bank = JSON.parse(readFileSync(source.bank, 'utf8'))
@@ -91,7 +95,7 @@ function verifySubject(subjectCode) {
     else mismatches.push({ id: question.id, ours: ours.join(''), pdf: pdfAnswers.join(''), prompt: question.prompt.slice(0, 44) })
   }
 
-  console.log(`subject ${subjectCode} — ${source.pdf}`)
+  console.log(`target ${target} / subject ${subjectCode} — ${source.pdf}`)
   console.log(`  published questions : ${published.length}`)
   console.log(`  keys found in PDF   : ${fromPdf.size}`)
   console.log(`  cross-checked       : ${checked}`)
@@ -113,9 +117,9 @@ function verifySubject(subjectCode) {
 }
 
 const requested = process.argv[2] ?? '--all'
-const subjectCodes = requested === '--all' ? Object.keys(SUBJECTS) : [requested]
+const targets = requested === '--all' ? Object.keys(TARGETS) : [requested]
 let allPassed = true
-for (const subjectCode of subjectCodes) {
-  if (!verifySubject(subjectCode)) allPassed = false
+for (const target of targets) {
+  if (!verifyTarget(target)) allPassed = false
 }
 if (!allPassed) process.exitCode = 1

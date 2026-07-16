@@ -7,14 +7,16 @@ const banks = await Promise.all(
     .filter((entry) => entry.isDirectory())
     .map(async (entry) => JSON.parse(await readFile(new URL(`${entry.name}/questions.json`, examsRoot), 'utf8'))),
 )
-const questionsById = new Map()
+const questionsByAsset = new Map()
 for (const question of banks.flat()) {
-  if (!questionsById.has(question.id)) questionsById.set(question.id, question)
+  const assets = question.sourceImages?.length ? question.sourceImages : [question.sourceImage ?? '']
+  const key = `${question.id}|${assets.join('|')}`
+  if (!questionsByAsset.has(key)) questionsByAsset.set(key, question)
 }
 
-const imageQuestions = [...questionsById.values()]
+const imageQuestions = [...questionsByAsset.values()]
   .filter((question) => question.active !== false && question.hasFigure)
-  .sort((a, b) => a.id.localeCompare(b.id))
+  .sort((a, b) => a.id.localeCompare(b.id) || a.examId.localeCompare(b.examId))
 
 const generatedAt = new Date().toISOString()
 const lines = [
@@ -52,10 +54,11 @@ for (const question of imageQuestions) {
   for (const image of linkedImages) {
     if (await fileExists(image)) existingLinkedImages.push(image)
   }
-  lines.push(`## ${question.id}`)
+  const primaryImage = linkedImages[0] ?? `/question-images/${question.id}.png`
+  lines.push(`## ${question.examId}:${question.id}`)
   lines.push('')
-  lines.push(`- Replacement PNG: \`public/question-images/${question.id}.png\``)
-  lines.push(`- App path: \`/question-images/${question.id}.png\``)
+  lines.push(`- Replacement PNG: \`public${decodeURI(primaryImage)}\``)
+  lines.push(`- App path: \`${primaryImage}\``)
   if (existingLinkedImages.length) {
     lines.push(`- Linked uploaded image${existingLinkedImages.length > 1 ? 's' : ''}:`)
     existingLinkedImages.forEach((image) => lines.push(`  - \`${image}\``))

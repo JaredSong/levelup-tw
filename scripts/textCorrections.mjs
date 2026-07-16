@@ -179,5 +179,5 @@ export function sanitizeText(text) {
   let out = text
   for (const [re, fixed] of PATTERNS) out = out.replace(re, fixed)
   for (const [broken, fixed] of Object.entries(RAW_CORRECTIONS)) out = out.split(broken).join(fixed)
-  return out
+  return out.replace(/(?<=[\u3400-\u9fff])\s+(?=[\u3400-\u9fff])/g, '')
 }

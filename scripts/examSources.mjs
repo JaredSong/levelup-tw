@@ -4,6 +4,8 @@ import { readFile } from 'node:fs/promises'
 const WDA_DOWNLOAD_ROOT = 'https://owinform.wdasec.gov.tw/owInform/DLowFile'
 
 export const SOURCE_BANKS = {
+  '00700-2': { subjectCode: '00700', version: 'A15', pdfFilename: '007002A15.pdf' },
+  '00700-3': { subjectCode: '00700', version: 'A13', pdfFilename: '007003A13.pdf' },
   '02000': { version: 'A11', pdfFilename: '020003A11.pdf' },
   '06000': { version: 'A12', pdfFilename: '060003A12.pdf' },
   '06700': { version: 'A13', pdfFilename: '067003A13.pdf' },
@@ -11,6 +13,7 @@ export const SOURCE_BANKS = {
   '07700': { version: 'A12', pdfFilename: '077003A12.pdf' },
   '10000': { version: 'A15', pdfFilename: '100003A15.pdf' },
   '11800': { version: 'A14', pdfFilename: '118003A14.pdf' },
+  '11800-2': { subjectCode: '11800', version: 'A15', pdfFilename: '118002A15.pdf' },
   '12600': { version: 'A12', pdfFilename: '126002A12.pdf' },
   '14900': { version: 'A15', pdfFilename: '149003A15.pdf' },
   '15100': { version: 'A14', pdfFilename: '151004A14.pdf' },
@@ -30,9 +33,10 @@ export const SOURCE_BANKS = {
 }
 
 export async function buildSourceProvenance(subjectCodes) {
-  return Promise.all([...new Set(subjectCodes)].map(async (subjectCode) => {
-    const source = SOURCE_BANKS[subjectCode]
-    if (!source) throw new Error(`No official source registered for subject ${subjectCode}`)
+  return Promise.all([...new Set(subjectCodes)].map(async (sourceKey) => {
+    const source = SOURCE_BANKS[sourceKey]
+    if (!source) throw new Error(`No official source registered for ${sourceKey}`)
+    const subjectCode = source.subjectCode ?? sourceKey
     const localFilename = source.localFilename ?? source.pdfFilename
     const bytes = await readFile(new URL(`../source/${localFilename}`, import.meta.url))
     return {

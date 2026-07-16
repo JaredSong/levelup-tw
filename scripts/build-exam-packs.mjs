@@ -249,6 +249,88 @@ const EXAMS = [
     },
   },
   {
+    examId: 'computer-software-application-b',
+    titleZh: '電腦軟體應用乙級',
+    titleEn: 'Computer Software Application (Class B)',
+    level: '乙級',
+    category: '資訊',
+    occupationCode: '11800',
+    occupationSourceKey: '11800-2',
+    occupationFile: '118002A15-raw.txt',
+    occupationExpected: 776,
+    version: 'A15',
+    sourceRevision: '118002A15 + 900110A10 + 900060A18/900070A17/900080A16/900090A11',
+    extraCommonCodes: ['90011'],
+    cropPrefix: '118002',
+    requireQuestionCrops: true,
+    mockRules: {
+      occupationQuota: 60,
+      singleCount: 60,
+      multipleCount: 20,
+      weightSingle: 1,
+      weightMultiple: 2,
+      extraSubjectQuota: [{ subjectCode: '90011', count: 4 }],
+    },
+  },
+  {
+    examId: 'indoor-wiring-b',
+    titleZh: '室內配線－屋內線路裝修乙級',
+    titleEn: 'Indoor Wiring Installation (Class B)',
+    level: '乙級',
+    category: '電機工程',
+    occupationCode: '00700',
+    occupationSourceKey: '00700-2',
+    occupationFile: '007002A15-raw.txt',
+    occupationExpected: 862,
+    version: 'A15',
+    sourceRevision: '007002A15 + 900060A18/900070A17/900080A16/900090A11',
+    extraCommonCodes: [],
+    cropPrefix: '007002',
+    requireQuestionCrops: true,
+    inactiveIds: [
+      '00700-05-015',
+      '00700-05-016',
+      '00700-05-039',
+      '00700-10-002',
+      '00700-10-016',
+      '00700-16-024',
+      '00700-19-031',
+    ],
+    mockRules: {
+      occupationQuota: 64,
+      singleCount: 60,
+      multipleCount: 20,
+      weightSingle: 1,
+      weightMultiple: 2,
+      extraSubjectQuota: [],
+    },
+  },
+  {
+    examId: 'indoor-wiring-c',
+    titleZh: '室內配線－屋內線路裝修丙級',
+    titleEn: 'Indoor Wiring Installation (Class C)',
+    level: '丙級',
+    category: '電機工程',
+    occupationCode: '00700',
+    occupationSourceKey: '00700-3',
+    occupationFile: '007003A13-raw.txt',
+    occupationExpected: 618,
+    version: 'A13',
+    sourceRevision: '007003A13 + 900060A18/900070A17/900080A16/900090A11',
+    extraCommonCodes: [],
+    cropPrefix: '007003',
+    requireQuestionCrops: true,
+    figureIds: ['00700-13-005'],
+    mockRules: {
+      occupationQuota: 64,
+      singleCount: 80,
+      multipleCount: 0,
+      weightSingle: 1.25,
+      weightMultiple: 0,
+      extraSubjectQuota: [],
+    },
+  },
+  {
     examId: 'chinese-cooking-meat-c',
     titleZh: '中餐烹調－葷食丙級',
     titleEn: 'Chinese Cuisine - Meat (Class C)',
@@ -533,18 +615,26 @@ async function loadParsed(bank) {
   return parsed
 }
 
-function normalizeQuestion(question, examId) {
+function cropFileName(exam, question) {
+  return `${exam.cropPrefix ? `${exam.cropPrefix}-` : ''}${question.id}.png`
+}
+
+function normalizeQuestion(question, exam) {
   const sourcePage = SOURCE_PAGE_OVERRIDES[question.id] ?? question.sourcePage
   const imageOverrides = IMAGE_OVERRIDES[question.id]
   const repaired = {
     ...question,
-    examId,
+    examId: exam.examId,
     sourcePage,
     sectionTitle: SECTION_TITLE_OVERRIDES[question.section] ?? question.sectionTitle,
     prompt: sanitizeText(question.prompt),
     options: QUESTION_OPTION_OVERRIDES[question.id] ?? question.options.map(sanitizeText),
-    ...(INACTIVE_IDS.has(question.id) ? { active: false } : {}),
-    ...(FIGURE_QUESTION_IDS.has(question.id) ? { hasFigure: true } : {}),
+    ...(INACTIVE_IDS.has(question.id) || exam.inactiveIds?.includes(question.id) ? { active: false } : {}),
+    ...(FIGURE_QUESTION_IDS.has(question.id)
+      || exam.figureIds?.includes(question.id)
+      || / {2,}/.test(`${question.prompt}${question.options.join('')}`)
+      ? { hasFigure: true }
+      : {}),
   }
   if (!repaired.hasFigure && !imageOverrides) {
     return { ...repaired, sourceImage: undefined, sourceImages: undefined, sourcePageImage: undefined }
@@ -552,7 +642,7 @@ function normalizeQuestion(question, examId) {
   return {
     ...repaired,
     hasFigure: true,
-    sourceImage: imageOverrides?.map(questionImagePath)[0] ?? `/question-images/${question.id}.png`,
+    sourceImage: imageOverrides?.map(questionImagePath)[0] ?? `/question-images/${cropFileName(exam, question)}`,
     sourceImages: imageOverrides?.map(questionImagePath),
     sourcePageImage: sourcePageImageFor(repaired),
   }
@@ -598,21 +688,21 @@ async function writeExamPack(exam, commonQuestions, extraQuestionsByCode) {
   const occupation = await loadParsed({ code: exam.occupationCode, file: exam.occupationFile, expected: exam.occupationExpected })
   const extraQuestions = (exam.extraCommonCodes ?? []).flatMap((code) => extraQuestionsByCode.get(code) ?? [])
   const questions = [...occupation, ...extraQuestions, ...commonQuestions]
-    .map((question) => normalizeQuestion(question, exam.examId))
+    .map((question) => normalizeQuestion(question, exam))
   const active = questions.filter((question) => question.active !== false)
   const figures = active.filter((question) => question.hasFigure)
   if (exam.requireQuestionCrops) {
     const occupationFigures = figures.filter((question) => question.subjectCode === exam.occupationCode)
     await Promise.all(occupationFigures.map(async (question) => {
       try {
-        await access(new URL(`../public/question-images/${question.id}.png`, import.meta.url))
+        await access(new URL(`../public/question-images/${cropFileName(exam, question)}`, import.meta.url))
       } catch {
-        throw new Error(`${exam.examId}: missing required question crop ${question.id}.png`)
+        throw new Error(`${exam.examId}: missing required question crop ${cropFileName(exam, question)}`)
       }
     }))
   }
   const sources = await buildSourceProvenance([
-    exam.occupationCode,
+    exam.occupationSourceKey ?? exam.occupationCode,
     ...(exam.extraCommonCodes ?? []),
     ...GENERAL_COMMON_BANKS.map((bank) => bank.code),
   ])

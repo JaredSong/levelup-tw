@@ -1,5 +1,5 @@
 import { execFileSync } from 'node:child_process'
-import { mkdir, readFile, writeFile } from 'node:fs/promises'
+import { access, mkdir, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -16,12 +16,16 @@ const EXTRA_FIGURES = new Set([
 ])
 
 const BANKS = [
+  { code: '11800', source: '118002A15', cropPrefix: '118002' },
+  { code: '00700', source: '007002A15', cropPrefix: '007002' },
+  { code: '00700', source: '007003A13', cropPrefix: '007003', extraFigures: ['00700-13-005'] },
   { code: '15100', source: '151004A14' },
   { code: '12600', source: '126002A12' },
   { code: '20600', source: '206003A13' },
 ]
 
 const SCALE = 2 // 144 DPI: two pixels per PDF point.
+const missingOnly = process.argv.includes('--missing')
 
 function pagesFromBbox(html) {
   return [...html.matchAll(/<page width="([\d.]+)" height="([\d.]+)">([\s\S]*?)<\/page>/g)].map((match) => {
@@ -33,11 +37,14 @@ function pagesFromBbox(html) {
   })
 }
 
-async function buildBank({ source }) {
+async function buildBank({ source, cropPrefix, extraFigures = [] }) {
   const pdfPath = fileURLToPath(new URL(`../source/${source}.pdf`, import.meta.url))
   const raw = await readFile(new URL(`../source/${source}-raw.txt`, import.meta.url), 'utf8')
   const questions = parseQuestionBank(raw)
-  const figures = questions.filter((question) => question.hasFigure || EXTRA_FIGURES.has(question.id))
+  const figures = questions.filter((question) => question.hasFigure
+    || EXTRA_FIGURES.has(question.id)
+    || extraFigures.includes(question.id)
+    || / {2,}/.test(`${question.prompt}${question.options.join('')}`))
   const work = join(tmpdir(), `level-up-crops-${source}`)
   await mkdir(work, { recursive: true })
   const bboxPath = join(work, 'bbox.html')
@@ -48,6 +55,15 @@ async function buildBank({ source }) {
   await mkdir(outputRoot, { recursive: true })
 
   for (const question of figures) {
+    const output = fileURLToPath(new URL(`${cropPrefix ? `${cropPrefix}-` : ''}${question.id}.png`, outputRoot))
+    if (missingOnly) {
+      try {
+        await access(output)
+        continue
+      } catch {
+        // Generate the missing crop below.
+      }
+    }
     const pageIndex = question.sourcePage - 1
     const page = pages[pageIndex]
     if (!page) throw new Error(`${question.id}: source page ${question.sourcePage} missing`)
@@ -71,7 +87,6 @@ async function buildBank({ source }) {
       rendered.set(question.sourcePage, renderedPage)
     }
 
-    const output = fileURLToPath(new URL(`${question.id}.png`, outputRoot))
     await writeFile(output, await readFile(renderedPage))
     execFileSync('sips', [
       '-c', String(Math.ceil((bottom - top) * SCALE)), String(Math.floor((page.width - 115) * SCALE)),
@@ -83,5 +98,15 @@ async function buildBank({ source }) {
 }
 
 let total = 0
-for (const bank of BANKS) total += await buildBank(bank)
-console.log(`Question crops: ${total} generated from ${BANKS.length} official PDFs`)
+const requestedSources = new Set(process.argv.slice(2).filter((arg) => arg !== '--missing'))
+const selectedBanks = requestedSources.size ? BANKS.filter((bank) => requestedSources.has(bank.source)) : BANKS
+if (requestedSources.size && selectedBanks.length !== requestedSources.size) {
+  const known = BANKS.map((bank) => bank.source).join(', ')
+  throw new Error(`Unknown crop source. Known sources: ${known}`)
+}
+for (const bank of selectedBanks) {
+  const count = await buildBank(bank)
+  total += count
+  console.log(`${bank.source}: ${count} question crops`)
+}
+console.log(`Question crops: ${total} generated from ${selectedBanks.length} official PDFs`)

@@ -3,9 +3,12 @@ import { describe, expect, it } from 'vitest'
 import { buildMockQueue, type Question } from '../src/domain/studyEngine'
 
 const PACKS = [
-  { examId: 'forklift-operation-single', occupationCode: '15100', sourceQuestions: 600, inactive: 19, figures: 33 },
-  { examId: 'interior-decoration-management-b', occupationCode: '12600', sourceQuestions: 718, inactive: 0, figures: 30 },
-  { examId: 'beverage-preparation-c', occupationCode: '20600', sourceQuestions: 617, inactive: 0, figures: 4 },
+  { examId: 'forklift-operation-single', occupationCode: '15100', sourceQuestions: 600, inactive: 19, figures: 37 },
+  { examId: 'interior-decoration-management-b', occupationCode: '12600', sourceQuestions: 718, inactive: 0, figures: 38 },
+  { examId: 'beverage-preparation-c', occupationCode: '20600', sourceQuestions: 617, inactive: 0, figures: 5 },
+  { examId: 'computer-software-application-b', occupationCode: '11800', sourceQuestions: 776, inactive: 0, figures: 6, cropPrefix: '118002' },
+  { examId: 'indoor-wiring-b', occupationCode: '00700', sourceQuestions: 862, inactive: 7, figures: 53, cropPrefix: '007002' },
+  { examId: 'indoor-wiring-c', occupationCode: '00700', sourceQuestions: 618, inactive: 0, figures: 62, cropPrefix: '007003' },
 ]
 
 function pngDimensions(bytes: Buffer) {
@@ -34,8 +37,9 @@ describe('new high-demand exam packs', () => {
       expect(figures).toHaveLength(expected.figures)
 
       for (const question of figures) {
-        expect(question.sourceImage).toBe(`/question-images/${question.id}.png`)
-        const bytes = readFileSync(new URL(`../public/question-images/${question.id}.png`, import.meta.url))
+        const filename = `${'cropPrefix' in expected ? `${expected.cropPrefix}-` : ''}${question.id}.png`
+        expect(question.sourceImage).toBe(`/question-images/${filename}`)
+        const bytes = readFileSync(new URL(`../public/question-images/${filename}`, import.meta.url))
         const { width, height } = pngDimensions(bytes)
         expect(bytes.byteLength, question.id).toBeGreaterThan(1_500)
         expect(width, question.id).toBeGreaterThan(300)
@@ -70,5 +74,13 @@ describe('new high-demand exam packs', () => {
         expect(mock.filter((question) => question.kind === 'multiple')).toHaveLength(manifest.mockRules.multipleCount)
       }
     }
+  })
+
+  it('keeps same-code class B and C figures separate in the image audit', () => {
+    const audit = readFileSync(new URL('../docs/image-question-map.md', import.meta.url), 'utf8')
+    expect(audit).toContain('## indoor-wiring-b:00700-01-001')
+    expect(audit).toContain('`/question-images/007002-00700-01-001.png`')
+    expect(audit).toContain('## indoor-wiring-c:00700-01-001')
+    expect(audit).toContain('`/question-images/007003-00700-01-001.png`')
   })
 })

@@ -10,9 +10,9 @@ import { describe, expect, it } from 'vitest'
 // This re-runs the independent extraction on every test run, so any drift
 // between the published bank and the official PDFs fails the build.
 
-function verify(subjectCode: string) {
+function verify(target: string) {
   try {
-    const output = execFileSync('node', ['scripts/verifyAnswerKeys.mjs', subjectCode], {
+    const output = execFileSync('node', ['scripts/verifyAnswerKeys.mjs', target], {
       cwd: new URL('..', import.meta.url),
       encoding: 'utf8',
     })
@@ -47,17 +47,19 @@ const manifests = examIds.map((examId) => ({
   examId,
   manifest: JSON.parse(
     readFileSync(new URL(`${examId}/manifest.json`, examsRoot), 'utf8'),
-  ) as { integrity?: { status?: string }; sections?: { subjectCode?: string }[] },
+  ) as { integrity?: { status?: string }; sections?: { subjectCode?: string; sourceGroup?: string }[] },
 }))
-const subjectCodes = [...new Set(
-  manifests.flatMap(({ manifest }) => manifest.sections?.map((section) => section.subjectCode) ?? []),
+const commonSubjectCodes = [...new Set(
+  manifests.flatMap(({ manifest }) => manifest.sections
+    ?.filter((section) => section.sourceGroup !== 'occupation')
+    .map((section) => section.subjectCode) ?? []),
 )].filter((code): code is string => Boolean(code)).sort()
 
 // Runs unconditionally: it reads committed JSON, so no machine has an excuse.
 describe('every shipped pack records verified integrity', () => {
   it('found packs to check', () => {
     expect(examIds.length).toBeGreaterThan(0)
-    expect(subjectCodes.length).toBeGreaterThan(0)
+    expect(commonSubjectCodes.length).toBeGreaterThan(0)
   })
 
   for (const { examId, manifest } of manifests) {
@@ -68,8 +70,17 @@ describe('every shipped pack records verified integrity', () => {
 })
 
 describe.skipIf(!hasPdfToText)('published answer keys match the official PDFs', () => {
-  for (const subjectCode of subjectCodes) {
-    it(`${subjectCode}: every key agrees with the source paper`, () => {
+  for (const examId of examIds) {
+    it(`${examId}: every occupation key agrees with its level-specific source paper`, () => {
+      const { ok, output } = verify(examId)
+      expect(output, output).toMatch(/DISAGREE\s+: 0/)
+      expect(output, output).toMatch(/no key matched\s+: 0/)
+      expect(ok, output).toBe(true)
+    })
+  }
+
+  for (const subjectCode of commonSubjectCodes) {
+    it(`${subjectCode}: every common-subject key agrees with the source paper`, () => {
       const { ok, output } = verify(subjectCode)
       expect(output, output).toMatch(/DISAGREE\s+: 0/)
       expect(output, output).toMatch(/no key matched\s+: 0/)

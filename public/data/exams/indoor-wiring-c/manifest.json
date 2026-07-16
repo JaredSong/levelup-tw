@@ -1,0 +1,284 @@
+{
+  "examId": "indoor-wiring-c",
+  "level": "丙級",
+  "titleZh": "室內配線－屋內線路裝修丙級",
+  "titleEn": "Indoor Wiring Installation (Class C)",
+  "category": "電機工程",
+  "version": "A13",
+  "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/007003A13.pdf",
+  "sources": [
+    {
+      "subjectCode": "00700",
+      "version": "A13",
+      "pdfFilename": "007003A13.pdf",
+      "localFilename": "007003A13.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/007003A13.pdf",
+      "sha256": "449710d2447de5cab907facaf20450d9310b479e4fc2641b5af5bd63f263712f"
+    },
+    {
+      "subjectCode": "90006",
+      "version": "A18",
+      "pdfFilename": "900060A18.pdf",
+      "localFilename": "900060A18.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A18.pdf",
+      "sha256": "0afd298e136567131ed5771bb5d8e0a501e745798823242966bd9b517e5b42ec"
+    },
+    {
+      "subjectCode": "90007",
+      "version": "A17",
+      "pdfFilename": "900070A17.pdf",
+      "localFilename": "900070A17.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A17.pdf",
+      "sha256": "ec3bc07bc147f77cfaaa6928648485c9f86c6e58d715a01f49e5618d12ac3319"
+    },
+    {
+      "subjectCode": "90008",
+      "version": "A16",
+      "pdfFilename": "900080A16.pdf",
+      "localFilename": "900080A16.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A16.pdf",
+      "sha256": "3c097485bd020af2d3766c08a5c5f385a5dbc56512d8903ce6cf850903ea2f01"
+    },
+    {
+      "subjectCode": "90009",
+      "version": "A11",
+      "pdfFilename": "900090A11.pdf",
+      "localFilename": "900090A11-latest.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A11.pdf",
+      "sha256": "e58b753294079574f8c1360ef5a345e77062c0c3ee693d509254de455a533835"
+    }
+  ],
+  "officialLinks": {
+    "registration": "https://skill.tcte.edu.tw/notice.php",
+    "scoreLookup": "https://eservice.wdasec.gov.tw/",
+    "handbook": "https://skill.tcte.edu.tw/download.php",
+    "questionBank": "https://techbank.wdasec.gov.tw/"
+  },
+  "sourceRevision": "007003A13 + 900060A18/900070A17/900080A16/900090A11",
+  "questionCount": 1018,
+  "activeQuestionCount": 1013,
+  "sections": [
+    {
+      "id": "00700-01",
+      "subjectCode": "00700",
+      "sourceGroup": "occupation",
+      "titleZh": "電工符號之辨識與電氣工程圖",
+      "questionCount": 49,
+      "activeQuestionCount": 49
+    },
+    {
+      "id": "00700-02",
+      "subjectCode": "00700",
+      "sourceGroup": "occupation",
+      "titleZh": "工具使用",
+      "questionCount": 33,
+      "activeQuestionCount": 33
+    },
+    {
+      "id": "00700-03",
+      "subjectCode": "00700",
+      "sourceGroup": "occupation",
+      "titleZh": "電工儀表裝置及使用",
+      "questionCount": 61,
+      "activeQuestionCount": 61
+    },
+    {
+      "id": "00700-04",
+      "subjectCode": "00700",
+      "sourceGroup": "occupation",
+      "titleZh": "導線之連接處理",
+      "questionCount": 35,
+      "activeQuestionCount": 35
+    },
+    {
+      "id": "00700-05",
+      "subjectCode": "00700",
+      "sourceGroup": "occupation",
+      "titleZh": "非金屬導線管裝置及配線",
+      "questionCount": 17,
+      "activeQuestionCount": 17
+    },
+    {
+      "id": "00700-06",
+      "subjectCode": "00700",
+      "sourceGroup": "occupation",
+      "titleZh": "導線槽、電纜架裝置及配線",
+      "questionCount": 32,
+      "activeQuestionCount": 32
+    },
+    {
+      "id": "00700-07",
+      "subjectCode": "00700",
+      "sourceGroup": "occupation",
+      "titleZh": "金屬導線管裝置及配線",
+      "questionCount": 40,
+      "activeQuestionCount": 40
+    },
+    {
+      "id": "00700-08",
+      "subjectCode": "00700",
+      "sourceGroup": "occupation",
+      "titleZh": "配電箱裝置",
+      "questionCount": 32,
+      "activeQuestionCount": 32
+    },
+    {
+      "id": "00700-09",
+      "subjectCode": "00700",
+      "sourceGroup": "occupation",
+      "titleZh": "低壓電纜裝置",
+      "questionCount": 24,
+      "activeQuestionCount": 24
+    },
+    {
+      "id": "00700-10",
+      "subjectCode": "00700",
+      "sourceGroup": "occupation",
+      "titleZh": "燈具、開關插座之裝置",
+      "questionCount": 34,
+      "activeQuestionCount": 34
+    },
+    {
+      "id": "00700-11",
+      "subjectCode": "00700",
+      "sourceGroup": "occupation",
+      "titleZh": "電動機裝置",
+      "questionCount": 67,
+      "activeQuestionCount": 67
+    },
+    {
+      "id": "00700-12",
+      "subjectCode": "00700",
+      "sourceGroup": "occupation",
+      "titleZh": "電熱類裝置",
+      "questionCount": 22,
+      "activeQuestionCount": 22
+    },
+    {
+      "id": "00700-13",
+      "subjectCode": "00700",
+      "sourceGroup": "occupation",
+      "titleZh": "變壓器裝置",
+      "questionCount": 9,
+      "activeQuestionCount": 9
+    },
+    {
+      "id": "00700-14",
+      "subjectCode": "00700",
+      "sourceGroup": "occupation",
+      "titleZh": "電容器裝置",
+      "questionCount": 26,
+      "activeQuestionCount": 26
+    },
+    {
+      "id": "00700-15",
+      "subjectCode": "00700",
+      "sourceGroup": "occupation",
+      "titleZh": "接地工程及接戶線工程",
+      "questionCount": 41,
+      "activeQuestionCount": 41
+    },
+    {
+      "id": "00700-16",
+      "subjectCode": "00700",
+      "sourceGroup": "occupation",
+      "titleZh": "特別低壓工程",
+      "questionCount": 14,
+      "activeQuestionCount": 14
+    },
+    {
+      "id": "00700-17",
+      "subjectCode": "00700",
+      "sourceGroup": "occupation",
+      "titleZh": "漏電保護裝置",
+      "questionCount": 35,
+      "activeQuestionCount": 35
+    },
+    {
+      "id": "00700-18",
+      "subjectCode": "00700",
+      "sourceGroup": "occupation",
+      "titleZh": "檢查與故障排除",
+      "questionCount": 27,
+      "activeQuestionCount": 27
+    },
+    {
+      "id": "00700-19",
+      "subjectCode": "00700",
+      "sourceGroup": "occupation",
+      "titleZh": "用電法規之認識",
+      "questionCount": 20,
+      "activeQuestionCount": 20
+    },
+    {
+      "id": "90006-01",
+      "subjectCode": "90006",
+      "sourceGroup": "general-common",
+      "titleZh": "職業安全衛生",
+      "questionCount": 100,
+      "activeQuestionCount": 100
+    },
+    {
+      "id": "90007-01",
+      "subjectCode": "90007",
+      "sourceGroup": "general-common",
+      "titleZh": "工作倫理與職業道德",
+      "questionCount": 100,
+      "activeQuestionCount": 100
+    },
+    {
+      "id": "90008-03",
+      "subjectCode": "90008",
+      "sourceGroup": "general-common",
+      "titleZh": "環境保護",
+      "questionCount": 100,
+      "activeQuestionCount": 95
+    },
+    {
+      "id": "90009-04",
+      "subjectCode": "90009",
+      "sourceGroup": "general-common",
+      "titleZh": "節能減碳",
+      "questionCount": 100,
+      "activeQuestionCount": 100
+    }
+  ],
+  "mockRules": {
+    "totalQuestions": 80,
+    "singleCount": 80,
+    "multipleCount": 0,
+    "durationMinutes": 100,
+    "passScore": 60,
+    "maxScore": 100,
+    "weightSingle": 1.25,
+    "weightMultiple": 0,
+    "subjectQuota": [
+      {
+        "subjectCode": "00700",
+        "count": 64
+      },
+      {
+        "subjectCode": "90006",
+        "count": 4
+      },
+      {
+        "subjectCode": "90007",
+        "count": 4
+      },
+      {
+        "subjectCode": "90008",
+        "count": 4
+      },
+      {
+        "subjectCode": "90009",
+        "count": 4
+      }
+    ]
+  },
+  "integrity": {
+    "status": "fully_verified",
+    "inactiveQuestionCount": 5,
+    "imageQuestionCount": 66,
+    "note": "Answer keys independently cross-checked against the official PDF during import."
+  }
+}

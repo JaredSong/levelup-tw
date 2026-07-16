@@ -33,6 +33,35 @@ function questionText(question) {
   return [question.prompt, ...(question.options ?? []).map((option, index) => `${index + 1}${option}`)].join(' ')
 }
 
+function riskReasons(question) {
+  const reasons = []
+  if (question.hasFigure) reasons.push('figure')
+  if ((question.options?.length ?? 0) !== 4) reasons.push(`option-count:${question.options?.length ?? 0}`)
+  const text = questionText(question)
+  if (/[$_][A-Za-z0-9_]{2,}\s+[A-Za-z]\b/.test(text)) reasons.push('suspicious-spacing')
+  return reasons
+}
+
+export function buildOcrReviewQueue(questions) {
+  const pages = new Map()
+  for (const question of questions) {
+    const reasons = riskReasons(question)
+    if (!reasons.length || !Number.isInteger(question.sourcePage)) continue
+    const page = pages.get(question.sourcePage) ?? {
+      page: question.sourcePage,
+      engine: 'paddle-pp-structure-v3',
+      questionIds: [],
+      reasons: [],
+    }
+    page.questionIds.push(question.id)
+    for (const reason of reasons) {
+      if (!page.reasons.includes(reason)) page.reasons.push(reason)
+    }
+    pages.set(question.sourcePage, page)
+  }
+  return [...pages.values()].sort((a, b) => a.page - b.page)
+}
+
 export function compareQuestionToOcr(question, ocrRecord) {
   const current = normalizeAuditText(questionText(question))
   const ocr = normalizeAuditText(ocrRecord?.text ?? '')

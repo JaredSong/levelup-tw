@@ -108,7 +108,7 @@ describe('active exam selection', () => {
     const employment = INSTALLED_EXAMS.find((exam) => exam.examId === 'employment-service-b')!
 
     expect(formatCurrentBankLabel(womenHair)).toBe('女子美髮丙級 A13')
-    expect(formatCurrentBankLabel(employment)).toBe('就業服務乙級 A19')
+    expect(formatCurrentBankLabel(employment)).toBe('就業服務乙級 A17')
   })
 
   it('formats syllabus items from the active exam manifest', () => {
@@ -119,7 +119,7 @@ describe('active exam selection', () => {
     expect(items[0]).toMatchObject({
       code: '19500',
       label: '就業服務專業科目',
-      meta: '1,214 題 · 3 個工作項目',
+      meta: '1,250 題 · 3 個工作項目',
     })
     expect(items.find((item) => item.code === '90008')?.meta).toBe('95 題 · 環境保護')
   })

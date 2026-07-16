@@ -1,7 +1,7 @@
 {
   "name": "level-up-study",
   "private": true,
-  "version": "1.2.35",
+  "version": "1.2.36",
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
@@ -11,6 +11,9 @@
     "lint": "eslint .",
     "import:questions": "node scripts/import-questions.mjs && node scripts/build-exam-packs.mjs && node scripts/build-glossary.mjs && node scripts/build-image-question-map.mjs && npm run verify:answers",
     "verify:answers": "node scripts/verifyAnswerKeys.mjs --all",
+    "refresh:catalog": "node scripts/examCatalog.mjs",
+    "setup:paddle": "node scripts/setupPaddle.mjs",
+    "audit:paddle": "node scripts/paddleAudit.mjs",
     "audit:ocr": "node scripts/ocrAudit.mjs",
     "build:glossary": "node scripts/build-glossary.mjs",
     "build:image-map": "node scripts/build-image-question-map.mjs"

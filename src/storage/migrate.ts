@@ -1,4 +1,5 @@
 import type { Transaction } from 'dexie'
+import type { ReviewCard, ReviewLog } from '../core/contracts'
 import { isQuestionKey, questionKey, QUESTION_KEY_SEPARATOR } from '../core/exam'
 import type { Progress } from '../domain/studyEngine'
 import type { AttemptRecord, ExplanationRecord } from './db'
@@ -10,6 +11,57 @@ import type { BackupData } from './merge'
  * read the user's current exam selection (`level-up-active-exam-id`).
  */
 export const LEGACY_EXAM_ID = 'web-design-b'
+export const EMPLOYMENT_SERVICE_REVISION_KEY = 'level-up-content-revision:employment-service-b'
+export const EMPLOYMENT_SERVICE_CURRENT_REVISION = 'A17'
+export const EMPLOYMENT_SERVICE_LEGACY_EXAM_ID = 'employment-service-b-legacy-a19'
+
+const EMPLOYMENT_SERVICE_EXAM_ID = 'employment-service-b'
+
+function archiveQuestionKey(value: string): string {
+  const prefix = `${EMPLOYMENT_SERVICE_EXAM_ID}${QUESTION_KEY_SEPARATOR}`
+  return value.startsWith(prefix)
+    ? `${EMPLOYMENT_SERVICE_LEGACY_EXAM_ID}${QUESTION_KEY_SEPARATOR}${value.slice(prefix.length)}`
+    : value
+}
+
+function archiveCardKey(value: string): string {
+  return value.replace(
+    `question:${EMPLOYMENT_SERVICE_EXAM_ID}${QUESTION_KEY_SEPARATOR}`,
+    `question:${EMPLOYMENT_SERVICE_LEGACY_EXAM_ID}${QUESTION_KEY_SEPARATOR}`,
+  )
+}
+
+/**
+ * A locally imported 2018 bank was mislabeled A19. The official A17 revision
+ * renumbers most questions, so old numeric ids cannot safely share mastery with
+ * the new content. Keep the history, but move it to a non-active namespace.
+ */
+export function archiveEmploymentServiceA19Backup(data: BackupData): BackupData {
+  if (data.local?.[EMPLOYMENT_SERVICE_REVISION_KEY] === EMPLOYMENT_SERVICE_CURRENT_REVISION) return data
+  return {
+    ...data,
+    progress: data.progress?.map((row) => ({ ...row, questionId: archiveQuestionKey(row.questionId) })),
+    attempts: data.attempts?.map((row) => ({ ...row, questionId: archiveQuestionKey(row.questionId) })),
+    results: data.results?.map((row) => ({
+      ...row,
+      examId: row.examId === EMPLOYMENT_SERVICE_EXAM_ID ? EMPLOYMENT_SERVICE_LEGACY_EXAM_ID : row.examId,
+    })),
+    explanations: data.explanations?.map((row) => ({ ...row, questionId: archiveQuestionKey(row.questionId) })),
+    reviewCards: data.reviewCards?.map((card) => card.examId === EMPLOYMENT_SERVICE_EXAM_ID ? {
+      ...card,
+      id: archiveCardKey(card.id),
+      examId: EMPLOYMENT_SERVICE_LEGACY_EXAM_ID,
+      atomId: archiveCardKey(card.atomId),
+      questionKeys: card.questionKeys.map(archiveQuestionKey),
+    } : card),
+    reviewLogs: data.reviewLogs?.map((log) => log.examId === EMPLOYMENT_SERVICE_EXAM_ID ? {
+      ...log,
+      cardId: archiveCardKey(log.cardId),
+      examId: EMPLOYMENT_SERVICE_LEGACY_EXAM_ID,
+    } : log),
+    local: { ...(data.local ?? {}), [EMPLOYMENT_SERVICE_REVISION_KEY]: EMPLOYMENT_SERVICE_CURRENT_REVISION },
+  } as BackupData
+}
 
 /** Namespace a bare progress/attempt question id; already-namespaced keys pass through. */
 export function namespaceQuestionId(id: string, examId = LEGACY_EXAM_ID): string {
@@ -33,7 +85,7 @@ export function namespaceExplanationKey(key: string, examId = LEGACY_EXAM_ID): s
  * twins converge to the same key and dedupe in the merge.
  */
 export function normalizeBackupData(data: BackupData, examId = LEGACY_EXAM_ID): BackupData {
-  return {
+  return archiveEmploymentServiceA19Backup({
     ...data,
     // Old backup files can miss whole sections; keep absent arrays absent so
     // writeData's per-table guards behave the same as before.
@@ -41,7 +93,7 @@ export function normalizeBackupData(data: BackupData, examId = LEGACY_EXAM_ID): 
     attempts: data.attempts?.map((row) => ({ ...row, questionId: namespaceQuestionId(row.questionId, examId) })),
     results: data.results?.map((row) => ({ ...row, examId: row.examId ?? examId })),
     explanations: data.explanations?.map((row) => ({ ...row, questionId: namespaceExplanationKey(row.questionId, examId) })),
-  } as BackupData
+  } as BackupData)
 }
 
 /**
@@ -75,5 +127,49 @@ export async function migrateTablesToQuestionKeys(tx: Transaction, examId = LEGA
 
   await tx.table<{ examId?: string }, number>('results').toCollection().modify((result) => {
     result.examId = result.examId ?? examId
+  })
+}
+
+/** Dexie v6 counterpart of archiveEmploymentServiceA19Backup. */
+export async function archiveEmploymentServiceA19Tables(tx: Transaction): Promise<void> {
+  const progressTable = tx.table<Progress, string>('progress')
+  const progress = (await progressTable.toArray()).filter((row) => archiveQuestionKey(row.questionId) !== row.questionId)
+  if (progress.length) {
+    await progressTable.bulkDelete(progress.map((row) => row.questionId))
+    await progressTable.bulkPut(progress.map((row) => ({ ...row, questionId: archiveQuestionKey(row.questionId) })))
+  }
+
+  await tx.table<AttemptRecord, number>('attempts').toCollection().modify((row) => {
+    row.questionId = archiveQuestionKey(row.questionId)
+  })
+
+  const explanationsTable = tx.table<ExplanationRecord, string>('explanations')
+  const explanations = (await explanationsTable.toArray()).filter((row) => archiveQuestionKey(row.questionId) !== row.questionId)
+  if (explanations.length) {
+    await explanationsTable.bulkDelete(explanations.map((row) => row.questionId))
+    await explanationsTable.bulkPut(explanations.map((row) => ({ ...row, questionId: archiveQuestionKey(row.questionId) })))
+  }
+
+  await tx.table<{ examId: string }, number>('results').toCollection().modify((row) => {
+    if (row.examId === EMPLOYMENT_SERVICE_EXAM_ID) row.examId = EMPLOYMENT_SERVICE_LEGACY_EXAM_ID
+  })
+
+  const cardsTable = tx.table<ReviewCard, string>('reviewCards')
+  const cards = (await cardsTable.toArray()).filter((card) => card.examId === EMPLOYMENT_SERVICE_EXAM_ID)
+  if (cards.length) {
+    await cardsTable.bulkDelete(cards.map((card) => card.id))
+    await cardsTable.bulkPut(cards.map((card) => ({
+      ...card,
+      id: archiveCardKey(card.id),
+      examId: EMPLOYMENT_SERVICE_LEGACY_EXAM_ID,
+      atomId: archiveCardKey(card.atomId),
+      questionKeys: card.questionKeys.map(archiveQuestionKey),
+    })))
+  }
+
+  await tx.table<ReviewLog, string>('reviewLogs').toCollection().modify((log) => {
+    if (log.examId !== EMPLOYMENT_SERVICE_EXAM_ID) return
+    log.examId = EMPLOYMENT_SERVICE_LEGACY_EXAM_ID
+    log.cardId = archiveCardKey(log.cardId)
   })
 }

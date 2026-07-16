@@ -6,7 +6,7 @@ export { mergeData, type BackupData } from './merge'
 
 // localStorage keys worth carrying in a full export. The AI access token and the
 // sync passphrase are intentionally excluded so backups never contain a secret.
-const LOCAL_KEYS = ['level-b-active-session', 'level-b-ai-provider']
+const LOCAL_KEYS = ['level-b-active-session', 'level-b-ai-provider', 'level-up-content-revision:employment-service-b']
 const LOCAL_KEY_PREFIXES = ['level-b-sequential-index:']
 
 interface BackupFile {
@@ -70,7 +70,8 @@ export async function exportBackup(): Promise<string> {
     app: 'level-b-study',
     // v3: namespaced question keys. v4: adds reviewCards/reviewLogs.
     // v5: completed mock/session results are scoped by examId.
-    version: 5,
+    // v6: archives progress from the superseded employment-service source.
+    version: 6,
     exportedAt: new Date().toISOString(),
     data: await collectData(),
   }

@@ -6,6 +6,8 @@ import type { AttemptRecord, ExplanationRecord, SessionResult } from './db'
 import type { BackupData } from './merge'
 import { mergeData } from './merge'
 import {
+  archiveEmploymentServiceA19Backup,
+  EMPLOYMENT_SERVICE_REVISION_KEY,
   LEGACY_EXAM_ID,
   migrateTablesToQuestionKeys,
   namespaceExplanationKey,
@@ -202,6 +204,35 @@ describe('normalizeBackupData', () => {
   })
 })
 
+describe('employment service A17 content migration', () => {
+  it('archives the old question-number namespace without deleting study history', () => {
+    const old: BackupData = {
+      progress: [createProgress('employment-service-b:19500-01-001')],
+      attempts: [attempt('employment-service-b:19500-01-001', '2026-07-15T00:00:00.000Z')],
+      results: [{
+        examId: 'employment-service-b', sessionId: 'old-mock', mode: 'mock', title: 'mock',
+        finishedAt: '2026-07-15T00:10:00.000Z', answered: 80, correct: 60,
+        score: 60, maxScore: 100, passed: true, durationMs: 600_000,
+      }],
+      explanations: [{
+        questionId: 'employment-service-b:19500-01-001::default::1::a::v17',
+        content: 'old', provider: 'ai', updatedAt: '2026-07-15T00:00:00.000Z',
+      }],
+      reviewCards: [],
+      reviewLogs: [],
+      local: {},
+    }
+
+    const migrated = archiveEmploymentServiceA19Backup(old)
+    expect(migrated.progress[0].questionId).toBe('employment-service-b-legacy-a19:19500-01-001')
+    expect(migrated.attempts[0].questionId).toBe('employment-service-b-legacy-a19:19500-01-001')
+    expect(migrated.results[0].examId).toBe('employment-service-b-legacy-a19')
+    expect(migrated.explanations[0].questionId.startsWith('employment-service-b-legacy-a19:')).toBe(true)
+    expect(migrated.local[EMPLOYMENT_SERVICE_REVISION_KEY]).toBe('A17')
+    expect(archiveEmploymentServiceA19Backup(migrated)).toEqual(migrated)
+  })
+})
+
 describe('backup round trip', () => {
   it('imports an old version-2 backup and normalizes it; exports the current version', async () => {
     // Imported lazily so the localStorage stub is installed first.
@@ -225,7 +256,7 @@ describe('backup round trip', () => {
     expect((await db.attempts.toArray()).map((row) => row.questionId)).toEqual(['web-design-b:17300-01-001'])
 
     const exported = JSON.parse(await exportBackup()) as { version: number; data: BackupData }
-    expect(exported.version).toBe(5)
+    expect(exported.version).toBe(6)
     expect(exported.data.progress[0].questionId).toBe('web-design-b:17300-01-001')
   })
 })

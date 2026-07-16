@@ -379,7 +379,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     "titleZh": "就業服務乙級",
     "titleEn": "Employment Service (Class B)",
     "category": "商業服務",
-    "version": "A19",
+    "version": "A17",
     "sourceUrl": "https://techbank.wdasec.gov.tw/",
     "officialLinks": {
       "registration": "https://skill.tcte.edu.tw/notice.php",
@@ -387,33 +387,33 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "195002A19 + 900060A18/900070A17/900080A16/900090A11",
-    "questionCount": 1614,
-    "activeQuestionCount": 1609,
+    "sourceRevision": "195002A17 + 900060A18/900070A17/900080A16/900090A11",
+    "questionCount": 1650,
+    "activeQuestionCount": 1645,
     "sections": [
       {
         "id": "19500-01",
         "subjectCode": "19500",
         "sourceGroup": "occupation",
-        "titleZh": "職業介紹及人力仲介",
-        "questionCount": 777,
-        "activeQuestionCount": 777
+        "titleZh": "職業介紹、人力仲介及外國人引進、聘僱、管理事項",
+        "questionCount": 848,
+        "activeQuestionCount": 848
       },
       {
         "id": "19500-02",
         "subjectCode": "19500",
         "sourceGroup": "occupation",
         "titleZh": "招募",
-        "questionCount": 226,
-        "activeQuestionCount": 226
+        "questionCount": 209,
+        "activeQuestionCount": 209
       },
       {
         "id": "19500-03",
         "subjectCode": "19500",
         "sourceGroup": "occupation",
         "titleZh": "職涯諮詢輔導",
-        "questionCount": 211,
-        "activeQuestionCount": 211
+        "questionCount": 193,
+        "activeQuestionCount": 193
       },
       {
         "id": "90006-01",

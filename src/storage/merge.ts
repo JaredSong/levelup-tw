@@ -16,7 +16,7 @@ export interface BackupData {
 // Keys that are safe to carry between devices. The live session is intentionally
 // NOT synced — pulling another device's stale session makes finished sessions
 // reappear. Export/backup may still include it via its own key list.
-export const SYNC_LOCAL_KEYS = ['level-b-ai-provider']
+export const SYNC_LOCAL_KEYS = ['level-b-ai-provider', 'level-up-content-revision:employment-service-b']
 
 // Rebuild a question's progress by replaying every attempt in chronological
 // order. This correctly combines history from both devices instead of picking

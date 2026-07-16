@@ -23,7 +23,7 @@ const SUBJECTS = {
   '15400': { pdf: 'source/154004A17.pdf', bank: 'public/data/exams/childcare-single/questions.json' },
   '17800': { pdf: 'source/178004A13.pdf', bank: 'public/data/exams/care-service-single/questions.json' },
   '17300': { pdf: 'source/173002A13.pdf', bank: 'public/data/exams/web-design-b/questions.json' },
-  '19500': { pdf: 'source/195002A19.pdf', bank: 'public/data/exams/employment-service-b/questions.json' },
+  '19500': { pdf: 'source/195002A17.pdf', bank: 'public/data/exams/employment-service-b/questions.json' },
   '22200': { pdf: 'source/222002A15.pdf', bank: 'public/data/exams/occupational-safety-health-management-b/questions.json' },
   '90006': { pdf: 'source/900060A18.pdf', bank: 'public/data/exams/web-design-b/questions.json' },
   '90007': { pdf: 'source/900070A17.pdf', bank: 'public/data/exams/web-design-b/questions.json' },

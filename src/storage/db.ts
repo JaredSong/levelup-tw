@@ -1,7 +1,12 @@
 import Dexie, { type EntityTable } from 'dexie'
 import type { ReviewCard, ReviewLog } from '../core/contracts'
 import type { Progress } from '../domain/studyEngine'
-import { migrateTablesToQuestionKeys } from './migrate'
+import {
+  archiveEmploymentServiceA19Tables,
+  EMPLOYMENT_SERVICE_CURRENT_REVISION,
+  EMPLOYMENT_SERVICE_REVISION_KEY,
+  migrateTablesToQuestionKeys,
+} from './migrate'
 
 export interface AttemptRecord {
   id?: number
@@ -79,3 +84,14 @@ db.version(5).stores({
     result.examId = result.examId ?? 'web-design-b'
   }),
 )
+
+// v6 preserves study history from the mislabeled 2018 employment-service bank
+// under a legacy namespace. The official A17 revision renumbers most questions,
+// so its mastery must start clean rather than inherit unrelated answers.
+db.version(6).upgrade((tx) => archiveEmploymentServiceA19Tables(tx))
+
+db.on('ready', () => {
+  if (typeof localStorage !== 'undefined') {
+    localStorage.setItem(EMPLOYMENT_SERVICE_REVISION_KEY, EMPLOYMENT_SERVICE_CURRENT_REVISION)
+  }
+})

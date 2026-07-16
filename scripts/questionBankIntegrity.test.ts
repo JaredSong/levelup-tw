@@ -328,7 +328,7 @@ describe('published question bank', () => {
     }
   })
 
-  it('publishes employment service class B from the official 195002A19 bank', () => {
+  it('publishes employment service class B from the official 195002A17 bank', () => {
     const generated = loadExamBank('employment-service-b')
     const manifest = JSON.parse(
       readFileSync(new URL('../public/data/exams/employment-service-b/manifest.json', import.meta.url), 'utf8'),
@@ -338,7 +338,7 @@ describe('published question bank', () => {
       level: string
       questionCount: number
       activeQuestionCount: number
-      sections: Array<{ id: string; subjectCode: string; questionCount: number }>
+      sections: Array<{ id: string; subjectCode: string; titleZh: string; questionCount: number }>
       mockRules: { totalQuestions: number; singleCount: number; multipleCount: number }
     }
 
@@ -346,22 +346,24 @@ describe('published question bank', () => {
       examId: 'employment-service-b',
       titleZh: '就業服務乙級',
       level: '乙級',
-      questionCount: 1614,
-      activeQuestionCount: 1609,
+      questionCount: 1650,
+      activeQuestionCount: 1645,
       mockRules: { totalQuestions: 80, singleCount: 60, multipleCount: 20 },
     })
     expect(Object.fromEntries(manifest.sections.map((section) => [section.id, section.questionCount]))).toEqual({
-      '19500-01': 777,
-      '19500-02': 226,
-      '19500-03': 211,
+      '19500-01': 848,
+      '19500-02': 209,
+      '19500-03': 193,
       '90006-01': 100,
       '90007-01': 100,
       '90008-03': 100,
       '90009-04': 100,
     })
-    expect(generated).toHaveLength(1614)
-    expect(generated.filter((question) => question.active !== false)).toHaveLength(1609)
-    expect(generated.filter((question) => question.subjectCode === '19500')).toHaveLength(1214)
+    expect(manifest.sections.find((section) => section.id === '19500-01')?.titleZh)
+      .toBe('職業介紹、人力仲介及外國人引進、聘僱、管理事項')
+    expect(generated).toHaveLength(1650)
+    expect(generated.filter((question) => question.active !== false)).toHaveLength(1645)
+    expect(generated.filter((question) => question.subjectCode === '19500')).toHaveLength(1250)
     expect(generated.filter((question) => question.subjectCode === '19500' && question.hasFigure)).toEqual([])
     expect(generated.filter((question) => question.active !== false && question.hasFigure)).toHaveLength(4)
     expect(generated.filter((question) => question.subjectCode === '90008' && question.active !== false)).toHaveLength(95)

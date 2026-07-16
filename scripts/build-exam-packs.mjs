@@ -111,6 +111,10 @@ const SOURCE_PAGE_OVERRIDES = {
   '90009-04-086': 8,
 }
 
+const SECTION_TITLE_OVERRIDES = {
+  '19500-01': '職業介紹、人力仲介及外國人引進、聘僱、管理事項',
+}
+
 const QUESTION_OPTION_OVERRIDES = {
   '11800-03-054': ['Windows 鍵+Ctrl+右方向鍵', 'Windows 鍵+Ctrl+下方向鍵', 'Windows 鍵+Ctrl+L', 'Windows 鍵+Ctrl+R'],
   '11800-03-056': ['Windows 鍵+Ctrl+D', 'Windows 鍵+Ctrl+A', 'Windows 鍵+Ctrl+C', 'Windows 鍵+Ctrl+L'],
@@ -177,10 +181,10 @@ const EXAMS = [
     level: '乙級',
     category: '商業服務',
     occupationCode: '19500',
-    occupationFile: '195002A19-raw.txt',
-    occupationExpected: 1214,
-    version: 'A19',
-    sourceRevision: '195002A19 + 900060A18/900070A17/900080A16/900090A11',
+    occupationFile: '195002A17-raw.txt',
+    occupationExpected: 1250,
+    version: 'A17',
+    sourceRevision: '195002A17 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: [],
     mockRules: {
       occupationQuota: 64,
@@ -438,6 +442,7 @@ function normalizeQuestion(question, examId) {
     ...question,
     examId,
     sourcePage,
+    sectionTitle: SECTION_TITLE_OVERRIDES[question.section] ?? question.sectionTitle,
     prompt: sanitizeText(question.prompt),
     options: QUESTION_OPTION_OVERRIDES[question.id] ?? question.options.map(sanitizeText),
     ...(INACTIVE_IDS.has(question.id) ? { active: false } : {}),

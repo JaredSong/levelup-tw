@@ -10,6 +10,8 @@
          term people actually search, and 學科 is both the search term and an accuracy
          guard — this app covers the written exam only, never 術科. -->
     <meta name="description" content="__LANDING_META_DESCRIPTION__" />
+    <!-- gtag.js loads from googletagmanager; warm the connection early. -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="canonical" href="https://levelup.tw/" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta property="og:locale" content="zh_TW" />
@@ -59,6 +61,32 @@
           "計時模擬測驗",
           "離線可用",
           "免註冊，進度存在裝置"
+        ]
+      }
+    </script>
+    <!-- Entity graph: ties the site to a named publisher so Google can recognise
+         升級吧 / Level Up as one entity (and is eligible for sitelinks). -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://levelup.tw/#org",
+            "name": "升級吧",
+            "alternateName": ["Level Up", "Level Up TW", "升级吧"],
+            "url": "https://levelup.tw/",
+            "logo": "https://levelup.tw/favicon-512.png"
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://levelup.tw/#website",
+            "name": "升級吧",
+            "alternateName": ["Level Up", "Level Up TW", "升级吧"],
+            "url": "https://levelup.tw/",
+            "inLanguage": "zh-Hant-TW",
+            "publisher": { "@id": "https://levelup.tw/#org" }
+          }
         ]
       }
     </script>

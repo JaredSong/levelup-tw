@@ -5,11 +5,20 @@ import { ActiveExamProvider } from './app/ActiveExamProvider'
 import App from './App'
 import './styles.css'
 
-// Apply the saved theme before first paint to avoid a flash.
+// Apply the theme before first paint to avoid a flash. With no saved choice we
+// follow the OS, so a dark-mode device opens dark instead of always starting light.
+const DARK_QUERY = '(prefers-color-scheme: dark)'
 const savedTheme = localStorage.getItem('level-b-theme')
-if (savedTheme === 'dark' || savedTheme === 'light') {
-  document.documentElement.dataset.theme = savedTheme
-}
+const systemTheme = () => (window.matchMedia(DARK_QUERY).matches ? 'dark' : 'light')
+document.documentElement.dataset.theme = savedTheme === 'dark' || savedTheme === 'light'
+  ? savedTheme
+  : systemTheme()
+
+// Keep tracking the OS until the user picks a side in Settings.
+window.matchMedia(DARK_QUERY).addEventListener('change', () => {
+  if (localStorage.getItem('level-b-theme')) return
+  document.documentElement.dataset.theme = systemTheme()
+})
 
 let reloadingForUpdate = false
 if ('serviceWorker' in navigator) {

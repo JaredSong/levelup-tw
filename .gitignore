@@ -12,3 +12,8 @@ dist
 # Local tooling
 .claude
 tmp/
+
+# Personal study notes. This project publishes the official 學科 (written) bank
+# only; 術科 material is sent to registered examinees rather than published, so
+# it is not ours to redistribute.
+docs/practical-decoded-material-text.md

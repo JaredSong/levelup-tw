@@ -1,7 +1,7 @@
-import { Download, ExternalLink, FileWarning, Moon, RefreshCw, RotateCcw, Shuffle, Sun, Upload } from 'lucide-react'
+import { Download, ExternalLink, FileWarning, LogOut, Moon, RefreshCw, RotateCcw, Shuffle, Sun, Upload } from 'lucide-react'
 import { useState } from 'react'
 import { getExamDate, setExamDate } from '../app/examCountdown'
-import { normalizeSyncCode } from '../app/syncCode'
+import { formatSyncCode, normalizeSyncCode } from '../app/syncCode'
 import { getNextNationalExamEntry, isScheduleEntryPast, NATIONAL_EXAM_SCHEDULE_115, NATIONAL_EXAM_SCHEDULE_SOURCE } from '../app/nationalExamSchedule'
 import { PROFILE_NAME_KEY } from '../app/onboardingState'
 import { useActiveExam } from '../app/useActiveExam'
@@ -10,8 +10,33 @@ import { zhTW } from '../i18n/zh-TW'
 import { SyncCodePanel } from './SyncCodePanel'
 import { exportBackup, importBackup } from '../storage/backup'
 import { getSyncPass, setSyncPass, syncNow, syncStatusLabel } from '../storage/sync'
+import { clearCurrentProfile } from '../storage/leaveProfile'
+import './LeaveProfile.css'
 
 const OPTION_RANDOMIZE_KEY = 'level-b-randomize-options'
+// The sync code IS the account: functions/api/sync.js stores the cloud copy under
+// hash(secret) and never stores the secret, and there is no email or reset. So
+// "雲端副本不受影響" is true but useless on its own — clearing the code without
+// showing it first strands the backup forever. Surface the code, then wipe.
+const switchUserCopy = {
+  eyebrow: '本機使用者',
+  title: '切換使用者',
+  hint: '清除這台裝置上的進度，回到考科與進度代碼設定。適合把手機借給別人，或換你自己的帳號進來。',
+  action: '離開此進度',
+  cancel: '取消',
+  confirm: '我抄好了，清除此機',
+  confirmNoCode: '我知道會消失，清除此機',
+  switching: '正在切換…',
+  // With a code: the cloud copy survives, but only this string can reach it.
+  confirmTitle: '先抄下你的進度代碼',
+  confirmHint: '雲端副本會保留，但只有這組代碼能取回。清除後代碼不會留在這台裝置，沒抄到就再也拿不回來。',
+  codeLabel: '你的進度代碼',
+  copyCode: '複製代碼',
+  copiedCode: '已複製 ✓',
+  // No code: there is no cloud copy at all, so don't imply one.
+  confirmTitleNoCode: '這台裝置的進度會永久消失',
+  confirmHintNoCode: '你還沒建立進度代碼，所以進度只存在這台裝置，沒有雲端副本。清除後無法復原；想留著就先取消，建立進度代碼或匯出備份。',
+}
 
 interface Props {
   questions: Question[]
@@ -32,6 +57,12 @@ export function SettingsView({ questions, progress }: Props) {
   const [dataMsg, setDataMsg] = useState<string | null>(null)
   const [syncMsg, setSyncMsg] = useState<string | null>(null)
   const [syncing, setSyncing] = useState(false)
+  const [leaving, setLeaving] = useState(false)
+  const [leaveConfirmOpen, setLeaveConfirmOpen] = useState(false)
+  // Read once when the confirm opens: clearCurrentProfile wipes the code, so we
+  // must hold it for display rather than re-read it mid-wipe.
+  const [leaveCode, setLeaveCode] = useState('')
+  const [leaveCodeCopied, setLeaveCodeCopied] = useState(false)
   const [theme, setTheme] = useState(() => (document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light'))
   const [randomizeOptions, setRandomizeOptions] = useState(() => localStorage.getItem(OPTION_RANDOMIZE_KEY) !== 'false')
   const [examDateValue, setExamDateValue] = useState(() => getExamDate() ?? '')
@@ -117,6 +148,32 @@ export function SettingsView({ questions, progress }: Props) {
       window.setTimeout(() => window.location.reload(), 800)
     } catch (error) {
       setDataMsg(error instanceof Error ? error.message : zhTW.stats.importFailed)
+    }
+  }
+
+  const openLeaveConfirm = () => {
+    setLeaveCode(getSyncPass())
+    setLeaveCodeCopied(false)
+    setLeaveConfirmOpen(true)
+  }
+
+  const copyLeaveCode = async () => {
+    try {
+      await navigator.clipboard.writeText(formatSyncCode(leaveCode))
+      setLeaveCodeCopied(true)
+    } catch {
+      // Clipboard can be blocked; the code is on screen to copy by hand anyway.
+      setLeaveCodeCopied(false)
+    }
+  }
+
+  const handleLeaveProfile = async () => {
+    setLeaving(true)
+    try {
+      await clearCurrentProfile()
+      window.location.assign('/app')
+    } finally {
+      setLeaving(false)
     }
   }
 
@@ -264,6 +321,44 @@ export function SettingsView({ questions, progress }: Props) {
           </label>
         </section>
       ) : null}
+
+      <section className="leave-profile">
+        <div>
+          <p className="eyebrow">{switchUserCopy.eyebrow}</p>
+          <h2>{switchUserCopy.title}</h2>
+          <p>{switchUserCopy.hint}</p>
+        </div>
+        {!leaveConfirmOpen ? (
+          <button className="secondary-action danger-action" onClick={openLeaveConfirm} type="button">
+            <LogOut size={17} /> {switchUserCopy.action}
+          </button>
+        ) : (
+          <div className="leave-profile-confirm" role="alert">
+            <strong>{leaveCode ? switchUserCopy.confirmTitle : switchUserCopy.confirmTitleNoCode}</strong>
+            <p>{leaveCode ? switchUserCopy.confirmHint : switchUserCopy.confirmHintNoCode}</p>
+
+            {leaveCode ? (
+              <div className="leave-profile-code">
+                <span>{switchUserCopy.codeLabel}</span>
+                <code>{formatSyncCode(leaveCode)}</code>
+                <button className="secondary-action" onClick={() => void copyLeaveCode()} type="button">
+                  {leaveCodeCopied ? switchUserCopy.copiedCode : switchUserCopy.copyCode}
+                </button>
+              </div>
+            ) : null}
+
+            <div>
+              <button className="secondary-action" onClick={() => setLeaveConfirmOpen(false)} type="button">{switchUserCopy.cancel}</button>
+              <button className="danger-action" disabled={leaving} onClick={() => void handleLeaveProfile()} type="button">
+                <LogOut size={16} />
+                {leaving
+                  ? switchUserCopy.switching
+                  : (leaveCode ? switchUserCopy.confirm : switchUserCopy.confirmNoCode)}
+              </button>
+            </div>
+          </div>
+        )}
+      </section>
 
       <p className="build-version">升級吧 {__APP_VERSION__}</p>
     </div>

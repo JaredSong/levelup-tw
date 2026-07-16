@@ -1,0 +1,30 @@
+.leave-profile {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 20px;
+  align-items: center;
+  padding: 22px 0;
+  border-top: 1px solid var(--line);
+}
+
+.leave-profile h2 { margin: 0; font-size: 1rem; }
+.leave-profile > div > p:last-child { margin: 6px 0 0; color: var(--muted); font-size: .82rem; line-height: 1.5; }
+.danger-action { display: inline-flex; align-items: center; justify-content: center; gap: 7px; padding: 9px 13px; border: 1px solid var(--danger); border-radius: 7px; background: transparent; color: var(--danger); font: inherit; font-size: .8rem; font-weight: 800; cursor: pointer; }
+.danger-action:hover:not(:disabled) { background: var(--danger); color: white; }
+.danger-action:disabled { cursor: wait; opacity: .6; }
+.leave-profile-confirm { grid-column: 1 / -1; padding: 14px; border: 1px solid #e7b3ab; border-radius: 8px; background: #fbeee9; color: var(--danger-dark); }
+.leave-profile-confirm > p { margin: 5px 0 12px; font-size: .8rem; line-height: 1.5; }
+.leave-profile-confirm > div { display: flex; flex-wrap: wrap; gap: 8px; }
+[data-theme="dark"] .leave-profile-confirm { border-color: #63352f; background: #2e1d1b; color: #f0a59b; }
+
+/* The code is the only way back to the cloud copy, so it gets read-me weight
+   rather than sitting inline in the warning paragraph. */
+.leave-profile-code { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-bottom: 12px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.leave-profile-code > span { color: var(--muted); font-size: .72rem; font-weight: 800; }
+.leave-profile-code > code { flex: 1 1 auto; color: var(--ink); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 1.02rem; font-weight: 800; letter-spacing: .06em; user-select: all; }
+.leave-profile-code > .secondary-action { flex: 0 0 auto; padding: 7px 11px; font-size: .74rem; }
+
+@media (max-width: 600px) {
+  .leave-profile { grid-template-columns: 1fr; }
+  .leave-profile > .danger-action { justify-self: start; }
+}

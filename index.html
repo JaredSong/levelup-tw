@@ -70,7 +70,10 @@
       window.dataLayer = window.dataLayer || []
       function gtag() { dataLayer.push(arguments) }
       gtag('js', new Date())
-      gtag('config', 'G-Y9KLLG6LPB')
+      // No automatic pageview: it would fire before the app decides whether this
+      // visitor sees the landing or the app, and both render at "/". src/app/analytics.ts
+      // sends one hit once the route is known.
+      gtag('config', 'G-Y9KLLG6LPB', { send_page_view: false })
     </script>
   </head>
   <body>

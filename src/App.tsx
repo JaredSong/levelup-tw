@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { AlertTriangle, ArrowRight, CheckCircle2, LoaderCircle, RotateCcw } from 'lucide-react'
 import { ActiveExamHeader } from './app/ActiveExamHeader'
+import { trackEnterApp, trackInitialView } from './app/analytics'
 import { LandingPage } from './app/LandingPage'
 import { OnboardingGate } from './app/OnboardingGate'
 import { hasCompletedOnboarding, PROFILE_NAME_KEY, shouldShowLanding } from './app/onboardingState'
@@ -154,10 +155,22 @@ export default function App() {
     standalone,
   }))
 
+  // Report the surface actually rendered, not the URL: a returning visitor gets
+  // the app while the URL stays "/", so the URL alone cannot tell discovery from
+  // usage. Fires once per load; entering the app from the landing is a click, not
+  // a new page, and is covered by its own event below.
+  useEffect(() => {
+    trackInitialView(landingOpen ? 'landing' : 'app')
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   const enterApp = (examId?: string) => {
     if (examId) setActiveExamId(examId)
     if (window.location.pathname !== '/app') history.replaceState(null, '', '/app')
     setLandingOpen(false)
+    // The landing's one job: this is the conversion, and it has no pageview of
+    // its own because the document never navigates.
+    trackEnterApp(examId)
   }
 
   if (landingOpen) {

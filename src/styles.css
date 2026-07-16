@@ -197,6 +197,20 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .landing-install-copy > p { max-width: 44ch; margin: 18px 0 0; color: var(--muted); font-size: .9rem; line-height: 1.7; }
 .landing-install-note { display: flex; align-items: flex-start; gap: 10px; max-width: 46ch; margin-top: 22px; padding: 13px 16px; border-radius: 10px; background: var(--accent-pale); color: var(--accent-ink); font-size: .84rem; font-weight: 700; line-height: 1.6; }
 .landing-install-note svg { flex: 0 0 auto; margin-top: 2px; }
+/* Exam schedule */
+.landing-schedule { padding: clamp(56px, 8vw, 104px) var(--pad); border-top: 1px solid var(--line2); background: var(--paper); }
+.landing-schedule-head { max-width: 640px; }
+.landing-schedule-head h2 { margin: 8px 0 0; font-size: clamp(1.6rem, 3.4vw, 2.6rem); line-height: 1.25; }
+.landing-schedule-head > p { margin: 16px 0 0; color: var(--muted); font-size: .9rem; line-height: 1.7; }
+.landing-schedule-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 30px; }
+.landing-schedule-card { display: grid; gap: 12px; padding: 22px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }
+.landing-schedule-card strong { font-size: 1rem; font-weight: 800; }
+.landing-schedule-card p { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 0; color: var(--ink2); font-size: .88rem; font-weight: 700; }
+.landing-schedule-card p span { color: var(--muted); font-size: .8rem; font-weight: 600; }
+.landing-schedule-note { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 22px 0 0; color: var(--faint); font-size: .78rem; }
+.landing-schedule-note a { display: inline-flex; align-items: center; gap: 4px; color: var(--accent-ink); font-weight: 800; text-decoration: none; }
+@media (max-width: 760px) { .landing-schedule-grid { grid-template-columns: minmax(0, 1fr); } }
+
 .landing-install-qr { display: flex; align-items: center; gap: 16px; max-width: 46ch; margin-top: 22px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }
 /* Always on white: a QR inverted by dark mode will not scan. */
 .landing-qr { flex: 0 0 auto; padding: 6px; border-radius: 8px; background: #ffffff; }

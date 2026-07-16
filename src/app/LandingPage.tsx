@@ -27,6 +27,18 @@ import { zhTW } from '../i18n/zh-TW'
 import { GENERATED_LANDING_CATALOG } from './generatedLandingCatalog'
 import { applyTheme, currentTheme, type Theme } from './theme'
 import { QrSvg } from '../components/QrCode'
+import { NATIONAL_EXAM_SCHEDULE_115, NATIONAL_EXAM_SCHEDULE_SOURCE } from './nationalExamSchedule'
+
+// ROC (民國) year = Gregorian − 1911. Dates come from nationalExamSchedule.ts,
+// the same official 簡章 data the app uses, so this section never drifts from it.
+function rocDate(iso: string) {
+  const [y, m, d] = iso.split('-').map(Number)
+  return `${y - 1911}年${m}月${d}日`
+}
+function monthDayRange(startIso: string, endIso: string) {
+  const md = (iso: string) => { const [, m, d] = iso.split('-').map(Number); return `${m}/${d}` }
+  return `${md(startIso)}–${md(endIso)}`
+}
 
 // A fixed absolute URL, not window.location: the QR must resolve to the public
 // site even when this renders during the build-time prerender (no window) or on
@@ -46,6 +58,7 @@ const REPO_URL = 'https://github.com/JaredSong/levelup-tw'
 const navLinks = [
   { href: '#landing-exams', label: zhTW.landing.navExams },
   { href: '#landing-how', label: zhTW.landing.navHow },
+  { href: '#landing-schedule', label: zhTW.landing.navSchedule },
   { href: '#landing-install', label: zhTW.landing.navInstall },
   { href: '#landing-faq', label: zhTW.landing.navFaq },
   { href: '#landing-donate', label: zhTW.landing.navDonate },
@@ -333,6 +346,29 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam }: Props) 
             </div>
           ))}
         </div>
+      </section>
+
+      <section className="landing-schedule" id="landing-schedule">
+        <div className="landing-schedule-head">
+          <p className="landing-eyebrow">{zhTW.landing.scheduleEyebrow}</p>
+          <h2>{zhTW.landing.scheduleTitle}</h2>
+          <p>{zhTW.landing.scheduleBody}</p>
+        </div>
+        <div className="landing-schedule-grid">
+          {NATIONAL_EXAM_SCHEDULE_115.map((entry) => (
+            <div className="landing-schedule-card" key={entry.id}>
+              <strong>{entry.label}</strong>
+              <p><span>{zhTW.landing.scheduleWritten}</span>{rocDate(entry.writtenDate)}</p>
+              <p><span>{zhTW.landing.scheduleReg}</span>{monthDayRange(entry.registrationStart, entry.registrationEnd)}</p>
+            </div>
+          ))}
+        </div>
+        <p className="landing-schedule-note">
+          <span>{zhTW.landing.scheduleNote}</span>
+          <a href={NATIONAL_EXAM_SCHEDULE_SOURCE} rel="noreferrer" target="_blank">
+            {zhTW.landing.scheduleSource}<ArrowUpRight size={14} />
+          </a>
+        </p>
       </section>
 
       <section className="landing-install" id="landing-install">

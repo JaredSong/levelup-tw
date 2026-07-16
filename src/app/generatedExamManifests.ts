@@ -1016,5 +1016,423 @@ export const GENERATED_EXAM_MANIFESTS = [
       "imageQuestionCount": 5,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
+  },
+  {
+    "examId": "car-repair-c",
+    "level": "丙級",
+    "titleZh": "汽車修護丙級",
+    "titleEn": "Automobile Repair (Class C)",
+    "category": "車輛修護",
+    "version": "A11",
+    "sourceUrl": "https://techbank.wdasec.gov.tw/",
+    "officialLinks": {
+      "registration": "https://skill.tcte.edu.tw/notice.php",
+      "scoreLookup": "https://eservice.wdasec.gov.tw/",
+      "handbook": "https://skill.tcte.edu.tw/download.php",
+      "questionBank": "https://techbank.wdasec.gov.tw/"
+    },
+    "sourceRevision": "020003A11 + 900060A18/900070A17/900080A16/900090A11",
+    "questionCount": 1165,
+    "activeQuestionCount": 1160,
+    "sections": [
+      {
+        "id": "02000-01",
+        "subjectCode": "02000",
+        "sourceGroup": "occupation",
+        "titleZh": "器具使用與保養",
+        "questionCount": 39,
+        "activeQuestionCount": 39
+      },
+      {
+        "id": "02000-02",
+        "subjectCode": "02000",
+        "sourceGroup": "occupation",
+        "titleZh": "定期保養",
+        "questionCount": 19,
+        "activeQuestionCount": 19
+      },
+      {
+        "id": "02000-03",
+        "subjectCode": "02000",
+        "sourceGroup": "occupation",
+        "titleZh": "汽車引擎修護",
+        "questionCount": 241,
+        "activeQuestionCount": 241
+      },
+      {
+        "id": "02000-04",
+        "subjectCode": "02000",
+        "sourceGroup": "occupation",
+        "titleZh": "汽車底盤修護",
+        "questionCount": 192,
+        "activeQuestionCount": 192
+      },
+      {
+        "id": "02000-05",
+        "subjectCode": "02000",
+        "sourceGroup": "occupation",
+        "titleZh": "汽車電系修護",
+        "questionCount": 191,
+        "activeQuestionCount": 191
+      },
+      {
+        "id": "02000-06",
+        "subjectCode": "02000",
+        "sourceGroup": "occupation",
+        "titleZh": "安全與衛生作業",
+        "questionCount": 37,
+        "activeQuestionCount": 37
+      },
+      {
+        "id": "02000-07",
+        "subjectCode": "02000",
+        "sourceGroup": "occupation",
+        "titleZh": "專業英文及手冊查閱",
+        "questionCount": 46,
+        "activeQuestionCount": 46
+      },
+      {
+        "id": "90006-01",
+        "subjectCode": "90006",
+        "sourceGroup": "general-common",
+        "titleZh": "職業安全衛生",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      },
+      {
+        "id": "90007-01",
+        "subjectCode": "90007",
+        "sourceGroup": "general-common",
+        "titleZh": "工作倫理與職業道德",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      },
+      {
+        "id": "90008-03",
+        "subjectCode": "90008",
+        "sourceGroup": "general-common",
+        "titleZh": "環境保護",
+        "questionCount": 100,
+        "activeQuestionCount": 95
+      },
+      {
+        "id": "90009-04",
+        "subjectCode": "90009",
+        "sourceGroup": "general-common",
+        "titleZh": "節能減碳",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      }
+    ],
+    "mockRules": {
+      "totalQuestions": 80,
+      "singleCount": 80,
+      "multipleCount": 0,
+      "durationMinutes": 100,
+      "passScore": 60,
+      "maxScore": 100,
+      "weightSingle": 1.25,
+      "weightMultiple": 0,
+      "subjectQuota": [
+        {
+          "subjectCode": "02000",
+          "count": 64
+        },
+        {
+          "subjectCode": "90006",
+          "count": 4
+        },
+        {
+          "subjectCode": "90007",
+          "count": 4
+        },
+        {
+          "subjectCode": "90008",
+          "count": 4
+        },
+        {
+          "subjectCode": "90009",
+          "count": 4
+        }
+      ]
+    },
+    "integrity": {
+      "status": "fully_verified",
+      "inactiveQuestionCount": 5,
+      "imageQuestionCount": 52,
+      "note": "Answer keys independently cross-checked against the official PDF during import."
+    }
+  },
+  {
+    "examId": "beauty-c",
+    "level": "丙級",
+    "titleZh": "美容丙級",
+    "titleEn": "Beauty (Class C)",
+    "category": "美容美髮",
+    "version": "A15",
+    "sourceUrl": "https://techbank.wdasec.gov.tw/",
+    "officialLinks": {
+      "registration": "https://skill.tcte.edu.tw/notice.php",
+      "scoreLookup": "https://eservice.wdasec.gov.tw/",
+      "handbook": "https://skill.tcte.edu.tw/download.php",
+      "questionBank": "https://techbank.wdasec.gov.tw/"
+    },
+    "sourceRevision": "100003A15 + 900060A18/900070A17/900080A16/900090A11/900120A10",
+    "questionCount": 1061,
+    "activeQuestionCount": 1056,
+    "sections": [
+      {
+        "id": "10000-01",
+        "subjectCode": "10000",
+        "sourceGroup": "occupation",
+        "titleZh": "皮膚認識",
+        "questionCount": 168,
+        "activeQuestionCount": 168
+      },
+      {
+        "id": "10000-02",
+        "subjectCode": "10000",
+        "sourceGroup": "occupation",
+        "titleZh": "護膚",
+        "questionCount": 60,
+        "activeQuestionCount": 60
+      },
+      {
+        "id": "10000-03",
+        "subjectCode": "10000",
+        "sourceGroup": "occupation",
+        "titleZh": "彩粧",
+        "questionCount": 67,
+        "activeQuestionCount": 67
+      },
+      {
+        "id": "10000-04",
+        "subjectCode": "10000",
+        "sourceGroup": "occupation",
+        "titleZh": "化粧設計",
+        "questionCount": 66,
+        "activeQuestionCount": 66
+      },
+      {
+        "id": "90012-01",
+        "subjectCode": "90012",
+        "sourceGroup": "beauty-hair-common",
+        "titleZh": "化粧品認識",
+        "questionCount": 150,
+        "activeQuestionCount": 150
+      },
+      {
+        "id": "90012-02",
+        "subjectCode": "90012",
+        "sourceGroup": "beauty-hair-common",
+        "titleZh": "衛生及急救知識",
+        "questionCount": 150,
+        "activeQuestionCount": 150
+      },
+      {
+        "id": "90006-01",
+        "subjectCode": "90006",
+        "sourceGroup": "general-common",
+        "titleZh": "職業安全衛生",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      },
+      {
+        "id": "90007-01",
+        "subjectCode": "90007",
+        "sourceGroup": "general-common",
+        "titleZh": "工作倫理與職業道德",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      },
+      {
+        "id": "90008-03",
+        "subjectCode": "90008",
+        "sourceGroup": "general-common",
+        "titleZh": "環境保護",
+        "questionCount": 100,
+        "activeQuestionCount": 95
+      },
+      {
+        "id": "90009-04",
+        "subjectCode": "90009",
+        "sourceGroup": "general-common",
+        "titleZh": "節能減碳",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      }
+    ],
+    "mockRules": {
+      "totalQuestions": 80,
+      "singleCount": 80,
+      "multipleCount": 0,
+      "durationMinutes": 100,
+      "passScore": 60,
+      "maxScore": 100,
+      "weightSingle": 1.25,
+      "weightMultiple": 0,
+      "subjectQuota": [
+        {
+          "subjectCode": "10000",
+          "count": 60
+        },
+        {
+          "subjectCode": "90012",
+          "count": 4
+        },
+        {
+          "subjectCode": "90006",
+          "count": 4
+        },
+        {
+          "subjectCode": "90007",
+          "count": 4
+        },
+        {
+          "subjectCode": "90008",
+          "count": 4
+        },
+        {
+          "subjectCode": "90009",
+          "count": 4
+        }
+      ]
+    },
+    "integrity": {
+      "status": "fully_verified",
+      "inactiveQuestionCount": 5,
+      "imageQuestionCount": 4,
+      "note": "Answer keys independently cross-checked against the official PDF during import."
+    }
+  },
+  {
+    "examId": "accounting-c",
+    "level": "丙級",
+    "titleZh": "會計事務丙級",
+    "titleEn": "Accounting (Class C)",
+    "category": "商業服務",
+    "version": "A15",
+    "sourceUrl": "https://techbank.wdasec.gov.tw/",
+    "officialLinks": {
+      "registration": "https://skill.tcte.edu.tw/notice.php",
+      "scoreLookup": "https://eservice.wdasec.gov.tw/",
+      "handbook": "https://skill.tcte.edu.tw/download.php",
+      "questionBank": "https://techbank.wdasec.gov.tw/"
+    },
+    "sourceRevision": "149003A15 + 900060A18/900070A17/900080A16/900090A11",
+    "questionCount": 1162,
+    "activeQuestionCount": 1157,
+    "sections": [
+      {
+        "id": "14900-01",
+        "subjectCode": "14900",
+        "sourceGroup": "occupation",
+        "titleZh": "會計基本概念",
+        "questionCount": 145,
+        "activeQuestionCount": 145
+      },
+      {
+        "id": "14900-02",
+        "subjectCode": "14900",
+        "sourceGroup": "occupation",
+        "titleZh": "平時會計處理程序",
+        "questionCount": 239,
+        "activeQuestionCount": 239
+      },
+      {
+        "id": "14900-03",
+        "subjectCode": "14900",
+        "sourceGroup": "occupation",
+        "titleZh": "期末會計處理程序",
+        "questionCount": 221,
+        "activeQuestionCount": 221
+      },
+      {
+        "id": "14900-04",
+        "subjectCode": "14900",
+        "sourceGroup": "occupation",
+        "titleZh": "會計資訊系統概念",
+        "questionCount": 133,
+        "activeQuestionCount": 133
+      },
+      {
+        "id": "14900-05",
+        "subjectCode": "14900",
+        "sourceGroup": "occupation",
+        "titleZh": "相關法令之規定",
+        "questionCount": 24,
+        "activeQuestionCount": 24
+      },
+      {
+        "id": "90006-01",
+        "subjectCode": "90006",
+        "sourceGroup": "general-common",
+        "titleZh": "職業安全衛生",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      },
+      {
+        "id": "90007-01",
+        "subjectCode": "90007",
+        "sourceGroup": "general-common",
+        "titleZh": "工作倫理與職業道德",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      },
+      {
+        "id": "90008-03",
+        "subjectCode": "90008",
+        "sourceGroup": "general-common",
+        "titleZh": "環境保護",
+        "questionCount": 100,
+        "activeQuestionCount": 95
+      },
+      {
+        "id": "90009-04",
+        "subjectCode": "90009",
+        "sourceGroup": "general-common",
+        "titleZh": "節能減碳",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      }
+    ],
+    "mockRules": {
+      "totalQuestions": 80,
+      "singleCount": 80,
+      "multipleCount": 0,
+      "durationMinutes": 100,
+      "passScore": 60,
+      "maxScore": 100,
+      "weightSingle": 1.25,
+      "weightMultiple": 0,
+      "subjectQuota": [
+        {
+          "subjectCode": "14900",
+          "count": 64
+        },
+        {
+          "subjectCode": "90006",
+          "count": 4
+        },
+        {
+          "subjectCode": "90007",
+          "count": 4
+        },
+        {
+          "subjectCode": "90008",
+          "count": 4
+        },
+        {
+          "subjectCode": "90009",
+          "count": 4
+        }
+      ]
+    },
+    "integrity": {
+      "status": "fully_verified",
+      "inactiveQuestionCount": 5,
+      "imageQuestionCount": 4,
+      "note": "Answer keys independently cross-checked against the official PDF during import."
+    }
   }
 ] as ExamManifest[]

@@ -69,6 +69,9 @@ describe('active exam selection', () => {
       'computer-software-application-c',
       'chinese-cooking-meat-c',
       'baking-food-c',
+      'car-repair-c',
+      'beauty-c',
+      'accounting-c',
     ]))
   })
 
@@ -80,6 +83,7 @@ describe('active exam selection', () => {
       '美容美髮',
       '商業服務',
       '餐飲食品',
+      '車輛修護',
     ])
     expect(groups.find((group) => group.category === '資訊')?.exams.map((exam) => exam.examId)).toEqual([
       'web-design-b',
@@ -88,6 +92,9 @@ describe('active exam selection', () => {
     expect(groups.find((group) => group.category === '餐飲食品')?.exams.map((exam) => exam.examId)).toEqual([
       'chinese-cooking-meat-c',
       'baking-food-c',
+    ])
+    expect(groups.find((group) => group.category === '車輛修護')?.exams.map((exam) => exam.examId)).toEqual([
+      'car-repair-c',
     ])
   })
 

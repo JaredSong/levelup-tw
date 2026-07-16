@@ -1,10 +1,18 @@
-import { access, mkdir, readFile, writeFile } from 'node:fs/promises'
+import { access, mkdir, readFile, readdir, writeFile } from 'node:fs/promises'
 
-const questions = JSON.parse(
-  await readFile(new URL('../source/questions.json', import.meta.url), 'utf8'),
+const examsRoot = new URL('../public/data/exams/', import.meta.url)
+const examDirs = await readdir(examsRoot, { withFileTypes: true })
+const banks = await Promise.all(
+  examDirs
+    .filter((entry) => entry.isDirectory())
+    .map(async (entry) => JSON.parse(await readFile(new URL(`${entry.name}/questions.json`, examsRoot), 'utf8'))),
 )
+const questionsById = new Map()
+for (const question of banks.flat()) {
+  if (!questionsById.has(question.id)) questionsById.set(question.id, question)
+}
 
-const imageQuestions = questions
+const imageQuestions = [...questionsById.values()]
   .filter((question) => question.active !== false && question.hasFigure)
   .sort((a, b) => a.id.localeCompare(b.id))
 

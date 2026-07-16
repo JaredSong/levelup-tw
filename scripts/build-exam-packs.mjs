@@ -16,6 +16,59 @@ const INACTIVE_IDS = new Set([
 ])
 
 const IMAGE_OVERRIDES = {
+  '02000-01-007': ['02000-01-007.png'],
+  '02000-01-009': ['02000-01-009.png'],
+  '02000-01-015': ['02000-01-015.png'],
+  '02000-01-020': ['02000-01-020.png'],
+  '02000-01-021': ['02000-01-021.png'],
+  '02000-01-022': ['02000-01-022.png'],
+  '02000-03-187': ['02000-03-187.png'],
+  '02000-03-224': ['02000-03-224.png'],
+  '02000-04-050': ['02000-04-050.jpg'],
+  '02000-04-079': ['02000-04-079.png'],
+  '02000-04-095': ['02000-04-095.png'],
+  '02000-04-096': ['02000-04-096.png'],
+  '02000-04-097': ['02000-04-097.png'],
+  '02000-04-102': ['02000-04-102.png'],
+  '02000-04-112': ['02000-04-112.png'],
+  '02000-04-131': ['02000-04-131.png'],
+  '02000-04-137': ['02000-04-137.png'],
+  '02000-04-138': ['02000-04-138.png'],
+  '02000-04-139': ['02000-04-139.png'],
+  '02000-04-140': ['02000-04-140.png'],
+  '02000-04-141': ['02000-04-141.png'],
+  '02000-04-166': ['02000-04-166.png'],
+  '02000-04-180': ['02000-04-180.png'],
+  '02000-05-001': ['02000-05-001.png'],
+  '02000-05-003': [
+    '02000-05-003-1.png',
+    '02000-05-003-2.png',
+    '02000-05-003-3.png',
+    '02000-05-003-4.png',
+  ],
+  '02000-05-006': ['02000-05-006.png'],
+  '02000-05-013': ['02000-05-013.png'],
+  '02000-05-014': ['02000-05-014.png'],
+  '02000-05-015': ['02000-05-015.png'],
+  '02000-05-016': ['02000-05-016.png'],
+  '02000-05-017': ['02000-05-017.png'],
+  '02000-05-020': ['02000-05-020.png'],
+  '02000-05-052': ['02000-05-052.png'],
+  '02000-05-103': ['02000-05-103.png'],
+  '02000-05-110': ['02000-05-110.png'],
+  '02000-05-111': ['02000-05-111.png'],
+  '02000-05-112': ['02000-05-112.png'],
+  '02000-05-113': ['02000-05-113.png'],
+  '02000-05-114': ['02000-05-114.png'],
+  '02000-05-118': ['02000-05-118.png'],
+  '02000-05-151': ['02000-05-151.png'],
+  '02000-05-152': ['02000-05-152.png'],
+  '02000-05-153': ['02000-05-153.png'],
+  '02000-05-154': ['02000-05-154.png'],
+  '02000-05-155': ['02000-05-155.png'],
+  '02000-05-190': ['02000-05-190.png'],
+  '02000-07-044': ['02000-07-044.png'],
+  '02000-07-045': ['02000-07-045.png'],
   '90008-03-013': [
     '90008-page-2 13-1.png',
     '90008-page-2 13-2.png',
@@ -186,6 +239,69 @@ const EXAMS = [
       extraSubjectQuota: [{ subjectCode: '90010', count: 4 }],
     },
   },
+  {
+    examId: 'car-repair-c',
+    titleZh: '汽車修護丙級',
+    titleEn: 'Automobile Repair (Class C)',
+    level: '丙級',
+    category: '車輛修護',
+    occupationCode: '02000',
+    occupationFile: '020003A11-raw.txt',
+    occupationExpected: 765,
+    version: 'A11',
+    sourceRevision: '020003A11 + 900060A18/900070A17/900080A16/900090A11',
+    extraCommonCodes: [],
+    mockRules: {
+      occupationQuota: 64,
+      singleCount: 80,
+      multipleCount: 0,
+      weightSingle: 1.25,
+      weightMultiple: 0,
+      extraSubjectQuota: [],
+    },
+  },
+  {
+    examId: 'beauty-c',
+    titleZh: '美容丙級',
+    titleEn: 'Beauty (Class C)',
+    level: '丙級',
+    category: '美容美髮',
+    occupationCode: '10000',
+    occupationFile: '100003A15-raw.txt',
+    occupationExpected: 361,
+    version: 'A15',
+    sourceRevision: '100003A15 + 900060A18/900070A17/900080A16/900090A11/900120A10',
+    extraCommonCodes: ['90012'],
+    mockRules: {
+      occupationQuota: 60,
+      singleCount: 80,
+      multipleCount: 0,
+      weightSingle: 1.25,
+      weightMultiple: 0,
+      extraSubjectQuota: [{ subjectCode: '90012', count: 4 }],
+    },
+  },
+  {
+    examId: 'accounting-c',
+    titleZh: '會計事務丙級',
+    titleEn: 'Accounting (Class C)',
+    level: '丙級',
+    category: '商業服務',
+    occupationCode: '14900',
+    occupationFile: '149003A15-raw.txt',
+    occupationExpected: 762,
+    version: 'A15',
+    sourceRevision: '149003A15 + 900060A18/900070A17/900080A16/900090A11',
+    extraCommonCodes: [],
+    mockRules: {
+      occupationQuota: 64,
+      singleCount: 80,
+      multipleCount: 0,
+      weightSingle: 1.25,
+      weightMultiple: 0,
+      extraSubjectQuota: [],
+    },
+  },
 ]
 
 const BEAUTY_HAIR_COMMON_BANK = {
@@ -239,6 +355,7 @@ async function loadParsed(bank) {
 
 function normalizeQuestion(question, examId) {
   const sourcePage = SOURCE_PAGE_OVERRIDES[question.id] ?? question.sourcePage
+  const imageOverrides = IMAGE_OVERRIDES[question.id]
   const repaired = {
     ...question,
     examId,
@@ -247,13 +364,14 @@ function normalizeQuestion(question, examId) {
     options: QUESTION_OPTION_OVERRIDES[question.id] ?? question.options.map(sanitizeText),
     ...(INACTIVE_IDS.has(question.id) ? { active: false } : {}),
   }
-  if (!repaired.hasFigure) {
+  if (!repaired.hasFigure && !imageOverrides) {
     return { ...repaired, sourceImage: undefined, sourceImages: undefined, sourcePageImage: undefined }
   }
   return {
     ...repaired,
-    sourceImage: IMAGE_OVERRIDES[question.id]?.map(questionImagePath)[0] ?? `/question-images/${question.id}.png`,
-    sourceImages: IMAGE_OVERRIDES[question.id]?.map(questionImagePath),
+    hasFigure: true,
+    sourceImage: imageOverrides?.map(questionImagePath)[0] ?? `/question-images/${question.id}.png`,
+    sourceImages: imageOverrides?.map(questionImagePath),
     sourcePageImage: sourcePageImageFor(repaired),
   }
 }

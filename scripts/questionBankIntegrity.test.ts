@@ -368,6 +368,26 @@ describe('published question bank', () => {
     expect(generated.every((question) => question.examId === 'employment-service-b')).toBe(true)
   })
 
+  it('publishes the next high-demand class C exam packs', () => {
+    const cases = [
+      { examId: 'car-repair-c', occupationCode: '02000', total: 1165, occupation: 765, sections: 11 },
+      { examId: 'beauty-c', occupationCode: '10000', total: 1061, occupation: 361, sections: 10 },
+      { examId: 'accounting-c', occupationCode: '14900', total: 1162, occupation: 762, sections: 9 },
+    ]
+
+    for (const item of cases) {
+      const questions = loadExamBank(item.examId)
+      const manifest = JSON.parse(
+        readFileSync(new URL(`../public/data/exams/${item.examId}/manifest.json`, import.meta.url), 'utf8'),
+      ) as { questionCount: number; sections: unknown[] }
+
+      expect(manifest.questionCount).toBe(item.total)
+      expect(manifest.sections).toHaveLength(item.sections)
+      expect(questions.filter((question) => question.subjectCode === item.occupationCode)).toHaveLength(item.occupation)
+      expect(questions.every((question) => question.examId === item.examId)).toBe(true)
+    }
+  })
+
   it('builds employment service mocks from active-only question packs', () => {
     const bank = loadExamBank('employment-service-b').filter((question) => question.active !== false)
     const manifest = JSON.parse(

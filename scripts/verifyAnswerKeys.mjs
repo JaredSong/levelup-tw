@@ -12,11 +12,14 @@ import { execFileSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 
 const SUBJECTS = {
+  '02000': { pdf: 'source/020003A11.pdf', bank: 'public/data/exams/car-repair-c/questions.json' },
   '06000': { pdf: 'source/060003A12.pdf', bank: 'public/data/exams/man-haircut-c/questions.json' },
   '06700': { pdf: 'source/067003A13.pdf', bank: 'public/data/exams/women-hairdressing-c/questions.json' },
   '07602': { pdf: 'source/076023A13.pdf', bank: 'public/data/exams/chinese-cooking-meat-c/questions.json' },
   '07700': { pdf: 'source/077003A12.pdf', bank: 'public/data/exams/baking-food-c/questions.json' },
+  '10000': { pdf: 'source/100003A15.pdf', bank: 'public/data/exams/beauty-c/questions.json' },
   '11800': { pdf: 'source/118003A14.pdf', bank: 'public/data/exams/computer-software-application-c/questions.json' },
+  '14900': { pdf: 'source/149003A15.pdf', bank: 'public/data/exams/accounting-c/questions.json' },
   '17300': { pdf: 'source/173002A13.pdf', bank: 'public/data/exams/web-design-b/questions.json' },
   '19500': { pdf: 'source/195002A19.pdf', bank: 'public/data/exams/employment-service-b/questions.json' },
   '90006': { pdf: 'source/900060A18.pdf', bank: 'public/data/exams/web-design-b/questions.json' },

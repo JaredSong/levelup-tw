@@ -388,6 +388,28 @@ describe('published question bank', () => {
     }
   })
 
+  it('publishes the high-demand third-round care and safety packs from official banks', () => {
+    const cases = [
+      { examId: 'childcare-single', occupationCode: '15400', published: 892, active: 892, total: 1292, activeTotal: 1287, sections: 10 },
+      { examId: 'care-service-single', occupationCode: '17800', published: 625, active: 620, total: 1025, activeTotal: 1015, sections: 10 },
+      { examId: 'occupational-safety-health-management-b', occupationCode: '22200', published: 932, active: 922, total: 1332, activeTotal: 1317, sections: 7 },
+    ]
+
+    for (const item of cases) {
+      const questions = loadExamBank(item.examId)
+      const manifest = JSON.parse(
+        readFileSync(new URL(`../public/data/exams/${item.examId}/manifest.json`, import.meta.url), 'utf8'),
+      ) as { questionCount: number; activeQuestionCount: number; sections: unknown[] }
+
+      expect(manifest.questionCount).toBe(item.total)
+      expect(manifest.activeQuestionCount).toBe(item.activeTotal)
+      expect(manifest.sections).toHaveLength(item.sections)
+      expect(questions.filter((question) => question.subjectCode === item.occupationCode)).toHaveLength(item.published)
+      expect(questions.filter((question) => question.subjectCode === item.occupationCode && question.active !== false)).toHaveLength(item.active)
+      expect(questions.every((question) => question.examId === item.examId)).toBe(true)
+    }
+  })
+
   it('builds employment service mocks from active-only question packs', () => {
     const bank = loadExamBank('employment-service-b').filter((question) => question.active !== false)
     const manifest = JSON.parse(

@@ -72,6 +72,9 @@ describe('active exam selection', () => {
       'car-repair-c',
       'beauty-c',
       'accounting-c',
+      'childcare-single',
+      'care-service-single',
+      'occupational-safety-health-management-b',
     ]))
   })
 
@@ -84,6 +87,8 @@ describe('active exam selection', () => {
       '商業服務',
       '餐飲食品',
       '車輛修護',
+      '照護服務',
+      '職業安全衛生',
     ])
     expect(groups.find((group) => group.category === '資訊')?.exams.map((exam) => exam.examId)).toEqual([
       'web-design-b',

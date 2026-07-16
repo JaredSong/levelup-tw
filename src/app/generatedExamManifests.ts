@@ -1434,5 +1434,395 @@ export const GENERATED_EXAM_MANIFESTS = [
       "imageQuestionCount": 4,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
+  },
+  {
+    "examId": "childcare-single",
+    "level": "單一級",
+    "titleZh": "托育人員單一級",
+    "titleEn": "Childcare Provider (Single Level)",
+    "category": "照護服務",
+    "version": "A17",
+    "sourceUrl": "https://techbank.wdasec.gov.tw/",
+    "officialLinks": {
+      "registration": "https://skill.tcte.edu.tw/notice.php",
+      "scoreLookup": "https://eservice.wdasec.gov.tw/",
+      "handbook": "https://skill.tcte.edu.tw/download.php",
+      "questionBank": "https://techbank.wdasec.gov.tw/"
+    },
+    "sourceRevision": "154004A17 + 900060A18/900070A17/900080A16/900090A11",
+    "questionCount": 1292,
+    "activeQuestionCount": 1287,
+    "sections": [
+      {
+        "id": "15400-01",
+        "subjectCode": "15400",
+        "sourceGroup": "occupation",
+        "titleZh": "托育職業倫理",
+        "questionCount": 147,
+        "activeQuestionCount": 147
+      },
+      {
+        "id": "15400-02",
+        "subjectCode": "15400",
+        "sourceGroup": "occupation",
+        "titleZh": "嬰幼兒發展",
+        "questionCount": 130,
+        "activeQuestionCount": 130
+      },
+      {
+        "id": "15400-03",
+        "subjectCode": "15400",
+        "sourceGroup": "occupation",
+        "titleZh": "嬰幼兒保育",
+        "questionCount": 171,
+        "activeQuestionCount": 171
+      },
+      {
+        "id": "15400-04",
+        "subjectCode": "15400",
+        "sourceGroup": "occupation",
+        "titleZh": "嬰幼兒衛生保健",
+        "questionCount": 189,
+        "activeQuestionCount": 189
+      },
+      {
+        "id": "15400-05",
+        "subjectCode": "15400",
+        "sourceGroup": "occupation",
+        "titleZh": "嬰幼兒生活及環境",
+        "questionCount": 189,
+        "activeQuestionCount": 189
+      },
+      {
+        "id": "15400-06",
+        "subjectCode": "15400",
+        "sourceGroup": "occupation",
+        "titleZh": "親職教育",
+        "questionCount": 66,
+        "activeQuestionCount": 66
+      },
+      {
+        "id": "90006-01",
+        "subjectCode": "90006",
+        "sourceGroup": "general-common",
+        "titleZh": "職業安全衛生",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      },
+      {
+        "id": "90007-01",
+        "subjectCode": "90007",
+        "sourceGroup": "general-common",
+        "titleZh": "工作倫理與職業道德",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      },
+      {
+        "id": "90008-03",
+        "subjectCode": "90008",
+        "sourceGroup": "general-common",
+        "titleZh": "環境保護",
+        "questionCount": 100,
+        "activeQuestionCount": 95
+      },
+      {
+        "id": "90009-04",
+        "subjectCode": "90009",
+        "sourceGroup": "general-common",
+        "titleZh": "節能減碳",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      }
+    ],
+    "mockRules": {
+      "totalQuestions": 80,
+      "singleCount": 80,
+      "multipleCount": 0,
+      "durationMinutes": 100,
+      "passScore": 60,
+      "maxScore": 100,
+      "weightSingle": 1.25,
+      "weightMultiple": 0,
+      "subjectQuota": [
+        {
+          "subjectCode": "15400",
+          "count": 64
+        },
+        {
+          "subjectCode": "90006",
+          "count": 4
+        },
+        {
+          "subjectCode": "90007",
+          "count": 4
+        },
+        {
+          "subjectCode": "90008",
+          "count": 4
+        },
+        {
+          "subjectCode": "90009",
+          "count": 4
+        }
+      ]
+    },
+    "integrity": {
+      "status": "fully_verified",
+      "inactiveQuestionCount": 5,
+      "imageQuestionCount": 4,
+      "note": "Answer keys independently cross-checked against the official PDF during import."
+    }
+  },
+  {
+    "examId": "care-service-single",
+    "level": "單一級",
+    "titleZh": "照顧服務員單一級",
+    "titleEn": "Care Service Worker (Single Level)",
+    "category": "照護服務",
+    "version": "A13",
+    "sourceUrl": "https://techbank.wdasec.gov.tw/",
+    "officialLinks": {
+      "registration": "https://skill.tcte.edu.tw/notice.php",
+      "scoreLookup": "https://eservice.wdasec.gov.tw/",
+      "handbook": "https://skill.tcte.edu.tw/download.php",
+      "questionBank": "https://techbank.wdasec.gov.tw/"
+    },
+    "sourceRevision": "178004A13 + 900060A18/900070A17/900080A16/900090A11",
+    "questionCount": 1025,
+    "activeQuestionCount": 1015,
+    "sections": [
+      {
+        "id": "17800-01",
+        "subjectCode": "17800",
+        "sourceGroup": "occupation",
+        "titleZh": "身體照顧",
+        "questionCount": 191,
+        "activeQuestionCount": 191
+      },
+      {
+        "id": "17800-02",
+        "subjectCode": "17800",
+        "sourceGroup": "occupation",
+        "titleZh": "生活照顧",
+        "questionCount": 103,
+        "activeQuestionCount": 102
+      },
+      {
+        "id": "17800-03",
+        "subjectCode": "17800",
+        "sourceGroup": "occupation",
+        "titleZh": "家務處理",
+        "questionCount": 72,
+        "activeQuestionCount": 72
+      },
+      {
+        "id": "17800-04",
+        "subjectCode": "17800",
+        "sourceGroup": "occupation",
+        "titleZh": "緊急及意外事件處理",
+        "questionCount": 88,
+        "activeQuestionCount": 87
+      },
+      {
+        "id": "17800-05",
+        "subjectCode": "17800",
+        "sourceGroup": "occupation",
+        "titleZh": "家庭支持",
+        "questionCount": 102,
+        "activeQuestionCount": 101
+      },
+      {
+        "id": "17800-06",
+        "subjectCode": "17800",
+        "sourceGroup": "occupation",
+        "titleZh": "職業倫理",
+        "questionCount": 69,
+        "activeQuestionCount": 67
+      },
+      {
+        "id": "90006-01",
+        "subjectCode": "90006",
+        "sourceGroup": "general-common",
+        "titleZh": "職業安全衛生",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      },
+      {
+        "id": "90007-01",
+        "subjectCode": "90007",
+        "sourceGroup": "general-common",
+        "titleZh": "工作倫理與職業道德",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      },
+      {
+        "id": "90008-03",
+        "subjectCode": "90008",
+        "sourceGroup": "general-common",
+        "titleZh": "環境保護",
+        "questionCount": 100,
+        "activeQuestionCount": 95
+      },
+      {
+        "id": "90009-04",
+        "subjectCode": "90009",
+        "sourceGroup": "general-common",
+        "titleZh": "節能減碳",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      }
+    ],
+    "mockRules": {
+      "totalQuestions": 80,
+      "singleCount": 80,
+      "multipleCount": 0,
+      "durationMinutes": 100,
+      "passScore": 60,
+      "maxScore": 100,
+      "weightSingle": 1.25,
+      "weightMultiple": 0,
+      "subjectQuota": [
+        {
+          "subjectCode": "17800",
+          "count": 64
+        },
+        {
+          "subjectCode": "90006",
+          "count": 4
+        },
+        {
+          "subjectCode": "90007",
+          "count": 4
+        },
+        {
+          "subjectCode": "90008",
+          "count": 4
+        },
+        {
+          "subjectCode": "90009",
+          "count": 4
+        }
+      ]
+    },
+    "integrity": {
+      "status": "fully_verified",
+      "inactiveQuestionCount": 10,
+      "imageQuestionCount": 4,
+      "note": "Answer keys independently cross-checked against the official PDF during import."
+    }
+  },
+  {
+    "examId": "occupational-safety-health-management-b",
+    "level": "乙級",
+    "titleZh": "職業安全衛生管理乙級",
+    "titleEn": "Occupational Safety and Health Management (Class B)",
+    "category": "職業安全衛生",
+    "version": "A15",
+    "sourceUrl": "https://techbank.wdasec.gov.tw/",
+    "officialLinks": {
+      "registration": "https://skill.tcte.edu.tw/notice.php",
+      "scoreLookup": "https://eservice.wdasec.gov.tw/",
+      "handbook": "https://skill.tcte.edu.tw/download.php",
+      "questionBank": "https://techbank.wdasec.gov.tw/"
+    },
+    "sourceRevision": "222002A15 + 900060A18/900070A17/900080A16/900090A11",
+    "questionCount": 1332,
+    "activeQuestionCount": 1317,
+    "sections": [
+      {
+        "id": "22200-01",
+        "subjectCode": "22200",
+        "sourceGroup": "occupation",
+        "titleZh": "職業安全衛生相關法規",
+        "questionCount": 375,
+        "activeQuestionCount": 371
+      },
+      {
+        "id": "22200-02",
+        "subjectCode": "22200",
+        "sourceGroup": "occupation",
+        "titleZh": "職業安全衛生計畫及管理",
+        "questionCount": 96,
+        "activeQuestionCount": 95
+      },
+      {
+        "id": "22200-03",
+        "subjectCode": "22200",
+        "sourceGroup": "occupation",
+        "titleZh": "專業課程",
+        "questionCount": 461,
+        "activeQuestionCount": 456
+      },
+      {
+        "id": "90006-01",
+        "subjectCode": "90006",
+        "sourceGroup": "general-common",
+        "titleZh": "職業安全衛生",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      },
+      {
+        "id": "90007-01",
+        "subjectCode": "90007",
+        "sourceGroup": "general-common",
+        "titleZh": "工作倫理與職業道德",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      },
+      {
+        "id": "90008-03",
+        "subjectCode": "90008",
+        "sourceGroup": "general-common",
+        "titleZh": "環境保護",
+        "questionCount": 100,
+        "activeQuestionCount": 95
+      },
+      {
+        "id": "90009-04",
+        "subjectCode": "90009",
+        "sourceGroup": "general-common",
+        "titleZh": "節能減碳",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      }
+    ],
+    "mockRules": {
+      "totalQuestions": 80,
+      "singleCount": 60,
+      "multipleCount": 20,
+      "durationMinutes": 100,
+      "passScore": 60,
+      "maxScore": 100,
+      "weightSingle": 1,
+      "weightMultiple": 2,
+      "subjectQuota": [
+        {
+          "subjectCode": "22200",
+          "count": 64
+        },
+        {
+          "subjectCode": "90006",
+          "count": 4
+        },
+        {
+          "subjectCode": "90007",
+          "count": 4
+        },
+        {
+          "subjectCode": "90008",
+          "count": 4
+        },
+        {
+          "subjectCode": "90009",
+          "count": 4
+        }
+      ]
+    },
+    "integrity": {
+      "status": "fully_verified",
+      "inactiveQuestionCount": 15,
+      "imageQuestionCount": 4,
+      "note": "Answer keys independently cross-checked against the official PDF during import."
+    }
   }
 ] as ExamManifest[]

@@ -61,6 +61,21 @@ describe('parseQuestionBank', () => {
     ])
   })
 
+  it('parses official single-level headings that use bare 單一', () => {
+    const singleLevel = `15400 托育人員 單一 工作項目 01：托育職業倫理
+1. (2) 托育題？ ①甲 ②乙 ③丙 ④丁 。`
+
+    expect(parseQuestionBank(singleLevel)).toMatchObject([
+      {
+        id: '15400-01-001',
+        subjectCode: '15400',
+        sourceGroup: 'occupation',
+        sectionTitle: '托育職業倫理',
+        answers: [2],
+      },
+    ])
+  })
+
   it('reports malformed questions instead of discarding them', () => {
     const malformed = `17300 網頁設計 乙級 工作項目 01：作業準備
 1. (1) 選項不完整？ ①甲 ②乙 ③丙 。`

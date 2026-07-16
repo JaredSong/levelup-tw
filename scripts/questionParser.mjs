@@ -1,4 +1,4 @@
-const SECTION_PATTERN = /^(\d{5})\s+(.+?)\s+(?:甲級|乙級|丙級|甲|乙|丙|單一級|不分級)\s+工作項目\s+(\d{2})：(.+)$/
+const SECTION_PATTERN = /^(\d{5})\s+(.+?)\s+(?:甲級|乙級|丙級|甲|乙|丙|單一級|單一|不分級)\s+工作項目\s+(\d{2})：(.+)$/
 const QUESTION_PATTERN = /^(\d+)\.\s*\(([1-4]+)\)\s*(.*)$/
 const PAGE_PATTERN = /^@@PAGE:(\d+)@@$/
 const OPTION_MARKERS = ['①', '②', '③', '④']

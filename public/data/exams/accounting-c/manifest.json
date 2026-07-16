@@ -5,7 +5,49 @@
   "titleEn": "Accounting (Class C)",
   "category": "商業服務",
   "version": "A15",
-  "sourceUrl": "https://techbank.wdasec.gov.tw/",
+  "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/149003A15.pdf",
+  "sources": [
+    {
+      "subjectCode": "14900",
+      "version": "A15",
+      "pdfFilename": "149003A15.pdf",
+      "localFilename": "149003A15.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/149003A15.pdf",
+      "sha256": "3aba67300c5f0db430ee5db8cd1515a58e0e9bb4b49e96a41d2ca0901dea8cb3"
+    },
+    {
+      "subjectCode": "90006",
+      "version": "A18",
+      "pdfFilename": "900060A18.pdf",
+      "localFilename": "900060A18.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A18.pdf",
+      "sha256": "0afd298e136567131ed5771bb5d8e0a501e745798823242966bd9b517e5b42ec"
+    },
+    {
+      "subjectCode": "90007",
+      "version": "A17",
+      "pdfFilename": "900070A17.pdf",
+      "localFilename": "900070A17.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A17.pdf",
+      "sha256": "ec3bc07bc147f77cfaaa6928648485c9f86c6e58d715a01f49e5618d12ac3319"
+    },
+    {
+      "subjectCode": "90008",
+      "version": "A16",
+      "pdfFilename": "900080A16.pdf",
+      "localFilename": "900080A16.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A16.pdf",
+      "sha256": "3c097485bd020af2d3766c08a5c5f385a5dbc56512d8903ce6cf850903ea2f01"
+    },
+    {
+      "subjectCode": "90009",
+      "version": "A11",
+      "pdfFilename": "900090A11.pdf",
+      "localFilename": "900090A11-latest.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A11.pdf",
+      "sha256": "e58b753294079574f8c1360ef5a345e77062c0c3ee693d509254de455a533835"
+    }
+  ],
   "officialLinks": {
     "registration": "https://skill.tcte.edu.tw/notice.php",
     "scoreLookup": "https://eservice.wdasec.gov.tw/",

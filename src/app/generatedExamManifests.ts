@@ -8,7 +8,57 @@ export const GENERATED_EXAM_MANIFESTS = [
     "titleEn": "Men Haircutting (Class C)",
     "category": "美容美髮",
     "version": "A12",
-    "sourceUrl": "https://techbank.wdasec.gov.tw/",
+    "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/060003A12.pdf",
+    "sources": [
+      {
+        "subjectCode": "06000",
+        "version": "A12",
+        "pdfFilename": "060003A12.pdf",
+        "localFilename": "060003A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/060003A12.pdf",
+        "sha256": "ed1dccc755c32b85ea9797043de27e137d43b32cc1185900f89ff6da7dd10e52"
+      },
+      {
+        "subjectCode": "90012",
+        "version": "A10",
+        "pdfFilename": "900120A10.pdf",
+        "localFilename": "900120A10.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900120A10.pdf",
+        "sha256": "6f53fa9d723ce64047fde4f3e80fba6e069cf4679436bd6bc5d4ca35eac5f779"
+      },
+      {
+        "subjectCode": "90006",
+        "version": "A18",
+        "pdfFilename": "900060A18.pdf",
+        "localFilename": "900060A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A18.pdf",
+        "sha256": "0afd298e136567131ed5771bb5d8e0a501e745798823242966bd9b517e5b42ec"
+      },
+      {
+        "subjectCode": "90007",
+        "version": "A17",
+        "pdfFilename": "900070A17.pdf",
+        "localFilename": "900070A17.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A17.pdf",
+        "sha256": "ec3bc07bc147f77cfaaa6928648485c9f86c6e58d715a01f49e5618d12ac3319"
+      },
+      {
+        "subjectCode": "90008",
+        "version": "A16",
+        "pdfFilename": "900080A16.pdf",
+        "localFilename": "900080A16.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A16.pdf",
+        "sha256": "3c097485bd020af2d3766c08a5c5f385a5dbc56512d8903ce6cf850903ea2f01"
+      },
+      {
+        "subjectCode": "90009",
+        "version": "A11",
+        "pdfFilename": "900090A11.pdf",
+        "localFilename": "900090A11-latest.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A11.pdf",
+        "sha256": "e58b753294079574f8c1360ef5a345e77062c0c3ee693d509254de455a533835"
+      }
+    ],
     "officialLinks": {
       "registration": "https://skill.tcte.edu.tw/notice.php",
       "scoreLookup": "https://eservice.wdasec.gov.tw/",
@@ -198,7 +248,57 @@ export const GENERATED_EXAM_MANIFESTS = [
     "titleEn": "Women Hairdressing (Class C)",
     "category": "美容美髮",
     "version": "A13",
-    "sourceUrl": "https://techbank.wdasec.gov.tw/",
+    "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/067003A13.pdf",
+    "sources": [
+      {
+        "subjectCode": "06700",
+        "version": "A13",
+        "pdfFilename": "067003A13.pdf",
+        "localFilename": "067003A13.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/067003A13.pdf",
+        "sha256": "368404717af8ef04ae40ce5c224656de0e4c5ced6c3e4595a29b199c8259a9b1"
+      },
+      {
+        "subjectCode": "90012",
+        "version": "A10",
+        "pdfFilename": "900120A10.pdf",
+        "localFilename": "900120A10.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900120A10.pdf",
+        "sha256": "6f53fa9d723ce64047fde4f3e80fba6e069cf4679436bd6bc5d4ca35eac5f779"
+      },
+      {
+        "subjectCode": "90006",
+        "version": "A18",
+        "pdfFilename": "900060A18.pdf",
+        "localFilename": "900060A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A18.pdf",
+        "sha256": "0afd298e136567131ed5771bb5d8e0a501e745798823242966bd9b517e5b42ec"
+      },
+      {
+        "subjectCode": "90007",
+        "version": "A17",
+        "pdfFilename": "900070A17.pdf",
+        "localFilename": "900070A17.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A17.pdf",
+        "sha256": "ec3bc07bc147f77cfaaa6928648485c9f86c6e58d715a01f49e5618d12ac3319"
+      },
+      {
+        "subjectCode": "90008",
+        "version": "A16",
+        "pdfFilename": "900080A16.pdf",
+        "localFilename": "900080A16.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A16.pdf",
+        "sha256": "3c097485bd020af2d3766c08a5c5f385a5dbc56512d8903ce6cf850903ea2f01"
+      },
+      {
+        "subjectCode": "90009",
+        "version": "A11",
+        "pdfFilename": "900090A11.pdf",
+        "localFilename": "900090A11-latest.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A11.pdf",
+        "sha256": "e58b753294079574f8c1360ef5a345e77062c0c3ee693d509254de455a533835"
+      }
+    ],
     "officialLinks": {
       "registration": "https://skill.tcte.edu.tw/notice.php",
       "scoreLookup": "https://eservice.wdasec.gov.tw/",
@@ -380,7 +480,49 @@ export const GENERATED_EXAM_MANIFESTS = [
     "titleEn": "Employment Service (Class B)",
     "category": "商業服務",
     "version": "A17",
-    "sourceUrl": "https://techbank.wdasec.gov.tw/",
+    "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/195002A17.pdf",
+    "sources": [
+      {
+        "subjectCode": "19500",
+        "version": "A17",
+        "pdfFilename": "195002A17.pdf",
+        "localFilename": "195002A17.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/195002A17.pdf",
+        "sha256": "06dc4cf915c80bcd92e2fae28ce1005f2e3f74f92d2823910c3300f4036c0c61"
+      },
+      {
+        "subjectCode": "90006",
+        "version": "A18",
+        "pdfFilename": "900060A18.pdf",
+        "localFilename": "900060A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A18.pdf",
+        "sha256": "0afd298e136567131ed5771bb5d8e0a501e745798823242966bd9b517e5b42ec"
+      },
+      {
+        "subjectCode": "90007",
+        "version": "A17",
+        "pdfFilename": "900070A17.pdf",
+        "localFilename": "900070A17.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A17.pdf",
+        "sha256": "ec3bc07bc147f77cfaaa6928648485c9f86c6e58d715a01f49e5618d12ac3319"
+      },
+      {
+        "subjectCode": "90008",
+        "version": "A16",
+        "pdfFilename": "900080A16.pdf",
+        "localFilename": "900080A16.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A16.pdf",
+        "sha256": "3c097485bd020af2d3766c08a5c5f385a5dbc56512d8903ce6cf850903ea2f01"
+      },
+      {
+        "subjectCode": "90009",
+        "version": "A11",
+        "pdfFilename": "900090A11.pdf",
+        "localFilename": "900090A11-latest.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A11.pdf",
+        "sha256": "e58b753294079574f8c1360ef5a345e77062c0c3ee693d509254de455a533835"
+      }
+    ],
     "officialLinks": {
       "registration": "https://skill.tcte.edu.tw/notice.php",
       "scoreLookup": "https://eservice.wdasec.gov.tw/",
@@ -494,7 +636,57 @@ export const GENERATED_EXAM_MANIFESTS = [
     "titleEn": "Computer Software Application (Class C)",
     "category": "資訊",
     "version": "A14",
-    "sourceUrl": "https://techbank.wdasec.gov.tw/",
+    "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/118003A14.pdf",
+    "sources": [
+      {
+        "subjectCode": "11800",
+        "version": "A14",
+        "pdfFilename": "118003A14.pdf",
+        "localFilename": "118003A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/118003A14.pdf",
+        "sha256": "ec885ac8cf28a442df8d8d002b5ccedde5d82412d986bad580fa61fd273efdb9"
+      },
+      {
+        "subjectCode": "90011",
+        "version": "A10",
+        "pdfFilename": "900110A10.pdf",
+        "localFilename": "900110A10.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900110A10.pdf",
+        "sha256": "00a3fb6693ca7e360287f5a13624a0888cc4a2d18ac43b06b0d9a03f87ce8365"
+      },
+      {
+        "subjectCode": "90006",
+        "version": "A18",
+        "pdfFilename": "900060A18.pdf",
+        "localFilename": "900060A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A18.pdf",
+        "sha256": "0afd298e136567131ed5771bb5d8e0a501e745798823242966bd9b517e5b42ec"
+      },
+      {
+        "subjectCode": "90007",
+        "version": "A17",
+        "pdfFilename": "900070A17.pdf",
+        "localFilename": "900070A17.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A17.pdf",
+        "sha256": "ec3bc07bc147f77cfaaa6928648485c9f86c6e58d715a01f49e5618d12ac3319"
+      },
+      {
+        "subjectCode": "90008",
+        "version": "A16",
+        "pdfFilename": "900080A16.pdf",
+        "localFilename": "900080A16.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A16.pdf",
+        "sha256": "3c097485bd020af2d3766c08a5c5f385a5dbc56512d8903ce6cf850903ea2f01"
+      },
+      {
+        "subjectCode": "90009",
+        "version": "A11",
+        "pdfFilename": "900090A11.pdf",
+        "localFilename": "900090A11-latest.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A11.pdf",
+        "sha256": "e58b753294079574f8c1360ef5a345e77062c0c3ee693d509254de455a533835"
+      }
+    ],
     "officialLinks": {
       "registration": "https://skill.tcte.edu.tw/notice.php",
       "scoreLookup": "https://eservice.wdasec.gov.tw/",
@@ -660,7 +852,57 @@ export const GENERATED_EXAM_MANIFESTS = [
     "titleEn": "Chinese Cuisine - Meat (Class C)",
     "category": "餐飲食品",
     "version": "A13",
-    "sourceUrl": "https://techbank.wdasec.gov.tw/",
+    "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/076023A13.pdf",
+    "sources": [
+      {
+        "subjectCode": "07602",
+        "version": "A13",
+        "pdfFilename": "076023A13.pdf",
+        "localFilename": "076023A13.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/076023A13.pdf",
+        "sha256": "ea7861ac175e1a331349602535beba84713abc7653094c50b3628ed46134162c"
+      },
+      {
+        "subjectCode": "90010",
+        "version": "A16",
+        "pdfFilename": "900100A16.pdf",
+        "localFilename": "900100A16.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900100A16.pdf",
+        "sha256": "d6cee10bff92420a35eaf3915b521289613083ded74a7ded647c66189ea2230d"
+      },
+      {
+        "subjectCode": "90006",
+        "version": "A18",
+        "pdfFilename": "900060A18.pdf",
+        "localFilename": "900060A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A18.pdf",
+        "sha256": "0afd298e136567131ed5771bb5d8e0a501e745798823242966bd9b517e5b42ec"
+      },
+      {
+        "subjectCode": "90007",
+        "version": "A17",
+        "pdfFilename": "900070A17.pdf",
+        "localFilename": "900070A17.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A17.pdf",
+        "sha256": "ec3bc07bc147f77cfaaa6928648485c9f86c6e58d715a01f49e5618d12ac3319"
+      },
+      {
+        "subjectCode": "90008",
+        "version": "A16",
+        "pdfFilename": "900080A16.pdf",
+        "localFilename": "900080A16.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A16.pdf",
+        "sha256": "3c097485bd020af2d3766c08a5c5f385a5dbc56512d8903ce6cf850903ea2f01"
+      },
+      {
+        "subjectCode": "90009",
+        "version": "A11",
+        "pdfFilename": "900090A11.pdf",
+        "localFilename": "900090A11-latest.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A11.pdf",
+        "sha256": "e58b753294079574f8c1360ef5a345e77062c0c3ee693d509254de455a533835"
+      }
+    ],
     "officialLinks": {
       "registration": "https://skill.tcte.edu.tw/notice.php",
       "scoreLookup": "https://eservice.wdasec.gov.tw/",
@@ -858,7 +1100,57 @@ export const GENERATED_EXAM_MANIFESTS = [
     "titleEn": "Baking Food (Class C)",
     "category": "餐飲食品",
     "version": "A12",
-    "sourceUrl": "https://techbank.wdasec.gov.tw/",
+    "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/077003A12.pdf",
+    "sources": [
+      {
+        "subjectCode": "07700",
+        "version": "A12",
+        "pdfFilename": "077003A12.pdf",
+        "localFilename": "077003A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/077003A12.pdf",
+        "sha256": "a6c3402109fa85870d65e53fb07eeb8b7ed82ba9cc9bddc283d47b394b3a82e0"
+      },
+      {
+        "subjectCode": "90010",
+        "version": "A16",
+        "pdfFilename": "900100A16.pdf",
+        "localFilename": "900100A16.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900100A16.pdf",
+        "sha256": "d6cee10bff92420a35eaf3915b521289613083ded74a7ded647c66189ea2230d"
+      },
+      {
+        "subjectCode": "90006",
+        "version": "A18",
+        "pdfFilename": "900060A18.pdf",
+        "localFilename": "900060A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A18.pdf",
+        "sha256": "0afd298e136567131ed5771bb5d8e0a501e745798823242966bd9b517e5b42ec"
+      },
+      {
+        "subjectCode": "90007",
+        "version": "A17",
+        "pdfFilename": "900070A17.pdf",
+        "localFilename": "900070A17.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A17.pdf",
+        "sha256": "ec3bc07bc147f77cfaaa6928648485c9f86c6e58d715a01f49e5618d12ac3319"
+      },
+      {
+        "subjectCode": "90008",
+        "version": "A16",
+        "pdfFilename": "900080A16.pdf",
+        "localFilename": "900080A16.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A16.pdf",
+        "sha256": "3c097485bd020af2d3766c08a5c5f385a5dbc56512d8903ce6cf850903ea2f01"
+      },
+      {
+        "subjectCode": "90009",
+        "version": "A11",
+        "pdfFilename": "900090A11.pdf",
+        "localFilename": "900090A11-latest.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A11.pdf",
+        "sha256": "e58b753294079574f8c1360ef5a345e77062c0c3ee693d509254de455a533835"
+      }
+    ],
     "officialLinks": {
       "registration": "https://skill.tcte.edu.tw/notice.php",
       "scoreLookup": "https://eservice.wdasec.gov.tw/",
@@ -1024,7 +1316,49 @@ export const GENERATED_EXAM_MANIFESTS = [
     "titleEn": "Automobile Repair (Class C)",
     "category": "車輛修護",
     "version": "A11",
-    "sourceUrl": "https://techbank.wdasec.gov.tw/",
+    "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/020003A11.pdf",
+    "sources": [
+      {
+        "subjectCode": "02000",
+        "version": "A11",
+        "pdfFilename": "020003A11.pdf",
+        "localFilename": "020003A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/020003A11.pdf",
+        "sha256": "3433df5aba90d795c746bc1b7ae88e2793f5e501d04401c2e707e27441072cdc"
+      },
+      {
+        "subjectCode": "90006",
+        "version": "A18",
+        "pdfFilename": "900060A18.pdf",
+        "localFilename": "900060A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A18.pdf",
+        "sha256": "0afd298e136567131ed5771bb5d8e0a501e745798823242966bd9b517e5b42ec"
+      },
+      {
+        "subjectCode": "90007",
+        "version": "A17",
+        "pdfFilename": "900070A17.pdf",
+        "localFilename": "900070A17.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A17.pdf",
+        "sha256": "ec3bc07bc147f77cfaaa6928648485c9f86c6e58d715a01f49e5618d12ac3319"
+      },
+      {
+        "subjectCode": "90008",
+        "version": "A16",
+        "pdfFilename": "900080A16.pdf",
+        "localFilename": "900080A16.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A16.pdf",
+        "sha256": "3c097485bd020af2d3766c08a5c5f385a5dbc56512d8903ce6cf850903ea2f01"
+      },
+      {
+        "subjectCode": "90009",
+        "version": "A11",
+        "pdfFilename": "900090A11.pdf",
+        "localFilename": "900090A11-latest.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A11.pdf",
+        "sha256": "e58b753294079574f8c1360ef5a345e77062c0c3ee693d509254de455a533835"
+      }
+    ],
     "officialLinks": {
       "registration": "https://skill.tcte.edu.tw/notice.php",
       "scoreLookup": "https://eservice.wdasec.gov.tw/",
@@ -1170,7 +1504,57 @@ export const GENERATED_EXAM_MANIFESTS = [
     "titleEn": "Beauty (Class C)",
     "category": "美容美髮",
     "version": "A15",
-    "sourceUrl": "https://techbank.wdasec.gov.tw/",
+    "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/100003A15.pdf",
+    "sources": [
+      {
+        "subjectCode": "10000",
+        "version": "A15",
+        "pdfFilename": "100003A15.pdf",
+        "localFilename": "100003A15.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/100003A15.pdf",
+        "sha256": "2bfcaaeb059768804c78002f5b852a6a61fe63079d726d4056dacd720bb0b55e"
+      },
+      {
+        "subjectCode": "90012",
+        "version": "A10",
+        "pdfFilename": "900120A10.pdf",
+        "localFilename": "900120A10.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900120A10.pdf",
+        "sha256": "6f53fa9d723ce64047fde4f3e80fba6e069cf4679436bd6bc5d4ca35eac5f779"
+      },
+      {
+        "subjectCode": "90006",
+        "version": "A18",
+        "pdfFilename": "900060A18.pdf",
+        "localFilename": "900060A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A18.pdf",
+        "sha256": "0afd298e136567131ed5771bb5d8e0a501e745798823242966bd9b517e5b42ec"
+      },
+      {
+        "subjectCode": "90007",
+        "version": "A17",
+        "pdfFilename": "900070A17.pdf",
+        "localFilename": "900070A17.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A17.pdf",
+        "sha256": "ec3bc07bc147f77cfaaa6928648485c9f86c6e58d715a01f49e5618d12ac3319"
+      },
+      {
+        "subjectCode": "90008",
+        "version": "A16",
+        "pdfFilename": "900080A16.pdf",
+        "localFilename": "900080A16.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A16.pdf",
+        "sha256": "3c097485bd020af2d3766c08a5c5f385a5dbc56512d8903ce6cf850903ea2f01"
+      },
+      {
+        "subjectCode": "90009",
+        "version": "A11",
+        "pdfFilename": "900090A11.pdf",
+        "localFilename": "900090A11-latest.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A11.pdf",
+        "sha256": "e58b753294079574f8c1360ef5a345e77062c0c3ee693d509254de455a533835"
+      }
+    ],
     "officialLinks": {
       "registration": "https://skill.tcte.edu.tw/notice.php",
       "scoreLookup": "https://eservice.wdasec.gov.tw/",
@@ -1312,7 +1696,49 @@ export const GENERATED_EXAM_MANIFESTS = [
     "titleEn": "Accounting (Class C)",
     "category": "商業服務",
     "version": "A15",
-    "sourceUrl": "https://techbank.wdasec.gov.tw/",
+    "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/149003A15.pdf",
+    "sources": [
+      {
+        "subjectCode": "14900",
+        "version": "A15",
+        "pdfFilename": "149003A15.pdf",
+        "localFilename": "149003A15.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/149003A15.pdf",
+        "sha256": "3aba67300c5f0db430ee5db8cd1515a58e0e9bb4b49e96a41d2ca0901dea8cb3"
+      },
+      {
+        "subjectCode": "90006",
+        "version": "A18",
+        "pdfFilename": "900060A18.pdf",
+        "localFilename": "900060A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A18.pdf",
+        "sha256": "0afd298e136567131ed5771bb5d8e0a501e745798823242966bd9b517e5b42ec"
+      },
+      {
+        "subjectCode": "90007",
+        "version": "A17",
+        "pdfFilename": "900070A17.pdf",
+        "localFilename": "900070A17.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A17.pdf",
+        "sha256": "ec3bc07bc147f77cfaaa6928648485c9f86c6e58d715a01f49e5618d12ac3319"
+      },
+      {
+        "subjectCode": "90008",
+        "version": "A16",
+        "pdfFilename": "900080A16.pdf",
+        "localFilename": "900080A16.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A16.pdf",
+        "sha256": "3c097485bd020af2d3766c08a5c5f385a5dbc56512d8903ce6cf850903ea2f01"
+      },
+      {
+        "subjectCode": "90009",
+        "version": "A11",
+        "pdfFilename": "900090A11.pdf",
+        "localFilename": "900090A11-latest.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A11.pdf",
+        "sha256": "e58b753294079574f8c1360ef5a345e77062c0c3ee693d509254de455a533835"
+      }
+    ],
     "officialLinks": {
       "registration": "https://skill.tcte.edu.tw/notice.php",
       "scoreLookup": "https://eservice.wdasec.gov.tw/",
@@ -1442,7 +1868,49 @@ export const GENERATED_EXAM_MANIFESTS = [
     "titleEn": "Childcare Provider (Single Level)",
     "category": "照護服務",
     "version": "A17",
-    "sourceUrl": "https://techbank.wdasec.gov.tw/",
+    "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/154004A17.pdf",
+    "sources": [
+      {
+        "subjectCode": "15400",
+        "version": "A17",
+        "pdfFilename": "154004A17.pdf",
+        "localFilename": "154004A17.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/154004A17.pdf",
+        "sha256": "b574ae890a076f225f70622ef358d2baf57055b478e83bfa5076b82906e6b35b"
+      },
+      {
+        "subjectCode": "90006",
+        "version": "A18",
+        "pdfFilename": "900060A18.pdf",
+        "localFilename": "900060A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A18.pdf",
+        "sha256": "0afd298e136567131ed5771bb5d8e0a501e745798823242966bd9b517e5b42ec"
+      },
+      {
+        "subjectCode": "90007",
+        "version": "A17",
+        "pdfFilename": "900070A17.pdf",
+        "localFilename": "900070A17.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A17.pdf",
+        "sha256": "ec3bc07bc147f77cfaaa6928648485c9f86c6e58d715a01f49e5618d12ac3319"
+      },
+      {
+        "subjectCode": "90008",
+        "version": "A16",
+        "pdfFilename": "900080A16.pdf",
+        "localFilename": "900080A16.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A16.pdf",
+        "sha256": "3c097485bd020af2d3766c08a5c5f385a5dbc56512d8903ce6cf850903ea2f01"
+      },
+      {
+        "subjectCode": "90009",
+        "version": "A11",
+        "pdfFilename": "900090A11.pdf",
+        "localFilename": "900090A11-latest.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A11.pdf",
+        "sha256": "e58b753294079574f8c1360ef5a345e77062c0c3ee693d509254de455a533835"
+      }
+    ],
     "officialLinks": {
       "registration": "https://skill.tcte.edu.tw/notice.php",
       "scoreLookup": "https://eservice.wdasec.gov.tw/",
@@ -1580,7 +2048,49 @@ export const GENERATED_EXAM_MANIFESTS = [
     "titleEn": "Care Service Worker (Single Level)",
     "category": "照護服務",
     "version": "A13",
-    "sourceUrl": "https://techbank.wdasec.gov.tw/",
+    "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/178004A13.pdf",
+    "sources": [
+      {
+        "subjectCode": "17800",
+        "version": "A13",
+        "pdfFilename": "178004A13.pdf",
+        "localFilename": "178004A13.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/178004A13.pdf",
+        "sha256": "5bea075d34cd7556046040445ba9ad140376c85bf0e39928ea26a47196339631"
+      },
+      {
+        "subjectCode": "90006",
+        "version": "A18",
+        "pdfFilename": "900060A18.pdf",
+        "localFilename": "900060A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A18.pdf",
+        "sha256": "0afd298e136567131ed5771bb5d8e0a501e745798823242966bd9b517e5b42ec"
+      },
+      {
+        "subjectCode": "90007",
+        "version": "A17",
+        "pdfFilename": "900070A17.pdf",
+        "localFilename": "900070A17.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A17.pdf",
+        "sha256": "ec3bc07bc147f77cfaaa6928648485c9f86c6e58d715a01f49e5618d12ac3319"
+      },
+      {
+        "subjectCode": "90008",
+        "version": "A16",
+        "pdfFilename": "900080A16.pdf",
+        "localFilename": "900080A16.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A16.pdf",
+        "sha256": "3c097485bd020af2d3766c08a5c5f385a5dbc56512d8903ce6cf850903ea2f01"
+      },
+      {
+        "subjectCode": "90009",
+        "version": "A11",
+        "pdfFilename": "900090A11.pdf",
+        "localFilename": "900090A11-latest.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A11.pdf",
+        "sha256": "e58b753294079574f8c1360ef5a345e77062c0c3ee693d509254de455a533835"
+      }
+    ],
     "officialLinks": {
       "registration": "https://skill.tcte.edu.tw/notice.php",
       "scoreLookup": "https://eservice.wdasec.gov.tw/",
@@ -1718,7 +2228,49 @@ export const GENERATED_EXAM_MANIFESTS = [
     "titleEn": "Occupational Safety and Health Management (Class B)",
     "category": "職業安全衛生",
     "version": "A15",
-    "sourceUrl": "https://techbank.wdasec.gov.tw/",
+    "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/222002A15.pdf",
+    "sources": [
+      {
+        "subjectCode": "22200",
+        "version": "A15",
+        "pdfFilename": "222002A15.pdf",
+        "localFilename": "222002A15.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/222002A15.pdf",
+        "sha256": "912b6c0b09d059fbfcd9b863a23b6ccf8663f14f4f7ba533b02674e20390c7f7"
+      },
+      {
+        "subjectCode": "90006",
+        "version": "A18",
+        "pdfFilename": "900060A18.pdf",
+        "localFilename": "900060A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A18.pdf",
+        "sha256": "0afd298e136567131ed5771bb5d8e0a501e745798823242966bd9b517e5b42ec"
+      },
+      {
+        "subjectCode": "90007",
+        "version": "A17",
+        "pdfFilename": "900070A17.pdf",
+        "localFilename": "900070A17.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A17.pdf",
+        "sha256": "ec3bc07bc147f77cfaaa6928648485c9f86c6e58d715a01f49e5618d12ac3319"
+      },
+      {
+        "subjectCode": "90008",
+        "version": "A16",
+        "pdfFilename": "900080A16.pdf",
+        "localFilename": "900080A16.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A16.pdf",
+        "sha256": "3c097485bd020af2d3766c08a5c5f385a5dbc56512d8903ce6cf850903ea2f01"
+      },
+      {
+        "subjectCode": "90009",
+        "version": "A11",
+        "pdfFilename": "900090A11.pdf",
+        "localFilename": "900090A11-latest.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A11.pdf",
+        "sha256": "e58b753294079574f8c1360ef5a345e77062c0c3ee693d509254de455a533835"
+      }
+    ],
     "officialLinks": {
       "registration": "https://skill.tcte.edu.tw/notice.php",
       "scoreLookup": "https://eservice.wdasec.gov.tw/",

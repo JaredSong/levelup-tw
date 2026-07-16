@@ -1,4 +1,5 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
+import { buildSourceProvenance } from './examSources.mjs'
 import { parseQuestionBank } from './questionParser.mjs'
 import { sanitizeText } from './textCorrections.mjs'
 
@@ -502,6 +503,11 @@ async function writeExamPack(exam, commonQuestions, extraQuestionsByCode) {
     .map((question) => normalizeQuestion(question, exam.examId))
   const active = questions.filter((question) => question.active !== false)
   const figures = active.filter((question) => question.hasFigure)
+  const sources = await buildSourceProvenance([
+    exam.occupationCode,
+    ...(exam.extraCommonCodes ?? []),
+    ...GENERAL_COMMON_BANKS.map((bank) => bank.code),
+  ])
   const manifest = {
     examId: exam.examId,
     level: exam.level,
@@ -509,7 +515,8 @@ async function writeExamPack(exam, commonQuestions, extraQuestionsByCode) {
     titleEn: exam.titleEn,
     category: exam.category,
     version: exam.version,
-    sourceUrl: 'https://techbank.wdasec.gov.tw/',
+    sourceUrl: sources[0].officialUrl,
+    sources,
     officialLinks: OFFICIAL_LINKS,
     sourceRevision: exam.sourceRevision,
     questionCount: questions.length,

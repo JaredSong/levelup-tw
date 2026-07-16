@@ -13,6 +13,19 @@ function buildId(): string {
   return `v${version} · ${date}`
 }
 
+function landingCatalog() {
+  return JSON.parse(readFileSync(new URL('./source/landing-catalog.json', import.meta.url), 'utf8')) as { metaDescription: string }
+}
+
+function generatedLandingMeta(): Plugin {
+  return {
+    name: 'generated-landing-meta',
+    transformIndexHtml(html) {
+      return html.replaceAll('__LANDING_META_DESCRIPTION__', landingCatalog().metaDescription.replaceAll('"', '&quot;'))
+    },
+  }
+}
+
 // Serves /api/explain during `npm run dev` so AI explanations work locally,
 // mirroring how the same handler runs as a serverless function in production.
 function devExplainApi(): Plugin {
@@ -41,6 +54,7 @@ export default defineConfig({
     __APP_VERSION__: JSON.stringify(buildId()),
   },
   plugins: [
+    generatedLandingMeta(),
     devExplainApi(),
     react(),
     VitePWA({
@@ -49,7 +63,7 @@ export default defineConfig({
       manifest: {
         name: '升級吧',
         short_name: '升級吧',
-        description: '台灣技術士技能檢定離線題庫練習。',
+        description: landingCatalog().metaDescription,
         theme_color: '#111713',
         background_color: '#f3f1eb',
         lang: 'zh-Hant-TW',

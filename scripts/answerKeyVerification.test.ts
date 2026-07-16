@@ -1,5 +1,5 @@
 import { execFileSync } from 'node:child_process'
-import { readFileSync } from 'node:fs'
+import { readFileSync, readdirSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
 
 // Locks in the answer-key verification so it cannot rot.
@@ -34,31 +34,41 @@ const hasPdfToText = (() => {
   }
 })()
 
+// Both lists derive from the shipped packs, never from a hand-written list:
+// a new pack is gated the moment it lands in public/data/exams/, and a shipped
+// subject code that verifyAnswerKeys.mjs has no official source for fails its
+// "No official source mapped" error instead of silently going unverified.
+const examsRoot = new URL('../public/data/exams/', import.meta.url)
+const examIds = readdirSync(examsRoot, { withFileTypes: true })
+  .filter((entry) => entry.isDirectory())
+  .map((entry) => entry.name)
+  .sort()
+const manifests = examIds.map((examId) => ({
+  examId,
+  manifest: JSON.parse(
+    readFileSync(new URL(`${examId}/manifest.json`, examsRoot), 'utf8'),
+  ) as { integrity?: { status?: string }; sections?: { subjectCode?: string }[] },
+}))
+const subjectCodes = [...new Set(
+  manifests.flatMap(({ manifest }) => manifest.sections?.map((section) => section.subjectCode) ?? []),
+)].filter((code): code is string => Boolean(code)).sort()
+
+// Runs unconditionally: it reads committed JSON, so no machine has an excuse.
+describe('every shipped pack records verified integrity', () => {
+  it('found packs to check', () => {
+    expect(examIds.length).toBeGreaterThan(0)
+    expect(subjectCodes.length).toBeGreaterThan(0)
+  })
+
+  for (const { examId, manifest } of manifests) {
+    it(`${examId}: integrity is fully_verified`, () => {
+      expect(manifest.integrity?.status).toBe('fully_verified')
+    })
+  }
+})
+
 describe.skipIf(!hasPdfToText)('published answer keys match the official PDFs', () => {
-  // Every official subject currently shipped by the app. This is deliberately
-  // broader than any one exam pack because shared banks are reused.
-  for (const subjectCode of [
-    '06000',
-    '06700',
-    '07602',
-    '07700',
-    '10000',
-    '11800',
-    '14900',
-    '15400',
-    '17800',
-    '17300',
-    '19500',
-    '22200',
-    '02000',
-    '90006',
-    '90007',
-    '90008',
-    '90009',
-    '90010',
-    '90011',
-    '90012',
-  ]) {
+  for (const subjectCode of subjectCodes) {
     it(`${subjectCode}: every key agrees with the source paper`, () => {
       const { ok, output } = verify(subjectCode)
       expect(output, output).toMatch(/DISAGREE\s+: 0/)
@@ -66,27 +76,4 @@ describe.skipIf(!hasPdfToText)('published answer keys match the official PDFs', 
       expect(ok, output).toBe(true)
     })
   }
-
-  it('keeps verification metadata internal for every generated pack', () => {
-    for (const examId of [
-      'web-design-b',
-      'man-haircut-c',
-      'women-hairdressing-c',
-      'employment-service-b',
-      'computer-software-application-c',
-      'chinese-cooking-meat-c',
-      'baking-food-c',
-      'car-repair-c',
-      'beauty-c',
-      'accounting-c',
-      'childcare-single',
-      'care-service-single',
-      'occupational-safety-health-management-b',
-    ]) {
-      const manifest = JSON.parse(
-        readFileSync(new URL(`../public/data/exams/${examId}/manifest.json`, import.meta.url), 'utf8'),
-      ) as { integrity?: { status?: string } }
-      expect(manifest.integrity?.status).toBe('fully_verified')
-    }
-  })
 })

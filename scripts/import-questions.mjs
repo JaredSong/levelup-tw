@@ -1,4 +1,5 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
+import { buildSourceProvenance } from './examSources.mjs'
 import { parseQuestionBank } from './questionParser.mjs'
 import { sanitizeText } from './textCorrections.mjs'
 
@@ -315,6 +316,7 @@ const banks = [
   { code: '90008', file: '900080A16-raw.txt', expected: 100 },
   { code: '90009', file: '900090A11-latest-raw.txt', expected: 100 },
 ]
+const sources = await buildSourceProvenance(banks.map((bank) => bank.code))
 
 function sourcePageImageFor(question) {
   if (!question.hasFigure) return undefined
@@ -396,7 +398,8 @@ await writeFile(manifestPath, `${JSON.stringify({
   titleEn: 'Web Design (Class B)',
   category: '資訊',
   version: 'A13',
-  sourceUrl: 'https://techbank.wdasec.gov.tw/',
+  sourceUrl: sources[0].officialUrl,
+  sources,
   officialLinks: OFFICIAL_LINKS,
   sourceRevision: '173002A13 + 900060A18/900070A17/900080A16/900090A11/900110A10',
   questionCount: questions.length,

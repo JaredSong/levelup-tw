@@ -39,6 +39,15 @@ export interface ExamManifest {
   category: string
   version: string
   sourceUrl?: string
+  /** Exact official PDFs and byte hashes used to build this pack. */
+  sources?: Array<{
+    subjectCode: string
+    version: string
+    pdfFilename: string
+    localFilename: string
+    officialUrl: string
+    sha256: string
+  }>
   officialLinks?: {
     registration?: string
     scoreLookup?: string

@@ -24,6 +24,7 @@ import { useEffect, useMemo, useState } from 'react'
 import type { CSSProperties } from 'react'
 import type { ExamManifest } from '../core/exam'
 import { zhTW } from '../i18n/zh-TW'
+import { GENERATED_LANDING_CATALOG } from './generatedLandingCatalog'
 import { applyTheme, currentTheme, type Theme } from './theme'
 
 interface Props {
@@ -44,22 +45,7 @@ const navLinks = [
   { href: '#landing-donate', label: zhTW.landing.navDonate },
 ]
 
-/**
- * Which exams get a card on the landing. Everything else is one tap away in the
- * app's own picker, which already has search and category grouping — so the
- * landing shows a taste rather than a second copy of the catalog.
- *
- * Hand-curated on purpose: the manifests carry no popularity signal, so this is
- * a judgement call, not data. One per category, so a visitor sees the breadth
- * rather than four flavours of the same trade. Reorder freely; unknown ids are
- * skipped, and any exam not listed here still appears in 其他考科 below.
- */
-const FEATURED_EXAM_IDS = [
-  'computer-software-application-c', // 資訊
-  'chinese-cooking-meat-c', // 餐飲食品
-  'beauty-c', // 美容美髮
-  'employment-service-b', // 商業服務
-]
+const FEATURED_EXAM_IDS: readonly string[] = GENERATED_LANDING_CATALOG.featuredExamIds
 
 const learningLoop = [
   { icon: BookOpenCheck, tone: 'accent', label: zhTW.landing.loopPractice, body: zhTW.landing.loopPracticeBody },

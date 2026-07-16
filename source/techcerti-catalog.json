@@ -1266,7 +1266,7 @@
       "installed": true,
       "examId": "web-design-b",
       "installedVersion": "A13",
-      "versionMatches": true
+      "versionMatchesTechcerti": true
     },
     {
       "slug": "airplanerepairbeta",
@@ -1412,7 +1412,7 @@
       "installed": true,
       "examId": "employment-service-b",
       "installedVersion": "A17",
-      "versionMatches": true
+      "versionMatchesTechcerti": true
     },
     {
       "slug": "tradebeta",
@@ -1547,7 +1547,7 @@
       "installed": true,
       "examId": "occupational-safety-health-management-b",
       "installedVersion": "A15",
-      "versionMatches": true
+      "versionMatchesTechcerti": true
     },
     {
       "slug": "physicalagentsbeta",
@@ -1726,7 +1726,7 @@
       "installed": true,
       "examId": "car-repair-c",
       "installedVersion": "A11",
-      "versionMatches": true
+      "versionMatchesTechcerti": true
     },
     {
       "slug": "heattreatment",
@@ -1894,7 +1894,7 @@
       "installed": true,
       "examId": "man-haircut-c",
       "installedVersion": "A12",
-      "versionMatches": true
+      "versionMatchesTechcerti": true
     },
     {
       "slug": "elevator",
@@ -1919,7 +1919,7 @@
       "installed": true,
       "examId": "women-hairdressing-c",
       "installedVersion": "A13",
-      "versionMatches": true
+      "versionMatchesTechcerti": true
     },
     {
       "slug": "shoemaking",
@@ -1977,7 +1977,7 @@
       "installed": true,
       "examId": "chinese-cooking-meat-c",
       "installedVersion": "A13",
-      "versionMatches": true
+      "versionMatchesTechcerti": true
     },
     {
       "slug": "baking",
@@ -1991,7 +1991,7 @@
       "installed": true,
       "examId": "baking-food-c",
       "installedVersion": "A12",
-      "versionMatches": true
+      "versionMatchesTechcerti": true
     },
     {
       "slug": "glasses",
@@ -2104,7 +2104,7 @@
       "installed": true,
       "examId": "beauty-c",
       "installedVersion": "A15",
-      "versionMatches": true
+      "versionMatchesTechcerti": true
     },
     {
       "slug": "commercialtechnical",
@@ -2129,7 +2129,7 @@
       "installed": true,
       "examId": "computer-software-application-c",
       "installedVersion": "A14",
-      "versionMatches": true
+      "versionMatchesTechcerti": true
     },
     {
       "slug": "programming",
@@ -2330,7 +2330,7 @@
       "installed": true,
       "examId": "accounting-c",
       "installedVersion": "A15",
-      "versionMatches": true
+      "versionMatchesTechcerti": true
     },
     {
       "slug": "cad",
@@ -2949,7 +2949,7 @@
       "installed": true,
       "examId": "childcare-single",
       "installedVersion": "A17",
-      "versionMatches": true
+      "versionMatchesTechcerti": true
     },
     {
       "slug": "care",
@@ -2963,7 +2963,7 @@
       "installed": true,
       "examId": "care-service-single",
       "installedVersion": "A13",
-      "versionMatches": true
+      "versionMatchesTechcerti": true
     },
     {
       "slug": "specifichighpressuregas",

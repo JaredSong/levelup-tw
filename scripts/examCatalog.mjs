@@ -74,7 +74,10 @@ export function buildCatalogCoverage(catalog, installedManifests) {
       ...(manifest ? {
         examId: manifest.examId,
         installedVersion: manifest.version,
-        versionMatches: manifest.version === entry.version,
+        // A hint for discovery, never a publication signal: techcerti's own
+        // metadata disagrees with its rendered page, so only the official WDA
+        // catalog may decide whether an installed version is stale.
+        versionMatchesTechcerti: manifest.version === entry.version,
       } : {}),
     }
   })
@@ -112,7 +115,9 @@ async function main() {
   }
   const outputPath = new URL('../source/techcerti-catalog.json', import.meta.url)
   await writeFile(outputPath, `${JSON.stringify(output, null, 2)}\n`)
-  console.log(`Catalog: ${output.catalogTotal}; installed: ${output.installedCount}; pending: ${output.pendingCount}`)
+  // "Pending" is an inventory of what exists, not an import queue: packs ship
+  // when their keys verify, and the bottleneck is verification, not extraction.
+  console.log(`Techcerti discovery inventory: ${output.catalogTotal} banks · ${output.installedCount} installed · ${output.pendingCount} pending (inventory, not a queue)`)
   for (const warning of output.warnings) console.warn(`Warning: ${warning}`)
 }
 

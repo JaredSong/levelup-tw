@@ -56,7 +56,11 @@ describe('buildCatalogCoverage', () => {
 
     expect(coverage.installedCount).toBe(1)
     expect(coverage.pendingCount).toBe(1)
-    expect(coverage.entries[0]).toMatchObject({ code: '17300', installed: true, examId: 'web-design-b' })
+    expect(coverage.entries[0]).toMatchObject({ code: '17300', installed: true, examId: 'web-design-b', versionMatchesTechcerti: true })
+    // The techcerti comparison must keep its qualified name: a bare
+    // `versionMatches` reads as authority, and only the official WDA catalog
+    // may gate publication on version.
+    expect(coverage.entries[0]).not.toHaveProperty('versionMatches')
     expect(coverage.entries[1]).toMatchObject({ code: '15400', installed: false })
   })
 })

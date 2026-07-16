@@ -14,7 +14,37 @@ Use OCR as a second opinion, not as the source of truth.
 
 技檢通 is a discovery and secondary comparison source. It is never allowed to
 override the latest official WDA PDF. The generated snapshot records this as
-`authority: secondary-discovery-only` and reports catalog/version drift.
+`authority: secondary-discovery-only`, and its version comparison is named
+`versionMatchesTechcerti` on purpose — it is a hint for discovery, never a
+publication signal.
+
+## Publication gate
+
+`npm run build` refuses to build (via the npm `prebuild` hook running
+`scripts/publicationGate.mjs`) unless every pack under `public/data/exams/`
+records `integrity.status: fully_verified` and can name its official revision,
+subject codes and source. Cloudflare Pages builds with `npm run build`, so an
+unverified pack cannot be published by forgetting to run a check — the deploy
+itself fails. Run it manually with `npm run verify:publication`.
+
+`answerKeyVerification.test.ts` provides the deeper layer on machines with
+poppler: it re-extracts every official answer marker from the source PDFs and
+fails on any disagreement. Both layers enumerate the shipped packs dynamically,
+so a new pack is gated the moment it lands.
+
+## What to measure
+
+The pending list is an inventory of what exists, not an import queue. The
+bottleneck of this factory is verification throughput, not extraction speed —
+a pack that ships with wrong keys is worse than a pack that does not ship.
+Judge a batch by:
+
+- OCR flag count / flag rate per bank
+- image-question count needing manual crops
+- answer-key verification result
+- estimated manual audit queue (pages a human must look at)
+
+not by packs imported per week.
 
 ## Catalog inventory
 

@@ -5,7 +5,57 @@
   "titleEn": "Baking Food (Class C)",
   "category": "餐飲食品",
   "version": "A12",
-  "sourceUrl": "https://techbank.wdasec.gov.tw/",
+  "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/077003A12.pdf",
+  "sources": [
+    {
+      "subjectCode": "07700",
+      "version": "A12",
+      "pdfFilename": "077003A12.pdf",
+      "localFilename": "077003A12.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/077003A12.pdf",
+      "sha256": "a6c3402109fa85870d65e53fb07eeb8b7ed82ba9cc9bddc283d47b394b3a82e0"
+    },
+    {
+      "subjectCode": "90010",
+      "version": "A16",
+      "pdfFilename": "900100A16.pdf",
+      "localFilename": "900100A16.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900100A16.pdf",
+      "sha256": "d6cee10bff92420a35eaf3915b521289613083ded74a7ded647c66189ea2230d"
+    },
+    {
+      "subjectCode": "90006",
+      "version": "A18",
+      "pdfFilename": "900060A18.pdf",
+      "localFilename": "900060A18.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A18.pdf",
+      "sha256": "0afd298e136567131ed5771bb5d8e0a501e745798823242966bd9b517e5b42ec"
+    },
+    {
+      "subjectCode": "90007",
+      "version": "A17",
+      "pdfFilename": "900070A17.pdf",
+      "localFilename": "900070A17.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A17.pdf",
+      "sha256": "ec3bc07bc147f77cfaaa6928648485c9f86c6e58d715a01f49e5618d12ac3319"
+    },
+    {
+      "subjectCode": "90008",
+      "version": "A16",
+      "pdfFilename": "900080A16.pdf",
+      "localFilename": "900080A16.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A16.pdf",
+      "sha256": "3c097485bd020af2d3766c08a5c5f385a5dbc56512d8903ce6cf850903ea2f01"
+    },
+    {
+      "subjectCode": "90009",
+      "version": "A11",
+      "pdfFilename": "900090A11.pdf",
+      "localFilename": "900090A11-latest.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A11.pdf",
+      "sha256": "e58b753294079574f8c1360ef5a345e77062c0c3ee693d509254de455a533835"
+    }
+  ],
   "officialLinks": {
     "registration": "https://skill.tcte.edu.tw/notice.php",
     "scoreLookup": "https://eservice.wdasec.gov.tw/",

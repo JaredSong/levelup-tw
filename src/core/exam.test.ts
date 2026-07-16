@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { questionKey, parseQuestionKey, isQuestionKey } from './exam'
+import { questionKey, parseQuestionKey, isQuestionKey, mockDurationMilliseconds } from './exam'
 
 describe('questionKey', () => {
   it('namespaces a local id under its exam', () => {
@@ -23,5 +23,16 @@ describe('questionKey', () => {
   it('distinguishes namespaced keys from bare local ids', () => {
     expect(isQuestionKey('web-design-b:17300-01-001')).toBe(true)
     expect(isQuestionKey('17300-01-001')).toBe(false)
+  })
+})
+
+describe('mockDurationMilliseconds', () => {
+  it('uses the duration declared by the active exam rather than a global constant', () => {
+    expect(mockDurationMilliseconds({ durationMinutes: 75 })).toBe(75 * 60_000)
+  })
+
+  it('rejects a missing or invalid timer duration before a mock can start at zero', () => {
+    expect(() => mockDurationMilliseconds({ durationMinutes: 0 })).toThrow('Invalid mock duration')
+    expect(() => mockDurationMilliseconds({ durationMinutes: Number.NaN })).toThrow('Invalid mock duration')
   })
 })

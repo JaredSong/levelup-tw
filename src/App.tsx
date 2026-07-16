@@ -28,7 +28,7 @@ import {
 } from './domain/studyEngine'
 import { useActiveExam } from './app/useActiveExam'
 import type { ReviewCard, ReviewRating } from './core/contracts'
-import { parseQuestionKey, questionKey } from './core/exam'
+import { mockDurationMilliseconds, parseQuestionKey, questionKey } from './core/exam'
 import { buildDailyMission, studyStreak } from './domain/dailyMission'
 import { buildDueCardQueue, createQuestionCard, gradeCard, questionCardId } from './domain/reviewScheduler'
 import { useQuestionBank } from './hooks/useQuestionBank'
@@ -295,7 +295,7 @@ function StudyApp() {
 
   if (error) return <div className="fatal-state"><AlertTriangle /><h1>{zhTW.session.bankUnavailable}</h1><p>{error}</p></div>
   if (!bank || loading) return <div className="loading-state"><LoaderCircle className="spin" /><strong>{zhTW.session.loadingTitle}</strong><span>{zhTW.session.loadingBody}</span></div>
-  const mockDurationMs = activeExam.mockRules.durationMinutes * 60_000
+  const mockDurationMs = mockDurationMilliseconds(activeExam.mockRules)
 
   const begin = (mode: SessionMode, questions: Question[], title?: string, options?: { mockFeedback?: boolean }) => {
     if (!questions.length) return

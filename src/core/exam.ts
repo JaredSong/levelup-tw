@@ -93,3 +93,11 @@ export function parseQuestionKey(key: string): { examId: string; questionId: str
 export function isQuestionKey(value: string): boolean {
   return value.includes(QUESTION_KEY_SEPARATOR)
 }
+
+/** Convert an exam manifest's declared mock duration into the timer value. */
+export function mockDurationMilliseconds(rules: Pick<MockRules, 'durationMinutes'>): number {
+  if (!Number.isFinite(rules.durationMinutes) || rules.durationMinutes <= 0) {
+    throw new Error(`Invalid mock duration: ${rules.durationMinutes}`)
+  }
+  return rules.durationMinutes * 60_000
+}

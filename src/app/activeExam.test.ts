@@ -3,6 +3,7 @@ import {
   chooseActiveExamId,
   chooseSelectedExamIds,
   formatCurrentBankLabel,
+  formatExamCatalogCode,
   formatExamSwitcherItem,
   formatMockFormatHint,
   formatSyllabusItems,
@@ -49,6 +50,13 @@ describe('active exam selection', () => {
       countLabel: '1,360 題可練習',
       statusLabel: '目前使用 · 離線',
     })
+  })
+
+  it('shows only the occupation code and pack version in catalog cards', () => {
+    expect(formatExamCatalogCode(INSTALLED_EXAMS[0])).toBe('17300 · A13')
+
+    const software = INSTALLED_EXAMS.find((exam) => exam.examId === 'computer-software-application-c')!
+    expect(formatExamCatalogCode(software)).toBe('11800 · A14')
   })
 
   it('keeps the web design manifest generated data as the UI source of truth', () => {

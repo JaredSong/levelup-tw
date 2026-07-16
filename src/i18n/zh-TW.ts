@@ -21,6 +21,8 @@ export const zhTW = {
     catalogEyebrow: '全部考科目錄',
     catalogTitle: '先選考科，再開始練習',
     catalogDescription: '已完成匯入的題庫會顯示在這裡；進度、錯題與模擬紀錄會依考科分開保存。',
+    catalogAvailable: (count: number) => `目前可用 ${count} 個考科`,
+    catalogPending: '其他官方考科仍在匯入與校對，完成後才會開放練習。',
     mySubjectsHint: '這裡只放你正在準備的考科；要新增或切換方向，先到全部考科目錄。',
     catalogSearch: '搜尋考科',
     catalogSearchPlaceholder: '輸入考科名稱、代碼、級別或版本',

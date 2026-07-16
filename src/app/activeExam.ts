@@ -70,6 +70,13 @@ export function formatCurrentBankLabel(exam: Pick<ExamManifest, 'titleZh' | 'ver
   return `${exam.titleZh} ${exam.version}`
 }
 
+export function formatExamCatalogCode(exam: Pick<ExamManifest, 'sections' | 'version'>): string {
+  const occupationCode = exam.sections.find((section) => section.sourceGroup === 'occupation')?.subjectCode
+    ?? exam.sections[0]?.subjectCode
+    ?? ''
+  return occupationCode ? `${occupationCode} · ${exam.version}` : exam.version
+}
+
 export interface SyllabusItem {
   code: string
   label: string

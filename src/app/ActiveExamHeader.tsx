@@ -3,7 +3,7 @@ import { useMemo, useState } from 'react'
 import { SettingsView } from '../components/SettingsView'
 import type { Progress, Question } from '../domain/studyEngine'
 import { zhTW } from '../i18n/zh-TW'
-import { formatExamSwitcherItem, groupExamsByCategory } from './activeExam'
+import { formatExamCatalogCode, formatExamSwitcherItem, groupExamsByCategory } from './activeExam'
 import { useActiveExam } from './useActiveExam'
 
 interface Props {
@@ -127,6 +127,10 @@ export function ActiveExamHeader({ questions, progress, settingsOpen, onSettings
                 />
               </label>
             </div>
+            <div className="catalog-availability">
+              <strong>{zhTW.shell.catalogAvailable(installedExams.length)}</strong>
+              <span>{zhTW.shell.catalogPending}</span>
+            </div>
             <div className="catalog-list">
               {catalogGroups.map((group) => (
                 <section className="catalog-group" key={group.category}>
@@ -137,13 +141,12 @@ export function ActiveExamHeader({ questions, progress, settingsOpen, onSettings
                   {group.exams.map((exam) => {
                     const isActive = exam.examId === activeExam.examId
                     const imageQuestionCount = exam.integrity?.imageQuestionCount ?? 0
-                    const subjectCodes = Array.from(new Set(exam.sections.map((section) => section.subjectCode))).join(' / ')
                     return (
                       <article className={isActive ? 'catalog-card active' : 'catalog-card'} key={exam.examId}>
-                        <div>
-                          <p className="eyebrow">{subjectCodes}</p>
+                        <div className="catalog-card-copy">
+                          <p className="eyebrow">{formatExamCatalogCode(exam)}</p>
                           <h3>{exam.titleZh}</h3>
-                          <p>{exam.sourceRevision}</p>
+                          <p>{exam.category} · {exam.level}</p>
                           <div className="catalog-meta">
                             <span>{zhTW.shell.questionPack(exam.activeQuestionCount)}</span>
                             <span>{zhTW.shell.sectionsCount(exam.sections.length)}</span>

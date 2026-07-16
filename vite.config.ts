@@ -49,15 +49,19 @@ function devExplainApi(): Plugin {
   }
 }
 
-export default defineConfig({
+export default defineConfig(({ isSsrBuild }) => ({
   define: {
     __APP_VERSION__: JSON.stringify(buildId()),
   },
+  // The SSR pass exists only to feed scripts/prerender.mjs one JS file; copying
+  // public/ (question images, packs) into the throwaway dist-ssr is pure waste.
+  build: { copyPublicDir: !isSsrBuild },
   plugins: [
     generatedLandingMeta(),
     devExplainApi(),
     react(),
-    VitePWA({
+    // No service worker or manifest in the prerender pass either.
+    isSsrBuild ? undefined : VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['app-icon.svg'],
       manifest: {
@@ -117,4 +121,4 @@ export default defineConfig({
       },
     }),
   ],
-})
+}))

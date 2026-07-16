@@ -15,7 +15,7 @@
     <meta property="og:locale" content="zh_TW" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="升級吧" />
-    <meta property="og:title" content="升級吧 · 技術士技能檢定學科題庫" />
+    <meta property="og:title" content="升級吧 Level Up · 技術士技能檢定學科題庫" />
     <meta property="og:description" content="把題庫練成真正記得住的東西。免費、離線優先，進度由你保管。" />
     <!-- Social scrapers (LINE / Facebook / X) don't rasterise SVG — this must stay a PNG. -->
     <meta property="og:image" content="https://levelup-tw.pages.dev/og-image.png" />
@@ -25,7 +25,7 @@
     <meta property="og:image:alt" content="升級吧 · 技術士技能檢定學科題庫" />
     <meta property="og:url" content="https://levelup-tw.pages.dev/" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="升級吧 · 技術士技能檢定學科題庫" />
+    <meta name="twitter:title" content="升級吧 Level Up · 技術士技能檢定學科題庫" />
     <meta name="twitter:description" content="把題庫練成真正記得住的東西。免費、離線優先，進度由你保管。" />
     <meta name="twitter:image" content="https://levelup-tw.pages.dev/og-image.png" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,13 +33,13 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <link rel="icon" href="/app-icon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/app-icon.svg" />
-    <title>升級吧 · 技術士技能檢定學科題庫｜免費離線練習</title>
+    <title>升級吧 Level Up｜技術士技能檢定學科題庫・免費刷題與模擬考</title>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "WebApplication",
         "name": "升級吧",
-        "alternateName": "Level Up",
+        "alternateName": ["Level Up", "Level Up TW", "升级吧"],
         "url": "https://levelup-tw.pages.dev/",
         "applicationCategory": "EducationalApplication",
         "operatingSystem": "Any (PWA)",
@@ -54,6 +54,48 @@
           "計時模擬測驗",
           "離線可用",
           "免註冊，進度存在裝置"
+        ]
+      }
+    </script>
+    <!-- Mirrors the landing FAQ in src/i18n/zh-TW.ts — keep the two in sync.
+         Structured data matters more than usual here: the SPA body is empty
+         until JS runs, so this is crawlable text for the first-pass crawler. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "inLanguage": "zh-Hant-TW",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "這是官方的嗎？",
+            "acceptedAnswer": { "@type": "Answer", "text": "不是。升級吧是免費的個人專案，不隸屬於勞動部或技能檢定中心。題目整理自官方公開的學科題庫，一切請以官方最新公告為準。" }
+          },
+          {
+            "@type": "Question",
+            "name": "要付費嗎？",
+            "acceptedAnswer": { "@type": "Answer", "text": "不用。備考核心功能永久免費，也沒有廣告。喜歡的話可以自由贊助，不贊助一樣能用到所有功能。" }
+          },
+          {
+            "@type": "Question",
+            "name": "需要註冊帳號嗎？",
+            "acceptedAnswer": { "@type": "Answer", "text": "不用。打開就能練，進度預設存在你的裝置。需要換手機或跨裝置時，再建立一組進度代碼把進度帶走。" }
+          },
+          {
+            "@type": "Question",
+            "name": "題目從哪裡來？可靠嗎？",
+            "acceptedAnswer": { "@type": "Answer", "text": "題目與答案來自官方公開的學科題庫 PDF，並用程式重新比對答案欄位。每個考科都標示校對狀態，未完整校對的會清楚標記。" }
+          },
+          {
+            "@type": "Question",
+            "name": "進度會不會不見？",
+            "acceptedAnswer": { "@type": "Answer", "text": "進度存在你裝置的瀏覽器資料庫裡。清除瀏覽器資料或換裝置會不見，所以建議建立進度代碼備份。" }
+          },
+          {
+            "@type": "Question",
+            "name": "支援哪些考科？",
+            "acceptedAnswer": { "@type": "Answer", "text": "目前收錄資訊、商業服務、美容美髮、餐飲食品與車輛修護等類別的考科，更多技術士技能檢定題庫會依需求陸續加入。" }
+          }
         ]
       }
     </script>
@@ -77,6 +119,18 @@
     </script>
   </head>
   <body>
+    <!-- The prerendered landing (scripts/prerender.mjs) paints before any JS
+         runs, so the theme must be set here rather than waiting for main.tsx —
+         otherwise dark-mode visitors get a flash of the light theme. main.tsx
+         repeats this (idempotently) and keeps tracking OS changes. -->
+    <script>
+      try {
+        var savedTheme = localStorage.getItem('level-b-theme')
+        document.documentElement.dataset.theme = savedTheme === 'dark' || savedTheme === 'light'
+          ? savedTheme
+          : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+      } catch (e) { /* no localStorage (e.g. crawler) — CSS default applies */ }
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

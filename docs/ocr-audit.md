@@ -12,6 +12,28 @@ Use OCR as a second opinion, not as the source of truth.
 6. Compare the result with the parsed bank and review disagreements manually.
 7. Independently re-extract every official answer marker with `npm run verify:answers`.
 
+## Stage several new exams
+
+Use the six-digit WDA occupation/level code to download and prepare several
+official papers in one pass:
+
+```bash
+npm run refresh:official-catalog
+npm run stage:exams -- 028003 120003 016003
+```
+
+The staging command writes only under `tmp/import-batch/`; the web app cannot
+load those files. Each candidate receives its official PDF and SHA-256,
+`questions.json`, `candidate-config.json`, `review-queue.json`, and a concise
+`report.md`. Answer-key disagreement, unmatched questions, duplicate IDs, or a
+subject-code mismatch marks the candidate `blocked`. Figure, suspicious-spacing
+and deletion-marker pages are queued for review.
+
+Add `--force` to re-download cached PDFs, `--offline` to prohibit downloads, or
+`--paddle` to render and OCR only the flagged pages. A staged candidate still
+needs its manual configuration fields completed and must pass the normal answer,
+crop and publication gates before it can be copied into `public/data/exams/`.
+
 技檢通 is a discovery and secondary comparison source. It is never allowed to
 override the latest official WDA PDF. The generated snapshot records this as
 `authority: secondary-discovery-only`, and its version comparison is named

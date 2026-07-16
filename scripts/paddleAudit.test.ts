@@ -1,5 +1,11 @@
 import { describe, expect, it } from 'vitest'
-import { buildPaddlePagePlan, buildPaddleRunnerArgs, requiredPlanDirectories } from './paddleAudit.mjs'
+import {
+  buildPaddlePagePlan,
+  buildPaddleRunnerArgs,
+  pendingOcrJobs,
+  pendingPageRenderJobs,
+  requiredPlanDirectories,
+} from './paddleAudit.mjs'
 
 describe('buildPaddlePagePlan', () => {
   it('creates one deterministic render and OCR job per flagged PDF page', () => {
@@ -61,6 +67,32 @@ describe('buildPaddleRunnerArgs', () => {
       'tmp/paddle/17300/results/page-006',
       'tmp/paddle/17300/pages/page-008.png',
       'tmp/paddle/17300/results/page-008',
+    ])
+  })
+})
+
+describe('pendingPageRenderJobs', () => {
+  it('resumes an interrupted batch without rendering completed pages again', () => {
+    const plan = [
+      { imagePath: 'tmp/pages/page-001.png' },
+      { imagePath: 'tmp/pages/page-002.png' },
+    ]
+
+    expect(pendingPageRenderJobs(plan, (path) => path.endsWith('page-001.png'))).toEqual([
+      { imagePath: 'tmp/pages/page-002.png' },
+    ])
+  })
+})
+
+describe('pendingOcrJobs', () => {
+  it('does not send completed Paddle result directories through the model again', () => {
+    const plan = [
+      { outputDir: 'tmp/results/page-001' },
+      { outputDir: 'tmp/results/page-002' },
+    ]
+
+    expect(pendingOcrJobs(plan, (path) => path.endsWith('page-001_res.json'))).toEqual([
+      { outputDir: 'tmp/results/page-002' },
     ])
   })
 })

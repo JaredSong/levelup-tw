@@ -17,6 +17,7 @@
     "refresh:official-catalog": "node scripts/wdaCatalog.mjs --write --hash",
     "verify:official-drift": "node scripts/wdaCatalog.mjs --hash",
     "refresh:demand": "node scripts/wdaDemand.mjs",
+    "stage:exams": "node scripts/batchImport.mjs",
     "build:landing": "node scripts/landingCatalog.mjs",
     "build:question-crops": "node scripts/build-question-crops.mjs",
     "setup:paddle": "node scripts/setupPaddle.mjs",

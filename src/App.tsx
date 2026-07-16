@@ -43,7 +43,6 @@ import type { SessionMode, StudySession } from './types'
 
 const LEGACY_SESSION_KEY = 'level-b-active-session'
 const SEQUENTIAL_KEY = 'level-b-sequential-index'
-const MOCK_DURATION_MS = 100 * 60_000
 const EXPLAIN_VERSION = 'v17'
 const OPTION_RANDOMIZE_KEY = 'level-b-randomize-options'
 
@@ -88,9 +87,12 @@ function shouldRandomizeOptions() {
   return localStorage.getItem(OPTION_RANDOMIZE_KEY) !== 'false'
 }
 
-function createSession(examId: string, mode: SessionMode, questions: Question[], title?: string, options: { mockFeedback?: boolean } = {}): StudySession {
+function createSession(examId: string, mode: SessionMode, questions: Question[], title?: string, options: { mockFeedback?: boolean; mockDurationMs?: number } = {}): StudySession {
   const now = new Date()
   const randomizeOptions = shouldRandomizeOptions()
+  // Mock timing is the pack's official duration (manifest.mockRules), passed in
+  // by the caller because this helper has no exam context of its own.
+  const mockDurationMs = options.mockDurationMs ?? 0
   return {
     id: crypto.randomUUID(),
     examId,
@@ -105,8 +107,8 @@ function createSession(examId: string, mode: SessionMode, questions: Question[],
     optionOrders: Object.fromEntries(questions.map((question) => [question.id, buildOptionOrder(question, { randomize: randomizeOptions })])),
     flags: {},
     mockFeedback: options.mockFeedback,
-    mockEndsAt: mode === 'mock' ? new Date(now.getTime() + MOCK_DURATION_MS).toISOString() : undefined,
-    mockRemainingMs: mode === 'mock' ? MOCK_DURATION_MS : undefined,
+    mockEndsAt: mode === 'mock' ? new Date(now.getTime() + mockDurationMs).toISOString() : undefined,
+    mockRemainingMs: mode === 'mock' ? mockDurationMs : undefined,
   }
 }
 
@@ -293,10 +295,12 @@ function StudyApp() {
 
   if (error) return <div className="fatal-state"><AlertTriangle /><h1>{zhTW.session.bankUnavailable}</h1><p>{error}</p></div>
   if (!bank || loading) return <div className="loading-state"><LoaderCircle className="spin" /><strong>{zhTW.session.loadingTitle}</strong><span>{zhTW.session.loadingBody}</span></div>
+  const mockDurationMs = activeExam.mockRules.durationMinutes * 60_000
+
   const begin = (mode: SessionMode, questions: Question[], title?: string, options?: { mockFeedback?: boolean }) => {
     if (!questions.length) return
     setSummary(null)
-    setSession(createSession(examId, mode, questions, title, options))
+    setSession(createSession(examId, mode, questions, title, { ...options, mockDurationMs }))
     setPracticeOpen(true)
   }
 
@@ -324,7 +328,7 @@ function StudyApp() {
   const resumePractice = () => {
     updateSession((current) => {
       if (current.mode === 'mock' && !current.mockEndsAt) {
-        const remaining = current.mockRemainingMs ?? MOCK_DURATION_MS
+        const remaining = current.mockRemainingMs ?? mockDurationMs
         return { ...current, mockEndsAt: new Date(Date.now() + remaining).toISOString() }
       }
       return current

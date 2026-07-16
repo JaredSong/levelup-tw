@@ -66,7 +66,10 @@ export function InsightsView({ questions, progress, reviewCards, streak, onPract
     })
   }, [examId])
 
-  const readiness = useMemo(() => computeReadiness(questions, progress, attemptLog), [questions, progress, attemptLog])
+  const readiness = useMemo(
+    () => computeReadiness(questions, progress, attemptLog, activeExam.mockRules),
+    [questions, progress, attemptLog, activeExam.mockRules],
+  )
   const load = useMemo(() => reviewLoadSummary(reviewCards, new Date()), [reviewCards])
 
   const mocks = results.filter((result) => result.mode === 'mock')

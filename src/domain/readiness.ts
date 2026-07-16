@@ -1,3 +1,4 @@
+import type { MockRules } from '../core/exam'
 import type { Progress, Question } from './studyEngine'
 import type { AttemptRecord } from '../storage/db'
 
@@ -23,13 +24,6 @@ export interface Readiness {
   overall: number
 }
 
-const MOCK_TOTAL = 80
-const COMMON_PER_SUBJECT = 4 // four questions from each general subject (16 total)
-const OCCUPATION_IN_MOCK = 55 // 17300 share of an 80-question mock
-const GENERIC_OCCUPATION_IN_MOCK = 64 // occupation share when only the four general common subjects are mixed in
-const HAIRDRESSING_OCCUPATION_IN_MOCK = 60 // 06000/06700 share while hair packs are single-answer mocks
-const INFO_IN_MOCK = 9 // 90011 share of an 80-question mock
-const BEAUTY_HAIR_COMMON_IN_MOCK = 4 // 90012 share in the current hairdressing pack mock
 const RECENT_WINDOW = 20
 const PASS = 0.6
 const READY = 0.8
@@ -43,6 +37,7 @@ export function computeReadiness(
   questions: Question[],
   progressById: Record<string, Progress>,
   attempts: AttemptRecord[],
+  mockRules: Pick<MockRules, 'totalQuestions' | 'subjectQuota'>,
 ): Readiness {
   const sectionOf = new Map<string, string>()
   const grouped = new Map<string, Question[]>()
@@ -62,12 +57,17 @@ export function computeReadiness(
     attemptsBySection.set(section, list)
   }
 
-  // Each subject's mock share is split across its sections by size: 17300 → 55/80,
-  // 90011 → 9/80, and each of the four general subjects → 4/80.
-  const occupationTotal = questions.filter((question) => question.sourceGroup === 'occupation').length
-  const infoTotal = questions.filter((question) => question.sourceGroup === 'information-common').length
-  const beautyHairTotal = questions.filter((question) => question.sourceGroup === 'beauty-hair-common').length
-  const isHairdressingPack = questions.some((question) => ['06000', '06700'].includes(question.subjectCode ?? ''))
+  // Each subject's mock share comes from the pack's official composition
+  // (manifest.mockRules.subjectQuota) and is split across the subject's
+  // sections by size. No per-trade constants: they drifted once the catalog
+  // grew past the packs they were written for (90011 is 9/80 in 網頁設計乙級
+  // but 4/80 in 電腦軟體應用丙級). A subject the mock never draws weighs 0.
+  const quotaBySubject = new Map(mockRules.subjectQuota.map((entry) => [entry.subjectCode, entry.count]))
+  const totalBySubject = new Map<string, number>()
+  for (const question of questions) {
+    const code = question.subjectCode ?? ''
+    totalBySubject.set(code, (totalBySubject.get(code) ?? 0) + 1)
+  }
 
   const groups: GroupReadiness[] = []
   for (const [section, qs] of grouped) {
@@ -92,23 +92,17 @@ export function computeReadiness(
     else if (coverage >= READY && acc >= READY) status = 'ready' // ready implies <=20% unseen
     else status = 'building'
 
-    let weight: number
-    if (kind === 'general-common') weight = COMMON_PER_SUBJECT / MOCK_TOTAL
-    else if (kind === 'information-common') weight = infoTotal ? (total / infoTotal) * (INFO_IN_MOCK / MOCK_TOTAL) : 0
-    else if (kind === 'beauty-hair-common') weight = beautyHairTotal ? (total / beautyHairTotal) * (BEAUTY_HAIR_COMMON_IN_MOCK / MOCK_TOTAL) : 0
-    else {
-      const occupationShare = isHairdressingPack
-        ? HAIRDRESSING_OCCUPATION_IN_MOCK
-        : infoTotal
-          ? OCCUPATION_IN_MOCK
-          : GENERIC_OCCUPATION_IN_MOCK
-      weight = occupationTotal ? (total / occupationTotal) * (occupationShare / MOCK_TOTAL) : 0
-    }
+    const subjectCode = sample.subjectCode ?? ''
+    const subjectTotal = totalBySubject.get(subjectCode) ?? 0
+    const subjectShare = mockRules.totalQuestions
+      ? (quotaBySubject.get(subjectCode) ?? 0) / mockRules.totalQuestions
+      : 0
+    const weight = subjectTotal ? (total / subjectTotal) * subjectShare : 0
 
     groups.push({
       section,
       label: sample.sectionTitle ?? section,
-      subjectCode: sample.subjectCode ?? '',
+      subjectCode,
       kind,
       total,
       attempted,

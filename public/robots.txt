@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /$
+Allow: /welcome
+
+# /app is the installed-PWA entry, not content — it renders the same shell as /
+# and would just compete with the landing page in the index.
+Disallow: /app
+
+# Question banks and scanned pages are practice material, not search results.
+Disallow: /data/
+Disallow: /question-images/
+Disallow: /question-pages/
+
+Sitemap: https://levelup-tw.pages.dev/sitemap.xml

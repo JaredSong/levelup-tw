@@ -3,21 +3,75 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#111713" />
-    <meta name="description" content="升級吧是免費、離線優先的台灣技能檢定題庫，整合正式題庫、錯題修正、長期複習與計時模擬。" />
+    <!-- Browser chrome follows the page theme, which now follows the OS. -->
+    <meta name="theme-color" content="#f8f9f5" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111713" media="(prefers-color-scheme: dark)" />
+    <!-- Keywords mirror the official wording (勞動部技能檢定中心): 技術士技能檢定 is the
+         term people actually search, and 學科 is both the search term and an accuracy
+         guard — this app covers the written exam only, never 術科. -->
+    <meta name="description" content="升級吧是免費的技術士技能檢定學科題庫：收錄網頁設計乙級、電腦軟體應用丙級、就業服務乙級、中餐烹調－葷食丙級、烘焙食品丙級、女子美髮與男子理髮丙級。練官方公告題目、答錯自動整理成錯題本、依遺忘曲線排程複習，再用計時模擬考檢查準備度。免註冊、可離線，進度存在你的裝置。" />
+    <link rel="canonical" href="https://levelup-tw.pages.dev/" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta property="og:locale" content="zh_TW" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="升級吧 · 台灣技能檢定題庫" />
+    <meta property="og:site_name" content="升級吧" />
+    <meta property="og:title" content="升級吧 · 技術士技能檢定學科題庫" />
     <meta property="og:description" content="把題庫練成真正記得住的東西。免費、離線優先，進度由你保管。" />
-    <meta property="og:image" content="https://levelup-tw.pages.dev/app-icon.svg" />
+    <!-- Social scrapers (LINE / Facebook / X) don't rasterise SVG — this must stay a PNG. -->
+    <meta property="og:image" content="https://levelup-tw.pages.dev/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="升級吧 · 技術士技能檢定學科題庫" />
     <meta property="og:url" content="https://levelup-tw.pages.dev/" />
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="升級吧 · 技術士技能檢定學科題庫" />
+    <meta name="twitter:description" content="把題庫練成真正記得住的東西。免費、離線優先，進度由你保管。" />
+    <meta name="twitter:image" content="https://levelup-tw.pages.dev/og-image.png" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content="升級吧" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <link rel="icon" href="/app-icon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/app-icon.svg" />
-    <title>升級吧 · 台灣技能檢定題庫</title>
+    <title>升級吧 · 技術士技能檢定學科題庫｜免費離線練習</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "升級吧",
+        "alternateName": "Level Up",
+        "url": "https://levelup-tw.pages.dev/",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Any (PWA)",
+        "inLanguage": "zh-Hant-TW",
+        "description": "免費、離線優先的技術士技能檢定學科題庫，整合官方公告題目、錯題修正、長期複習與計時模擬考。",
+        "isAccessibleForFree": true,
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TWD" },
+        "featureList": [
+          "正式題庫練習",
+          "錯題自動整理與修正",
+          "依遺忘曲線排程複習",
+          "計時模擬測驗",
+          "離線可用",
+          "免註冊，進度存在裝置"
+        ]
+      }
+    </script>
+    <!--
+      Analytics. Two complementary trackers, both safe to run together:
+      - GA4 (below) for events/funnels.
+      - Cloudflare Web Analytics is injected by Pages itself when enabled in the
+        dashboard, so it needs no snippet here.
+      Both are network-only: offline PWA sessions simply go unrecorded, which is
+      expected for an offline-first app and never blocks study.
+    -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y9KLLG6LPB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() { dataLayer.push(arguments) }
+      gtag('js', new Date())
+      gtag('config', 'G-Y9KLLG6LPB')
+    </script>
   </head>
   <body>
     <div id="root"></div>

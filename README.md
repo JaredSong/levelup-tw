@@ -45,6 +45,7 @@
 React 19 + Vite + Dexie 的 PWA，部署在 Cloudflare Pages。
 
 - **`/`** 是公開的介紹頁，**`/app`** 是 PWA 入口（`start_url`）。裝好的 App 直接開 `/app`，不會先看到行銷頁。
+  已經用過的人開 `/` 也會直接進 App（`onboardingState.ts`），所以要強制看介紹頁請用 **[`/welcome`](https://levelup-tw.pages.dev/welcome)**。
 - **進度存在本機** IndexedDB。跨裝置時才用「進度代碼」同步到 Cloudflare KV。
 - **同步代碼就是帳號**：伺服器只存 `hash(secret)`，不存 secret 本身，沒有 email、沒有重設。代碼掉了就拿不回雲端副本——所以清除裝置前一定會先把代碼秀出來。
 - **離線優先**：題庫下載後可離線使用；題庫 JSON 用 `StaleWhileRevalidate`，這樣答案更正能在下次開啟時就生效，而不是被快取鎖住。

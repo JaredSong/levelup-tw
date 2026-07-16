@@ -232,7 +232,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .landing-footer-top { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: start; }
 .landing-footer-actions { display: grid; gap: 14px; justify-items: start; }
 .landing-footer-actions > a { display: inline-flex; align-items: center; gap: 7px; color: var(--accent-ink); font-size: .82rem; font-weight: 800; text-decoration: none; }
-.landing-footer > p { max-width: 68ch; margin: 26px 0 0; color: var(--faint); font-size: .72rem; line-height: 1.65; }
+.landing-footer > p { max-width: 120ch; margin: 26px 0 0; color: var(--faint); font-size: .72rem; line-height: 1.65; }
 
 /* Back to top */
 .landing-to-top { position: fixed; right: 20px; bottom: 20px; z-index: 40; display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: var(--accent-dark); color: #f4f7f2; box-shadow: 0 10px 26px rgba(24, 32, 27, .34); }

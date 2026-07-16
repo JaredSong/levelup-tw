@@ -7,6 +7,7 @@ import {
   isCardDue,
   previewInterval,
   questionCardId,
+  resolveCardFace,
   reviewLoadSummary,
 } from './reviewScheduler'
 
@@ -144,5 +145,54 @@ describe('previewInterval', () => {
     expect(previewInterval(card, 'again', NOW)).toEqual({ minutes: 10 })
     expect(previewInterval(card, 'good', NOW)).toEqual({ days: 1 })
     expect(previewInterval(card, 'easy', NOW)).toEqual({ days: 3 })
+  })
+})
+
+describe('resolveCardFace', () => {
+  // The card is the surface that drills an answer into memory on a schedule, so
+  // a key corrected in the bank has to reach it. Cards snapshot the answer at
+  // creation, which is exactly how a stale key would survive a correction.
+  it('shows the corrected key, not the answer snapshotted when the card was made', () => {
+    const card = newCard() // key was 3 when this card was created
+    const corrected = { ...QUESTION, answers: [2] }
+
+    const face = resolveCardFace(card, corrected)
+
+    expect(card.answer).toBe('3. 丙') // the stale snapshot is still on the card
+    expect(face.answer).toBe('2. 乙') // but the learner is shown the live key
+    expect(face.corrected).toBe(true)
+  })
+
+  it('follows a corrected option text too', () => {
+    const card = newCard()
+    const face = resolveCardFace(card, { ...QUESTION, options: ['甲', '乙', '丙（修正）', '丁'] })
+    expect(face.answer).toBe('3. 丙（修正）')
+    expect(face.corrected).toBe(true)
+  })
+
+  it('follows a reworded prompt', () => {
+    const card = newCard()
+    const face = resolveCardFace(card, { ...QUESTION, prompt: '下列何者正確？（修正）' })
+    expect(face.prompt).toBe('下列何者正確？（修正）')
+  })
+
+  it('does not cry correction when the bank still agrees', () => {
+    const card = newCard()
+    const face = resolveCardFace(card, QUESTION)
+    expect(face).toEqual({ prompt: QUESTION.prompt, answer: '3. 丙', corrected: false })
+  })
+
+  // A pack can drop a question; the card outlives it and must still be reviewable.
+  it('falls back to the snapshot when the question left the bank', () => {
+    const card = newCard()
+    const face = resolveCardFace(card, undefined)
+    expect(face).toEqual({ prompt: card.prompt, answer: card.answer, corrected: false })
+  })
+
+  it('handles multi-answer keys', () => {
+    const card = createQuestionCard('web-design-b', { ...QUESTION, answers: [1, 3] }, NOW)
+    const face = resolveCardFace(card, { ...QUESTION, answers: [1, 4] })
+    expect(face.answer).toBe('1. 甲\n4. 丁')
+    expect(face.corrected).toBe(true)
   })
 })

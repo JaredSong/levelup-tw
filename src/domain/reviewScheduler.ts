@@ -35,6 +35,37 @@ export function questionCardId(examId: string, questionId: string): string {
   return `question:${questionKey(examId, questionId)}`
 }
 
+/** The answer face for a question-backed card, e.g. "2. 環境部". */
+export function formatCardAnswer(question: CardQuestion): string {
+  return question.answers.map((value) => `${value}. ${question.options[value - 1] ?? ''}`).join('\n')
+}
+
+export interface CardFace {
+  prompt: string
+  answer: string
+  /** The stored snapshot disagrees with the bank — the key or wording moved. */
+  corrected: boolean
+}
+
+/**
+ * What a card should show right now.
+ *
+ * Cards snapshot prompt/answer at creation, so a later answer-key correction
+ * would never reach them — and the card is the one surface that deliberately
+ * drills an answer into memory on a schedule, which makes a stale key here the
+ * most expensive kind. The bank is the authority (the service worker already
+ * revalidates it so fixes land on the next open); the snapshot is only a
+ * fallback for questions that are no longer in the pack.
+ */
+export function resolveCardFace(
+  card: Pick<ReviewCard, 'prompt' | 'answer'>,
+  question?: CardQuestion,
+): CardFace {
+  if (!question) return { prompt: card.prompt, answer: card.answer, corrected: false }
+  const answer = formatCardAnswer(question)
+  return { prompt: question.prompt, answer, corrected: answer !== card.answer }
+}
+
 /**
  * Build a question-backed review card from the official prompt and answer only
  * (AtomSource "question"). No stored atom yet — the atomId is synthetic until a
@@ -51,7 +82,7 @@ export function createQuestionCard(examId: string, question: CardQuestion, now: 
     atomId: questionCardId(examId, question.id),
     questionKeys: [key],
     prompt: question.prompt,
-    answer: question.answers.map((value) => `${value}. ${question.options[value - 1] ?? ''}`).join('\n'),
+    answer: formatCardAnswer(question),
     state: 'new',
     dueAt: at,
     stability: 0,

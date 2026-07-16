@@ -2,6 +2,7 @@ import { ArrowRight, Brain, Headphones, Layers3, ListRestart, PlusCircle } from 
 import { GlossaryView } from '../../components/GlossaryView'
 import { ReviewCardStack } from '../../components/ReviewCardStack'
 import type { ReviewCard, ReviewRating } from '../../core/contracts'
+import type { CardQuestion } from '../../domain/reviewScheduler'
 import { zhTW } from '../../i18n/zh-TW'
 
 interface Props {
@@ -12,6 +13,7 @@ interface Props {
   wrongWithoutCards: number
   onGradeCard: (card: ReviewCard, rating: ReviewRating) => Promise<void> | void
   onOpenCardSource: (card: ReviewCard) => void
+  resolveCardQuestion: (card: ReviewCard) => CardQuestion | undefined
   onCreateWrongCards: () => Promise<void> | void
   onAdaptive: () => void
   onWrong: () => void
@@ -34,6 +36,7 @@ export function ReviewPage(props: Props) {
         totalCards={props.totalCards}
         onGrade={props.onGradeCard}
         onOpenSource={props.onOpenCardSource}
+        resolveQuestion={props.resolveCardQuestion}
       />
       {props.wrongWithoutCards > 0 ? (
         <button className="secondary-action wide" onClick={() => void props.onCreateWrongCards()} type="button">

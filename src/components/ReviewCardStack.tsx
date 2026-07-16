@@ -1,7 +1,7 @@
-import { Check, ExternalLink, Layers3, RotateCcw, Sparkles } from 'lucide-react'
+import { Check, ExternalLink, Layers3, RefreshCw, RotateCcw, Sparkles } from 'lucide-react'
 import { useState } from 'react'
 import type { ReviewCard, ReviewRating } from '../core/contracts'
-import { previewInterval } from '../domain/reviewScheduler'
+import { type CardQuestion, previewInterval, resolveCardFace } from '../domain/reviewScheduler'
 import { zhTW } from '../i18n/zh-TW'
 
 interface Props {
@@ -9,6 +9,8 @@ interface Props {
   totalCards: number
   onGrade: (card: ReviewCard, rating: ReviewRating) => Promise<void> | void
   onOpenSource: (card: ReviewCard) => void
+  /** The card's question as it stands in the bank today, if still published. */
+  resolveQuestion: (card: ReviewCard) => CardQuestion | undefined
 }
 
 function intervalLabel(card: ReviewCard, rating: ReviewRating): string {
@@ -18,9 +20,12 @@ function intervalLabel(card: ReviewCard, rating: ReviewRating): string {
 
 // The Anki-style due-card surface: front prompt → reveal → grade. Kept almost
 // blank on purpose — this screen needs concentration, not feature density.
-export function ReviewCardStack({ dueCards, totalCards, onGrade, onOpenSource }: Props) {
+export function ReviewCardStack({ dueCards, totalCards, onGrade, onOpenSource, resolveQuestion }: Props) {
   const [revealed, setRevealed] = useState(false)
   const card = dueCards[0]
+  // Read the face from the bank, not the card's snapshot: a corrected key has to
+  // reach the surface that drills it into memory.
+  const face = card ? resolveCardFace(card, resolveQuestion(card)) : null
 
   const grade = async (rating: ReviewRating) => {
     if (!card) return
@@ -56,11 +61,16 @@ export function ReviewCardStack({ dueCards, totalCards, onGrade, onOpenSource }:
       </div>
 
       <div className="review-card-body">
-        <p className="review-card-front">{card.prompt}</p>
+        <p className="review-card-front">{face!.prompt}</p>
         {revealed ? (
           <div className="review-card-back">
             <p className="answer-label">{zhTW.review.officialAnswer}</p>
-            {card.answer.split('\n').map((line) => <span key={line}>{line}</span>)}
+            {face!.answer.split('\n').map((line) => <span key={line}>{line}</span>)}
+            {face!.corrected ? (
+              // Say it out loud: they may have rehearsed the old answer, and a
+              // silent swap reads as "I misremembered" rather than "it changed".
+              <p className="review-card-corrected"><RefreshCw size={13} /> {zhTW.review.answerCorrected}</p>
+            ) : null}
           </div>
         ) : null}
       </div>

@@ -468,8 +468,11 @@ function StudyApp() {
     await refreshReviewCards()
   }
 
+  /** The card's question as published today; undefined once it leaves the pack. */
+  const questionForCard = (card: ReviewCard) => bank.byId.get(parseQuestionKey(card.questionKeys[0]).questionId)
+
   const openCardSource = (card: ReviewCard) => {
-    const question = bank.byId.get(parseQuestionKey(card.questionKeys[0]).questionId)
+    const question = questionForCard(card)
     if (question) begin('item', [question])
   }
 
@@ -626,7 +629,7 @@ function StudyApp() {
       <ActiveExamHeader onSettingsOpenChange={setSettingsOpen} progress={progress} questions={bank.questions} settingsOpen={settingsOpen} />
       {tab === 'home' ? <HomePage onOpenSettings={() => setSettingsOpen(true)} seen={seen} total={bank.questions.length} due={due} accuracy={accuracy} hasSession={!!session} sessionLabel={session ? displaySessionTitle(session) : undefined} streak={streak} mission={mission} onGoReview={() => setTab('review')} onWrongFix={startWrong} onContinue={resumePractice} onSequential={startSequential} /> : null}
       {tab === 'practice' ? <PracticePage questions={bank.questions} progress={progress} total={bank.questions.length} onSequential={startSequential} onRandom={() => begin('random', buildRandomQueue(bank.questions, 10))} onFresh={(limit) => begin('fresh', buildFreshQueue(bank.questions, progress, limit), zhTW.session.freshTitle(limit))} onHighYield={() => begin('highYield', buildHighYieldQueue(bank.questions, progress, 20))} onSubject={(subjectCode, title) => begin('random', buildRandomQueue(bank.questions.filter((question) => question.subjectCode === subjectCode), 10), title)} onOpenQuestion={(question) => begin('item', [question])} onSprint={() => begin('sprint', buildSprintQueue(bank.questions, progress, 20))} /> : null}
-      {tab === 'review' ? <ReviewPage due={due} wrongCount={wrongCount} dueCards={dueCards} totalCards={reviewCards.length} wrongWithoutCards={wrongWithoutCards} onGradeCard={gradeReviewCard} onOpenCardSource={openCardSource} onCreateWrongCards={createWrongCards} onAdaptive={() => begin('adaptive', buildAdaptiveQueue(bank.questions, progress, 10))} onWrong={startWrong} onFlashcards={() => begin('flashcard', buildAdaptiveQueue(bank.questions, progress, 10), zhTW.session.titles.flashcard)} onCommuteNotes={startCommuteNotes} onPracticeSection={(section, title) => begin('adaptive', buildAdaptiveQueue(bank.questions.filter((question) => question.section === section), progress, 10), title)} /> : null}
+      {tab === 'review' ? <ReviewPage due={due} wrongCount={wrongCount} dueCards={dueCards} totalCards={reviewCards.length} wrongWithoutCards={wrongWithoutCards} onGradeCard={gradeReviewCard} onOpenCardSource={openCardSource} resolveCardQuestion={questionForCard} onCreateWrongCards={createWrongCards} onAdaptive={() => begin('adaptive', buildAdaptiveQueue(bank.questions, progress, 10))} onWrong={startWrong} onFlashcards={() => begin('flashcard', buildAdaptiveQueue(bank.questions, progress, 10), zhTW.session.titles.flashcard)} onCommuteNotes={startCommuteNotes} onPracticeSection={(section, title) => begin('adaptive', buildAdaptiveQueue(bank.questions.filter((question) => question.section === section), progress, 10), title)} /> : null}
       {tab === 'mock' ? <MockExamPage onMock={() => startMock(false)} onMockTraining={() => startMock(true)} /> : null}
       {tab === 'insights' ? <InsightsPage questions={bank.questions} progress={progress} reviewCards={reviewCards} streak={streak} onPracticeGroup={(section, title) => begin('adaptive', buildAdaptiveQueue(bank.questions.filter((question) => question.section === section), progress, 10), zhTW.session.practiceSuffix(title))} /> : null}
       <BottomNav active={tab} onChange={setTab} />

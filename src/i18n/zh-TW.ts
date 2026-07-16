@@ -259,6 +259,7 @@ export const zhTW = {
     memoryLayerHint: '答錯的題目會自動進來，之後依時間排程回來考你。',
     reveal: '顯示答案',
     officialAnswer: '官方答案',
+    answerCorrected: '這題的答案已依最新官方題庫更新，和你之前看到的可能不同。',
     gradeAgain: '再一次',
     gradeGood: '記得',
     gradeEasy: '很簡單',

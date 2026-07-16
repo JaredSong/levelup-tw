@@ -11,4 +11,4 @@ Disallow: /data/
 Disallow: /question-images/
 Disallow: /question-pages/
 
-Sitemap: https://levelup-tw.pages.dev/sitemap.xml
+Sitemap: https://levelup.tw/sitemap.xml

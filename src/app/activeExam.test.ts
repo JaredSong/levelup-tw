@@ -89,6 +89,9 @@ describe('active exam selection', () => {
       'computer-software-application-b',
       'indoor-wiring-b',
       'indoor-wiring-c',
+      'industrial-electronics-c',
+      'computer-hardware-repair-c',
+      'water-pipe-fitting-c',
     ]))
   })
 
@@ -106,11 +109,14 @@ describe('active exam selection', () => {
       '職業安全衛生',
       '機械操作',
       '營造工程',
+      '電子儀表',
+      '銲接配管',
     ])
     expect(groups.find((group) => group.category === '資訊')?.exams.map((exam) => exam.examId)).toEqual([
       'web-design-b',
       'computer-software-application-c',
       'computer-software-application-b',
+      'computer-hardware-repair-c',
     ])
     expect(groups.find((group) => group.category === '電機工程')?.exams.map((exam) => exam.examId)).toEqual([
       'indoor-wiring-b',

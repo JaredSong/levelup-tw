@@ -1,5 +1,5 @@
 import { execFileSync } from 'node:child_process'
-import { access, mkdir, readFile, writeFile } from 'node:fs/promises'
+import { access, mkdir, readFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -22,6 +22,9 @@ const BANKS = [
   { code: '15100', source: '151004A14' },
   { code: '12600', source: '126002A12' },
   { code: '20600', source: '206003A13' },
+  { code: '02800', source: '028003A11', cropPrefix: '028003' },
+  { code: '12000', source: '120003A12', cropPrefix: '120003' },
+  { code: '01600', source: '016003A12', cropPrefix: '016003' },
 ]
 
 const SCALE = 2 // 144 DPI: two pixels per PDF point.
@@ -87,11 +90,14 @@ async function buildBank({ source, cropPrefix, extraFigures = [] }) {
       rendered.set(question.sourcePage, renderedPage)
     }
 
-    await writeFile(output, await readFile(renderedPage))
-    execFileSync('sips', [
-      '-c', String(Math.ceil((bottom - top) * SCALE)), String(Math.floor((page.width - 115) * SCALE)),
-      '--cropOffset', String(Math.floor(top * SCALE)), String(105 * SCALE),
-      output,
+    const width = Math.floor((page.width - 115) * SCALE)
+    const height = Math.ceil((bottom - top) * SCALE)
+    const x = 105 * SCALE
+    const y = Math.floor(top * SCALE)
+    execFileSync('ffmpeg', [
+      '-loglevel', 'error', '-y', '-i', renderedPage,
+      '-vf', `crop=${width}:${height}:${x}:${y}`,
+      '-frames:v', '1', output,
     ], { stdio: 'ignore' })
   }
   return figures.length

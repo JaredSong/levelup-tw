@@ -6,7 +6,9 @@ const WDA_DOWNLOAD_ROOT = 'https://owinform.wdasec.gov.tw/owInform/DLowFile'
 export const SOURCE_BANKS = {
   '00700-2': { subjectCode: '00700', version: 'A15', pdfFilename: '007002A15.pdf' },
   '00700-3': { subjectCode: '00700', version: 'A13', pdfFilename: '007003A13.pdf' },
+  '01600': { version: 'A12', pdfFilename: '016003A12.pdf' },
   '02000': { version: 'A11', pdfFilename: '020003A11.pdf' },
+  '02800': { version: 'A11', pdfFilename: '028003A11.pdf' },
   '06000': { version: 'A12', pdfFilename: '060003A12.pdf' },
   '06700': { version: 'A13', pdfFilename: '067003A13.pdf' },
   '07602': { version: 'A13', pdfFilename: '076023A13.pdf' },
@@ -14,6 +16,7 @@ export const SOURCE_BANKS = {
   '10000': { version: 'A15', pdfFilename: '100003A15.pdf' },
   '11800': { version: 'A14', pdfFilename: '118003A14.pdf' },
   '11800-2': { subjectCode: '11800', version: 'A15', pdfFilename: '118002A15.pdf' },
+  '12000': { version: 'A12', pdfFilename: '120003A12.pdf' },
   '12600': { version: 'A12', pdfFilename: '126002A12.pdf' },
   '14900': { version: 'A15', pdfFilename: '149003A15.pdf' },
   '15100': { version: 'A14', pdfFilename: '151004A14.pdf' },

@@ -390,6 +390,68 @@ describe('published question bank', () => {
     }
   })
 
+  it('publishes the staged electronics, hardware, and pipe-fitting packs', () => {
+    const cases = [
+      {
+        examId: 'industrial-electronics-c',
+        occupationCode: '02800',
+        version: 'A11',
+        occupation: 651,
+        total: 1051,
+        active: 1046,
+        sections: 13,
+        occupationQuota: 64,
+      },
+      {
+        examId: 'computer-hardware-repair-c',
+        occupationCode: '12000',
+        version: 'A12',
+        occupation: 707,
+        total: 1226,
+        active: 1221,
+        sections: 15,
+        occupationQuota: 60,
+        extraCommonCode: '90011',
+      },
+      {
+        examId: 'water-pipe-fitting-c',
+        occupationCode: '01600',
+        version: 'A12',
+        occupation: 707,
+        total: 1107,
+        active: 1102,
+        sections: 13,
+        occupationQuota: 64,
+      },
+    ]
+
+    for (const item of cases) {
+      const questions = loadExamBank(item.examId)
+      const manifest = JSON.parse(
+        readFileSync(new URL(`../public/data/exams/${item.examId}/manifest.json`, import.meta.url), 'utf8'),
+      ) as {
+        version: string
+        questionCount: number
+        activeQuestionCount: number
+        sections: unknown[]
+        mockRules: Parameters<typeof buildMockQueue>[1]
+      }
+
+      expect(manifest.version).toBe(item.version)
+      expect(manifest.questionCount).toBe(item.total)
+      expect(manifest.activeQuestionCount).toBe(item.active)
+      expect(manifest.sections).toHaveLength(item.sections)
+      expect(questions.filter((question) => question.subjectCode === item.occupationCode)).toHaveLength(item.occupation)
+      expect(questions.every((question) => question.examId === item.examId)).toBe(true)
+
+      const mock = buildMockQueue(questions.filter((question) => question.active !== false), manifest.mockRules, () => 0.37)
+      expect(mock.filter((question) => question.subjectCode === item.occupationCode)).toHaveLength(item.occupationQuota)
+      if (item.extraCommonCode) {
+        expect(mock.filter((question) => question.subjectCode === item.extraCommonCode)).toHaveLength(4)
+      }
+    }
+  })
+
   it('publishes the high-demand third-round care and safety packs from official banks', () => {
     const cases = [
       { examId: 'childcare-single', occupationCode: '15400', published: 892, active: 892, total: 1292, activeTotal: 1287, sections: 10 },

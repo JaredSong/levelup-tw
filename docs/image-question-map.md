@@ -1,6 +1,6 @@
 # Image Question Map
 
-Generated: 2026-07-16T14:26:12.185Z
+Generated: 2026-07-16T23:31:03.035Z
 
 These are the questions that currently need a figure, graph, code screenshot, or image-option reference.
 
@@ -12,7 +12,7 @@ Replacement workflow:
 
 Do not include the official answer-key column in replacement images.
 
-Total active image questions: 286
+Total active image questions: 487
 
 ## indoor-wiring-b:00700-01-001
 
@@ -1854,6 +1854,550 @@ Total active image questions: 286
   - 3. 能 OFF，不能 ON
   - 4. 能 ON，能 OFF
 
+## water-pipe-fitting-c:01600-01-001
+
+- Replacement PNG: `public/question-images/016003-01600-01-001.png`
+- App path: `/question-images/016003-01600-01-001.png`
+- Linked uploaded image:
+  - `/question-images/016003-01600-01-001.png`
+- Current fallback page: `/question-pages/01600-page-2.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 管線圖上符號表示為
+- Options:
+  - 1. 凸緣
+  - 2. 直型接頭
+  - 3. 由令（活管套節）
+  - 4. 短接
+
+## water-pipe-fitting-c:01600-01-002
+
+- Replacement PNG: `public/question-images/016003-01600-01-002.png`
+- App path: `/question-images/016003-01600-01-002.png`
+- Linked uploaded image:
+  - `/question-images/016003-01600-01-002.png`
+- Current fallback page: `/question-pages/01600-page-2.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 平面圖上符號是表示管路之流體向左流之後，其管路彎管的方向為何？
+- Options:
+  - 1. 向上彎管
+  - 2. 向下彎管
+  - 3. 向左彎管
+  - 4. 向右彎
+
+## water-pipe-fitting-c:01600-01-006
+
+- Replacement PNG: `public/question-images/016003-01600-01-006.png`
+- App path: `/question-images/016003-01600-01-006.png`
+- Linked uploaded image:
+  - `/question-images/016003-01600-01-006.png`
+- Current fallback page: `/question-pages/01600-page-2.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 在平面圖上 T 型接頭分歧口向上的符號為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## water-pipe-fitting-c:01600-01-007
+
+- Replacement PNG: `public/question-images/016003-01600-01-007.png`
+- App path: `/question-images/016003-01600-01-007.png`
+- Linked uploaded image:
+  - `/question-images/016003-01600-01-007.png`
+- Current fallback page: `/question-pages/01600-page-2.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 右圖何者為凸緣接頭之符號？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## water-pipe-fitting-c:01600-01-009
+
+- Replacement PNG: `public/question-images/016003-01600-01-009.png`
+- App path: `/question-images/016003-01600-01-009.png`
+- Linked uploaded image:
+  - `/question-images/016003-01600-01-009.png`
+- Current fallback page: `/question-pages/01600-page-2.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 依據 CNS 管路製圖之標準，符號表示
+- Options:
+  - 1. 閘閥
+  - 2. 塞閥
+  - 3. 止回閥
+  - 4. 排氣閥
+
+## water-pipe-fitting-c:01600-01-012
+
+- Replacement PNG: `public/question-images/016003-01600-01-012.png`
+- App path: `/question-images/016003-01600-01-012.png`
+- Linked uploaded image:
+  - `/question-images/016003-01600-01-012.png`
+- Current fallback page: `/question-pages/01600-page-3.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 依據 CNS 管路製圖之標準，下列圖示符號中何者為凸緣式閘閥？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## water-pipe-fitting-c:01600-01-015
+
+- Replacement PNG: `public/question-images/016003-01600-01-015.png`
+- App path: `/question-images/016003-01600-01-015.png`
+- Linked uploaded image:
+  - `/question-images/016003-01600-01-015.png`
+- Current fallback page: `/question-pages/01600-page-3.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下列管線符號，何者為螺紋直型接頭？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## water-pipe-fitting-c:01600-01-017
+
+- Replacement PNG: `public/question-images/016003-01600-01-017.png`
+- App path: `/question-images/016003-01600-01-017.png`
+- Linked uploaded image:
+  - `/question-images/016003-01600-01-017.png`
+- Current fallback page: `/question-pages/01600-page-3.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 單線圖上符號係表示
+- Options:
+  - 1. 清潔口
+  - 2. 排氣口
+  - 3. 異徑接頭
+  - 4. 由令接頭
+
+## water-pipe-fitting-c:01600-01-019
+
+- Replacement PNG: `public/question-images/016003-01600-01-019.png`
+- App path: `/question-images/016003-01600-01-019.png`
+- Linked uploaded image:
+  - `/question-images/016003-01600-01-019.png`
+- Current fallback page: `/question-pages/01600-page-3.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 管路中流體之表示是下列何種管路？
+- Options:
+  - 1. 水
+  - 2. 瓦斯
+  - 3. 空氣
+  - 4. 蒸氣
+
+## water-pipe-fitting-c:01600-01-020
+
+- Replacement PNG: `public/question-images/016003-01600-01-020.png`
+- App path: `/question-images/016003-01600-01-020.png`
+- Linked uploaded image:
+  - `/question-images/016003-01600-01-020.png`
+- Current fallback page: `/question-pages/01600-page-3.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下列符號中，哪一項是管帽？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## water-pipe-fitting-c:01600-01-021
+
+- Replacement PNG: `public/question-images/016003-01600-01-021.png`
+- App path: `/question-images/016003-01600-01-021.png`
+- Linked uploaded image:
+  - `/question-images/016003-01600-01-021.png`
+- Current fallback page: `/question-pages/01600-page-3.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 自來水管線圖中，符號係表示
+- Options:
+  - 1. 馬達
+  - 2. 螺紋式水表
+  - 3. 凸緣（平口）式水表
+  - 4. 水壓表
+
+## water-pipe-fitting-c:01600-01-022
+
+- Replacement PNG: `public/question-images/016003-01600-01-022.png`
+- App path: `/question-images/016003-01600-01-022.png`
+- Linked uploaded image:
+  - `/question-images/016003-01600-01-022.png`
+- Current fallback page: `/question-pages/01600-page-3.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 鐵螺紋彎頭的符號為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## water-pipe-fitting-c:01600-01-023
+
+- Replacement PNG: `public/question-images/016003-01600-01-023.png`
+- App path: `/question-images/016003-01600-01-023.png`
+- Linked uploaded image:
+  - `/question-images/016003-01600-01-023.png`
+- Current fallback page: `/question-pages/01600-page-4.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: K 型延性鑄鐵管雙承口丁字管的圖例標示為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## water-pipe-fitting-c:01600-01-025
+
+- Replacement PNG: `public/question-images/016003-01600-01-025.png`
+- App path: `/question-images/016003-01600-01-025.png`
+- Linked uploaded image:
+  - `/question-images/016003-01600-01-025.png`
+- Current fallback page: `/question-pages/01600-page-4.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 自來水用水設備圖例中，下圖符號是表示
+- Options:
+  - 1. 蓮蓬龍頭
+  - 2. 浮球閥
+  - 3. 給水栓
+  - 4. 救火栓
+
+## water-pipe-fitting-c:01600-01-026
+
+- Replacement PNG: `public/question-images/016003-01600-01-026.png`
+- App path: `/question-images/016003-01600-01-026.png`
+- Linked uploaded image:
+  - `/question-images/016003-01600-01-026.png`
+- Current fallback page: `/question-pages/01600-page-4.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: CNS 管路符號中，            為
+- Options:
+  - 1. 對銲接合
+  - 2. 螺紋接合
+  - 3. 凸緣接合
+  - 4. 活套接合
+
+## water-pipe-fitting-c:01600-01-027
+
+- Replacement PNG: `public/question-images/016003-01600-01-027.png`
+- App path: `/question-images/016003-01600-01-027.png`
+- Linked uploaded image:
+  - `/question-images/016003-01600-01-027.png`
+- Current fallback page: `/question-pages/01600-page-4.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖延性鑄鐵管件之符號是表示
+- Options:
+  - 1. 由令
+  - 2. 凸緣接頭
+  - 3. 凸緣縮管
+  - 4. k 型縮管
+
+## water-pipe-fitting-c:01600-01-028
+
+- Replacement PNG: `public/question-images/016003-01600-01-028.png`
+- App path: `/question-images/016003-01600-01-028.png`
+- Linked uploaded image:
+  - `/question-images/016003-01600-01-028.png`
+- Current fallback page: `/question-pages/01600-page-4.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 管線圖符號是表示
+- Options:
+  - 1. 凸緣接頭
+  - 2. 螺紋接頭
+  - 3. 由令接頭
+  - 4. K型延性鑄鐵管機械接頭
+
+## water-pipe-fitting-c:01600-01-030
+
+- Replacement PNG: `public/question-images/016003-01600-01-030.png`
+- App path: `/question-images/016003-01600-01-030.png`
+- Linked uploaded image:
+  - `/question-images/016003-01600-01-030.png`
+- Current fallback page: `/question-pages/01600-page-4.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖，依據 CNS 管路製圖之標準表示
+- Options:
+  - 1. 旋塞
+  - 2. 角閥
+  - 3. 90°彎頭
+  - 4. 伸縮管
+
+## water-pipe-fitting-c:01600-01-031
+
+- Replacement PNG: `public/question-images/016003-01600-01-031.png`
+- App path: `/question-images/016003-01600-01-031.png`
+- Linked uploaded image:
+  - `/question-images/016003-01600-01-031.png`
+- Current fallback page: `/question-pages/01600-page-4.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如下圖符號所示，該箭頭所指之處為
+- Options:
+  - 1. 銲接
+  - 2. 鉸紋
+  - 3. 凸緣
+  - 4. 60°彎曲
+
+## water-pipe-fitting-c:01600-01-032
+
+- Replacement PNG: `public/question-images/016003-01600-01-032.png`
+- App path: `/question-images/016003-01600-01-032.png`
+- Linked uploaded image:
+  - `/question-images/016003-01600-01-032.png`
+- Current fallback page: `/question-pages/01600-page-5.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 管路圖中所繪圖形，表示
+- Options:
+  - 1. 丁型接頭
+  - 2. 直管接頭
+  - 3. 彎管接頭
+  - 4. 由令接頭
+
+## water-pipe-fitting-c:01600-01-034
+
+- Replacement PNG: `public/question-images/016003-01600-01-034.png`
+- App path: `/question-images/016003-01600-01-034.png`
+- Linked uploaded image:
+  - `/question-images/016003-01600-01-034.png`
+- Current fallback page: `/question-pages/01600-page-5.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 管塞於管路圖上的表示符號為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## water-pipe-fitting-c:01600-01-035
+
+- Replacement PNG: `public/question-images/016003-01600-01-035.png`
+- App path: `/question-images/016003-01600-01-035.png`
+- Linked uploaded image:
+  - `/question-images/016003-01600-01-035.png`
+- Current fallback page: `/question-pages/01600-page-5.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 依據 CNS 管路製圖之標準，下列何者為旋塞閥（Plug Valve）之符號？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## water-pipe-fitting-c:01600-01-036
+
+- Replacement PNG: `public/question-images/016003-01600-01-036.png`
+- App path: `/question-images/016003-01600-01-036.png`
+- Linked uploaded image:
+  - `/question-images/016003-01600-01-036.png`
+- Current fallback page: `/question-pages/01600-page-5.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 依據 CNS 管路製圖之標準，何者為控制閥（Control Valve）之符號？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## water-pipe-fitting-c:01600-01-066
+
+- Replacement PNG: `public/question-images/016003-01600-01-066.png`
+- App path: `/question-images/016003-01600-01-066.png`
+- Linked uploaded image:
+  - `/question-images/016003-01600-01-066.png`
+- Current fallback page: `/question-pages/01600-page-6.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 鋼製對接銲接式 90°彎頭，如僅以下圖之符號表示，而未加以文字註明，則此彎頭為何種彎頭？
+- Options:
+  - 1. 短徑
+  - 2. 長徑
+  - 3. 中徑
+  - 4. 平徑
+
+## water-pipe-fitting-c:01600-01-097
+
+- Replacement PNG: `public/question-images/016003-01600-01-097.png`
+- App path: `/question-images/016003-01600-01-097.png`
+- Linked uploaded image:
+  - `/question-images/016003-01600-01-097.png`
+- Current fallback page: `/question-pages/01600-page-8.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 如下圖所示為一管路平面圖，表示
+- Options:
+  - 1. A 管較 B 管高
+  - 2. A 管與 B 管同高
+  - 3. B 管較 A 管高
+  - 4. A 管與 B 管不可能連通
+
+## water-pipe-fitting-c:01600-01-098
+
+- Replacement PNG: `public/question-images/016003-01600-01-098.png`
+- App path: `/question-images/016003-01600-01-098.png`
+- Linked uploaded image:
+  - `/question-images/016003-01600-01-098.png`
+- Current fallback page: `/question-pages/01600-page-8.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 如下圖所示延性鑄鐵管之管件符號是表示
+- Options:
+  - 1. 單凸緣式直管
+  - 2. 單凸緣式彎管
+  - 3. 單凸緣短管
+  - 4. 承插式直管
+
+## water-pipe-fitting-c:01600-01-102
+
+- Replacement PNG: `public/question-images/016003-01600-01-102.png`
+- App path: `/question-images/016003-01600-01-102.png`
+- Linked uploaded image:
+  - `/question-images/016003-01600-01-102.png`
+- Current fallback page: `/question-pages/01600-page-8.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 依據 CNS 工程製圖之標準，如下圖投影法之表示法，代表此圖係採第幾角畫法？
+- Options:
+  - 1. 第一角
+  - 2. 第二角
+  - 3. 第三角
+  - 4. 第四角
+
+## water-pipe-fitting-c:01600-01-104
+
+- Replacement PNG: `public/question-images/016003-01600-01-104.png`
+- App path: `/question-images/016003-01600-01-104.png`
+- Linked uploaded image:
+  - `/question-images/016003-01600-01-104.png`
+- Current fallback page: `/question-pages/01600-page-8.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 依據 CNS 管路製圖之標準，何者為球形閥（Globe Valve）之符號？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## water-pipe-fitting-c:01600-01-105
+
+- Replacement PNG: `public/question-images/016003-01600-01-105.png`
+- App path: `/question-images/016003-01600-01-105.png`
+- Linked uploaded image:
+  - `/question-images/016003-01600-01-105.png`
+- Current fallback page: `/question-pages/01600-page-9.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 依據 CNS 管路製圖之標準，何者為球塞閥（Ball Valve）之符號？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## water-pipe-fitting-c:01600-01-106
+
+- Replacement PNG: `public/question-images/016003-01600-01-106.png`
+- App path: `/question-images/016003-01600-01-106.png`
+- Linked uploaded image:
+  - `/question-images/016003-01600-01-106.png`
+- Current fallback page: `/question-pages/01600-page-9.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 依據 CNS 管路製圖之標準，何者為釋壓閥（Relief Valve）之符號？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## water-pipe-fitting-c:01600-01-107
+
+- Replacement PNG: `public/question-images/016003-01600-01-107.png`
+- App path: `/question-images/016003-01600-01-107.png`
+- Linked uploaded image:
+  - `/question-images/016003-01600-01-107.png`
+- Current fallback page: `/question-pages/01600-page-9.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 自來水用水設備圖例之符號係表示
+- Options:
+  - 1. 螺紋式水表
+  - 2. 50 ㎜以上大型水表
+  - 3. 立管
+  - 4. 雙線管路端視圖
+
+## water-pipe-fitting-c:01600-03-013
+
+- Replacement PNG: `public/question-images/016003-01600-03-013.png`
+- App path: `/question-images/016003-01600-03-013.png`
+- Linked uploaded image:
+  - `/question-images/016003-01600-03-013.png`
+- Current fallback page: `/question-pages/01600-page-16.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 管彎曲長度之計算公式為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## water-pipe-fitting-c:01600-06-011
+
+- Replacement PNG: `public/question-images/016003-01600-06-011.png`
+- App path: `/question-images/016003-01600-06-011.png`
+- Linked uploaded image:
+  - `/question-images/016003-01600-06-011.png`
+- Current fallback page: `/question-pages/01600-page-34.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖∮150 ㎜鑄鐵管內注入清水後，兩管端以盲蓋封閉，平置於甲、乙二支台上，鑄鐵管之重量（包括盲蓋）為 34 ㎏/m，管內清水容量為 72 公升，則甲支台之支持重量為幾公斤？
+- Options:
+  - 1. 53
+  - 2. 104
+  - 3. 212
+  - 4. 106
+
+## water-pipe-fitting-c:01600-06-020
+
+- Replacement PNG: `public/question-images/016003-01600-06-020.png`
+- App path: `/question-images/016003-01600-06-020.png`
+- Linked uploaded image:
+  - `/question-images/016003-01600-06-020.png`
+- Current fallback page: `/question-pages/01600-page-35.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 配水管路於彎管處，須設置混凝土固定台予以固定，下列圖中何者強度為最佳？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
 ## car-repair-c:02000-01-007
 
 - Replacement PNG: `public/question-images/02000-01-007.png`
@@ -2625,6 +3169,2182 @@ Total active image questions: 286
   - 3. b-c 是將螺栓放鬆到 0kg-m
   - 4. 鎖到 e 之後要再鎖緊 90 度角
 
+## industrial-electronics-c:02800-02-003
+
+- Replacement PNG: `public/question-images/028003-02800-02-003.png`
+- App path: `/question-images/028003-02800-02-003.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-003.png`
+- Current fallback page: `/question-pages/02800-page-2.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖之展開圖為第幾象限投影法之視圖排列位置？
+- Options:
+  - 1. 第一
+  - 2. 第二
+  - 3. 第三
+  - 4. 第四
+
+## industrial-electronics-c:02800-02-005
+
+- Replacement PNG: `public/question-images/028003-02800-02-005.png`
+- App path: `/question-images/028003-02800-02-005.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-005.png`
+- Current fallback page: `/question-pages/02800-page-2.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 以下四種線條何者是中心線
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-electronics-c:02800-02-006
+
+- Replacement PNG: `public/question-images/028003-02800-02-006.png`
+- App path: `/question-images/028003-02800-02-006.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-006.png`
+- Current fallback page: `/question-pages/02800-page-2.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 左圖的右側視圖是
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-electronics-c:02800-02-010
+
+- Replacement PNG: `public/question-images/028003-02800-02-010.png`
+- App path: `/question-images/028003-02800-02-010.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-010.png`
+- Current fallback page: `/question-pages/02800-page-2.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下列何者為電動機的符號
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-electronics-c:02800-02-011
+
+- Replacement PNG: `public/question-images/028003-02800-02-011.png`
+- App path: `/question-images/028003-02800-02-011.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-011.png`
+- Current fallback page: `/question-pages/02800-page-2.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖符號表示
+- Options:
+  - 1. 電熱線
+  - 2. 熱電偶
+  - 3. 焊接點
+  - 4. 音叉
+
+## industrial-electronics-c:02800-02-012
+
+- Replacement PNG: `public/question-images/028003-02800-02-012.png`
+- App path: `/question-images/028003-02800-02-012.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-012.png`
+- Current fallback page: `/question-pages/02800-page-2.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖符號為
+- Options:
+  - 1. 二極體
+  - 2. 電容器
+  - 3. 石英晶體
+  - 4. 變容二極體
+
+## industrial-electronics-c:02800-02-013
+
+- Replacement PNG: `public/question-images/028003-02800-02-013.png`
+- App path: `/question-images/028003-02800-02-013.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-013.png`
+- Current fallback page: `/question-pages/02800-page-2.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下列何者為發光二極體的符號
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-electronics-c:02800-02-014
+
+- Replacement PNG: `public/question-images/028003-02800-02-014.png`
+- App path: `/question-images/028003-02800-02-014.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-014.png`
+- Current fallback page: `/question-pages/02800-page-2.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖符號為
+- Options:
+  - 1. 稽納二極體
+  - 2. 整流二極體
+  - 3. 通道二極體
+  - 4. 發光二極體
+
+## industrial-electronics-c:02800-02-015
+
+- Replacement PNG: `public/question-images/028003-02800-02-015.png`
+- App path: `/question-images/028003-02800-02-015.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-015.png`
+- Current fallback page: `/question-pages/02800-page-2.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖符號為
+- Options:
+  - 1. 變壓器
+  - 2. 單刀雙擲開關
+  - 3. 電感器
+  - 4. 繼電器
+
+## industrial-electronics-c:02800-02-016
+
+- Replacement PNG: `public/question-images/028003-02800-02-016.png`
+- App path: `/question-images/028003-02800-02-016.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-016.png`
+- Current fallback page: `/question-pages/02800-page-3.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖符號為
+- Options:
+  - 1. 橋式整流器
+  - 2. 發光二極體
+  - 3. 光耦合器
+  - 4. 光電晶體
+
+## industrial-electronics-c:02800-02-017
+
+- Replacement PNG: `public/question-images/028003-02800-02-017.png`
+- App path: `/question-images/028003-02800-02-017.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-017.png`
+- Current fallback page: `/question-pages/02800-page-3.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖符號為
+- Options:
+  - 1. 單極單投（SPST）
+  - 2. 單極雙投（SPDT）
+  - 3. 雙極單投（DPST）
+  - 4. 雙極雙投（DPDT）
+
+## industrial-electronics-c:02800-02-018
+
+- Replacement PNG: `public/question-images/028003-02800-02-018.png`
+- App path: `/question-images/028003-02800-02-018.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-018.png`
+- Current fallback page: `/question-pages/02800-page-3.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖符號為
+- Options:
+  - 1. 微動開關
+  - 2. 限時動作接點
+  - 3. 限時復歸接點
+  - 4. 按鈕開關
+
+## industrial-electronics-c:02800-02-020
+
+- Replacement PNG: `public/question-images/028003-02800-02-020.png`
+- App path: `/question-images/028003-02800-02-020.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-020.png`
+- Current fallback page: `/question-pages/02800-page-3.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 可交、直流兩用的電表，其面板上的表示符號為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-electronics-c:02800-02-021
+
+- Replacement PNG: `public/question-images/028003-02800-02-021.png`
+- App path: `/question-images/028003-02800-02-021.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-021.png`
+- Current fallback page: `/question-pages/02800-page-3.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖符號為
+- Options:
+  - 1. UJT
+  - 2. SCR
+  - 3. PUT
+  - 4. GTO
+
+## industrial-electronics-c:02800-02-022
+
+- Replacement PNG: `public/question-images/028003-02800-02-022.png`
+- App path: `/question-images/028003-02800-02-022.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-022.png`
+- Current fallback page: `/question-pages/02800-page-3.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖符號為
+- Options:
+  - 1. 矽控整流器
+  - 2. 受光二極體
+  - 3. 光閘流體
+  - 4. 雙向閘流體
+
+## industrial-electronics-c:02800-02-023
+
+- Replacement PNG: `public/question-images/028003-02800-02-023.png`
+- App path: `/question-images/028003-02800-02-023.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-023.png`
+- Current fallback page: `/question-pages/02800-page-3.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖符號為
+- Options:
+  - 1. DIAC
+  - 2. SUS
+  - 3. SSS
+  - 4. SBS
+
+## industrial-electronics-c:02800-02-024
+
+- Replacement PNG: `public/question-images/028003-02800-02-024.png`
+- App path: `/question-images/028003-02800-02-024.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-024.png`
+- Current fallback page: `/question-pages/02800-page-3.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下列何者為“UJT”之符號？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-electronics-c:02800-02-025
+
+- Replacement PNG: `public/question-images/028003-02800-02-025.png`
+- App path: `/question-images/028003-02800-02-025.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-025.png`
+- Current fallback page: `/question-pages/02800-page-3.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖所標示之“8”為
+- Options:
+  - 1. 8 公分
+  - 2. 8 英吋
+  - 3. 8 倍尺寸
+  - 4. 8 條資料線
+
+## industrial-electronics-c:02800-02-026
+
+- Replacement PNG: `public/question-images/028003-02800-02-026.png`
+- App path: `/question-images/028003-02800-02-026.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-026.png`
+- Current fallback page: `/question-pages/02800-page-3.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖所示之 E 訊號為
+- Options:
+  - 1. 低電位致能
+  - 2. 反向輸出
+  - 3. 浮接點
+  - 4. 接地點
+
+## industrial-electronics-c:02800-02-027
+
+- Replacement PNG: `public/question-images/028003-02800-02-027.png`
+- App path: `/question-images/028003-02800-02-027.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-027.png`
+- Current fallback page: `/question-pages/02800-page-3.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 在數位邏輯中，反或閘的符號為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-electronics-c:02800-02-028
+
+- Replacement PNG: `public/question-images/028003-02800-02-028.png`
+- App path: `/question-images/028003-02800-02-028.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-028.png`
+- Current fallback page: `/question-pages/02800-page-3.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖符號為何種邏輯？
+- Options:
+  - 1. OR
+  - 2. AND
+  - 3. NAND
+  - 4. NOR
+
+## industrial-electronics-c:02800-02-029
+
+- Replacement PNG: `public/question-images/028003-02800-02-029.png`
+- App path: `/question-images/028003-02800-02-029.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-029.png`
+- Current fallback page: `/question-pages/02800-page-4.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖符號表示何種閘？
+- Options:
+  - 1. 集極開路輸出
+  - 2. 射極開路輸出
+  - 3. 集極閉路輸出
+  - 4. 射極閉路輸出
+
+## industrial-electronics-c:02800-02-030
+
+- Replacement PNG: `public/question-images/028003-02800-02-030.png`
+- App path: `/question-images/028003-02800-02-030.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-030.png`
+- Current fallback page: `/question-pages/02800-page-4.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖符號為
+- Options:
+  - 1. A 型排阻
+  - 2. B 型排阻
+  - 3. C 型排阻
+  - 4. D 型排阻
+
+## industrial-electronics-c:02800-02-031
+
+- Replacement PNG: `public/question-images/028003-02800-02-031.png`
+- App path: `/question-images/028003-02800-02-031.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-031.png`
+- Current fallback page: `/question-pages/02800-page-4.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖 DIPIC 頂視圖，第一支接腳位置在
+- Options:
+  - 1. A 腳
+  - 2. B 腳
+  - 3. C 腳
+  - 4. D 腳
+
+## industrial-electronics-c:02800-02-032
+
+- Replacement PNG: `public/question-images/028003-02800-02-032.png`
+- App path: `/question-images/028003-02800-02-032.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-032.png`
+- Current fallback page: `/question-pages/02800-page-4.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖符號為
+- Options:
+  - 1. AND GATE
+  - 2. NOT GATE
+  - 3. OR GATE
+  - 4. NAND GATE
+
+## industrial-electronics-c:02800-02-038
+
+- Replacement PNG: `public/question-images/028003-02800-02-038.png`
+- App path: `/question-images/028003-02800-02-038.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-038.png`
+- Current fallback page: `/question-pages/02800-page-4.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖符號為
+- Options:
+  - 1. 編碼器 IC
+  - 2. 解碼器 IC
+  - 3. 解多工器 IC
+  - 4. 多工器 IC
+
+## industrial-electronics-c:02800-02-039
+
+- Replacement PNG: `public/question-images/028003-02800-02-039.png`
+- App path: `/question-images/028003-02800-02-039.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-039.png`
+- Current fallback page: `/question-pages/02800-page-4.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖符號為
+- Options:
+  - 1. 電力配電盤
+  - 2. 電力分電盤
+  - 3. 電話端子盤
+  - 4. 電燈分電盤
+
+## industrial-electronics-c:02800-02-040
+
+- Replacement PNG: `public/question-images/028003-02800-02-040.png`
+- App path: `/question-images/028003-02800-02-040.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-040.png`
+- Current fallback page: `/question-pages/02800-page-4.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖符號為
+- Options:
+  - 1. 電鈴
+  - 2. 蜂鳴器
+  - 3. 指示燈
+  - 4. 油斷路器
+
+## industrial-electronics-c:02800-02-041
+
+- Replacement PNG: `public/question-images/028003-02800-02-041.png`
+- App path: `/question-images/028003-02800-02-041.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-041.png`
+- Current fallback page: `/question-pages/02800-page-4.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 如圖電晶體零件的外型稱為
+- Options:
+  - 1. TO92
+  - 2. TO5
+  - 3. TO220
+  - 4. TO3
+
+## industrial-electronics-c:02800-02-042
+
+- Replacement PNG: `public/question-images/028003-02800-02-042.png`
+- App path: `/question-images/028003-02800-02-042.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-042.png`
+- Current fallback page: `/question-pages/02800-page-4.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 如圖 IC 封裝為
+- Options:
+  - 1. TQFP
+  - 2. DIP
+  - 3. SOP
+  - 4. PLCC
+
+## industrial-electronics-c:02800-02-043
+
+- Replacement PNG: `public/question-images/028003-02800-02-043.png`
+- App path: `/question-images/028003-02800-02-043.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-043.png`
+- Current fallback page: `/question-pages/02800-page-5.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如圖電晶體零件的外型稱為
+- Options:
+  - 1. TO92
+  - 2. TO5
+  - 3. TO220
+  - 4. TO3
+
+## industrial-electronics-c:02800-02-044
+
+- Replacement PNG: `public/question-images/028003-02800-02-044.png`
+- App path: `/question-images/028003-02800-02-044.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-044.png`
+- Current fallback page: `/question-pages/02800-page-5.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下列何者為 USB Type-A 插座
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-electronics-c:02800-02-045
+
+- Replacement PNG: `public/question-images/028003-02800-02-045.png`
+- App path: `/question-images/028003-02800-02-045.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-045.png`
+- Current fallback page: `/question-pages/02800-page-5.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖元件符號為
+- Options:
+  - 1. N 通道 JFET
+  - 2. P 通道 DE-MOSFET
+  - 3. N 通道 E-MOSFET
+  - 4. PNP 電晶體
+
+## industrial-electronics-c:02800-02-046
+
+- Replacement PNG: `public/question-images/028003-02800-02-046.png`
+- App path: `/question-images/028003-02800-02-046.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-046.png`
+- Current fallback page: `/question-pages/02800-page-5.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖電子電路符號為
+- Options:
+  - 1. 電壓源
+  - 2. 電流源
+  - 3. 伏特計
+  - 4. 安培計
+
+## industrial-electronics-c:02800-02-047
+
+- Replacement PNG: `public/question-images/028003-02800-02-047.png`
+- App path: `/question-images/028003-02800-02-047.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-047.png`
+- Current fallback page: `/question-pages/02800-page-5.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖所示之 CLK 端的三角符號表示？
+- Options:
+  - 1. 邊緣觸發
+  - 2. 重設控制
+  - 3. 延遲輸入
+  - 4. 單向導通
+
+## industrial-electronics-c:02800-02-048
+
+- Replacement PNG: `public/question-images/028003-02800-02-048.png`
+- App path: `/question-images/028003-02800-02-048.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-048.png`
+- Current fallback page: `/question-pages/02800-page-5.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖所示之符號為？
+- Options:
+  - 1. 紅色指示燈
+  - 2. 白色指示燈
+  - 3. 黃色指示燈
+  - 4. 綠色指示燈
+
+## industrial-electronics-c:02800-02-049
+
+- Replacement PNG: `public/question-images/028003-02800-02-049.png`
+- App path: `/question-images/028003-02800-02-049.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-049.png`
+- Current fallback page: `/question-pages/02800-page-5.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下列圖示哪一個是 PNP 電晶體？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-electronics-c:02800-02-050
+
+- Replacement PNG: `public/question-images/028003-02800-02-050.png`
+- App path: `/question-images/028003-02800-02-050.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-050.png`
+- Current fallback page: `/question-pages/02800-page-5.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖所示的電晶體為何種電晶體？
+- Options:
+  - 1. 單載子電晶體
+  - 2. 光電晶體
+  - 3. 功率電晶體
+  - 4. 穩壓電晶體
+
+## industrial-electronics-c:02800-02-052
+
+- Replacement PNG: `public/question-images/028003-02800-02-052.png`
+- App path: `/question-images/028003-02800-02-052.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-052.png`
+- Current fallback page: `/question-pages/02800-page-6.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖符號為？
+- Options:
+  - 1. 直流電壓源
+  - 2. 交流電壓源
+  - 3. 保險絲
+  - 4. 指撥開關
+
+## industrial-electronics-c:02800-02-053
+
+- Replacement PNG: `public/question-images/028003-02800-02-053.png`
+- App path: `/question-images/028003-02800-02-053.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-053.png`
+- Current fallback page: `/question-pages/02800-page-6.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖符號為？
+- Options:
+  - 1. 電感
+  - 2. 電阻
+  - 3. 電容
+  - 4. 電磁線圈
+
+## industrial-electronics-c:02800-02-054
+
+- Replacement PNG: `public/question-images/028003-02800-02-054.png`
+- App path: `/question-images/028003-02800-02-054.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-054.png`
+- Current fallback page: `/question-pages/02800-page-6.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖符號為？
+- Options:
+  - 1. 發光二極體
+  - 2. 光電晶體
+  - 3. 電解電容
+  - 4. 太陽電池
+
+## industrial-electronics-c:02800-02-056
+
+- Replacement PNG: `public/question-images/028003-02800-02-056.png`
+- App path: `/question-images/028003-02800-02-056.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-056.png`
+- Current fallback page: `/question-pages/02800-page-6.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖符號為？
+- Options:
+  - 1. 水泥電阻
+  - 2. 可變電阻
+  - 3. 固定抽頭電阻
+  - 4. 熱敏電阻
+
+## industrial-electronics-c:02800-02-057
+
+- Replacement PNG: `public/question-images/028003-02800-02-057.png`
+- App path: `/question-images/028003-02800-02-057.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-057.png`
+- Current fallback page: `/question-pages/02800-page-6.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖符號為？
+- Options:
+  - 1. 直流電壓源
+  - 2. 交流電壓源
+  - 3. 保險絲
+  - 4. 指撥開關
+
+## industrial-electronics-c:02800-04-025
+
+- Replacement PNG: `public/question-images/028003-02800-04-025.png`
+- App path: `/question-images/028003-02800-04-025.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-04-025.png`
+- Current fallback page: `/question-pages/02800-page-10.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖以布林（Boolean）代數式表示為
+- Options:
+  - 1. F＝A‧B
+  - 2. F＝A＋B
+  - 3. F＝A⊕B
+  - 4. F＝A⊙B
+
+## industrial-electronics-c:02800-05-002
+
+- Replacement PNG: `public/question-images/028003-02800-05-002.png`
+- App path: `/question-images/028003-02800-05-002.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-05-002.png`
+- Current fallback page: `/question-pages/02800-page-12.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖為線束十字線，束線打結的間隔 L 要小於
+- Options:
+  - 1. 5mm
+  - 2. 10mm
+  - 3. 15mm
+  - 4. 30mm
+
+## industrial-electronics-c:02800-05-006
+
+- Replacement PNG: `public/question-images/028003-02800-05-006.png`
+- App path: `/question-images/028003-02800-05-006.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-05-006.png`
+- Current fallback page: `/question-pages/02800-page-12.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 以 IC 腳焊接為例，下列各焊點何者最佳：
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-electronics-c:02800-06-007
+
+- Replacement PNG: `public/question-images/028003-02800-06-007.png`
+- App path: `/question-images/028003-02800-06-007.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-06-007.png`
+- Current fallback page: `/question-pages/02800-page-15.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 測定電熱器(H)之消耗電力時，電壓表 (V)及電流表(A)之正確接線為：
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-electronics-c:02800-06-017
+
+- Replacement PNG: `public/question-images/028003-02800-06-017.png`
+- App path: `/question-images/028003-02800-06-017.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-06-017.png`
+- Current fallback page: `/question-pages/02800-page-16.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 將示波器用 10：1 測試棒接示波器之校準信號，顯示下圖波形時則表示
+- Options:
+  - 1. 過度補償
+  - 2. 補償不足
+  - 3. 正確的補償
+  - 4. 無補償
+
+## industrial-electronics-c:02800-07-007
+
+- Replacement PNG: `public/question-images/028003-02800-07-007.png`
+- App path: `/question-images/028003-02800-07-007.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-07-007.png`
+- Current fallback page: `/question-pages/02800-page-18.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 使用指針式三用電表量測下圖 A-B 間電壓時，黑棒應置於
+- Options:
+  - 1. A 點
+  - 2. B 點
+  - 3. C 點
+  - 4. 任意點
+
+## industrial-electronics-c:02800-07-008
+
+- Replacement PNG: `public/question-images/028003-02800-07-008.png`
+- App path: `/question-images/028003-02800-07-008.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-07-008.png`
+- Current fallback page: `/question-pages/02800-page-18.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖若 A-B 間電壓為 1V，則 RX /RB 應等於
+- Options:
+  - 1. 10
+  - 2. 9
+  - 3. 8
+  - 4. 7
+
+## industrial-electronics-c:02800-07-009
+
+- Replacement PNG: `public/question-images/028003-02800-07-009.png`
+- App path: `/question-images/028003-02800-07-009.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-07-009.png`
+- Current fallback page: `/question-pages/02800-page-18.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖若 3kΩ開路，則 A-B 間電壓為
+- Options:
+  - 1. 10V
+  - 2. 6V
+  - 3. 4V
+  - 4. 0V
+
+## industrial-electronics-c:02800-07-011
+
+- Replacement PNG: `public/question-images/028003-02800-07-011.png`
+- App path: `/question-images/028003-02800-07-011.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-07-011.png`
+- Current fallback page: `/question-pages/02800-page-18.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖 O/P 與 I/P 之關係為
+- Options:
+  - 1. F o c V
+  - 2. F o c I
+  - 3. I o c F
+  - 4. V o c F
+
+## industrial-electronics-c:02800-07-012
+
+- Replacement PNG: `public/question-images/028003-02800-07-012.png`
+- App path: `/question-images/028003-02800-07-012.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-07-012.png`
+- Current fallback page: `/question-pages/02800-page-18.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖 O/P 與 I/P 之關係為
+- Options:
+  - 1. I o c V
+  - 2. V o c I
+  - 3. F o c I
+  - 4. I o c F
+
+## industrial-electronics-c:02800-07-015
+
+- Replacement PNG: `public/question-images/028003-02800-07-015.png`
+- App path: `/question-images/028003-02800-07-015.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-07-015.png`
+- Current fallback page: `/question-pages/02800-page-18.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖所示在 S1 閉合後瞬間以示波器量測 A-B 間電位之變化
+- Options:
+  - 1. 先升高後下降
+  - 2. 先下降後升高
+  - 3. 沒有變化
+  - 4. 高低任意變化
+
+## industrial-electronics-c:02800-07-048
+
+- Replacement PNG: `public/question-images/028003-02800-07-048.png`
+- App path: `/question-images/028003-02800-07-048.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-07-048.png`
+- Current fallback page: `/question-pages/02800-page-20.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 三角波的波形是
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-electronics-c:02800-08-004
+
+- Replacement PNG: `public/question-images/028003-02800-08-004.png`
+- App path: `/question-images/028003-02800-08-004.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-004.png`
+- Current fallback page: `/question-pages/02800-page-21.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖電路所示，V 2 的電壓降應為
+- Options:
+  - 1. 9V
+  - 2. 6V
+  - 3. 3V
+  - 4. 2V
+
+## industrial-electronics-c:02800-08-005
+
+- Replacement PNG: `public/question-images/028003-02800-08-005.png`
+- App path: `/question-images/028003-02800-08-005.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-005.png`
+- Current fallback page: `/question-pages/02800-page-21.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖電路所示，總電阻 RT 應為
+- Options:
+  - 1. 1Ω
+  - 2. 1.5Ω
+  - 3. 2Ω
+  - 4. 3Ω
+
+## industrial-electronics-c:02800-08-006
+
+- Replacement PNG: `public/question-images/028003-02800-08-006.png`
+- App path: `/question-images/028003-02800-08-006.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-006.png`
+- Current fallback page: `/question-pages/02800-page-21.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 兩電感串聯考慮互感時總電量為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-electronics-c:02800-08-008
+
+- Replacement PNG: `public/question-images/028003-02800-08-008.png`
+- App path: `/question-images/028003-02800-08-008.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-008.png`
+- Current fallback page: `/question-pages/02800-page-21.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖所示，I 2 之電流應為
+- Options:
+  - 1. 1A
+  - 2. 1.5A
+  - 3. 2A
+  - 4. 3A
+
+## industrial-electronics-c:02800-08-012
+
+- Replacement PNG: `public/question-images/028003-02800-08-012.png`
+- App path: `/question-images/028003-02800-08-012.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-012.png`
+- Current fallback page: `/question-pages/02800-page-21.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 一交流電路中，υ(t)＝30 cos(200t＋15°)伏特，i(t)＝0.5 cos(200t＋75°)安培，則此電路之功率因數為
+- Options:
+  - 1. 0.886
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 0.5
+
+## industrial-electronics-c:02800-08-013
+
+- Replacement PNG: `public/question-images/028003-02800-08-013.png`
+- App path: `/question-images/028003-02800-08-013.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-013.png`
+- Current fallback page: `/question-pages/02800-page-21.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: RLC 並聯電路其諧振頻率為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-electronics-c:02800-08-015
+
+- Replacement PNG: `public/question-images/028003-02800-08-015.png`
+- App path: `/question-images/028003-02800-08-015.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-015.png`
+- Current fallback page: `/question-pages/02800-page-22.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖υ(t)＝12     cos ωt 伏特則其總電流之有效值 I       為
+- Options:
+  - 1. 1A
+  - 2. 2A
+  - 3. 5A
+  - 4. 7A
+
+## industrial-electronics-c:02800-08-017
+
+- Replacement PNG: `public/question-images/028003-02800-08-017.png`
+- App path: `/question-images/028003-02800-08-017.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-017.png`
+- Current fallback page: `/question-pages/02800-page-22.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖電感器兩端之電壓為
+- Options:
+  - 1. 10V
+  - 2. 20V
+  - 3. 30V
+  - 4. 50V
+
+## industrial-electronics-c:02800-08-021
+
+- Replacement PNG: `public/question-images/028003-02800-08-021.png`
+- App path: `/question-images/028003-02800-08-021.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-021.png`
+- Current fallback page: `/question-pages/02800-page-22.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 將極座標 6       ∠135°換為直角座標得
+- Options:
+  - 1. 6＋j6
+  - 2. 6－j6
+  - 3. －6－j6
+  - 4. －6＋j6
+
+## industrial-electronics-c:02800-08-027
+
+- Replacement PNG: `public/question-images/028003-02800-08-027.png`
+- App path: `/question-images/028003-02800-08-027.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-027.png`
+- Current fallback page: `/question-pages/02800-page-23.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖何者是線性電阻器的特性曲線？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-electronics-c:02800-08-030
+
+- Replacement PNG: `public/question-images/028003-02800-08-030.png`
+- App path: `/question-images/028003-02800-08-030.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-030.png`
+- Current fallback page: `/question-pages/02800-page-23.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖中 L 為
+- Options:
+  - 1. 抗流線圈
+  - 2. 抗壓線圈
+  - 3. 音頻線圈
+  - 4. 高週線圈
+
+## industrial-electronics-c:02800-08-032
+
+- Replacement PNG: `public/question-images/028003-02800-08-032.png`
+- App path: `/question-images/028003-02800-08-032.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-032.png`
+- Current fallback page: `/question-pages/02800-page-23.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖之電路，已達穩定狀態，則由電壓源所供給的電流 (I)約等於
+- Options:
+  - 1. 5A
+  - 2. 10A
+  - 3. 0A
+  - 4. 20A
+
+## industrial-electronics-c:02800-08-036
+
+- Replacement PNG: `public/question-images/028003-02800-08-036.png`
+- App path: `/question-images/028003-02800-08-036.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-036.png`
+- Current fallback page: `/question-pages/02800-page-23.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 相同的電容器ｎ個串聯時，其電容量為並聯時之
+- Options:
+  - 1. 1/ｎ 2
+  - 2. 1/ｎ
+  - 3. ｎ
+  - 4. ｎ2   倍
+
+## industrial-electronics-c:02800-08-039
+
+- Replacement PNG: `public/question-images/028003-02800-08-039.png`
+- App path: `/question-images/028003-02800-08-039.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-039.png`
+- Current fallback page: `/question-pages/02800-page-24.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖各電容器之單位為μF，則 A、B 間總電容量為
+- Options:
+  - 1. 3μF
+  - 2. 5μF
+  - 3. 7μF
+  - 4. 65/18μF
+
+## industrial-electronics-c:02800-08-040
+
+- Replacement PNG: `public/question-images/028003-02800-08-040.png`
+- App path: `/question-images/028003-02800-08-040.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-040.png`
+- Current fallback page: `/question-pages/02800-page-24.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖順時鐘（向下）調整可變電阻 A、B 之間的電阻值
+- Options:
+  - 1. 愈來愈大
+  - 2. 愈來愈小
+  - 3. 不變
+  - 4. 先小後大
+
+## industrial-electronics-c:02800-08-044
+
+- Replacement PNG: `public/question-images/028003-02800-08-044.png`
+- App path: `/question-images/028003-02800-08-044.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-044.png`
+- Current fallback page: `/question-pages/02800-page-24.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖電路，當 SW 斷路後 0.1sec 時，電容器兩端電壓為
+- Options:
+  - 1. 10V
+  - 2. 36V
+  - 3. 63V
+  - 4. 90V
+
+## industrial-electronics-c:02800-08-045
+
+- Replacement PNG: `public/question-images/028003-02800-08-045.png`
+- App path: `/question-images/028003-02800-08-045.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-045.png`
+- Current fallback page: `/question-pages/02800-page-24.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖開關 K 於 t＝0 閉合，經無限長之時間後，則電感兩端之電壓為
+- Options:
+  - 1. 2.5V
+  - 2. 10V
+  - 3. 0V
+  - 4. 3V
+
+## industrial-electronics-c:02800-08-056
+
+- Replacement PNG: `public/question-images/028003-02800-08-056.png`
+- App path: `/question-images/028003-02800-08-056.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-056.png`
+- Current fallback page: `/question-pages/02800-page-25.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖中 A 2 ＝3 安培，則 A 1 為
+- Options:
+  - 1. 6A
+  - 2. 9A
+  - 3. 12A
+  - 4. 15A
+
+## industrial-electronics-c:02800-08-077
+
+- Replacement PNG: `public/question-images/028003-02800-08-077.png`
+- App path: `/question-images/028003-02800-08-077.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-077.png`
+- Current fallback page: `/question-pages/02800-page-26.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖所示之電橋平衡時，Rx 值為
+- Options:
+  - 1. R 3 /(R 1 R 2 )
+  - 2. R 1 R 2 /R 3
+  - 3. (R 3 /R 1 )R 2
+  - 4. (R 3 /R 2 )R 1
+
+## industrial-electronics-c:02800-08-080
+
+- Replacement PNG: `public/question-images/028003-02800-08-080.png`
+- App path: `/question-images/028003-02800-08-080.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-080.png`
+- Current fallback page: `/question-pages/02800-page-26.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: RLC 串聯諧振電路，其阻抗 Z＝
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. R
+  - 4. 圖示選項 4
+
+## industrial-electronics-c:02800-08-086
+
+- Replacement PNG: `public/question-images/028003-02800-08-086.png`
+- App path: `/question-images/028003-02800-08-086.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-086.png`
+- Current fallback page: `/question-pages/02800-page-27.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖 A、B 兩點間之總電容量 CA B ＝
+- Options:
+  - 1. 1μF
+  - 2. 2μF
+  - 3. 1.5μF
+  - 4. 4μF
+
+## industrial-electronics-c:02800-08-087
+
+- Replacement PNG: `public/question-images/028003-02800-08-087.png`
+- App path: `/question-images/028003-02800-08-087.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-087.png`
+- Current fallback page: `/question-pages/02800-page-27.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖所示，求通過稽納二極體之電流 IZ 為
+- Options:
+  - 1. 4mA
+  - 2. 5mA
+  - 3. 9mA
+  - 4. 10mA
+
+## industrial-electronics-c:02800-08-088
+
+- Replacement PNG: `public/question-images/028003-02800-08-088.png`
+- App path: `/question-images/028003-02800-08-088.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-088.png`
+- Current fallback page: `/question-pages/02800-page-27.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖所示，求 V 0 ＝
+- Options:
+  - 1. 0V
+  - 2. 200V
+  - 3. 400V
+  - 4. 10V
+
+## industrial-electronics-c:02800-08-089
+
+- Replacement PNG: `public/question-images/028003-02800-08-089.png`
+- App path: `/question-images/028003-02800-08-089.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-089.png`
+- Current fallback page: `/question-pages/02800-page-27.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 以直角座標相量表示 10∠30°＝
+- Options:
+  - 1. 5－j5
+  - 2. 5＋j5
+  - 3. 5   ＋j5
+  - 4. 5－j5
+
+## industrial-electronics-c:02800-08-090
+
+- Replacement PNG: `public/question-images/028003-02800-08-090.png`
+- App path: `/question-images/028003-02800-08-090.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-090.png`
+- Current fallback page: `/question-pages/02800-page-27.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖所示，I＝40mA，I 1 =I 2，則 R 1 之值為
+- Options:
+  - 1. 100Ω
+  - 2. 150Ω
+  - 3. 200Ω
+  - 4. 250Ω
+
+## industrial-electronics-c:02800-08-091
+
+- Replacement PNG: `public/question-images/028003-02800-08-091.png`
+- App path: `/question-images/028003-02800-08-091.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-091.png`
+- Current fallback page: `/question-pages/02800-page-27.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖所示，在開關 S 接通之瞬間線路電流 I 為
+- Options:
+  - 1. 1A
+  - 2. 2A
+  - 3. 4A
+  - 4. 5A
+
+## industrial-electronics-c:02800-08-092
+
+- Replacement PNG: `public/question-images/028003-02800-08-092.png`
+- App path: `/question-images/028003-02800-08-092.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-092.png`
+- Current fallback page: `/question-pages/02800-page-27.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖所示，若 E、R 1、R 2 不變，則 R 3 增加時，R 2 的電流將
+- Options:
+  - 1. 增加
+  - 2. 減少
+  - 3. 不變
+  - 4. 不一定
+
+## industrial-electronics-c:02800-08-093
+
+- Replacement PNG: `public/question-images/028003-02800-08-093.png`
+- App path: `/question-images/028003-02800-08-093.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-093.png`
+- Current fallback page: `/question-pages/02800-page-28.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖所示，求 A、B 兩端戴維寧等效電阻為
+- Options:
+  - 1. 2Ω
+  - 2. 3Ω
+  - 3. 5Ω
+  - 4. 8Ω
+
+## industrial-electronics-c:02800-08-094
+
+- Replacement PNG: `public/question-images/028003-02800-08-094.png`
+- App path: `/question-images/028003-02800-08-094.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-094.png`
+- Current fallback page: `/question-pages/02800-page-28.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖所示，電流表 A 之讀數為 4A 時，A、B 兩端之電壓為
+- Options:
+  - 1. 48V
+  - 2. 60V
+  - 3. 72V
+  - 4. 80V
+
+## industrial-electronics-c:02800-08-095
+
+- Replacement PNG: `public/question-images/028003-02800-08-095.png`
+- App path: `/question-images/028003-02800-08-095.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-095.png`
+- Current fallback page: `/question-pages/02800-page-28.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖所示，V d c 為
+- Options:
+  - 1. -32V
+  - 2. 36V
+  - 3. 48V
+  - 4. -48V
+
+## industrial-electronics-c:02800-08-097
+
+- Replacement PNG: `public/question-images/028003-02800-08-097.png`
+- App path: `/question-images/028003-02800-08-097.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-097.png`
+- Current fallback page: `/question-pages/02800-page-28.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖所示，A、B 間總電阻為
+- Options:
+  - 1. 4Ω
+  - 2. 5Ω
+  - 3. 6Ω
+  - 4. 8Ω
+
+## industrial-electronics-c:02800-08-098
+
+- Replacement PNG: `public/question-images/028003-02800-08-098.png`
+- App path: `/question-images/028003-02800-08-098.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-098.png`
+- Current fallback page: `/question-pages/02800-page-28.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖所示，當發生諧振時，線路電流為
+- Options:
+  - 1. 5A
+  - 2. 10A
+  - 3. 15A
+  - 4. 20A
+
+## industrial-electronics-c:02800-08-099
+
+- Replacement PNG: `public/question-images/028003-02800-08-099.png`
+- App path: `/question-images/028003-02800-08-099.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-099.png`
+- Current fallback page: `/question-pages/02800-page-29.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖所示，則下列何者正確？
+- Options:
+  - 1. IA /IB = RA /RB
+  - 2. PA = PB
+  - 3. IA = 10 × (RA /RA + RB )
+  - 4. IA = 6A，IB = 4A
+
+## industrial-electronics-c:02800-08-100
+
+- Replacement PNG: `public/question-images/028003-02800-08-100.png`
+- App path: `/question-images/028003-02800-08-100.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-100.png`
+- Current fallback page: `/question-pages/02800-page-29.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 如圖所示電路，R a b ＝？
+- Options:
+  - 1. 0
+  - 2. 5
+  - 3. 10
+  - 4. 20
+
+## industrial-electronics-c:02800-08-101
+
+- Replacement PNG: `public/question-images/028003-02800-08-101.png`
+- App path: `/question-images/028003-02800-08-101.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-101.png`
+- Current fallback page: `/question-pages/02800-page-29.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 如圖所示電路，當開關 S 閉合後，電流應為多少？
+- Options:
+  - 1. 10
+  - 2. 8
+  - 3. 5
+  - 4. 0
+
+## industrial-electronics-c:02800-08-102
+
+- Replacement PNG: `public/question-images/028003-02800-08-102.png`
+- App path: `/question-images/028003-02800-08-102.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-102.png`
+- Current fallback page: `/question-pages/02800-page-29.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如圖所示電路，若電流表 A 指示值變大，下列何種現象是正確原因？
+- Options:
+  - 1. R2 被短路
+  - 2. R2 斷路
+  - 3. R1 斷路
+  - 4. 電源電壓 E 變小
+
+## industrial-electronics-c:02800-08-103
+
+- Replacement PNG: `public/question-images/028003-02800-08-103.png`
+- App path: `/question-images/028003-02800-08-103.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-103.png`
+- Current fallback page: `/question-pages/02800-page-29.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 如圖(a)(b)所示，每只電燈皆為 12V，10W，則此六只電燈之明亮程度順序為
+- Options:
+  - 1. A＝B＞C＞D＞E＞F
+  - 2. C＞A＝B＞F＞D＝E
+  - 3. C＞F＞A＝B＞D＝E
+  - 4. C＞A＝B＞D＝E＞F
+
+## industrial-electronics-c:02800-08-109
+
+- Replacement PNG: `public/question-images/028003-02800-08-109.png`
+- App path: `/question-images/028003-02800-08-109.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-109.png`
+- Current fallback page: `/question-pages/02800-page-30.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 有兩個小容量陶瓷電容器（電容量編碼分別為 102 及 222）。今將兩個電容器如圖所示連接在一起，則其等效電容為
+- Options:
+  - 1. 32nF
+  - 2. 324nF
+  - 3. 3.2nF
+  - 4. 322nF
+
+## industrial-electronics-c:02800-08-110
+
+- Replacement PNG: `public/question-images/028003-02800-08-110.png`
+- App path: `/question-images/028003-02800-08-110.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-110.png`
+- Current fallback page: `/question-pages/02800-page-30.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 如圖所示，導體 A 及 B 所受電磁力分別為 f1 及 f2，則
+- Options:
+  - 1. f1>f2 兩力相吸引
+  - 2. f1
+  - 3. f1=f2 兩力相吸引
+  - 4. f1=f2 兩力相推斥
+
+## industrial-electronics-c:02800-08-119
+
+- Replacement PNG: `public/question-images/028003-02800-08-119.png`
+- App path: `/question-images/028003-02800-08-119.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-119.png`
+- Current fallback page: `/question-pages/02800-page-31.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖所示電路，Rab=？
+- Options:
+  - 1. 3Ω
+  - 2. 4.5Ω
+  - 3. 6Ω
+  - 4. 7Ω
+
+## industrial-electronics-c:02800-08-121
+
+- Replacement PNG: `public/question-images/028003-02800-08-121.png`
+- App path: `/question-images/028003-02800-08-121.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-121.png`
+- Current fallback page: `/question-pages/02800-page-31.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 如圖所示之電路， a、 b 兩端的諾頓（Norton）等效電流 IN 及等效電阻 RN各為何？
+- Options:
+  - 1. IN =10A， RN =8
+  - 2. IN =10A， RN =6
+  - 3. IN =5A， RN =8
+  - 4. IN =5A，RN =6
+
+## industrial-electronics-c:02800-08-122
+
+- Replacement PNG: `public/question-images/028003-02800-08-122.png`
+- App path: `/question-images/028003-02800-08-122.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-08-122.png`
+- Current fallback page: `/question-pages/02800-page-31.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如圖所示， R 3 的電阻值應該為
+- Options:
+  - 1. 1Ω
+  - 2. 2Ω
+  - 3. 4Ω
+  - 4. 8Ω
+
+## industrial-electronics-c:02800-09-006
+
+- Replacement PNG: `public/question-images/028003-02800-09-006.png`
+- App path: `/question-images/028003-02800-09-006.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-09-006.png`
+- Current fallback page: `/question-pages/02800-page-32.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖 V 輸出波形近似於
+- Options:
+  - 1. 正弦波
+  - 2. 三角波
+  - 3. 階梯波
+  - 4. 方波
+
+## industrial-electronics-c:02800-09-010
+
+- Replacement PNG: `public/question-images/028003-02800-09-010.png`
+- App path: `/question-images/028003-02800-09-010.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-09-010.png`
+- Current fallback page: `/question-pages/02800-page-32.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 一正回授電路欲使其產生正弦波振盪時，則環路增益（Loop Gain）應大約等於
+- Options:
+  - 1. 0
+  - 2. 1
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-electronics-c:02800-09-011
+
+- Replacement PNG: `public/question-images/028003-02800-09-011.png`
+- App path: `/question-images/028003-02800-09-011.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-09-011.png`
+- Current fallback page: `/question-pages/02800-page-32.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖所用之電解電容器 C 其耐壓最小要多少伏特以上？
+- Options:
+  - 1. 6V
+  - 2. 10V
+  - 3. 16V
+  - 4. 25V
+
+## industrial-electronics-c:02800-09-012
+
+- Replacement PNG: `public/question-images/028003-02800-09-012.png`
+- App path: `/question-images/028003-02800-09-012.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-09-012.png`
+- Current fallback page: `/question-pages/02800-page-33.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖，υ i 輸入一方波信號為 1kHz，在輸出未飽和情況下，輸出信號υ 0應為
+- Options:
+  - 1. 方波
+  - 2. 鋸齒波
+  - 3. 三角波
+  - 4. 矩形波
+
+## industrial-electronics-c:02800-09-013
+
+- Replacement PNG: `public/question-images/028003-02800-09-013.png`
+- App path: `/question-images/028003-02800-09-013.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-09-013.png`
+- Current fallback page: `/question-pages/02800-page-33.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖電流源為 0.1A，電壓源為 3V，R 為 100Ω，則輸出電壓υ 0 為
+- Options:
+  - 1. +13V
+  - 2. +7V
+  - 3. 0V
+  - 4. -7V
+
+## industrial-electronics-c:02800-09-014
+
+- Replacement PNG: `public/question-images/028003-02800-09-014.png`
+- App path: `/question-images/028003-02800-09-014.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-09-014.png`
+- Current fallback page: `/question-pages/02800-page-33.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖若υ i ＝20V 之 1kHz 正弦波信號，則輸出υ 0 為
+- Options:
+  - 1. VP ＝-14V 之 1kHz正弦波
+  - 2. VP ＝+14V 之 1kHz 正弦波
+  - 3. VP ＝+14V 之 1kHz 餘弦波
+  - 4. VP - P＝20V 之方波
+
+## industrial-electronics-c:02800-09-021
+
+- Replacement PNG: `public/question-images/028003-02800-09-021.png`
+- App path: `/question-images/028003-02800-09-021.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-09-021.png`
+- Current fallback page: `/question-pages/02800-page-34.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 有關下圖之敘述，下列何者為真
+- Options:
+  - 1. R 1 短路，則 VC ＝12V
+  - 2. R 1 斷路，則VC ＝12V
+  - 3. R 1 斷路，則 VC ＝0V
+  - 4. R 1 短路，則 VC ＝0V
+
+## industrial-electronics-c:02800-09-022
+
+- Replacement PNG: `public/question-images/028003-02800-09-022.png`
+- App path: `/question-images/028003-02800-09-022.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-09-022.png`
+- Current fallback page: `/question-pages/02800-page-34.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖電路其交流電壓增益約為
+- Options:
+  - 1. -2
+  - 2. -4
+  - 3. +100
+  - 4. -100
+
+## industrial-electronics-c:02800-09-023
+
+- Replacement PNG: `public/question-images/028003-02800-09-023.png`
+- App path: `/question-images/028003-02800-09-023.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-09-023.png`
+- Current fallback page: `/question-pages/02800-page-34.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖場效電晶體 r d ＝30kΩ，g m ＝2mS，則此電路在低頻時電壓增益為
+- Options:
+  - 1. -60
+  - 2. 60×1000
+  - 3. -15
+  - 4. -15×1000
+
+## industrial-electronics-c:02800-09-024
+
+- Replacement PNG: `public/question-images/028003-02800-09-024.png`
+- App path: `/question-images/028003-02800-09-024.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-09-024.png`
+- Current fallback page: `/question-pages/02800-page-35.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖電路為
+- Options:
+  - 1. 倍壓整流電路
+  - 2. 截波電路
+  - 3. 檢波電路
+  - 4. 濾波電路
+
+## industrial-electronics-c:02800-09-025
+
+- Replacement PNG: `public/question-images/028003-02800-09-025.png`
+- App path: `/question-images/028003-02800-09-025.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-09-025.png`
+- Current fallback page: `/question-pages/02800-page-35.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖 V i ＝10V，而 V 0 為
+- Options:
+  - 1. 5V
+  - 2. 5.6V
+  - 3. 6.2V
+  - 4. 10V
+
+## industrial-electronics-c:02800-09-029
+
+- Replacement PNG: `public/question-images/028003-02800-09-029.png`
+- App path: `/question-images/028003-02800-09-029.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-09-029.png`
+- Current fallback page: `/question-pages/02800-page-35.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 電晶體的共基極短路電流增益α與共射極短路電流增益β兩者之間的關係為：
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-electronics-c:02800-09-035
+
+- Replacement PNG: `public/question-images/028003-02800-09-035.png`
+- App path: `/question-images/028003-02800-09-035.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-09-035.png`
+- Current fallback page: `/question-pages/02800-page-35.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖倍壓整流電路應為多少倍
+- Options:
+  - 1. 二倍
+  - 2. 三倍
+  - 3. 四倍
+  - 4. 六倍
+
+## industrial-electronics-c:02800-09-045
+
+- Replacement PNG: `public/question-images/028003-02800-09-045.png`
+- App path: `/question-images/028003-02800-09-045.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-09-045.png`
+- Current fallback page: `/question-pages/02800-page-36.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖所示之電路，其輸入與輸出相位
+- Options:
+  - 1. 相差 180°
+  - 2. 相同
+  - 3. 相差 90°
+  - 4. 接近於 0°
+
+## industrial-electronics-c:02800-09-046
+
+- Replacement PNG: `public/question-images/028003-02800-09-046.png`
+- App path: `/question-images/028003-02800-09-046.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-09-046.png`
+- Current fallback page: `/question-pages/02800-page-37.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 共集極電路結構是
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-electronics-c:02800-09-052
+
+- Replacement PNG: `public/question-images/028003-02800-09-052.png`
+- App path: `/question-images/028003-02800-09-052.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-09-052.png`
+- Current fallback page: `/question-pages/02800-page-37.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 在電晶體參數中其代表意義為
+- Options:
+  - 1. 輸入阻抗
+  - 2. 輸出導納
+  - 3. 逆向電壓轉換比
+  - 4. 順向電流轉換比
+
+## industrial-electronics-c:02800-09-063
+
+- Replacement PNG: `public/question-images/028003-02800-09-063.png`
+- App path: `/question-images/028003-02800-09-063.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-09-063.png`
+- Current fallback page: `/question-pages/02800-page-38.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下列何者為比較器
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-electronics-c:02800-09-065
+
+- Replacement PNG: `public/question-images/028003-02800-09-065.png`
+- App path: `/question-images/028003-02800-09-065.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-09-065.png`
+- Current fallback page: `/question-pages/02800-page-38.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖為一濾波器電路，它是屬於一種
+- Options:
+  - 1. 高通濾波器
+  - 2. 低通濾波器
+  - 3. 帶通濾波器
+  - 4. 積分器
+
+## industrial-electronics-c:02800-09-081
+
+- Replacement PNG: `public/question-images/028003-02800-09-081.png`
+- App path: `/question-images/028003-02800-09-081.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-09-081.png`
+- Current fallback page: `/question-pages/02800-page-39.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖所示，二極體 D 用來作為
+- Options:
+  - 1. 半波整流
+  - 2. 保護電晶體
+  - 3. 防止雜音
+  - 4. 溫度補償
+
+## industrial-electronics-c:02800-09-083
+
+- Replacement PNG: `public/question-images/028003-02800-09-083.png`
+- App path: `/question-images/028003-02800-09-083.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-09-083.png`
+- Current fallback page: `/question-pages/02800-page-39.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖所示，A 點與接地點間之輸入阻抗約等於
+- Options:
+  - 1. RB
+  - 2. RB +RE
+  - 3. RB +RE (1+β)
+  - 4. RB +αRE
+
+## industrial-electronics-c:02800-09-146
+
+- Replacement PNG: `public/question-images/028003-02800-09-146.png`
+- App path: `/question-images/028003-02800-09-146.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-09-146.png`
+- Current fallback page: `/question-pages/02800-page-43.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 如圖所示電路，二極體為理想特性，電流 I 為
+- Options:
+  - 1. 0mA
+  - 2. 1mA
+  - 3. 0.625mA
+  - 4. 0.5mA
+
+## industrial-electronics-c:02800-10-003
+
+- Replacement PNG: `public/question-images/028003-02800-10-003.png`
+- App path: `/question-images/028003-02800-10-003.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-10-003.png`
+- Current fallback page: `/question-pages/02800-page-43.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖所示，經化簡後其最簡函數 F 為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-electronics-c:02800-10-004
+
+- Replacement PNG: `public/question-images/028003-02800-10-004.png`
+- App path: `/question-images/028003-02800-10-004.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-10-004.png`
+- Current fallback page: `/question-pages/02800-page-43.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖所示，W 為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-electronics-c:02800-10-005
+
+- Replacement PNG: `public/question-images/028003-02800-10-005.png`
+- App path: `/question-images/028003-02800-10-005.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-10-005.png`
+- Current fallback page: `/question-pages/02800-page-44.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖所示，W 為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. XY＋XY
+  - 4. X＋Y
+
+## industrial-electronics-c:02800-10-006
+
+- Replacement PNG: `public/question-images/028003-02800-10-006.png`
+- App path: `/question-images/028003-02800-10-006.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-10-006.png`
+- Current fallback page: `/question-pages/02800-page-44.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖所示若兩個反及閘皆為開集極輸出閘，其輸出 F 為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-electronics-c:02800-10-008
+
+- Replacement PNG: `public/question-images/028003-02800-10-008.png`
+- App path: `/question-images/028003-02800-10-008.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-10-008.png`
+- Current fallback page: `/question-pages/02800-page-44.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖所示若輸入端 F i n 加入一個 20kHz 之方波信號，則其輸出信號 F o u t 頻率為
+- Options:
+  - 1. 20kHz
+  - 2. 10kHz
+  - 3. 5kHz
+  - 4. 2kHz
+
+## industrial-electronics-c:02800-10-010
+
+- Replacement PNG: `public/question-images/028003-02800-10-010.png`
+- App path: `/question-images/028003-02800-10-010.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-10-010.png`
+- Current fallback page: `/question-pages/02800-page-44.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下列四個邏輯閘表示圖，何者為正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-electronics-c:02800-10-012
+
+- Replacement PNG: `public/question-images/028003-02800-10-012.png`
+- App path: `/question-images/028003-02800-10-012.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-10-012.png`
+- Current fallback page: `/question-pages/02800-page-44.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下述哪個邏輯閘具有下圖的真值表
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-electronics-c:02800-10-014
+
+- Replacement PNG: `public/question-images/028003-02800-10-014.png`
+- App path: `/question-images/028003-02800-10-014.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-10-014.png`
+- Current fallback page: `/question-pages/02800-page-45.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下列四個邏輯閘表示圖，何者為正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-electronics-c:02800-10-021
+
+- Replacement PNG: `public/question-images/028003-02800-10-021.png`
+- App path: `/question-images/028003-02800-10-021.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-10-021.png`
+- Current fallback page: `/question-pages/02800-page-45.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖 Y 為
+- Options:
+  - 1. 0
+  - 2. 1
+  - 3. A
+  - 4. 圖示選項 4
+
+## industrial-electronics-c:02800-10-022
+
+- Replacement PNG: `public/question-images/028003-02800-10-022.png`
+- App path: `/question-images/028003-02800-10-022.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-10-022.png`
+- Current fallback page: `/question-pages/02800-page-45.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下列何者具有反及閘（NAND）功能？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-electronics-c:02800-10-023
+
+- Replacement PNG: `public/question-images/028003-02800-10-023.png`
+- App path: `/question-images/028003-02800-10-023.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-10-023.png`
+- Current fallback page: `/question-pages/02800-page-45.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖的邏輯電路其布林代數表示為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. Y＝A⊕B
+
+## industrial-electronics-c:02800-10-026
+
+- Replacement PNG: `public/question-images/028003-02800-10-026.png`
+- App path: `/question-images/028003-02800-10-026.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-10-026.png`
+- Current fallback page: `/question-pages/02800-page-45.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 依據狄莫根（DEMORGAN'S）定理，下列何者正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-electronics-c:02800-10-027
+
+- Replacement PNG: `public/question-images/028003-02800-10-027.png`
+- App path: `/question-images/028003-02800-10-027.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-10-027.png`
+- Current fallback page: `/question-pages/02800-page-46.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖為何種正反器？
+- Options:
+  - 1. D 型
+  - 2. T 型
+  - 3. RS 型
+  - 4. JK 型
+
+## industrial-electronics-c:02800-10-029
+
+- Replacement PNG: `public/question-images/028003-02800-10-029.png`
+- App path: `/question-images/028003-02800-10-029.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-10-029.png`
+- Current fallback page: `/question-pages/02800-page-46.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖邏輯閘以布林代數表示為
+- Options:
+  - 1. Y＝A‧B
+  - 2. Y＝A+B
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-electronics-c:02800-10-030
+
+- Replacement PNG: `public/question-images/028003-02800-10-030.png`
+- App path: `/question-images/028003-02800-10-030.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-10-030.png`
+- Current fallback page: `/question-pages/02800-page-46.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: F(A,B,C)＝Σ(0,2,3,4,6,7)化成最簡函式為 F(A,B,C)＝
+- Options:
+  - 1. B+C
+  - 2. A   +B
+  - 3. BC+
+  - 4. B+
+
+## industrial-electronics-c:02800-10-060
+
+- Replacement PNG: `public/question-images/028003-02800-10-060.png`
+- App path: `/question-images/028003-02800-10-060.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-10-060.png`
+- Current fallback page: `/question-pages/02800-page-47.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如圖所示， y ＝      之輸入條件為
+- Options:
+  - 1. I 0 I 1 =00
+  - 2. I 0 I 1 =01
+  - 3. I 0 I 1 =10
+  - 4. I 0 I 1 =11
+
+## industrial-electronics-c:02800-10-062
+
+- Replacement PNG: `public/question-images/028003-02800-10-062.png`
+- App path: `/question-images/028003-02800-10-062.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-10-062.png`
+- Current fallback page: `/question-pages/02800-page-48.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 如圖電路，若 A = B = C =1，則輸出為
+- Options:
+  - 1. X =0， Y =0
+  - 2. X =1， Y =0
+  - 3. X =0，Y =1
+  - 4. X =1， Y =1
+
+## industrial-electronics-c:02800-10-065
+
+- Replacement PNG: `public/question-images/028003-02800-10-065.png`
+- App path: `/question-images/028003-02800-10-065.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-10-065.png`
+- Current fallback page: `/question-pages/02800-page-48.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 如圖所示，此電路一般可用來做
+- Options:
+  - 1. 振盪器用
+  - 2. 電流放大電路用
+  - 3. 電壓放大電路用
+  - 4. 消除開關的彈跳現象用
+
 ## baking-food-c:07700-03-003
 
 - Replacement PNG: `public/question-images/07700-03-003-1.png`
@@ -2739,6 +5459,278 @@ Total active image questions: 286
   - 2. 允許外部與防火牆連結
   - 3. 允許存取 HTTP Server
   - 4. 拒絕存取 SQL Server
+
+## computer-hardware-repair-c:12000-01-001
+
+- Replacement PNG: `public/question-images/120003-12000-01-001.png`
+- App path: `/question-images/120003-12000-01-001.png`
+- Linked uploaded image:
+  - `/question-images/120003-12000-01-001.png`
+- Current fallback page: `/question-pages/12000-page-2.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖所示之 D 型正反器，Clock 採何種準位觸發？
+- Options:
+  - 1. 正電位觸發動作
+  - 2. 負電位觸發動作
+  - 3. 正緣觸發動作
+  - 4. 負緣觸發動作
+
+## computer-hardware-repair-c:12000-01-002
+
+- Replacement PNG: `public/question-images/120003-12000-01-002.png`
+- App path: `/question-images/120003-12000-01-002.png`
+- Linked uploaded image:
+  - `/question-images/120003-12000-01-002.png`
+- Current fallback page: `/question-pages/12000-page-2.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖所示符號用來表示
+- Options:
+  - 1. 多工器
+  - 2. 編碼器
+  - 3. 解多工器
+  - 4. 解碼器
+
+## computer-hardware-repair-c:12000-01-003
+
+- Replacement PNG: `public/question-images/120003-12000-01-003.png`
+- App path: `/question-images/120003-12000-01-003.png`
+- Linked uploaded image:
+  - `/question-images/120003-12000-01-003.png`
+- Current fallback page: `/question-pages/12000-page-2.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖之右側視圖為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## computer-hardware-repair-c:12000-01-004
+
+- Replacement PNG: `public/question-images/120003-12000-01-004.png`
+- App path: `/question-images/120003-12000-01-004.png`
+- Linked uploaded image:
+  - `/question-images/120003-12000-01-004.png`
+- Current fallback page: `/question-pages/12000-page-2.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖所示邏輯符號功能相當於
+- Options:
+  - 1. OR
+  - 2. AND
+  - 3. XOR
+  - 4. XNOR
+
+## computer-hardware-repair-c:12000-01-005
+
+- Replacement PNG: `public/question-images/120003-12000-01-005.png`
+- App path: `/question-images/120003-12000-01-005.png`
+- Linked uploaded image:
+  - `/question-images/120003-12000-01-005.png`
+- Current fallback page: `/question-pages/12000-page-2.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖 IC 符號第一支接腳位置在
+- Options:
+  - 1. Ａ腳
+  - 2. Ｂ腳
+  - 3. Ｃ腳
+  - 4. Ｄ腳
+
+## computer-hardware-repair-c:12000-01-006
+
+- Replacement PNG: `public/question-images/120003-12000-01-006.png`
+- App path: `/question-images/120003-12000-01-006.png`
+- Linked uploaded image:
+  - `/question-images/120003-12000-01-006.png`
+- Current fallback page: `/question-pages/12000-page-2.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖所示符號用來表示
+- Options:
+  - 1. 直流電源
+  - 2. 直流安培計
+  - 3. 交流安培計
+  - 4. 瓦特計
+
+## computer-hardware-repair-c:12000-01-007
+
+- Replacement PNG: `public/question-images/120003-12000-01-007.png`
+- App path: `/question-images/120003-12000-01-007.png`
+- Linked uploaded image:
+  - `/question-images/120003-12000-01-007.png`
+- Current fallback page: `/question-pages/12000-page-2.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖所示符號用來表示
+- Options:
+  - 1. 安培計
+  - 2. 伏特計
+  - 3. 電流源
+  - 4. 電壓源
+
+## computer-hardware-repair-c:12000-01-008
+
+- Replacement PNG: `public/question-images/120003-12000-01-008.png`
+- App path: `/question-images/120003-12000-01-008.png`
+- Linked uploaded image:
+  - `/question-images/120003-12000-01-008.png`
+- Current fallback page: `/question-pages/12000-page-2.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 如圖輸出等於何種邏輯閘？
+- Options:
+  - 1. AND
+  - 2. OR
+  - 3. NOR
+  - 4. NAND
+
+## computer-hardware-repair-c:12000-01-009
+
+- Replacement PNG: `public/question-images/120003-12000-01-009.png`
+- App path: `/question-images/120003-12000-01-009.png`
+- Linked uploaded image:
+  - `/question-images/120003-12000-01-009.png`
+- Current fallback page: `/question-pages/12000-page-3.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如下圖所示符號中，有一三角形表示 CK 為
+- Options:
+  - 1. 邊緣觸發
+  - 2. 準位觸發
+  - 3. 延遲觸發
+  - 4. 清除控制
+
+## computer-hardware-repair-c:12000-01-010
+
+- Replacement PNG: `public/question-images/120003-12000-01-010.png`
+- App path: `/question-images/120003-12000-01-010.png`
+- Linked uploaded image:
+  - `/question-images/120003-12000-01-010.png`
+- Current fallback page: `/question-pages/12000-page-3.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖所示，在 IC 資料手冊上其表示 CK 為
+- Options:
+  - 1. 正緣觸發
+  - 2. 負緣觸發
+  - 3. 正準位觸發
+  - 4. 負準位觸發
+
+## computer-hardware-repair-c:12000-01-049
+
+- Replacement PNG: `public/question-images/120003-12000-01-049.png`
+- App path: `/question-images/120003-12000-01-049.png`
+- Linked uploaded image:
+  - `/question-images/120003-12000-01-049.png`
+- Current fallback page: `/question-pages/12000-page-5.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖為 USB 何種接頭？
+- Options:
+  - 1. Type-C
+  - 2. Mini-B
+  - 3. Micro-B
+  - 4. Type-A
+
+## computer-hardware-repair-c:12000-03-128
+
+- Replacement PNG: `public/question-images/120003-12000-03-128.png`
+- App path: `/question-images/120003-12000-03-128.png`
+- Linked uploaded image:
+  - `/question-images/120003-12000-03-128.png`
+- Current fallback page: `/question-pages/12000-page-16.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 有關下圖電路的說明，下列哪一個敘述是正確的？
+- Options:
+  - 1. 為一個正弦波振盪電路
+  - 2. 輸出 Vo1 信號的頻率是由電源電壓的高低決定
+  - 3. 正半週的週期與負半週的週期是不對稱的
+  - 4. 兩個電晶體的功能是當作開關
+
+## computer-hardware-repair-c:12000-03-130
+
+- Replacement PNG: `public/question-images/120003-12000-03-130.png`
+- App path: `/question-images/120003-12000-03-130.png`
+- Linked uploaded image:
+  - `/question-images/120003-12000-03-130.png`
+- Current fallback page: `/question-pages/12000-page-16.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 參考下圖(A)的電路，假設 S 開關原本是 C 和 B 相接，若在圖(B)的 t0 時間撥到 C 和 A 相接，則由 t0 到 t5 的充電時間共需多少秒？
+- Options:
+  - 1. 10
+  - 2. 5
+  - 3. 0.5
+  - 4. 0.05
+
+## computer-hardware-repair-c:12000-04-158
+
+- Replacement PNG: `public/question-images/120003-12000-04-158.png`
+- App path: `/question-images/120003-12000-04-158.png`
+- Linked uploaded image:
+  - `/question-images/120003-12000-04-158.png`
+- Current fallback page: `/question-pages/12000-page-27.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如下圖所示，A 為輸入時脈(Clock)，B 及 C 為輸出波形，則此電路為除幾之除頻器？
+- Options:
+  - 1. 3
+  - 2. 4
+  - 3. 5
+  - 4. 6
+
+## computer-hardware-repair-c:12000-04-163
+
+- Replacement PNG: `public/question-images/120003-12000-04-163.png`
+- App path: `/question-images/120003-12000-04-163.png`
+- Linked uploaded image:
+  - `/question-images/120003-12000-04-163.png`
+- Current fallback page: `/question-pages/12000-page-27.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 如下圖所示，A 為輸入時脈(Clock)，B 及 C 為輸出波形，若其電路包含有正反器(Flip-Flop)，則觸發方式為何？
+- Options:
+  - 1. 正準位觸發
+  - 2. 正緣觸發
+  - 3. 負準位觸發
+  - 4. 負緣觸發
+
+## computer-hardware-repair-c:12000-04-164
+
+- Replacement PNG: `public/question-images/120003-12000-04-164.png`
+- App path: `/question-images/120003-12000-04-164.png`
+- Linked uploaded image:
+  - `/question-images/120003-12000-04-164.png`
+- Current fallback page: `/question-pages/12000-page-27.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 如下圖所示，W 為輸入時脈(Clock)，X、Y 及 Z 為輸出波形，則此電路為除幾之除頻器？
+- Options:
+  - 1. 3
+  - 2. 4
+  - 3. 5
+  - 4. 6
+
+## computer-hardware-repair-c:12000-04-168
+
+- Replacement PNG: `public/question-images/120003-12000-04-168.png`
+- App path: `/question-images/120003-12000-04-168.png`
+- Linked uploaded image:
+  - `/question-images/120003-12000-04-168.png`
+- Current fallback page: `/question-pages/12000-page-28.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如下圖所示，W 為輸入時脈(Clock)，X、Y 及 Z 為輸出波形，若其電路由正反器(Flip-Flop)所組成，則至少需使用多少個正反器？
+- Options:
+  - 1. 3
+  - 2. 4
+  - 3. 5
+  - 4. 6
 
 ## interior-decoration-management-b:12600-01-004
 
@@ -4090,6 +7082,21 @@ Total active image questions: 286
   - 3. 省水標章
   - 4. 節能標章
 
+## computer-hardware-repair-c:90011-04-001
+
+- Replacement PNG: `public/question-images/120003-90011-04-001.png`
+- App path: `/question-images/120003-90011-04-001.png`
+- Linked uploaded images: none yet
+- Current fallback page: `/question-pages/90011-page-6.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下列流程圖所對應的 C/C++指令為何？
+- Options:
+  - 1. do...while
+  - 2. while
+  - 3. switch...case
+  - 4. if...then...else
+
 ## computer-software-application-b:90011-04-001
 
 - Replacement PNG: `public/question-images/118002-90011-04-001.png`
@@ -4129,6 +7136,21 @@ Total active image questions: 286
 - Current fallback page: `/question-pages/90011-page-6.jpg`
 - Kind: single
 - Official answer: 1
+- Prompt: 下列流程圖所對應的 C/C++指令為何？
+- Options:
+  - 1. do...while
+  - 2. while
+  - 3. switch...case
+  - 4. if...then...else
+
+## computer-hardware-repair-c:90011-04-002
+
+- Replacement PNG: `public/question-images/120003-90011-04-002.png`
+- App path: `/question-images/120003-90011-04-002.png`
+- Linked uploaded images: none yet
+- Current fallback page: `/question-pages/90011-page-6.jpg`
+- Kind: single
+- Official answer: 4
 - Prompt: 下列流程圖所對應的 C/C++指令為何？
 - Options:
   - 1. do...while
@@ -4182,6 +7204,21 @@ Total active image questions: 286
   - 3. switch...case
   - 4. if...then...else
 
+## computer-hardware-repair-c:90011-04-003
+
+- Replacement PNG: `public/question-images/120003-90011-04-003.png`
+- App path: `/question-images/120003-90011-04-003.png`
+- Linked uploaded images: none yet
+- Current fallback page: `/question-pages/90011-page-7.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下列流程圖所對應的 C/C++指令為何？
+- Options:
+  - 1. do...while
+  - 2. while
+  - 3. switch...case
+  - 4. if...then...else
+
 ## computer-software-application-b:90011-04-003
 
 - Replacement PNG: `public/question-images/118002-90011-04-003.png`
@@ -4227,6 +7264,21 @@ Total active image questions: 286
   - 2. while
   - 3. switch...case
   - 4. if...then...else
+
+## computer-hardware-repair-c:90011-04-004
+
+- Replacement PNG: `public/question-images/120003-90011-04-004.png`
+- App path: `/question-images/120003-90011-04-004.png`
+- Linked uploaded images: none yet
+- Current fallback page: `/question-pages/90011-page-7.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下列流程圖所對應的 C/C++程式為何？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
 
 ## computer-software-application-b:90011-04-004
 
@@ -4274,6 +7326,21 @@ Total active image questions: 286
   - 3. 圖示選項 3
   - 4. 圖示選項 4
 
+## computer-hardware-repair-c:90011-04-005
+
+- Replacement PNG: `public/question-images/120003-90011-04-005.png`
+- App path: `/question-images/120003-90011-04-005.png`
+- Linked uploaded images: none yet
+- Current fallback page: `/question-pages/90011-page-7.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下列 C/C++程式片段之敘述，何者正確？
+- Options:
+  - 1. 輸入三個變數
+  - 2. 找出輸入數值最小值
+  - 3. 找出輸入數值最大值
+  - 4. 輸出結果為 the output is:c
+
 ## computer-software-application-b:90011-04-005
 
 - Replacement PNG: `public/question-images/118002-90011-04-005.png`
@@ -4303,6 +7370,21 @@ Total active image questions: 286
   - 2. 找出輸入數值最小值
   - 3. 找出輸入數值最大值
   - 4. 輸出結果為 the output is:c
+
+## computer-hardware-repair-c:90011-04-009
+
+- Replacement PNG: `public/question-images/120003-90011-04-009.png`
+- App path: `/question-images/120003-90011-04-009.png`
+- Linked uploaded images: none yet
+- Current fallback page: `/question-pages/90011-page-8.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下列 C/C++程式片段，何者敘述正確？
+- Options:
+  - 1. 小括號應該改成大括號
+  - 2. sum =sum +30; 必須使用大括號括起來
+  - 3. While 應該改成 while
+  - 4. While ( sum＜=1000 )之後應該要有分號
 
 ## computer-software-application-b:90011-04-009
 
@@ -4334,6 +7416,21 @@ Total active image questions: 286
   - 3. While 應該改成 while
   - 4. While ( sum＜=1000 )之後應該要有分號
 
+## computer-hardware-repair-c:90011-04-013
+
+- Replacement PNG: `public/question-images/120003-90011-04-013.png`
+- App path: `/question-images/120003-90011-04-013.png`
+- Linked uploaded images: none yet
+- Current fallback page: `/question-pages/90011-page-8.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下列 C/C++程式片段，輸出結果何者正確？
+- Options:
+  - 1. 1
+  - 2. 2
+  - 3. 3
+  - 4. 4
+
 ## computer-software-application-b:90011-04-013
 
 - Replacement PNG: `public/question-images/118002-90011-04-013.png`
@@ -4357,6 +7454,21 @@ Total active image questions: 286
 - Current fallback page: `/question-pages/90011-page-8.jpg`
 - Kind: single
 - Official answer: 4
+- Prompt: 下列 C/C++程式片段，輸出結果何者正確？
+- Options:
+  - 1. 1
+  - 2. 2
+  - 3. 3
+  - 4. 4
+
+## computer-hardware-repair-c:90011-04-014
+
+- Replacement PNG: `public/question-images/120003-90011-04-014.png`
+- App path: `/question-images/120003-90011-04-014.png`
+- Linked uploaded images: none yet
+- Current fallback page: `/question-pages/90011-page-8.jpg`
+- Kind: single
+- Official answer: 3
 - Prompt: 下列 C/C++程式片段，輸出結果何者正確？
 - Options:
   - 1. 1
@@ -4394,6 +7506,21 @@ Total active image questions: 286
   - 3. 3
   - 4. 4
 
+## computer-hardware-repair-c:90011-04-015
+
+- Replacement PNG: `public/question-images/120003-90011-04-015.png`
+- App path: `/question-images/120003-90011-04-015.png`
+- Linked uploaded images: none yet
+- Current fallback page: `/question-pages/90011-page-8.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下列 C/C++程式片段，若 x = 2，則 y 值為何？
+- Options:
+  - 1. 2
+  - 2. 3
+  - 3. 7
+  - 4. 9
+
 ## computer-software-application-b:90011-04-015
 
 - Replacement PNG: `public/question-images/118002-90011-04-015.png`
@@ -4423,6 +7550,21 @@ Total active image questions: 286
   - 2. 3
   - 3. 7
   - 4. 9
+
+## computer-hardware-repair-c:90011-04-016
+
+- Replacement PNG: `public/question-images/120003-90011-04-016.png`
+- App path: `/question-images/120003-90011-04-016.png`
+- Linked uploaded images: none yet
+- Current fallback page: `/question-pages/90011-page-8.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下列 C/C++程式片段，其 x 之輸出結果何者正確？
+- Options:
+  - 1. 2
+  - 2. 3
+  - 3. 4
+  - 4. 5
 
 ## computer-software-application-b:90011-04-016
 
@@ -4454,6 +7596,21 @@ Total active image questions: 286
   - 3. 4
   - 4. 5
 
+## computer-hardware-repair-c:90011-04-017
+
+- Replacement PNG: `public/question-images/120003-90011-04-017.png`
+- App path: `/question-images/120003-90011-04-017.png`
+- Linked uploaded images: none yet
+- Current fallback page: `/question-pages/90011-page-8.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下列 C/C++程式片段，執行後 x 值為何？
+- Options:
+  - 1. 0
+  - 2. 1
+  - 3. 2
+  - 4. 3
+
 ## computer-software-application-b:90011-04-017
 
 - Replacement PNG: `public/question-images/118002-90011-04-017.png`
@@ -4483,6 +7640,21 @@ Total active image questions: 286
   - 2. 1
   - 3. 2
   - 4. 3
+
+## computer-hardware-repair-c:90011-04-018
+
+- Replacement PNG: `public/question-images/120003-90011-04-018.png`
+- App path: `/question-images/120003-90011-04-018.png`
+- Linked uploaded images: none yet
+- Current fallback page: `/question-pages/90011-page-8.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下列 C/C++程式片段，f(8, 3)輸出為何？
+- Options:
+  - 1. 3
+  - 2. 5
+  - 3. 8
+  - 4. 11
 
 ## computer-software-application-b:90011-04-018
 
@@ -4514,6 +7686,21 @@ Total active image questions: 286
   - 3. 8
   - 4. 11
 
+## computer-hardware-repair-c:90011-04-019
+
+- Replacement PNG: `public/question-images/120003-90011-04-019.png`
+- App path: `/question-images/120003-90011-04-019.png`
+- Linked uploaded images: none yet
+- Current fallback page: `/question-pages/90011-page-8.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 對於下列 C/C++程式，何者敘述正確？
+- Options:
+  - 1. 將 a 及 b 兩矩陣相加後，儲存至c 矩陣
+  - 2. 若 a[2][2]={{1, 2}, {3, 4}}及 b[2][2]= {{1,0},{2, -3}}，執行結束後 c[2][2]= {{5,6}, {11,12}}
+  - 3. 若 a 及 b 均為 2x2 矩陣，最內層 for 迴圈執行 8 次
+  - 4. 若 a 及 b 均為 2x2 矩陣，最外層 for 迴圈執行 4 次
+
 ## computer-software-application-b:90011-04-019
 
 - Replacement PNG: `public/question-images/118002-90011-04-019.png`
@@ -4543,6 +7730,21 @@ Total active image questions: 286
   - 2. 若 a[2][2]={{1, 2}, {3, 4}}及 b[2][2]= {{1,0},{2, -3}}，執行結束後 c[2][2]= {{5,6}, {11,12}}
   - 3. 若 a 及 b 均為 2x2 矩陣，最內層 for 迴圈執行 8 次
   - 4. 若 a 及 b 均為 2x2 矩陣，最外層 for 迴圈執行 4 次
+
+## computer-hardware-repair-c:90011-04-020
+
+- Replacement PNG: `public/question-images/120003-90011-04-020.png`
+- App path: `/question-images/120003-90011-04-020.png`
+- Linked uploaded images: none yet
+- Current fallback page: `/question-pages/90011-page-9.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 對於下列 C/C++程式片段，何者敘述有誤？
+- Options:
+  - 1. 程式輸出為 4x+-4y+8=0
+  - 2. 若(x1,x2)及(y1,y2)視為兩個二維平面座標，程式功能為計算直線方程式
+  - 3. 若(x1,x2)及(y1,y2)視為兩個二維平面座標，則直線方程式的斜率為 -4/3
+  - 4. 若(x1,x2),(y1,y2) 及(3,5)視為三個二維平面座標，則會構成一個直角三角形
 
 ## computer-software-application-b:90011-04-020
 

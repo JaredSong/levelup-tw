@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-16T14:33:01.818Z",
-  "examCount": 19,
-  "activeQuestionCount": 23129,
+  "generatedAt": "2026-07-16T23:43:17.738Z",
+  "examCount": 22,
+  "activeQuestionCount": 26498,
   "demandPeriod": "115年截至6月底止通過技能檢定學術科測試",
   "featuredExamIds": [
     "forklift-operation-single",
@@ -88,6 +88,13 @@
       "applicantCount": 2673
     },
     {
+      "examId": "industrial-electronics-c",
+      "titleZh": "工業電子丙級",
+      "code": "02800",
+      "level": "丙級",
+      "applicantCount": 2587
+    },
+    {
       "examId": "care-service-single",
       "titleZh": "照顧服務員單一級",
       "code": "17800",
@@ -102,11 +109,25 @@
       "applicantCount": 2234
     },
     {
+      "examId": "computer-hardware-repair-c",
+      "titleZh": "電腦硬體裝修丙級",
+      "code": "12000",
+      "level": "丙級",
+      "applicantCount": 1940
+    },
+    {
       "examId": "women-hairdressing-c",
       "titleZh": "女子美髮丙級",
       "code": "06700",
       "level": "丙級",
       "applicantCount": 1878
+    },
+    {
+      "examId": "water-pipe-fitting-c",
+      "titleZh": "自來水管配管丙級",
+      "code": "01600",
+      "level": "丙級",
+      "applicantCount": 1763
     },
     {
       "examId": "car-repair-c",
@@ -144,5 +165,5 @@
       "applicantCount": null
     }
   ],
-  "metaDescription": "升級吧收錄 19 種技術士技能檢定學科題庫，包括堆高機操作單一級、職業安全衛生管理乙級、中餐烹調－葷食丙級、電腦軟體應用丙級。練官方公告題目、錯題複習與計時模擬考；免費、免註冊、可離線。"
+  "metaDescription": "升級吧收錄 22 種技術士技能檢定學科題庫，包括堆高機操作單一級、職業安全衛生管理乙級、中餐烹調－葷食丙級、電腦軟體應用丙級。練官方公告題目、錯題複習與計時模擬考；免費、免註冊、可離線。"
 }

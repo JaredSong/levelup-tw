@@ -83,6 +83,9 @@ describe('active exam selection', () => {
       'childcare-single',
       'care-service-single',
       'occupational-safety-health-management-b',
+      'forklift-operation-single',
+      'interior-decoration-management-b',
+      'beverage-preparation-c',
     ]))
   })
 
@@ -97,6 +100,8 @@ describe('active exam selection', () => {
       '車輛修護',
       '照護服務',
       '職業安全衛生',
+      '機械操作',
+      '營造工程',
     ])
     expect(groups.find((group) => group.category === '資訊')?.exams.map((exam) => exam.examId)).toEqual([
       'web-design-b',
@@ -105,6 +110,7 @@ describe('active exam selection', () => {
     expect(groups.find((group) => group.category === '餐飲食品')?.exams.map((exam) => exam.examId)).toEqual([
       'chinese-cooking-meat-c',
       'baking-food-c',
+      'beverage-preparation-c',
     ])
     expect(groups.find((group) => group.category === '車輛修護')?.exams.map((exam) => exam.examId)).toEqual([
       'car-repair-c',

@@ -1,0 +1,188 @@
+{
+  "examId": "interior-decoration-management-b",
+  "level": "乙級",
+  "titleZh": "建築物室內裝修工程管理乙級",
+  "titleEn": "Interior Decoration Engineering Management (Class B)",
+  "category": "營造工程",
+  "version": "A12",
+  "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/126002A12.pdf",
+  "sources": [
+    {
+      "subjectCode": "12600",
+      "version": "A12",
+      "pdfFilename": "126002A12.pdf",
+      "localFilename": "126002A12.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/126002A12.pdf",
+      "sha256": "986b64a3276bdaa0d88929fe05a229ec60999b6e57ae86db4009c5e8f6ee9e9b"
+    },
+    {
+      "subjectCode": "90006",
+      "version": "A18",
+      "pdfFilename": "900060A18.pdf",
+      "localFilename": "900060A18.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A18.pdf",
+      "sha256": "0afd298e136567131ed5771bb5d8e0a501e745798823242966bd9b517e5b42ec"
+    },
+    {
+      "subjectCode": "90007",
+      "version": "A17",
+      "pdfFilename": "900070A17.pdf",
+      "localFilename": "900070A17.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A17.pdf",
+      "sha256": "ec3bc07bc147f77cfaaa6928648485c9f86c6e58d715a01f49e5618d12ac3319"
+    },
+    {
+      "subjectCode": "90008",
+      "version": "A16",
+      "pdfFilename": "900080A16.pdf",
+      "localFilename": "900080A16.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A16.pdf",
+      "sha256": "3c097485bd020af2d3766c08a5c5f385a5dbc56512d8903ce6cf850903ea2f01"
+    },
+    {
+      "subjectCode": "90009",
+      "version": "A11",
+      "pdfFilename": "900090A11.pdf",
+      "localFilename": "900090A11-latest.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A11.pdf",
+      "sha256": "e58b753294079574f8c1360ef5a345e77062c0c3ee693d509254de455a533835"
+    }
+  ],
+  "officialLinks": {
+    "registration": "https://skill.tcte.edu.tw/notice.php",
+    "scoreLookup": "https://eservice.wdasec.gov.tw/",
+    "handbook": "https://skill.tcte.edu.tw/download.php",
+    "questionBank": "https://techbank.wdasec.gov.tw/"
+  },
+  "sourceRevision": "126002A12 + 900060A18/900070A17/900080A16/900090A11",
+  "questionCount": 1118,
+  "activeQuestionCount": 1113,
+  "sections": [
+    {
+      "id": "12600-01",
+      "subjectCode": "12600",
+      "sourceGroup": "occupation",
+      "titleZh": "圖說判讀",
+      "questionCount": 76,
+      "activeQuestionCount": 76
+    },
+    {
+      "id": "12600-02",
+      "subjectCode": "12600",
+      "sourceGroup": "occupation",
+      "titleZh": "丈量及放樣",
+      "questionCount": 31,
+      "activeQuestionCount": 31
+    },
+    {
+      "id": "12600-03",
+      "subjectCode": "12600",
+      "sourceGroup": "occupation",
+      "titleZh": "相關法規",
+      "questionCount": 133,
+      "activeQuestionCount": 133
+    },
+    {
+      "id": "12600-04",
+      "subjectCode": "12600",
+      "sourceGroup": "occupation",
+      "titleZh": "安全維護",
+      "questionCount": 44,
+      "activeQuestionCount": 44
+    },
+    {
+      "id": "12600-05",
+      "subjectCode": "12600",
+      "sourceGroup": "occupation",
+      "titleZh": "施工機具",
+      "questionCount": 50,
+      "activeQuestionCount": 50
+    },
+    {
+      "id": "12600-06",
+      "subjectCode": "12600",
+      "sourceGroup": "occupation",
+      "titleZh": "相關施工作業",
+      "questionCount": 278,
+      "activeQuestionCount": 278
+    },
+    {
+      "id": "12600-07",
+      "subjectCode": "12600",
+      "sourceGroup": "occupation",
+      "titleZh": "裝修工程管理",
+      "questionCount": 106,
+      "activeQuestionCount": 106
+    },
+    {
+      "id": "90006-01",
+      "subjectCode": "90006",
+      "sourceGroup": "general-common",
+      "titleZh": "職業安全衛生",
+      "questionCount": 100,
+      "activeQuestionCount": 100
+    },
+    {
+      "id": "90007-01",
+      "subjectCode": "90007",
+      "sourceGroup": "general-common",
+      "titleZh": "工作倫理與職業道德",
+      "questionCount": 100,
+      "activeQuestionCount": 100
+    },
+    {
+      "id": "90008-03",
+      "subjectCode": "90008",
+      "sourceGroup": "general-common",
+      "titleZh": "環境保護",
+      "questionCount": 100,
+      "activeQuestionCount": 95
+    },
+    {
+      "id": "90009-04",
+      "subjectCode": "90009",
+      "sourceGroup": "general-common",
+      "titleZh": "節能減碳",
+      "questionCount": 100,
+      "activeQuestionCount": 100
+    }
+  ],
+  "mockRules": {
+    "totalQuestions": 80,
+    "singleCount": 60,
+    "multipleCount": 20,
+    "durationMinutes": 100,
+    "passScore": 60,
+    "maxScore": 100,
+    "weightSingle": 1,
+    "weightMultiple": 2,
+    "subjectQuota": [
+      {
+        "subjectCode": "12600",
+        "count": 64
+      },
+      {
+        "subjectCode": "90006",
+        "count": 4
+      },
+      {
+        "subjectCode": "90007",
+        "count": 4
+      },
+      {
+        "subjectCode": "90008",
+        "count": 4
+      },
+      {
+        "subjectCode": "90009",
+        "count": 4
+      }
+    ]
+  },
+  "integrity": {
+    "status": "fully_verified",
+    "inactiveQuestionCount": 5,
+    "imageQuestionCount": 34,
+    "note": "Answer keys independently cross-checked against the official PDF during import."
+  }
+}

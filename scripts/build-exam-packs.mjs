@@ -1,4 +1,4 @@
-import { mkdir, readFile, writeFile } from 'node:fs/promises'
+import { access, mkdir, readFile, writeFile } from 'node:fs/promises'
 import { buildSourceProvenance } from './examSources.mjs'
 import { parseQuestionBank } from './questionParser.mjs'
 import { sanitizeText } from './textCorrections.mjs'
@@ -29,6 +29,37 @@ const INACTIVE_IDS = new Set([
   '90008-03-072',
   '90008-03-092',
   '90010-01-100',
+  '15100-02-187',
+  '15100-03-011',
+  '15100-03-037',
+  '15100-03-039',
+  '15100-03-042',
+  '15100-03-043',
+  '15100-03-045',
+  '15100-03-059',
+  '15100-03-082',
+  '15100-03-097',
+  '15100-03-113',
+  '15100-03-114',
+  '15100-03-122',
+  '15100-03-128',
+  '15100-03-130',
+  '15100-03-143',
+  '15100-03-146',
+  '15100-03-147',
+  '15100-03-190',
+])
+
+// These questions contain inline figures that the PDF text layer describes
+// without the usual 「下圖」 wording, so the generic parser cannot infer them.
+const FIGURE_QUESTION_IDS = new Set([
+  '12600-01-008',
+  '12600-01-011',
+  '12600-01-012',
+  '12600-01-013',
+  '12600-01-014',
+  '12600-01-018',
+  '12600-01-031',
 ])
 
 const IMAGE_OVERRIDES = {
@@ -385,6 +416,72 @@ const EXAMS = [
       extraSubjectQuota: [],
     },
   },
+  {
+    examId: 'forklift-operation-single',
+    titleZh: '堆高機操作單一級',
+    titleEn: 'Forklift Operation (Single Level)',
+    level: '單一級',
+    category: '機械操作',
+    occupationCode: '15100',
+    occupationFile: '151004A14-raw.txt',
+    occupationExpected: 600,
+    version: 'A14',
+    sourceRevision: '151004A14 + 900060A18/900070A17/900080A16/900090A11',
+    extraCommonCodes: [],
+    requireQuestionCrops: true,
+    mockRules: {
+      occupationQuota: 64,
+      singleCount: 80,
+      multipleCount: 0,
+      weightSingle: 1.25,
+      weightMultiple: 0,
+      extraSubjectQuota: [],
+    },
+  },
+  {
+    examId: 'interior-decoration-management-b',
+    titleZh: '建築物室內裝修工程管理乙級',
+    titleEn: 'Interior Decoration Engineering Management (Class B)',
+    level: '乙級',
+    category: '營造工程',
+    occupationCode: '12600',
+    occupationFile: '126002A12-raw.txt',
+    occupationExpected: 718,
+    version: 'A12',
+    sourceRevision: '126002A12 + 900060A18/900070A17/900080A16/900090A11',
+    extraCommonCodes: [],
+    requireQuestionCrops: true,
+    mockRules: {
+      occupationQuota: 64,
+      singleCount: 60,
+      multipleCount: 20,
+      weightSingle: 1,
+      weightMultiple: 2,
+      extraSubjectQuota: [],
+    },
+  },
+  {
+    examId: 'beverage-preparation-c',
+    titleZh: '飲料調製丙級',
+    titleEn: 'Beverage Preparation (Class C)',
+    level: '丙級',
+    category: '餐飲食品',
+    occupationCode: '20600',
+    occupationFile: '206003A13-raw.txt',
+    occupationExpected: 617,
+    version: 'A13',
+    sourceRevision: '206003A13 + 900100A16 + 900060A18/900070A17/900080A16/900090A11',
+    extraCommonCodes: ['90010'],
+    requireQuestionCrops: true,
+    mockRules: {
+      occupationQuota: 60,
+      singleCount: 80,
+      multipleCount: 0,
+      weightSingle: 1.25,
+      weightMultiple: 0,
+      extraSubjectQuota: [{ subjectCode: '90010', count: 4 }],
+    },
+  },
 ]
 
 const BEAUTY_HAIR_COMMON_BANK = {
@@ -447,6 +544,7 @@ function normalizeQuestion(question, examId) {
     prompt: sanitizeText(question.prompt),
     options: QUESTION_OPTION_OVERRIDES[question.id] ?? question.options.map(sanitizeText),
     ...(INACTIVE_IDS.has(question.id) ? { active: false } : {}),
+    ...(FIGURE_QUESTION_IDS.has(question.id) ? { hasFigure: true } : {}),
   }
   if (!repaired.hasFigure && !imageOverrides) {
     return { ...repaired, sourceImage: undefined, sourceImages: undefined, sourcePageImage: undefined }
@@ -503,6 +601,16 @@ async function writeExamPack(exam, commonQuestions, extraQuestionsByCode) {
     .map((question) => normalizeQuestion(question, exam.examId))
   const active = questions.filter((question) => question.active !== false)
   const figures = active.filter((question) => question.hasFigure)
+  if (exam.requireQuestionCrops) {
+    const occupationFigures = figures.filter((question) => question.subjectCode === exam.occupationCode)
+    await Promise.all(occupationFigures.map(async (question) => {
+      try {
+        await access(new URL(`../public/question-images/${question.id}.png`, import.meta.url))
+      } catch {
+        throw new Error(`${exam.examId}: missing required question crop ${question.id}.png`)
+      }
+    }))
+  }
   const sources = await buildSourceProvenance([
     exam.occupationCode,
     ...(exam.extraCommonCodes ?? []),

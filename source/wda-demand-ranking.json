@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-16T05:10:02.827Z",
+  "generatedAt": "2026-07-16T07:06:46.141Z",
   "source": "https://www.wdasec.gov.tw/News_Content.aspx?n=5941D5DCC3DD7DDA&sms=CA0630966F34DA45&s=C8325D4465DF9769",
   "downloadUrl": "https://ws.wda.gov.tw/Download.ashx?u=LzAwMS9VcGxvYWQvMzMxL3JlbGZpbGUvOTc3MS83MDUzNi8xYjI0YmRkMi1lZDg1LTQyMmQtOTI4MC0yYjkxOTNlYTM2ZTYuemlw&n=5oqA6IO95qqi5a6a55W25bm05bqm5aCx5qqi44CB5Yiw5qqi5Y%2bK5ZCI5qC85pW4LnppcA%3d%3d",
   "authority": "official-primary",
@@ -25,7 +25,7 @@
         "effectiveFromRoc": "1110101",
         "remark": null
       },
-      "installed": false,
+      "installed": true,
       "category": "職業安全衛生操作類群",
       "applicantCount": 13467,
       "attendeeCount": 12661,
@@ -121,7 +121,7 @@
         "effectiveFromRoc": "1090101",
         "remark": null
       },
-      "installed": false,
+      "installed": true,
       "category": "營造類群",
       "applicantCount": 6768,
       "attendeeCount": 6201,
@@ -193,7 +193,7 @@
         "effectiveFromRoc": "1120101",
         "remark": null
       },
-      "installed": false,
+      "installed": true,
       "category": "餐飲服務類群",
       "applicantCount": 4364,
       "attendeeCount": 4141,

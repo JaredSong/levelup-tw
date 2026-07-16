@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-16T05:19:54.924Z",
+  "generatedAt": "2026-07-16T07:03:39.472Z",
   "source": "https://owinform.wdasec.gov.tw/",
   "authority": "official-primary",
   "effectiveRocDate": "1150716",
@@ -6657,7 +6657,8 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/126002A12.pdf",
       "effectiveFrom": "2020-01-01",
       "effectiveFromRoc": "1090101",
-      "remark": null
+      "remark": null,
+      "sha256": "986b64a3276bdaa0d88929fe05a229ec60999b6e57ae86db4009c5e8f6ee9e9b"
     },
     {
       "subjectCode": "12700",
@@ -6898,7 +6899,8 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/151004A14.pdf",
       "effectiveFrom": "2022-01-01",
       "effectiveFromRoc": "1110101",
-      "remark": null
+      "remark": null,
+      "sha256": "86529fc301e257a97d79c742550c52e220a59bf6493ee8239c87986aa4cf35ff"
     },
     {
       "subjectCode": "15200",
@@ -7790,7 +7792,8 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/206003A13.pdf",
       "effectiveFrom": "2023-01-01",
       "effectiveFromRoc": "1120101",
-      "remark": null
+      "remark": null,
+      "sha256": "6acadc3c4aeb1cc6cf92011923a48fd315c0149f25e228d36383bd844087b97b"
     },
     {
       "subjectCode": "20701",

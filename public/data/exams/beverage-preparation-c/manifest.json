@@ -1,0 +1,216 @@
+{
+  "examId": "beverage-preparation-c",
+  "level": "丙級",
+  "titleZh": "飲料調製丙級",
+  "titleEn": "Beverage Preparation (Class C)",
+  "category": "餐飲食品",
+  "version": "A13",
+  "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/206003A13.pdf",
+  "sources": [
+    {
+      "subjectCode": "20600",
+      "version": "A13",
+      "pdfFilename": "206003A13.pdf",
+      "localFilename": "206003A13.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/206003A13.pdf",
+      "sha256": "6acadc3c4aeb1cc6cf92011923a48fd315c0149f25e228d36383bd844087b97b"
+    },
+    {
+      "subjectCode": "90010",
+      "version": "A16",
+      "pdfFilename": "900100A16.pdf",
+      "localFilename": "900100A16.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900100A16.pdf",
+      "sha256": "d6cee10bff92420a35eaf3915b521289613083ded74a7ded647c66189ea2230d"
+    },
+    {
+      "subjectCode": "90006",
+      "version": "A18",
+      "pdfFilename": "900060A18.pdf",
+      "localFilename": "900060A18.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A18.pdf",
+      "sha256": "0afd298e136567131ed5771bb5d8e0a501e745798823242966bd9b517e5b42ec"
+    },
+    {
+      "subjectCode": "90007",
+      "version": "A17",
+      "pdfFilename": "900070A17.pdf",
+      "localFilename": "900070A17.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A17.pdf",
+      "sha256": "ec3bc07bc147f77cfaaa6928648485c9f86c6e58d715a01f49e5618d12ac3319"
+    },
+    {
+      "subjectCode": "90008",
+      "version": "A16",
+      "pdfFilename": "900080A16.pdf",
+      "localFilename": "900080A16.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A16.pdf",
+      "sha256": "3c097485bd020af2d3766c08a5c5f385a5dbc56512d8903ce6cf850903ea2f01"
+    },
+    {
+      "subjectCode": "90009",
+      "version": "A11",
+      "pdfFilename": "900090A11.pdf",
+      "localFilename": "900090A11-latest.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A11.pdf",
+      "sha256": "e58b753294079574f8c1360ef5a345e77062c0c3ee693d509254de455a533835"
+    }
+  ],
+  "officialLinks": {
+    "registration": "https://skill.tcte.edu.tw/notice.php",
+    "scoreLookup": "https://eservice.wdasec.gov.tw/",
+    "handbook": "https://skill.tcte.edu.tw/download.php",
+    "questionBank": "https://techbank.wdasec.gov.tw/"
+  },
+  "sourceRevision": "206003A13 + 900100A16 + 900060A18/900070A17/900080A16/900090A11",
+  "questionCount": 1298,
+  "activeQuestionCount": 1292,
+  "sections": [
+    {
+      "id": "20600-01",
+      "subjectCode": "20600",
+      "sourceGroup": "occupation",
+      "titleZh": "吧檯清潔",
+      "questionCount": 57,
+      "activeQuestionCount": 57
+    },
+    {
+      "id": "20600-02",
+      "subjectCode": "20600",
+      "sourceGroup": "occupation",
+      "titleZh": "作業準備",
+      "questionCount": 146,
+      "activeQuestionCount": 146
+    },
+    {
+      "id": "20600-03",
+      "subjectCode": "20600",
+      "sourceGroup": "occupation",
+      "titleZh": "飲料調製",
+      "questionCount": 210,
+      "activeQuestionCount": 210
+    },
+    {
+      "id": "20600-04",
+      "subjectCode": "20600",
+      "sourceGroup": "occupation",
+      "titleZh": "善後作業",
+      "questionCount": 94,
+      "activeQuestionCount": 94
+    },
+    {
+      "id": "20600-05",
+      "subjectCode": "20600",
+      "sourceGroup": "occupation",
+      "titleZh": "飲料調製服務特性",
+      "questionCount": 62,
+      "activeQuestionCount": 62
+    },
+    {
+      "id": "20600-06",
+      "subjectCode": "20600",
+      "sourceGroup": "occupation",
+      "titleZh": "飲料調製衛生事項",
+      "questionCount": 48,
+      "activeQuestionCount": 48
+    },
+    {
+      "id": "90010-01",
+      "subjectCode": "90010",
+      "sourceGroup": "general-common",
+      "titleZh": "食品安全衛生",
+      "questionCount": 172,
+      "activeQuestionCount": 171
+    },
+    {
+      "id": "90010-02",
+      "subjectCode": "90010",
+      "sourceGroup": "general-common",
+      "titleZh": "食品安全衛生",
+      "questionCount": 40,
+      "activeQuestionCount": 40
+    },
+    {
+      "id": "90010-03",
+      "subjectCode": "90010",
+      "sourceGroup": "general-common",
+      "titleZh": "營養及健康飲",
+      "questionCount": 69,
+      "activeQuestionCount": 69
+    },
+    {
+      "id": "90006-01",
+      "subjectCode": "90006",
+      "sourceGroup": "general-common",
+      "titleZh": "職業安全衛生",
+      "questionCount": 100,
+      "activeQuestionCount": 100
+    },
+    {
+      "id": "90007-01",
+      "subjectCode": "90007",
+      "sourceGroup": "general-common",
+      "titleZh": "工作倫理與職業道德",
+      "questionCount": 100,
+      "activeQuestionCount": 100
+    },
+    {
+      "id": "90008-03",
+      "subjectCode": "90008",
+      "sourceGroup": "general-common",
+      "titleZh": "環境保護",
+      "questionCount": 100,
+      "activeQuestionCount": 95
+    },
+    {
+      "id": "90009-04",
+      "subjectCode": "90009",
+      "sourceGroup": "general-common",
+      "titleZh": "節能減碳",
+      "questionCount": 100,
+      "activeQuestionCount": 100
+    }
+  ],
+  "mockRules": {
+    "totalQuestions": 80,
+    "singleCount": 80,
+    "multipleCount": 0,
+    "durationMinutes": 100,
+    "passScore": 60,
+    "maxScore": 100,
+    "weightSingle": 1.25,
+    "weightMultiple": 0,
+    "subjectQuota": [
+      {
+        "subjectCode": "20600",
+        "count": 60
+      },
+      {
+        "subjectCode": "90010",
+        "count": 4
+      },
+      {
+        "subjectCode": "90006",
+        "count": 4
+      },
+      {
+        "subjectCode": "90007",
+        "count": 4
+      },
+      {
+        "subjectCode": "90008",
+        "count": 4
+      },
+      {
+        "subjectCode": "90009",
+        "count": 4
+      }
+    ]
+  },
+  "integrity": {
+    "status": "fully_verified",
+    "inactiveQuestionCount": 6,
+    "imageQuestionCount": 8,
+    "note": "Answer keys independently cross-checked against the official PDF during import."
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-16T03:56:47.252Z",
+  "generatedAt": "2026-07-16T07:16:01.530Z",
   "source": "https://techcerti.bookmarks.tw/exams",
   "authority": "secondary-discovery-only",
   "claimedTotal": 272,
@@ -8,8 +8,8 @@
     "Rendered total 272 differs from metadata total 270."
   ],
   "catalogTotal": 272,
-  "installedCount": 13,
-  "pendingCount": 259,
+  "installedCount": 16,
+  "pendingCount": 256,
   "entries": [
     {
       "slug": "acalpha",
@@ -1043,7 +1043,10 @@
       "questionCount": 718,
       "sectionCount": 7,
       "version": "A12",
-      "installed": false
+      "installed": true,
+      "examId": "interior-decoration-management-b",
+      "installedVersion": "A12",
+      "versionMatchesTechcerti": true
     },
     {
       "slug": "echanicalparkingequipmentsbeta",
@@ -2715,7 +2718,10 @@
       "questionCount": 617,
       "sectionCount": 6,
       "version": "A13",
-      "installed": false
+      "installed": true,
+      "examId": "beverage-preparation-c",
+      "installedVersion": "A13",
+      "versionMatchesTechcerti": true
     },
     {
       "slug": "curtainwall",
@@ -2935,7 +2941,10 @@
       "questionCount": 600,
       "sectionCount": 3,
       "version": "A13",
-      "installed": false
+      "installed": true,
+      "examId": "forklift-operation-single",
+      "installedVersion": "A14",
+      "versionMatchesTechcerti": false
     },
     {
       "slug": "babysitter",

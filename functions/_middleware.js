@@ -1,12 +1,12 @@
-// Canonical-host redirect. levelup.tw and levelup-tw.pages.dev serve identical
-// content; a 301 from the production pages.dev host consolidates SEO signals onto
-// the real domain and sends old links/bookmarks there too.
+// Canonical-host redirect. levelup.tw is the one true host; the production
+// pages.dev host and the www subdomain serve identical content, so a 301 from
+// each consolidates SEO signals onto the real domain and sends old links there.
 //
-// Only the *bare* production host is redirected — preview deployments live at
-// <hash>.levelup-tw.pages.dev and must keep working, and the custom domains
-// (levelup.tw, www.levelup.tw) plus local dev fall straight through.
+// Only these exact hosts redirect — preview deployments live at
+// <hash>.levelup-tw.pages.dev and must keep working, and the canonical host plus
+// local dev fall straight through.
 const CANONICAL_HOST = 'levelup.tw'
-const REDIRECT_HOSTS = new Set(['levelup-tw.pages.dev'])
+const REDIRECT_HOSTS = new Set(['levelup-tw.pages.dev', 'www.levelup.tw'])
 
 export const onRequest = async (context) => {
   const url = new URL(context.request.url)

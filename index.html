@@ -97,7 +97,10 @@
     </script>
     <!-- Mirrors the landing FAQ in src/i18n/zh-TW.ts — keep the two in sync.
          Structured data matters more than usual here: the SPA body is empty
-         until JS runs, so this is crawlable text for the first-pass crawler. -->
+         until JS runs, so this is crawlable text for the first-pass crawler.
+         scripts/prerender.mjs swaps everything between the faq-jsonld markers
+         for the English equivalent on /en. -->
+    <!-- faq-jsonld:start -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -137,6 +140,7 @@
         ]
       }
     </script>
+    <!-- faq-jsonld:end -->
     <!--
       Analytics. Two complementary trackers, both safe to run together:
       - GA4 (below) for events/funnels.

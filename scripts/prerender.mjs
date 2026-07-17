@@ -40,7 +40,7 @@ globalThis.window = {
   scrollY: 0,
 }
 
-const { renderLanding, renderLandingEn } = await import(new URL('entry-prerender.js', SSR_OUT))
+const { renderLanding, renderLandingEn, EN_FAQ_JSONLD, EN_APP_DESCRIPTION } = await import(new URL('entry-prerender.js', SSR_OUT))
 
 function inject(html, bodyHtml) {
   if (!bodyHtml.includes('landing-hero')) {
@@ -76,6 +76,17 @@ en = replaceOnce(en, /(<meta property="og:title" content=")[^"]*(")/, `$1${EN_OG
 en = replaceOnce(en, /(<meta property="og:description" content=")[^"]*(")/, `$1${EN_OG_DESC}$2`, 'og:description')
 en = replaceOnce(en, /(<meta name="twitter:title" content=")[^"]*(")/, `$1${EN_OG_TITLE}$2`, 'twitter:title')
 en = replaceOnce(en, /(<meta name="twitter:description" content=")[^"]*(")/, `$1${EN_OG_DESC}$2`, 'twitter:description')
+// Structured data: everything is English on the English page. Swap the whole
+// FAQ block via its markers, translate the WebApplication description, and flip
+// every inLanguage (WebApplication, WebSite, FAQPage) to en.
+en = replaceOnce(
+  en,
+  /<!-- faq-jsonld:start -->[\s\S]*?<!-- faq-jsonld:end -->/,
+  `<!-- faq-jsonld:start -->\n    <script type="application/ld+json">\n${EN_FAQ_JSONLD}\n    </script>\n    <!-- faq-jsonld:end -->`,
+  'FAQ JSON-LD block',
+)
+en = replaceOnce(en, /("@type": "WebApplication"[\s\S]*?"description": ")[^"]*(")/, `$1${EN_APP_DESCRIPTION}$2`, 'WebApplication description')
+en = en.replaceAll('"inLanguage": "zh-Hant-TW"', '"inLanguage": "en"')
 en = inject(en, renderLandingEn())
 mkdirSync(EN_DIR, { recursive: true })
 writeFileSync(EN_INDEX, en)

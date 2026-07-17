@@ -1,5 +1,5 @@
 import { execFileSync } from 'node:child_process'
-import { access, mkdir, readFile } from 'node:fs/promises'
+import { access, copyFile, mkdir, readFile, readdir, unlink, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -24,7 +24,7 @@ const BANKS = [
     splitImageOptions: true,
     includeLeftFigures: true,
     extraFigures: ['00700-11-063', '00700-12-043'],
-    excludedFigures: ['00700-06-018'],
+    excludedFigures: ['00700-06-018', '00700-11-086'],
     mixedFigureOptions: ['00700-09-007'],
     figureRects: {
       '00700-09-007': { x: 110, y: 458, width: 175, height: 120 },
@@ -36,7 +36,31 @@ const BANKS = [
   { code: '15100', source: '151004A14' },
   { code: '12600', source: '126002A12' },
   { code: '20600', source: '206003A13' },
-  { code: '02800', source: '028003A11', cropPrefix: '028003' },
+  {
+    code: '02800',
+    source: '028003A11',
+    cropPrefix: '028003',
+    embeddedImages: true,
+    // These embedded objects are formula glyphs. Their choices are restored as
+    // text by build-exam-packs rather than shown as detached image fragments.
+    excludedEmbeddedQuestions: [
+      '02800-08-006', '02800-08-012', '02800-08-013', '02800-08-021',
+      '02800-08-022', '02800-08-080', '02800-08-089', '02800-09-010',
+      '02800-09-029', '02800-09-052', '02800-09-072', '02800-10-025',
+      '02800-10-026', '02800-10-030', '02800-10-061',
+    ],
+    // These bands contain formula glyphs followed by one real question diagram.
+    lastEmbeddedImageOnly: [
+      '02800-08-015', '02800-09-006', '02800-10-003', '02800-10-004',
+      '02800-10-005', '02800-10-006', '02800-10-021', '02800-10-023',
+      '02800-10-029', '02800-10-060',
+    ],
+    // The PDF stores this question's four gate choices before its truth-table
+    // prompt image. Keep the learner-facing order as prompt, then choices 1-4.
+    embeddedImageOrder: {
+      '02800-10-012': [4, 0, 1, 2, 3],
+    },
+  },
   { code: '12000', source: '120003A12', cropPrefix: '120003' },
   { code: '01600', source: '016003A12', cropPrefix: '016003' },
 ]
@@ -82,6 +106,108 @@ function cropImage(renderedPage, output, page, rect) {
     '-vf', `crop=${Math.floor(crop.width * SCALE)}:${Math.ceil(crop.height * SCALE)}:${Math.floor(crop.x * SCALE)}:${Math.floor(crop.y * SCALE)}`,
     '-frames:v', '1', output,
   ], { stdio: 'ignore' })
+}
+
+function embeddedPages(xml) {
+  return [...xml.matchAll(/<page number="(\d+)"[^>]*>([\s\S]*?)<\/page>/g)].map((pageMatch) => {
+    const body = pageMatch[2]
+    const markers = [...body.matchAll(/<text top="(\d+)" left="(\d+)"[^>]*>([\s\S]*?)<\/text>/g)]
+      .map((match) => ({
+        top: Number(match[1]),
+        left: Number(match[2]),
+        text: match[3].replace(/<[^>]+>/g, ''),
+      }))
+      .filter((text) => text.left < 130 && /^(\d+)\.\s*\(/.test(text.text))
+      .map((text) => ({ ...text, number: Number(text.text.match(/^(\d+)\./)[1]) }))
+    const images = [...body.matchAll(/<image top="(\d+)" left="(\d+)" width="(\d+)" height="(\d+)" src="([^"]+)"\/>/g)]
+      .map((match) => ({
+        top: Number(match[1]),
+        left: Number(match[2]),
+        width: Number(match[3]),
+        height: Number(match[4]),
+        source: match[5],
+      }))
+      // Every page contains this decorative WDA watermark. Real question
+      // photos may also be JPEGs, so filtering by extension would lose data.
+      .filter((image) => !(image.left === 576 && image.width === 268 && image.height === 263))
+    return { number: Number(pageMatch[1]), markers, images }
+  })
+}
+
+async function copyEmbeddedImage(source, output) {
+  if (source.endsWith('.png')) {
+    await copyFile(source, output)
+    return
+  }
+  execFileSync('ffmpeg', ['-loglevel', 'error', '-y', '-i', source, '-frames:v', '1', output], { stdio: 'ignore' })
+}
+
+async function buildEmbeddedBank({
+  source,
+  cropPrefix,
+  excludedEmbeddedQuestions = [],
+  lastEmbeddedImageOnly = [],
+  embeddedImageOrder = {},
+}) {
+  const pdfPath = fileURLToPath(new URL(`../source/${source}.pdf`, import.meta.url))
+  const raw = await readFile(new URL(`../source/${source}-raw.txt`, import.meta.url), 'utf8')
+  const questions = parseQuestionBank(raw)
+  const excluded = new Set(excludedEmbeddedQuestions)
+  const lastOnly = new Set(lastEmbeddedImageOnly)
+  const work = join(tmpdir(), `level-up-embedded-${source}`)
+  await mkdir(work, { recursive: true })
+  const xmlPath = join(work, 'embedded.xml')
+  execFileSync('pdftohtml', ['-xml', '-hidden', '-nodrm', pdfPath, xmlPath], { stdio: 'ignore' })
+  const pages = embeddedPages(await readFile(xmlPath, 'utf8'))
+  const outputRoot = new URL('../public/question-images/', import.meta.url)
+  await mkdir(outputRoot, { recursive: true })
+
+  for (const file of await readdir(outputRoot)) {
+    if (file.startsWith(`${cropPrefix}-`) && file.endsWith('.png')) await unlink(new URL(file, outputRoot))
+  }
+
+  const imageMap = {}
+  for (const question of questions) {
+    if (excluded.has(question.id)) continue
+    const page = pages.find((candidate) => candidate.number === question.sourcePage)
+    if (!page) throw new Error(`${question.id}: embedded-image page ${question.sourcePage} missing`)
+    const markerIndex = page.markers.findIndex((marker) => marker.number === question.number)
+    if (markerIndex < 0) throw new Error(`${question.id}: embedded-image marker missing on page ${question.sourcePage}`)
+    const top = page.markers[markerIndex].top - 4
+    const bottom = page.markers[markerIndex + 1]?.top ?? 1260
+    let images = page.images.filter((image) => image.top >= top && image.top < bottom)
+    if (lastOnly.has(question.id)) images = images.slice(-1)
+    const requestedOrder = embeddedImageOrder[question.id]
+    if (requestedOrder) {
+      if (requestedOrder.length !== images.length || new Set(requestedOrder).size !== images.length) {
+        throw new Error(`${question.id}: invalid embedded-image order ${requestedOrder.join(',')}`)
+      }
+      images = requestedOrder.map((index) => images[index])
+    }
+    if (!images.length) continue
+
+    const imageOptions = !lastOnly.has(question.id) && question.options.some((option) => option.includes('圖示選項'))
+    if (imageOptions && images.length !== 4 && images.length !== 5) {
+      throw new Error(`${question.id}: expected four graphical options plus at most one prompt image, received ${images.length}`)
+    }
+    const hasPromptImage = imageOptions && images.length === 5
+    const files = images.map((image, index) => {
+      const optionIndex = imageOptions ? index + (hasPromptImage ? 0 : 1) : null
+      const suffix = optionIndex === 0 || (!imageOptions && index === 0) ? '' : `-${optionIndex ?? index + 1}`
+      return `${cropPrefix}-${question.id}${suffix}.png`
+    })
+    await Promise.all(images.map((image, index) => copyEmbeddedImage(
+      image.source,
+      fileURLToPath(new URL(files[index], outputRoot)),
+    )))
+    imageMap[question.id] = files
+  }
+
+  await writeFile(
+    new URL(`../source/${source}-image-map.json`, import.meta.url),
+    `${JSON.stringify({ source: `${source}.pdf`, questions: imageMap }, null, 2)}\n`,
+  )
+  return Object.keys(imageMap).length
 }
 
 function wordsInBand(page, top, bottom) {
@@ -283,7 +409,7 @@ if (requestedSources.size && selectedBanks.length !== requestedSources.size) {
   throw new Error(`Unknown crop source. Known sources: ${known}`)
 }
 for (const bank of selectedBanks) {
-  const count = await buildBank(bank)
+  const count = bank.embeddedImages ? await buildEmbeddedBank(bank) : await buildBank(bank)
   total += count
   console.log(`${bank.source}: ${count} question crops`)
 }

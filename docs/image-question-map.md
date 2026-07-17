@@ -1,6 +1,6 @@
 # Image Question Map
 
-Generated: 2026-07-17T01:20:42.175Z
+Generated: 2026-07-17T02:56:17.776Z
 
 These are the questions that currently need a figure, graph, code screenshot, or image-option reference.
 
@@ -12,7 +12,7 @@ Replacement workflow:
 
 Do not include the official answer-key column in replacement images.
 
-Total active image questions: 499
+Total active image questions: 490
 
 ## indoor-wiring-b:00700-01-001
 
@@ -1839,22 +1839,6 @@ Total active image questions: 499
   - 3. 圖示選項 3
   - 4. 圖示選項 4
 
-## indoor-wiring-b:00700-11-086
-
-- Replacement PNG: `public/question-images/007002-00700-11-086.png`
-- App path: `/question-images/007002-00700-11-086.png`
-- Linked uploaded image:
-  - `/question-images/007002-00700-11-086.png`
-- Current fallback page: `/question-pages/00700-page-38.jpg`
-- Kind: multiple
-- Official answer: 3,4
-- Prompt: 感應電動機之運轉公式中
-- Options:
-  - 1. n 係指轉動轉速
-  - 2. f 係指轉動頻率
-  - 3. p 係指該機極數
-  - 4. rps 係指每秒鐘轉速
-
 ## indoor-wiring-b:00700-12-002
 
 - Replacement PNG: `public/question-images/007002-00700-12-002.png`
@@ -3458,6 +3442,22 @@ Total active image questions: 499
   - 3. b-c 是將螺栓放鬆到 0kg-m
   - 4. 鎖到 e 之後要再鎖緊 90 度角
 
+## industrial-electronics-c:02800-02-001
+
+- Replacement PNG: `public/question-images/028003-02800-02-001.png`
+- App path: `/question-images/028003-02800-02-001.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-001.png`
+- Current fallback page: `/question-pages/02800-page-2.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 是表示
+- Options:
+  - 1. 參考尺寸
+  - 2. 錯誤尺寸
+  - 3. 弧長尺寸
+  - 4. 不按比例尺寸
+
 ## industrial-electronics-c:02800-02-003
 
 - Replacement PNG: `public/question-images/028003-02800-02-003.png`
@@ -3476,10 +3476,13 @@ Total active image questions: 499
 
 ## industrial-electronics-c:02800-02-005
 
-- Replacement PNG: `public/question-images/028003-02800-02-005.png`
-- App path: `/question-images/028003-02800-02-005.png`
-- Linked uploaded image:
-  - `/question-images/028003-02800-02-005.png`
+- Replacement PNG: `public/question-images/028003-02800-02-005-1.png`
+- App path: `/question-images/028003-02800-02-005-1.png`
+- Linked uploaded images:
+  - `/question-images/028003-02800-02-005-1.png`
+  - `/question-images/028003-02800-02-005-2.png`
+  - `/question-images/028003-02800-02-005-3.png`
+  - `/question-images/028003-02800-02-005-4.png`
 - Current fallback page: `/question-pages/02800-page-2.jpg`
 - Kind: single
 - Official answer: 3
@@ -3494,8 +3497,12 @@ Total active image questions: 499
 
 - Replacement PNG: `public/question-images/028003-02800-02-006.png`
 - App path: `/question-images/028003-02800-02-006.png`
-- Linked uploaded image:
+- Linked uploaded images:
   - `/question-images/028003-02800-02-006.png`
+  - `/question-images/028003-02800-02-006-1.png`
+  - `/question-images/028003-02800-02-006-2.png`
+  - `/question-images/028003-02800-02-006-3.png`
+  - `/question-images/028003-02800-02-006-4.png`
 - Current fallback page: `/question-pages/02800-page-2.jpg`
 - Kind: single
 - Official answer: 2
@@ -3508,10 +3515,13 @@ Total active image questions: 499
 
 ## industrial-electronics-c:02800-02-010
 
-- Replacement PNG: `public/question-images/028003-02800-02-010.png`
-- App path: `/question-images/028003-02800-02-010.png`
-- Linked uploaded image:
-  - `/question-images/028003-02800-02-010.png`
+- Replacement PNG: `public/question-images/028003-02800-02-010-1.png`
+- App path: `/question-images/028003-02800-02-010-1.png`
+- Linked uploaded images:
+  - `/question-images/028003-02800-02-010-1.png`
+  - `/question-images/028003-02800-02-010-2.png`
+  - `/question-images/028003-02800-02-010-3.png`
+  - `/question-images/028003-02800-02-010-4.png`
 - Current fallback page: `/question-pages/02800-page-2.jpg`
 - Kind: single
 - Official answer: 3
@@ -3556,10 +3566,13 @@ Total active image questions: 499
 
 ## industrial-electronics-c:02800-02-013
 
-- Replacement PNG: `public/question-images/028003-02800-02-013.png`
-- App path: `/question-images/028003-02800-02-013.png`
-- Linked uploaded image:
-  - `/question-images/028003-02800-02-013.png`
+- Replacement PNG: `public/question-images/028003-02800-02-013-1.png`
+- App path: `/question-images/028003-02800-02-013-1.png`
+- Linked uploaded images:
+  - `/question-images/028003-02800-02-013-1.png`
+  - `/question-images/028003-02800-02-013-2.png`
+  - `/question-images/028003-02800-02-013-3.png`
+  - `/question-images/028003-02800-02-013-4.png`
 - Current fallback page: `/question-pages/02800-page-2.jpg`
 - Kind: single
 - Official answer: 2
@@ -3652,10 +3665,13 @@ Total active image questions: 499
 
 ## industrial-electronics-c:02800-02-020
 
-- Replacement PNG: `public/question-images/028003-02800-02-020.png`
-- App path: `/question-images/028003-02800-02-020.png`
-- Linked uploaded image:
-  - `/question-images/028003-02800-02-020.png`
+- Replacement PNG: `public/question-images/028003-02800-02-020-1.png`
+- App path: `/question-images/028003-02800-02-020-1.png`
+- Linked uploaded images:
+  - `/question-images/028003-02800-02-020-1.png`
+  - `/question-images/028003-02800-02-020-2.png`
+  - `/question-images/028003-02800-02-020-3.png`
+  - `/question-images/028003-02800-02-020-4.png`
 - Current fallback page: `/question-pages/02800-page-3.jpg`
 - Kind: single
 - Official answer: 3
@@ -3716,10 +3732,13 @@ Total active image questions: 499
 
 ## industrial-electronics-c:02800-02-024
 
-- Replacement PNG: `public/question-images/028003-02800-02-024.png`
-- App path: `/question-images/028003-02800-02-024.png`
-- Linked uploaded image:
-  - `/question-images/028003-02800-02-024.png`
+- Replacement PNG: `public/question-images/028003-02800-02-024-1.png`
+- App path: `/question-images/028003-02800-02-024-1.png`
+- Linked uploaded images:
+  - `/question-images/028003-02800-02-024-1.png`
+  - `/question-images/028003-02800-02-024-2.png`
+  - `/question-images/028003-02800-02-024-3.png`
+  - `/question-images/028003-02800-02-024-4.png`
 - Current fallback page: `/question-pages/02800-page-3.jpg`
 - Kind: single
 - Official answer: 1
@@ -3764,10 +3783,13 @@ Total active image questions: 499
 
 ## industrial-electronics-c:02800-02-027
 
-- Replacement PNG: `public/question-images/028003-02800-02-027.png`
-- App path: `/question-images/028003-02800-02-027.png`
-- Linked uploaded image:
-  - `/question-images/028003-02800-02-027.png`
+- Replacement PNG: `public/question-images/028003-02800-02-027-1.png`
+- App path: `/question-images/028003-02800-02-027-1.png`
+- Linked uploaded images:
+  - `/question-images/028003-02800-02-027-1.png`
+  - `/question-images/028003-02800-02-027-2.png`
+  - `/question-images/028003-02800-02-027-3.png`
+  - `/question-images/028003-02800-02-027-4.png`
 - Current fallback page: `/question-pages/02800-page-3.jpg`
 - Kind: single
 - Official answer: 4
@@ -3956,10 +3978,13 @@ Total active image questions: 499
 
 ## industrial-electronics-c:02800-02-044
 
-- Replacement PNG: `public/question-images/028003-02800-02-044.png`
-- App path: `/question-images/028003-02800-02-044.png`
-- Linked uploaded image:
-  - `/question-images/028003-02800-02-044.png`
+- Replacement PNG: `public/question-images/028003-02800-02-044-1.png`
+- App path: `/question-images/028003-02800-02-044-1.png`
+- Linked uploaded images:
+  - `/question-images/028003-02800-02-044-1.png`
+  - `/question-images/028003-02800-02-044-2.png`
+  - `/question-images/028003-02800-02-044-3.png`
+  - `/question-images/028003-02800-02-044-4.png`
 - Current fallback page: `/question-pages/02800-page-5.jpg`
 - Kind: single
 - Official answer: 2
@@ -4036,10 +4061,13 @@ Total active image questions: 499
 
 ## industrial-electronics-c:02800-02-049
 
-- Replacement PNG: `public/question-images/028003-02800-02-049.png`
-- App path: `/question-images/028003-02800-02-049.png`
-- Linked uploaded image:
-  - `/question-images/028003-02800-02-049.png`
+- Replacement PNG: `public/question-images/028003-02800-02-049-1.png`
+- App path: `/question-images/028003-02800-02-049-1.png`
+- Linked uploaded images:
+  - `/question-images/028003-02800-02-049-1.png`
+  - `/question-images/028003-02800-02-049-2.png`
+  - `/question-images/028003-02800-02-049-3.png`
+  - `/question-images/028003-02800-02-049-4.png`
 - Current fallback page: `/question-pages/02800-page-5.jpg`
 - Kind: single
 - Official answer: 1
@@ -4065,6 +4093,22 @@ Total active image questions: 499
   - 2. 光電晶體
   - 3. 功率電晶體
   - 4. 穩壓電晶體
+
+## industrial-electronics-c:02800-02-051
+
+- Replacement PNG: `public/question-images/028003-02800-02-051.png`
+- App path: `/question-images/028003-02800-02-051.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-051.png`
+- Current fallback page: `/question-pages/02800-page-5.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下列符號是哪一種零件的符號？
+- Options:
+  - 1. 共陰極七段顯示器
+  - 2. 共陽極七段顯示器
+  - 3. 蕭特基二極體
+  - 4. 稽納二極體
 
 ## industrial-electronics-c:02800-02-052
 
@@ -4113,6 +4157,22 @@ Total active image questions: 499
   - 2. 光電晶體
   - 3. 電解電容
   - 4. 太陽電池
+
+## industrial-electronics-c:02800-02-055
+
+- Replacement PNG: `public/question-images/028003-02800-02-055.png`
+- App path: `/question-images/028003-02800-02-055.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-02-055.png`
+- Current fallback page: `/question-pages/02800-page-6.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 請問下列電路符號為何種邏輯閘？
+- Options:
+  - 1. 高電位動作的三態閘
+  - 2. 互補式輸出的緩衝器（buffer）
+  - 3. 反（NOT）閘
+  - 4. 低電位動作的三態閘
 
 ## industrial-electronics-c:02800-02-056
 
@@ -4180,10 +4240,13 @@ Total active image questions: 499
 
 ## industrial-electronics-c:02800-05-006
 
-- Replacement PNG: `public/question-images/028003-02800-05-006.png`
-- App path: `/question-images/028003-02800-05-006.png`
-- Linked uploaded image:
-  - `/question-images/028003-02800-05-006.png`
+- Replacement PNG: `public/question-images/028003-02800-05-006-1.png`
+- App path: `/question-images/028003-02800-05-006-1.png`
+- Linked uploaded images:
+  - `/question-images/028003-02800-05-006-1.png`
+  - `/question-images/028003-02800-05-006-2.png`
+  - `/question-images/028003-02800-05-006-3.png`
+  - `/question-images/028003-02800-05-006-4.png`
 - Current fallback page: `/question-pages/02800-page-12.jpg`
 - Kind: single
 - Official answer: 1
@@ -4196,10 +4259,13 @@ Total active image questions: 499
 
 ## industrial-electronics-c:02800-06-007
 
-- Replacement PNG: `public/question-images/028003-02800-06-007.png`
-- App path: `/question-images/028003-02800-06-007.png`
-- Linked uploaded image:
-  - `/question-images/028003-02800-06-007.png`
+- Replacement PNG: `public/question-images/028003-02800-06-007-1.png`
+- App path: `/question-images/028003-02800-06-007-1.png`
+- Linked uploaded images:
+  - `/question-images/028003-02800-06-007-1.png`
+  - `/question-images/028003-02800-06-007-2.png`
+  - `/question-images/028003-02800-06-007-3.png`
+  - `/question-images/028003-02800-06-007-4.png`
 - Current fallback page: `/question-pages/02800-page-15.jpg`
 - Kind: single
 - Official answer: 4
@@ -4324,10 +4390,13 @@ Total active image questions: 499
 
 ## industrial-electronics-c:02800-07-048
 
-- Replacement PNG: `public/question-images/028003-02800-07-048.png`
-- App path: `/question-images/028003-02800-07-048.png`
-- Linked uploaded image:
-  - `/question-images/028003-02800-07-048.png`
+- Replacement PNG: `public/question-images/028003-02800-07-048-1.png`
+- App path: `/question-images/028003-02800-07-048-1.png`
+- Linked uploaded images:
+  - `/question-images/028003-02800-07-048-1.png`
+  - `/question-images/028003-02800-07-048-2.png`
+  - `/question-images/028003-02800-07-048-3.png`
+  - `/question-images/028003-02800-07-048-4.png`
 - Current fallback page: `/question-pages/02800-page-20.jpg`
 - Kind: single
 - Official answer: 2
@@ -4370,22 +4439,6 @@ Total active image questions: 499
   - 3. 2Ω
   - 4. 3Ω
 
-## industrial-electronics-c:02800-08-006
-
-- Replacement PNG: `public/question-images/028003-02800-08-006.png`
-- App path: `/question-images/028003-02800-08-006.png`
-- Linked uploaded image:
-  - `/question-images/028003-02800-08-006.png`
-- Current fallback page: `/question-pages/02800-page-21.jpg`
-- Kind: single
-- Official answer: 4
-- Prompt: 兩電感串聯考慮互感時總電量為
-- Options:
-  - 1. 圖示選項 1
-  - 2. 圖示選項 2
-  - 3. 圖示選項 3
-  - 4. 圖示選項 4
-
 ## industrial-electronics-c:02800-08-008
 
 - Replacement PNG: `public/question-images/028003-02800-08-008.png`
@@ -4402,38 +4455,6 @@ Total active image questions: 499
   - 3. 2A
   - 4. 3A
 
-## industrial-electronics-c:02800-08-012
-
-- Replacement PNG: `public/question-images/028003-02800-08-012.png`
-- App path: `/question-images/028003-02800-08-012.png`
-- Linked uploaded image:
-  - `/question-images/028003-02800-08-012.png`
-- Current fallback page: `/question-pages/02800-page-21.jpg`
-- Kind: single
-- Official answer: 4
-- Prompt: 一交流電路中，υ(t)＝30 cos(200t＋15°)伏特，i(t)＝0.5 cos(200t＋75°)安培，則此電路之功率因數為
-- Options:
-  - 1. 0.886
-  - 2. 圖示選項 2
-  - 3. 圖示選項 3
-  - 4. 0.5
-
-## industrial-electronics-c:02800-08-013
-
-- Replacement PNG: `public/question-images/028003-02800-08-013.png`
-- App path: `/question-images/028003-02800-08-013.png`
-- Linked uploaded image:
-  - `/question-images/028003-02800-08-013.png`
-- Current fallback page: `/question-pages/02800-page-21.jpg`
-- Kind: single
-- Official answer: 4
-- Prompt: RLC 並聯電路其諧振頻率為
-- Options:
-  - 1. 圖示選項 1
-  - 2. 圖示選項 2
-  - 3. 圖示選項 3
-  - 4. 圖示選項 4
-
 ## industrial-electronics-c:02800-08-015
 
 - Replacement PNG: `public/question-images/028003-02800-08-015.png`
@@ -4443,7 +4464,7 @@ Total active image questions: 499
 - Current fallback page: `/question-pages/02800-page-22.jpg`
 - Kind: single
 - Official answer: 3
-- Prompt: 下圖υ(t)＝12     cos ωt 伏特則其總電流之有效值 I       為
+- Prompt: 下圖 v(t) = 12√2 cos ωt 伏特，則其總電流之有效值 I_rms 為
 - Options:
   - 1. 1A
   - 2. 2A
@@ -4466,28 +4487,15 @@ Total active image questions: 499
   - 3. 30V
   - 4. 50V
 
-## industrial-electronics-c:02800-08-021
-
-- Replacement PNG: `public/question-images/028003-02800-08-021.png`
-- App path: `/question-images/028003-02800-08-021.png`
-- Linked uploaded image:
-  - `/question-images/028003-02800-08-021.png`
-- Current fallback page: `/question-pages/02800-page-22.jpg`
-- Kind: single
-- Official answer: 4
-- Prompt: 將極座標 6       ∠135°換為直角座標得
-- Options:
-  - 1. 6＋j6
-  - 2. 6－j6
-  - 3. －6－j6
-  - 4. －6＋j6
-
 ## industrial-electronics-c:02800-08-027
 
-- Replacement PNG: `public/question-images/028003-02800-08-027.png`
-- App path: `/question-images/028003-02800-08-027.png`
-- Linked uploaded image:
-  - `/question-images/028003-02800-08-027.png`
+- Replacement PNG: `public/question-images/028003-02800-08-027-1.png`
+- App path: `/question-images/028003-02800-08-027-1.png`
+- Linked uploaded images:
+  - `/question-images/028003-02800-08-027-1.png`
+  - `/question-images/028003-02800-08-027-2.png`
+  - `/question-images/028003-02800-08-027-3.png`
+  - `/question-images/028003-02800-08-027-4.png`
 - Current fallback page: `/question-pages/02800-page-23.jpg`
 - Kind: single
 - Official answer: 2
@@ -4529,22 +4537,6 @@ Total active image questions: 499
   - 2. 10A
   - 3. 0A
   - 4. 20A
-
-## industrial-electronics-c:02800-08-036
-
-- Replacement PNG: `public/question-images/028003-02800-08-036.png`
-- App path: `/question-images/028003-02800-08-036.png`
-- Linked uploaded image:
-  - `/question-images/028003-02800-08-036.png`
-- Current fallback page: `/question-pages/02800-page-23.jpg`
-- Kind: single
-- Official answer: 1
-- Prompt: 相同的電容器ｎ個串聯時，其電容量為並聯時之
-- Options:
-  - 1. 1/ｎ 2
-  - 2. 1/ｎ
-  - 3. ｎ
-  - 4. ｎ2   倍
 
 ## industrial-electronics-c:02800-08-039
 
@@ -4642,22 +4634,6 @@ Total active image questions: 499
   - 3. (R 3 /R 1 )R 2
   - 4. (R 3 /R 2 )R 1
 
-## industrial-electronics-c:02800-08-080
-
-- Replacement PNG: `public/question-images/028003-02800-08-080.png`
-- App path: `/question-images/028003-02800-08-080.png`
-- Linked uploaded image:
-  - `/question-images/028003-02800-08-080.png`
-- Current fallback page: `/question-pages/02800-page-26.jpg`
-- Kind: single
-- Official answer: 3
-- Prompt: RLC 串聯諧振電路，其阻抗 Z＝
-- Options:
-  - 1. 圖示選項 1
-  - 2. 圖示選項 2
-  - 3. R
-  - 4. 圖示選項 4
-
 ## industrial-electronics-c:02800-08-086
 
 - Replacement PNG: `public/question-images/028003-02800-08-086.png`
@@ -4705,22 +4681,6 @@ Total active image questions: 499
   - 2. 200V
   - 3. 400V
   - 4. 10V
-
-## industrial-electronics-c:02800-08-089
-
-- Replacement PNG: `public/question-images/028003-02800-08-089.png`
-- App path: `/question-images/028003-02800-08-089.png`
-- Linked uploaded image:
-  - `/question-images/028003-02800-08-089.png`
-- Current fallback page: `/question-pages/02800-page-27.jpg`
-- Kind: single
-- Official answer: 3
-- Prompt: 以直角座標相量表示 10∠30°＝
-- Options:
-  - 1. 5－j5
-  - 2. 5＋j5
-  - 3. 5   ＋j5
-  - 4. 5－j5
 
 ## industrial-electronics-c:02800-08-090
 
@@ -5019,28 +4979,12 @@ Total active image questions: 499
 - Current fallback page: `/question-pages/02800-page-32.jpg`
 - Kind: single
 - Official answer: 4
-- Prompt: 下圖 V 輸出波形近似於
+- Prompt: 下圖 V₀ 輸出波形近似於
 - Options:
   - 1. 正弦波
   - 2. 三角波
   - 3. 階梯波
   - 4. 方波
-
-## industrial-electronics-c:02800-09-010
-
-- Replacement PNG: `public/question-images/028003-02800-09-010.png`
-- App path: `/question-images/028003-02800-09-010.png`
-- Linked uploaded image:
-  - `/question-images/028003-02800-09-010.png`
-- Current fallback page: `/question-pages/02800-page-32.jpg`
-- Kind: single
-- Official answer: 2
-- Prompt: 一正回授電路欲使其產生正弦波振盪時，則環路增益（Loop Gain）應大約等於
-- Options:
-  - 1. 0
-  - 2. 1
-  - 3. 圖示選項 3
-  - 4. 圖示選項 4
 
 ## industrial-electronics-c:02800-09-011
 
@@ -5186,22 +5130,6 @@ Total active image questions: 499
   - 3. 6.2V
   - 4. 10V
 
-## industrial-electronics-c:02800-09-029
-
-- Replacement PNG: `public/question-images/028003-02800-09-029.png`
-- App path: `/question-images/028003-02800-09-029.png`
-- Linked uploaded image:
-  - `/question-images/028003-02800-09-029.png`
-- Current fallback page: `/question-pages/02800-page-35.jpg`
-- Kind: single
-- Official answer: 4
-- Prompt: 電晶體的共基極短路電流增益α與共射極短路電流增益β兩者之間的關係為：
-- Options:
-  - 1. 圖示選項 1
-  - 2. 圖示選項 2
-  - 3. 圖示選項 3
-  - 4. 圖示選項 4
-
 ## industrial-electronics-c:02800-09-035
 
 - Replacement PNG: `public/question-images/028003-02800-09-035.png`
@@ -5217,6 +5145,22 @@ Total active image questions: 499
   - 2. 三倍
   - 3. 四倍
   - 4. 六倍
+
+## industrial-electronics-c:02800-09-040
+
+- Replacement PNG: `public/question-images/028003-02800-09-040.png`
+- App path: `/question-images/028003-02800-09-040.png`
+- Linked uploaded image:
+  - `/question-images/028003-02800-09-040.png`
+- Current fallback page: `/question-pages/02800-page-36.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下列整流電路，何者可得全波整流輸出？
+- Options:
+  - 1. A 與 B
+  - 2. B 與 C
+  - 3. C 與 D
+  - 4. A與D
 
 ## industrial-electronics-c:02800-09-045
 
@@ -5236,10 +5180,13 @@ Total active image questions: 499
 
 ## industrial-electronics-c:02800-09-046
 
-- Replacement PNG: `public/question-images/028003-02800-09-046.png`
-- App path: `/question-images/028003-02800-09-046.png`
-- Linked uploaded image:
-  - `/question-images/028003-02800-09-046.png`
+- Replacement PNG: `public/question-images/028003-02800-09-046-1.png`
+- App path: `/question-images/028003-02800-09-046-1.png`
+- Linked uploaded images:
+  - `/question-images/028003-02800-09-046-1.png`
+  - `/question-images/028003-02800-09-046-2.png`
+  - `/question-images/028003-02800-09-046-3.png`
+  - `/question-images/028003-02800-09-046-4.png`
 - Current fallback page: `/question-pages/02800-page-37.jpg`
 - Kind: single
 - Official answer: 2
@@ -5250,28 +5197,15 @@ Total active image questions: 499
   - 3. 圖示選項 3
   - 4. 圖示選項 4
 
-## industrial-electronics-c:02800-09-052
-
-- Replacement PNG: `public/question-images/028003-02800-09-052.png`
-- App path: `/question-images/028003-02800-09-052.png`
-- Linked uploaded image:
-  - `/question-images/028003-02800-09-052.png`
-- Current fallback page: `/question-pages/02800-page-37.jpg`
-- Kind: single
-- Official answer: 1
-- Prompt: 在電晶體參數中其代表意義為
-- Options:
-  - 1. 輸入阻抗
-  - 2. 輸出導納
-  - 3. 逆向電壓轉換比
-  - 4. 順向電流轉換比
-
 ## industrial-electronics-c:02800-09-063
 
-- Replacement PNG: `public/question-images/028003-02800-09-063.png`
-- App path: `/question-images/028003-02800-09-063.png`
-- Linked uploaded image:
-  - `/question-images/028003-02800-09-063.png`
+- Replacement PNG: `public/question-images/028003-02800-09-063-1.png`
+- App path: `/question-images/028003-02800-09-063-1.png`
+- Linked uploaded images:
+  - `/question-images/028003-02800-09-063-1.png`
+  - `/question-images/028003-02800-09-063-2.png`
+  - `/question-images/028003-02800-09-063-3.png`
+  - `/question-images/028003-02800-09-063-4.png`
 - Current fallback page: `/question-pages/02800-page-38.jpg`
 - Kind: single
 - Official answer: 2
@@ -5357,10 +5291,10 @@ Total active image questions: 499
 - Official answer: 3
 - Prompt: 下圖所示，經化簡後其最簡函數 F 為
 - Options:
-  - 1. 圖示選項 1
-  - 2. 圖示選項 2
-  - 3. 圖示選項 3
-  - 4. 圖示選項 4
+  - 1. F = DC + DB¬A + B¬A
+  - 2. F = DC + DB¬A + ¬CB¬A
+  - 3. F = DC + B¬A
+  - 4. F = BC + D¬A
 
 ## industrial-electronics-c:02800-10-004
 
@@ -5373,10 +5307,10 @@ Total active image questions: 499
 - Official answer: 1
 - Prompt: 下圖所示，W 為
 - Options:
-  - 1. 圖示選項 1
-  - 2. 圖示選項 2
-  - 3. 圖示選項 3
-  - 4. 圖示選項 4
+  - 1. Y(X + Z)
+  - 2. ¬(¬XY + ¬YZ)
+  - 3. XYZ
+  - 4. ¬(XYZ)
 
 ## industrial-electronics-c:02800-10-005
 
@@ -5389,10 +5323,10 @@ Total active image questions: 499
 - Official answer: 2
 - Prompt: 下圖所示，W 為
 - Options:
-  - 1. 圖示選項 1
-  - 2. 圖示選項 2
-  - 3. XY＋XY
-  - 4. X＋Y
+  - 1. ¬(XY) + XY
+  - 2. ¬X·Y + X·¬Y
+  - 3. XY + XY
+  - 4. X + Y
 
 ## industrial-electronics-c:02800-10-006
 
@@ -5405,10 +5339,10 @@ Total active image questions: 499
 - Official answer: 4
 - Prompt: 下圖所示若兩個反及閘皆為開集極輸出閘，其輸出 F 為
 - Options:
-  - 1. 圖示選項 1
-  - 2. 圖示選項 2
-  - 3. 圖示選項 3
-  - 4. 圖示選項 4
+  - 1. ¬(XY) + ¬(WZ)
+  - 2. ¬(XY) + ¬W·¬Z
+  - 3. ¬(XYWZ)
+  - 4. ¬(XY)·¬(WZ)
 
 ## industrial-electronics-c:02800-10-008
 
@@ -5428,10 +5362,13 @@ Total active image questions: 499
 
 ## industrial-electronics-c:02800-10-010
 
-- Replacement PNG: `public/question-images/028003-02800-10-010.png`
-- App path: `/question-images/028003-02800-10-010.png`
-- Linked uploaded image:
-  - `/question-images/028003-02800-10-010.png`
+- Replacement PNG: `public/question-images/028003-02800-10-010-1.png`
+- App path: `/question-images/028003-02800-10-010-1.png`
+- Linked uploaded images:
+  - `/question-images/028003-02800-10-010-1.png`
+  - `/question-images/028003-02800-10-010-2.png`
+  - `/question-images/028003-02800-10-010-3.png`
+  - `/question-images/028003-02800-10-010-4.png`
 - Current fallback page: `/question-pages/02800-page-44.jpg`
 - Kind: single
 - Official answer: 2
@@ -5446,8 +5383,12 @@ Total active image questions: 499
 
 - Replacement PNG: `public/question-images/028003-02800-10-012.png`
 - App path: `/question-images/028003-02800-10-012.png`
-- Linked uploaded image:
+- Linked uploaded images:
   - `/question-images/028003-02800-10-012.png`
+  - `/question-images/028003-02800-10-012-1.png`
+  - `/question-images/028003-02800-10-012-2.png`
+  - `/question-images/028003-02800-10-012-3.png`
+  - `/question-images/028003-02800-10-012-4.png`
 - Current fallback page: `/question-pages/02800-page-44.jpg`
 - Kind: single
 - Official answer: 3
@@ -5460,10 +5401,13 @@ Total active image questions: 499
 
 ## industrial-electronics-c:02800-10-014
 
-- Replacement PNG: `public/question-images/028003-02800-10-014.png`
-- App path: `/question-images/028003-02800-10-014.png`
-- Linked uploaded image:
-  - `/question-images/028003-02800-10-014.png`
+- Replacement PNG: `public/question-images/028003-02800-10-014-1.png`
+- App path: `/question-images/028003-02800-10-014-1.png`
+- Linked uploaded images:
+  - `/question-images/028003-02800-10-014-1.png`
+  - `/question-images/028003-02800-10-014-2.png`
+  - `/question-images/028003-02800-10-014-3.png`
+  - `/question-images/028003-02800-10-014-4.png`
 - Current fallback page: `/question-pages/02800-page-45.jpg`
 - Kind: single
 - Official answer: 3
@@ -5488,14 +5432,17 @@ Total active image questions: 499
   - 1. 0
   - 2. 1
   - 3. A
-  - 4. 圖示選項 4
+  - 4. ¬A
 
 ## industrial-electronics-c:02800-10-022
 
-- Replacement PNG: `public/question-images/028003-02800-10-022.png`
-- App path: `/question-images/028003-02800-10-022.png`
-- Linked uploaded image:
-  - `/question-images/028003-02800-10-022.png`
+- Replacement PNG: `public/question-images/028003-02800-10-022-1.png`
+- App path: `/question-images/028003-02800-10-022-1.png`
+- Linked uploaded images:
+  - `/question-images/028003-02800-10-022-1.png`
+  - `/question-images/028003-02800-10-022-2.png`
+  - `/question-images/028003-02800-10-022-3.png`
+  - `/question-images/028003-02800-10-022-4.png`
 - Current fallback page: `/question-pages/02800-page-45.jpg`
 - Kind: single
 - Official answer: 1
@@ -5517,26 +5464,10 @@ Total active image questions: 499
 - Official answer: 1
 - Prompt: 下圖的邏輯電路其布林代數表示為
 - Options:
-  - 1. 圖示選項 1
-  - 2. 圖示選項 2
-  - 3. 圖示選項 3
-  - 4. Y＝A⊕B
-
-## industrial-electronics-c:02800-10-026
-
-- Replacement PNG: `public/question-images/028003-02800-10-026.png`
-- App path: `/question-images/028003-02800-10-026.png`
-- Linked uploaded image:
-  - `/question-images/028003-02800-10-026.png`
-- Current fallback page: `/question-pages/02800-page-45.jpg`
-- Kind: single
-- Official answer: 4
-- Prompt: 依據狄莫根（DEMORGAN'S）定理，下列何者正確？
-- Options:
-  - 1. 圖示選項 1
-  - 2. 圖示選項 2
-  - 3. 圖示選項 3
-  - 4. 圖示選項 4
+  - 1. Y = AB + ¬A·B
+  - 2. Y = ¬A·B + A·¬B
+  - 3. Y = AB + ¬(AB)
+  - 4. Y = A ⊕ B
 
 ## industrial-electronics-c:02800-10-027
 
@@ -5565,26 +5496,10 @@ Total active image questions: 499
 - Official answer: 3
 - Prompt: 下圖邏輯閘以布林代數表示為
 - Options:
-  - 1. Y＝A‧B
-  - 2. Y＝A+B
-  - 3. 圖示選項 3
-  - 4. 圖示選項 4
-
-## industrial-electronics-c:02800-10-030
-
-- Replacement PNG: `public/question-images/028003-02800-10-030.png`
-- App path: `/question-images/028003-02800-10-030.png`
-- Linked uploaded image:
-  - `/question-images/028003-02800-10-030.png`
-- Current fallback page: `/question-pages/02800-page-46.jpg`
-- Kind: single
-- Official answer: 4
-- Prompt: F(A,B,C)＝Σ(0,2,3,4,6,7)化成最簡函式為 F(A,B,C)＝
-- Options:
-  - 1. B+C
-  - 2. A   +B
-  - 3. BC+
-  - 4. B+
+  - 1. Y = A·B
+  - 2. Y = A + B
+  - 3. Y = ¬(AB)
+  - 4. Y = ¬(A + B)
 
 ## industrial-electronics-c:02800-10-060
 
@@ -5595,12 +5510,12 @@ Total active image questions: 499
 - Current fallback page: `/question-pages/02800-page-47.jpg`
 - Kind: single
 - Official answer: 1
-- Prompt: 如圖所示， y ＝      之輸入條件為
+- Prompt: 如圖所示，y = ¬A 之輸入條件為
 - Options:
-  - 1. I 0 I 1 =00
-  - 2. I 0 I 1 =01
-  - 3. I 0 I 1 =10
-  - 4. I 0 I 1 =11
+  - 1. I₀I₁ = 00
+  - 2. I₀I₁ = 01
+  - 3. I₀I₁ = 10
+  - 4. I₀I₁ = 11
 
 ## industrial-electronics-c:02800-10-062
 

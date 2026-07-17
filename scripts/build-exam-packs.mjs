@@ -147,11 +147,42 @@ const SECTION_TITLE_OVERRIDES = {
   '19500-01': '職業介紹、人力仲介及外國人引進、聘僱、管理事項',
 }
 
+const QUESTION_PROMPT_OVERRIDES = {
+  '00700-11-086': '感應電動機之運轉公式 n = (2f / p) rps 中',
+  '02800-08-021': '將極座標 6√2∠135° 換為直角座標得',
+  '02800-09-052': '在電晶體參數中 h₁₁ = (ΔV₁ / ΔI₁)｜V₂=0，其 h₁₁ 代表意義為',
+  '02800-10-025': '在 J.K 正反器中，J＝0、K＝1 時，當 CLOCK（時脈）信號激發後，其輸出 Q 與 Q̅ 為',
+  '02800-10-061': '有一 J-K 正反器，在不考慮控制輸入下，欲使其輸出為反態現象（Qₙ₊₁ = Q̅ₙ），則 J、K 之輸入為何？',
+  '02800-08-015': '下圖 v(t) = 12√2 cos ωt 伏特，則其總電流之有效值 I_rms 為',
+  '02800-09-006': '下圖 V₀ 輸出波形近似於',
+  '02800-10-060': '如圖所示，y = ¬A 之輸入條件為',
+}
+
 const QUESTION_OPTION_OVERRIDES = {
   '11800-03-054': ['Windows 鍵+Ctrl+右方向鍵', 'Windows 鍵+Ctrl+下方向鍵', 'Windows 鍵+Ctrl+L', 'Windows 鍵+Ctrl+R'],
   '11800-03-056': ['Windows 鍵+Ctrl+D', 'Windows 鍵+Ctrl+A', 'Windows 鍵+Ctrl+C', 'Windows 鍵+Ctrl+L'],
   '11800-03-071': ['Windows 鍵+Ctrl+F1', 'Windows 鍵+Ctrl+F4', 'Windows 鍵+Ctrl+F8', 'Windows 鍵+Ctrl+F9'],
   '11800-03-078': ['Windows 鍵+Tab', 'Windows 鍵+Ctrl', 'Windows 鍵+Alt', 'Windows 鍵+Shift'],
+  '02800-08-006': ['L₁ + L₂ ± M', 'M√(L₁ + L₂)', 'M ÷ √(L₁ + L₂)', 'L₁ + L₂ ± 2M'],
+  '02800-08-012': ['0.886', '1 ÷ √2', '√3 ÷ 2', '0.5'],
+  '02800-08-013': ['1 ÷ (2π√LRC)', '1 ÷ (2πRC)', '1 ÷ (2π√RC)', '1 ÷ (2π√LC)'],
+  '02800-08-022': ['1/2', 'π/2', '√2/2', '2/π 倍'],
+  '02800-08-080': ['√(R² + X_L²)', '√(R² + X_C²)', 'R', '√(R² + (X_L + X_C)²)'],
+  '02800-08-089': ['5－j5√3', '5＋j5√3', '5√3＋j5', '5√3－j5'],
+  '02800-09-010': ['0', '1', '√2', '√29'],
+  '02800-09-029': ['β = α ÷ (1 + β)', 'β = (1 + α) ÷ α', 'β = α ÷ (α - 1)', 'β = α ÷ (1 - α)'],
+  '02800-09-072': ['2 倍', '√2 倍', '1/2 倍', '1/√2 倍'],
+  '02800-10-025': ['Q＝1，Q̅＝1', 'Q＝0，Q̅＝1', 'Q＝0，Q̅＝0', 'Q＝1，Q̅＝0'],
+  '02800-10-026': ['A·B = ¬(A + B)', 'AB = ¬A + ¬B', '¬(AB) = ¬(A + B)', '¬(AB) = ¬A + ¬B'],
+  '02800-10-030': ['B＋C', 'A·C̅＋B', 'BC＋C̅', 'B＋C̅'],
+  '02800-10-003': ['F = DC + DB¬A + B¬A', 'F = DC + DB¬A + ¬CB¬A', 'F = DC + B¬A', 'F = BC + D¬A'],
+  '02800-10-004': ['Y(X + Z)', '¬(¬(XY) + ¬(YZ))', 'XYZ', '¬(XYZ)'],
+  '02800-10-005': ['¬(XY) + XY', '¬X·Y + X·¬Y', 'XY + XY', 'X + Y'],
+  '02800-10-006': ['¬(XY) + ¬(WZ)', '¬(XY) + ¬W·¬Z', '¬(XYWZ)', '¬(XY)·¬(WZ)'],
+  '02800-10-021': ['0', '1', 'A', '¬A'],
+  '02800-10-023': ['Y = AB + ¬A·B', 'Y = ¬A·B + A·¬B', 'Y = AB + ¬(AB)', 'Y = A ⊕ B'],
+  '02800-10-029': ['Y = A·B', 'Y = A + B', 'Y = ¬(AB)', 'Y = ¬(A + B)'],
+  '02800-10-060': ['I₀I₁ = 00', 'I₀I₁ = 01', 'I₀I₁ = 10', 'I₀I₁ = 11'],
 }
 
 const NO_SOURCE_PAGE_IMAGE = new Set(['07700-03-003'])
@@ -290,7 +321,7 @@ const EXAMS = [
     splitImageOptions: true,
     includeLeftFigures: true,
     figureIds: ['00700-11-063', '00700-12-043'],
-    excludedFigureIds: ['00700-06-018'],
+    excludedFigureIds: ['00700-06-018', '00700-11-086'],
     mixedFigureOptionIds: ['00700-09-007'],
     inactiveIds: [
       '00700-05-015',
@@ -582,6 +613,7 @@ const EXAMS = [
     sourceRevision: '028003A11 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: [],
     cropPrefix: '028003',
+    embeddedImageMapFile: '028003A11-image-map.json',
     requireQuestionCrops: true,
     mockRules: {
       occupationQuota: 64,
@@ -694,6 +726,8 @@ function cropFileName(exam, question) {
 }
 
 function generatedImageSources(exam, question) {
+  const embedded = exam.embeddedImageMap?.[question.id]
+  if (embedded?.length) return embedded.map(questionImagePath)
   if (!exam.splitImageOptions || !question.options.some((option) => option.includes('圖示選項'))) return undefined
   const stem = `${exam.cropPrefix ? `${exam.cropPrefix}-` : ''}${question.id}`
   const optionImages = question.options.map((_, index) => `/question-images/${stem}-${index + 1}.png`)
@@ -709,13 +743,14 @@ function normalizeQuestion(question, exam) {
     || exam.figureIds?.includes(question.id)
     || (exam.includeLeftFigures && question.prompt.includes('左圖'))
     || / {2,}/.test(`${question.prompt}${question.options.join('')}`)
-  const hasFigure = !exam.excludedFigureIds?.includes(question.id) && (question.hasFigure || forceFigure)
+  const mappedFigure = exam.embeddedImageMap ? Boolean(exam.embeddedImageMap[question.id]?.length) : undefined
+  const hasFigure = mappedFigure ?? (!exam.excludedFigureIds?.includes(question.id) && (question.hasFigure || forceFigure))
   const repaired = {
     ...question,
     examId: exam.examId,
     sourcePage,
     sectionTitle: SECTION_TITLE_OVERRIDES[question.section] ?? question.sectionTitle,
-    prompt: sanitizeText(question.prompt),
+    prompt: QUESTION_PROMPT_OVERRIDES[question.id] ?? sanitizeText(question.prompt),
     options: QUESTION_OPTION_OVERRIDES[question.id] ?? question.options.map(sanitizeText),
     ...(INACTIVE_IDS.has(question.id) || exam.inactiveIds?.includes(question.id) ? { active: false } : {}),
     hasFigure,
@@ -771,10 +806,14 @@ function buildMockRules(exam) {
 }
 
 async function writeExamPack(exam, commonQuestions, extraQuestionsByCode) {
+  const embeddedImageMap = exam.embeddedImageMapFile
+    ? JSON.parse(await readFile(new URL(`../source/${exam.embeddedImageMapFile}`, import.meta.url), 'utf8')).questions
+    : undefined
+  const resolvedExam = embeddedImageMap ? { ...exam, embeddedImageMap } : exam
   const occupation = await loadParsed({ code: exam.occupationCode, file: exam.occupationFile, expected: exam.occupationExpected })
   const extraQuestions = (exam.extraCommonCodes ?? []).flatMap((code) => extraQuestionsByCode.get(code) ?? [])
   const questions = [...occupation, ...extraQuestions, ...commonQuestions]
-    .map((question) => normalizeQuestion(question, exam))
+    .map((question) => normalizeQuestion(question, resolvedExam))
   const active = questions.filter((question) => question.active !== false)
   const figures = active.filter((question) => question.hasFigure)
   if (exam.requireQuestionCrops) {

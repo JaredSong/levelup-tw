@@ -1341,7 +1341,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     "integrity": {
       "status": "fully_verified",
       "inactiveQuestionCount": 12,
-      "imageQuestionCount": 69,
+      "imageQuestionCount": 68,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
   },
@@ -3921,7 +3921,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     "integrity": {
       "status": "fully_verified",
       "inactiveQuestionCount": 5,
-      "imageQuestionCount": 140,
+      "imageQuestionCount": 132,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
   },

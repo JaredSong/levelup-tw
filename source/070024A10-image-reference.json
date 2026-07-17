@@ -1,0 +1,368 @@
+{
+  "officialQuestionCount": 668,
+  "referenceCatalog": "https://techcerti.bookmarks.tw/exams/excavator",
+  "note": "The official WDA PDF is authoritative. This external catalog is used only to audit image role and order.",
+  "answerDisagreements": [],
+  "questions": {
+    "07002-01-037": [
+      {
+        "reference": "p01",
+        "role": "prompt",
+        "height": 29,
+        "width": 53,
+        "differenceHash": "302868d29696e830",
+        "referenceSha256": "515d5224512cefeef25223f388fe690b0a6ceccb4759b193acea28f3989b9190"
+      }
+    ],
+    "07002-01-038": [
+      {
+        "reference": "p02",
+        "role": "prompt",
+        "height": 60,
+        "width": 38,
+        "differenceHash": "3070cc9e8ef03030",
+        "referenceSha256": "79da0f87da14ea56007330569b20c51a6db7f425b7bbdebac4bb3fee2fd53d81"
+      }
+    ],
+    "07002-02-153": [
+      {
+        "reference": "p03",
+        "role": "option-1",
+        "height": 38,
+        "width": 39,
+        "differenceHash": "70ecd4d4e8f2f032",
+        "referenceSha256": "d9cc5160e332271795d39af54a989b340f25e1e527d4c2a4feb7c9caae9c661e"
+      },
+      {
+        "reference": "p04",
+        "role": "option-2",
+        "height": 29,
+        "width": 54,
+        "differenceHash": "322a68d29496e831",
+        "referenceSha256": "6134b14c0d9845a1875f39f3f929ce60979ee51ccb2c01394aa69bcb0c13cee3"
+      },
+      {
+        "reference": "p05",
+        "role": "option-3",
+        "height": 40,
+        "width": 43,
+        "differenceHash": "71c8aa3131b0f0e9",
+        "referenceSha256": "6060995108e7259ac7d96cf1db99f6a2e6db03a69caa3a72490b013d55333ead"
+      },
+      {
+        "reference": "p06",
+        "role": "option-4",
+        "height": 37,
+        "width": 23,
+        "differenceHash": "0d1931e4d8316040",
+        "referenceSha256": "a0d3871eb2ea422cee179bbd5184ebc7df791a5029f63ef0e671b49cb8f43791"
+      }
+    ],
+    "07002-02-154": [
+      {
+        "reference": "p07",
+        "role": "option-1",
+        "height": 82,
+        "width": 69,
+        "differenceHash": "70f0ccd6d4ea7030",
+        "referenceSha256": "d10d04f2cfde70d3f985bd33f8bd43d25b21667103f357799e3fb040c6cc233b"
+      },
+      {
+        "reference": "p08",
+        "role": "option-2",
+        "height": 102,
+        "width": 69,
+        "differenceHash": "3171b4b2b2f03331",
+        "referenceSha256": "81a4a1359a27a140d465d2c94a49e5d898fff3ae0c4d54f0f18e17c5f872a0a7"
+      },
+      {
+        "reference": "p09",
+        "role": "option-3",
+        "height": 99,
+        "width": 64,
+        "differenceHash": "3271cc8e8ef0f331",
+        "referenceSha256": "edaf578783a43ff6daa962049a7190db160c6250b901bd002ffd05ed2b5f65ab"
+      },
+      {
+        "reference": "p10",
+        "role": "option-4",
+        "height": 64,
+        "width": 71,
+        "differenceHash": "71d4b2b2b2b2d471",
+        "referenceSha256": "872940944848225de499a8ead772ab18475cac570dcbea4630f9c15787410154"
+      }
+    ],
+    "07002-02-155": [
+      {
+        "reference": "p11",
+        "role": "option-1",
+        "height": 64,
+        "width": 45,
+        "differenceHash": "30b2f0d4b2969292",
+        "referenceSha256": "6c4662509c03fd36b00ef94c3e4a5876027849b6073e3d783f294124153750ec"
+      },
+      {
+        "reference": "p12",
+        "role": "option-2",
+        "height": 61,
+        "width": 45,
+        "differenceHash": "30f0c8d4d4d4c0b2",
+        "referenceSha256": "201a54ec0f37918c2a597b63816fc8ccf159683e567afc4f95c8cadfdcac990b"
+      },
+      {
+        "reference": "p13",
+        "role": "option-3",
+        "height": 55,
+        "width": 59,
+        "differenceHash": "33f57148d696d468",
+        "referenceSha256": "8190dde0eb33e9d80cde89d257545c6431f0954b1a665dc6b55548a1573b0167"
+      },
+      {
+        "reference": "p14",
+        "role": "option-4",
+        "height": 60,
+        "width": 26,
+        "differenceHash": "7230f2c4b6b6f071",
+        "referenceSha256": "b12b9a6cb13ab717dc046f22b4a013835da81c0f553fd9f081c189c7ed1414b8"
+      }
+    ],
+    "07002-02-156": [
+      {
+        "reference": "p15",
+        "role": "option-1",
+        "height": 40,
+        "width": 42,
+        "differenceHash": "f0e8b2326baa9471",
+        "referenceSha256": "21212c924f682a4e5fdae4ea5bd71dc1bb82d2ff87435948d01d175777cd420b"
+      },
+      {
+        "reference": "p16",
+        "role": "option-2",
+        "height": 43,
+        "width": 69,
+        "differenceHash": "30684c9696d47030",
+        "referenceSha256": "978582ef40fad9e6eab713bc53c96724a2f4769276b341f056fe38b42f80a892"
+      },
+      {
+        "reference": "p17",
+        "role": "option-3",
+        "height": 40,
+        "width": 43,
+        "differenceHash": "72d892b29292dc71",
+        "referenceSha256": "3dbc94117007b502e2b31cb51ffdc59f97c6f3a94ec122953e138ce013d3312d"
+      },
+      {
+        "reference": "p18",
+        "role": "option-4",
+        "height": 40,
+        "width": 43,
+        "differenceHash": "71cca2b2b2b2cc71",
+        "referenceSha256": "16bb2156af456f4ab991c48eb967e87431769dfd2994915f1c807543046b101e"
+      }
+    ],
+    "07002-02-157": [
+      {
+        "reference": "p19",
+        "role": "option-1",
+        "height": 82,
+        "width": 69,
+        "differenceHash": "70f0ccd6d4ea7030",
+        "referenceSha256": "d10d04f2cfde70d3f985bd33f8bd43d25b21667103f357799e3fb040c6cc233b"
+      },
+      {
+        "reference": "p20",
+        "role": "option-2",
+        "height": 55,
+        "width": 61,
+        "differenceHash": "70d4b2b2b2b2d470",
+        "referenceSha256": "97f2f4be62b2945554530ed2151da7054b41ffe0750a5567508b4b31d605cd3a"
+      },
+      {
+        "reference": "p21",
+        "role": "option-3",
+        "height": 114,
+        "width": 49,
+        "differenceHash": "3030b2d4b2b2f070",
+        "referenceSha256": "91adf4fef38556a01a9f952142c05bd33696b99e4ad3944701b6c7946e8c3710"
+      },
+      {
+        "reference": "p22",
+        "role": "option-4",
+        "height": 94,
+        "width": 61,
+        "differenceHash": "3070cc9e8ef03030",
+        "referenceSha256": "718c0dc02cabb4307982e4beca6119c0b96f84982105a2d2396d2bb98ad653ee"
+      }
+    ],
+    "07002-02-158": [
+      {
+        "reference": "p23",
+        "role": "option-1",
+        "height": 39,
+        "width": 39,
+        "differenceHash": "70ecd4d4e8f2f032",
+        "referenceSha256": "13a637ec9a60f570d8da30fca91722c6bed6e9edd33a6d46847c1f1072d0b816"
+      },
+      {
+        "reference": "p24",
+        "role": "option-2",
+        "height": 42,
+        "width": 33,
+        "differenceHash": "3070cc96b6cc7030",
+        "referenceSha256": "b8239e93530b404ec220486285a26837744be08babe8e68a83c7eb63930cf534"
+      },
+      {
+        "reference": "p25",
+        "role": "option-3",
+        "height": 27,
+        "width": 47,
+        "differenceHash": "b268cc94d4487030",
+        "referenceSha256": "58148357a589f8fb22d8cb21180f531f5d8136990c8a4551f7c4dc5e7b3a3e67"
+      },
+      {
+        "reference": "p26",
+        "role": "option-4",
+        "height": 39,
+        "width": 31,
+        "differenceHash": "3071d8acecf87130",
+        "referenceSha256": "8a0bc7a656590c948c072ebc62358b854e81e772a5bff815097d4830c658121c"
+      }
+    ],
+    "07002-02-159": [
+      {
+        "reference": "p27",
+        "role": "option-1",
+        "height": 64,
+        "width": 60,
+        "differenceHash": "d098d0c0c0c2c0d0",
+        "referenceSha256": "cbc205d2c533fb081c8b660c8a03cf38e2b7f4f8bf57dd7ab684f5492dce103f"
+      },
+      {
+        "reference": "p28",
+        "role": "option-2",
+        "height": 65,
+        "width": 66,
+        "differenceHash": "f0e8287171a0e2f0",
+        "referenceSha256": "49d622550b018d12b9a7e18e2e0cf3485c80113a7ffa1c368948170d1b41d3d9"
+      },
+      {
+        "reference": "p29",
+        "role": "option-3",
+        "height": 64,
+        "width": 106,
+        "differenceHash": "7060f0b2b2f06070",
+        "referenceSha256": "b3d4b13c73a2a19ebaa3c12177f3b305000f06823c278c8492abdf41605dec28"
+      },
+      {
+        "reference": "p30",
+        "role": "option-4",
+        "height": 59,
+        "width": 52,
+        "differenceHash": "684860606260f0b0",
+        "referenceSha256": "c6056274df5169e6c9fe28d9b48d3b3a99753513b619bd7aa0923ec4823b4c01"
+      }
+    ],
+    "07002-02-160": [
+      {
+        "reference": "p31",
+        "role": "option-1",
+        "height": 37,
+        "width": 24,
+        "differenceHash": "2c1931e4d8316048",
+        "referenceSha256": "0240755a7d04c70ebcce34ae778b3f9c6a84d05e4449647d4bc27a52db353c02"
+      },
+      {
+        "reference": "p32",
+        "role": "option-2",
+        "height": 27,
+        "width": 51,
+        "differenceHash": "3369cc9696b06930",
+        "referenceSha256": "30bb278997126f00e6f33c7d4d985412077c36ee9de8acdfb5eaed32de1e0433"
+      },
+      {
+        "reference": "p33",
+        "role": "option-3",
+        "height": 40,
+        "width": 37,
+        "differenceHash": "60cc9696cc68b4cc",
+        "referenceSha256": "4a7125993a27c1b5402012943390c2fbd22b51ab69ccdf0362bf03f5924f6a38"
+      },
+      {
+        "reference": "p34",
+        "role": "option-4",
+        "height": 39,
+        "width": 37,
+        "differenceHash": "60cc9e94cc68b2b2",
+        "referenceSha256": "a6ef302774f96fd13a058761562f3b989ccb97a0b5fad2b5a028b1ccad5954ec"
+      }
+    ],
+    "07002-02-161": [
+      {
+        "reference": "p35",
+        "role": "option-1",
+        "height": 60,
+        "width": 69,
+        "differenceHash": "00080c162a2b2b00",
+        "referenceSha256": "fcc87a62ff632b7bc07491893cbb4ce9faa1efe4acd25605b2ba412f496759a5"
+      },
+      {
+        "reference": "p36",
+        "role": "option-2",
+        "height": 57,
+        "width": 105,
+        "differenceHash": "d0c0e062763890ae",
+        "referenceSha256": "aefb434cc9e3d86002a62a4b41561e76abd52c35094ad492caa2d514e6689bd4"
+      },
+      {
+        "reference": "p37",
+        "role": "option-3",
+        "height": 61,
+        "width": 95,
+        "differenceHash": "0404a4c4e4663631",
+        "referenceSha256": "47ab45ff6a2e1c65bfd160c7dc63945f8d20b2273031c7e9a1aba8886f3982ab"
+      },
+      {
+        "reference": "p38",
+        "role": "option-4",
+        "height": 73,
+        "width": 97,
+        "differenceHash": "8484c46474380e03",
+        "referenceSha256": "4e61260a6e2aaab2c54fe14574ed59aa89d6ea4d48653c4260b4afa51d7d73ac"
+      }
+    ],
+    "07002-02-162": [
+      {
+        "reference": "p39",
+        "role": "option-1",
+        "height": 68,
+        "width": 75,
+        "differenceHash": "70e8cc8686cce870",
+        "referenceSha256": "b0733d8c52b9e1c91131c2daca44c6d5d2e2b74c2f33677372ab51448cacab17"
+      },
+      {
+        "reference": "p40",
+        "role": "option-2",
+        "height": 65,
+        "width": 78,
+        "differenceHash": "70e8dc94b6d4e870",
+        "referenceSha256": "e11eb26c13732230f79de91bda4da334a18304cf0c9895e0f0456dc9a5be3781"
+      },
+      {
+        "reference": "p41",
+        "role": "option-3",
+        "height": 67,
+        "width": 103,
+        "differenceHash": "063468cc94d46870",
+        "referenceSha256": "68a5e299420b4468888c6744806730f9e8f498fdce920c07f74515c0e11fbbc5"
+      },
+      {
+        "reference": "p42",
+        "role": "option-4",
+        "height": 63,
+        "width": 70,
+        "differenceHash": "70c894b69694c850",
+        "referenceSha256": "0b629cc6547f1a343ae537f4be28dec66e5d7ebe6024cf047a7285414aac26b2"
+      }
+    ]
+  }
+}

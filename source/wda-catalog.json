@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-07-16T13:48:29.114Z",
+  "generatedAt": "2026-07-17T06:18:33.507Z",
   "source": "https://owinform.wdasec.gov.tw/",
   "authority": "official-primary",
-  "effectiveRocDate": "1150716",
-  "effectiveDate": "2026-07-16",
+  "effectiveRocDate": "1150717",
+  "effectiveDate": "2026-07-17",
   "entryCount": 269,
   "documentCount": 276,
   "errors": [],
@@ -5212,7 +5212,8 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/016003A12.pdf",
       "effectiveFrom": "2025-01-01",
       "effectiveFromRoc": "1140101",
-      "remark": null
+      "remark": null,
+      "sha256": "4913434902ec0437bf0e63fe8412c416da5417b02d2034d1686c26bbb0f77390"
     },
     {
       "subjectCode": "01800",
@@ -5357,7 +5358,8 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/028003A11.pdf",
       "effectiveFrom": "2022-07-01",
       "effectiveFromRoc": "1110701",
-      "remark": null
+      "remark": null,
+      "sha256": "e820924ad69850a7490f6dfccfd107b202fad8e5ec2bbcc4fa8471d882eba087"
     },
     {
       "subjectCode": "02900",
@@ -5911,7 +5913,8 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/070024A10.pdf",
       "effectiveFrom": "2023-01-03",
       "effectiveFromRoc": "1120103",
-      "remark": "適用07006重機械操作-挖掘機(擬真系統)"
+      "remark": "適用07006重機械操作-挖掘機(擬真系統)",
+      "sha256": "9d11d8d5882adcdecd43aac933641928c8317b56219b33d9b68f796be3e2253d"
     },
     {
       "subjectCode": "07004",
@@ -6454,7 +6457,8 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/117002A13.pdf",
       "effectiveFrom": "2025-01-01",
       "effectiveFromRoc": "1140101",
-      "remark": null
+      "remark": null,
+      "sha256": "5bf0217bc1783738c546421187fe81055ea9f298870b5c3b0b117afae8c4c28a"
     },
     {
       "subjectCode": "11800",
@@ -6540,7 +6544,8 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/120003A12.pdf",
       "effectiveFrom": "2020-01-01",
       "effectiveFromRoc": "1090101",
-      "remark": null
+      "remark": null,
+      "sha256": "13a0f919350e28de8ada060fa3baec61d1700f4b05f4b4f14ebf13b43698b378"
     },
     {
       "subjectCode": "12100",
@@ -6793,7 +6798,8 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/140003A11.pdf",
       "effectiveFrom": "2011-01-01",
       "effectiveFromRoc": "1000101",
-      "remark": null
+      "remark": null,
+      "sha256": "d16857c88fbafbadf35541149d9cc5a3e2dbb96a6937571d821f11747e19db45"
     },
     {
       "subjectCode": "14500",
@@ -7422,7 +7428,8 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/181003A13.pdf",
       "effectiveFrom": "2019-07-01",
       "effectiveFromRoc": "1080701",
-      "remark": null
+      "remark": null,
+      "sha256": "717e302e6e24e75ac3d67de2e9474a079b36c06fb27f97a2426abcdee010f265"
     },
     {
       "subjectCode": "18200",
@@ -7446,7 +7453,8 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/182012A10.pdf",
       "effectiveFrom": "2015-01-01",
       "effectiveFromRoc": "1040101",
-      "remark": null
+      "remark": null,
+      "sha256": "4ec46b1f22906d2495c7655bbcd4348fb2900ca7c002ff80a0705f35f32ae174"
     },
     {
       "subjectCode": "18300",
@@ -8189,6 +8197,19 @@
       "effectiveFromRoc": "1130513",
       "remark": null,
       "sha256": "6f53fa9d723ce64047fde4f3e80fba6e069cf4679436bd6bc5d4ca35eac5f779"
+    },
+    {
+      "subjectCode": "90001",
+      "title": "職類共同科目",
+      "levelCode": "0",
+      "level": "共同科目",
+      "version": "A10",
+      "pdfFilename": "900012A10.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900012A10.pdf",
+      "effectiveFrom": null,
+      "effectiveFromRoc": null,
+      "remark": "WDA occupation catalog does not enumerate this common bank; verified from its official WDA file URL.",
+      "sha256": "5ff6d7b920a6025d7ce342ff5f247a64bfbad996e480497de36db98047ce6542"
     }
   ],
   "installedDrift": {

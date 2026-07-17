@@ -1,4 +1,5 @@
 import { execFileSync } from 'node:child_process'
+import { createHash } from 'node:crypto'
 import { access, copyFile, mkdir, readFile, readdir, unlink, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -16,7 +17,16 @@ const EXTRA_FIGURES = new Set([
 ])
 
 const BANKS = [
-  { code: '11800', source: '118002A15', cropPrefix: '118002' },
+  {
+    code: '11800',
+    source: '118002A15',
+    cropPrefix: '118002',
+    figureRects: {
+      // The prompt starts at the bottom of page 36, but its Excel table is on
+      // the top of the next page.
+      '11800-02-096': { page: 37, x: 132, y: 62, width: 274, height: 112 },
+    },
+  },
   {
     code: '00700',
     source: '007002A15',
@@ -60,6 +70,69 @@ const BANKS = [
     embeddedImageOrder: {
       '02800-10-012': [4, 0, 1, 2, 3],
     },
+  },
+  {
+    code: '07002',
+    source: '070024A10',
+    cropPrefix: '070024',
+    embeddedImages: true,
+    imageReferenceFile: '070024A10-image-reference.json',
+  },
+  {
+    code: '11700',
+    source: '117002A13',
+    cropPrefix: '117002',
+    embeddedImages: true,
+    imageReferenceFile: '117002A13-image-reference.json',
+  },
+  {
+    code: '18100',
+    source: '181003A13',
+    cropPrefix: '181003',
+    embeddedImages: true,
+    imageReferenceFile: '181003A13-image-reference.json',
+  },
+  {
+    code: '18201',
+    source: '182012A10',
+    cropPrefix: '182012',
+    embeddedImages: true,
+    imageReferenceFile: '182012A10-image-reference.json',
+    excludedQuestionIds: ['18201-02-140', '18201-04-240'],
+    compositeEmbeddedQuestions: ['18201-04-208'],
+  },
+  {
+    code: '90001',
+    source: '900012A10',
+    cropPrefix: '900012',
+    embeddedImages: true,
+    excludedQuestionIds: [
+      '90001-07-012',
+      '90001-07-019',
+      '90001-09-003',
+      '90001-09-029',
+      '90001-02-010',
+      '90001-02-016',
+      '90001-02-017',
+      '90001-02-018',
+      '90001-02-019',
+      '90001-02-020',
+      '90001-02-021',
+      '90001-02-022',
+      '90001-02-023',
+      '90001-02-024',
+      '90001-02-025',
+      '90001-02-026',
+      '90001-02-027',
+      '90001-02-031',
+      '90001-02-033',
+      '90001-02-048',
+      '90001-08-002',
+      '90001-09-032',
+      '90001-09-033',
+      '90001-09-036',
+      '90001-09-037',
+    ],
   },
   { code: '12000', source: '120003A12', cropPrefix: '120003' },
   { code: '01600', source: '016003A12', cropPrefix: '016003' },
@@ -108,6 +181,21 @@ function cropImage(renderedPage, output, page, rect) {
   ], { stdio: 'ignore' })
 }
 
+function renderPage({ rendered, work, pdfPath, sourcePage }) {
+  let renderedPage = rendered.get(sourcePage)
+  if (!renderedPage) {
+    const prefix = join(work, `page-${sourcePage}`)
+    execFileSync('pdftoppm', [
+      '-f', String(sourcePage), '-l', String(sourcePage),
+      '-r', '144', '-png', '-singlefile',
+      pdfPath, prefix,
+    ], { stdio: 'ignore' })
+    renderedPage = `${prefix}.png`
+    rendered.set(sourcePage, renderedPage)
+  }
+  return renderedPage
+}
+
 function embeddedPages(xml) {
   return [...xml.matchAll(/<page number="(\d+)"[^>]*>([\s\S]*?)<\/page>/g)].map((pageMatch) => {
     const body = pageMatch[2]
@@ -134,6 +222,80 @@ function embeddedPages(xml) {
   })
 }
 
+function differenceHash(path) {
+  const pixels = execFileSync('ffmpeg', [
+    '-loglevel', 'error', '-i', path,
+    '-vf', 'scale=9:8,format=gray', '-f', 'rawvideo', '-',
+  ])
+  let bits = ''
+  for (let row = 0; row < 8; row += 1) {
+    for (let column = 0; column < 8; column += 1) {
+      const offset = row * 9 + column
+      bits += pixels[offset] > pixels[offset + 1] ? '1' : '0'
+    }
+  }
+  return BigInt(`0b${bits}`).toString(16).padStart(16, '0')
+}
+
+function hashDistance(left, right) {
+  let value = BigInt(`0x${left}`) ^ BigInt(`0x${right}`)
+  let count = 0
+  while (value) {
+    count += Number(value & 1n)
+    value >>= 1n
+  }
+  return count
+}
+
+function matchReferenceImages(images, referenceAssets, questionId) {
+  if (images.length === referenceAssets.length) return images
+  const candidates = images.map((image, index) => ({
+    image,
+    index,
+    differenceHash: differenceHash(image.source),
+  }))
+  const matches = []
+  const used = new Set()
+  for (const asset of referenceAssets) {
+    const ranked = candidates
+      .filter((candidate) => !used.has(candidate.index))
+      .map((candidate) => ({
+        ...candidate,
+        distance: hashDistance(candidate.differenceHash, asset.differenceHash),
+      }))
+      .sort((left, right) => left.distance - right.distance)
+    const best = ranked[0]
+    if (!best || best.distance > 18) {
+      throw new Error(`${questionId}: cannot match ${asset.reference} to an official embedded image`)
+    }
+    used.add(best.index)
+    matches.push(best.image)
+  }
+  return matches
+}
+
+function matchPartialReferenceImages(images, referenceAssets, questionId) {
+  const matches = new Map()
+  const usedAssets = new Set()
+  for (const image of images) {
+    const imageHash = differenceHash(image.source)
+    const ranked = referenceAssets
+      .map((asset, index) => ({
+        index,
+        distance: hashDistance(imageHash, asset.differenceHash),
+      }))
+      .filter((candidate) => !usedAssets.has(candidate.index))
+      .sort((left, right) => left.distance - right.distance)
+    const best = ranked[0]
+    if (!best || best.distance > 18) {
+      throw new Error(`${questionId}: an official embedded image has no matching reference role`)
+    }
+    usedAssets.add(best.index)
+    matches.set(best.index, image)
+  }
+  return matches
+}
+
 async function copyEmbeddedImage(source, output) {
   if (source.endsWith('.png')) {
     await copyFile(source, output)
@@ -142,18 +304,37 @@ async function copyEmbeddedImage(source, output) {
   execFileSync('ffmpeg', ['-loglevel', 'error', '-y', '-i', source, '-frames:v', '1', output], { stdio: 'ignore' })
 }
 
+function stackEmbeddedImages(images, output) {
+  const inputs = images.flatMap((image) => ['-i', image.source])
+  const layout = images
+    .map((_, index) => `0_${index === 0 ? '0' : Array.from({ length: index }, (__, previous) => `h${previous}`).join('+')}`)
+    .join('|')
+  execFileSync('ffmpeg', [
+    '-loglevel', 'error', '-y', ...inputs,
+    '-filter_complex', `xstack=inputs=${images.length}:layout=${layout}:fill=white`,
+    '-frames:v', '1', output,
+  ], { stdio: 'ignore' })
+}
+
 async function buildEmbeddedBank({
   source,
   cropPrefix,
   excludedEmbeddedQuestions = [],
+  excludedQuestionIds = [],
   lastEmbeddedImageOnly = [],
+  compositeEmbeddedQuestions = [],
   embeddedImageOrder = {},
+  imageReferenceFile,
 }) {
   const pdfPath = fileURLToPath(new URL(`../source/${source}.pdf`, import.meta.url))
   const raw = await readFile(new URL(`../source/${source}-raw.txt`, import.meta.url), 'utf8')
   const questions = parseQuestionBank(raw)
-  const excluded = new Set(excludedEmbeddedQuestions)
+  const excluded = new Set([...excludedEmbeddedQuestions, ...excludedQuestionIds])
   const lastOnly = new Set(lastEmbeddedImageOnly)
+  const composites = new Set(compositeEmbeddedQuestions)
+  const reference = imageReferenceFile
+    ? JSON.parse(await readFile(new URL(`../source/${imageReferenceFile}`, import.meta.url), 'utf8'))
+    : null
   const work = join(tmpdir(), `level-up-embedded-${source}`)
   await mkdir(work, { recursive: true })
   const xmlPath = join(work, 'embedded.xml')
@@ -161,12 +342,66 @@ async function buildEmbeddedBank({
   const pages = embeddedPages(await readFile(xmlPath, 'utf8'))
   const outputRoot = new URL('../public/question-images/', import.meta.url)
   await mkdir(outputRoot, { recursive: true })
+  let bboxPages
+  const renderedPages = new Map()
+
+  async function vectorFallback(question, referenceAssets) {
+    if (!bboxPages) {
+      const bboxPath = join(work, 'bbox.html')
+      execFileSync('pdftotext', ['-bbox-layout', pdfPath, bboxPath])
+      bboxPages = pagesFromBbox(await readFile(bboxPath, 'utf8'))
+    }
+    const page = bboxPages[question.sourcePage - 1]
+    if (!page) throw new Error(`${question.id}: vector page ${question.sourcePage} missing`)
+    const markerIndex = page.markers.findIndex((marker) => marker.number === question.number)
+    if (markerIndex < 0) throw new Error(`${question.id}: vector question marker missing`)
+    const marker = page.markers[markerIndex]
+    const next = page.markers[markerIndex + 1]
+    const top = Math.max(0, marker.y - 5)
+    const bottom = Math.min(page.height - 24, next ? next.y - 4 : page.height - 30)
+
+    let renderedPage = renderedPages.get(question.sourcePage)
+    if (!renderedPage) {
+      const prefix = join(work, `vector-page-${question.sourcePage}`)
+      execFileSync('pdftoppm', [
+        '-f', String(question.sourcePage), '-l', String(question.sourcePage),
+        '-r', '144', '-png', '-singlefile', pdfPath, prefix,
+      ], { stdio: 'ignore' })
+      renderedPage = `${prefix}.png`
+      renderedPages.set(question.sourcePage, renderedPage)
+    }
+
+    const allOptions = referenceAssets.length > 0
+      && referenceAssets.every((asset) => asset.role.startsWith('option-'))
+    const allOptionRects = allOptions ? optionCropRects(page, top, bottom) : null
+    const rects = allOptionRects
+      ? referenceAssets.map((asset) => allOptionRects[Number(asset.role.slice('option-'.length)) - 1])
+      : referenceAssets.length === 1
+        ? [figureCropRect(question, page, top, bottom)]
+        : null
+    if (!rects || rects.length !== referenceAssets.length) {
+      throw new Error(`${question.id}: cannot isolate ${referenceAssets.length} vector images`)
+    }
+
+    return rects.map((rect, index) => {
+      const output = join(work, `${question.id}-${index + 1}.png`)
+      cropImage(renderedPage, output, page, rect)
+      return {
+        top: rect.y,
+        left: rect.x,
+        width: rect.width,
+        height: rect.height,
+        source: output,
+      }
+    })
+  }
 
   for (const file of await readdir(outputRoot)) {
     if (file.startsWith(`${cropPrefix}-`) && file.endsWith('.png')) await unlink(new URL(file, outputRoot))
   }
 
   const imageMap = {}
+  const imageAudit = {}
   for (const question of questions) {
     if (excluded.has(question.id)) continue
     const page = pages.find((candidate) => candidate.number === question.sourcePage)
@@ -174,7 +409,9 @@ async function buildEmbeddedBank({
     const markerIndex = page.markers.findIndex((marker) => marker.number === question.number)
     if (markerIndex < 0) throw new Error(`${question.id}: embedded-image marker missing on page ${question.sourcePage}`)
     const top = page.markers[markerIndex].top - 4
-    const bottom = page.markers[markerIndex + 1]?.top ?? 1260
+    const bottom = page.markers[markerIndex + 1]
+      ? page.markers[markerIndex + 1].top - 4
+      : 1260
     let images = page.images.filter((image) => image.top >= top && image.top < bottom)
     if (lastOnly.has(question.id)) images = images.slice(-1)
     const requestedOrder = embeddedImageOrder[question.id]
@@ -184,16 +421,72 @@ async function buildEmbeddedBank({
       }
       images = requestedOrder.map((index) => images[index])
     }
+    if (composites.has(question.id) && images.length > 1) {
+      const output = join(work, `${question.id}-composite.png`)
+      stackEmbeddedImages(images, output)
+      images = [{
+        top: images[0].top,
+        left: Math.min(...images.map((image) => image.left)),
+        width: Math.max(...images.map((image) => image.width)),
+        height: images.reduce((sum, image) => sum + image.height, 0),
+        source: output,
+      }]
+    }
+    const hasImageOptions = question.options.some((option) => option.includes('圖示選項'))
+    if (source === '900012A10' && !hasImageOptions && images.length > 1) {
+      const hashes = images.map((image) => differenceHash(image.source))
+      images = images.filter((image, index) => {
+        const duplicateCount = hashes.filter((hash) => hash === hashes[index]).length
+        return duplicateCount === 1 || image.width * image.height > 2_000
+      })
+    }
+    const referenceAssets = reference?.questions?.[question.id]
+    if (reference) {
+      const expectedCount = referenceAssets?.length ?? 0
+      if (images.length < expectedCount && markerIndex === page.markers.length - 1) {
+        const nextPage = pages.find((candidate) => candidate.number === question.sourcePage + 1)
+        const firstMarkerTop = nextPage?.markers[0]?.top
+        if (nextPage && firstMarkerTop !== undefined) {
+          images = [
+            ...images,
+            ...nextPage.images.filter((image) => image.top < firstMarkerTop),
+          ]
+        }
+      }
+      if (images.length < expectedCount) {
+        const matched = matchPartialReferenceImages(images, referenceAssets ?? [], question.id)
+        const missing = referenceAssets
+          .map((asset, index) => ({ asset, index }))
+          .filter(({ index }) => !matched.has(index))
+        const vectorImages = await vectorFallback(question, missing.map(({ asset }) => asset))
+        missing.forEach(({ index }, vectorIndex) => matched.set(index, vectorImages[vectorIndex]))
+        images = referenceAssets.map((_, index) => matched.get(index))
+      }
+      if (images.length > expectedCount) {
+        images = matchReferenceImages(images, referenceAssets ?? [], question.id)
+      }
+    }
     if (!images.length) continue
 
-    const imageOptions = !lastOnly.has(question.id) && question.options.some((option) => option.includes('圖示選項'))
+    const imageOptions = referenceAssets?.length === 4
+      && referenceAssets.every((asset) => asset.role.startsWith('option-'))
+      || (!reference && !lastOnly.has(question.id) && hasImageOptions)
     if (imageOptions && images.length !== 4 && images.length !== 5) {
       throw new Error(`${question.id}: expected four graphical options plus at most one prompt image, received ${images.length}`)
     }
-    const hasPromptImage = imageOptions && images.length === 5
+    const roleTotals = new Map()
+    for (const asset of referenceAssets ?? []) {
+      roleTotals.set(asset.role, (roleTotals.get(asset.role) ?? 0) + 1)
+    }
+    const roleSeen = new Map()
     const files = images.map((image, index) => {
-      const optionIndex = imageOptions ? index + (hasPromptImage ? 0 : 1) : null
-      const suffix = optionIndex === 0 || (!imageOptions && index === 0) ? '' : `-${optionIndex ?? index + 1}`
+      const role = referenceAssets?.[index]?.role
+      const occurrence = role ? (roleSeen.get(role) ?? 0) + 1 : 1
+      if (role) roleSeen.set(role, occurrence)
+      const repeatedSuffix = role && (roleTotals.get(role) ?? 0) > 1 ? `-${occurrence}` : ''
+      const suffix = role?.startsWith('option-')
+        ? `-option-${role.slice('option-'.length)}${repeatedSuffix}`
+        : role === 'prompt' && (roleTotals.get(role) ?? 0) > 1 ? `-prompt-${occurrence}` : index === 0 ? '' : `-${index + 1}`
       return `${cropPrefix}-${question.id}${suffix}.png`
     })
     await Promise.all(images.map((image, index) => copyEmbeddedImage(
@@ -201,11 +494,26 @@ async function buildEmbeddedBank({
       fileURLToPath(new URL(files[index], outputRoot)),
     )))
     imageMap[question.id] = files
+    imageAudit[question.id] = await Promise.all(files.map(async (file, index) => ({
+      file,
+      reference: referenceAssets?.[index]?.reference ?? `official-${index + 1}`,
+      role: referenceAssets?.[index]?.role ?? (index === 0 ? 'prompt' : `image-${index + 1}`),
+      sha256: createHash('sha256').update(await readFile(new URL(file, outputRoot))).digest('hex'),
+    })))
   }
 
   await writeFile(
     new URL(`../source/${source}-image-map.json`, import.meta.url),
     `${JSON.stringify({ source: `${source}.pdf`, questions: imageMap }, null, 2)}\n`,
+  )
+  await writeFile(
+    new URL(`../source/${source}-image-audit.json`, import.meta.url),
+    `${JSON.stringify({
+      officialSource: `source/${source}.pdf`,
+      referenceCatalog: reference?.referenceCatalog ?? null,
+      note: reference?.note ?? 'Images are extracted directly from the official WDA PDF.',
+      questions: imageAudit,
+    }, null, 2)}\n`,
   )
   return Object.keys(imageMap).length
 }
@@ -349,17 +657,11 @@ async function buildBank({
     const bottom = Math.min(page.height - 24, next ? next.y - 4 : page.height - 30)
     if (bottom <= top) throw new Error(`${question.id}: invalid crop bounds ${top}-${bottom}`)
 
-    let renderedPage = rendered.get(question.sourcePage)
-    if (!renderedPage) {
-      const prefix = join(work, `page-${question.sourcePage}`)
-      execFileSync('pdftoppm', [
-        '-f', String(question.sourcePage), '-l', String(question.sourcePage),
-        '-r', '144', '-png', '-singlefile',
-        pdfPath, prefix,
-      ], { stdio: 'ignore' })
-      renderedPage = `${prefix}.png`
-      rendered.set(question.sourcePage, renderedPage)
-    }
+    const rectOverride = figureRects[question.id]
+    const cropPageNumber = rectOverride?.page ?? question.sourcePage
+    const cropPage = pages[cropPageNumber - 1]
+    if (!cropPage) throw new Error(`${question.id}: crop page ${cropPageNumber} missing`)
+    const renderedPage = renderPage({ rendered, work, pdfPath, sourcePage: cropPageNumber })
 
     const imageOptions = splitImageOptions && question.options.some((option) => option.includes('圖示選項'))
     const hasQuestionFigure = mixedFigureOptions.includes(question.id)
@@ -387,14 +689,14 @@ async function buildBank({
     }
     if (optionRects) {
       if (hasQuestionFigure) {
-        cropImage(renderedPage, output, page, figureRects[question.id]
+        cropImage(renderedPage, output, cropPage, rectOverride
           ?? figureCropRect(question, page, top, bottom, { ignoreInlineGap: true }))
       }
       if (!figuresOnly) {
         optionRects.forEach((rect, index) => cropImage(renderedPage, optionOutputs[index], page, rect))
       }
     } else {
-      cropImage(renderedPage, output, page, figureRects[question.id]
+      cropImage(renderedPage, output, cropPage, rectOverride
         ?? figureCropRect(question, page, top, bottom))
     }
   }

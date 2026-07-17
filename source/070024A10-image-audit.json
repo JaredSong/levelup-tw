@@ -1,0 +1,283 @@
+{
+  "officialSource": "source/070024A10.pdf",
+  "referenceCatalog": "https://techcerti.bookmarks.tw/exams/excavator",
+  "note": "The official WDA PDF is authoritative. This external catalog is used only to audit image role and order.",
+  "questions": {
+    "07002-01-037": [
+      {
+        "file": "070024-07002-01-037.png",
+        "reference": "p01",
+        "role": "prompt",
+        "sha256": "cb73989383f53c19143b9355ee2abc010a298f8ec62317e9ee71038c8cd698da"
+      }
+    ],
+    "07002-01-038": [
+      {
+        "file": "070024-07002-01-038.png",
+        "reference": "p02",
+        "role": "prompt",
+        "sha256": "678cf47d4462ebd71becdc1a0c48492fcfb03bd9dbc0069d7d8529363a7aef8e"
+      }
+    ],
+    "07002-02-153": [
+      {
+        "file": "070024-07002-02-153-option-1.png",
+        "reference": "p03",
+        "role": "option-1",
+        "sha256": "8ac7f697171627a9d7a2e49c8382a95b8d2eebed5f315b246cce8f7ec962934b"
+      },
+      {
+        "file": "070024-07002-02-153-option-2.png",
+        "reference": "p04",
+        "role": "option-2",
+        "sha256": "cb73989383f53c19143b9355ee2abc010a298f8ec62317e9ee71038c8cd698da"
+      },
+      {
+        "file": "070024-07002-02-153-option-3.png",
+        "reference": "p05",
+        "role": "option-3",
+        "sha256": "b9e3bc156501124b67914736706062bd4a669e0caa96f83a51951423ca3cef58"
+      },
+      {
+        "file": "070024-07002-02-153-option-4.png",
+        "reference": "p06",
+        "role": "option-4",
+        "sha256": "71488f657784f982af3cb0ade7a3e007a041d9532181e98b24868e8c12b60b5a"
+      }
+    ],
+    "07002-02-154": [
+      {
+        "file": "070024-07002-02-154-option-1.png",
+        "reference": "p07",
+        "role": "option-1",
+        "sha256": "869e932334fc71300748b020595954e766d5f360b6c6d6b01c3040da61728100"
+      },
+      {
+        "file": "070024-07002-02-154-option-2.png",
+        "reference": "p08",
+        "role": "option-2",
+        "sha256": "e0c1b32773bed845113ef827a04531ddcb1a4eaa272a39d6c98170e91b8c1db2"
+      },
+      {
+        "file": "070024-07002-02-154-option-3.png",
+        "reference": "p09",
+        "role": "option-3",
+        "sha256": "678cf47d4462ebd71becdc1a0c48492fcfb03bd9dbc0069d7d8529363a7aef8e"
+      },
+      {
+        "file": "070024-07002-02-154-option-4.png",
+        "reference": "p10",
+        "role": "option-4",
+        "sha256": "ef8a32d93dbaf2795610b2276eaa357b40836df78edfdd76703ee8a01a167059"
+      }
+    ],
+    "07002-02-155": [
+      {
+        "file": "070024-07002-02-155-option-1.png",
+        "reference": "p11",
+        "role": "option-1",
+        "sha256": "fcd7b4b687872308348a491e0c4d006f461b335825bc87d20924e9fa22cb3b66"
+      },
+      {
+        "file": "070024-07002-02-155-option-2.png",
+        "reference": "p12",
+        "role": "option-2",
+        "sha256": "fdf46c7725a962d9f1c30796b7b89482fab8726234d5fa24b9cfdea4890355c2"
+      },
+      {
+        "file": "070024-07002-02-155-option-3.png",
+        "reference": "p13",
+        "role": "option-3",
+        "sha256": "da1b50cd02c6eb645a130be57213f026271bbfa136fa309fae30479acc5526bc"
+      },
+      {
+        "file": "070024-07002-02-155-option-4.png",
+        "reference": "p14",
+        "role": "option-4",
+        "sha256": "c1b005ccc59517700919504bf90f5634be1d84ce93276f79a1ecb991dbc67aee"
+      }
+    ],
+    "07002-02-156": [
+      {
+        "file": "070024-07002-02-156-option-1.png",
+        "reference": "p15",
+        "role": "option-1",
+        "sha256": "b43d8bce65575dbcac37882f2ea8eec555535f19a4957e924bdf6ed913bc1697"
+      },
+      {
+        "file": "070024-07002-02-156-option-2.png",
+        "reference": "p16",
+        "role": "option-2",
+        "sha256": "25759a58073877117c557734bc196fef1ab4d5a3b42c82ea7b9da0558730345d"
+      },
+      {
+        "file": "070024-07002-02-156-option-3.png",
+        "reference": "p17",
+        "role": "option-3",
+        "sha256": "040e821e37a4b23722c6976011d80b81cb70879e008a0d396b3699617fce8f5a"
+      },
+      {
+        "file": "070024-07002-02-156-option-4.png",
+        "reference": "p18",
+        "role": "option-4",
+        "sha256": "f3a9eec7d0e6cb62e4152aa89a87d762168fc4d3d1fa1227132c72c9c76195d3"
+      }
+    ],
+    "07002-02-157": [
+      {
+        "file": "070024-07002-02-157-option-1.png",
+        "reference": "p19",
+        "role": "option-1",
+        "sha256": "869e932334fc71300748b020595954e766d5f360b6c6d6b01c3040da61728100"
+      },
+      {
+        "file": "070024-07002-02-157-option-2.png",
+        "reference": "p20",
+        "role": "option-2",
+        "sha256": "ef8a32d93dbaf2795610b2276eaa357b40836df78edfdd76703ee8a01a167059"
+      },
+      {
+        "file": "070024-07002-02-157-option-3.png",
+        "reference": "p21",
+        "role": "option-3",
+        "sha256": "c1b005ccc59517700919504bf90f5634be1d84ce93276f79a1ecb991dbc67aee"
+      },
+      {
+        "file": "070024-07002-02-157-option-4.png",
+        "reference": "p22",
+        "role": "option-4",
+        "sha256": "678cf47d4462ebd71becdc1a0c48492fcfb03bd9dbc0069d7d8529363a7aef8e"
+      }
+    ],
+    "07002-02-158": [
+      {
+        "file": "070024-07002-02-158-option-1.png",
+        "reference": "p23",
+        "role": "option-1",
+        "sha256": "8ac7f697171627a9d7a2e49c8382a95b8d2eebed5f315b246cce8f7ec962934b"
+      },
+      {
+        "file": "070024-07002-02-158-option-2.png",
+        "reference": "p24",
+        "role": "option-2",
+        "sha256": "eacac0c3da01995e3daab85be7f0de43203feabc826b044f5b66e37a04eeac0d"
+      },
+      {
+        "file": "070024-07002-02-158-option-3.png",
+        "reference": "p25",
+        "role": "option-3",
+        "sha256": "31108eaff705d0e1b1acc4e15d728c7c7bd400afb3d814ce23e0a360fbc762eb"
+      },
+      {
+        "file": "070024-07002-02-158-option-4.png",
+        "reference": "p26",
+        "role": "option-4",
+        "sha256": "4003fddfa2e8e2ca335f057bf4c064bd040058e198fdf81a7dac10f394de3d3b"
+      }
+    ],
+    "07002-02-159": [
+      {
+        "file": "070024-07002-02-159-option-1.png",
+        "reference": "p27",
+        "role": "option-1",
+        "sha256": "b0650ab85f8a69984e201bada085cd0d03ff4145c052703a47f91bb30dd1e0bc"
+      },
+      {
+        "file": "070024-07002-02-159-option-2.png",
+        "reference": "p28",
+        "role": "option-2",
+        "sha256": "1049ac00816fb23255e45df9ced438580859fbf53e784c66bc85edb606eb39d1"
+      },
+      {
+        "file": "070024-07002-02-159-option-3.png",
+        "reference": "p29",
+        "role": "option-3",
+        "sha256": "20ac8cb9de3fb379d0c2fcb959a3b9695df2ac57f1131744c31591259ac794ab"
+      },
+      {
+        "file": "070024-07002-02-159-option-4.png",
+        "reference": "p30",
+        "role": "option-4",
+        "sha256": "bbeb816b39f8c742f49617cb20b945a328174eec091b6b027d36375385dec712"
+      }
+    ],
+    "07002-02-160": [
+      {
+        "file": "070024-07002-02-160-option-1.png",
+        "reference": "p31",
+        "role": "option-1",
+        "sha256": "71488f657784f982af3cb0ade7a3e007a041d9532181e98b24868e8c12b60b5a"
+      },
+      {
+        "file": "070024-07002-02-160-option-2.png",
+        "reference": "p32",
+        "role": "option-2",
+        "sha256": "7432321ccc64f8d2850f502192e81d142c959e00ac72b3b5db0b5b0c28c55951"
+      },
+      {
+        "file": "070024-07002-02-160-option-3.png",
+        "reference": "p33",
+        "role": "option-3",
+        "sha256": "689ccfa12b230c3ce1d5c1579df8d0f4d16900fd42f65ae2051a6f18a3980ba9"
+      },
+      {
+        "file": "070024-07002-02-160-option-4.png",
+        "reference": "p34",
+        "role": "option-4",
+        "sha256": "2ab82c5ada0a6a9449af79c3dfe457cada5d4da013cc7a61eb98a998d7ea5fd4"
+      }
+    ],
+    "07002-02-161": [
+      {
+        "file": "070024-07002-02-161-option-1.png",
+        "reference": "p35",
+        "role": "option-1",
+        "sha256": "006dd49f0a6c658386e653304c3172782594dfcd0bee47c17bd92ae4a4b41a0c"
+      },
+      {
+        "file": "070024-07002-02-161-option-2.png",
+        "reference": "p36",
+        "role": "option-2",
+        "sha256": "943d0ce4ba6d660f9ff7f4e9e946c5967a8cec8007d332b610b355dcf1577645"
+      },
+      {
+        "file": "070024-07002-02-161-option-3.png",
+        "reference": "p37",
+        "role": "option-3",
+        "sha256": "38761fbd9fe484f8bc59416385c4db191713f430922c918959aa37eba1cb16d1"
+      },
+      {
+        "file": "070024-07002-02-161-option-4.png",
+        "reference": "p38",
+        "role": "option-4",
+        "sha256": "f681960de988bcadeaf1633ca327dac6884ee750c222204d10d466ee005ad02a"
+      }
+    ],
+    "07002-02-162": [
+      {
+        "file": "070024-07002-02-162-option-1.png",
+        "reference": "p39",
+        "role": "option-1",
+        "sha256": "f47a7e9383b6733de2022c0d8068d721cb53608a9095e1fc383d53fd914e0e4b"
+      },
+      {
+        "file": "070024-07002-02-162-option-2.png",
+        "reference": "p40",
+        "role": "option-2",
+        "sha256": "264f3b0ac35a06cac1c2fb8047a8dc5cd8b1b9c3b6fbb230ca6c163342b2a888"
+      },
+      {
+        "file": "070024-07002-02-162-option-3.png",
+        "reference": "p41",
+        "role": "option-3",
+        "sha256": "1c560ec9160f62aa5a12eacc478bbde35d7026eb3e5751a312cfcea45e8e04b8"
+      },
+      {
+        "file": "070024-07002-02-162-option-4.png",
+        "reference": "p42",
+        "role": "option-4",
+        "sha256": "53574ba0db3b972773200744376fdd09ae8234c13472797d4663f0149a8f5337"
+      }
+    ]
+  }
+}

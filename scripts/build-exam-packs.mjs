@@ -48,6 +48,16 @@ const INACTIVE_IDS = new Set([
   '15100-03-146',
   '15100-03-147',
   '15100-03-190',
+  '18201-02-140',
+  '18201-04-240',
+  '90001-07-012',
+  '90001-07-019',
+  '90001-09-003',
+  '90001-09-029',
+  '14000-02-065',
+  '14000-02-101',
+  '14000-10-083',
+  '14000-11-008',
 ])
 
 // These questions contain inline figures that the PDF text layer describes
@@ -148,6 +158,25 @@ const SECTION_TITLE_OVERRIDES = {
 }
 
 const QUESTION_PROMPT_OVERRIDES = {
+  '90001-02-010': '若 (3/2)x＋1＝5/4，則 1－2x 之值等於',
+  '90001-02-017': '已知 △ABC 為一個直角三角形，其中 ∠C＝90°，∠A 為較大的銳角，兩股長分別為 5、12，則 sin A＝',
+  '90001-02-018': 'sin 30° × cos 30° × tan 30° × cot 30° × sec 30° 的值等於',
+  '90001-02-019': '直角三角形 ABC 中，∠C＝90°、∠A＝30°，求 (sin B)²＋(cos B)² 的值等於',
+  '90001-02-020': '直角三角形 ABC 中，∠C＝90°、tan A＝3/4，求 sin A ÷ (1－cot A) 的值等於',
+  '90001-02-021': 'sin 30° cos 60°＋cos 30° sin 60°＝',
+  '90001-02-022': '(2/√3) cos 30°－sin 30°＋cos 60°－tan 45°＋(√3/2) cot 60°＝',
+  '90001-02-023': '直角三角形 ABC 中，∠A 為銳角且 sec A＝2/√3，求 cos A ÷ (1－sin A) 的值等於',
+  '90001-02-024': '直角三角形 ABC 中，∠C＝90°、∠A＝45°，求 sin A＋cos B＝',
+  '90001-02-025': '設 θ 為任一角，則下列有關三角函數的關係，何者有誤？',
+  '90001-02-026': '利用正弦定律，若 △ABC 中，∠C＝120°、∠B＝30°、AC＝5，求 AB＝',
+  '90001-02-027': '利用餘弦定律，若 △ABC 中，a、b、c 分別代表對邊之邊長，且 a＝2、b＝3、c＝4，則 cos A＝',
+  '90001-02-031': '若 sin θ＝3/5，則 5－5cos²θ＝',
+  '90001-02-033': '已知 tan θ＝2，利用三角恆等式，則 (3sin θ－2cos θ) ÷ cos θ＝',
+  '90001-02-048': '若 180°＜θ＜270° 且 sin θ＝−5/13，下列何者正確？',
+  '90001-08-002': '液壓油以流量 25 L/min 通過內徑 11 mm 的油壓管，則其流速約為',
+  '90001-09-032': '平均值與全距（x̄－R）管制圖，每組樣本大小（n）最好是抽',
+  '90001-09-033': '在製程管制中，將平均值（x̄）管制圖與下列何種管制圖配合使用較為有效？',
+  '90001-09-037': '平均值與全距（x̄－R）管制圖是一種',
   '00700-11-086': '感應電動機之運轉公式 n = (2f / p) rps 中',
   '02800-08-021': '將極座標 6√2∠135° 換為直角座標得',
   '02800-09-052': '在電晶體參數中 h₁₁ = (ΔV₁ / ΔI₁)｜V₂=0，其 h₁₁ 代表意義為',
@@ -159,6 +188,23 @@ const QUESTION_PROMPT_OVERRIDES = {
 }
 
 const QUESTION_OPTION_OVERRIDES = {
+  '90001-02-010': ['2', '2/3', '1/2', '3/4'],
+  '90001-02-016': ['−π', '3π/4', 'π/2', 'π/3'],
+  '90001-02-017': ['5/12', '12/13', '5/13', '12/5'],
+  '90001-02-018': ['1/2', '√2/2', '√3/2', '1'],
+  '90001-02-019': ['1/2', '√2/2', '√3/2', '1'],
+  '90001-02-020': ['−9/5', '7/3', '−12/5', '9/4'],
+  '90001-02-021': ['0', '−1', '1', '2'],
+  '90001-02-022': ['0', '1/2', '√3/2', '1'],
+  '90001-02-023': ['1/2', '√2/2', '4/√3', '√3'],
+  '90001-02-024': ['1', '√2', '2', '2√2'],
+  '90001-02-025': ['sin(−θ)＝−sin θ', 'cos(−θ)＝cos θ', 'sin(π−θ)＝−sin θ', 'cos(π−θ)＝−cos θ'],
+  '90001-02-026': ['5√3', '20/√3', '10√3', '10'],
+  '90001-02-027': ['11/12', '9/13', '5/12', '21/24'],
+  '90001-02-031': ['9/5', '5/4', '3/5', '12/5'],
+  '90001-02-033': ['1/2', '1', '2', '4'],
+  '90001-02-048': ['cos θ＝−12/13', 'cos(180°＋θ)＝12/13', 'tan(180°−θ)＝5/12', 'sin θ ÷ (1−cos θ)＝−1/5'],
+  '90001-09-036': ['平均值（x̄）管制圖', '全距（R）管制圖', '缺點數（c）管制圖', '標準差（s）管制圖'],
   '11800-03-054': ['Windows 鍵+Ctrl+右方向鍵', 'Windows 鍵+Ctrl+下方向鍵', 'Windows 鍵+Ctrl+L', 'Windows 鍵+Ctrl+R'],
   '11800-03-056': ['Windows 鍵+Ctrl+D', 'Windows 鍵+Ctrl+A', 'Windows 鍵+Ctrl+C', 'Windows 鍵+Ctrl+L'],
   '11800-03-071': ['Windows 鍵+Ctrl+F1', 'Windows 鍵+Ctrl+F4', 'Windows 鍵+Ctrl+F8', 'Windows 鍵+Ctrl+F9'],
@@ -193,6 +239,14 @@ const GENERAL_COMMON_BANKS = [
   { code: '90008', file: '900080A16-raw.txt', expected: 100, version: 'A16' },
   { code: '90009', file: '900090A11-latest-raw.txt', expected: 100, version: 'A11' },
 ]
+
+const MACHINERY_COMMON_BANK = {
+  code: '90001',
+  file: '900012A10-raw.txt',
+  expected: 479,
+  version: 'A10',
+  quota: 4,
+}
 
 const EXAMS = [
   {
@@ -670,6 +724,124 @@ const EXAMS = [
       extraSubjectQuota: [],
     },
   },
+  {
+    examId: 'excavator-operation-single',
+    titleZh: '重機械操作－挖掘機單一級',
+    titleEn: 'Excavator Operation (Single Level)',
+    level: '單一級',
+    category: '機械操作',
+    occupationCode: '07002',
+    occupationFile: '070024A10-raw.txt',
+    occupationExpected: 668,
+    version: 'A10',
+    sourceRevision: '070024A10 + 900060A18/900070A17/900080A16/900090A11',
+    extraCommonCodes: [],
+    cropPrefix: '070024',
+    embeddedImageMapFile: '070024A10-image-map.json',
+    requireQuestionCrops: true,
+    mockRules: {
+      occupationQuota: 64,
+      singleCount: 80,
+      multipleCount: 0,
+      weightSingle: 1.25,
+      weightMultiple: 0,
+      extraSubjectQuota: [],
+    },
+  },
+  {
+    examId: 'digital-electronics-b',
+    titleZh: '數位電子乙級',
+    titleEn: 'Digital Electronics (Class B)',
+    level: '乙級',
+    category: '電子儀表',
+    occupationCode: '11700',
+    occupationFile: '117002A13-raw.txt',
+    occupationExpected: 743,
+    version: 'A13',
+    sourceRevision: '117002A13 + 900060A18/900070A17/900080A16/900090A11',
+    extraCommonCodes: [],
+    cropPrefix: '117002',
+    embeddedImageMapFile: '117002A13-image-map.json',
+    requireQuestionCrops: true,
+    mockRules: {
+      occupationQuota: 64,
+      singleCount: 60,
+      multipleCount: 20,
+      weightSingle: 1,
+      weightMultiple: 2,
+      extraSubjectQuota: [],
+    },
+  },
+  {
+    examId: 'western-cooking-c',
+    titleZh: '西餐烹調丙級',
+    titleEn: 'Western Cuisine (Class C)',
+    level: '丙級',
+    category: '餐飲食品',
+    occupationCode: '14000',
+    occupationFile: '140003A11-raw.txt',
+    occupationExpected: 519,
+    version: 'A11',
+    sourceRevision: '140003A11 + 900100A16 + 900060A18/900070A17/900080A16/900090A11',
+    extraCommonCodes: ['90010'],
+    excludedFigureIds: ['14000-03-060'],
+    mockRules: {
+      occupationQuota: 60,
+      singleCount: 80,
+      multipleCount: 0,
+      weightSingle: 1.25,
+      weightMultiple: 0,
+      extraSubjectQuota: [{ subjectCode: '90010', count: 4 }],
+    },
+  },
+  {
+    examId: 'retail-service-c',
+    titleZh: '門市服務丙級',
+    titleEn: 'Retail Service (Class C)',
+    level: '丙級',
+    category: '商業服務',
+    occupationCode: '18100',
+    occupationFile: '181003A13-raw.txt',
+    occupationExpected: 622,
+    version: 'A13',
+    sourceRevision: '181003A13 + 900060A18/900070A17/900080A16/900090A11',
+    extraCommonCodes: [],
+    cropPrefix: '181003',
+    embeddedImageMapFile: '181003A13-image-map.json',
+    requireQuestionCrops: true,
+    mockRules: {
+      occupationQuota: 64,
+      singleCount: 80,
+      multipleCount: 0,
+      weightSingle: 1.25,
+      weightMultiple: 0,
+      extraSubjectQuota: [],
+    },
+  },
+  {
+    examId: 'cnc-milling-b',
+    titleZh: '銑床－CNC銑床乙級',
+    titleEn: 'CNC Milling (Class B)',
+    level: '乙級',
+    category: '金屬及機械加工',
+    occupationCode: '18201',
+    occupationFile: '182012A10-raw.txt',
+    occupationExpected: 775,
+    version: 'A10',
+    sourceRevision: '182012A10 + 900012A10 + 900060A18/900070A17/900080A16/900090A11',
+    extraCommonCodes: ['90001'],
+    cropPrefix: '182012',
+    embeddedImageMapFiles: ['182012A10-image-map.json', '900012A10-image-map.json'],
+    requireQuestionCrops: true,
+    mockRules: {
+      occupationQuota: 60,
+      singleCount: 60,
+      multipleCount: 20,
+      weightSingle: 1,
+      weightMultiple: 2,
+      extraSubjectQuota: [{ subjectCode: '90001', count: 4 }],
+    },
+  },
 ]
 
 const BEAUTY_HAIR_COMMON_BANK = {
@@ -806,8 +978,13 @@ function buildMockRules(exam) {
 }
 
 async function writeExamPack(exam, commonQuestions, extraQuestionsByCode) {
-  const embeddedImageMap = exam.embeddedImageMapFile
-    ? JSON.parse(await readFile(new URL(`../source/${exam.embeddedImageMapFile}`, import.meta.url), 'utf8')).questions
+  const embeddedImageMapFiles = exam.embeddedImageMapFiles
+    ?? (exam.embeddedImageMapFile ? [exam.embeddedImageMapFile] : [])
+  const embeddedImageMaps = await Promise.all(embeddedImageMapFiles.map(async (file) => (
+    JSON.parse(await readFile(new URL(`../source/${file}`, import.meta.url), 'utf8')).questions
+  )))
+  const embeddedImageMap = embeddedImageMaps.length
+    ? Object.assign({}, ...embeddedImageMaps)
     : undefined
   const resolvedExam = embeddedImageMap ? { ...exam, embeddedImageMap } : exam
   const occupation = await loadParsed({ code: exam.occupationCode, file: exam.occupationFile, expected: exam.occupationExpected })
@@ -867,6 +1044,7 @@ async function writeExamPack(exam, commonQuestions, extraQuestionsByCode) {
 async function main() {
   const commonQuestions = (await Promise.all(GENERAL_COMMON_BANKS.map(loadParsed))).flat()
   const extraQuestionsByCode = new Map([
+    [MACHINERY_COMMON_BANK.code, await loadParsed(MACHINERY_COMMON_BANK)],
     [BEAUTY_HAIR_COMMON_BANK.code, await loadParsed(BEAUTY_HAIR_COMMON_BANK)],
     [FOOD_COMMON_BANK.code, await loadParsed(FOOD_COMMON_BANK)],
     [INFORMATION_COMMON_BANK.code, await loadParsed(INFORMATION_COMMON_BANK)],

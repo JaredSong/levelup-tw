@@ -9,10 +9,15 @@ const PACKS = [
   { examId: 'beverage-preparation-c', occupationCode: '20600', sourceQuestions: 617, inactive: 0, figures: 5 },
   { examId: 'computer-software-application-b', occupationCode: '11800', sourceQuestions: 776, inactive: 0, figures: 6, cropPrefix: '118002' },
   { examId: 'indoor-wiring-b', occupationCode: '00700', sourceQuestions: 862, inactive: 7, figures: 64, cropPrefix: '007002' },
-  { examId: 'indoor-wiring-c', occupationCode: '00700', sourceQuestions: 618, inactive: 0, figures: 62, cropPrefix: '007003' },
+  { examId: 'indoor-wiring-c', occupationCode: '00700', sourceQuestions: 618, inactive: 0, figures: 62, cropPrefix: '007003', tightCrops: true },
   { examId: 'industrial-electronics-c', occupationCode: '02800', sourceQuestions: 651, inactive: 0, figures: 128, cropPrefix: '028003' },
   { examId: 'computer-hardware-repair-c', occupationCode: '12000', sourceQuestions: 707, inactive: 0, figures: 17, cropPrefix: '120003' },
   { examId: 'water-pipe-fitting-c', occupationCode: '01600', sourceQuestions: 707, inactive: 0, figures: 34, cropPrefix: '016003' },
+  { examId: 'excavator-operation-single', occupationCode: '07002', sourceQuestions: 668, inactive: 0, figures: 12, cropPrefix: '070024', tightCrops: true },
+  { examId: 'digital-electronics-b', occupationCode: '11700', sourceQuestions: 743, inactive: 0, figures: 180, cropPrefix: '117002', tightCrops: true },
+  { examId: 'western-cooking-c', occupationCode: '14000', sourceQuestions: 519, inactive: 4, figures: 0 },
+  { examId: 'retail-service-c', occupationCode: '18100', sourceQuestions: 622, inactive: 0, figures: 25, cropPrefix: '181003', tightCrops: true },
+  { examId: 'cnc-milling-b', occupationCode: '18201', sourceQuestions: 775, inactive: 2, figures: 73, cropPrefix: '182012', tightCrops: true },
 ]
 
 function pngDimensions(bytes: Buffer) {
@@ -47,12 +52,14 @@ describe('new high-demand exam packs', () => {
         for (const source of sources) {
           const bytes = readFileSync(new URL(`../public${source}`, import.meta.url))
           const { width, height } = pngDimensions(bytes)
-          const usesTightCrops = expected.examId === 'indoor-wiring-b' || expected.examId === 'industrial-electronics-c'
+          const usesTightCrops = expected.tightCrops
+            || expected.examId === 'indoor-wiring-b'
+            || expected.examId === 'industrial-electronics-c'
           const minimumBytes = expected.examId === 'industrial-electronics-c' ? 100 : usesTightCrops ? 250 : 1_500
           expect(bytes.byteLength, `${question.id} ${source}`).toBeGreaterThan(minimumBytes)
           expect(width, `${question.id} ${source}`).toBeGreaterThan(usesTightCrops ? 15 : 300)
           expect(height, `${question.id} ${source}`).toBeGreaterThan(usesTightCrops ? 15 : 30)
-          expect(width, `${question.id} ${source}`).toBeLessThanOrEqual(expected.examId === 'industrial-electronics-c' ? 1_800 : 1_000)
+          expect(width, `${question.id} ${source}`).toBeLessThanOrEqual(usesTightCrops ? 1_800 : 1_000)
           if (expected.examId === 'industrial-electronics-c') {
             expect(height, `${question.id} ${source}`).toBeLessThanOrEqual(1_000)
           }
@@ -266,5 +273,68 @@ describe('new high-demand exam packs', () => {
           .toBe(asset.sha256)
       }
     }
+  })
+
+  it('locks every newly imported image to its audited question and SHA-256', () => {
+    for (const [source, expectedQuestions, expectedAssets] of [
+      ['070024A10', 12, 42],
+      ['117002A13', 180, 238],
+      ['181003A13', 25, 52],
+      ['182012A10', 73, 114],
+      ['900012A10', 51, 125],
+    ] as const) {
+      const audit = JSON.parse(readFileSync(
+        new URL(`../source/${source}-image-audit.json`, import.meta.url),
+        'utf8',
+      )) as {
+        questions: Record<string, Array<{ file: string; reference: string; sha256: string }>>
+      }
+      const imageMap = JSON.parse(readFileSync(
+        new URL(`../source/${source}-image-map.json`, import.meta.url),
+        'utf8',
+      )) as { questions: Record<string, string[]> }
+
+      expect(Object.keys(audit.questions), source).toHaveLength(expectedQuestions)
+      expect(Object.values(audit.questions).flat(), source).toHaveLength(expectedAssets)
+      expect(Object.keys(audit.questions), source).toEqual(Object.keys(imageMap.questions))
+
+      for (const [questionId, assets] of Object.entries(audit.questions)) {
+        expect(assets.map((asset) => asset.file), questionId).toEqual(imageMap.questions[questionId])
+        for (const asset of assets) {
+          const bytes = readFileSync(new URL(`../public/question-images/${asset.file}`, import.meta.url))
+          expect(createHash('sha256').update(bytes).digest('hex'), `${questionId} / ${asset.reference}`)
+            .toBe(asset.sha256)
+        }
+      }
+    }
+  })
+
+  it('keeps 90001 formula text and removes PDF glyph artifacts', () => {
+    const questions = JSON.parse(readFileSync(
+      new URL('../public/data/exams/cnc-milling-b/questions.json', import.meta.url),
+      'utf8',
+    )) as Question[]
+    const byId = new Map(questions.map((question) => [question.id, question]))
+
+    expect(byId.get('90001-01-004')?.sourceImages).toEqual([
+      '/question-images/900012-90001-01-004.png',
+    ])
+    expect(byId.get('90001-08-002')).toMatchObject({
+      prompt: '液壓油以流量 25 L/min 通過內徑 11 mm 的油壓管，則其流速約為',
+      hasFigure: false,
+    })
+    expect(byId.get('90001-09-032')).toMatchObject({
+      prompt: '平均值與全距（x̄－R）管制圖，每組樣本大小（n）最好是抽',
+      hasFigure: false,
+    })
+    expect(byId.get('90001-09-033')).toMatchObject({
+      prompt: '在製程管制中，將平均值（x̄）管制圖與下列何種管制圖配合使用較為有效？',
+      hasFigure: false,
+    })
+    expect(byId.get('90001-09-036')?.options[0]).toBe('平均值（x̄）管制圖')
+    expect(byId.get('90001-09-037')).toMatchObject({
+      prompt: '平均值與全距（x̄－R）管制圖是一種',
+      hasFigure: false,
+    })
   })
 })

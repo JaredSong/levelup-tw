@@ -4360,5 +4360,1073 @@ export const GENERATED_EXAM_MANIFESTS = [
       "imageQuestionCount": 38,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
+  },
+  {
+    "examId": "excavator-operation-single",
+    "level": "單一級",
+    "titleZh": "重機械操作－挖掘機單一級",
+    "titleEn": "Excavator Operation (Single Level)",
+    "category": "機械操作",
+    "version": "A10",
+    "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/070024A10.pdf",
+    "sources": [
+      {
+        "subjectCode": "07002",
+        "version": "A10",
+        "pdfFilename": "070024A10.pdf",
+        "localFilename": "070024A10.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/070024A10.pdf",
+        "sha256": "9d11d8d5882adcdecd43aac933641928c8317b56219b33d9b68f796be3e2253d"
+      },
+      {
+        "subjectCode": "90006",
+        "version": "A18",
+        "pdfFilename": "900060A18.pdf",
+        "localFilename": "900060A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A18.pdf",
+        "sha256": "0afd298e136567131ed5771bb5d8e0a501e745798823242966bd9b517e5b42ec"
+      },
+      {
+        "subjectCode": "90007",
+        "version": "A17",
+        "pdfFilename": "900070A17.pdf",
+        "localFilename": "900070A17.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A17.pdf",
+        "sha256": "ec3bc07bc147f77cfaaa6928648485c9f86c6e58d715a01f49e5618d12ac3319"
+      },
+      {
+        "subjectCode": "90008",
+        "version": "A16",
+        "pdfFilename": "900080A16.pdf",
+        "localFilename": "900080A16.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A16.pdf",
+        "sha256": "3c097485bd020af2d3766c08a5c5f385a5dbc56512d8903ce6cf850903ea2f01"
+      },
+      {
+        "subjectCode": "90009",
+        "version": "A11",
+        "pdfFilename": "900090A11.pdf",
+        "localFilename": "900090A11-latest.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A11.pdf",
+        "sha256": "e58b753294079574f8c1360ef5a345e77062c0c3ee693d509254de455a533835"
+      }
+    ],
+    "officialLinks": {
+      "registration": "https://skill.tcte.edu.tw/notice.php",
+      "scoreLookup": "https://eservice.wdasec.gov.tw/",
+      "handbook": "https://skill.tcte.edu.tw/download.php",
+      "questionBank": "https://techbank.wdasec.gov.tw/"
+    },
+    "sourceRevision": "070024A10 + 900060A18/900070A17/900080A16/900090A11",
+    "questionCount": 1068,
+    "activeQuestionCount": 1063,
+    "sections": [
+      {
+        "id": "07002-01",
+        "subjectCode": "07002",
+        "sourceGroup": "occupation",
+        "titleZh": "基本保養檢查",
+        "questionCount": 272,
+        "activeQuestionCount": 272
+      },
+      {
+        "id": "07002-02",
+        "subjectCode": "07002",
+        "sourceGroup": "occupation",
+        "titleZh": "操作技術與施工方法",
+        "questionCount": 230,
+        "activeQuestionCount": 230
+      },
+      {
+        "id": "07002-03",
+        "subjectCode": "07002",
+        "sourceGroup": "occupation",
+        "titleZh": "安全與防護",
+        "questionCount": 166,
+        "activeQuestionCount": 166
+      },
+      {
+        "id": "90006-01",
+        "subjectCode": "90006",
+        "sourceGroup": "general-common",
+        "titleZh": "職業安全衛生",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      },
+      {
+        "id": "90007-01",
+        "subjectCode": "90007",
+        "sourceGroup": "general-common",
+        "titleZh": "工作倫理與職業道德",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      },
+      {
+        "id": "90008-03",
+        "subjectCode": "90008",
+        "sourceGroup": "general-common",
+        "titleZh": "環境保護",
+        "questionCount": 100,
+        "activeQuestionCount": 95
+      },
+      {
+        "id": "90009-04",
+        "subjectCode": "90009",
+        "sourceGroup": "general-common",
+        "titleZh": "節能減碳",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      }
+    ],
+    "mockRules": {
+      "totalQuestions": 80,
+      "singleCount": 80,
+      "multipleCount": 0,
+      "durationMinutes": 100,
+      "passScore": 60,
+      "maxScore": 100,
+      "weightSingle": 1.25,
+      "weightMultiple": 0,
+      "subjectQuota": [
+        {
+          "subjectCode": "07002",
+          "count": 64
+        },
+        {
+          "subjectCode": "90006",
+          "count": 4
+        },
+        {
+          "subjectCode": "90007",
+          "count": 4
+        },
+        {
+          "subjectCode": "90008",
+          "count": 4
+        },
+        {
+          "subjectCode": "90009",
+          "count": 4
+        }
+      ]
+    },
+    "integrity": {
+      "status": "fully_verified",
+      "inactiveQuestionCount": 5,
+      "imageQuestionCount": 16,
+      "note": "Answer keys independently cross-checked against the official PDF during import."
+    }
+  },
+  {
+    "examId": "digital-electronics-b",
+    "level": "乙級",
+    "titleZh": "數位電子乙級",
+    "titleEn": "Digital Electronics (Class B)",
+    "category": "電子儀表",
+    "version": "A13",
+    "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/117002A13.pdf",
+    "sources": [
+      {
+        "subjectCode": "11700",
+        "version": "A13",
+        "pdfFilename": "117002A13.pdf",
+        "localFilename": "117002A13.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/117002A13.pdf",
+        "sha256": "5bf0217bc1783738c546421187fe81055ea9f298870b5c3b0b117afae8c4c28a"
+      },
+      {
+        "subjectCode": "90006",
+        "version": "A18",
+        "pdfFilename": "900060A18.pdf",
+        "localFilename": "900060A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A18.pdf",
+        "sha256": "0afd298e136567131ed5771bb5d8e0a501e745798823242966bd9b517e5b42ec"
+      },
+      {
+        "subjectCode": "90007",
+        "version": "A17",
+        "pdfFilename": "900070A17.pdf",
+        "localFilename": "900070A17.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A17.pdf",
+        "sha256": "ec3bc07bc147f77cfaaa6928648485c9f86c6e58d715a01f49e5618d12ac3319"
+      },
+      {
+        "subjectCode": "90008",
+        "version": "A16",
+        "pdfFilename": "900080A16.pdf",
+        "localFilename": "900080A16.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A16.pdf",
+        "sha256": "3c097485bd020af2d3766c08a5c5f385a5dbc56512d8903ce6cf850903ea2f01"
+      },
+      {
+        "subjectCode": "90009",
+        "version": "A11",
+        "pdfFilename": "900090A11.pdf",
+        "localFilename": "900090A11-latest.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A11.pdf",
+        "sha256": "e58b753294079574f8c1360ef5a345e77062c0c3ee693d509254de455a533835"
+      }
+    ],
+    "officialLinks": {
+      "registration": "https://skill.tcte.edu.tw/notice.php",
+      "scoreLookup": "https://eservice.wdasec.gov.tw/",
+      "handbook": "https://skill.tcte.edu.tw/download.php",
+      "questionBank": "https://techbank.wdasec.gov.tw/"
+    },
+    "sourceRevision": "117002A13 + 900060A18/900070A17/900080A16/900090A11",
+    "questionCount": 1143,
+    "activeQuestionCount": 1138,
+    "sections": [
+      {
+        "id": "11700-01",
+        "subjectCode": "11700",
+        "sourceGroup": "occupation",
+        "titleZh": "電機電子識圖",
+        "questionCount": 28,
+        "activeQuestionCount": 28
+      },
+      {
+        "id": "11700-02",
+        "subjectCode": "11700",
+        "sourceGroup": "occupation",
+        "titleZh": "零組件",
+        "questionCount": 33,
+        "activeQuestionCount": 33
+      },
+      {
+        "id": "11700-03",
+        "subjectCode": "11700",
+        "sourceGroup": "occupation",
+        "titleZh": "儀表與檢修測試",
+        "questionCount": 70,
+        "activeQuestionCount": 70
+      },
+      {
+        "id": "11700-04",
+        "subjectCode": "11700",
+        "sourceGroup": "occupation",
+        "titleZh": "電子工作法",
+        "questionCount": 58,
+        "activeQuestionCount": 58
+      },
+      {
+        "id": "11700-05",
+        "subjectCode": "11700",
+        "sourceGroup": "occupation",
+        "titleZh": "電子學與電子電路",
+        "questionCount": 122,
+        "activeQuestionCount": 122
+      },
+      {
+        "id": "11700-06",
+        "subjectCode": "11700",
+        "sourceGroup": "occupation",
+        "titleZh": "數位邏輯設計",
+        "questionCount": 140,
+        "activeQuestionCount": 140
+      },
+      {
+        "id": "11700-07",
+        "subjectCode": "11700",
+        "sourceGroup": "occupation",
+        "titleZh": "電腦與周邊設備",
+        "questionCount": 129,
+        "activeQuestionCount": 129
+      },
+      {
+        "id": "11700-08",
+        "subjectCode": "11700",
+        "sourceGroup": "occupation",
+        "titleZh": "程式語言",
+        "questionCount": 81,
+        "activeQuestionCount": 81
+      },
+      {
+        "id": "11700-09",
+        "subjectCode": "11700",
+        "sourceGroup": "occupation",
+        "titleZh": "網路技術與應用",
+        "questionCount": 42,
+        "activeQuestionCount": 42
+      },
+      {
+        "id": "11700-10",
+        "subjectCode": "11700",
+        "sourceGroup": "occupation",
+        "titleZh": "微控制器系統",
+        "questionCount": 40,
+        "activeQuestionCount": 40
+      },
+      {
+        "id": "90006-01",
+        "subjectCode": "90006",
+        "sourceGroup": "general-common",
+        "titleZh": "職業安全衛生",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      },
+      {
+        "id": "90007-01",
+        "subjectCode": "90007",
+        "sourceGroup": "general-common",
+        "titleZh": "工作倫理與職業道德",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      },
+      {
+        "id": "90008-03",
+        "subjectCode": "90008",
+        "sourceGroup": "general-common",
+        "titleZh": "環境保護",
+        "questionCount": 100,
+        "activeQuestionCount": 95
+      },
+      {
+        "id": "90009-04",
+        "subjectCode": "90009",
+        "sourceGroup": "general-common",
+        "titleZh": "節能減碳",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      }
+    ],
+    "mockRules": {
+      "totalQuestions": 80,
+      "singleCount": 60,
+      "multipleCount": 20,
+      "durationMinutes": 100,
+      "passScore": 60,
+      "maxScore": 100,
+      "weightSingle": 1,
+      "weightMultiple": 2,
+      "subjectQuota": [
+        {
+          "subjectCode": "11700",
+          "count": 64
+        },
+        {
+          "subjectCode": "90006",
+          "count": 4
+        },
+        {
+          "subjectCode": "90007",
+          "count": 4
+        },
+        {
+          "subjectCode": "90008",
+          "count": 4
+        },
+        {
+          "subjectCode": "90009",
+          "count": 4
+        }
+      ]
+    },
+    "integrity": {
+      "status": "fully_verified",
+      "inactiveQuestionCount": 5,
+      "imageQuestionCount": 184,
+      "note": "Answer keys independently cross-checked against the official PDF during import."
+    }
+  },
+  {
+    "examId": "western-cooking-c",
+    "level": "丙級",
+    "titleZh": "西餐烹調丙級",
+    "titleEn": "Western Cuisine (Class C)",
+    "category": "餐飲食品",
+    "version": "A11",
+    "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/140003A11.pdf",
+    "sources": [
+      {
+        "subjectCode": "14000",
+        "version": "A11",
+        "pdfFilename": "140003A11.pdf",
+        "localFilename": "140003A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/140003A11.pdf",
+        "sha256": "d16857c88fbafbadf35541149d9cc5a3e2dbb96a6937571d821f11747e19db45"
+      },
+      {
+        "subjectCode": "90010",
+        "version": "A16",
+        "pdfFilename": "900100A16.pdf",
+        "localFilename": "900100A16.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900100A16.pdf",
+        "sha256": "d6cee10bff92420a35eaf3915b521289613083ded74a7ded647c66189ea2230d"
+      },
+      {
+        "subjectCode": "90006",
+        "version": "A18",
+        "pdfFilename": "900060A18.pdf",
+        "localFilename": "900060A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A18.pdf",
+        "sha256": "0afd298e136567131ed5771bb5d8e0a501e745798823242966bd9b517e5b42ec"
+      },
+      {
+        "subjectCode": "90007",
+        "version": "A17",
+        "pdfFilename": "900070A17.pdf",
+        "localFilename": "900070A17.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A17.pdf",
+        "sha256": "ec3bc07bc147f77cfaaa6928648485c9f86c6e58d715a01f49e5618d12ac3319"
+      },
+      {
+        "subjectCode": "90008",
+        "version": "A16",
+        "pdfFilename": "900080A16.pdf",
+        "localFilename": "900080A16.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A16.pdf",
+        "sha256": "3c097485bd020af2d3766c08a5c5f385a5dbc56512d8903ce6cf850903ea2f01"
+      },
+      {
+        "subjectCode": "90009",
+        "version": "A11",
+        "pdfFilename": "900090A11.pdf",
+        "localFilename": "900090A11-latest.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A11.pdf",
+        "sha256": "e58b753294079574f8c1360ef5a345e77062c0c3ee693d509254de455a533835"
+      }
+    ],
+    "officialLinks": {
+      "registration": "https://skill.tcte.edu.tw/notice.php",
+      "scoreLookup": "https://eservice.wdasec.gov.tw/",
+      "handbook": "https://skill.tcte.edu.tw/download.php",
+      "questionBank": "https://techbank.wdasec.gov.tw/"
+    },
+    "sourceRevision": "140003A11 + 900100A16 + 900060A18/900070A17/900080A16/900090A11",
+    "questionCount": 1200,
+    "activeQuestionCount": 1190,
+    "sections": [
+      {
+        "id": "14000-02",
+        "subjectCode": "14000",
+        "sourceGroup": "occupation",
+        "titleZh": "食物的性質及選購",
+        "questionCount": 112,
+        "activeQuestionCount": 110
+      },
+      {
+        "id": "14000-03",
+        "subjectCode": "14000",
+        "sourceGroup": "occupation",
+        "titleZh": "食物貯存",
+        "questionCount": 72,
+        "activeQuestionCount": 72
+      },
+      {
+        "id": "14000-04",
+        "subjectCode": "14000",
+        "sourceGroup": "occupation",
+        "titleZh": "食物製備",
+        "questionCount": 80,
+        "activeQuestionCount": 80
+      },
+      {
+        "id": "14000-05",
+        "subjectCode": "14000",
+        "sourceGroup": "occupation",
+        "titleZh": "器皿與盤飾",
+        "questionCount": 29,
+        "activeQuestionCount": 29
+      },
+      {
+        "id": "14000-06",
+        "subjectCode": "14000",
+        "sourceGroup": "occupation",
+        "titleZh": "設備與器具",
+        "questionCount": 27,
+        "activeQuestionCount": 27
+      },
+      {
+        "id": "14000-07",
+        "subjectCode": "14000",
+        "sourceGroup": "occupation",
+        "titleZh": "營養知識",
+        "questionCount": 38,
+        "activeQuestionCount": 38
+      },
+      {
+        "id": "14000-08",
+        "subjectCode": "14000",
+        "sourceGroup": "occupation",
+        "titleZh": "成本控制",
+        "questionCount": 26,
+        "activeQuestionCount": 26
+      },
+      {
+        "id": "14000-09",
+        "subjectCode": "14000",
+        "sourceGroup": "occupation",
+        "titleZh": "安全措施",
+        "questionCount": 17,
+        "activeQuestionCount": 17
+      },
+      {
+        "id": "14000-10",
+        "subjectCode": "14000",
+        "sourceGroup": "occupation",
+        "titleZh": "衛生知識",
+        "questionCount": 84,
+        "activeQuestionCount": 83
+      },
+      {
+        "id": "14000-11",
+        "subjectCode": "14000",
+        "sourceGroup": "occupation",
+        "titleZh": "衛生法規",
+        "questionCount": 34,
+        "activeQuestionCount": 33
+      },
+      {
+        "id": "90010-01",
+        "subjectCode": "90010",
+        "sourceGroup": "general-common",
+        "titleZh": "食品安全衛生",
+        "questionCount": 172,
+        "activeQuestionCount": 171
+      },
+      {
+        "id": "90010-02",
+        "subjectCode": "90010",
+        "sourceGroup": "general-common",
+        "titleZh": "食品安全衛生",
+        "questionCount": 40,
+        "activeQuestionCount": 40
+      },
+      {
+        "id": "90010-03",
+        "subjectCode": "90010",
+        "sourceGroup": "general-common",
+        "titleZh": "營養及健康飲",
+        "questionCount": 69,
+        "activeQuestionCount": 69
+      },
+      {
+        "id": "90006-01",
+        "subjectCode": "90006",
+        "sourceGroup": "general-common",
+        "titleZh": "職業安全衛生",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      },
+      {
+        "id": "90007-01",
+        "subjectCode": "90007",
+        "sourceGroup": "general-common",
+        "titleZh": "工作倫理與職業道德",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      },
+      {
+        "id": "90008-03",
+        "subjectCode": "90008",
+        "sourceGroup": "general-common",
+        "titleZh": "環境保護",
+        "questionCount": 100,
+        "activeQuestionCount": 95
+      },
+      {
+        "id": "90009-04",
+        "subjectCode": "90009",
+        "sourceGroup": "general-common",
+        "titleZh": "節能減碳",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      }
+    ],
+    "mockRules": {
+      "totalQuestions": 80,
+      "singleCount": 80,
+      "multipleCount": 0,
+      "durationMinutes": 100,
+      "passScore": 60,
+      "maxScore": 100,
+      "weightSingle": 1.25,
+      "weightMultiple": 0,
+      "subjectQuota": [
+        {
+          "subjectCode": "14000",
+          "count": 60
+        },
+        {
+          "subjectCode": "90010",
+          "count": 4
+        },
+        {
+          "subjectCode": "90006",
+          "count": 4
+        },
+        {
+          "subjectCode": "90007",
+          "count": 4
+        },
+        {
+          "subjectCode": "90008",
+          "count": 4
+        },
+        {
+          "subjectCode": "90009",
+          "count": 4
+        }
+      ]
+    },
+    "integrity": {
+      "status": "fully_verified",
+      "inactiveQuestionCount": 10,
+      "imageQuestionCount": 4,
+      "note": "Answer keys independently cross-checked against the official PDF during import."
+    }
+  },
+  {
+    "examId": "retail-service-c",
+    "level": "丙級",
+    "titleZh": "門市服務丙級",
+    "titleEn": "Retail Service (Class C)",
+    "category": "商業服務",
+    "version": "A13",
+    "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/181003A13.pdf",
+    "sources": [
+      {
+        "subjectCode": "18100",
+        "version": "A13",
+        "pdfFilename": "181003A13.pdf",
+        "localFilename": "181003A13.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/181003A13.pdf",
+        "sha256": "717e302e6e24e75ac3d67de2e9474a079b36c06fb27f97a2426abcdee010f265"
+      },
+      {
+        "subjectCode": "90006",
+        "version": "A18",
+        "pdfFilename": "900060A18.pdf",
+        "localFilename": "900060A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A18.pdf",
+        "sha256": "0afd298e136567131ed5771bb5d8e0a501e745798823242966bd9b517e5b42ec"
+      },
+      {
+        "subjectCode": "90007",
+        "version": "A17",
+        "pdfFilename": "900070A17.pdf",
+        "localFilename": "900070A17.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A17.pdf",
+        "sha256": "ec3bc07bc147f77cfaaa6928648485c9f86c6e58d715a01f49e5618d12ac3319"
+      },
+      {
+        "subjectCode": "90008",
+        "version": "A16",
+        "pdfFilename": "900080A16.pdf",
+        "localFilename": "900080A16.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A16.pdf",
+        "sha256": "3c097485bd020af2d3766c08a5c5f385a5dbc56512d8903ce6cf850903ea2f01"
+      },
+      {
+        "subjectCode": "90009",
+        "version": "A11",
+        "pdfFilename": "900090A11.pdf",
+        "localFilename": "900090A11-latest.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A11.pdf",
+        "sha256": "e58b753294079574f8c1360ef5a345e77062c0c3ee693d509254de455a533835"
+      }
+    ],
+    "officialLinks": {
+      "registration": "https://skill.tcte.edu.tw/notice.php",
+      "scoreLookup": "https://eservice.wdasec.gov.tw/",
+      "handbook": "https://skill.tcte.edu.tw/download.php",
+      "questionBank": "https://techbank.wdasec.gov.tw/"
+    },
+    "sourceRevision": "181003A13 + 900060A18/900070A17/900080A16/900090A11",
+    "questionCount": 1022,
+    "activeQuestionCount": 1017,
+    "sections": [
+      {
+        "id": "18100-01",
+        "subjectCode": "18100",
+        "sourceGroup": "occupation",
+        "titleZh": "零售概論",
+        "questionCount": 135,
+        "activeQuestionCount": 135
+      },
+      {
+        "id": "18100-02",
+        "subjectCode": "18100",
+        "sourceGroup": "occupation",
+        "titleZh": "門市行政",
+        "questionCount": 90,
+        "activeQuestionCount": 90
+      },
+      {
+        "id": "18100-03",
+        "subjectCode": "18100",
+        "sourceGroup": "occupation",
+        "titleZh": "門市清潔",
+        "questionCount": 61,
+        "activeQuestionCount": 61
+      },
+      {
+        "id": "18100-04",
+        "subjectCode": "18100",
+        "sourceGroup": "occupation",
+        "titleZh": "商品處理作業",
+        "questionCount": 87,
+        "activeQuestionCount": 87
+      },
+      {
+        "id": "18100-05",
+        "subjectCode": "18100",
+        "sourceGroup": "occupation",
+        "titleZh": "櫃台作業",
+        "questionCount": 54,
+        "activeQuestionCount": 54
+      },
+      {
+        "id": "18100-06",
+        "subjectCode": "18100",
+        "sourceGroup": "occupation",
+        "titleZh": "顧客服務作業",
+        "questionCount": 129,
+        "activeQuestionCount": 129
+      },
+      {
+        "id": "18100-07",
+        "subjectCode": "18100",
+        "sourceGroup": "occupation",
+        "titleZh": "簡易設備操作",
+        "questionCount": 66,
+        "activeQuestionCount": 66
+      },
+      {
+        "id": "90006-01",
+        "subjectCode": "90006",
+        "sourceGroup": "general-common",
+        "titleZh": "職業安全衛生",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      },
+      {
+        "id": "90007-01",
+        "subjectCode": "90007",
+        "sourceGroup": "general-common",
+        "titleZh": "工作倫理與職業道德",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      },
+      {
+        "id": "90008-03",
+        "subjectCode": "90008",
+        "sourceGroup": "general-common",
+        "titleZh": "環境保護",
+        "questionCount": 100,
+        "activeQuestionCount": 95
+      },
+      {
+        "id": "90009-04",
+        "subjectCode": "90009",
+        "sourceGroup": "general-common",
+        "titleZh": "節能減碳",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      }
+    ],
+    "mockRules": {
+      "totalQuestions": 80,
+      "singleCount": 80,
+      "multipleCount": 0,
+      "durationMinutes": 100,
+      "passScore": 60,
+      "maxScore": 100,
+      "weightSingle": 1.25,
+      "weightMultiple": 0,
+      "subjectQuota": [
+        {
+          "subjectCode": "18100",
+          "count": 64
+        },
+        {
+          "subjectCode": "90006",
+          "count": 4
+        },
+        {
+          "subjectCode": "90007",
+          "count": 4
+        },
+        {
+          "subjectCode": "90008",
+          "count": 4
+        },
+        {
+          "subjectCode": "90009",
+          "count": 4
+        }
+      ]
+    },
+    "integrity": {
+      "status": "fully_verified",
+      "inactiveQuestionCount": 5,
+      "imageQuestionCount": 29,
+      "note": "Answer keys independently cross-checked against the official PDF during import."
+    }
+  },
+  {
+    "examId": "cnc-milling-b",
+    "level": "乙級",
+    "titleZh": "銑床－CNC銑床乙級",
+    "titleEn": "CNC Milling (Class B)",
+    "category": "金屬及機械加工",
+    "version": "A10",
+    "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/182012A10.pdf",
+    "sources": [
+      {
+        "subjectCode": "18201",
+        "version": "A10",
+        "pdfFilename": "182012A10.pdf",
+        "localFilename": "182012A10.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/182012A10.pdf",
+        "sha256": "4ec46b1f22906d2495c7655bbcd4348fb2900ca7c002ff80a0705f35f32ae174"
+      },
+      {
+        "subjectCode": "90001",
+        "version": "A10",
+        "pdfFilename": "900012A10.pdf",
+        "localFilename": "900012A10.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900012A10.pdf",
+        "sha256": "5ff6d7b920a6025d7ce342ff5f247a64bfbad996e480497de36db98047ce6542"
+      },
+      {
+        "subjectCode": "90006",
+        "version": "A18",
+        "pdfFilename": "900060A18.pdf",
+        "localFilename": "900060A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A18.pdf",
+        "sha256": "0afd298e136567131ed5771bb5d8e0a501e745798823242966bd9b517e5b42ec"
+      },
+      {
+        "subjectCode": "90007",
+        "version": "A17",
+        "pdfFilename": "900070A17.pdf",
+        "localFilename": "900070A17.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A17.pdf",
+        "sha256": "ec3bc07bc147f77cfaaa6928648485c9f86c6e58d715a01f49e5618d12ac3319"
+      },
+      {
+        "subjectCode": "90008",
+        "version": "A16",
+        "pdfFilename": "900080A16.pdf",
+        "localFilename": "900080A16.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A16.pdf",
+        "sha256": "3c097485bd020af2d3766c08a5c5f385a5dbc56512d8903ce6cf850903ea2f01"
+      },
+      {
+        "subjectCode": "90009",
+        "version": "A11",
+        "pdfFilename": "900090A11.pdf",
+        "localFilename": "900090A11-latest.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A11.pdf",
+        "sha256": "e58b753294079574f8c1360ef5a345e77062c0c3ee693d509254de455a533835"
+      }
+    ],
+    "officialLinks": {
+      "registration": "https://skill.tcte.edu.tw/notice.php",
+      "scoreLookup": "https://eservice.wdasec.gov.tw/",
+      "handbook": "https://skill.tcte.edu.tw/download.php",
+      "questionBank": "https://techbank.wdasec.gov.tw/"
+    },
+    "sourceRevision": "182012A10 + 900012A10 + 900060A18/900070A17/900080A16/900090A11",
+    "questionCount": 1654,
+    "activeQuestionCount": 1643,
+    "sections": [
+      {
+        "id": "18201-01",
+        "subjectCode": "18201",
+        "sourceGroup": "occupation",
+        "titleZh": "工件度量",
+        "questionCount": 47,
+        "activeQuestionCount": 47
+      },
+      {
+        "id": "18201-02",
+        "subjectCode": "18201",
+        "sourceGroup": "occupation",
+        "titleZh": "傳統銑床、ＣＮＣ銑床－基本操作及Ｃ",
+        "questionCount": 190,
+        "activeQuestionCount": 189
+      },
+      {
+        "id": "18201-03",
+        "subjectCode": "18201",
+        "sourceGroup": "occupation",
+        "titleZh": "工件夾持及校正及傳統銑床、ＣＮＣ銑",
+        "questionCount": 130,
+        "activeQuestionCount": 130
+      },
+      {
+        "id": "18201-04",
+        "subjectCode": "18201",
+        "sourceGroup": "occupation",
+        "titleZh": "銑削條件之判斷及處理及傳統銑床、Ｃ",
+        "questionCount": 247,
+        "activeQuestionCount": 246
+      },
+      {
+        "id": "18201-05",
+        "subjectCode": "18201",
+        "sourceGroup": "occupation",
+        "titleZh": "傳統銑床、ＣＮＣ銑床－二又二分之一",
+        "questionCount": 85,
+        "activeQuestionCount": 85
+      },
+      {
+        "id": "18201-06",
+        "subjectCode": "18201",
+        "sourceGroup": "occupation",
+        "titleZh": "傳統銑床、ＣＮＣ銑床－故障排除及機",
+        "questionCount": 76,
+        "activeQuestionCount": 76
+      },
+      {
+        "id": "90001-01",
+        "subjectCode": "90001",
+        "sourceGroup": "general-common",
+        "titleZh": "機械製圖",
+        "questionCount": 40,
+        "activeQuestionCount": 40
+      },
+      {
+        "id": "90001-02",
+        "subjectCode": "90001",
+        "sourceGroup": "general-common",
+        "titleZh": "行業數學",
+        "questionCount": 50,
+        "activeQuestionCount": 50
+      },
+      {
+        "id": "90001-03",
+        "subjectCode": "90001",
+        "sourceGroup": "general-common",
+        "titleZh": "精密量測",
+        "questionCount": 74,
+        "activeQuestionCount": 74
+      },
+      {
+        "id": "90001-04",
+        "subjectCode": "90001",
+        "sourceGroup": "general-common",
+        "titleZh": "金屬材料",
+        "questionCount": 52,
+        "activeQuestionCount": 52
+      },
+      {
+        "id": "90001-05",
+        "subjectCode": "90001",
+        "sourceGroup": "general-common",
+        "titleZh": "機械工作法",
+        "questionCount": 72,
+        "activeQuestionCount": 72
+      },
+      {
+        "id": "90001-06",
+        "subjectCode": "90001",
+        "sourceGroup": "general-common",
+        "titleZh": "機件原理",
+        "questionCount": 52,
+        "activeQuestionCount": 52
+      },
+      {
+        "id": "90001-07",
+        "subjectCode": "90001",
+        "sourceGroup": "general-common",
+        "titleZh": "電腦概論",
+        "questionCount": 44,
+        "activeQuestionCount": 42
+      },
+      {
+        "id": "90001-08",
+        "subjectCode": "90001",
+        "sourceGroup": "general-common",
+        "titleZh": "氣油壓概論",
+        "questionCount": 55,
+        "activeQuestionCount": 55
+      },
+      {
+        "id": "90001-09",
+        "subjectCode": "90001",
+        "sourceGroup": "general-common",
+        "titleZh": "品質管制",
+        "questionCount": 40,
+        "activeQuestionCount": 38
+      },
+      {
+        "id": "90006-01",
+        "subjectCode": "90006",
+        "sourceGroup": "general-common",
+        "titleZh": "職業安全衛生",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      },
+      {
+        "id": "90007-01",
+        "subjectCode": "90007",
+        "sourceGroup": "general-common",
+        "titleZh": "工作倫理與職業道德",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      },
+      {
+        "id": "90008-03",
+        "subjectCode": "90008",
+        "sourceGroup": "general-common",
+        "titleZh": "環境保護",
+        "questionCount": 100,
+        "activeQuestionCount": 95
+      },
+      {
+        "id": "90009-04",
+        "subjectCode": "90009",
+        "sourceGroup": "general-common",
+        "titleZh": "節能減碳",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      }
+    ],
+    "mockRules": {
+      "totalQuestions": 80,
+      "singleCount": 60,
+      "multipleCount": 20,
+      "durationMinutes": 100,
+      "passScore": 60,
+      "maxScore": 100,
+      "weightSingle": 1,
+      "weightMultiple": 2,
+      "subjectQuota": [
+        {
+          "subjectCode": "18201",
+          "count": 60
+        },
+        {
+          "subjectCode": "90001",
+          "count": 4
+        },
+        {
+          "subjectCode": "90006",
+          "count": 4
+        },
+        {
+          "subjectCode": "90007",
+          "count": 4
+        },
+        {
+          "subjectCode": "90008",
+          "count": 4
+        },
+        {
+          "subjectCode": "90009",
+          "count": 4
+        }
+      ]
+    },
+    "integrity": {
+      "status": "fully_verified",
+      "inactiveQuestionCount": 11,
+      "imageQuestionCount": 128,
+      "note": "Answer keys independently cross-checked against the official PDF during import."
+    }
   }
 ] as ExamManifest[]

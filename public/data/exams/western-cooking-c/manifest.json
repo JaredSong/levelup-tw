@@ -1,0 +1,248 @@
+{
+  "examId": "western-cooking-c",
+  "level": "丙級",
+  "titleZh": "西餐烹調丙級",
+  "titleEn": "Western Cuisine (Class C)",
+  "category": "餐飲食品",
+  "version": "A11",
+  "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/140003A11.pdf",
+  "sources": [
+    {
+      "subjectCode": "14000",
+      "version": "A11",
+      "pdfFilename": "140003A11.pdf",
+      "localFilename": "140003A11.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/140003A11.pdf",
+      "sha256": "d16857c88fbafbadf35541149d9cc5a3e2dbb96a6937571d821f11747e19db45"
+    },
+    {
+      "subjectCode": "90010",
+      "version": "A16",
+      "pdfFilename": "900100A16.pdf",
+      "localFilename": "900100A16.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900100A16.pdf",
+      "sha256": "d6cee10bff92420a35eaf3915b521289613083ded74a7ded647c66189ea2230d"
+    },
+    {
+      "subjectCode": "90006",
+      "version": "A18",
+      "pdfFilename": "900060A18.pdf",
+      "localFilename": "900060A18.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A18.pdf",
+      "sha256": "0afd298e136567131ed5771bb5d8e0a501e745798823242966bd9b517e5b42ec"
+    },
+    {
+      "subjectCode": "90007",
+      "version": "A17",
+      "pdfFilename": "900070A17.pdf",
+      "localFilename": "900070A17.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A17.pdf",
+      "sha256": "ec3bc07bc147f77cfaaa6928648485c9f86c6e58d715a01f49e5618d12ac3319"
+    },
+    {
+      "subjectCode": "90008",
+      "version": "A16",
+      "pdfFilename": "900080A16.pdf",
+      "localFilename": "900080A16.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A16.pdf",
+      "sha256": "3c097485bd020af2d3766c08a5c5f385a5dbc56512d8903ce6cf850903ea2f01"
+    },
+    {
+      "subjectCode": "90009",
+      "version": "A11",
+      "pdfFilename": "900090A11.pdf",
+      "localFilename": "900090A11-latest.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A11.pdf",
+      "sha256": "e58b753294079574f8c1360ef5a345e77062c0c3ee693d509254de455a533835"
+    }
+  ],
+  "officialLinks": {
+    "registration": "https://skill.tcte.edu.tw/notice.php",
+    "scoreLookup": "https://eservice.wdasec.gov.tw/",
+    "handbook": "https://skill.tcte.edu.tw/download.php",
+    "questionBank": "https://techbank.wdasec.gov.tw/"
+  },
+  "sourceRevision": "140003A11 + 900100A16 + 900060A18/900070A17/900080A16/900090A11",
+  "questionCount": 1200,
+  "activeQuestionCount": 1190,
+  "sections": [
+    {
+      "id": "14000-02",
+      "subjectCode": "14000",
+      "sourceGroup": "occupation",
+      "titleZh": "食物的性質及選購",
+      "questionCount": 112,
+      "activeQuestionCount": 110
+    },
+    {
+      "id": "14000-03",
+      "subjectCode": "14000",
+      "sourceGroup": "occupation",
+      "titleZh": "食物貯存",
+      "questionCount": 72,
+      "activeQuestionCount": 72
+    },
+    {
+      "id": "14000-04",
+      "subjectCode": "14000",
+      "sourceGroup": "occupation",
+      "titleZh": "食物製備",
+      "questionCount": 80,
+      "activeQuestionCount": 80
+    },
+    {
+      "id": "14000-05",
+      "subjectCode": "14000",
+      "sourceGroup": "occupation",
+      "titleZh": "器皿與盤飾",
+      "questionCount": 29,
+      "activeQuestionCount": 29
+    },
+    {
+      "id": "14000-06",
+      "subjectCode": "14000",
+      "sourceGroup": "occupation",
+      "titleZh": "設備與器具",
+      "questionCount": 27,
+      "activeQuestionCount": 27
+    },
+    {
+      "id": "14000-07",
+      "subjectCode": "14000",
+      "sourceGroup": "occupation",
+      "titleZh": "營養知識",
+      "questionCount": 38,
+      "activeQuestionCount": 38
+    },
+    {
+      "id": "14000-08",
+      "subjectCode": "14000",
+      "sourceGroup": "occupation",
+      "titleZh": "成本控制",
+      "questionCount": 26,
+      "activeQuestionCount": 26
+    },
+    {
+      "id": "14000-09",
+      "subjectCode": "14000",
+      "sourceGroup": "occupation",
+      "titleZh": "安全措施",
+      "questionCount": 17,
+      "activeQuestionCount": 17
+    },
+    {
+      "id": "14000-10",
+      "subjectCode": "14000",
+      "sourceGroup": "occupation",
+      "titleZh": "衛生知識",
+      "questionCount": 84,
+      "activeQuestionCount": 83
+    },
+    {
+      "id": "14000-11",
+      "subjectCode": "14000",
+      "sourceGroup": "occupation",
+      "titleZh": "衛生法規",
+      "questionCount": 34,
+      "activeQuestionCount": 33
+    },
+    {
+      "id": "90010-01",
+      "subjectCode": "90010",
+      "sourceGroup": "general-common",
+      "titleZh": "食品安全衛生",
+      "questionCount": 172,
+      "activeQuestionCount": 171
+    },
+    {
+      "id": "90010-02",
+      "subjectCode": "90010",
+      "sourceGroup": "general-common",
+      "titleZh": "食品安全衛生",
+      "questionCount": 40,
+      "activeQuestionCount": 40
+    },
+    {
+      "id": "90010-03",
+      "subjectCode": "90010",
+      "sourceGroup": "general-common",
+      "titleZh": "營養及健康飲",
+      "questionCount": 69,
+      "activeQuestionCount": 69
+    },
+    {
+      "id": "90006-01",
+      "subjectCode": "90006",
+      "sourceGroup": "general-common",
+      "titleZh": "職業安全衛生",
+      "questionCount": 100,
+      "activeQuestionCount": 100
+    },
+    {
+      "id": "90007-01",
+      "subjectCode": "90007",
+      "sourceGroup": "general-common",
+      "titleZh": "工作倫理與職業道德",
+      "questionCount": 100,
+      "activeQuestionCount": 100
+    },
+    {
+      "id": "90008-03",
+      "subjectCode": "90008",
+      "sourceGroup": "general-common",
+      "titleZh": "環境保護",
+      "questionCount": 100,
+      "activeQuestionCount": 95
+    },
+    {
+      "id": "90009-04",
+      "subjectCode": "90009",
+      "sourceGroup": "general-common",
+      "titleZh": "節能減碳",
+      "questionCount": 100,
+      "activeQuestionCount": 100
+    }
+  ],
+  "mockRules": {
+    "totalQuestions": 80,
+    "singleCount": 80,
+    "multipleCount": 0,
+    "durationMinutes": 100,
+    "passScore": 60,
+    "maxScore": 100,
+    "weightSingle": 1.25,
+    "weightMultiple": 0,
+    "subjectQuota": [
+      {
+        "subjectCode": "14000",
+        "count": 60
+      },
+      {
+        "subjectCode": "90010",
+        "count": 4
+      },
+      {
+        "subjectCode": "90006",
+        "count": 4
+      },
+      {
+        "subjectCode": "90007",
+        "count": 4
+      },
+      {
+        "subjectCode": "90008",
+        "count": 4
+      },
+      {
+        "subjectCode": "90009",
+        "count": 4
+      }
+    ]
+  },
+  "integrity": {
+    "status": "fully_verified",
+    "inactiveQuestionCount": 10,
+    "imageQuestionCount": 4,
+    "note": "Answer keys independently cross-checked against the official PDF during import."
+  }
+}

@@ -105,8 +105,26 @@ export function buildDriftReport(manifests, officialDocuments, examLevelCodes) {
 }
 
 export async function hashInstalledOfficialDocuments(documents, manifests, fetchFn = fetch, concurrency = 4) {
-  const installedUrls = new Set(manifests.flatMap((manifest) => (manifest.sources ?? []).map((source) => source.officialUrl)))
-  const targets = documents.filter((document) => installedUrls.has(document.officialUrl))
+  const installedSources = manifests.flatMap((manifest) => manifest.sources ?? [])
+  const installedUrls = new Set(installedSources.map((source) => source.officialUrl))
+  const byKey = new Map(documents.map((document) => [`${document.subjectCode}:${document.levelCode}`, document]))
+  for (const source of installedSources) {
+    if (!source.subjectCode.startsWith('900') || byKey.has(`${source.subjectCode}:0`)) continue
+    byKey.set(`${source.subjectCode}:0`, {
+      subjectCode: source.subjectCode,
+      title: '職類共同科目',
+      levelCode: '0',
+      level: '共同科目',
+      version: source.version,
+      pdfFilename: source.pdfFilename,
+      officialUrl: source.officialUrl,
+      effectiveFrom: null,
+      effectiveFromRoc: null,
+      remark: 'WDA occupation catalog does not enumerate this common bank; verified from its official WDA file URL.',
+    })
+  }
+  const mergedDocuments = [...byKey.values()]
+  const targets = mergedDocuments.filter((document) => installedUrls.has(document.officialUrl))
   const hashed = await mapConcurrent(targets, concurrency, async (document) => {
     const response = await fetchFn(document.officialUrl)
     if (!response.ok) throw new Error(`${document.pdfFilename} returned HTTP ${response.status}`)
@@ -116,7 +134,6 @@ export async function hashInstalledOfficialDocuments(documents, manifests, fetch
     }
     return { ...document, sha256: createHash('sha256').update(bytes).digest('hex') }
   })
-  const byKey = new Map(documents.map((document) => [`${document.subjectCode}:${document.levelCode}`, document]))
   for (const document of hashed) byKey.set(`${document.subjectCode}:${document.levelCode}`, document)
   return [...byKey.values()]
 }

@@ -111,6 +111,7 @@ describe('active exam selection', () => {
       '營造工程',
       '電子儀表',
       '銲接配管',
+      '金屬及機械加工',
     ])
     expect(groups.find((group) => group.category === '資訊')?.exams.map((exam) => exam.examId)).toEqual([
       'web-design-b',
@@ -126,6 +127,7 @@ describe('active exam selection', () => {
       'chinese-cooking-meat-c',
       'baking-food-c',
       'beverage-preparation-c',
+      'western-cooking-c',
     ])
     expect(groups.find((group) => group.category === '車輛修護')?.exams.map((exam) => exam.examId)).toEqual([
       'car-repair-c',

@@ -9,6 +9,7 @@ import {
   Clock,
   Database,
   Github,
+  Languages,
   Menu,
   Moon,
   Plus,
@@ -24,10 +25,20 @@ import { useEffect, useMemo, useState } from 'react'
 import type { CSSProperties } from 'react'
 import type { ExamManifest } from '../core/exam'
 import { zhTW } from '../i18n/zh-TW'
+import { trackLanding } from './analytics'
 import { GENERATED_LANDING_CATALOG } from './generatedLandingCatalog'
 import { applyTheme, currentTheme, type Theme } from './theme'
 import { QrSvg } from '../components/QrCode'
-import { NATIONAL_EXAM_SCHEDULE_115, NATIONAL_EXAM_SCHEDULE_SOURCE } from './nationalExamSchedule'
+import { NATIONAL_EXAM_SCHEDULE_115, NATIONAL_EXAM_SCHEDULE_SOURCE, type NationalExamScheduleEntry } from './nationalExamSchedule'
+
+// zhTW.landing infers each value as its exact Chinese string *literal*, which an
+// English translation can't satisfy. Widen literal strings to `string` while
+// keeping the function-valued entries (examCount, examAction…) intact.
+type WidenStrings<T> = { [K in keyof T]: T[K] extends (...args: infer A) => infer R ? (...args: A) => R : string }
+export type LandingStrings = WidenStrings<typeof zhTW.landing>
+export type LandingLang = 'zh' | 'en'
+
+const EN_MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
 // ROC (民國) year = Gregorian − 1911. Dates come from nationalExamSchedule.ts,
 // the same official 簡章 data the app uses, so this section never drifts from it.
@@ -35,66 +46,35 @@ function rocDate(iso: string) {
   const [y, m, d] = iso.split('-').map(Number)
   return `${y - 1911}年${m}月${d}日`
 }
+function engDate(iso: string) {
+  const [y, m, d] = iso.split('-').map(Number)
+  return `${EN_MONTHS[m - 1]} ${d}, ${y}`
+}
 function monthDayRange(startIso: string, endIso: string) {
   const md = (iso: string) => { const [, m, d] = iso.split('-').map(Number); return `${m}/${d}` }
   return `${md(startIso)}–${md(endIso)}`
 }
+function scheduleLabel(entry: NationalExamScheduleEntry, lang: LandingLang) {
+  return lang === 'en' ? `Round ${entry.round}, ${entry.year + 1911}` : entry.label
+}
+function writtenDate(iso: string, lang: LandingLang) {
+  return lang === 'en' ? engDate(iso) : rocDate(iso)
+}
 
-// A fixed absolute URL, not window.location: the QR must resolve to the public
-// site even when this renders during the build-time prerender (no window) or on
-// a preview deploy.
-const SITE_URL = 'https://levelup.tw/'
+const REPO_URL = 'https://github.com/JaredSong/levelup-tw'
 
 interface Props {
   exams: ExamManifest[]
   returning: boolean
-  onEnter: () => void
+  onEnter: (source: string) => void
   onSelectExam: (examId: string) => void
+  /** Landing copy for the active locale. Defaults to Traditional Chinese. */
+  t?: LandingStrings
+  /** Active locale — drives the language toggle target and date formatting. */
+  lang?: LandingLang
 }
 
-const JKOPAY_CODE = zhTW.landing.donateCode
-const REPO_URL = 'https://github.com/JaredSong/levelup-tw'
-
-const navLinks = [
-  { href: '#landing-exams', label: zhTW.landing.navExams },
-  { href: '#landing-how', label: zhTW.landing.navHow },
-  { href: '#landing-schedule', label: zhTW.landing.navSchedule },
-  { href: '#landing-install', label: zhTW.landing.navInstall },
-  { href: '#landing-faq', label: zhTW.landing.navFaq },
-  { href: '#landing-donate', label: zhTW.landing.navDonate },
-]
-
 const FEATURED_EXAM_IDS: readonly string[] = GENERATED_LANDING_CATALOG.featuredExamIds
-
-const learningLoop = [
-  { icon: BookOpenCheck, tone: 'accent', label: zhTW.landing.loopPractice, body: zhTW.landing.loopPracticeBody },
-  { icon: RotateCcw, tone: 'coral', label: zhTW.landing.loopRepair, body: zhTW.landing.loopRepairBody },
-  { icon: Clock, tone: 'blue', label: zhTW.landing.loopRemember, body: zhTW.landing.loopRememberBody },
-  { icon: Timer, tone: 'gold', label: zhTW.landing.loopVerify, body: zhTW.landing.loopVerifyBody },
-]
-
-// Each tile shows a screen the hero does not: repeating 首頁 here would just be
-// the hero's screenshot a second time.
-const screenShots = [
-  { name: 'practice', title: zhTW.landing.screensPractice, body: zhTW.landing.screensPracticeBody },
-  { name: 'review', title: zhTW.landing.screensReview, body: zhTW.landing.screensReviewBody },
-  { name: 'mock', title: zhTW.landing.screensMock, body: zhTW.landing.screensMockBody },
-]
-
-const trustCards = [
-  { icon: BadgeCheck, title: zhTW.landing.trustFree, body: zhTW.landing.trustFreeBody },
-  { icon: WifiOff, title: zhTW.landing.trustOffline, body: zhTW.landing.trustOfflineBody },
-  { icon: Ban, title: zhTW.landing.trustNoAds, body: zhTW.landing.trustNoAdsBody },
-]
-
-const faqItems = [
-  { q: zhTW.landing.faqOfficialQ, a: zhTW.landing.faqOfficialA },
-  { q: zhTW.landing.faqFreeQ, a: zhTW.landing.faqFreeA },
-  { q: zhTW.landing.faqAccountQ, a: zhTW.landing.faqAccountA },
-  { q: zhTW.landing.faqSourceQ, a: zhTW.landing.faqSourceA },
-  { q: zhTW.landing.faqProgressQ, a: zhTW.landing.faqProgressA },
-  { q: zhTW.landing.faqExamsQ, a: zhTW.landing.faqExamsA },
-]
 
 /** Theme lives on <html data-theme>; the toggle records an explicit choice. */
 function useTheme(): [Theme, () => void] {
@@ -108,12 +88,57 @@ function useTheme(): [Theme, () => void] {
   return [theme, toggle]
 }
 
-export function LandingPage({ exams, returning, onEnter, onSelectExam }: Props) {
+export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.landing, lang = 'zh' }: Props) {
   const [theme, toggleTheme] = useTheme()
   const [menuOpen, setMenuOpen] = useState(false)
   const [openFaq, setOpenFaq] = useState(0)
   const [showTop, setShowTop] = useState(false)
   const [copied, setCopied] = useState(false)
+
+  const navLinks = [
+    { href: '#landing-exams', label: t.navExams },
+    { href: '#landing-how', label: t.navHow },
+    { href: '#landing-schedule', label: t.navSchedule },
+    { href: '#landing-install', label: t.navInstall },
+    { href: '#landing-faq', label: t.navFaq },
+    { href: '#landing-donate', label: t.navDonate },
+  ]
+
+  const learningLoop = [
+    { icon: BookOpenCheck, tone: 'accent', label: t.loopPractice, body: t.loopPracticeBody },
+    { icon: RotateCcw, tone: 'coral', label: t.loopRepair, body: t.loopRepairBody },
+    { icon: Clock, tone: 'blue', label: t.loopRemember, body: t.loopRememberBody },
+    { icon: Timer, tone: 'gold', label: t.loopVerify, body: t.loopVerifyBody },
+  ]
+
+  // Each tile shows a screen the hero does not: repeating 首頁 here would just be
+  // the hero's screenshot a second time.
+  const screenShots = [
+    { name: 'practice', title: t.screensPractice, body: t.screensPracticeBody },
+    { name: 'review', title: t.screensReview, body: t.screensReviewBody },
+    { name: 'mock', title: t.screensMock, body: t.screensMockBody },
+  ]
+
+  const trustCards = [
+    { icon: BadgeCheck, title: t.trustFree, body: t.trustFreeBody },
+    { icon: WifiOff, title: t.trustOffline, body: t.trustOfflineBody },
+    { icon: Ban, title: t.trustNoAds, body: t.trustNoAdsBody },
+  ]
+
+  const faqItems = [
+    { q: t.faqOfficialQ, a: t.faqOfficialA },
+    { q: t.faqFreeQ, a: t.faqFreeA },
+    { q: t.faqAccountQ, a: t.faqAccountA },
+    { q: t.faqSourceQ, a: t.faqSourceA },
+    { q: t.faqProgressQ, a: t.faqProgressA },
+    { q: t.faqExamsQ, a: t.faqExamsA },
+  ]
+
+  // The QR opens the site on a phone; keep it on whichever locale the visitor is
+  // viewing so an English reader lands back on the English page.
+  const siteUrl = lang === 'en' ? 'https://levelup.tw/en' : 'https://levelup.tw/'
+  const otherLangHref = lang === 'en' ? '/' : '/en'
+  const otherLangLabel = lang === 'en' ? '中文' : 'EN'
 
   // Counts and lists all derive from the manifests, so a new pack needs no copy
   // edit: it either matches FEATURED_EXAM_IDS or falls into 其他考科 by itself.
@@ -149,50 +174,60 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam }: Props) 
 
   const copyJkopay = async () => {
     try {
-      await navigator.clipboard.writeText(JKOPAY_CODE)
+      await navigator.clipboard.writeText(t.donateCode)
       setCopied(true)
+      trackLanding('donate_copy')
       window.setTimeout(() => setCopied(false), 2000)
     } catch {
       setCopied(false)
     }
   }
 
+  const navJump = (href: string) => trackLanding('nav', { target: href })
   const shot = (name: string) => `/screens/${name}-${theme}.webp`
 
   return (
     <main className="landing-page">
       <div className="landing-nav-wrap">
-        <nav className="landing-nav" aria-label={zhTW.landing.brand}>
-          <a className="landing-brand" href="#top" aria-label={zhTW.landing.brand}>
-            <img alt={zhTW.landing.brandAlt} src="/app-icon.svg" />
+        <nav className="landing-nav" aria-label={t.brand}>
+          <a className="landing-brand" href="#top" aria-label={t.brand}>
+            <img alt={t.brandAlt} src="/app-icon.svg" />
             <span>
-              <strong>{zhTW.landing.brand}</strong>
-              <small>{zhTW.landing.navTagline}</small>
+              <strong>{t.brand}</strong>
+              <small>{t.navTagline}</small>
             </span>
           </a>
 
           <div className="landing-nav-links">
             {navLinks.map((link) => (
-              <a href={link.href} key={link.href}>{link.label}</a>
+              <a href={link.href} key={link.href} onClick={() => navJump(link.href)}>{link.label}</a>
             ))}
           </div>
 
           <div className="landing-nav-actions">
+            <a
+              className="landing-lang-toggle"
+              href={otherLangHref}
+              hrefLang={lang === 'en' ? 'zh-Hant-TW' : 'en'}
+              onClick={() => trackLanding('lang_switch', { to: lang === 'en' ? 'zh' : 'en' })}
+            >
+              <Languages size={16} />{otherLangLabel}
+            </a>
             <button
-              aria-label={zhTW.landing.navThemeToggle}
+              aria-label={t.navThemeToggle}
               className="landing-icon-button"
               onClick={toggleTheme}
               type="button"
             >
               {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
             </button>
-            <button className="landing-nav-action" onClick={onEnter} type="button">
-              {returning ? zhTW.landing.returnAction : zhTW.landing.restoreAction}
+            <button className="landing-nav-action" onClick={() => onEnter('nav')} type="button">
+              {returning ? t.returnAction : t.restoreAction}
               <ArrowRight size={16} />
             </button>
             <button
               aria-expanded={menuOpen}
-              aria-label={zhTW.landing.navMenu}
+              aria-label={t.navMenu}
               className="landing-icon-button landing-burger"
               onClick={() => setMenuOpen((open) => !open)}
               type="button"
@@ -205,7 +240,7 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam }: Props) 
         {menuOpen ? (
           <div className="landing-nav-sheet">
             {navLinks.map((link) => (
-              <a href={link.href} key={link.href} onClick={() => setMenuOpen(false)}>{link.label}</a>
+              <a href={link.href} key={link.href} onClick={() => { navJump(link.href); setMenuOpen(false) }}>{link.label}</a>
             ))}
           </div>
         ) : null}
@@ -213,25 +248,25 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam }: Props) 
 
       <section className="landing-hero" id="top">
         <div className="landing-hero-copy">
-          <p className="landing-hero-badge">{zhTW.landing.eyebrow}</p>
+          <p className="landing-hero-badge">{t.eyebrow}</p>
           <h1>
-            {zhTW.landing.titleLead}
-            <em>{zhTW.landing.titleAccent}</em>
-            {zhTW.landing.titleTail}
+            {t.titleLead}
+            <em>{t.titleAccent}</em>
+            {t.titleTail}
           </h1>
-          <p className="landing-hero-description">{zhTW.landing.description}</p>
+          <p className="landing-hero-description">{t.description}</p>
           <div className="landing-hero-actions">
-            <button className="landing-primary" onClick={onEnter} type="button">
-              {zhTW.landing.primaryAction}<ArrowRight size={18} />
+            <button className="landing-primary" onClick={() => onEnter('hero')} type="button">
+              {t.primaryAction}<ArrowRight size={18} />
             </button>
-            <a className="landing-secondary" href="#landing-how">{zhTW.landing.secondaryAction}</a>
+            <a className="landing-secondary" href="#landing-how" onClick={() => trackLanding('secondary_how')}>{t.secondaryAction}</a>
           </div>
           <div className="landing-proof">
-            <span><CheckCircle2 size={16} /> {zhTW.landing.freeLabel}</span>
-            <span><WifiOff size={16} /> {zhTW.landing.offlineLabel}</span>
-            <span><ShieldCheck size={16} /> {zhTW.landing.localLabel}</span>
+            <span><CheckCircle2 size={16} /> {t.freeLabel}</span>
+            <span><WifiOff size={16} /> {t.offlineLabel}</span>
+            <span><ShieldCheck size={16} /> {t.localLabel}</span>
           </div>
-          <p className="landing-source-note">{zhTW.landing.sourceNote}</p>
+          <p className="landing-source-note">{t.sourceNote}</p>
         </div>
 
         <div className="landing-hero-visual">
@@ -247,10 +282,10 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam }: Props) 
       <section className="landing-exams" id="landing-exams">
         <header className="landing-section-head">
           <div>
-            <p className="landing-eyebrow">{zhTW.landing.examSectionEyebrow(totalQuestions)}</p>
-            <h2>{zhTW.landing.examSectionTitle}</h2>
+            <p className="landing-eyebrow">{t.examSectionEyebrow(totalQuestions)}</p>
+            <h2>{t.examSectionTitle}</h2>
           </div>
-          <p>{zhTW.landing.examSectionDescription}</p>
+          <p>{t.examSectionDescription}</p>
         </header>
         <div className="landing-exam-grid">
           {featured.map((exam, index) => (
@@ -266,8 +301,8 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam }: Props) 
                 <strong>{exam.titleZh}</strong>
                 <small>{exam.sections[0]?.subjectCode ?? exam.examId} · {exam.category} · {exam.level}</small>
               </span>
-              <small className="landing-exam-count">{zhTW.landing.examCount(exam.activeQuestionCount)}</small>
-              <span className="landing-exam-arrow" aria-label={zhTW.landing.examAction(exam.titleZh)}>
+              <small className="landing-exam-count">{t.examCount(exam.activeQuestionCount)}</small>
+              <span className="landing-exam-arrow" aria-label={t.examAction(exam.titleZh)}>
                 <ArrowRight size={16} />
               </span>
             </button>
@@ -279,11 +314,11 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam }: Props) 
           // searching 「會計事務丙級 題庫」 should still find this page.
           <div className="landing-exam-rest">
             <p>
-              <span>{zhTW.landing.examRestLabel}</span>
+              <span>{t.examRestLabel}</span>
               {rest.map((exam) => exam.titleZh).join('、')}
             </p>
-            <button className="landing-secondary" onClick={onEnter} type="button">
-              {zhTW.landing.examSeeAll}<ArrowRight size={16} />
+            <button className="landing-secondary" onClick={() => onEnter('exam_see_all')} type="button">
+              {t.examSeeAll}<ArrowRight size={16} />
             </button>
           </div>
         ) : null}
@@ -291,9 +326,9 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam }: Props) 
 
       <section className="landing-method" id="landing-how">
         <div className="landing-method-copy">
-          <p className="landing-eyebrow">{zhTW.landing.methodEyebrow}</p>
-          <h2>{zhTW.landing.methodTitle}</h2>
-          <p>{zhTW.landing.methodDescription}</p>
+          <p className="landing-eyebrow">{t.methodEyebrow}</p>
+          <h2>{t.methodTitle}</h2>
+          <p>{t.methodDescription}</p>
         </div>
         <ol className="landing-loop">
           {learningLoop.map(({ icon: Icon, tone, label, body }, index) => (
@@ -309,8 +344,8 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam }: Props) 
 
       <section className="landing-screens">
         <div className="landing-screens-head">
-          <p className="landing-eyebrow">{zhTW.landing.screensEyebrow}</p>
-          <h2>{zhTW.landing.screensTitle}</h2>
+          <p className="landing-eyebrow">{t.screensEyebrow}</p>
+          <h2>{t.screensTitle}</h2>
         </div>
         <div className="landing-screens-grid">
           {screenShots.map((item) => (
@@ -332,10 +367,10 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam }: Props) 
       <section className="landing-trust">
         <div className="landing-trust-head">
           <div>
-            <p className="landing-eyebrow">{zhTW.landing.trustEyebrow}</p>
-            <h2>{zhTW.landing.trustTitle}</h2>
+            <p className="landing-eyebrow">{t.trustEyebrow}</p>
+            <h2>{t.trustTitle}</h2>
           </div>
-          <p>{zhTW.landing.trustBody}</p>
+          <p>{t.trustBody}</p>
         </div>
         <div className="landing-trust-grid">
           {trustCards.map(({ icon: Icon, title, body }) => (
@@ -350,59 +385,59 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam }: Props) 
 
       <section className="landing-schedule" id="landing-schedule">
         <div className="landing-schedule-head">
-          <p className="landing-eyebrow">{zhTW.landing.scheduleEyebrow}</p>
-          <h2>{zhTW.landing.scheduleTitle}</h2>
-          <p>{zhTW.landing.scheduleBody}</p>
+          <p className="landing-eyebrow">{t.scheduleEyebrow}</p>
+          <h2>{t.scheduleTitle}</h2>
+          <p>{t.scheduleBody}</p>
         </div>
         <div className="landing-schedule-grid">
           {NATIONAL_EXAM_SCHEDULE_115.map((entry) => (
             <div className="landing-schedule-card" key={entry.id}>
-              <strong>{entry.label}</strong>
-              <p><span>{zhTW.landing.scheduleWritten}</span>{rocDate(entry.writtenDate)}</p>
-              <p><span>{zhTW.landing.scheduleReg}</span>{monthDayRange(entry.registrationStart, entry.registrationEnd)}</p>
+              <strong>{scheduleLabel(entry, lang)}</strong>
+              <p><span>{t.scheduleWritten}</span>{writtenDate(entry.writtenDate, lang)}</p>
+              <p><span>{t.scheduleReg}</span>{monthDayRange(entry.registrationStart, entry.registrationEnd)}</p>
             </div>
           ))}
         </div>
         <p className="landing-schedule-note">
-          <span>{zhTW.landing.scheduleNote}</span>
-          <a href={NATIONAL_EXAM_SCHEDULE_SOURCE} rel="noreferrer" target="_blank">
-            {zhTW.landing.scheduleSource}<ArrowUpRight size={14} />
+          <span>{t.scheduleNote}</span>
+          <a href={NATIONAL_EXAM_SCHEDULE_SOURCE} rel="noreferrer" target="_blank" onClick={() => trackLanding('schedule_source')}>
+            {t.scheduleSource}<ArrowUpRight size={14} />
           </a>
         </p>
       </section>
 
       <section className="landing-install" id="landing-install">
         <div className="landing-install-copy">
-          <p className="landing-eyebrow">{zhTW.landing.installEyebrow}</p>
-          <h2>{zhTW.landing.installTitle}</h2>
-          <p>{zhTW.landing.installBody}</p>
+          <p className="landing-eyebrow">{t.installEyebrow}</p>
+          <h2>{t.installTitle}</h2>
+          <p>{t.installBody}</p>
           <p className="landing-install-note">
             <ShieldCheck size={17} />
-            <span>{zhTW.landing.installNote}</span>
+            <span>{t.installNote}</span>
           </p>
           <div className="landing-install-qr">
-            <QrSvg text={SITE_URL} ariaLabel={zhTW.landing.installQrAlt} size={116} className="landing-qr" />
+            <QrSvg text={siteUrl} ariaLabel={t.installQrAlt} size={116} className="landing-qr" />
             <div>
-              <strong>{zhTW.landing.installQrTitle}</strong>
-              <p>{zhTW.landing.installQrBody}</p>
+              <strong>{t.installQrTitle}</strong>
+              <p>{t.installQrBody}</p>
             </div>
           </div>
         </div>
         <div className="landing-install-cards">
           <div>
-            <strong>{zhTW.landing.installIos}</strong>
+            <strong>{t.installIos}</strong>
             <ol>
-              <li><span>1</span><p>{zhTW.landing.installIosStep1}</p></li>
-              <li><span>2</span><p>{zhTW.landing.installIosStep2} <Share size={14} /></p></li>
-              <li><span>3</span><p>{zhTW.landing.installIosStep3}</p></li>
+              <li><span>1</span><p>{t.installIosStep1}</p></li>
+              <li><span>2</span><p>{t.installIosStep2} <Share size={14} /></p></li>
+              <li><span>3</span><p>{t.installIosStep3}</p></li>
             </ol>
           </div>
           <div>
-            <strong>{zhTW.landing.installAndroid}</strong>
+            <strong>{t.installAndroid}</strong>
             <ol>
-              <li><span>1</span><p>{zhTW.landing.installAndroidStep1}</p></li>
-              <li><span>2</span><p>{zhTW.landing.installAndroidStep2} <kbd>⋮</kbd></p></li>
-              <li><span>3</span><p>{zhTW.landing.installAndroidStep3}</p></li>
+              <li><span>1</span><p>{t.installAndroidStep1}</p></li>
+              <li><span>2</span><p>{t.installAndroidStep2} <kbd>⋮</kbd></p></li>
+              <li><span>3</span><p>{t.installAndroidStep3}</p></li>
             </ol>
           </div>
         </div>
@@ -410,15 +445,15 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam }: Props) 
 
       <section className="landing-faq" id="landing-faq">
         <div className="landing-faq-head">
-          <p className="landing-eyebrow">{zhTW.landing.faqEyebrow}</p>
-          <h2>{zhTW.landing.faqTitle}</h2>
+          <p className="landing-eyebrow">{t.faqEyebrow}</p>
+          <h2>{t.faqTitle}</h2>
         </div>
         <div className="landing-faq-list">
           {faqItems.map((item, index) => (
             <div key={item.q}>
               <button
                 aria-expanded={openFaq === index}
-                onClick={() => setOpenFaq(openFaq === index ? -1 : index)}
+                onClick={() => { const next = openFaq === index ? -1 : index; setOpenFaq(next); if (next === index) trackLanding('faq_open', { q: item.q }) }}
                 type="button"
               >
                 {item.q}
@@ -433,16 +468,16 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam }: Props) 
       <section className="landing-donate" id="landing-donate">
         <div className="landing-donate-card">
           <div>
-            <p className="landing-eyebrow">{zhTW.landing.donateEyebrow}</p>
-            <h2>{zhTW.landing.donateTitle}</h2>
-            <p>{zhTW.landing.donateBody}</p>
+            <p className="landing-eyebrow">{t.donateEyebrow}</p>
+            <h2>{t.donateTitle}</h2>
+            <p>{t.donateBody}</p>
           </div>
           <div className="landing-donate-actions">
             <button onClick={() => void copyJkopay()} type="button">
               <span aria-hidden="true">街</span>
-              {copied ? zhTW.landing.donateCopied : zhTW.landing.donateAction}
+              {copied ? t.donateCopied : t.donateAction}
             </button>
-            <small>{JKOPAY_CODE}</small>
+            <small>{t.donateCode}</small>
           </div>
         </div>
       </section>
@@ -452,27 +487,27 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam }: Props) 
           <a className="landing-brand" href="#top">
             <img alt="" src="/app-icon.svg" />
             <span>
-              <strong>{zhTW.landing.brand}</strong>
-              <small>{zhTW.landing.navTagline}</small>
+              <strong>{t.brand}</strong>
+              <small>{t.navTagline}</small>
             </span>
           </a>
           <div className="landing-footer-actions">
-            <a href="https://techbank.wdasec.gov.tw/" rel="noreferrer" target="_blank">
-              {zhTW.landing.officialSource}<ArrowUpRight size={15} />
+            <a href="https://techbank.wdasec.gov.tw/" rel="noreferrer" target="_blank" onClick={() => trackLanding('official_source')}>
+              {t.officialSource}<ArrowUpRight size={15} />
             </a>
-            <a href={REPO_URL} rel="noreferrer" target="_blank">
-              <Github size={15} />{zhTW.landing.sourceCode}<ArrowUpRight size={15} />
+            <a href={REPO_URL} rel="noreferrer" target="_blank" onClick={() => trackLanding('source_code')}>
+              <Github size={15} />{t.sourceCode}<ArrowUpRight size={15} />
             </a>
-            <button className="landing-primary" onClick={onEnter} type="button">
-              {zhTW.landing.primaryAction}<ArrowRight size={16} />
+            <button className="landing-primary" onClick={() => onEnter('footer')} type="button">
+              {t.primaryAction}<ArrowRight size={16} />
             </button>
           </div>
         </div>
-        <p>{zhTW.landing.footerNote}</p>
+        <p>{t.footerNote}</p>
       </footer>
 
       {showTop ? (
-        <a aria-label={zhTW.landing.backToTop} className="landing-to-top" href="#top">
+        <a aria-label={t.backToTop} className="landing-to-top" href="#top">
           <ArrowUp size={18} />
         </a>
       ) : null}

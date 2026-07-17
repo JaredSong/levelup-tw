@@ -1,1 +1,5 @@
-/* /index.html 200
+# The English landing is a real prerendered file at /en/index.html; serve it for
+# /en (and /en/) before the SPA catch-all rewrites everything to the root page.
+/en      /en/index.html   200
+/en/     /en/index.html   200
+/*       /index.html      200

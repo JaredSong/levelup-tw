@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { AlertTriangle, ArrowRight, CheckCircle2, LoaderCircle, RotateCcw } from 'lucide-react'
 import { ActiveExamHeader } from './app/ActiveExamHeader'
-import { trackEnterApp, trackInitialView } from './app/analytics'
+import { trackEnterApp, trackInitialView, trackLanding } from './app/analytics'
 import { LandingPage } from './app/LandingPage'
+import { enLanding } from './i18n/en'
 import { OnboardingGate } from './app/OnboardingGate'
 import { hasCompletedOnboarding, PROFILE_NAME_KEY, shouldShowLanding } from './app/onboardingState'
 import { readSyncLink } from './app/syncCode'
@@ -144,6 +145,12 @@ async function explainQuestion(examId: string, question: Question, selected: num
   return data.explanation
 }
 
+// The English marketing page lives at /en (and /en/*). Like /welcome it always
+// shows the landing — an English visitor arriving there should see the English
+// page, not be bounced into the (Chinese) app by a returning-visitor cookie.
+const isEnPath = (path: string) => path === '/en' || path.startsWith('/en/')
+const forcesLanding = (path: string) => path === '/welcome' || isEnPath(path)
+
 export default function App() {
   const { installedExams, setActiveExamId } = useActiveExam()
   const [onboarded, setOnboarded] = useState(hasCompletedOnboarding)
@@ -152,10 +159,11 @@ export default function App() {
   const [landingOpen, setLandingOpen] = useState(() => shouldShowLanding({
     onboarded: hasCompletedOnboarding(),
     hasSyncLink: Boolean(readSyncLink(window.location.hash)),
-    forceWelcome: window.location.pathname === '/welcome',
+    forceWelcome: forcesLanding(window.location.pathname),
     forceApp: window.location.pathname === '/app',
     standalone,
   }))
+  const [lang, setLang] = useState<'zh' | 'en'>(() => isEnPath(window.location.pathname) ? 'en' : 'zh')
 
   // Report the surface actually rendered, not the URL: a returning visitor gets
   // the app while the URL stays "/", so the URL alone cannot tell discovery from
@@ -166,7 +174,7 @@ export default function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const enterApp = (examId?: string) => {
+  const enterApp = (examId?: string, source = 'unknown') => {
     if (examId) setActiveExamId(examId)
     // pushState, not replaceState: entering the app is a step forward from the
     // landing, so the browser back button should return to it rather than leave
@@ -174,21 +182,26 @@ export default function App() {
     if (window.location.pathname !== '/app') history.pushState(null, '', '/app')
     setLandingOpen(false)
     // The landing's one job: this is the conversion, and it has no pageview of
-    // its own because the document never navigates.
+    // its own because the document never navigates. The parallel landing_click
+    // records which CTA (and which locale) drove it, for the funnel.
     trackEnterApp(examId)
+    trackLanding('enter_app', { source, exam_id: examId ?? '(none)', lang })
   }
 
   // Back/forward re-derives the surface from the URL with the same rules as the
   // first render, so leaving the landing and coming back stays consistent (and a
   // returning visitor, who never pushed a landing entry, still exits cleanly).
   useEffect(() => {
-    const onPopState = () => setLandingOpen(shouldShowLanding({
-      onboarded: hasCompletedOnboarding(),
-      hasSyncLink: Boolean(readSyncLink(window.location.hash)),
-      forceWelcome: window.location.pathname === '/welcome',
-      forceApp: window.location.pathname === '/app',
-      standalone,
-    }))
+    const onPopState = () => {
+      setLang(isEnPath(window.location.pathname) ? 'en' : 'zh')
+      setLandingOpen(shouldShowLanding({
+        onboarded: hasCompletedOnboarding(),
+        hasSyncLink: Boolean(readSyncLink(window.location.hash)),
+        forceWelcome: forcesLanding(window.location.pathname),
+        forceApp: window.location.pathname === '/app',
+        standalone,
+      }))
+    }
     window.addEventListener('popstate', onPopState)
     return () => window.removeEventListener('popstate', onPopState)
   }, [standalone])
@@ -197,9 +210,11 @@ export default function App() {
     return (
       <LandingPage
         exams={installedExams}
-        onEnter={() => enterApp()}
-        onSelectExam={enterApp}
+        onEnter={(source) => enterApp(undefined, source)}
+        onSelectExam={(examId) => enterApp(examId, 'exam_card')}
         returning={onboarded}
+        t={lang === 'en' ? enLanding : undefined}
+        lang={lang}
       />
     )
   }

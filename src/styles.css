@@ -197,6 +197,10 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .landing-install-copy > p { max-width: 44ch; margin: 18px 0 0; color: var(--muted); font-size: .9rem; line-height: 1.7; }
 .landing-install-note { display: flex; align-items: flex-start; gap: 10px; max-width: 46ch; margin-top: 22px; padding: 13px 16px; border-radius: 10px; background: var(--accent-pale); color: var(--accent-ink); font-size: .84rem; font-weight: 700; line-height: 1.6; }
 .landing-install-note svg { flex: 0 0 auto; margin-top: 2px; }
+.landing-lang-toggle { display: inline-flex; align-items: center; gap: 5px; height: 38px; padding: 0 12px; border: 1px solid var(--line); border-radius: 9px; color: var(--ink2); font-size: .82rem; font-weight: 700; text-decoration: none; }
+.landing-lang-toggle:hover { border-color: var(--line2); color: var(--ink); }
+@media (max-width: 560px) { .landing-lang-toggle span { display: none; } }
+
 /* Exam schedule */
 .landing-schedule { padding: clamp(56px, 8vw, 104px) var(--pad); border-top: 1px solid var(--line2); background: var(--paper); }
 .landing-schedule-head { max-width: 640px; }

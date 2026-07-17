@@ -71,6 +71,20 @@ export function trackEnterApp(examId?: string, gtag: Gtag | undefined = windowGt
   })
 }
 
+/**
+ * A landing-page engagement click (nav jump, CTA, install step, external link,
+ * FAQ open, language switch…). Distinct from enter_app: this captures intent and
+ * which element drew it, so the funnel shows what people actually poke at before
+ * (or instead of) converting. `action` is the element; extra params add detail.
+ */
+export function trackLanding(
+  action: string,
+  params: Record<string, unknown> = {},
+  gtag: Gtag | undefined = windowGtag(),
+): void {
+  gtag?.('event', 'landing_click', { action, ...params })
+}
+
 /** Test seam: lets a test observe a fresh first call. */
 export function resetInitialViewForTests(): void {
   sent = false

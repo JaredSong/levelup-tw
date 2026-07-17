@@ -13,6 +13,11 @@
     <!-- gtag.js loads from googletagmanager; warm the connection early. -->
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="canonical" href="https://levelup.tw/" />
+    <!-- Both language pages carry the same alternates; prerender rewrites only the
+         canonical + og for /en. x-default points at the Chinese (primary) page. -->
+    <link rel="alternate" hreflang="zh-Hant-TW" href="https://levelup.tw/" />
+    <link rel="alternate" hreflang="en" href="https://levelup.tw/en" />
+    <link rel="alternate" hreflang="x-default" href="https://levelup.tw/" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta property="og:locale" content="zh_TW" />
     <meta property="og:type" content="website" />

@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components -- build-only entry, never in the HMR graph; it exports render helpers and prerender constants, not live components. */
 // Build-time only entry: scripts/prerender.mjs renders the landing pages into
 // dist so crawlers get real HTML instead of an empty #root (the app is otherwise
 // a fully client-rendered SPA). Never imported by the browser bundle — main.tsx's

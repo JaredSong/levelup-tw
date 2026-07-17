@@ -332,6 +332,29 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .exam-about h3 { margin: 0 0 12px; font-size: 1.05rem; }
 .exam-about p { max-width: 62ch; margin: 0; color: var(--muted); font-size: .86rem; line-height: 1.7; }
 
+/* AEO guide page (reuses .exam-* layout) */
+.guide-lead { font-weight: 500; color: var(--ink2); }
+.guide-section { padding: clamp(28px, 4.5vw, 52px) var(--pad); border-top: 1px solid var(--line2); }
+.guide-section > h2 { margin: 0 0 16px; font-size: clamp(1.35rem, 2.6vw, 1.9rem); line-height: 1.3; }
+.guide-section > p { max-width: 66ch; margin: 0; color: var(--ink3); font-size: 1rem; line-height: 1.85; }
+.guide-ways { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin: 4px 0 20px; }
+.guide-way { display: grid; gap: 9px; padding: 20px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }
+.guide-way strong { font-size: 1rem; font-weight: 800; }
+.guide-way p { display: flex; align-items: flex-start; gap: 8px; margin: 0; font-size: .88rem; line-height: 1.6; }
+.guide-good { color: var(--ink2); }
+.guide-good svg { flex: 0 0 auto; margin-top: 2px; color: var(--accent); }
+.guide-bad { color: var(--muted); }
+.guide-bad svg { flex: 0 0 auto; margin-top: 2px; color: var(--coral, #c2603f); }
+.guide-conclusion { max-width: 66ch; margin: 0; padding: 14px 16px; border-left: 3px solid var(--accent); background: var(--accent-pale); color: var(--accent-ink); font-size: .92rem; font-weight: 600; line-height: 1.7; }
+.guide-steps { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; max-width: 66ch; }
+.guide-steps li { display: flex; align-items: flex-start; gap: 12px; color: var(--ink2); font-size: .96rem; line-height: 1.7; }
+.guide-steps li > span { flex: 0 0 auto; display: grid; place-items: center; min-width: 30px; height: 30px; border-radius: 8px; background: var(--accent-pale); color: var(--accent-ink); font-size: .8rem; font-weight: 800; }
+.guide-faq-list { display: grid; gap: 18px; max-width: 72ch; }
+.guide-faq-list h3 { margin: 0 0 7px; font-size: 1rem; font-weight: 800; }
+.guide-faq-list p { margin: 0; color: var(--muted); font-size: .92rem; line-height: 1.75; }
+.guide-about-tag { display: inline-flex; align-items: center; gap: 7px; margin: 12px 0 0; color: var(--accent-ink); font-size: .82rem; font-weight: 800; }
+.guide-about-tag svg { color: var(--accent); }
+
 .app-frame { min-height: 100dvh; padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
 .page { width: min(100%, 980px); margin: 0 auto; padding: max(52px, calc(env(safe-area-inset-top) + 20px)) 20px 56px; }
 .eyebrow { margin: 0 0 5px; color: var(--accent); font-size: 0.72rem; font-weight: 800; text-transform: uppercase; }

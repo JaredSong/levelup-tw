@@ -15,6 +15,7 @@ export const enLanding: LandingStrings = {
   navInstall: 'Install',
   navFaq: 'FAQ',
   navDonate: 'Support',
+  navGuide: 'Free question-bank guide',
   navMenu: 'Open menu',
   navThemeToggle: 'Toggle light/dark',
   backToTop: 'Back to top',

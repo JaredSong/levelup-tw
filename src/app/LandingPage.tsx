@@ -533,6 +533,11 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
             </span>
           </a>
           <div className="landing-footer-actions">
+            {lang === 'en' ? null : (
+              <a href="/guide" onClick={() => trackLanding('guide_link')}>
+                {zhTW.landing.navGuide}<ArrowRight size={15} />
+              </a>
+            )}
             <a href="https://techbank.wdasec.gov.tw/" rel="noreferrer" target="_blank" onClick={() => trackLanding('official_source')}>
               {t.officialSource}<ArrowUpRight size={15} />
             </a>

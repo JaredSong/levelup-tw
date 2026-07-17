@@ -40,7 +40,11 @@ globalThis.window = {
   scrollY: 0,
 }
 
-const { renderLanding, renderLandingEn, renderExamPage, EXAM_META, EN_FAQ_JSONLD, EN_APP_DESCRIPTION } = await import(new URL('entry-prerender.js', SSR_OUT))
+const { renderLanding, renderLandingEn, renderExamPage, renderGuidePage, EXAM_META, EN_FAQ_JSONLD, EN_APP_DESCRIPTION, GUIDE_FAQ_JSONLD } = await import(new URL('entry-prerender.js', SSR_OUT))
+
+const GUIDE_TITLE = '免費技能檢定題庫：線上刷題與模擬考完整指南 - 升級吧'
+const GUIDE_DESC = '技術士技能檢定學科題庫是官方公開的，可以免費線上練習。本指南說明題庫哪裡找、怎麼免費刷題、學科怎麼準備，並比較官方 PDF、線上刷題與付費題庫。'
+const GUIDE_OG_TITLE = '免費技能檢定題庫：線上刷題完整指南 · 升級吧'
 
 function inject(html, bodyHtml, sentinel = 'landing-hero') {
   if (!bodyHtml.includes(sentinel)) {
@@ -135,12 +139,34 @@ for (const m of EXAM_META) {
   writeFileSync(new URL('index.html', dir), inject(examHead(base, m), renderExamPage(m.id), 'exam-hero'))
 }
 
+// --- AEO guide page at /guide ---
+let guide = base
+guide = replaceOnce(guide, /<title>[^<]*<\/title>/, `<title>${GUIDE_TITLE}</title>`, 'guide <title>')
+guide = replaceOnce(guide, /(<meta name="description" content=")[^"]*(")/, `$1${GUIDE_DESC}$2`, 'guide description')
+guide = replaceOnce(guide, /(<link rel="canonical" href=")[^"]*(")/, '$1https://levelup.tw/guide$2', 'guide canonical')
+guide = replaceOnce(guide, /(<meta property="og:url" content=")[^"]*(")/, '$1https://levelup.tw/guide$2', 'guide og:url')
+guide = replaceOnce(guide, /(<meta property="og:title" content=")[^"]*(")/, `$1${GUIDE_OG_TITLE}$2`, 'guide og:title')
+guide = replaceOnce(guide, /(<meta property="og:description" content=")[^"]*(")/, `$1${GUIDE_DESC}$2`, 'guide og:description')
+guide = replaceOnce(guide, /(<meta name="twitter:title" content=")[^"]*(")/, `$1${GUIDE_OG_TITLE}$2`, 'guide twitter:title')
+guide = replaceOnce(guide, /(<meta name="twitter:description" content=")[^"]*(")/, `$1${GUIDE_DESC}$2`, 'guide twitter:description')
+guide = guide.replace(/\n\s*<link rel="alternate" hreflang="[^"]*" href="[^"]*" \/>/g, '')
+guide = replaceOnce(
+  guide,
+  /<!-- faq-jsonld:start -->[\s\S]*?<!-- faq-jsonld:end -->/,
+  `<!-- faq-jsonld:start -->\n    <script type="application/ld+json">\n${GUIDE_FAQ_JSONLD}\n    </script>\n    <!-- faq-jsonld:end -->`,
+  'guide FAQ JSON-LD',
+)
+const guideDir = new URL('../dist/guide/', import.meta.url)
+mkdirSync(guideDir, { recursive: true })
+writeFileSync(new URL('index.html', guideDir), inject(guide, renderGuidePage(), 'guide-lead'))
+
 // --- Sitemap incl. every exam page, kept in sync with the published packs ---
 const today = new Date().toISOString().slice(0, 10)
 const pairAlt = '    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://levelup.tw/" />\n    <xhtml:link rel="alternate" hreflang="en" href="https://levelup.tw/en" />'
 const entries = [
   `  <url>\n    <loc>https://levelup.tw/</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>1.0</priority>\n${pairAlt}\n  </url>`,
   `  <url>\n    <loc>https://levelup.tw/en</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n${pairAlt}\n  </url>`,
+  `  <url>\n    <loc>https://levelup.tw/guide</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>`,
   ...EXAM_META.map((m) => `  <url>\n    <loc>https://levelup.tw/exam/${m.id}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>`),
 ]
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${entries.join('\n')}\n</urlset>\n`

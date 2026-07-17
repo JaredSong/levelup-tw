@@ -4,6 +4,7 @@ import { ActiveExamHeader } from './app/ActiveExamHeader'
 import { trackEnterApp, trackInitialView, trackLanding } from './app/analytics'
 import { LandingPage } from './app/LandingPage'
 import { ExamPage } from './app/ExamPage'
+import { GuidePage } from './app/GuidePage'
 import { enLanding } from './i18n/en'
 import { OnboardingGate } from './app/OnboardingGate'
 import { hasCompletedOnboarding, PROFILE_NAME_KEY, shouldShowLanding } from './app/onboardingState'
@@ -158,6 +159,9 @@ const examIdFromPath = (path: string): string | null => {
   return match ? decodeURIComponent(match[1]) : null
 }
 
+// AEO guide page: /guide.
+const isGuidePath = (path: string) => path === '/guide' || path === '/guide/'
+
 export default function App() {
   const { installedExams, setActiveExamId } = useActiveExam()
   const [onboarded, setOnboarded] = useState(hasCompletedOnboarding)
@@ -172,6 +176,7 @@ export default function App() {
   }))
   const [lang, setLang] = useState<'zh' | 'en'>(() => isEnPath(window.location.pathname) ? 'en' : 'zh')
   const [examSlug, setExamSlug] = useState<string | null>(() => examIdFromPath(window.location.pathname))
+  const [isGuide, setIsGuide] = useState(() => isGuidePath(window.location.pathname))
 
   const examOnPage = examSlug ? installedExams.find((exam) => exam.examId === examSlug) ?? null : null
 
@@ -181,6 +186,7 @@ export default function App() {
   // a new page, and is covered by its own event below.
   useEffect(() => {
     if (examOnPage) trackInitialView('landing', undefined, `/exam/${examOnPage.examId}`)
+    else if (isGuide) trackInitialView('landing', undefined, '/guide')
     else trackInitialView(landingOpen ? 'landing' : 'app')
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -188,6 +194,7 @@ export default function App() {
   const goHome = () => {
     if (window.location.pathname !== '/') history.pushState(null, '', '/')
     setExamSlug(null)
+    setIsGuide(false)
     setLang('zh')
     setLandingOpen(shouldShowLanding({
       onboarded: hasCompletedOnboarding(),
@@ -205,6 +212,7 @@ export default function App() {
     // the site. Guard against stacking duplicate /app entries on repeat calls.
     if (window.location.pathname !== '/app') history.pushState(null, '', '/app')
     setExamSlug(null)
+    setIsGuide(false)
     setLandingOpen(false)
     // The landing's one job: this is the conversion, and it has no pageview of
     // its own because the document never navigates. The parallel landing_click
@@ -220,6 +228,7 @@ export default function App() {
     const onPopState = () => {
       setLang(isEnPath(window.location.pathname) ? 'en' : 'zh')
       setExamSlug(examIdFromPath(window.location.pathname))
+      setIsGuide(isGuidePath(window.location.pathname))
       setLandingOpen(shouldShowLanding({
         onboarded: hasCompletedOnboarding(),
         hasSyncLink: Boolean(readSyncLink(window.location.hash)),
@@ -237,6 +246,16 @@ export default function App() {
       <ExamPage
         exam={examOnPage}
         onEnter={() => enterApp(examOnPage.examId, 'exam_page')}
+        onHome={goHome}
+      />
+    )
+  }
+
+  if (isGuide) {
+    return (
+      <GuidePage
+        exams={installedExams}
+        onEnter={() => enterApp(undefined, 'guide')}
         onHome={goHome}
       />
     )

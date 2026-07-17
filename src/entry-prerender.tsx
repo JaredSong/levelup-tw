@@ -7,9 +7,33 @@ import { renderToString } from 'react-dom/server'
 import { INSTALLED_EXAMS } from './app/activeExam'
 import { LandingPage } from './app/LandingPage'
 import { ExamPage } from './app/ExamPage'
+import { GuidePage } from './app/GuidePage'
 import { enLanding } from './i18n/en'
+import { zhTW } from './i18n/zh-TW'
 
 const noop = () => undefined
+
+// AEO guide page at /guide.
+export function renderGuidePage(): string {
+  return renderToString(<GuidePage exams={INSTALLED_EXAMS} onEnter={noop} onHome={noop} />)
+}
+
+// FAQPage schema for the guide, built from the same strings it renders so the
+// structured data matches the visible Q&As (and is quotable by answer engines).
+export const GUIDE_FAQ_JSONLD: string = JSON.stringify(
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    inLanguage: 'zh-Hant-TW',
+    mainEntity: zhTW.guide.faqs.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a },
+    })),
+  },
+  null,
+  2,
+)
 
 // Per-exam SEO pages: one prerendered /exam/<id>/ each. Metadata is exposed so
 // prerender.mjs can build a Chinese <head> per exam without re-parsing manifests.

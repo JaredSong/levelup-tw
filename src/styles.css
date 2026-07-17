@@ -108,6 +108,11 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .landing-hero-badge { display: inline-block; margin: 0 0 22px; padding: 7px 14px; border-radius: 999px; background: var(--accent-pale); color: var(--accent-ink); font-size: .76rem; font-weight: 800; }
 .landing-hero h1 { max-width: 15ch; margin: 0; font-size: clamp(2.3rem, 4.6vw, 3.9rem); font-weight: 900; line-height: 1.2; color: var(--ink); }
 .landing-hero h1 em { font-style: normal; color: var(--accent); }
+/* English runs longer than CJK: a 15ch measure forces the serif headline into a
+   tall stack. Widen the measure, ease the size, and tighten leading so the Latin
+   display type reads as one confident line-break, not a column. */
+.landing-en .landing-hero h1 { max-width: 22ch; font-size: clamp(2rem, 4vw, 3.35rem); line-height: 1.12; letter-spacing: -0.01em; }
+.landing-en .landing-hero-description { line-height: 1.7; }
 .landing-hero-description { max-width: 46ch; margin: 26px 0 0; color: var(--ink3); font-size: clamp(1rem, 1.5vw, 1.15rem); line-height: 1.75; }
 .landing-hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 30px; }
 .landing-primary, .landing-secondary { min-height: 46px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 20px; border-radius: 8px; font-size: .88rem; font-weight: 850; text-decoration: none; cursor: pointer; transition: transform 180ms ease, background 180ms ease, border-color 180ms ease; }

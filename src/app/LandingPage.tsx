@@ -40,6 +40,29 @@ export type LandingLang = 'zh' | 'en'
 
 const EN_MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
+// Manifests carry a Chinese category/level; map them for the English page so the
+// exam cards don't read half-translated. Exam titles use the manifest's titleEn.
+const EN_CATEGORY: Record<string, string> = {
+  商業服務: 'Business Services',
+  餐飲食品: 'Food & Beverage',
+  美容美髮: 'Beauty & Hair',
+  車輛修護: 'Vehicle Repair',
+  照護服務: 'Care Services',
+  資訊: 'Information',
+  機械操作: 'Machinery Operation',
+  電機工程: 'Electrical Engineering',
+  電子儀表: 'Electronics & Instrumentation',
+  營造工程: 'Construction',
+  職業安全衛生: 'Occupational Safety & Health',
+  銲接配管: 'Welding & Piping',
+}
+const EN_LEVEL: Record<string, string> = {
+  丙級: 'Class C',
+  乙級: 'Class B',
+  甲級: 'Class A',
+  單一級: 'Single Level',
+}
+
 // ROC (民國) year = Gregorian − 1911. Dates come from nationalExamSchedule.ts,
 // the same official 簡章 data the app uses, so this section never drifts from it.
 function rocDate(iso: string) {
@@ -140,6 +163,13 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
   const otherLangHref = lang === 'en' ? '/' : '/en'
   const otherLangLabel = lang === 'en' ? '中文' : 'EN'
 
+  // Exam titles/labels come from the manifest in Chinese; on /en show the English
+  // title and mapped category/level so no card reads half-translated.
+  const examTitle = (exam: ExamManifest) => (lang === 'en' ? exam.titleEn : exam.titleZh)
+  const examCategory = (exam: ExamManifest) => (lang === 'en' ? EN_CATEGORY[exam.category] ?? exam.category : exam.category)
+  const examLevel = (exam: ExamManifest) => (lang === 'en' ? EN_LEVEL[exam.level] ?? exam.level : exam.level)
+  const restSeparator = lang === 'en' ? ', ' : '、'
+
   // Counts and lists all derive from the manifests, so a new pack needs no copy
   // edit: it either matches FEATURED_EXAM_IDS or falls into 其他考科 by itself.
   const totalQuestions = useMemo(
@@ -187,7 +217,7 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
   const shot = (name: string) => `/screens/${name}-${theme}.webp`
 
   return (
-    <main className="landing-page">
+    <main className={lang === 'en' ? 'landing-page landing-en' : 'landing-page'}>
       <div className="landing-nav-wrap">
         <nav className="landing-nav" aria-label={t.brand}>
           <a className="landing-brand" href="#top" aria-label={t.brand}>
@@ -298,11 +328,11 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
             >
               <span className="landing-exam-icon"><Database size={17} /></span>
               <span className="landing-exam-copy">
-                <strong>{exam.titleZh}</strong>
-                <small>{exam.sections[0]?.subjectCode ?? exam.examId} · {exam.category} · {exam.level}</small>
+                <strong>{examTitle(exam)}</strong>
+                <small>{exam.sections[0]?.subjectCode ?? exam.examId} · {examCategory(exam)} · {examLevel(exam)}</small>
               </span>
               <small className="landing-exam-count">{t.examCount(exam.activeQuestionCount)}</small>
-              <span className="landing-exam-arrow" aria-label={t.examAction(exam.titleZh)}>
+              <span className="landing-exam-arrow" aria-label={t.examAction(examTitle(exam))}>
                 <ArrowRight size={16} />
               </span>
             </button>
@@ -315,7 +345,7 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
           <div className="landing-exam-rest">
             <p>
               <span>{t.examRestLabel}</span>
-              {rest.map((exam) => exam.titleZh).join('、')}
+              {rest.map(examTitle).join(restSeparator)}
             </p>
             <button className="landing-secondary" onClick={() => onEnter('exam_see_all')} type="button">
               {t.examSeeAll}<ArrowRight size={16} />

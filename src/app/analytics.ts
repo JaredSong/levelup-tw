@@ -48,10 +48,13 @@ let sent = false
  * React StrictMode double-invokes effects in development, and re-renders must not
  * inflate the pageview.
  */
-export function trackInitialView(surface: ViewedSurface, gtag: Gtag | undefined = windowGtag()): void {
+export function trackInitialView(
+  surface: ViewedSurface,
+  gtag: Gtag | undefined = windowGtag(),
+  path: string = PATHS[surface],
+): void {
   if (sent) return
   sent = true
-  const path = PATHS[surface]
   gtag?.('event', 'page_view', {
     page_path: path,
     page_location: pageLocation(path),

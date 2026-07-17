@@ -21,7 +21,7 @@ import {
   WifiOff,
   X,
 } from 'lucide-react'
-import { useEffect, useMemo, useState } from 'react'
+import { Fragment, useEffect, useMemo, useState } from 'react'
 import type { CSSProperties } from 'react'
 import type { ExamManifest } from '../core/exam'
 import { zhTW } from '../i18n/zh-TW'
@@ -319,12 +319,14 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
         </header>
         <div className="landing-exam-grid">
           {featured.map((exam, index) => (
-            <button
+            // A real link to the exam's SEO page (crawlable, passes link equity),
+            // but a click keeps the fast path straight into practice.
+            <a
               className="landing-exam-card"
               key={exam.examId}
-              onClick={() => onSelectExam(exam.examId)}
+              href={`/exam/${exam.examId}`}
+              onClick={(event) => { event.preventDefault(); onSelectExam(exam.examId) }}
               style={{ '--landing-index': index } as CSSProperties}
-              type="button"
             >
               <span className="landing-exam-icon"><Database size={17} /></span>
               <span className="landing-exam-copy">
@@ -335,7 +337,7 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
               <span className="landing-exam-arrow" aria-label={t.examAction(examTitle(exam))}>
                 <ArrowRight size={16} />
               </span>
-            </button>
+            </a>
           ))}
         </div>
 
@@ -345,7 +347,16 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
           <div className="landing-exam-rest">
             <p>
               <span>{t.examRestLabel}</span>
-              {rest.map(examTitle).join(restSeparator)}
+              {rest.map((exam, index) => (
+                <Fragment key={exam.examId}>
+                  {index > 0 ? restSeparator : ''}
+                  <a
+                    className="landing-exam-rest-link"
+                    href={`/exam/${exam.examId}`}
+                    onClick={(event) => { event.preventDefault(); onSelectExam(exam.examId) }}
+                  >{examTitle(exam)}</a>
+                </Fragment>
+              ))}
             </p>
             <button className="landing-secondary" onClick={() => onEnter('exam_see_all')} type="button">
               {t.examSeeAll}<ArrowRight size={16} />

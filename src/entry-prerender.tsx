@@ -6,9 +6,27 @@
 import { renderToString } from 'react-dom/server'
 import { INSTALLED_EXAMS } from './app/activeExam'
 import { LandingPage } from './app/LandingPage'
+import { ExamPage } from './app/ExamPage'
 import { enLanding } from './i18n/en'
 
 const noop = () => undefined
+
+// Per-exam SEO pages: one prerendered /exam/<id>/ each. Metadata is exposed so
+// prerender.mjs can build a Chinese <head> per exam without re-parsing manifests.
+export function renderExamPage(examId: string): string {
+  const exam = INSTALLED_EXAMS.find((candidate) => candidate.examId === examId)
+  if (!exam) throw new Error(`renderExamPage: unknown exam ${examId}`)
+  return renderToString(<ExamPage exam={exam} onEnter={noop} onHome={noop} />)
+}
+
+export const EXAM_META = INSTALLED_EXAMS.map((exam) => ({
+  id: exam.examId,
+  titleZh: exam.titleZh,
+  category: exam.category,
+  level: exam.level,
+  count: exam.activeQuestionCount,
+  subjectCode: exam.sections[0]?.subjectCode ?? exam.examId,
+}))
 
 export function renderLanding(): string {
   return renderToString(

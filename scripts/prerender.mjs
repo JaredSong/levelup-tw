@@ -40,11 +40,11 @@ globalThis.window = {
   scrollY: 0,
 }
 
-const { renderLanding, renderLandingEn, EN_FAQ_JSONLD, EN_APP_DESCRIPTION } = await import(new URL('entry-prerender.js', SSR_OUT))
+const { renderLanding, renderLandingEn, renderExamPage, EXAM_META, EN_FAQ_JSONLD, EN_APP_DESCRIPTION } = await import(new URL('entry-prerender.js', SSR_OUT))
 
-function inject(html, bodyHtml) {
-  if (!bodyHtml.includes('landing-hero')) {
-    throw new Error('prerender: rendered HTML is missing the landing hero — output looks wrong')
+function inject(html, bodyHtml, sentinel = 'landing-hero') {
+  if (!bodyHtml.includes(sentinel)) {
+    throw new Error(`prerender: rendered HTML is missing "${sentinel}" — output looks wrong`)
   }
   if (!html.includes(MARKER)) {
     throw new Error(`prerender: ${MARKER} not found in base index.html`)
@@ -91,5 +91,60 @@ en = inject(en, renderLandingEn())
 mkdirSync(EN_DIR, { recursive: true })
 writeFileSync(EN_INDEX, en)
 
+// --- Per-exam pages at /exam/<id> (Traditional Chinese, SEO landings) ---
+function examHead(html, m) {
+  const url = `https://levelup.tw/exam/${m.id}`
+  const count = m.count.toLocaleString()
+  const title = `${m.titleZh}學科題庫｜${count} 題免費線上練習 - 升級吧`
+  const desc = `線上練習${m.titleZh}（${m.subjectCode}）的官方公開學科題庫，共 ${count} 題。寫錯自動進錯題本、依遺忘曲線排進複習、考前計時模擬考；免費、免註冊、可離線。`
+  const ogTitle = `${m.titleZh}學科題庫 · 升級吧`
+  let h = html
+  h = replaceOnce(h, /<title>[^<]*<\/title>/, `<title>${title}</title>`, 'exam <title>')
+  h = replaceOnce(h, /(<meta name="description" content=")[^"]*(")/, `$1${desc}$2`, 'exam description')
+  h = replaceOnce(h, /(<link rel="canonical" href=")[^"]*(")/, `$1${url}$2`, 'exam canonical')
+  h = replaceOnce(h, /(<meta property="og:url" content=")[^"]*(")/, `$1${url}$2`, 'exam og:url')
+  h = replaceOnce(h, /(<meta property="og:title" content=")[^"]*(")/, `$1${ogTitle}$2`, 'exam og:title')
+  h = replaceOnce(h, /(<meta property="og:description" content=")[^"]*(")/, `$1${desc}$2`, 'exam og:description')
+  h = replaceOnce(h, /(<meta name="twitter:title" content=")[^"]*(")/, `$1${ogTitle}$2`, 'exam twitter:title')
+  h = replaceOnce(h, /(<meta name="twitter:description" content=")[^"]*(")/, `$1${desc}$2`, 'exam twitter:description')
+  // Exam pages are Chinese-only — drop the zh/en hreflang alternates.
+  h = h.replace(/\n\s*<link rel="alternate" hreflang="[^"]*" href="[^"]*" \/>/g, '')
+  // The generic FAQ schema doesn't match an exam page; swap in a breadcrumb that
+  // mirrors the on-page trail (首頁 › 考科題庫 › <exam>).
+  const breadcrumb = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '首頁', item: 'https://levelup.tw/' },
+      { '@type': 'ListItem', position: 2, name: '考科題庫', item: 'https://levelup.tw/' },
+      { '@type': 'ListItem', position: 3, name: `${m.titleZh}學科題庫` },
+    ],
+  }, null, 2)
+  h = replaceOnce(
+    h,
+    /<!-- faq-jsonld:start -->[\s\S]*?<!-- faq-jsonld:end -->/,
+    `<!-- faq-jsonld:start -->\n    <script type="application/ld+json">\n${breadcrumb}\n    </script>\n    <!-- faq-jsonld:end -->`,
+    'exam FAQ→breadcrumb',
+  )
+  return h
+}
+
+for (const m of EXAM_META) {
+  const dir = new URL(`../dist/exam/${m.id}/`, import.meta.url)
+  mkdirSync(dir, { recursive: true })
+  writeFileSync(new URL('index.html', dir), inject(examHead(base, m), renderExamPage(m.id), 'exam-hero'))
+}
+
+// --- Sitemap incl. every exam page, kept in sync with the published packs ---
+const today = new Date().toISOString().slice(0, 10)
+const pairAlt = '    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://levelup.tw/" />\n    <xhtml:link rel="alternate" hreflang="en" href="https://levelup.tw/en" />'
+const entries = [
+  `  <url>\n    <loc>https://levelup.tw/</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>1.0</priority>\n${pairAlt}\n  </url>`,
+  `  <url>\n    <loc>https://levelup.tw/en</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n${pairAlt}\n  </url>`,
+  ...EXAM_META.map((m) => `  <url>\n    <loc>https://levelup.tw/exam/${m.id}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>`),
+]
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${entries.join('\n')}\n</urlset>\n`
+writeFileSync(new URL('../dist/sitemap.xml', import.meta.url), sitemap)
+
 rmSync(SSR_OUT, { recursive: true, force: true })
-console.log('prerender: wrote dist/index.html (zh) and dist/en/index.html (en)')
+console.log(`prerender: wrote zh + en landings, ${EXAM_META.length} exam pages, and sitemap`)

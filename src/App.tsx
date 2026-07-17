@@ -3,6 +3,7 @@ import { AlertTriangle, ArrowRight, CheckCircle2, LoaderCircle, RotateCcw } from
 import { ActiveExamHeader } from './app/ActiveExamHeader'
 import { trackEnterApp, trackInitialView, trackLanding } from './app/analytics'
 import { LandingPage } from './app/LandingPage'
+import { ExamPage } from './app/ExamPage'
 import { enLanding } from './i18n/en'
 import { OnboardingGate } from './app/OnboardingGate'
 import { hasCompletedOnboarding, PROFILE_NAME_KEY, shouldShowLanding } from './app/onboardingState'
@@ -151,6 +152,12 @@ async function explainQuestion(examId: string, question: Question, selected: num
 const isEnPath = (path: string) => path === '/en' || path.startsWith('/en/')
 const forcesLanding = (path: string) => path === '/welcome' || isEnPath(path)
 
+// Per-exam SEO page: /exam/<examId>. Returns the id or null.
+const examIdFromPath = (path: string): string | null => {
+  const match = path.match(/^\/exam\/([^/]+)\/?$/)
+  return match ? decodeURIComponent(match[1]) : null
+}
+
 export default function App() {
   const { installedExams, setActiveExamId } = useActiveExam()
   const [onboarded, setOnboarded] = useState(hasCompletedOnboarding)
@@ -164,15 +171,32 @@ export default function App() {
     standalone,
   }))
   const [lang, setLang] = useState<'zh' | 'en'>(() => isEnPath(window.location.pathname) ? 'en' : 'zh')
+  const [examSlug, setExamSlug] = useState<string | null>(() => examIdFromPath(window.location.pathname))
+
+  const examOnPage = examSlug ? installedExams.find((exam) => exam.examId === examSlug) ?? null : null
 
   // Report the surface actually rendered, not the URL: a returning visitor gets
   // the app while the URL stays "/", so the URL alone cannot tell discovery from
   // usage. Fires once per load; entering the app from the landing is a click, not
   // a new page, and is covered by its own event below.
   useEffect(() => {
-    trackInitialView(landingOpen ? 'landing' : 'app')
+    if (examOnPage) trackInitialView('landing', undefined, `/exam/${examOnPage.examId}`)
+    else trackInitialView(landingOpen ? 'landing' : 'app')
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  const goHome = () => {
+    if (window.location.pathname !== '/') history.pushState(null, '', '/')
+    setExamSlug(null)
+    setLang('zh')
+    setLandingOpen(shouldShowLanding({
+      onboarded: hasCompletedOnboarding(),
+      hasSyncLink: false,
+      forceWelcome: false,
+      forceApp: false,
+      standalone,
+    }))
+  }
 
   const enterApp = (examId?: string, source = 'unknown') => {
     if (examId) setActiveExamId(examId)
@@ -180,6 +204,7 @@ export default function App() {
     // landing, so the browser back button should return to it rather than leave
     // the site. Guard against stacking duplicate /app entries on repeat calls.
     if (window.location.pathname !== '/app') history.pushState(null, '', '/app')
+    setExamSlug(null)
     setLandingOpen(false)
     // The landing's one job: this is the conversion, and it has no pageview of
     // its own because the document never navigates. The parallel landing_click
@@ -194,6 +219,7 @@ export default function App() {
   useEffect(() => {
     const onPopState = () => {
       setLang(isEnPath(window.location.pathname) ? 'en' : 'zh')
+      setExamSlug(examIdFromPath(window.location.pathname))
       setLandingOpen(shouldShowLanding({
         onboarded: hasCompletedOnboarding(),
         hasSyncLink: Boolean(readSyncLink(window.location.hash)),
@@ -205,6 +231,16 @@ export default function App() {
     window.addEventListener('popstate', onPopState)
     return () => window.removeEventListener('popstate', onPopState)
   }, [standalone])
+
+  if (examOnPage) {
+    return (
+      <ExamPage
+        exam={examOnPage}
+        onEnter={() => enterApp(examOnPage.examId, 'exam_page')}
+        onHome={goHome}
+      />
+    )
+  }
 
   if (landingOpen) {
     return (

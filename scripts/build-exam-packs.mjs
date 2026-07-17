@@ -287,6 +287,11 @@ const EXAMS = [
     extraCommonCodes: [],
     cropPrefix: '007002',
     requireQuestionCrops: true,
+    splitImageOptions: true,
+    includeLeftFigures: true,
+    figureIds: ['00700-11-063', '00700-12-043'],
+    excludedFigureIds: ['00700-06-018'],
+    mixedFigureOptionIds: ['00700-09-007'],
     inactiveIds: [
       '00700-05-015',
       '00700-05-016',
@@ -688,9 +693,23 @@ function cropFileName(exam, question) {
   return `${exam.cropPrefix ? `${exam.cropPrefix}-` : ''}${question.id}.png`
 }
 
+function generatedImageSources(exam, question) {
+  if (!exam.splitImageOptions || !question.options.some((option) => option.includes('圖示選項'))) return undefined
+  const stem = `${exam.cropPrefix ? `${exam.cropPrefix}-` : ''}${question.id}`
+  const optionImages = question.options.map((_, index) => `/question-images/${stem}-${index + 1}.png`)
+  return exam.mixedFigureOptionIds?.includes(question.id)
+    ? [`/question-images/${stem}.png`, ...optionImages]
+    : optionImages
+}
+
 function normalizeQuestion(question, exam) {
   const sourcePage = SOURCE_PAGE_OVERRIDES[question.id] ?? question.sourcePage
   const imageOverrides = IMAGE_OVERRIDES[question.id]
+  const forceFigure = FIGURE_QUESTION_IDS.has(question.id)
+    || exam.figureIds?.includes(question.id)
+    || (exam.includeLeftFigures && question.prompt.includes('左圖'))
+    || / {2,}/.test(`${question.prompt}${question.options.join('')}`)
+  const hasFigure = !exam.excludedFigureIds?.includes(question.id) && (question.hasFigure || forceFigure)
   const repaired = {
     ...question,
     examId: exam.examId,
@@ -699,20 +718,18 @@ function normalizeQuestion(question, exam) {
     prompt: sanitizeText(question.prompt),
     options: QUESTION_OPTION_OVERRIDES[question.id] ?? question.options.map(sanitizeText),
     ...(INACTIVE_IDS.has(question.id) || exam.inactiveIds?.includes(question.id) ? { active: false } : {}),
-    ...(FIGURE_QUESTION_IDS.has(question.id)
-      || exam.figureIds?.includes(question.id)
-      || / {2,}/.test(`${question.prompt}${question.options.join('')}`)
-      ? { hasFigure: true }
-      : {}),
+    hasFigure,
   }
   if (!repaired.hasFigure && !imageOverrides) {
     return { ...repaired, sourceImage: undefined, sourceImages: undefined, sourcePageImage: undefined }
   }
+  const generatedImages = generatedImageSources(exam, repaired)
+  const sourceImages = imageOverrides?.map(questionImagePath) ?? generatedImages
   return {
     ...repaired,
     hasFigure: true,
-    sourceImage: imageOverrides?.map(questionImagePath)[0] ?? `/question-images/${cropFileName(exam, question)}`,
-    sourceImages: imageOverrides?.map(questionImagePath),
+    sourceImage: sourceImages?.[0] ?? `/question-images/${cropFileName(exam, question)}`,
+    sourceImages,
     sourcePageImage: sourcePageImageFor(repaired),
   }
 }
@@ -763,10 +780,13 @@ async function writeExamPack(exam, commonQuestions, extraQuestionsByCode) {
   if (exam.requireQuestionCrops) {
     const occupationFigures = figures.filter((question) => question.subjectCode === exam.occupationCode)
     await Promise.all(occupationFigures.map(async (question) => {
-      try {
-        await access(new URL(`../public/question-images/${cropFileName(exam, question)}`, import.meta.url))
-      } catch {
-        throw new Error(`${exam.examId}: missing required question crop ${cropFileName(exam, question)}`)
+      const sources = question.sourceImages?.length ? question.sourceImages : [question.sourceImage]
+      for (const source of sources) {
+        try {
+          await access(new URL(`../public${source}`, import.meta.url))
+        } catch {
+          throw new Error(`${exam.examId}: missing required question crop ${source}`)
+        }
       }
     }))
   }

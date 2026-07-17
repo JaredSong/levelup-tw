@@ -1,6 +1,6 @@
 # Image Question Map
 
-Generated: 2026-07-16T23:31:03.035Z
+Generated: 2026-07-17T01:20:42.175Z
 
 These are the questions that currently need a figure, graph, code screenshot, or image-option reference.
 
@@ -12,14 +12,17 @@ Replacement workflow:
 
 Do not include the official answer-key column in replacement images.
 
-Total active image questions: 487
+Total active image questions: 499
 
 ## indoor-wiring-b:00700-01-001
 
-- Replacement PNG: `public/question-images/007002-00700-01-001.png`
-- App path: `/question-images/007002-00700-01-001.png`
-- Linked uploaded image:
-  - `/question-images/007002-00700-01-001.png`
+- Replacement PNG: `public/question-images/007002-00700-01-001-1.png`
+- App path: `/question-images/007002-00700-01-001-1.png`
+- Linked uploaded images:
+  - `/question-images/007002-00700-01-001-1.png`
+  - `/question-images/007002-00700-01-001-2.png`
+  - `/question-images/007002-00700-01-001-3.png`
+  - `/question-images/007002-00700-01-001-4.png`
 - Current fallback page: `/question-pages/00700-page-2.jpg`
 - Kind: single
 - Official answer: 3
@@ -48,10 +51,13 @@ Total active image questions: 487
 
 ## indoor-wiring-b:00700-01-002
 
-- Replacement PNG: `public/question-images/007002-00700-01-002.png`
-- App path: `/question-images/007002-00700-01-002.png`
-- Linked uploaded image:
-  - `/question-images/007002-00700-01-002.png`
+- Replacement PNG: `public/question-images/007002-00700-01-002-1.png`
+- App path: `/question-images/007002-00700-01-002-1.png`
+- Linked uploaded images:
+  - `/question-images/007002-00700-01-002-1.png`
+  - `/question-images/007002-00700-01-002-2.png`
+  - `/question-images/007002-00700-01-002-3.png`
+  - `/question-images/007002-00700-01-002-4.png`
 - Current fallback page: `/question-pages/00700-page-2.jpg`
 - Kind: single
 - Official answer: 4
@@ -80,10 +86,13 @@ Total active image questions: 487
 
 ## indoor-wiring-b:00700-01-003
 
-- Replacement PNG: `public/question-images/007002-00700-01-003.png`
-- App path: `/question-images/007002-00700-01-003.png`
-- Linked uploaded image:
-  - `/question-images/007002-00700-01-003.png`
+- Replacement PNG: `public/question-images/007002-00700-01-003-1.png`
+- App path: `/question-images/007002-00700-01-003-1.png`
+- Linked uploaded images:
+  - `/question-images/007002-00700-01-003-1.png`
+  - `/question-images/007002-00700-01-003-2.png`
+  - `/question-images/007002-00700-01-003-3.png`
+  - `/question-images/007002-00700-01-003-4.png`
 - Current fallback page: `/question-pages/00700-page-2.jpg`
 - Kind: single
 - Official answer: 4
@@ -112,10 +121,13 @@ Total active image questions: 487
 
 ## indoor-wiring-b:00700-01-004
 
-- Replacement PNG: `public/question-images/007002-00700-01-004.png`
-- App path: `/question-images/007002-00700-01-004.png`
-- Linked uploaded image:
-  - `/question-images/007002-00700-01-004.png`
+- Replacement PNG: `public/question-images/007002-00700-01-004-1.png`
+- App path: `/question-images/007002-00700-01-004-1.png`
+- Linked uploaded images:
+  - `/question-images/007002-00700-01-004-1.png`
+  - `/question-images/007002-00700-01-004-2.png`
+  - `/question-images/007002-00700-01-004-3.png`
+  - `/question-images/007002-00700-01-004-4.png`
 - Current fallback page: `/question-pages/00700-page-2.jpg`
 - Kind: single
 - Official answer: 3
@@ -128,10 +140,13 @@ Total active image questions: 487
 
 ## indoor-wiring-b:00700-01-005
 
-- Replacement PNG: `public/question-images/007002-00700-01-005.png`
-- App path: `/question-images/007002-00700-01-005.png`
-- Linked uploaded image:
-  - `/question-images/007002-00700-01-005.png`
+- Replacement PNG: `public/question-images/007002-00700-01-005-1.png`
+- App path: `/question-images/007002-00700-01-005-1.png`
+- Linked uploaded images:
+  - `/question-images/007002-00700-01-005-1.png`
+  - `/question-images/007002-00700-01-005-2.png`
+  - `/question-images/007002-00700-01-005-3.png`
+  - `/question-images/007002-00700-01-005-4.png`
 - Current fallback page: `/question-pages/00700-page-2.jpg`
 - Kind: single
 - Official answer: 4
@@ -158,6 +173,22 @@ Total active image questions: 487
   - 3. 圖示選項 3
   - 4. 圖示選項 4
 
+## indoor-wiring-b:00700-01-006
+
+- Replacement PNG: `public/question-images/007002-00700-01-006.png`
+- App path: `/question-images/007002-00700-01-006.png`
+- Linked uploaded image:
+  - `/question-images/007002-00700-01-006.png`
+- Current fallback page: `/question-pages/00700-page-2.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 左圖所示符號為中華民國國家標準 CNS 屋內配線設計圖之
+- Options:
+  - 1. 線管下行
+  - 2. 線管上行
+  - 3. 電路至配電箱
+  - 4. 出線口
+
 ## indoor-wiring-c:00700-01-006
 
 - Replacement PNG: `public/question-images/007003-00700-01-006.png`
@@ -173,6 +204,22 @@ Total active image questions: 487
   - 2. 圖示選項 2
   - 3. 圖示選項 3
   - 4. 圖示選項 4
+
+## indoor-wiring-b:00700-01-007
+
+- Replacement PNG: `public/question-images/007002-00700-01-007.png`
+- App path: `/question-images/007002-00700-01-007.png`
+- Linked uploaded image:
+  - `/question-images/007002-00700-01-007.png`
+- Current fallback page: `/question-pages/00700-page-2.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 左圖所示符號為中華民國國家標準 CNS 屋內配線設計圖符號之
+- Options:
+  - 1. 電力熔絲
+  - 2. 拉出型氣斷路器
+  - 3. 拉出型電力斷路器
+  - 4. 負載啟斷開關
 
 ## indoor-wiring-c:00700-01-007
 
@@ -190,6 +237,22 @@ Total active image questions: 487
   - 3. 接線盒
   - 4. 電爐插座
 
+## indoor-wiring-b:00700-01-008
+
+- Replacement PNG: `public/question-images/007002-00700-01-008.png`
+- App path: `/question-images/007002-00700-01-008.png`
+- Linked uploaded image:
+  - `/question-images/007002-00700-01-008.png`
+- Current fallback page: `/question-pages/00700-page-2.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 左圖所示符號為中華民國國家標準 CNS 屋內配線設計圖之
+- Options:
+  - 1. 過流接地電驛
+  - 2. 接地保護電驛
+  - 3. 方向性接地電驛
+  - 4. 差動電驛
+
 ## indoor-wiring-c:00700-01-008
 
 - Replacement PNG: `public/question-images/007003-00700-01-008.png`
@@ -205,6 +268,22 @@ Total active image questions: 487
   - 2. 電扇出線口
   - 3. 電爐插座
   - 4. 防爆型插座
+
+## indoor-wiring-b:00700-01-009
+
+- Replacement PNG: `public/question-images/007002-00700-01-009.png`
+- App path: `/question-images/007002-00700-01-009.png`
+- Linked uploaded image:
+  - `/question-images/007002-00700-01-009.png`
+- Current fallback page: `/question-pages/00700-page-2.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 左圖所示符號為中華民國國家標準 CNS 屋內配線設計圖之
+- Options:
+  - 1. 低電壓電驛
+  - 2. 低電流電驛
+  - 3. 過壓電驛
+  - 4. 過電流電驛
 
 ## indoor-wiring-c:00700-01-009
 
@@ -224,10 +303,13 @@ Total active image questions: 487
 
 ## indoor-wiring-b:00700-01-010
 
-- Replacement PNG: `public/question-images/007002-00700-01-010.png`
-- App path: `/question-images/007002-00700-01-010.png`
-- Linked uploaded image:
-  - `/question-images/007002-00700-01-010.png`
+- Replacement PNG: `public/question-images/007002-00700-01-010-1.png`
+- App path: `/question-images/007002-00700-01-010-1.png`
+- Linked uploaded images:
+  - `/question-images/007002-00700-01-010-1.png`
+  - `/question-images/007002-00700-01-010-2.png`
+  - `/question-images/007002-00700-01-010-3.png`
+  - `/question-images/007002-00700-01-010-4.png`
 - Current fallback page: `/question-pages/00700-page-2.jpg`
 - Kind: single
 - Official answer: 3
@@ -254,6 +336,22 @@ Total active image questions: 487
   - 3. 電燈總配電盤
   - 4. 電力總配電盤
 
+## indoor-wiring-b:00700-01-011
+
+- Replacement PNG: `public/question-images/007002-00700-01-011.png`
+- App path: `/question-images/007002-00700-01-011.png`
+- Linked uploaded image:
+  - `/question-images/007002-00700-01-011.png`
+- Current fallback page: `/question-pages/00700-page-2.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 左圖所示符號為中華民國國家標準 CNS 屋內配線設計圖之
+- Options:
+  - 1. 三相 T接線
+  - 2. 三相曲折接法
+  - 3. 三相 V 非接地
+  - 4. 三相 Y 非接地
+
 ## indoor-wiring-c:00700-01-011
 
 - Replacement PNG: `public/question-images/007003-00700-01-011.png`
@@ -269,6 +367,22 @@ Total active image questions: 487
   - 2. 線管上行
   - 3. 電路至配電箱
   - 4. 出線口
+
+## indoor-wiring-b:00700-01-012
+
+- Replacement PNG: `public/question-images/007002-00700-01-012.png`
+- App path: `/question-images/007002-00700-01-012.png`
+- Linked uploaded image:
+  - `/question-images/007002-00700-01-012.png`
+- Current fallback page: `/question-pages/00700-page-2.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 左圖所示符號為中華民國國家標準 CNS 屋內配線設計圖之
+- Options:
+  - 1. 過壓電驛
+  - 2. 低電壓電驛
+  - 3. 瞬時過流電驛
+  - 4. 過流電驛
 
 ## indoor-wiring-c:00700-01-012
 
@@ -286,6 +400,22 @@ Total active image questions: 487
   - 3. 圖示選項 3
   - 4. 圖示選項 4
 
+## indoor-wiring-b:00700-01-013
+
+- Replacement PNG: `public/question-images/007002-00700-01-013.png`
+- App path: `/question-images/007002-00700-01-013.png`
+- Linked uploaded image:
+  - `/question-images/007002-00700-01-013.png`
+- Current fallback page: `/question-pages/00700-page-2.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 左圖所示符號為中華民國國家標準 CNS 屋內配線設計圖之
+- Options:
+  - 1. 復閉電驛
+  - 2. 功率因數計
+  - 3. 過壓電驛
+  - 4. 電流電驛
+
 ## indoor-wiring-c:00700-01-013
 
 - Replacement PNG: `public/question-images/007003-00700-01-013.png`
@@ -301,6 +431,22 @@ Total active image questions: 487
   - 2. 瓦特計
   - 3. 需量計
   - 4. 矮腳燈
+
+## indoor-wiring-b:00700-01-014
+
+- Replacement PNG: `public/question-images/007002-00700-01-014.png`
+- App path: `/question-images/007002-00700-01-014.png`
+- Linked uploaded image:
+  - `/question-images/007002-00700-01-014.png`
+- Current fallback page: `/question-pages/00700-page-2.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 左圖所示符號為中華民國國家標準 CNS 屋內配線設計圖之
+- Options:
+  - 1. 瓦時計
+  - 2. 瓦特計
+  - 3. 過壓電驛
+  - 4. 電流電驛
 
 ## indoor-wiring-c:00700-01-014
 
@@ -318,12 +464,31 @@ Total active image questions: 487
   - 3. 圖示選項 3
   - 4. 圖示選項 4
 
+## indoor-wiring-b:00700-01-015
+
+- Replacement PNG: `public/question-images/007002-00700-01-015.png`
+- App path: `/question-images/007002-00700-01-015.png`
+- Linked uploaded image:
+  - `/question-images/007002-00700-01-015.png`
+- Current fallback page: `/question-pages/00700-page-3.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 左圖所示符號為中華民國國家標準 CNS 屋內配線設計圖之
+- Options:
+  - 1. 電力熔絲
+  - 2. 拉出型氣斷路器
+  - 3. 拉出型電力斷路器
+  - 4. 負載啟斷開關
+
 ## indoor-wiring-b:00700-01-016
 
-- Replacement PNG: `public/question-images/007002-00700-01-016.png`
-- App path: `/question-images/007002-00700-01-016.png`
-- Linked uploaded image:
-  - `/question-images/007002-00700-01-016.png`
+- Replacement PNG: `public/question-images/007002-00700-01-016-1.png`
+- App path: `/question-images/007002-00700-01-016-1.png`
+- Linked uploaded images:
+  - `/question-images/007002-00700-01-016-1.png`
+  - `/question-images/007002-00700-01-016-2.png`
+  - `/question-images/007002-00700-01-016-3.png`
+  - `/question-images/007002-00700-01-016-4.png`
 - Current fallback page: `/question-pages/00700-page-3.jpg`
 - Kind: single
 - Official answer: 4
@@ -352,10 +517,13 @@ Total active image questions: 487
 
 ## indoor-wiring-b:00700-01-017
 
-- Replacement PNG: `public/question-images/007002-00700-01-017.png`
-- App path: `/question-images/007002-00700-01-017.png`
-- Linked uploaded image:
-  - `/question-images/007002-00700-01-017.png`
+- Replacement PNG: `public/question-images/007002-00700-01-017-1.png`
+- App path: `/question-images/007002-00700-01-017-1.png`
+- Linked uploaded images:
+  - `/question-images/007002-00700-01-017-1.png`
+  - `/question-images/007002-00700-01-017-2.png`
+  - `/question-images/007002-00700-01-017-3.png`
+  - `/question-images/007002-00700-01-017-4.png`
 - Current fallback page: `/question-pages/00700-page-3.jpg`
 - Kind: single
 - Official answer: 1
@@ -384,10 +552,13 @@ Total active image questions: 487
 
 ## indoor-wiring-b:00700-01-018
 
-- Replacement PNG: `public/question-images/007002-00700-01-018.png`
-- App path: `/question-images/007002-00700-01-018.png`
-- Linked uploaded image:
-  - `/question-images/007002-00700-01-018.png`
+- Replacement PNG: `public/question-images/007002-00700-01-018-1.png`
+- App path: `/question-images/007002-00700-01-018-1.png`
+- Linked uploaded images:
+  - `/question-images/007002-00700-01-018-1.png`
+  - `/question-images/007002-00700-01-018-2.png`
+  - `/question-images/007002-00700-01-018-3.png`
+  - `/question-images/007002-00700-01-018-4.png`
 - Current fallback page: `/question-pages/00700-page-3.jpg`
 - Kind: single
 - Official answer: 4
@@ -414,6 +585,22 @@ Total active image questions: 487
   - 3. 綠色指示燈
   - 4. 發電機
 
+## indoor-wiring-b:00700-01-019
+
+- Replacement PNG: `public/question-images/007002-00700-01-019.png`
+- App path: `/question-images/007002-00700-01-019.png`
+- Linked uploaded image:
+  - `/question-images/007002-00700-01-019.png`
+- Current fallback page: `/question-pages/00700-page-3.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 左圖所示符號為中華民國國家標準 CNS 屋內配線設計圖之
+- Options:
+  - 1. 電燈總配電盤
+  - 2. 電力總配電盤
+  - 3. 電燈動力混合配電盤
+  - 4. 電力分電盤
+
 ## indoor-wiring-c:00700-01-019
 
 - Replacement PNG: `public/question-images/007003-00700-01-019.png`
@@ -429,6 +616,22 @@ Total active image questions: 487
   - 2. 可變電容器
   - 3. 可變電阻器
   - 4. 變頻器
+
+## indoor-wiring-b:00700-01-020
+
+- Replacement PNG: `public/question-images/007002-00700-01-020.png`
+- App path: `/question-images/007002-00700-01-020.png`
+- Linked uploaded image:
+  - `/question-images/007002-00700-01-020.png`
+- Current fallback page: `/question-pages/00700-page-3.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 左圖所示符號為中華民國國家標準 CNS 屋內配線設計圖之
+- Options:
+  - 1. 明管配線
+  - 2. 埋設於平頂混泥土內或牆內管線
+  - 3. 埋設於地坪混泥土內或牆內管線
+  - 4. 電路至配電箱
 
 ## indoor-wiring-c:00700-01-020
 
@@ -448,10 +651,13 @@ Total active image questions: 487
 
 ## indoor-wiring-b:00700-01-021
 
-- Replacement PNG: `public/question-images/007002-00700-01-021.png`
-- App path: `/question-images/007002-00700-01-021.png`
-- Linked uploaded image:
-  - `/question-images/007002-00700-01-021.png`
+- Replacement PNG: `public/question-images/007002-00700-01-021-1.png`
+- App path: `/question-images/007002-00700-01-021-1.png`
+- Linked uploaded images:
+  - `/question-images/007002-00700-01-021-1.png`
+  - `/question-images/007002-00700-01-021-2.png`
+  - `/question-images/007002-00700-01-021-3.png`
+  - `/question-images/007002-00700-01-021-4.png`
 - Current fallback page: `/question-pages/00700-page-3.jpg`
 - Kind: single
 - Official answer: 4
@@ -864,10 +1070,13 @@ Total active image questions: 487
 
 ## indoor-wiring-b:00700-01-034
 
-- Replacement PNG: `public/question-images/007002-00700-01-034.png`
-- App path: `/question-images/007002-00700-01-034.png`
-- Linked uploaded image:
-  - `/question-images/007002-00700-01-034.png`
+- Replacement PNG: `public/question-images/007002-00700-01-034-1.png`
+- App path: `/question-images/007002-00700-01-034-1.png`
+- Linked uploaded images:
+  - `/question-images/007002-00700-01-034-1.png`
+  - `/question-images/007002-00700-01-034-2.png`
+  - `/question-images/007002-00700-01-034-3.png`
+  - `/question-images/007002-00700-01-034-4.png`
 - Current fallback page: `/question-pages/00700-page-4.jpg`
 - Kind: multiple
 - Official answer: 1,3
@@ -896,10 +1105,13 @@ Total active image questions: 487
 
 ## indoor-wiring-b:00700-01-035
 
-- Replacement PNG: `public/question-images/007002-00700-01-035.png`
-- App path: `/question-images/007002-00700-01-035.png`
-- Linked uploaded image:
-  - `/question-images/007002-00700-01-035.png`
+- Replacement PNG: `public/question-images/007002-00700-01-035-1.png`
+- App path: `/question-images/007002-00700-01-035-1.png`
+- Linked uploaded images:
+  - `/question-images/007002-00700-01-035-1.png`
+  - `/question-images/007002-00700-01-035-2.png`
+  - `/question-images/007002-00700-01-035-3.png`
+  - `/question-images/007002-00700-01-035-4.png`
 - Current fallback page: `/question-pages/00700-page-4.jpg`
 - Kind: multiple
 - Official answer: 2,3,4
@@ -912,10 +1124,13 @@ Total active image questions: 487
 
 ## indoor-wiring-b:00700-01-036
 
-- Replacement PNG: `public/question-images/007002-00700-01-036.png`
-- App path: `/question-images/007002-00700-01-036.png`
-- Linked uploaded image:
-  - `/question-images/007002-00700-01-036.png`
+- Replacement PNG: `public/question-images/007002-00700-01-036-1.png`
+- App path: `/question-images/007002-00700-01-036-1.png`
+- Linked uploaded images:
+  - `/question-images/007002-00700-01-036-1.png`
+  - `/question-images/007002-00700-01-036-2.png`
+  - `/question-images/007002-00700-01-036-3.png`
+  - `/question-images/007002-00700-01-036-4.png`
 - Current fallback page: `/question-pages/00700-page-4.jpg`
 - Kind: multiple
 - Official answer: 2,4
@@ -928,10 +1143,13 @@ Total active image questions: 487
 
 ## indoor-wiring-b:00700-01-037
 
-- Replacement PNG: `public/question-images/007002-00700-01-037.png`
-- App path: `/question-images/007002-00700-01-037.png`
-- Linked uploaded image:
-  - `/question-images/007002-00700-01-037.png`
+- Replacement PNG: `public/question-images/007002-00700-01-037-1.png`
+- App path: `/question-images/007002-00700-01-037-1.png`
+- Linked uploaded images:
+  - `/question-images/007002-00700-01-037-1.png`
+  - `/question-images/007002-00700-01-037-2.png`
+  - `/question-images/007002-00700-01-037-3.png`
+  - `/question-images/007002-00700-01-037-4.png`
 - Current fallback page: `/question-pages/00700-page-4.jpg`
 - Kind: multiple
 - Official answer: 1,4
@@ -960,10 +1178,13 @@ Total active image questions: 487
 
 ## indoor-wiring-b:00700-01-038
 
-- Replacement PNG: `public/question-images/007002-00700-01-038.png`
-- App path: `/question-images/007002-00700-01-038.png`
-- Linked uploaded image:
-  - `/question-images/007002-00700-01-038.png`
+- Replacement PNG: `public/question-images/007002-00700-01-038-1.png`
+- App path: `/question-images/007002-00700-01-038-1.png`
+- Linked uploaded images:
+  - `/question-images/007002-00700-01-038-1.png`
+  - `/question-images/007002-00700-01-038-2.png`
+  - `/question-images/007002-00700-01-038-3.png`
+  - `/question-images/007002-00700-01-038-4.png`
 - Current fallback page: `/question-pages/00700-page-4.jpg`
 - Kind: multiple
 - Official answer: 1,2,3
@@ -992,10 +1213,13 @@ Total active image questions: 487
 
 ## indoor-wiring-b:00700-01-039
 
-- Replacement PNG: `public/question-images/007002-00700-01-039.png`
-- App path: `/question-images/007002-00700-01-039.png`
-- Linked uploaded image:
-  - `/question-images/007002-00700-01-039.png`
+- Replacement PNG: `public/question-images/007002-00700-01-039-1.png`
+- App path: `/question-images/007002-00700-01-039-1.png`
+- Linked uploaded images:
+  - `/question-images/007002-00700-01-039-1.png`
+  - `/question-images/007002-00700-01-039-2.png`
+  - `/question-images/007002-00700-01-039-3.png`
+  - `/question-images/007002-00700-01-039-4.png`
 - Current fallback page: `/question-pages/00700-page-4.jpg`
 - Kind: multiple
 - Official answer: 3,4
@@ -1024,10 +1248,13 @@ Total active image questions: 487
 
 ## indoor-wiring-b:00700-01-040
 
-- Replacement PNG: `public/question-images/007002-00700-01-040.png`
-- App path: `/question-images/007002-00700-01-040.png`
-- Linked uploaded image:
-  - `/question-images/007002-00700-01-040.png`
+- Replacement PNG: `public/question-images/007002-00700-01-040-1.png`
+- App path: `/question-images/007002-00700-01-040-1.png`
+- Linked uploaded images:
+  - `/question-images/007002-00700-01-040-1.png`
+  - `/question-images/007002-00700-01-040-2.png`
+  - `/question-images/007002-00700-01-040-3.png`
+  - `/question-images/007002-00700-01-040-4.png`
 - Current fallback page: `/question-pages/00700-page-4.jpg`
 - Kind: multiple
 - Official answer: 1,3
@@ -1056,10 +1283,13 @@ Total active image questions: 487
 
 ## indoor-wiring-b:00700-01-041
 
-- Replacement PNG: `public/question-images/007002-00700-01-041.png`
-- App path: `/question-images/007002-00700-01-041.png`
-- Linked uploaded image:
-  - `/question-images/007002-00700-01-041.png`
+- Replacement PNG: `public/question-images/007002-00700-01-041-1.png`
+- App path: `/question-images/007002-00700-01-041-1.png`
+- Linked uploaded images:
+  - `/question-images/007002-00700-01-041-1.png`
+  - `/question-images/007002-00700-01-041-2.png`
+  - `/question-images/007002-00700-01-041-3.png`
+  - `/question-images/007002-00700-01-041-4.png`
 - Current fallback page: `/question-pages/00700-page-5.jpg`
 - Kind: multiple
 - Official answer: 2,3
@@ -1072,10 +1302,13 @@ Total active image questions: 487
 
 ## indoor-wiring-b:00700-01-042
 
-- Replacement PNG: `public/question-images/007002-00700-01-042.png`
-- App path: `/question-images/007002-00700-01-042.png`
-- Linked uploaded image:
-  - `/question-images/007002-00700-01-042.png`
+- Replacement PNG: `public/question-images/007002-00700-01-042-1.png`
+- App path: `/question-images/007002-00700-01-042-1.png`
+- Linked uploaded images:
+  - `/question-images/007002-00700-01-042-1.png`
+  - `/question-images/007002-00700-01-042-2.png`
+  - `/question-images/007002-00700-01-042-3.png`
+  - `/question-images/007002-00700-01-042-4.png`
 - Current fallback page: `/question-pages/00700-page-5.jpg`
 - Kind: multiple
 - Official answer: 1,4
@@ -1104,10 +1337,13 @@ Total active image questions: 487
 
 ## indoor-wiring-b:00700-01-043
 
-- Replacement PNG: `public/question-images/007002-00700-01-043.png`
-- App path: `/question-images/007002-00700-01-043.png`
-- Linked uploaded image:
-  - `/question-images/007002-00700-01-043.png`
+- Replacement PNG: `public/question-images/007002-00700-01-043-1.png`
+- App path: `/question-images/007002-00700-01-043-1.png`
+- Linked uploaded images:
+  - `/question-images/007002-00700-01-043-1.png`
+  - `/question-images/007002-00700-01-043-2.png`
+  - `/question-images/007002-00700-01-043-3.png`
+  - `/question-images/007002-00700-01-043-4.png`
 - Current fallback page: `/question-pages/00700-page-5.jpg`
 - Kind: multiple
 - Official answer: 3,4
@@ -1136,10 +1372,13 @@ Total active image questions: 487
 
 ## indoor-wiring-b:00700-01-044
 
-- Replacement PNG: `public/question-images/007002-00700-01-044.png`
-- App path: `/question-images/007002-00700-01-044.png`
-- Linked uploaded image:
-  - `/question-images/007002-00700-01-044.png`
+- Replacement PNG: `public/question-images/007002-00700-01-044-1.png`
+- App path: `/question-images/007002-00700-01-044-1.png`
+- Linked uploaded images:
+  - `/question-images/007002-00700-01-044-1.png`
+  - `/question-images/007002-00700-01-044-2.png`
+  - `/question-images/007002-00700-01-044-3.png`
+  - `/question-images/007002-00700-01-044-4.png`
 - Current fallback page: `/question-pages/00700-page-5.jpg`
 - Kind: multiple
 - Official answer: 1,2
@@ -1168,10 +1407,13 @@ Total active image questions: 487
 
 ## indoor-wiring-b:00700-01-045
 
-- Replacement PNG: `public/question-images/007002-00700-01-045.png`
-- App path: `/question-images/007002-00700-01-045.png`
-- Linked uploaded image:
-  - `/question-images/007002-00700-01-045.png`
+- Replacement PNG: `public/question-images/007002-00700-01-045-1.png`
+- App path: `/question-images/007002-00700-01-045-1.png`
+- Linked uploaded images:
+  - `/question-images/007002-00700-01-045-1.png`
+  - `/question-images/007002-00700-01-045-2.png`
+  - `/question-images/007002-00700-01-045-3.png`
+  - `/question-images/007002-00700-01-045-4.png`
 - Current fallback page: `/question-pages/00700-page-5.jpg`
 - Kind: multiple
 - Official answer: 2,3
@@ -1184,10 +1426,13 @@ Total active image questions: 487
 
 ## indoor-wiring-b:00700-01-046
 
-- Replacement PNG: `public/question-images/007002-00700-01-046.png`
-- App path: `/question-images/007002-00700-01-046.png`
-- Linked uploaded image:
-  - `/question-images/007002-00700-01-046.png`
+- Replacement PNG: `public/question-images/007002-00700-01-046-1.png`
+- App path: `/question-images/007002-00700-01-046-1.png`
+- Linked uploaded images:
+  - `/question-images/007002-00700-01-046-1.png`
+  - `/question-images/007002-00700-01-046-2.png`
+  - `/question-images/007002-00700-01-046-3.png`
+  - `/question-images/007002-00700-01-046-4.png`
 - Current fallback page: `/question-pages/00700-page-5.jpg`
 - Kind: multiple
 - Official answer: 3,4
@@ -1200,10 +1445,13 @@ Total active image questions: 487
 
 ## indoor-wiring-b:00700-01-047
 
-- Replacement PNG: `public/question-images/007002-00700-01-047.png`
-- App path: `/question-images/007002-00700-01-047.png`
-- Linked uploaded image:
-  - `/question-images/007002-00700-01-047.png`
+- Replacement PNG: `public/question-images/007002-00700-01-047-1.png`
+- App path: `/question-images/007002-00700-01-047-1.png`
+- Linked uploaded images:
+  - `/question-images/007002-00700-01-047-1.png`
+  - `/question-images/007002-00700-01-047-2.png`
+  - `/question-images/007002-00700-01-047-3.png`
+  - `/question-images/007002-00700-01-047-4.png`
 - Current fallback page: `/question-pages/00700-page-5.jpg`
 - Kind: multiple
 - Official answer: 1,2,3
@@ -1216,10 +1464,13 @@ Total active image questions: 487
 
 ## indoor-wiring-b:00700-01-048
 
-- Replacement PNG: `public/question-images/007002-00700-01-048.png`
-- App path: `/question-images/007002-00700-01-048.png`
-- Linked uploaded image:
-  - `/question-images/007002-00700-01-048.png`
+- Replacement PNG: `public/question-images/007002-00700-01-048-1.png`
+- App path: `/question-images/007002-00700-01-048-1.png`
+- Linked uploaded images:
+  - `/question-images/007002-00700-01-048-1.png`
+  - `/question-images/007002-00700-01-048-2.png`
+  - `/question-images/007002-00700-01-048-3.png`
+  - `/question-images/007002-00700-01-048-4.png`
 - Current fallback page: `/question-pages/00700-page-5.jpg`
 - Kind: multiple
 - Official answer: 1,2,4
@@ -1248,10 +1499,13 @@ Total active image questions: 487
 
 ## indoor-wiring-b:00700-01-049
 
-- Replacement PNG: `public/question-images/007002-00700-01-049.png`
-- App path: `/question-images/007002-00700-01-049.png`
-- Linked uploaded image:
-  - `/question-images/007002-00700-01-049.png`
+- Replacement PNG: `public/question-images/007002-00700-01-049-1.png`
+- App path: `/question-images/007002-00700-01-049-1.png`
+- Linked uploaded images:
+  - `/question-images/007002-00700-01-049-1.png`
+  - `/question-images/007002-00700-01-049-2.png`
+  - `/question-images/007002-00700-01-049-3.png`
+  - `/question-images/007002-00700-01-049-4.png`
 - Current fallback page: `/question-pages/00700-page-5.jpg`
 - Kind: multiple
 - Official answer: 3,4
@@ -1376,10 +1630,13 @@ Total active image questions: 487
 
 ## indoor-wiring-b:00700-03-010
 
-- Replacement PNG: `public/question-images/007002-00700-03-010.png`
-- App path: `/question-images/007002-00700-03-010.png`
-- Linked uploaded image:
-  - `/question-images/007002-00700-03-010.png`
+- Replacement PNG: `public/question-images/007002-00700-03-010-1.png`
+- App path: `/question-images/007002-00700-03-010-1.png`
+- Linked uploaded images:
+  - `/question-images/007002-00700-03-010-1.png`
+  - `/question-images/007002-00700-03-010-2.png`
+  - `/question-images/007002-00700-03-010-3.png`
+  - `/question-images/007002-00700-03-010-4.png`
 - Current fallback page: `/question-pages/00700-page-9.jpg`
 - Kind: single
 - Official answer: 3
@@ -1408,10 +1665,13 @@ Total active image questions: 487
 
 ## indoor-wiring-b:00700-03-023
 
-- Replacement PNG: `public/question-images/007002-00700-03-023.png`
-- App path: `/question-images/007002-00700-03-023.png`
-- Linked uploaded image:
-  - `/question-images/007002-00700-03-023.png`
+- Replacement PNG: `public/question-images/007002-00700-03-023-1.png`
+- App path: `/question-images/007002-00700-03-023-1.png`
+- Linked uploaded images:
+  - `/question-images/007002-00700-03-023-1.png`
+  - `/question-images/007002-00700-03-023-2.png`
+  - `/question-images/007002-00700-03-023-3.png`
+  - `/question-images/007002-00700-03-023-4.png`
 - Current fallback page: `/question-pages/00700-page-10.jpg`
 - Kind: single
 - Official answer: 4
@@ -1486,28 +1746,15 @@ Total active image questions: 487
   - 3. 4
   - 4. 5
 
-## indoor-wiring-b:00700-06-018
-
-- Replacement PNG: `public/question-images/007002-00700-06-018.png`
-- App path: `/question-images/007002-00700-06-018.png`
-- Linked uploaded image:
-  - `/question-images/007002-00700-06-018.png`
-- Current fallback page: `/question-pages/00700-page-19.jpg`
-- Kind: single
-- Official answer: 2
-- Prompt: 比流器（CT）二次側端接地之主要目的為
-- Options:
-  - 1. 防止二次諧波
-  - 2. 人員安全
-  - 3. 穩定電壓
-  - 4. 穩定電流
-
 ## indoor-wiring-b:00700-06-033
 
-- Replacement PNG: `public/question-images/007002-00700-06-033.png`
-- App path: `/question-images/007002-00700-06-033.png`
-- Linked uploaded image:
-  - `/question-images/007002-00700-06-033.png`
+- Replacement PNG: `public/question-images/007002-00700-06-033-1.png`
+- App path: `/question-images/007002-00700-06-033-1.png`
+- Linked uploaded images:
+  - `/question-images/007002-00700-06-033-1.png`
+  - `/question-images/007002-00700-06-033-2.png`
+  - `/question-images/007002-00700-06-033-3.png`
+  - `/question-images/007002-00700-06-033-4.png`
 - Current fallback page: `/question-pages/00700-page-20.jpg`
 - Kind: single
 - Official answer: 1
@@ -1520,10 +1767,13 @@ Total active image questions: 487
 
 ## indoor-wiring-b:00700-06-039
 
-- Replacement PNG: `public/question-images/007002-00700-06-039.png`
-- App path: `/question-images/007002-00700-06-039.png`
-- Linked uploaded image:
-  - `/question-images/007002-00700-06-039.png`
+- Replacement PNG: `public/question-images/007002-00700-06-039-1.png`
+- App path: `/question-images/007002-00700-06-039-1.png`
+- Linked uploaded images:
+  - `/question-images/007002-00700-06-039-1.png`
+  - `/question-images/007002-00700-06-039-2.png`
+  - `/question-images/007002-00700-06-039-3.png`
+  - `/question-images/007002-00700-06-039-4.png`
 - Current fallback page: `/question-pages/00700-page-21.jpg`
 - Kind: single
 - Official answer: 1
@@ -1538,8 +1788,12 @@ Total active image questions: 487
 
 - Replacement PNG: `public/question-images/007002-00700-09-007.png`
 - App path: `/question-images/007002-00700-09-007.png`
-- Linked uploaded image:
+- Linked uploaded images:
   - `/question-images/007002-00700-09-007.png`
+  - `/question-images/007002-00700-09-007-1.png`
+  - `/question-images/007002-00700-09-007-2.png`
+  - `/question-images/007002-00700-09-007-3.png`
+  - `/question-images/007002-00700-09-007-4.png`
 - Current fallback page: `/question-pages/00700-page-28.jpg`
 - Kind: single
 - Official answer: 3
@@ -1550,12 +1804,31 @@ Total active image questions: 487
   - 3. 3
   - 4. 圖示選項 4
 
+## indoor-wiring-b:00700-11-063
+
+- Replacement PNG: `public/question-images/007002-00700-11-063.png`
+- App path: `/question-images/007002-00700-11-063.png`
+- Linked uploaded image:
+  - `/question-images/007002-00700-11-063.png`
+- Current fallback page: `/question-pages/00700-page-36.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 某工廠有一般用電動機 3ψ220V、3HP（8.6A）、5HP（14A）及 15HP（40A）各一台之配電系統，採用 PVC 管配線，若依表（一）之 PVC 管配線同一導線管內之導線數 3 根以下之安培容量表，幹線之最小線徑應選擇多少 mm 2？
+- Options:
+  - 1. 14
+  - 2. 22
+  - 3. 30
+  - 4. 38
+
 ## indoor-wiring-b:00700-11-068
 
-- Replacement PNG: `public/question-images/007002-00700-11-068.png`
-- App path: `/question-images/007002-00700-11-068.png`
-- Linked uploaded image:
-  - `/question-images/007002-00700-11-068.png`
+- Replacement PNG: `public/question-images/007002-00700-11-068-1.png`
+- App path: `/question-images/007002-00700-11-068-1.png`
+- Linked uploaded images:
+  - `/question-images/007002-00700-11-068-1.png`
+  - `/question-images/007002-00700-11-068-2.png`
+  - `/question-images/007002-00700-11-068-3.png`
+  - `/question-images/007002-00700-11-068-4.png`
 - Current fallback page: `/question-pages/00700-page-37.jpg`
 - Kind: single
 - Official answer: 3
@@ -1629,6 +1902,22 @@ Total active image questions: 487
   - 2. F=（A+B）（C+D）E
   - 3. F=（AB+CD）E
   - 4. F=（A+B）（C+D）+E
+
+## indoor-wiring-b:00700-12-043
+
+- Replacement PNG: `public/question-images/007002-00700-12-043.png`
+- App path: `/question-images/007002-00700-12-043.png`
+- Linked uploaded image:
+  - `/question-images/007002-00700-12-043.png`
+- Current fallback page: `/question-pages/00700-page-43.jpg`
+- Kind: multiple
+- Official answer: 1,3
+- Prompt: 可程式控制器掃描一週的時間（scan time）為 15ms，現有兩個輸入信號，其中一個輸入信號的動作時間為 10ms，另一個是 30ms，若依照下列輸入信號與掃描時間的關係圖所示，下列哪些正確？
+- Options:
+  - 1. A 點輸入信號不能正確被 PLC 讀取
+  - 2. A 點輸入信號可以正確被 PLC 讀取
+  - 3. B、C 點輸入信號可以正確被 PLC 讀取
+  - 4. B、C 點輸入信號不能正確被 PLC 讀取
 
 ## indoor-wiring-c:00700-13-004
 

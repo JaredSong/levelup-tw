@@ -1341,7 +1341,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     "integrity": {
       "status": "fully_verified",
       "inactiveQuestionCount": 12,
-      "imageQuestionCount": 57,
+      "imageQuestionCount": 69,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
   },

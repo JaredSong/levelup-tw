@@ -7,7 +7,7 @@ const PACKS = [
   { examId: 'interior-decoration-management-b', occupationCode: '12600', sourceQuestions: 718, inactive: 0, figures: 38 },
   { examId: 'beverage-preparation-c', occupationCode: '20600', sourceQuestions: 617, inactive: 0, figures: 5 },
   { examId: 'computer-software-application-b', occupationCode: '11800', sourceQuestions: 776, inactive: 0, figures: 6, cropPrefix: '118002' },
-  { examId: 'indoor-wiring-b', occupationCode: '00700', sourceQuestions: 862, inactive: 7, figures: 53, cropPrefix: '007002' },
+  { examId: 'indoor-wiring-b', occupationCode: '00700', sourceQuestions: 862, inactive: 7, figures: 65, cropPrefix: '007002' },
   { examId: 'indoor-wiring-c', occupationCode: '00700', sourceQuestions: 618, inactive: 0, figures: 62, cropPrefix: '007003' },
   { examId: 'industrial-electronics-c', occupationCode: '02800', sourceQuestions: 651, inactive: 0, figures: 136, cropPrefix: '028003' },
   { examId: 'computer-hardware-repair-c', occupationCode: '12000', sourceQuestions: 707, inactive: 0, figures: 17, cropPrefix: '120003' },
@@ -31,6 +31,7 @@ describe('new high-demand exam packs', () => {
         active?: boolean
         hasFigure?: boolean
         sourceImage?: string
+        sourceImages?: string[]
       }>
       const occupation = questions.filter((question) => question.subjectCode === expected.occupationCode)
       const figures = occupation.filter((question) => question.hasFigure)
@@ -40,14 +41,17 @@ describe('new high-demand exam packs', () => {
       expect(figures).toHaveLength(expected.figures)
 
       for (const question of figures) {
-        const filename = `${'cropPrefix' in expected ? `${expected.cropPrefix}-` : ''}${question.id}.png`
-        expect(question.sourceImage).toBe(`/question-images/${filename}`)
-        const bytes = readFileSync(new URL(`../public/question-images/${filename}`, import.meta.url))
-        const { width, height } = pngDimensions(bytes)
-        expect(bytes.byteLength, question.id).toBeGreaterThan(1_500)
-        expect(width, question.id).toBeGreaterThan(300)
-        expect(height, question.id).toBeGreaterThan(30)
-        expect(width, question.id).toBeLessThanOrEqual(1_000)
+        const sources = question.sourceImages?.length ? question.sourceImages : [question.sourceImage]
+        expect(sources.every(Boolean), question.id).toBe(true)
+        for (const source of sources) {
+          const bytes = readFileSync(new URL(`../public${source}`, import.meta.url))
+          const { width, height } = pngDimensions(bytes)
+          const usesTightCrops = expected.examId === 'indoor-wiring-b'
+          expect(bytes.byteLength, `${question.id} ${source}`).toBeGreaterThan(usesTightCrops ? 250 : 1_500)
+          expect(width, `${question.id} ${source}`).toBeGreaterThan(usesTightCrops ? 15 : 300)
+          expect(height, `${question.id} ${source}`).toBeGreaterThan(usesTightCrops ? 15 : 30)
+          expect(width, `${question.id} ${source}`).toBeLessThanOrEqual(1_000)
+        }
       }
     })
   }
@@ -82,8 +86,71 @@ describe('new high-demand exam packs', () => {
   it('keeps same-code class B and C figures separate in the image audit', () => {
     const audit = readFileSync(new URL('../docs/image-question-map.md', import.meta.url), 'utf8')
     expect(audit).toContain('## indoor-wiring-b:00700-01-001')
-    expect(audit).toContain('`/question-images/007002-00700-01-001.png`')
+    expect(audit).toContain('`/question-images/007002-00700-01-001-1.png`')
     expect(audit).toContain('## indoor-wiring-c:00700-01-001')
     expect(audit).toContain('`/question-images/007003-00700-01-001.png`')
+  })
+
+  it('uses separate option images and includes every left-side figure for indoor wiring B', () => {
+    const questions = JSON.parse(readFileSync(
+      new URL('../public/data/exams/indoor-wiring-b/questions.json', import.meta.url),
+      'utf8',
+    )) as Array<{
+      id: string
+      subjectCode: string
+      prompt: string
+      options: string[]
+      hasFigure?: boolean
+      sourceImage?: string
+      sourceImages?: string[]
+    }>
+    const occupation = questions.filter((question) => question.subjectCode === '00700')
+    const imageOptions = occupation.filter((question) => question.options.some((option) => option.includes('圖示選項')))
+    const leftFigures = occupation.filter((question) => question.prompt.includes('左圖'))
+
+    expect(imageOptions.length).toBeGreaterThan(0)
+    for (const question of imageOptions) {
+      const optionSources = question.sourceImages?.length === 5
+        ? question.sourceImages.slice(1)
+        : question.sourceImages
+      expect(optionSources, question.id).toHaveLength(4)
+      optionSources?.forEach((source, index) => {
+        expect(source, question.id).toBe(`/question-images/007002-${question.id}-${index + 1}.png`)
+        const bytes = readFileSync(new URL(`../public${source}`, import.meta.url))
+        const { width } = pngDimensions(bytes)
+        expect(width, `${question.id} option ${index + 1}`).toBeLessThan(400)
+      })
+    }
+
+    expect(leftFigures).toHaveLength(11)
+    expect(leftFigures.every((question) => question.hasFigure)).toBe(true)
+
+    const byId = new Map(occupation.map((question) => [question.id, question]))
+    expect(byId.get('00700-06-018')?.hasFigure).not.toBe(true)
+    expect(byId.get('00700-11-086')?.hasFigure).toBe(true)
+    expect(byId.get('00700-11-063')?.sourceImage).toBe('/question-images/007002-00700-11-063.png')
+    expect(byId.get('00700-12-043')?.sourceImage).toBe('/question-images/007002-00700-12-043.png')
+    expect(byId.get('00700-09-007')?.sourceImages).toEqual([
+      '/question-images/007002-00700-09-007.png',
+      '/question-images/007002-00700-09-007-1.png',
+      '/question-images/007002-00700-09-007-2.png',
+      '/question-images/007002-00700-09-007-3.png',
+      '/question-images/007002-00700-09-007-4.png',
+    ])
+
+    for (const [id, expected] of [
+      ['00700-09-007', { minWidth: 300, maxWidth: 400, minHeight: 200, maxHeight: 280 }],
+      ['00700-11-063', { minWidth: 800, maxWidth: 880, minHeight: 160, maxHeight: 190 }],
+      ['00700-12-043', { minWidth: 440, maxWidth: 500, minHeight: 280, maxHeight: 330 }],
+    ] as const) {
+      const source = byId.get(id)?.sourceImage
+      expect(source, id).toBeTruthy()
+      const bytes = readFileSync(new URL(`../public${source}`, import.meta.url))
+      const { width, height } = pngDimensions(bytes)
+      expect(width, id).toBeGreaterThanOrEqual(expected.minWidth)
+      expect(width, id).toBeLessThanOrEqual(expected.maxWidth)
+      expect(height, id).toBeGreaterThanOrEqual(expected.minHeight)
+      expect(height, id).toBeLessThanOrEqual(expected.maxHeight)
+    }
   })
 })

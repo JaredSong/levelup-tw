@@ -98,7 +98,7 @@
         "file": "182012-18201-02-111.png",
         "reference": "p16",
         "role": "prompt",
-        "sha256": "9a4708129e3c84f777db6d9d5f643b28f698f2a0a7862eb74b73e1a553e82a2c"
+        "sha256": "b56007a9c332e379f595f167650119f640113b4cab21834c8f6ee085f535eedf"
       }
     ],
     "18201-02-113": [
@@ -106,7 +106,7 @@
         "file": "182012-18201-02-113.png",
         "reference": "p17",
         "role": "prompt",
-        "sha256": "16e67fd144c5a9fc399e1acb076702a0637744a56f4490523cb98ba84a8a48e4"
+        "sha256": "962db2aa30b12fcbb86d2d59af7b884e48f8de055c77b1422771b3a57092e7b6"
       }
     ],
     "18201-02-117": [
@@ -114,7 +114,7 @@
         "file": "182012-18201-02-117.png",
         "reference": "p18",
         "role": "prompt",
-        "sha256": "55eeb5e918a9251210ce2e4b7919c05915bf8b325af2efca2bc686aab3a67cb4"
+        "sha256": "029ae2f46612f60efc245193d75ab38eb4c64a3c9afd9896eac9c83ee3cb1c32"
       }
     ],
     "18201-02-118": [
@@ -130,7 +130,7 @@
         "file": "182012-18201-02-120.png",
         "reference": "p20",
         "role": "prompt",
-        "sha256": "3fb5f7615b9fa9c9f252e43a9ccd4ecd943cc0ad87f23134d3e133982d4f9340"
+        "sha256": "13c4e06d76eb2f8be9f18eb7302b72ab217de1bf19f0644e212e7b8e9d736537"
       }
     ],
     "18201-02-134": [
@@ -180,7 +180,7 @@
         "file": "182012-18201-02-161.png",
         "reference": "p27",
         "role": "prompt",
-        "sha256": "083312f1820cbfd30a151eb0a5ea0fbe94381e21c530ec6b379320fce9830cfb"
+        "sha256": "2039c1907745c88e272eaf394e0e27d08e8668f18fbe2e47ba9f67dce860a196"
       }
     ],
     "18201-02-180": [
@@ -214,7 +214,7 @@
         "file": "182012-18201-02-186.png",
         "reference": "p32",
         "role": "prompt",
-        "sha256": "5a061a18de8cec0d369fc65df9db81640ea0f5091ed61b57d152ef57560b0c53"
+        "sha256": "d70040b1328a3d0aa6df318b7d790fd832207f1740316517ad3c98edfcee74b0"
       }
     ],
     "18201-03-022": [
@@ -254,25 +254,25 @@
         "file": "182012-18201-03-112-option-1.png",
         "reference": "p37",
         "role": "option-1",
-        "sha256": "728121c63146c6fc28046a26db467e110feae7825026dfa937f58d9b966352a4"
+        "sha256": "166173d3d923be195aa3ff2af02b170fd91618df3ba48929500f52dcbdf364fc"
       },
       {
         "file": "182012-18201-03-112-option-2.png",
         "reference": "p38",
         "role": "option-2",
-        "sha256": "c35acd3564a99f4f4be5f799114a8aedb6ac630eab41e86505e1c060ab7b17c0"
+        "sha256": "3de64a7b8f719ced2370ae7a549660227e4c6ce51cd092e56f9624bae941e4bd"
       },
       {
         "file": "182012-18201-03-112-option-3.png",
         "reference": "p39",
         "role": "option-3",
-        "sha256": "cf50aa24bb0d846ca3ac3b1d2a135d56a997547f104ef45b99dbc98bbdf53589"
+        "sha256": "3e2bccbddc4b421479a4ed6d5630436c977186dac804e81014247489552f540a"
       },
       {
         "file": "182012-18201-03-112-option-4.png",
         "reference": "p40",
         "role": "option-4",
-        "sha256": "7ed59099c9cf025a4d7282e278cf96b5387ab485037abdce5f38fc59b269039f"
+        "sha256": "b499ff95599a2ec39367d2388485018d44baada6c0850bf98ca8589b8414f067"
       }
     ],
     "18201-03-123": [
@@ -362,7 +362,7 @@
         "file": "182012-18201-04-208.png",
         "reference": "p52",
         "role": "prompt",
-        "sha256": "4322455948121ee0a276a10347c83c94128c0336979062e47668aa9911d974c2"
+        "sha256": "20c3ed1da9f750af86b4c48e1f2fe382e9fdfc3aa8d1db43889412a5e1754887"
       }
     ],
     "18201-04-209": [
@@ -530,7 +530,7 @@
         "file": "182012-18201-04-243.png",
         "reference": "p83",
         "role": "prompt",
-        "sha256": "bd4ee6afc15d0a70098a11c3dbec502879832231c16d20063cae58a64823b29d"
+        "sha256": "998611099cacb9b6e550ed85c62447ccf2919ebbfe03572633d236e7939f0090"
       }
     ],
     "18201-04-244": [
@@ -554,7 +554,7 @@
         "file": "182012-18201-04-247.png",
         "reference": "p86",
         "role": "prompt",
-        "sha256": "347b28b1db37cf3ef30d018ea3bf9b697f3db78b324aa647fafae7a96ce718e2"
+        "sha256": "bc036b24e41aa251e9c061d2861350c70966b8b859a5cdf09a96e9cb4d186571"
       }
     ],
     "18201-05-008": [
@@ -621,6 +621,32 @@
         "sha256": "8cd742e00c6d137651fed16cb64b3fcb6d10d20c9babe8b192030eeb3be052a0"
       }
     ],
+    "18201-05-048": [
+      {
+        "file": "182012-18201-05-048-option-1.png",
+        "reference": "official-vector-option-1",
+        "role": "option-1",
+        "sha256": "e3492995a35d3d5e9677ffefd6fef7c05fb26404dfb3d226dbff49695f5ea19c"
+      },
+      {
+        "file": "182012-18201-05-048-option-2.png",
+        "reference": "official-vector-option-2",
+        "role": "option-2",
+        "sha256": "81d4e656d6124dd16685995cf08a6d5bc936e36a537474ebc579876fc8ab047b"
+      },
+      {
+        "file": "182012-18201-05-048-option-3.png",
+        "reference": "official-vector-option-3",
+        "role": "option-3",
+        "sha256": "d81f340da8341d957c35eaf35cbc9f97d231ed960e609f7319a4c058a4b2a34e"
+      },
+      {
+        "file": "182012-18201-05-048-option-4.png",
+        "reference": "official-vector-option-4",
+        "role": "option-4",
+        "sha256": "79ac07933853ebf00ef43a952b32ec17de46f673cd05f711875433d6c28af4be"
+      }
+    ],
     "18201-05-049": [
       {
         "file": "182012-18201-05-049.png",
@@ -658,7 +684,7 @@
         "file": "182012-18201-05-053.png",
         "reference": "p107",
         "role": "prompt",
-        "sha256": "7b9c4a402ea9c0facd1b279e03fe4bdef7a3b14eccaeb9aed4b1ef1b0669e643"
+        "sha256": "02d36d516c60febbe01ed1c5dba853b9c000d06fcf13dceae202d8a8a9b27f65"
       }
     ],
     "18201-05-060": [
@@ -730,7 +756,7 @@
         "file": "182012-18201-05-068.png",
         "reference": "p117",
         "role": "prompt",
-        "sha256": "22ae90257ef198d72ce76cbeafd36afad1a77fa76661865ad7ad944e548bbc96"
+        "sha256": "3dc75dc54557347895db62c6ef6fcc5d49bdf1b63b438aecacafd5115c8114d7"
       }
     ],
     "18201-05-071": [
@@ -754,7 +780,7 @@
         "file": "182012-18201-05-078.png",
         "reference": "p120",
         "role": "prompt",
-        "sha256": "1424a8c50bce91d223710e203edb79fba46bf4179145703f00b842b3dc91bb71"
+        "sha256": "e4291997d6949e5854cbbdb78dc71b64a89852f25854e6a9b1bf99d6e209785b"
       }
     ],
     "18201-05-079": [

@@ -841,7 +841,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     "integrity": {
       "status": "fully_verified",
       "inactiveQuestionCount": 5,
-      "imageQuestionCount": 18,
+      "imageQuestionCount": 8,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
   },
@@ -1057,7 +1057,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     "integrity": {
       "status": "fully_verified",
       "inactiveQuestionCount": 5,
-      "imageQuestionCount": 24,
+      "imageQuestionCount": 14,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
   },
@@ -4153,7 +4153,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     "integrity": {
       "status": "fully_verified",
       "inactiveQuestionCount": 5,
-      "imageQuestionCount": 35,
+      "imageQuestionCount": 25,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
   },
@@ -4725,7 +4725,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     "integrity": {
       "status": "fully_verified",
       "inactiveQuestionCount": 5,
-      "imageQuestionCount": 184,
+      "imageQuestionCount": 187,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
   },
@@ -5425,7 +5425,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     "integrity": {
       "status": "fully_verified",
       "inactiveQuestionCount": 11,
-      "imageQuestionCount": 128,
+      "imageQuestionCount": 129,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
   }

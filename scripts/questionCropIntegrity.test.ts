@@ -14,10 +14,14 @@ const PACKS = [
   { examId: 'computer-hardware-repair-c', occupationCode: '12000', sourceQuestions: 707, inactive: 0, figures: 17, cropPrefix: '120003' },
   { examId: 'water-pipe-fitting-c', occupationCode: '01600', sourceQuestions: 707, inactive: 0, figures: 34, cropPrefix: '016003' },
   { examId: 'excavator-operation-single', occupationCode: '07002', sourceQuestions: 668, inactive: 0, figures: 12, cropPrefix: '070024', tightCrops: true },
-  { examId: 'digital-electronics-b', occupationCode: '11700', sourceQuestions: 743, inactive: 0, figures: 180, cropPrefix: '117002', tightCrops: true },
+  // 180 → 183: 11700-05-028/033/114 had four "圖示選項 N" placeholders and no
+  // images at all. Their options are vector formulas now cropped from the
+  // official PDF, so they count as figure questions.
+  { examId: 'digital-electronics-b', occupationCode: '11700', sourceQuestions: 743, inactive: 0, figures: 183, cropPrefix: '117002', tightCrops: true },
   { examId: 'western-cooking-c', occupationCode: '14000', sourceQuestions: 519, inactive: 4, figures: 0 },
   { examId: 'retail-service-c', occupationCode: '18100', sourceQuestions: 622, inactive: 0, figures: 25, cropPrefix: '181003', tightCrops: true },
-  { examId: 'cnc-milling-b', occupationCode: '18201', sourceQuestions: 775, inactive: 2, figures: 73, cropPrefix: '182012', tightCrops: true },
+  // 73 → 74: 18201-05-048, same vector-formula-option repair as above.
+  { examId: 'cnc-milling-b', occupationCode: '18201', sourceQuestions: 775, inactive: 2, figures: 74, cropPrefix: '182012', tightCrops: true },
 ]
 
 function pngDimensions(bytes: Buffer) {
@@ -122,10 +126,14 @@ describe('new high-demand exam packs', () => {
 
     expect(imageOptions.length).toBeGreaterThan(0)
     for (const question of imageOptions) {
-      const optionSources = question.sourceImages?.length === 5
+      // The renderer's contract (PracticeView.optionImageSources): one image
+      // per option, optionally preceded by a stem figure at index 0. Derive the
+      // expected count from the options rather than hardcoding it, so the test
+      // asserts the rule instead of one pack's current shape.
+      const optionSources = question.sourceImages?.length === question.options.length + 1
         ? question.sourceImages.slice(1)
         : question.sourceImages
-      expect(optionSources, question.id).toHaveLength(4)
+      expect(optionSources, question.id).toHaveLength(question.options.length)
       optionSources?.forEach((source, index) => {
         expect(source, question.id).toBe(`/question-images/007002-${question.id}-${index + 1}.png`)
         const bytes = readFileSync(new URL(`../public${source}`, import.meta.url))
@@ -278,9 +286,11 @@ describe('new high-demand exam packs', () => {
   it('locks every newly imported image to its audited question and SHA-256', () => {
     for (const [source, expectedQuestions, expectedAssets] of [
       ['070024A10', 12, 42],
-      ['117002A13', 180, 238],
+      // 117002A13 and 182012A10 each gained the vector-formula-option crops
+      // noted in PACKS above: 3 questions × 4 options, and 1 × 4 respectively.
+      ['117002A13', 183, 250],
       ['181003A13', 25, 52],
-      ['182012A10', 73, 114],
+      ['182012A10', 74, 118],
       ['900012A10', 51, 125],
     ] as const) {
       const audit = JSON.parse(readFileSync(

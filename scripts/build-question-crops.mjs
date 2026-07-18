@@ -84,6 +84,18 @@ const BANKS = [
     cropPrefix: '117002',
     embeddedImages: true,
     imageReferenceFile: '117002A13-image-reference.json',
+    // Options drawn as vector formulas. The external reference catalogue has no
+    // asset for them, so they never reached the reference file and the embedded
+    // pass found no raster image to place — the question shipped with four
+    // "圖示選項 N" placeholders and nothing to look at. Crop them from the
+    // official PDF instead. See VECTOR_OPTION_QUESTIONS below.
+    vectorOptionQuestions: {
+      // The stacked fractions in options 3 and 4 hang below the default
+      // single-line crop height, which cut their denominators off.
+      '11700-05-028': { optionRects: [null, null, { height: 48 }, { height: 48 }] },
+      '11700-05-033': {},
+      '11700-05-114': {},
+    },
   },
   {
     code: '18100',
@@ -100,6 +112,9 @@ const BANKS = [
     imageReferenceFile: '182012A10-image-reference.json',
     excludedQuestionIds: ['18201-02-140', '18201-04-240'],
     compositeEmbeddedQuestions: ['18201-04-208'],
+    vectorOptionQuestions: {
+      '18201-05-048': {},
+    },
   },
   {
     code: '90001',
@@ -324,6 +339,7 @@ async function buildEmbeddedBank({
   lastEmbeddedImageOnly = [],
   compositeEmbeddedQuestions = [],
   embeddedImageOrder = {},
+  vectorOptionQuestions = {},
   imageReferenceFile,
 }) {
   const pdfPath = fileURLToPath(new URL(`../source/${source}.pdf`, import.meta.url))
@@ -345,7 +361,7 @@ async function buildEmbeddedBank({
   let bboxPages
   const renderedPages = new Map()
 
-  async function vectorFallback(question, referenceAssets) {
+  async function vectorFallback(question, referenceAssets, rectOverrides = null) {
     if (!bboxPages) {
       const bboxPath = join(work, 'bbox.html')
       execFileSync('pdftotext', ['-bbox-layout', pdfPath, bboxPath])
@@ -373,7 +389,11 @@ async function buildEmbeddedBank({
 
     const allOptions = referenceAssets.length > 0
       && referenceAssets.every((asset) => asset.role.startsWith('option-'))
-    const allOptionRects = allOptions ? optionCropRects(page, top, bottom) : null
+    const computedOptionRects = allOptions ? optionCropRects(page, top, bottom) : null
+    // Per-option geometry repairs for formulas the single-line default clips.
+    const allOptionRects = computedOptionRects && rectOverrides
+      ? computedOptionRects.map((rect, index) => ({ ...rect, ...(rectOverrides[index] ?? {}) }))
+      : computedOptionRects
     const rects = allOptionRects
       ? referenceAssets.map((asset) => allOptionRects[Number(asset.role.slice('option-'.length)) - 1])
       : referenceAssets.length === 1
@@ -404,6 +424,34 @@ async function buildEmbeddedBank({
   const imageAudit = {}
   for (const question of questions) {
     if (excluded.has(question.id)) continue
+
+    // Questions whose four options are vector formulas rather than embedded
+    // raster images. Nothing in the reference catalogue describes them, so the
+    // normal path finds zero images and skips the question — which is how these
+    // shipped as unanswerable. Crop all four options straight from the official
+    // PDF, which is the authoritative source in any case.
+    const vectorOptions = vectorOptionQuestions[question.id]
+    if (vectorOptions) {
+      const assets = [1, 2, 3, 4].map((index) => ({
+        role: `option-${index}`,
+        reference: `official-vector-option-${index}`,
+      }))
+      const cropped = await vectorFallback(question, assets, vectorOptions.optionRects ?? null)
+      const files = assets.map((asset) => `${cropPrefix}-${question.id}-${asset.role}.png`)
+      await Promise.all(cropped.map((image, index) => copyEmbeddedImage(
+        image.source,
+        fileURLToPath(new URL(files[index], outputRoot)),
+      )))
+      imageMap[question.id] = files
+      imageAudit[question.id] = await Promise.all(files.map(async (file, index) => ({
+        file,
+        reference: assets[index].reference,
+        role: assets[index].role,
+        sha256: createHash('sha256').update(await readFile(new URL(file, outputRoot))).digest('hex'),
+      })))
+      continue
+    }
+
     const page = pages.find((candidate) => candidate.number === question.sourcePage)
     if (!page) throw new Error(`${question.id}: embedded-image page ${question.sourcePage} missing`)
     const markerIndex = page.markers.findIndex((marker) => marker.number === question.number)

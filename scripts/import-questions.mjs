@@ -1,5 +1,9 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { buildSourceProvenance } from './examSources.mjs'
+import {
+  INFORMATION_COMMON_CODE_BLOCK_OVERRIDES,
+  INFORMATION_COMMON_IMAGE_OVERRIDES,
+} from './informationCommonOverrides.mjs'
 import { parseQuestionBank } from './questionParser.mjs'
 import { sanitizeText } from './textCorrections.mjs'
 
@@ -237,68 +241,10 @@ const IMAGE_OVERRIDES = {
   ],
   '90009-04-069': ['90009-page-7.png'],
   '90009-04-086': ['90009-04-086.png'],
-  '90011-04-001': ['90011-page-5 1.png'],
-  '90011-04-002': ['90011-page-5 2.png'],
-  '90011-04-003': ['90011-page-6 3.png'],
-  '90011-04-004': [
-    '90011-page-6 4.png',
-    '90011-page-6 4-1.png',
-    '90011-page-6 4-2.png',
-    '90011-page-6 4-3.png',
-    '90011-page-6 4-4.png',
-  ],
-  '90011-04-005': ['90011-page-6 5.png'],
-  '90011-04-009': ['90011-page-7 9.png'],
-  '90011-04-013': ['90011-page-7 13.png'],
-  '90011-04-014': ['90011-page-7 14.png'],
-  '90011-04-015': ['90011-page-7 15.png'],
-  '90011-04-016': ['90011-page-7 16.png'],
-  '90011-04-017': ['90011-page-7 17.png'],
-  '90011-04-018': ['90011-page-7 18.png'],
-  '90011-04-019': ['90011-page-8 19.png'],
-  '90011-04-020': ['90011-page-8 20.png'],
+  ...INFORMATION_COMMON_IMAGE_OVERRIDES,
 }
 
-const CODE_BLOCK_OVERRIDES = {
-  '90011-04-004': {
-    optionCodeBlocks: [
-      'X>3? cout<<B:cout<<A;\nX=X+1',
-      'if (X>3) cout<<A; else cout<<B;\nX=X+1;',
-      'switch(X) {\n  case 1: cout<<A;\n  case 2: cout<<A;\n  case 3: cout<<A;\n  default: cout<<B;',
-      'while (X>3) cout<<A;\ncout<<B;\nX=X+1;',
-    ],
-  },
-  '90011-04-005': {
-    codeBlock: 'int a,b,c;\ncin>>a;\ncin>>b;\nc=a;\nif(b>c)\n    c=b;\ncout<<"the output is:"<<c;',
-  },
-  '90011-04-009': {
-    codeBlock: 'While (sum <= 1000)\n    sum = sum + 30;',
-  },
-  '90011-04-013': {
-    codeBlock: 'int x = 3;\nint a[] = {1,2,3,4};\nint *z;\nz = a;\nz = z + x;\ncout << *z << "\\n";',
-  },
-  '90011-04-014': {
-    codeBlock: 'int x = 3;\nint a[] = {1,2,3,4};\nint * z;\nz = &x;\ncout << *z << "\\n";',
-  },
-  '90011-04-015': {
-    codeBlock: 'int y = !(12 < 5 || 3 <= 5 && 3 > x) ? 7 : 9;',
-  },
-  '90011-04-016': {
-    codeBlock: "int x;\nx = (5 <= 3 && 'A' < 'F') ? 3 : 4",
-  },
-  '90011-04-017': {
-    codeBlock: 'int a=0, b=0, c=0;\nint x=(a<b+4);',
-  },
-  '90011-04-018': {
-    codeBlock: 'int f(int x, int y) {\n    if(x == y) return 0;\n    else return f(x-1, y) + 1;\n}',
-  },
-  '90011-04-019': {
-    codeBlock: 'for (i=0;i<=m-1;i++){\n    for (j=0;j<=p-1;j++){\n        c[i][j]=0;\n        for (k=0;k<=n-1;k++){\n            c[i][j]=c[i][j]+a[i][k]*b[k][j];\n        }\n    }\n}',
-  },
-  '90011-04-020': {
-    codeBlock: 'x1=2;y1=4;\nx2=6;y2=8;\na=y2-y1;\nb=x2-x1;\nc=-a*x1+b*y1;\ncout<<a<<"x+"<<-b<<"y+"<<c<<"=0";',
-  },
-}
+const CODE_BLOCK_OVERRIDES = INFORMATION_COMMON_CODE_BLOCK_OVERRIDES
 
 const outputPath = new URL('../source/questions.json', import.meta.url)
 const manifestPath = new URL(`../public/data/exams/${EXAM_ID}/manifest.json`, import.meta.url)

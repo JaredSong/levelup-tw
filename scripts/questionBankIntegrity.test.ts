@@ -1,4 +1,4 @@
-import { existsSync, readFileSync } from 'node:fs'
+import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
 import { buildMockQueue, type Question } from '../src/domain/studyEngine'
 import { parseQuestionBank } from './questionParser.mjs'
@@ -9,6 +9,26 @@ function loadBank(): Question[] {
 
 function loadExamBank(examId: string): Question[] {
   return JSON.parse(readFileSync(new URL(`../public/data/exams/${examId}/questions.json`, import.meta.url), 'utf8')) as Question[]
+}
+
+// Every pack that actually ships, discovered from disk rather than listed by
+// hand — a new pack is covered the moment it lands, without anyone remembering
+// to add it here.
+function listShippedPacks(): string[] {
+  const examsDir = new URL('../public/data/exams/', import.meta.url)
+  return readdirSync(examsDir, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => entry.name)
+    .filter((examId) => existsSync(new URL(`${examId}/questions.json`, examsDir)))
+    .sort()
+}
+
+function imageExists(image: string): boolean {
+  return existsSync(new URL(`../public${decodeURIComponent(image)}`, import.meta.url))
+}
+
+function usesImageOptionPlaceholders(question: Question): boolean {
+  return question.options.some((option) => option.includes('圖示選項'))
 }
 
 describe('published question bank', () => {
@@ -154,7 +174,10 @@ describe('published question bank', () => {
   // page scan takes over as the figure — which for these questions shows all
   // four marks together, i.e. leaks the answer. Assert the pairing here so a
   // missing or extra crop fails the build instead of the exam.
-  it('gives every image-option question exactly one image per option', () => {
+  // Legacy scope: the web-design-b source bank only. The all-pack version of
+  // this rule lives in the "shipped question banks" suite below — keep both,
+  // this one still pins the source bank the importer writes.
+  it('gives every image-option question in the source bank exactly one image per option', () => {
     const imageOptionQuestions = loadBank().filter((question) =>
       question.active !== false &&
       question.options.some((option) => option.includes('圖示選項')) &&
@@ -576,6 +599,79 @@ describe('published question bank', () => {
     for (const image of question?.sourceImages ?? []) {
       expect(existsSync(new URL(`../public${decodeURIComponent(image)}`, import.meta.url)), image).toBe(true)
     }
+  })
+})
+
+// These assertions run against every pack under public/data/exams — the files
+// learners actually download. publicationGate.mjs reads manifest metadata only
+// and never opens questions.json, so without this suite an image defect inside
+// a shipped bank has nothing standing between it and the exam hall.
+describe('shipped question banks', () => {
+  const packs = listShippedPacks()
+
+  it('discovers every shipped pack', () => {
+    expect(packs.length).toBeGreaterThanOrEqual(27)
+  })
+
+  // PracticeView.optionImageSources renders one <img> per option and accepts
+  // exactly two shapes: one image per option, or a stem figure at index 0
+  // followed by one per option. Any other count makes it return [] — every
+  // option collapses to the placeholder text "圖示選項 N", the question becomes
+  // unanswerable, and the page scan showing all four marks together takes over
+  // as the figure. Assert the renderer's real contract against every pack.
+  it('gives every image-option question exactly one image per option', () => {
+    const violations: string[] = []
+
+    for (const examId of packs) {
+      const imageOptionQuestions = loadExamBank(examId).filter((question) =>
+        question.active !== false &&
+        usesImageOptionPlaceholders(question) &&
+        !question.optionCodeBlocks?.some(Boolean))
+
+      for (const question of imageOptionQuestions) {
+        const images = question.sourceImages ?? []
+        const optionCount = question.options.length
+        if (images.length !== optionCount && images.length !== optionCount + 1) {
+          violations.push(
+            `${examId}:${question.id} — ${images.length} sourceImages for ${optionCount} image options`,
+          )
+          continue
+        }
+        const optionImages = images.length === optionCount + 1 ? images.slice(1) : images
+        for (const [index, image] of optionImages.entries()) {
+          if (!imageExists(image)) {
+            violations.push(`${examId}:${question.id} — option ${index + 1} image missing on disk: ${image}`)
+          }
+        }
+      }
+    }
+
+    expect(violations).toEqual([])
+  })
+
+  // A sourceImage/sourceImages path that does not resolve on disk renders as a
+  // broken image. For a 圖示選項 question that silently removes the answer; for a
+  // stem figure it removes the thing the question is asking about. Either way
+  // the learner is answering a question they cannot see.
+  it('resolves every referenced question image on disk', () => {
+    const violations: string[] = []
+
+    for (const examId of packs) {
+      for (const question of loadExamBank(examId)) {
+        if (question.active === false) continue
+        const referenced = [
+          ...(question.sourceImages ?? []),
+          ...(question.sourceImage ? [question.sourceImage] : []),
+        ]
+        for (const image of referenced) {
+          if (!imageExists(image)) {
+            violations.push(`${examId}:${question.id} — missing image file: ${image}`)
+          }
+        }
+      }
+    }
+
+    expect(violations).toEqual([])
   })
 })
 

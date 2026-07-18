@@ -1,5 +1,10 @@
 import { access, mkdir, readFile, writeFile } from 'node:fs/promises'
 import { buildSourceProvenance } from './examSources.mjs'
+import {
+  INFORMATION_COMMON_CODE_BLOCK_OVERRIDES,
+  INFORMATION_COMMON_IMAGE_OVERRIDES,
+  INFORMATION_COMMON_SOURCE_PAGE_OVERRIDES,
+} from './informationCommonOverrides.mjs'
 import { parseQuestionBank } from './questionParser.mjs'
 import { sanitizeText } from './textCorrections.mjs'
 
@@ -140,6 +145,7 @@ const IMAGE_OVERRIDES = {
   ],
   '90009-04-069': ['90009-page-7.png'],
   '90009-04-086': ['90009-04-086.png'],
+  ...INFORMATION_COMMON_IMAGE_OVERRIDES,
   '07700-03-003': [
     '07700-03-003-1.png',
     '07700-03-003-2.png',
@@ -151,7 +157,12 @@ const IMAGE_OVERRIDES = {
 const SOURCE_PAGE_OVERRIDES = {
   '90009-04-069': 7,
   '90009-04-086': 8,
+  ...INFORMATION_COMMON_SOURCE_PAGE_OVERRIDES,
 }
+
+// 90011 ships in several packs. Its repairs live in one module shared with
+// import-questions.mjs so the two builders cannot drift again.
+const CODE_BLOCK_OVERRIDES = INFORMATION_COMMON_CODE_BLOCK_OVERRIDES
 
 const SECTION_TITLE_OVERRIDES = {
   '19500-01': '職業介紹、人力仲介及外國人引進、聘僱、管理事項',
@@ -911,15 +922,21 @@ function generatedImageSources(exam, question) {
 function normalizeQuestion(question, exam) {
   const sourcePage = SOURCE_PAGE_OVERRIDES[question.id] ?? question.sourcePage
   const imageOverrides = IMAGE_OVERRIDES[question.id]
+  const codeOverride = CODE_BLOCK_OVERRIDES[question.id]
   const forceFigure = FIGURE_QUESTION_IDS.has(question.id)
     || exam.figureIds?.includes(question.id)
     || (exam.includeLeftFigures && question.prompt.includes('左圖'))
     || / {2,}/.test(`${question.prompt}${question.options.join('')}`)
   const mappedFigure = exam.embeddedImageMap ? Boolean(exam.embeddedImageMap[question.id]?.length) : undefined
-  const hasFigure = mappedFigure ?? (!exam.excludedFigureIds?.includes(question.id) && (question.hasFigure || forceFigure))
+  // A transcribed code block replaces the figure entirely — keep it text.
+  const hasFigure = codeOverride?.codeBlock
+    ? false
+    : mappedFigure ?? (!exam.excludedFigureIds?.includes(question.id) && (question.hasFigure || forceFigure))
   const repaired = {
     ...question,
     examId: exam.examId,
+    ...(codeOverride?.codeBlock ? { codeBlock: codeOverride.codeBlock } : {}),
+    ...(codeOverride?.optionCodeBlocks ? { optionCodeBlocks: codeOverride.optionCodeBlocks } : {}),
     sourcePage,
     sectionTitle: SECTION_TITLE_OVERRIDES[question.section] ?? question.sectionTitle,
     prompt: QUESTION_PROMPT_OVERRIDES[question.id] ?? sanitizeText(question.prompt),
@@ -927,11 +944,16 @@ function normalizeQuestion(question, exam) {
     ...(INACTIVE_IDS.has(question.id) || exam.inactiveIds?.includes(question.id) ? { active: false } : {}),
     hasFigure,
   }
-  if (!repaired.hasFigure && !imageOverrides) {
+  if (!repaired.hasFigure && (!imageOverrides || codeOverride?.codeBlock)) {
     return { ...repaired, sourceImage: undefined, sourceImages: undefined, sourcePageImage: undefined }
   }
   const generatedImages = generatedImageSources(exam, repaired)
-  const sourceImages = imageOverrides?.map(questionImagePath) ?? generatedImages
+  // When the four options are transcribed code, only the prompt figure is kept;
+  // the remaining override entries are the option crops the code replaces.
+  const overrideImages = codeOverride?.optionCodeBlocks
+    ? imageOverrides?.slice(0, 1)
+    : imageOverrides
+  const sourceImages = overrideImages?.map(questionImagePath) ?? generatedImages
   return {
     ...repaired,
     hasFigure: true,

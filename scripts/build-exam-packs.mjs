@@ -63,6 +63,26 @@ const INACTIVE_IDS = new Set([
   '14000-02-101',
   '14000-10-083',
   '14000-11-008',
+  // Both genuinely have four graphical options the reference catalogue never
+  // described, but neither can ship correctly yet — not a data defect, a
+  // frontend-contract gap (PracticeView.optionImageSources only renders all
+  // four options as images or none; there is no per-index image/text mix).
+  // 11700-06-102: two options are real text ("合理RC值之積分/微分電路"), two
+  // are genuine circuit-diagram images with no text equivalent — nothing to
+  // crop for the text options, so this isn't fixable by cropping harder.
+  // Backlog item for Nell: extend sourceImages (or a new field) to carry
+  // null for text-only options, the way optionCodeBlocks already does.
+  // Reopen if that contract lands; until then leave it out rather than ship
+  // a half-visible option.
+  '11700-06-102',
+  // 11700-05-057: three prompt-role reference images (two curve diagrams
+  // referenced inline, one circuit box that landed last in PDF order) plus
+  // four option crops — 7 images total, which is neither a plain figure nor
+  // a clean base+4 shape. Needs a "composite only the prompt images, keep
+  // the options separate, then reorder" capability that doesn't exist yet.
+  // Not building it for one question — reopen if this 3-prompt+4-option
+  // shape recurs elsewhere in a future pack.
+  '11700-05-057',
 ])
 
 // These questions contain inline figures that the PDF text layer describes
@@ -240,6 +260,12 @@ const QUESTION_OPTION_OVERRIDES = {
   '02800-10-023': ['Y = AB + ¬A·B', 'Y = ¬A·B + A·¬B', 'Y = AB + ¬(AB)', 'Y = A ⊕ B'],
   '02800-10-029': ['Y = A·B', 'Y = A + B', 'Y = ¬(AB)', 'Y = ¬(A + B)'],
   '02800-10-060': ['I₀I₁ = 00', 'I₀I₁ = 01', 'I₀I₁ = 10', 'I₀I₁ = 11'],
+  // Looked like a graphical-option question (three blank ①②③ markers), but
+  // checking the rendered PDF page showed plain "1/2π√(...)" formulas, not
+  // circuit diagrams — the radical/vinculum glyphs just didn't extract as
+  // inline text the way option 4 on the same line did. Text beats an image
+  // crop for learner quality here.
+  '11700-05-051': ['1/2π√(R1C1)', '1/2π√(R3R4C1C2)', '1/2π√(R1R2C1C2)', '1/2π(R3+R4)(C1+C2)'],
 }
 
 const NO_SOURCE_PAGE_IMAGE = new Set(['07700-03-003'])
@@ -421,6 +447,7 @@ const EXAMS = [
     extraCommonCodes: [],
     cropPrefix: '007003',
     requireQuestionCrops: true,
+    splitImageOptions: true,
     figureIds: ['00700-13-005'],
     mockRules: {
       occupationQuota: 64,
@@ -612,6 +639,7 @@ const EXAMS = [
     sourceRevision: '151004A14 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: [],
     requireQuestionCrops: true,
+    splitImageOptions: true,
     mockRules: {
       occupationQuota: 64,
       singleCount: 80,
@@ -634,6 +662,8 @@ const EXAMS = [
     sourceRevision: '126002A12 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: [],
     requireQuestionCrops: true,
+    splitImageOptions: true,
+    mixedFigureOptionIds: ['12600-01-043', '12600-01-044', '12600-01-045'],
     mockRules: {
       occupationQuota: 64,
       singleCount: 60,
@@ -656,6 +686,7 @@ const EXAMS = [
     sourceRevision: '206003A13 + 900100A16 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: ['90010'],
     requireQuestionCrops: true,
+    splitImageOptions: true,
     mockRules: {
       occupationQuota: 60,
       singleCount: 80,
@@ -703,6 +734,8 @@ const EXAMS = [
     extraCommonCodes: ['90011'],
     cropPrefix: '120003',
     requireQuestionCrops: true,
+    splitImageOptions: true,
+    mixedFigureOptionIds: ['12000-01-003'],
     mockRules: {
       occupationQuota: 60,
       singleCount: 80,
@@ -726,6 +759,7 @@ const EXAMS = [
     extraCommonCodes: [],
     cropPrefix: '016003',
     requireQuestionCrops: true,
+    splitImageOptions: true,
     mockRules: {
       occupationQuota: 64,
       singleCount: 80,

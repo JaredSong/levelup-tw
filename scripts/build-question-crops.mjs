@@ -42,10 +42,59 @@ const BANKS = [
       '00700-12-043': { x: 125, y: 570, width: 230, height: 155 },
     },
   },
-  { code: '00700', source: '007003A13', cropPrefix: '007003', extraFigures: ['00700-13-005'] },
-  { code: '15100', source: '151004A14' },
-  { code: '12600', source: '126002A12' },
-  { code: '20600', source: '206003A13' },
+  {
+    code: '00700',
+    source: '007003A13',
+    cropPrefix: '007003',
+    // Same fix as 007002 above: the marker-only line for these image-option
+    // questions was cropped whole (one combined strip with all four symbols
+    // in it), so the frontend could not slice out an image per option and
+    // fell back to the literal "圖示選項 N" placeholder text.
+    splitImageOptions: true,
+    extraFigures: ['00700-13-005'],
+    // Option 1's marker sits at the end of its prompt line with blank room
+    // after it — nothing is actually there; the option's symbol wraps onto
+    // the start of the next line, before option 2. The auto heuristic only
+    // catches a wrap when the leftover room is too narrow to hold anything,
+    // so blank-but-still-wrapped room like this needs an explicit rect.
+    optionRectOverrides: {
+      '00700-01-006': [{ x: 110, y: 404, width: 40, height: 40 }, null, null, null],
+    },
+  },
+  { code: '15100', source: '151004A14', splitImageOptions: true },
+  {
+    code: '12600',
+    source: '126002A12',
+    splitImageOptions: true,
+    // These three ask for a projection (正視圖/右側視圖/右側視圖) of a shape
+    // drawn above the option line. Keep that reference shape as a base image
+    // alongside the four option crops, same as 00700-09-007. The automatic
+    // "largest gap" heuristic that finds the base figure for a bare 4-option
+    // line misreads this pack's layout (grabs the wrapped option 4 image
+    // instead of the isometric shape for 044, or clips the isometric shape's
+    // bottom edge for 043/045), so all three get an explicit rect measured
+    // from the rendered PDF page.
+    mixedFigureOptions: ['12600-01-043', '12600-01-044', '12600-01-045'],
+    figureRects: {
+      '12600-01-043': { x: 98, y: 571, width: 84, height: 72 },
+      '12600-01-044': { x: 95, y: 680, width: 88, height: 62 },
+      '12600-01-045': { x: 98, y: 39, width: 49, height: 50 },
+    },
+    // 043 and 044 each run their four option markers along one line, but
+    // option 4's symbol has no room left before the page edge and wraps onto
+    // a blank row of its own, well below the marker — the auto heuristic has
+    // no marker to anchor that row on and produces a sliver crop. Measured
+    // directly from the rendered page. 045's four options all fit inline
+    // (period follows marker 4 on the same line), so it needs no override.
+    optionRectOverrides: {
+      '12600-01-043': [null, null, null, { x: 100, y: 648, width: 72, height: 31 }],
+      '12600-01-044': [null, null, null, { x: 94, y: 743, width: 53, height: 35 }],
+      // Same wrap, no base figure involved here — just option 4 dropping to
+      // its own line with a period two lines below the marker row.
+      '12600-01-060': [null, null, null, { x: 110, y: 258, width: 62, height: 40 }],
+    },
+  },
+  { code: '20600', source: '206003A13', splitImageOptions: true },
   {
     code: '02800',
     source: '028003A11',
@@ -95,6 +144,24 @@ const BANKS = [
       '11700-05-028': { optionRects: [null, null, { height: 48 }, { height: 48 }] },
       '11700-05-033': {},
       '11700-05-114': {},
+      // Same defect: all four options are vector formulas the reference
+      // catalogue never described. Each of these three also has a real
+      // circuit diagram the catalogue *does* know about (a single
+      // 'prompt'-role reference asset) — the fix below keeps that image and
+      // appends the four vector-cropped options after it.
+      // Options 2 and 4 here wrap onto the start of the next line the same
+      // way option 4 does in 05-028/033/114/039, but there's blank room left
+      // on their own marker's line first — the auto wrap-detector only fires
+      // when that room is too narrow to hold anything, so it doesn't catch
+      // this case. Rects taken directly from the rendered PDF page.
+      '11700-05-023': { optionRects: [null, { x: 110, y: 421, width: 163, height: 40 }, null, { x: 110, y: 455, width: 163, height: 60 }] },
+      '11700-05-039': {},
+      // 11700-05-051 looked like the same defect (three blank option markers)
+      // but checking the page showed options 1-3 are plain "1/2π√(...)"
+      // formulas, not graphics — the radical/vinculum glyphs just didn't come
+      // through as inline text. Text-representable beats an image crop for
+      // learner quality, so that one is fixed via QUESTION_OPTION_OVERRIDES in
+      // build-exam-packs.mjs instead of here.
     },
   },
   {
@@ -114,6 +181,11 @@ const BANKS = [
     compositeEmbeddedQuestions: ['18201-04-208'],
     vectorOptionQuestions: {
       '18201-05-048': {},
+      // Same defect as 05-048: Z-coordinate options rendered as blank vector
+      // glyphs. This one also has a real diagram the reference catalogue
+      // knows about (the ball-nose-cutter-on-hemisphere figure) — preserve
+      // it and append the four vector-cropped options after it.
+      '18201-05-047': {},
     },
   },
   {
@@ -149,8 +221,35 @@ const BANKS = [
       '90001-09-037',
     ],
   },
-  { code: '12000', source: '120003A12', cropPrefix: '120003' },
-  { code: '01600', source: '016003A12', cropPrefix: '016003' },
+  {
+    code: '12000',
+    source: '120003A12',
+    cropPrefix: '120003',
+    splitImageOptions: true,
+    // "下圖之右側視圖為" — the isometric reference shape sits above the
+    // option line, so keep it as a base image alongside the four option crops.
+    mixedFigureOptions: ['12000-01-003'],
+  },
+  {
+    code: '01600',
+    source: '016003A12',
+    cropPrefix: '016003',
+    splitImageOptions: true,
+    // Same "blank room, but the symbol actually wraps onto the next line"
+    // gap as 007003/00700-01-006 above, at various option positions.
+    optionRectOverrides: {
+      '01600-01-006': [null, { x: 110, y: 344, width: 88, height: 40 }, null, null],
+      '01600-01-007': [null, null, { x: 110, y: 439, width: 79, height: 40 }, null],
+      '01600-01-015': [null, { x: 110, y: 278, width: 88, height: 40 }, null, null],
+      '01600-01-020': [null, null, { x: 110, y: 559, width: 76, height: 40 }, null],
+      '01600-03-013': [
+        null,
+        { x: 110, y: 672, width: 190, height: 40 },
+        null,
+        { x: 110, y: 704, width: 190, height: 40 },
+      ],
+    },
+  },
 ]
 
 const SCALE = 2 // 144 DPI: two pixels per PDF point.
@@ -432,21 +531,57 @@ async function buildEmbeddedBank({
     // PDF, which is the authoritative source in any case.
     const vectorOptions = vectorOptionQuestions[question.id]
     if (vectorOptions) {
-      const assets = [1, 2, 3, 4].map((index) => ({
+      // Some of these questions also have a real figure (e.g. the shape the
+      // options describe) that the reference catalogue *does* know about —
+      // recover it the same way the normal path below would, so fixing the
+      // vector-formula options doesn't drop a base image that was already
+      // correct. Only prompt-role assets are supported here; anything else
+      // means this question needs the normal per-question path instead.
+      const referenceAssets = reference?.questions?.[question.id] ?? []
+      if (referenceAssets.some((asset) => asset.role !== 'prompt')) {
+        throw new Error(`${question.id}: vectorOptionQuestions expects only prompt-role reference assets, got ${referenceAssets.map((asset) => asset.role).join(',')}`)
+      }
+      let promptImages = []
+      if (referenceAssets.length) {
+        const page = pages.find((candidate) => candidate.number === question.sourcePage)
+        if (!page) throw new Error(`${question.id}: embedded-image page ${question.sourcePage} missing`)
+        const markerIndex = page.markers.findIndex((marker) => marker.number === question.number)
+        if (markerIndex < 0) throw new Error(`${question.id}: embedded-image marker missing on page ${question.sourcePage}`)
+        const top = page.markers[markerIndex].top - 4
+        const bottom = page.markers[markerIndex + 1] ? page.markers[markerIndex + 1].top - 4 : 1260
+        const bandImages = page.images.filter((image) => image.top >= top && image.top < bottom)
+        promptImages = matchReferenceImages(bandImages, referenceAssets, question.id)
+      }
+
+      const optionAssets = [1, 2, 3, 4].map((index) => ({
         role: `option-${index}`,
         reference: `official-vector-option-${index}`,
       }))
-      const cropped = await vectorFallback(question, assets, vectorOptions.optionRects ?? null)
-      const files = assets.map((asset) => `${cropPrefix}-${question.id}-${asset.role}.png`)
-      await Promise.all(cropped.map((image, index) => copyEmbeddedImage(
+      const optionImages = await vectorFallback(question, optionAssets, vectorOptions.optionRects ?? null)
+
+      const assetMeta = [...referenceAssets, ...optionAssets]
+      const assetImages = [...promptImages, ...optionImages]
+      const roleTotals = new Map()
+      for (const asset of assetMeta) roleTotals.set(asset.role, (roleTotals.get(asset.role) ?? 0) + 1)
+      const roleSeen = new Map()
+      const files = assetMeta.map((asset) => {
+        const occurrence = (roleSeen.get(asset.role) ?? 0) + 1
+        roleSeen.set(asset.role, occurrence)
+        const repeatedSuffix = (roleTotals.get(asset.role) ?? 0) > 1 ? `-${occurrence}` : ''
+        const suffix = asset.role.startsWith('option-')
+          ? `-${asset.role}${repeatedSuffix}`
+          : asset.role === 'prompt' && (roleTotals.get(asset.role) ?? 0) > 1 ? `-prompt-${occurrence}` : ''
+        return `${cropPrefix}-${question.id}${suffix}.png`
+      })
+      await Promise.all(assetImages.map((image, index) => copyEmbeddedImage(
         image.source,
         fileURLToPath(new URL(files[index], outputRoot)),
       )))
       imageMap[question.id] = files
       imageAudit[question.id] = await Promise.all(files.map(async (file, index) => ({
         file,
-        reference: assets[index].reference,
-        role: assets[index].role,
+        reference: assetMeta[index].reference,
+        role: assetMeta[index].role,
         sha256: createHash('sha256').update(await readFile(new URL(file, outputRoot))).digest('hex'),
       })))
       continue
@@ -671,6 +806,7 @@ async function buildBank({
   figureRects = {},
   splitImageOptions = false,
   includeLeftFigures = false,
+  optionRectOverrides = {},
 }) {
   const pdfPath = fileURLToPath(new URL(`../source/${source}.pdf`, import.meta.url))
   const raw = await readFile(new URL(`../source/${source}-raw.txt`, import.meta.url), 'utf8')
@@ -715,6 +851,18 @@ async function buildBank({
     const hasQuestionFigure = mixedFigureOptions.includes(question.id)
     if (figuresOnly && imageOptions && !hasQuestionFigure) continue
     const optionRects = imageOptions ? optionCropRects(page, top, bottom) : null
+    // The auto heuristic anchors an option's crop on its own marker line. When
+    // an option's symbol has no room left on that line and wraps onto a blank
+    // row of its own — with nothing to anchor on but a "。" several lines down
+    // — the heuristic has no way to find it and produces a sliver crop. Rather
+    // than guess a general detector from one pack's hand-tuned layout, take an
+    // explicit per-option rect straight from the PDF.
+    const optionOverride = optionRectOverrides[question.id]
+    if (optionRects && optionOverride) {
+      optionOverride.forEach((rect, index) => {
+        if (rect) optionRects[index] = rect
+      })
+    }
     const optionOutputs = optionRects
       ? optionRects.map((_, index) => fileURLToPath(new URL(`${outputName}-${index + 1}.png`, outputRoot)))
       : []

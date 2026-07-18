@@ -4,20 +4,35 @@ import { describe, expect, it } from 'vitest'
 import { buildMockQueue, type Question } from '../src/domain/studyEngine'
 
 const PACKS = [
-  { examId: 'forklift-operation-single', occupationCode: '15100', sourceQuestions: 600, inactive: 19, figures: 37 },
-  { examId: 'interior-decoration-management-b', occupationCode: '12600', sourceQuestions: 718, inactive: 0, figures: 38 },
-  { examId: 'beverage-preparation-c', occupationCode: '20600', sourceQuestions: 617, inactive: 0, figures: 5 },
+  // tightCrops added: this pack's one image-option question (15100-02-015)
+  // now ships four separate option crops instead of one combined strip, and
+  // those per-option crops are small like every other tight-cropped pack.
+  { examId: 'forklift-operation-single', occupationCode: '15100', sourceQuestions: 600, inactive: 19, figures: 37, tightCrops: true },
+  // tightCrops added: 12600-01-043/044/045 (mixedFigureOptions) plus the 15
+  // pure image-option questions all ship small per-option crops now.
+  { examId: 'interior-decoration-management-b', occupationCode: '12600', sourceQuestions: 718, inactive: 0, figures: 38, tightCrops: true },
+  // tightCrops added: 20600-02-016's four options are now separate crops.
+  { examId: 'beverage-preparation-c', occupationCode: '20600', sourceQuestions: 617, inactive: 0, figures: 5, tightCrops: true },
   { examId: 'computer-software-application-b', occupationCode: '11800', sourceQuestions: 776, inactive: 0, figures: 6, cropPrefix: '118002' },
   { examId: 'indoor-wiring-b', occupationCode: '00700', sourceQuestions: 862, inactive: 7, figures: 64, cropPrefix: '007002' },
   { examId: 'indoor-wiring-c', occupationCode: '00700', sourceQuestions: 618, inactive: 0, figures: 62, cropPrefix: '007003', tightCrops: true },
   { examId: 'industrial-electronics-c', occupationCode: '02800', sourceQuestions: 651, inactive: 0, figures: 128, cropPrefix: '028003' },
-  { examId: 'computer-hardware-repair-c', occupationCode: '12000', sourceQuestions: 707, inactive: 0, figures: 17, cropPrefix: '120003' },
-  { examId: 'water-pipe-fitting-c', occupationCode: '01600', sourceQuestions: 707, inactive: 0, figures: 34, cropPrefix: '016003' },
+  // tightCrops added: 12000-01-003 (mixedFigureOptions) now ships a small
+  // base figure plus four small option crops instead of one combined strip.
+  { examId: 'computer-hardware-repair-c', occupationCode: '12000', sourceQuestions: 707, inactive: 0, figures: 17, cropPrefix: '120003', tightCrops: true },
+  // tightCrops added: 15 image-option questions now ship four small option
+  // crops apiece instead of one combined strip.
+  { examId: 'water-pipe-fitting-c', occupationCode: '01600', sourceQuestions: 707, inactive: 0, figures: 34, cropPrefix: '016003', tightCrops: true },
   { examId: 'excavator-operation-single', occupationCode: '07002', sourceQuestions: 668, inactive: 0, figures: 12, cropPrefix: '070024', tightCrops: true },
   // 180 → 183: 11700-05-028/033/114 had four "圖示選項 N" placeholders and no
   // images at all. Their options are vector formulas now cropped from the
   // official PDF, so they count as figure questions.
-  { examId: 'digital-electronics-b', occupationCode: '11700', sourceQuestions: 743, inactive: 0, figures: 183, cropPrefix: '117002', tightCrops: true },
+  // inactive 0 → 2: 11700-06-102 (two real text options + two genuine
+  // circuit-image options — a frontend-contract gap, not a data defect) and
+  // 11700-05-057 (7 images from 3 prompt figures + 4 options, needs a
+  // composite-subset capability that doesn't exist) can't ship correctly yet.
+  // See INACTIVE_IDS in build-exam-packs.mjs.
+  { examId: 'digital-electronics-b', occupationCode: '11700', sourceQuestions: 743, inactive: 2, figures: 183, cropPrefix: '117002', tightCrops: true },
   { examId: 'western-cooking-c', occupationCode: '14000', sourceQuestions: 519, inactive: 4, figures: 0 },
   { examId: 'retail-service-c', occupationCode: '18100', sourceQuestions: 622, inactive: 0, figures: 25, cropPrefix: '181003', tightCrops: true },
   // 73 → 74: 18201-05-048, same vector-formula-option repair as above.
@@ -288,9 +303,13 @@ describe('new high-demand exam packs', () => {
       ['070024A10', 12, 42],
       // 117002A13 and 182012A10 each gained the vector-formula-option crops
       // noted in PACKS above: 3 questions × 4 options, and 1 × 4 respectively.
-      ['117002A13', 183, 250],
+      // 250 → 258: 11700-05-023 and 11700-05-039 each kept their existing
+      // prompt figure and gained four vector-cropped options (+4 apiece).
+      ['117002A13', 183, 258],
       ['181003A13', 25, 52],
-      ['182012A10', 74, 118],
+      // 118 → 122: 18201-05-047 kept its existing prompt figure and gained
+      // four vector-cropped options, same repair as 18201-05-048 above.
+      ['182012A10', 74, 122],
       ['900012A10', 51, 125],
     ] as const) {
       const audit = JSON.parse(readFileSync(

@@ -4575,7 +4575,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "sourceRevision": "117002A13 + 900060A18/900070A17/900080A16/900090A11",
     "questionCount": 1143,
-    "activeQuestionCount": 1138,
+    "activeQuestionCount": 1136,
     "sections": [
       {
         "id": "11700-01",
@@ -4615,7 +4615,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "occupation",
         "titleZh": "電子學與電子電路",
         "questionCount": 122,
-        "activeQuestionCount": 122
+        "activeQuestionCount": 121
       },
       {
         "id": "11700-06",
@@ -4623,7 +4623,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "occupation",
         "titleZh": "數位邏輯設計",
         "questionCount": 140,
-        "activeQuestionCount": 140
+        "activeQuestionCount": 139
       },
       {
         "id": "11700-07",
@@ -4724,8 +4724,8 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 5,
-      "imageQuestionCount": 187,
+      "inactiveQuestionCount": 7,
+      "imageQuestionCount": 185,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
   },

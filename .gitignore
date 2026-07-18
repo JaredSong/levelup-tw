@@ -9,8 +9,9 @@ dist
 .env.*
 !.env.example
 
-# Local tooling
+# Local tooling — the agent team and its brief stay local, not published.
 .claude
+CLAUDE.md
 tmp/
 .venv-paddle/
 __pycache__/

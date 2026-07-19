@@ -35,6 +35,7 @@ const TARGETS = {
   'accounting-c': { subjectCode: '14900', pdf: 'source/149003A15.pdf', bank: 'public/data/exams/accounting-c/questions.json' },
   'forklift-operation-single': { subjectCode: '15100', pdf: 'source/151004A14.pdf', bank: 'public/data/exams/forklift-operation-single/questions.json' },
   'childcare-single': { subjectCode: '15400', pdf: 'source/154004A17.pdf', bank: 'public/data/exams/childcare-single/questions.json' },
+  'electrical-equipment-inspection-c': { subjectCode: '16600', pdf: 'source/166003A15.pdf', bank: 'public/data/exams/electrical-equipment-inspection-c/questions.json' },
   'care-service-single': { subjectCode: '17800', pdf: 'source/178004A13.pdf', bank: 'public/data/exams/care-service-single/questions.json' },
   'web-design-b': { subjectCode: '17300', pdf: 'source/173002A13.pdf', bank: 'public/data/exams/web-design-b/questions.json' },
   'employment-service-b': { subjectCode: '19500', pdf: 'source/195002A17.pdf', bank: 'public/data/exams/employment-service-b/questions.json' },

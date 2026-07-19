@@ -97,6 +97,7 @@ describe('active exam selection', () => {
       'computer-hardware-repair-c',
       'water-pipe-fitting-c',
       'motorcycle-repair-c',
+      'electrical-equipment-inspection-c',
     ]))
   })
 
@@ -127,6 +128,7 @@ describe('active exam selection', () => {
     expect(groups.find((group) => group.category === '電機工程')?.exams.map((exam) => exam.examId)).toEqual([
       'indoor-wiring-b',
       'indoor-wiring-c',
+      'electrical-equipment-inspection-c',
     ])
     expect(groups.find((group) => group.category === '餐飲食品')?.exams.map((exam) => exam.examId)).toEqual([
       'chinese-cooking-meat-c',

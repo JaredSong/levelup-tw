@@ -1,6 +1,6 @@
 # Image Question Map
 
-Generated: 2026-07-17T02:56:17.776Z
+Generated: 2026-07-19T10:39:25.900Z
 
 These are the questions that currently need a figure, graph, code screenshot, or image-option reference.
 
@@ -12,7 +12,7 @@ Replacement workflow:
 
 Do not include the official answer-key column in replacement images.
 
-Total active image questions: 490
+Total active image questions: 845
 
 ## indoor-wiring-b:00700-01-001
 
@@ -35,10 +35,13 @@ Total active image questions: 490
 
 ## indoor-wiring-c:00700-01-001
 
-- Replacement PNG: `public/question-images/007003-00700-01-001.png`
-- App path: `/question-images/007003-00700-01-001.png`
-- Linked uploaded image:
-  - `/question-images/007003-00700-01-001.png`
+- Replacement PNG: `public/question-images/007003-00700-01-001-1.png`
+- App path: `/question-images/007003-00700-01-001-1.png`
+- Linked uploaded images:
+  - `/question-images/007003-00700-01-001-1.png`
+  - `/question-images/007003-00700-01-001-2.png`
+  - `/question-images/007003-00700-01-001-3.png`
+  - `/question-images/007003-00700-01-001-4.png`
 - Current fallback page: `/question-pages/00700-page-2.jpg`
 - Kind: single
 - Official answer: 3
@@ -70,10 +73,13 @@ Total active image questions: 490
 
 ## indoor-wiring-c:00700-01-002
 
-- Replacement PNG: `public/question-images/007003-00700-01-002.png`
-- App path: `/question-images/007003-00700-01-002.png`
-- Linked uploaded image:
-  - `/question-images/007003-00700-01-002.png`
+- Replacement PNG: `public/question-images/007003-00700-01-002-1.png`
+- App path: `/question-images/007003-00700-01-002-1.png`
+- Linked uploaded images:
+  - `/question-images/007003-00700-01-002-1.png`
+  - `/question-images/007003-00700-01-002-2.png`
+  - `/question-images/007003-00700-01-002-3.png`
+  - `/question-images/007003-00700-01-002-4.png`
 - Current fallback page: `/question-pages/00700-page-2.jpg`
 - Kind: single
 - Official answer: 2
@@ -105,10 +111,13 @@ Total active image questions: 490
 
 ## indoor-wiring-c:00700-01-003
 
-- Replacement PNG: `public/question-images/007003-00700-01-003.png`
-- App path: `/question-images/007003-00700-01-003.png`
-- Linked uploaded image:
-  - `/question-images/007003-00700-01-003.png`
+- Replacement PNG: `public/question-images/007003-00700-01-003-1.png`
+- App path: `/question-images/007003-00700-01-003-1.png`
+- Linked uploaded images:
+  - `/question-images/007003-00700-01-003-1.png`
+  - `/question-images/007003-00700-01-003-2.png`
+  - `/question-images/007003-00700-01-003-3.png`
+  - `/question-images/007003-00700-01-003-4.png`
 - Current fallback page: `/question-pages/00700-page-2.jpg`
 - Kind: single
 - Official answer: 4
@@ -159,10 +168,13 @@ Total active image questions: 490
 
 ## indoor-wiring-c:00700-01-005
 
-- Replacement PNG: `public/question-images/007003-00700-01-005.png`
-- App path: `/question-images/007003-00700-01-005.png`
-- Linked uploaded image:
-  - `/question-images/007003-00700-01-005.png`
+- Replacement PNG: `public/question-images/007003-00700-01-005-1.png`
+- App path: `/question-images/007003-00700-01-005-1.png`
+- Linked uploaded images:
+  - `/question-images/007003-00700-01-005-1.png`
+  - `/question-images/007003-00700-01-005-2.png`
+  - `/question-images/007003-00700-01-005-3.png`
+  - `/question-images/007003-00700-01-005-4.png`
 - Current fallback page: `/question-pages/00700-page-2.jpg`
 - Kind: single
 - Official answer: 4
@@ -191,10 +203,13 @@ Total active image questions: 490
 
 ## indoor-wiring-c:00700-01-006
 
-- Replacement PNG: `public/question-images/007003-00700-01-006.png`
-- App path: `/question-images/007003-00700-01-006.png`
-- Linked uploaded image:
-  - `/question-images/007003-00700-01-006.png`
+- Replacement PNG: `public/question-images/007003-00700-01-006-1.png`
+- App path: `/question-images/007003-00700-01-006-1.png`
+- Linked uploaded images:
+  - `/question-images/007003-00700-01-006-1.png`
+  - `/question-images/007003-00700-01-006-2.png`
+  - `/question-images/007003-00700-01-006-3.png`
+  - `/question-images/007003-00700-01-006-4.png`
 - Current fallback page: `/question-pages/00700-page-2.jpg`
 - Kind: single
 - Official answer: 1
@@ -287,10 +302,13 @@ Total active image questions: 490
 
 ## indoor-wiring-c:00700-01-009
 
-- Replacement PNG: `public/question-images/007003-00700-01-009.png`
-- App path: `/question-images/007003-00700-01-009.png`
-- Linked uploaded image:
-  - `/question-images/007003-00700-01-009.png`
+- Replacement PNG: `public/question-images/007003-00700-01-009-1.png`
+- App path: `/question-images/007003-00700-01-009-1.png`
+- Linked uploaded images:
+  - `/question-images/007003-00700-01-009-1.png`
+  - `/question-images/007003-00700-01-009-2.png`
+  - `/question-images/007003-00700-01-009-3.png`
+  - `/question-images/007003-00700-01-009-4.png`
 - Current fallback page: `/question-pages/00700-page-2.jpg`
 - Kind: single
 - Official answer: 2
@@ -386,10 +404,13 @@ Total active image questions: 490
 
 ## indoor-wiring-c:00700-01-012
 
-- Replacement PNG: `public/question-images/007003-00700-01-012.png`
-- App path: `/question-images/007003-00700-01-012.png`
-- Linked uploaded image:
-  - `/question-images/007003-00700-01-012.png`
+- Replacement PNG: `public/question-images/007003-00700-01-012-1.png`
+- App path: `/question-images/007003-00700-01-012-1.png`
+- Linked uploaded images:
+  - `/question-images/007003-00700-01-012-1.png`
+  - `/question-images/007003-00700-01-012-2.png`
+  - `/question-images/007003-00700-01-012-3.png`
+  - `/question-images/007003-00700-01-012-4.png`
 - Current fallback page: `/question-pages/00700-page-2.jpg`
 - Kind: single
 - Official answer: 4
@@ -450,10 +471,13 @@ Total active image questions: 490
 
 ## indoor-wiring-c:00700-01-014
 
-- Replacement PNG: `public/question-images/007003-00700-01-014.png`
-- App path: `/question-images/007003-00700-01-014.png`
-- Linked uploaded image:
-  - `/question-images/007003-00700-01-014.png`
+- Replacement PNG: `public/question-images/007003-00700-01-014-1.png`
+- App path: `/question-images/007003-00700-01-014-1.png`
+- Linked uploaded images:
+  - `/question-images/007003-00700-01-014-1.png`
+  - `/question-images/007003-00700-01-014-2.png`
+  - `/question-images/007003-00700-01-014-3.png`
+  - `/question-images/007003-00700-01-014-4.png`
 - Current fallback page: `/question-pages/00700-page-3.jpg`
 - Kind: single
 - Official answer: 1
@@ -501,10 +525,13 @@ Total active image questions: 490
 
 ## indoor-wiring-c:00700-01-016
 
-- Replacement PNG: `public/question-images/007003-00700-01-016.png`
-- App path: `/question-images/007003-00700-01-016.png`
-- Linked uploaded image:
-  - `/question-images/007003-00700-01-016.png`
+- Replacement PNG: `public/question-images/007003-00700-01-016-1.png`
+- App path: `/question-images/007003-00700-01-016-1.png`
+- Linked uploaded images:
+  - `/question-images/007003-00700-01-016-1.png`
+  - `/question-images/007003-00700-01-016-2.png`
+  - `/question-images/007003-00700-01-016-3.png`
+  - `/question-images/007003-00700-01-016-4.png`
 - Current fallback page: `/question-pages/00700-page-3.jpg`
 - Kind: single
 - Official answer: 1
@@ -635,10 +662,13 @@ Total active image questions: 490
 
 ## indoor-wiring-c:00700-01-020
 
-- Replacement PNG: `public/question-images/007003-00700-01-020.png`
-- App path: `/question-images/007003-00700-01-020.png`
-- Linked uploaded image:
-  - `/question-images/007003-00700-01-020.png`
+- Replacement PNG: `public/question-images/007003-00700-01-020-1.png`
+- App path: `/question-images/007003-00700-01-020-1.png`
+- Linked uploaded images:
+  - `/question-images/007003-00700-01-020-1.png`
+  - `/question-images/007003-00700-01-020-2.png`
+  - `/question-images/007003-00700-01-020-3.png`
+  - `/question-images/007003-00700-01-020-4.png`
 - Current fallback page: `/question-pages/00700-page-3.jpg`
 - Kind: single
 - Official answer: 2
@@ -670,10 +700,13 @@ Total active image questions: 490
 
 ## indoor-wiring-c:00700-01-021
 
-- Replacement PNG: `public/question-images/007003-00700-01-021.png`
-- App path: `/question-images/007003-00700-01-021.png`
-- Linked uploaded image:
-  - `/question-images/007003-00700-01-021.png`
+- Replacement PNG: `public/question-images/007003-00700-01-021-1.png`
+- App path: `/question-images/007003-00700-01-021-1.png`
+- Linked uploaded images:
+  - `/question-images/007003-00700-01-021-1.png`
+  - `/question-images/007003-00700-01-021-2.png`
+  - `/question-images/007003-00700-01-021-3.png`
+  - `/question-images/007003-00700-01-021-4.png`
 - Current fallback page: `/question-pages/00700-page-3.jpg`
 - Kind: single
 - Official answer: 3
@@ -734,10 +767,13 @@ Total active image questions: 490
 
 ## indoor-wiring-c:00700-01-023
 
-- Replacement PNG: `public/question-images/007003-00700-01-023.png`
-- App path: `/question-images/007003-00700-01-023.png`
-- Linked uploaded image:
-  - `/question-images/007003-00700-01-023.png`
+- Replacement PNG: `public/question-images/007003-00700-01-023-1.png`
+- App path: `/question-images/007003-00700-01-023-1.png`
+- Linked uploaded images:
+  - `/question-images/007003-00700-01-023-1.png`
+  - `/question-images/007003-00700-01-023-2.png`
+  - `/question-images/007003-00700-01-023-3.png`
+  - `/question-images/007003-00700-01-023-4.png`
 - Current fallback page: `/question-pages/00700-page-3.jpg`
 - Kind: single
 - Official answer: 4
@@ -958,10 +994,13 @@ Total active image questions: 490
 
 ## indoor-wiring-c:00700-01-030
 
-- Replacement PNG: `public/question-images/007003-00700-01-030.png`
-- App path: `/question-images/007003-00700-01-030.png`
-- Linked uploaded image:
-  - `/question-images/007003-00700-01-030.png`
+- Replacement PNG: `public/question-images/007003-00700-01-030-1.png`
+- App path: `/question-images/007003-00700-01-030-1.png`
+- Linked uploaded images:
+  - `/question-images/007003-00700-01-030-1.png`
+  - `/question-images/007003-00700-01-030-2.png`
+  - `/question-images/007003-00700-01-030-3.png`
+  - `/question-images/007003-00700-01-030-4.png`
 - Current fallback page: `/question-pages/00700-page-4.jpg`
 - Kind: single
 - Official answer: 4
@@ -990,10 +1029,13 @@ Total active image questions: 490
 
 ## indoor-wiring-c:00700-01-031
 
-- Replacement PNG: `public/question-images/007003-00700-01-031.png`
-- App path: `/question-images/007003-00700-01-031.png`
-- Linked uploaded image:
-  - `/question-images/007003-00700-01-031.png`
+- Replacement PNG: `public/question-images/007003-00700-01-031-1.png`
+- App path: `/question-images/007003-00700-01-031-1.png`
+- Linked uploaded images:
+  - `/question-images/007003-00700-01-031-1.png`
+  - `/question-images/007003-00700-01-031-2.png`
+  - `/question-images/007003-00700-01-031-3.png`
+  - `/question-images/007003-00700-01-031-4.png`
 - Current fallback page: `/question-pages/00700-page-4.jpg`
 - Kind: single
 - Official answer: 2
@@ -1022,10 +1064,13 @@ Total active image questions: 490
 
 ## indoor-wiring-c:00700-01-032
 
-- Replacement PNG: `public/question-images/007003-00700-01-032.png`
-- App path: `/question-images/007003-00700-01-032.png`
-- Linked uploaded image:
-  - `/question-images/007003-00700-01-032.png`
+- Replacement PNG: `public/question-images/007003-00700-01-032-1.png`
+- App path: `/question-images/007003-00700-01-032-1.png`
+- Linked uploaded images:
+  - `/question-images/007003-00700-01-032-1.png`
+  - `/question-images/007003-00700-01-032-2.png`
+  - `/question-images/007003-00700-01-032-3.png`
+  - `/question-images/007003-00700-01-032-4.png`
 - Current fallback page: `/question-pages/00700-page-4.jpg`
 - Kind: single
 - Official answer: 4
@@ -1054,10 +1099,13 @@ Total active image questions: 490
 
 ## indoor-wiring-c:00700-01-033
 
-- Replacement PNG: `public/question-images/007003-00700-01-033.png`
-- App path: `/question-images/007003-00700-01-033.png`
-- Linked uploaded image:
-  - `/question-images/007003-00700-01-033.png`
+- Replacement PNG: `public/question-images/007003-00700-01-033-1.png`
+- App path: `/question-images/007003-00700-01-033-1.png`
+- Linked uploaded images:
+  - `/question-images/007003-00700-01-033-1.png`
+  - `/question-images/007003-00700-01-033-2.png`
+  - `/question-images/007003-00700-01-033-3.png`
+  - `/question-images/007003-00700-01-033-4.png`
 - Current fallback page: `/question-pages/00700-page-4.jpg`
 - Kind: single
 - Official answer: 1
@@ -1089,10 +1137,13 @@ Total active image questions: 490
 
 ## indoor-wiring-c:00700-01-034
 
-- Replacement PNG: `public/question-images/007003-00700-01-034.png`
-- App path: `/question-images/007003-00700-01-034.png`
-- Linked uploaded image:
-  - `/question-images/007003-00700-01-034.png`
+- Replacement PNG: `public/question-images/007003-00700-01-034-1.png`
+- App path: `/question-images/007003-00700-01-034-1.png`
+- Linked uploaded images:
+  - `/question-images/007003-00700-01-034-1.png`
+  - `/question-images/007003-00700-01-034-2.png`
+  - `/question-images/007003-00700-01-034-3.png`
+  - `/question-images/007003-00700-01-034-4.png`
 - Current fallback page: `/question-pages/00700-page-4.jpg`
 - Kind: single
 - Official answer: 2
@@ -1267,10 +1318,13 @@ Total active image questions: 490
 
 ## indoor-wiring-c:00700-01-040
 
-- Replacement PNG: `public/question-images/007003-00700-01-040.png`
-- App path: `/question-images/007003-00700-01-040.png`
-- Linked uploaded image:
-  - `/question-images/007003-00700-01-040.png`
+- Replacement PNG: `public/question-images/007003-00700-01-040-1.png`
+- App path: `/question-images/007003-00700-01-040-1.png`
+- Linked uploaded images:
+  - `/question-images/007003-00700-01-040-1.png`
+  - `/question-images/007003-00700-01-040-2.png`
+  - `/question-images/007003-00700-01-040-3.png`
+  - `/question-images/007003-00700-01-040-4.png`
 - Current fallback page: `/question-pages/00700-page-5.jpg`
 - Kind: single
 - Official answer: 3
@@ -1598,10 +1652,13 @@ Total active image questions: 490
 
 ## indoor-wiring-c:00700-03-003
 
-- Replacement PNG: `public/question-images/007003-00700-03-003.png`
-- App path: `/question-images/007003-00700-03-003.png`
-- Linked uploaded image:
-  - `/question-images/007003-00700-03-003.png`
+- Replacement PNG: `public/question-images/007003-00700-03-003-1.png`
+- App path: `/question-images/007003-00700-03-003-1.png`
+- Linked uploaded images:
+  - `/question-images/007003-00700-03-003-1.png`
+  - `/question-images/007003-00700-03-003-2.png`
+  - `/question-images/007003-00700-03-003-3.png`
+  - `/question-images/007003-00700-03-003-4.png`
 - Current fallback page: `/question-pages/00700-page-8.jpg`
 - Kind: single
 - Official answer: 2
@@ -1614,10 +1671,13 @@ Total active image questions: 490
 
 ## indoor-wiring-c:00700-03-004
 
-- Replacement PNG: `public/question-images/007003-00700-03-004.png`
-- App path: `/question-images/007003-00700-03-004.png`
-- Linked uploaded image:
-  - `/question-images/007003-00700-03-004.png`
+- Replacement PNG: `public/question-images/007003-00700-03-004-1.png`
+- App path: `/question-images/007003-00700-03-004-1.png`
+- Linked uploaded images:
+  - `/question-images/007003-00700-03-004-1.png`
+  - `/question-images/007003-00700-03-004-2.png`
+  - `/question-images/007003-00700-03-004-3.png`
+  - `/question-images/007003-00700-03-004-4.png`
 - Current fallback page: `/question-pages/00700-page-8.jpg`
 - Kind: single
 - Official answer: 4
@@ -1649,10 +1709,13 @@ Total active image questions: 490
 
 ## indoor-wiring-c:00700-03-015
 
-- Replacement PNG: `public/question-images/007003-00700-03-015.png`
-- App path: `/question-images/007003-00700-03-015.png`
-- Linked uploaded image:
-  - `/question-images/007003-00700-03-015.png`
+- Replacement PNG: `public/question-images/007003-00700-03-015-1.png`
+- App path: `/question-images/007003-00700-03-015-1.png`
+- Linked uploaded images:
+  - `/question-images/007003-00700-03-015-1.png`
+  - `/question-images/007003-00700-03-015-2.png`
+  - `/question-images/007003-00700-03-015-3.png`
+  - `/question-images/007003-00700-03-015-4.png`
 - Current fallback page: `/question-pages/00700-page-9.jpg`
 - Kind: single
 - Official answer: 2
@@ -1857,10 +1920,13 @@ Total active image questions: 490
 
 ## indoor-wiring-c:00700-12-006
 
-- Replacement PNG: `public/question-images/007003-00700-12-006.png`
-- App path: `/question-images/007003-00700-12-006.png`
-- Linked uploaded image:
-  - `/question-images/007003-00700-12-006.png`
+- Replacement PNG: `public/question-images/007003-00700-12-006-1.png`
+- App path: `/question-images/007003-00700-12-006-1.png`
+- Linked uploaded images:
+  - `/question-images/007003-00700-12-006-1.png`
+  - `/question-images/007003-00700-12-006-2.png`
+  - `/question-images/007003-00700-12-006-3.png`
+  - `/question-images/007003-00700-12-006-4.png`
 - Current fallback page: `/question-pages/00700-page-28.jpg`
 - Kind: single
 - Official answer: 2
@@ -2161,10 +2227,13 @@ Total active image questions: 490
 
 ## water-pipe-fitting-c:01600-01-006
 
-- Replacement PNG: `public/question-images/016003-01600-01-006.png`
-- App path: `/question-images/016003-01600-01-006.png`
-- Linked uploaded image:
-  - `/question-images/016003-01600-01-006.png`
+- Replacement PNG: `public/question-images/016003-01600-01-006-1.png`
+- App path: `/question-images/016003-01600-01-006-1.png`
+- Linked uploaded images:
+  - `/question-images/016003-01600-01-006-1.png`
+  - `/question-images/016003-01600-01-006-2.png`
+  - `/question-images/016003-01600-01-006-3.png`
+  - `/question-images/016003-01600-01-006-4.png`
 - Current fallback page: `/question-pages/01600-page-2.jpg`
 - Kind: single
 - Official answer: 4
@@ -2177,10 +2246,13 @@ Total active image questions: 490
 
 ## water-pipe-fitting-c:01600-01-007
 
-- Replacement PNG: `public/question-images/016003-01600-01-007.png`
-- App path: `/question-images/016003-01600-01-007.png`
-- Linked uploaded image:
-  - `/question-images/016003-01600-01-007.png`
+- Replacement PNG: `public/question-images/016003-01600-01-007-1.png`
+- App path: `/question-images/016003-01600-01-007-1.png`
+- Linked uploaded images:
+  - `/question-images/016003-01600-01-007-1.png`
+  - `/question-images/016003-01600-01-007-2.png`
+  - `/question-images/016003-01600-01-007-3.png`
+  - `/question-images/016003-01600-01-007-4.png`
 - Current fallback page: `/question-pages/01600-page-2.jpg`
 - Kind: single
 - Official answer: 2
@@ -2209,10 +2281,13 @@ Total active image questions: 490
 
 ## water-pipe-fitting-c:01600-01-012
 
-- Replacement PNG: `public/question-images/016003-01600-01-012.png`
-- App path: `/question-images/016003-01600-01-012.png`
-- Linked uploaded image:
-  - `/question-images/016003-01600-01-012.png`
+- Replacement PNG: `public/question-images/016003-01600-01-012-1.png`
+- App path: `/question-images/016003-01600-01-012-1.png`
+- Linked uploaded images:
+  - `/question-images/016003-01600-01-012-1.png`
+  - `/question-images/016003-01600-01-012-2.png`
+  - `/question-images/016003-01600-01-012-3.png`
+  - `/question-images/016003-01600-01-012-4.png`
 - Current fallback page: `/question-pages/01600-page-3.jpg`
 - Kind: single
 - Official answer: 3
@@ -2225,10 +2300,13 @@ Total active image questions: 490
 
 ## water-pipe-fitting-c:01600-01-015
 
-- Replacement PNG: `public/question-images/016003-01600-01-015.png`
-- App path: `/question-images/016003-01600-01-015.png`
-- Linked uploaded image:
-  - `/question-images/016003-01600-01-015.png`
+- Replacement PNG: `public/question-images/016003-01600-01-015-1.png`
+- App path: `/question-images/016003-01600-01-015-1.png`
+- Linked uploaded images:
+  - `/question-images/016003-01600-01-015-1.png`
+  - `/question-images/016003-01600-01-015-2.png`
+  - `/question-images/016003-01600-01-015-3.png`
+  - `/question-images/016003-01600-01-015-4.png`
 - Current fallback page: `/question-pages/01600-page-3.jpg`
 - Kind: single
 - Official answer: 1
@@ -2273,10 +2351,13 @@ Total active image questions: 490
 
 ## water-pipe-fitting-c:01600-01-020
 
-- Replacement PNG: `public/question-images/016003-01600-01-020.png`
-- App path: `/question-images/016003-01600-01-020.png`
-- Linked uploaded image:
-  - `/question-images/016003-01600-01-020.png`
+- Replacement PNG: `public/question-images/016003-01600-01-020-1.png`
+- App path: `/question-images/016003-01600-01-020-1.png`
+- Linked uploaded images:
+  - `/question-images/016003-01600-01-020-1.png`
+  - `/question-images/016003-01600-01-020-2.png`
+  - `/question-images/016003-01600-01-020-3.png`
+  - `/question-images/016003-01600-01-020-4.png`
 - Current fallback page: `/question-pages/01600-page-3.jpg`
 - Kind: single
 - Official answer: 3
@@ -2305,10 +2386,13 @@ Total active image questions: 490
 
 ## water-pipe-fitting-c:01600-01-022
 
-- Replacement PNG: `public/question-images/016003-01600-01-022.png`
-- App path: `/question-images/016003-01600-01-022.png`
-- Linked uploaded image:
-  - `/question-images/016003-01600-01-022.png`
+- Replacement PNG: `public/question-images/016003-01600-01-022-1.png`
+- App path: `/question-images/016003-01600-01-022-1.png`
+- Linked uploaded images:
+  - `/question-images/016003-01600-01-022-1.png`
+  - `/question-images/016003-01600-01-022-2.png`
+  - `/question-images/016003-01600-01-022-3.png`
+  - `/question-images/016003-01600-01-022-4.png`
 - Current fallback page: `/question-pages/01600-page-3.jpg`
 - Kind: single
 - Official answer: 2
@@ -2321,10 +2405,13 @@ Total active image questions: 490
 
 ## water-pipe-fitting-c:01600-01-023
 
-- Replacement PNG: `public/question-images/016003-01600-01-023.png`
-- App path: `/question-images/016003-01600-01-023.png`
-- Linked uploaded image:
-  - `/question-images/016003-01600-01-023.png`
+- Replacement PNG: `public/question-images/016003-01600-01-023-1.png`
+- App path: `/question-images/016003-01600-01-023-1.png`
+- Linked uploaded images:
+  - `/question-images/016003-01600-01-023-1.png`
+  - `/question-images/016003-01600-01-023-2.png`
+  - `/question-images/016003-01600-01-023-3.png`
+  - `/question-images/016003-01600-01-023-4.png`
 - Current fallback page: `/question-pages/01600-page-4.jpg`
 - Kind: single
 - Official answer: 2
@@ -2449,10 +2536,13 @@ Total active image questions: 490
 
 ## water-pipe-fitting-c:01600-01-034
 
-- Replacement PNG: `public/question-images/016003-01600-01-034.png`
-- App path: `/question-images/016003-01600-01-034.png`
-- Linked uploaded image:
-  - `/question-images/016003-01600-01-034.png`
+- Replacement PNG: `public/question-images/016003-01600-01-034-1.png`
+- App path: `/question-images/016003-01600-01-034-1.png`
+- Linked uploaded images:
+  - `/question-images/016003-01600-01-034-1.png`
+  - `/question-images/016003-01600-01-034-2.png`
+  - `/question-images/016003-01600-01-034-3.png`
+  - `/question-images/016003-01600-01-034-4.png`
 - Current fallback page: `/question-pages/01600-page-5.jpg`
 - Kind: single
 - Official answer: 2
@@ -2465,10 +2555,13 @@ Total active image questions: 490
 
 ## water-pipe-fitting-c:01600-01-035
 
-- Replacement PNG: `public/question-images/016003-01600-01-035.png`
-- App path: `/question-images/016003-01600-01-035.png`
-- Linked uploaded image:
-  - `/question-images/016003-01600-01-035.png`
+- Replacement PNG: `public/question-images/016003-01600-01-035-1.png`
+- App path: `/question-images/016003-01600-01-035-1.png`
+- Linked uploaded images:
+  - `/question-images/016003-01600-01-035-1.png`
+  - `/question-images/016003-01600-01-035-2.png`
+  - `/question-images/016003-01600-01-035-3.png`
+  - `/question-images/016003-01600-01-035-4.png`
 - Current fallback page: `/question-pages/01600-page-5.jpg`
 - Kind: single
 - Official answer: 1
@@ -2481,10 +2574,13 @@ Total active image questions: 490
 
 ## water-pipe-fitting-c:01600-01-036
 
-- Replacement PNG: `public/question-images/016003-01600-01-036.png`
-- App path: `/question-images/016003-01600-01-036.png`
-- Linked uploaded image:
-  - `/question-images/016003-01600-01-036.png`
+- Replacement PNG: `public/question-images/016003-01600-01-036-1.png`
+- App path: `/question-images/016003-01600-01-036-1.png`
+- Linked uploaded images:
+  - `/question-images/016003-01600-01-036-1.png`
+  - `/question-images/016003-01600-01-036-2.png`
+  - `/question-images/016003-01600-01-036-3.png`
+  - `/question-images/016003-01600-01-036-4.png`
 - Current fallback page: `/question-pages/01600-page-5.jpg`
 - Kind: single
 - Official answer: 4
@@ -2561,10 +2657,13 @@ Total active image questions: 490
 
 ## water-pipe-fitting-c:01600-01-104
 
-- Replacement PNG: `public/question-images/016003-01600-01-104.png`
-- App path: `/question-images/016003-01600-01-104.png`
-- Linked uploaded image:
-  - `/question-images/016003-01600-01-104.png`
+- Replacement PNG: `public/question-images/016003-01600-01-104-1.png`
+- App path: `/question-images/016003-01600-01-104-1.png`
+- Linked uploaded images:
+  - `/question-images/016003-01600-01-104-1.png`
+  - `/question-images/016003-01600-01-104-2.png`
+  - `/question-images/016003-01600-01-104-3.png`
+  - `/question-images/016003-01600-01-104-4.png`
 - Current fallback page: `/question-pages/01600-page-8.jpg`
 - Kind: single
 - Official answer: 1
@@ -2577,10 +2676,13 @@ Total active image questions: 490
 
 ## water-pipe-fitting-c:01600-01-105
 
-- Replacement PNG: `public/question-images/016003-01600-01-105.png`
-- App path: `/question-images/016003-01600-01-105.png`
-- Linked uploaded image:
-  - `/question-images/016003-01600-01-105.png`
+- Replacement PNG: `public/question-images/016003-01600-01-105-1.png`
+- App path: `/question-images/016003-01600-01-105-1.png`
+- Linked uploaded images:
+  - `/question-images/016003-01600-01-105-1.png`
+  - `/question-images/016003-01600-01-105-2.png`
+  - `/question-images/016003-01600-01-105-3.png`
+  - `/question-images/016003-01600-01-105-4.png`
 - Current fallback page: `/question-pages/01600-page-9.jpg`
 - Kind: single
 - Official answer: 2
@@ -2593,10 +2695,13 @@ Total active image questions: 490
 
 ## water-pipe-fitting-c:01600-01-106
 
-- Replacement PNG: `public/question-images/016003-01600-01-106.png`
-- App path: `/question-images/016003-01600-01-106.png`
-- Linked uploaded image:
-  - `/question-images/016003-01600-01-106.png`
+- Replacement PNG: `public/question-images/016003-01600-01-106-1.png`
+- App path: `/question-images/016003-01600-01-106-1.png`
+- Linked uploaded images:
+  - `/question-images/016003-01600-01-106-1.png`
+  - `/question-images/016003-01600-01-106-2.png`
+  - `/question-images/016003-01600-01-106-3.png`
+  - `/question-images/016003-01600-01-106-4.png`
 - Current fallback page: `/question-pages/01600-page-9.jpg`
 - Kind: single
 - Official answer: 3
@@ -2625,10 +2730,13 @@ Total active image questions: 490
 
 ## water-pipe-fitting-c:01600-03-013
 
-- Replacement PNG: `public/question-images/016003-01600-03-013.png`
-- App path: `/question-images/016003-01600-03-013.png`
-- Linked uploaded image:
-  - `/question-images/016003-01600-03-013.png`
+- Replacement PNG: `public/question-images/016003-01600-03-013-1.png`
+- App path: `/question-images/016003-01600-03-013-1.png`
+- Linked uploaded images:
+  - `/question-images/016003-01600-03-013-1.png`
+  - `/question-images/016003-01600-03-013-2.png`
+  - `/question-images/016003-01600-03-013-3.png`
+  - `/question-images/016003-01600-03-013-4.png`
 - Current fallback page: `/question-pages/01600-page-16.jpg`
 - Kind: single
 - Official answer: 2
@@ -2657,10 +2765,13 @@ Total active image questions: 490
 
 ## water-pipe-fitting-c:01600-06-020
 
-- Replacement PNG: `public/question-images/016003-01600-06-020.png`
-- App path: `/question-images/016003-01600-06-020.png`
-- Linked uploaded image:
-  - `/question-images/016003-01600-06-020.png`
+- Replacement PNG: `public/question-images/016003-01600-06-020-1.png`
+- App path: `/question-images/016003-01600-06-020-1.png`
+- Linked uploaded images:
+  - `/question-images/016003-01600-06-020-1.png`
+  - `/question-images/016003-01600-06-020-2.png`
+  - `/question-images/016003-01600-06-020-3.png`
+  - `/question-images/016003-01600-06-020-4.png`
 - Current fallback page: `/question-pages/01600-page-35.jpg`
 - Kind: single
 - Official answer: 4
@@ -5308,7 +5419,7 @@ Total active image questions: 490
 - Prompt: 下圖所示，W 為
 - Options:
   - 1. Y(X + Z)
-  - 2. ¬(¬XY + ¬YZ)
+  - 2. ¬(¬(XY) + ¬(YZ))
   - 3. XYZ
   - 4. ¬(XYZ)
 
@@ -5549,6 +5660,434 @@ Total active image questions: 490
   - 3. 電壓放大電路用
   - 4. 消除開關的彈跳現象用
 
+## excavator-operation-single:07002-01-037
+
+- Replacement PNG: `public/question-images/070024-07002-01-037.png`
+- App path: `/question-images/070024-07002-01-037.png`
+- Linked uploaded image:
+  - `/question-images/070024-07002-01-037.png`
+- Current fallback page: `/question-pages/07002-page-3.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 此符號係何種儀錶？
+- Options:
+  - 1. 溫度錶
+  - 2. 引擎機油壓力指示錶
+  - 3. 操作油壓力錶
+  - 4. 溫度過熱警示錶
+
+## excavator-operation-single:07002-01-038
+
+- Replacement PNG: `public/question-images/070024-07002-01-038.png`
+- App path: `/question-images/070024-07002-01-038.png`
+- Linked uploaded image:
+  - `/question-images/070024-07002-01-038.png`
+- Current fallback page: `/question-pages/07002-page-3.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 〃   〃此符號，表示何種儀錶？
+- Options:
+  - 1. 引擎機油壓力錶
+  - 2. 冷卻液溫度錶
+  - 3. 操作油壓力錶
+  - 4. 柴油壓力錶
+
+## excavator-operation-single:07002-02-153
+
+- Replacement PNG: `public/question-images/070024-07002-02-153-option-1.png`
+- App path: `/question-images/070024-07002-02-153-option-1.png`
+- Linked uploaded images:
+  - `/question-images/070024-07002-02-153-option-1.png`
+  - `/question-images/070024-07002-02-153-option-2.png`
+  - `/question-images/070024-07002-02-153-option-3.png`
+  - `/question-images/070024-07002-02-153-option-4.png`
+- Current fallback page: `/question-pages/07002-page-24.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下列何者為引擎機油壓力錶識別符號？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## excavator-operation-single:07002-02-154
+
+- Replacement PNG: `public/question-images/070024-07002-02-154-option-1.png`
+- App path: `/question-images/070024-07002-02-154-option-1.png`
+- Linked uploaded images:
+  - `/question-images/070024-07002-02-154-option-1.png`
+  - `/question-images/070024-07002-02-154-option-2.png`
+  - `/question-images/070024-07002-02-154-option-3.png`
+  - `/question-images/070024-07002-02-154-option-4.png`
+- Current fallback page: `/question-pages/07002-page-24.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下列何者為引擎水溫錶識別符號？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## excavator-operation-single:07002-02-155
+
+- Replacement PNG: `public/question-images/070024-07002-02-155-option-1.png`
+- App path: `/question-images/070024-07002-02-155-option-1.png`
+- Linked uploaded images:
+  - `/question-images/070024-07002-02-155-option-1.png`
+  - `/question-images/070024-07002-02-155-option-2.png`
+  - `/question-images/070024-07002-02-155-option-3.png`
+  - `/question-images/070024-07002-02-155-option-4.png`
+- Current fallback page: `/question-pages/07002-page-24.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下列何者為液壓油壓力錶識別符號？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## excavator-operation-single:07002-02-156
+
+- Replacement PNG: `public/question-images/070024-07002-02-156-option-1.png`
+- App path: `/question-images/070024-07002-02-156-option-1.png`
+- Linked uploaded images:
+  - `/question-images/070024-07002-02-156-option-1.png`
+  - `/question-images/070024-07002-02-156-option-2.png`
+  - `/question-images/070024-07002-02-156-option-3.png`
+  - `/question-images/070024-07002-02-156-option-4.png`
+- Current fallback page: `/question-pages/07002-page-24.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下列何者為空氣過濾器識別符號？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## excavator-operation-single:07002-02-157
+
+- Replacement PNG: `public/question-images/070024-07002-02-157-option-1.png`
+- App path: `/question-images/070024-07002-02-157-option-1.png`
+- Linked uploaded images:
+  - `/question-images/070024-07002-02-157-option-1.png`
+  - `/question-images/070024-07002-02-157-option-2.png`
+  - `/question-images/070024-07002-02-157-option-3.png`
+  - `/question-images/070024-07002-02-157-option-4.png`
+- Current fallback page: `/question-pages/07002-page-24.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下列何者為液壓油溫度錶識別符號？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## excavator-operation-single:07002-02-158
+
+- Replacement PNG: `public/question-images/070024-07002-02-158-option-1.png`
+- App path: `/question-images/070024-07002-02-158-option-1.png`
+- Linked uploaded images:
+  - `/question-images/070024-07002-02-158-option-1.png`
+  - `/question-images/070024-07002-02-158-option-2.png`
+  - `/question-images/070024-07002-02-158-option-3.png`
+  - `/question-images/070024-07002-02-158-option-4.png`
+- Current fallback page: `/question-pages/07002-page-24.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下列何者為扭力變換器機油溫度錶識別符號？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## excavator-operation-single:07002-02-159
+
+- Replacement PNG: `public/question-images/070024-07002-02-159-option-1.png`
+- App path: `/question-images/070024-07002-02-159-option-1.png`
+- Linked uploaded images:
+  - `/question-images/070024-07002-02-159-option-1.png`
+  - `/question-images/070024-07002-02-159-option-2.png`
+  - `/question-images/070024-07002-02-159-option-3.png`
+  - `/question-images/070024-07002-02-159-option-4.png`
+- Current fallback page: `/question-pages/07002-page-24.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下列何者為柴油油平面識別符號？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## excavator-operation-single:07002-02-160
+
+- Replacement PNG: `public/question-images/070024-07002-02-160-option-1.png`
+- App path: `/question-images/070024-07002-02-160-option-1.png`
+- Linked uploaded images:
+  - `/question-images/070024-07002-02-160-option-1.png`
+  - `/question-images/070024-07002-02-160-option-2.png`
+  - `/question-images/070024-07002-02-160-option-3.png`
+  - `/question-images/070024-07002-02-160-option-4.png`
+- Current fallback page: `/question-pages/07002-page-24.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下列何者為電錶或充電發電機識別符號？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## excavator-operation-single:07002-02-161
+
+- Replacement PNG: `public/question-images/070024-07002-02-161-option-1.png`
+- App path: `/question-images/070024-07002-02-161-option-1.png`
+- Linked uploaded images:
+  - `/question-images/070024-07002-02-161-option-1.png`
+  - `/question-images/070024-07002-02-161-option-2.png`
+  - `/question-images/070024-07002-02-161-option-3.png`
+  - `/question-images/070024-07002-02-161-option-4.png`
+- Current fallback page: `/question-pages/07002-page-24.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下列那一個標誌表示可能造成人員傷亡的警告？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## excavator-operation-single:07002-02-162
+
+- Replacement PNG: `public/question-images/070024-07002-02-162-option-1.png`
+- App path: `/question-images/070024-07002-02-162-option-1.png`
+- Linked uploaded images:
+  - `/question-images/070024-07002-02-162-option-1.png`
+  - `/question-images/070024-07002-02-162-option-2.png`
+  - `/question-images/070024-07002-02-162-option-3.png`
+  - `/question-images/070024-07002-02-162-option-4.png`
+- Current fallback page: `/question-pages/07002-page-24.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下列何者為變速箱機油濾清器識別符號？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## loader-operation-single:07004-02-007
+
+- Replacement PNG: `public/question-images/070044-07004-02-007.png`
+- App path: `/question-images/070044-07004-02-007.png`
+- Linked uploaded image:
+  - `/question-images/070044-07004-02-007.png`
+- Current fallback page: `/question-pages/07004-page-17.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖符號表示何種儀錶？
+- Options:
+  - 1. 引擎機油壓力錶
+  - 2. 冷卻水溫度過熱警示錶
+  - 3. 液壓油壓力錶
+  - 4. 柴油壓力錶
+
+## loader-operation-single:07004-02-107
+
+- Replacement PNG: `public/question-images/070044-07004-02-107-1.png`
+- App path: `/question-images/070044-07004-02-107-1.png`
+- Linked uploaded images:
+  - `/question-images/070044-07004-02-107-1.png`
+  - `/question-images/070044-07004-02-107-2.png`
+  - `/question-images/070044-07004-02-107-3.png`
+  - `/question-images/070044-07004-02-107-4.png`
+- Current fallback page: `/question-pages/07004-page-23.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下列何者為引擎水溫錶識別符號？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## loader-operation-single:07004-02-108
+
+- Replacement PNG: `public/question-images/070044-07004-02-108-1.png`
+- App path: `/question-images/070044-07004-02-108-1.png`
+- Linked uploaded images:
+  - `/question-images/070044-07004-02-108-1.png`
+  - `/question-images/070044-07004-02-108-2.png`
+  - `/question-images/070044-07004-02-108-3.png`
+  - `/question-images/070044-07004-02-108-4.png`
+- Current fallback page: `/question-pages/07004-page-23.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下列何者為引擎機油壓力錶識別符號？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## loader-operation-single:07004-02-109
+
+- Replacement PNG: `public/question-images/070044-07004-02-109-1.png`
+- App path: `/question-images/070044-07004-02-109-1.png`
+- Linked uploaded images:
+  - `/question-images/070044-07004-02-109-1.png`
+  - `/question-images/070044-07004-02-109-2.png`
+  - `/question-images/070044-07004-02-109-3.png`
+  - `/question-images/070044-07004-02-109-4.png`
+- Current fallback page: `/question-pages/07004-page-23.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下列何者為液壓油壓力錶識別符號？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## loader-operation-single:07004-02-110
+
+- Replacement PNG: `public/question-images/070044-07004-02-110-1.png`
+- App path: `/question-images/070044-07004-02-110-1.png`
+- Linked uploaded images:
+  - `/question-images/070044-07004-02-110-1.png`
+  - `/question-images/070044-07004-02-110-2.png`
+  - `/question-images/070044-07004-02-110-3.png`
+  - `/question-images/070044-07004-02-110-4.png`
+- Current fallback page: `/question-pages/07004-page-23.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下列何者為空氣過濾器識別符號？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## loader-operation-single:07004-02-111
+
+- Replacement PNG: `public/question-images/070044-07004-02-111-1.png`
+- App path: `/question-images/070044-07004-02-111-1.png`
+- Linked uploaded images:
+  - `/question-images/070044-07004-02-111-1.png`
+  - `/question-images/070044-07004-02-111-2.png`
+  - `/question-images/070044-07004-02-111-3.png`
+  - `/question-images/070044-07004-02-111-4.png`
+- Current fallback page: `/question-pages/07004-page-23.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下列何者為液壓油溫度錶識別符號？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## loader-operation-single:07004-02-112
+
+- Replacement PNG: `public/question-images/070044-07004-02-112-1.png`
+- App path: `/question-images/070044-07004-02-112-1.png`
+- Linked uploaded images:
+  - `/question-images/070044-07004-02-112-1.png`
+  - `/question-images/070044-07004-02-112-2.png`
+  - `/question-images/070044-07004-02-112-3.png`
+  - `/question-images/070044-07004-02-112-4.png`
+- Current fallback page: `/question-pages/07004-page-23.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下列何者為冷卻水位識別符號？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## loader-operation-single:07004-02-113
+
+- Replacement PNG: `public/question-images/070044-07004-02-113-1.png`
+- App path: `/question-images/070044-07004-02-113-1.png`
+- Linked uploaded images:
+  - `/question-images/070044-07004-02-113-1.png`
+  - `/question-images/070044-07004-02-113-2.png`
+  - `/question-images/070044-07004-02-113-3.png`
+  - `/question-images/070044-07004-02-113-4.png`
+- Current fallback page: `/question-pages/07004-page-23.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下列何者為燃油油量識別符號？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## loader-operation-single:07004-02-114
+
+- Replacement PNG: `public/question-images/070044-07004-02-114-1.png`
+- App path: `/question-images/070044-07004-02-114-1.png`
+- Linked uploaded images:
+  - `/question-images/070044-07004-02-114-1.png`
+  - `/question-images/070044-07004-02-114-2.png`
+  - `/question-images/070044-07004-02-114-3.png`
+  - `/question-images/070044-07004-02-114-4.png`
+- Current fallback page: `/question-pages/07004-page-23.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下列何者為電錶或充電發電機識別符號？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## loader-operation-single:07004-02-115
+
+- Replacement PNG: `public/question-images/070044-07004-02-115-1.png`
+- App path: `/question-images/070044-07004-02-115-1.png`
+- Linked uploaded images:
+  - `/question-images/070044-07004-02-115-1.png`
+  - `/question-images/070044-07004-02-115-2.png`
+  - `/question-images/070044-07004-02-115-3.png`
+  - `/question-images/070044-07004-02-115-4.png`
+- Current fallback page: `/question-pages/07004-page-23.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下列那一個標誌表示可能造成人員傷亡的警告？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## loader-operation-single:07004-02-116
+
+- Replacement PNG: `public/question-images/070044-07004-02-116-1.png`
+- App path: `/question-images/070044-07004-02-116-1.png`
+- Linked uploaded images:
+  - `/question-images/070044-07004-02-116-1.png`
+  - `/question-images/070044-07004-02-116-2.png`
+  - `/question-images/070044-07004-02-116-3.png`
+  - `/question-images/070044-07004-02-116-4.png`
+- Current fallback page: `/question-pages/07004-page-23.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下列何者為引擎機油油平面識別符號？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
 ## baking-food-c:07700-03-003
 
 - Replacement PNG: `public/question-images/07700-03-003-1.png`
@@ -5567,6 +6106,2970 @@ Total active image questions: 490
   - 2. 圖示選項 2
   - 3. 圖示選項 3
   - 4. 圖示選項 4
+
+## digital-electronics-b:11700-01-001
+
+- Replacement PNG: `public/question-images/117002-11700-01-001.png`
+- App path: `/question-images/117002-11700-01-001.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-01-001.png`
+- Current fallback page: `/question-pages/11700-page-2.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖為
+- Options:
+  - 1. 1K×8 的 ROM
+  - 2. 2K×8 的 ROM
+  - 3. 1K×8 的 RAM
+  - 4. 2K×8 的RAM
+
+## digital-electronics-b:11700-01-002
+
+- Replacement PNG: `public/question-images/117002-11700-01-002.png`
+- App path: `/question-images/117002-11700-01-002.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-01-002.png`
+- Current fallback page: `/question-pages/11700-page-2.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖在電路中代表
+- Options:
+  - 1. 解多工器
+  - 2. 多工器
+  - 3. 跳線
+  - 4. 解碼器
+
+## digital-electronics-b:11700-01-003
+
+- Replacement PNG: `public/question-images/117002-11700-01-003.png`
+- App path: `/question-images/117002-11700-01-003.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-01-003.png`
+- Current fallback page: `/question-pages/11700-page-2.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖為
+- Options:
+  - 1. 256×1DRAM
+  - 2. 256×1SRAM
+  - 3. 64K×1DRAM
+  - 4. 64K×1SRAM
+
+## digital-electronics-b:11700-01-004
+
+- Replacement PNG: `public/question-images/117002-11700-01-004.png`
+- App path: `/question-images/117002-11700-01-004.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-01-004.png`
+- Current fallback page: `/question-pages/11700-page-2.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖為
+- Options:
+  - 1. 非穩態振盪器
+  - 2. 雙穩態電路
+  - 3. 單穩態電路
+  - 4. 三態電路
+
+## digital-electronics-b:11700-01-005
+
+- Replacement PNG: `public/question-images/117002-11700-01-005.png`
+- App path: `/question-images/117002-11700-01-005.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-01-005.png`
+- Current fallback page: `/question-pages/11700-page-2.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖為何種電路符號？
+- Options:
+  - 1. 傳輸閘
+  - 2. 緩衝器
+  - 3. 放大器
+  - 4. 非反相器
+
+## digital-electronics-b:11700-01-006
+
+- Replacement PNG: `public/question-images/117002-11700-01-006.png`
+- App path: `/question-images/117002-11700-01-006.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-01-006.png`
+- Current fallback page: `/question-pages/11700-page-3.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖為
+- Options:
+  - 1. DIAC
+  - 2. SUS
+  - 3. SSS
+  - 4. SBS
+
+## digital-electronics-b:11700-01-007
+
+- Replacement PNG: `public/question-images/117002-11700-01-007.png`
+- App path: `/question-images/117002-11700-01-007.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-01-007.png`
+- Current fallback page: `/question-pages/11700-page-3.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖之接點符號為下列何種接點？
+- Options:
+  - 1. a 接點
+  - 2. b 接點
+  - 3. c 接點
+  - 4. N.O.接點
+
+## digital-electronics-b:11700-01-008
+
+- Replacement PNG: `public/question-images/117002-11700-01-008.png`
+- App path: `/question-images/117002-11700-01-008.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-01-008.png`
+- Current fallback page: `/question-pages/11700-page-3.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖之符號為下列何種電路圖符號？
+- Options:
+  - 1. 比流器
+  - 2. 比壓器
+  - 3. 電感器
+  - 4. 變壓器
+
+## digital-electronics-b:11700-01-009
+
+- Replacement PNG: `public/question-images/117002-11700-01-009.png`
+- App path: `/question-images/117002-11700-01-009.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-01-009.png`
+- Current fallback page: `/question-pages/11700-page-3.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖之符號為下列何種電路圖符號？
+- Options:
+  - 1. GTO
+  - 2. IGBT
+  - 3. SIT
+  - 4. SITH
+
+## digital-electronics-b:11700-01-010
+
+- Replacement PNG: `public/question-images/117002-11700-01-010.png`
+- App path: `/question-images/117002-11700-01-010.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-01-010.png`
+- Current fallback page: `/question-pages/11700-page-3.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖之符號為下列何種電路圖符號？
+- Options:
+  - 1. RCT
+  - 2. MCT
+  - 3. SUS
+  - 4. SBS
+
+## digital-electronics-b:11700-01-011
+
+- Replacement PNG: `public/question-images/117002-11700-01-011.png`
+- App path: `/question-images/117002-11700-01-011.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-01-011.png`
+- Current fallback page: `/question-pages/11700-page-3.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖之符號為下列何種電路圖符號？
+- Options:
+  - 1. RCT
+  - 2. MCT
+  - 3. SUS
+  - 4. SBS
+
+## digital-electronics-b:11700-01-012
+
+- Replacement PNG: `public/question-images/117002-11700-01-012.png`
+- App path: `/question-images/117002-11700-01-012.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-01-012.png`
+- Current fallback page: `/question-pages/11700-page-4.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖之符號為下列何種電路圖符號？
+- Options:
+  - 1. 空乏型 N 通道 MOSFET
+  - 2. 增強型N 通道 MOSFET
+  - 3. 空乏型 P 通道 MOSFET
+  - 4. 增強型 P 通道 MOSFET
+
+## digital-electronics-b:11700-01-013
+
+- Replacement PNG: `public/question-images/117002-11700-01-013.png`
+- App path: `/question-images/117002-11700-01-013.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-01-013.png`
+- Current fallback page: `/question-pages/11700-page-4.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖之電腦流程圖符號為
+- Options:
+  - 1. 處理
+  - 2. 判斷
+  - 3. 開始
+  - 4. 輸出
+
+## digital-electronics-b:11700-01-014
+
+- Replacement PNG: `public/question-images/117002-11700-01-014-option-1.png`
+- App path: `/question-images/117002-11700-01-014-option-1.png`
+- Linked uploaded images:
+  - `/question-images/117002-11700-01-014-option-1.png`
+  - `/question-images/117002-11700-01-014-option-2.png`
+  - `/question-images/117002-11700-01-014-option-3.png`
+  - `/question-images/117002-11700-01-014-option-4.png`
+- Current fallback page: `/question-pages/11700-page-4.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下列何者為示波器測試棒的等效電路？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## digital-electronics-b:11700-01-015
+
+- Replacement PNG: `public/question-images/117002-11700-01-015-prompt-1.png`
+- App path: `/question-images/117002-11700-01-015-prompt-1.png`
+- Linked uploaded images:
+  - `/question-images/117002-11700-01-015-prompt-1.png`
+  - `/question-images/117002-11700-01-015-prompt-2.png`
+- Current fallback page: `/question-pages/11700-page-4.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 已知 a 圖為，b 圖為之電子符號，則
+- Options:
+  - 1. a 為 PUT，b為 SCR
+  - 2. a 為 SCR，b 為 PUT
+  - 3. a 為 SCR，b 為 SCS
+  - 4. a 為 PUT，b 為SCS 元件
+
+## digital-electronics-b:11700-01-016
+
+- Replacement PNG: `public/question-images/117002-11700-01-016.png`
+- App path: `/question-images/117002-11700-01-016.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-01-016.png`
+- Current fallback page: `/question-pages/11700-page-4.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖為何種電路符號？
+- Options:
+  - 1. RCT（Reverse Conducting Thyristor）
+  - 2. MCT（MOS-Controlled Thyristor）
+  - 3. SCS（Silicon Controlled Switch）
+  - 4. SBS（Silicon Bilateral Switch）
+
+## digital-electronics-b:11700-01-017
+
+- Replacement PNG: `public/question-images/117002-11700-01-017-option-1.png`
+- App path: `/question-images/117002-11700-01-017-option-1.png`
+- Linked uploaded images:
+  - `/question-images/117002-11700-01-017-option-1.png`
+  - `/question-images/117002-11700-01-017-option-2.png`
+  - `/question-images/117002-11700-01-017-option-3.png`
+  - `/question-images/117002-11700-01-017-option-4.png`
+- Current fallback page: `/question-pages/11700-page-4.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 依據美國國家標準協會（ANSI）編製的標準流程圖符號，下列何者名稱與其符號並不相符？
+- Options:
+  - 1. 處理
+  - 2. 判斷
+  - 3. 列印
+  - 4. 副程式
+
+## digital-electronics-b:11700-01-018
+
+- Replacement PNG: `public/question-images/117002-11700-01-018-option-1.png`
+- App path: `/question-images/117002-11700-01-018-option-1.png`
+- Linked uploaded images:
+  - `/question-images/117002-11700-01-018-option-1.png`
+  - `/question-images/117002-11700-01-018-option-2.png`
+  - `/question-images/117002-11700-01-018-option-3.png`
+  - `/question-images/117002-11700-01-018-option-4.png`
+- Current fallback page: `/question-pages/11700-page-4.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下列何者並不屬於閘流體（Thyristor）裝置？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## digital-electronics-b:11700-01-019
+
+- Replacement PNG: `public/question-images/117002-11700-01-019.png`
+- App path: `/question-images/117002-11700-01-019.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-01-019.png`
+- Current fallback page: `/question-pages/11700-page-5.jpg`
+- Kind: multiple
+- Official answer: 2,4
+- Prompt: 下圖之符號為何種元件？
+- Options:
+  - 1. Thermistor
+  - 2. 光敏電阻
+  - 3. NTC 型溫度電阻
+  - 4. Photocell
+
+## digital-electronics-b:11700-01-020
+
+- Replacement PNG: `public/question-images/117002-11700-01-020.png`
+- App path: `/question-images/117002-11700-01-020.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-01-020.png`
+- Current fallback page: `/question-pages/11700-page-5.jpg`
+- Kind: multiple
+- Official answer: 1,2
+- Prompt: 下圖為低態動作的三態閘，下列敘述何者正確？
+- Options:
+  - 1. 當 B=0 時，C=A=1
+  - 2. 當 B=0 時，C=A=0
+  - 3. 當 B=1 時，C=A=1
+  - 4. 當 B=1 時，C=A=0
+
+## digital-electronics-b:11700-01-021
+
+- Replacement PNG: `public/question-images/117002-11700-01-021.png`
+- App path: `/question-images/117002-11700-01-021.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-01-021.png`
+- Current fallback page: `/question-pages/11700-page-5.jpg`
+- Kind: multiple
+- Official answer: 1,2
+- Prompt: 下圖所示，下列敘述何者正確？
+- Options:
+  - 1. 互補式輸出的緩衝器，當 D=0 時，E=0及 F=1
+  - 2. 互補式輸出的緩衝器，當 D=1 時，E=1 及 F=0
+  - 3. 互補式輸出的反相器，當 D=0 時，E=1 及 F=0
+  - 4. 互補式輸出的反相器，當 D=1 時，E=0及 F=1
+
+## digital-electronics-b:11700-01-022
+
+- Replacement PNG: `public/question-images/117002-11700-01-022.png`
+- App path: `/question-images/117002-11700-01-022.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-01-022.png`
+- Current fallback page: `/question-pages/11700-page-5.jpg`
+- Kind: multiple
+- Official answer: 2,4
+- Prompt: 下圖所示，下列敘述何者正確？
+- Options:
+  - 1. T 1 為 NMOS 元件
+  - 2. T 1 為 PMOS 元件
+  - 3. T 2 為 PMOS 元件
+  - 4. T 2 為 NMOS 元件
+
+## digital-electronics-b:11700-01-023
+
+- Replacement PNG: `public/question-images/117002-11700-01-023-option-1.png`
+- App path: `/question-images/117002-11700-01-023-option-1.png`
+- Linked uploaded images:
+  - `/question-images/117002-11700-01-023-option-1.png`
+  - `/question-images/117002-11700-01-023-option-2.png`
+  - `/question-images/117002-11700-01-023-option-3.png`
+  - `/question-images/117002-11700-01-023-option-4.png`
+- Current fallback page: `/question-pages/11700-page-5.jpg`
+- Kind: multiple
+- Official answer: 1,2
+- Prompt: 下列圖示哪些是與光電有關的組件？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## digital-electronics-b:11700-01-024
+
+- Replacement PNG: `public/question-images/117002-11700-01-024-option-1.png`
+- App path: `/question-images/117002-11700-01-024-option-1.png`
+- Linked uploaded images:
+  - `/question-images/117002-11700-01-024-option-1.png`
+  - `/question-images/117002-11700-01-024-option-2.png`
+  - `/question-images/117002-11700-01-024-option-3.png`
+  - `/question-images/117002-11700-01-024-option-4.png`
+- Current fallback page: `/question-pages/11700-page-6.jpg`
+- Kind: multiple
+- Official answer: 1,3
+- Prompt: 下列圖示哪些為被動元件？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## digital-electronics-b:11700-01-025
+
+- Replacement PNG: `public/question-images/117002-11700-01-025-option-1.png`
+- App path: `/question-images/117002-11700-01-025-option-1.png`
+- Linked uploaded images:
+  - `/question-images/117002-11700-01-025-option-1.png`
+  - `/question-images/117002-11700-01-025-option-2.png`
+  - `/question-images/117002-11700-01-025-option-3.png`
+  - `/question-images/117002-11700-01-025-option-4.png`
+- Current fallback page: `/question-pages/11700-page-6.jpg`
+- Kind: multiple
+- Official answer: 3,4
+- Prompt: 下列圖示哪些為主動元件？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## digital-electronics-b:11700-01-026
+
+- Replacement PNG: `public/question-images/117002-11700-01-026-option-1.png`
+- App path: `/question-images/117002-11700-01-026-option-1.png`
+- Linked uploaded images:
+  - `/question-images/117002-11700-01-026-option-1.png`
+  - `/question-images/117002-11700-01-026-option-2.png`
+  - `/question-images/117002-11700-01-026-option-3.png`
+  - `/question-images/117002-11700-01-026-option-4.png`
+- Current fallback page: `/question-pages/11700-page-6.jpg`
+- Kind: multiple
+- Official answer: 2,4
+- Prompt: 依據美國國家標準協會（ANSI）編製的標準流程圖符號，下列符號表示何者正確？
+- Options:
+  - 1. 處理
+  - 2. 迴圈
+  - 3. 判斷
+  - 4. 結束
+
+## digital-electronics-b:11700-01-027
+
+- Replacement PNG: `public/question-images/117002-11700-01-027-option-1.png`
+- App path: `/question-images/117002-11700-01-027-option-1.png`
+- Linked uploaded images:
+  - `/question-images/117002-11700-01-027-option-1.png`
+  - `/question-images/117002-11700-01-027-option-2.png`
+  - `/question-images/117002-11700-01-027-option-3.png`
+  - `/question-images/117002-11700-01-027-option-4.png`
+- Current fallback page: `/question-pages/11700-page-6.jpg`
+- Kind: multiple
+- Official answer: 2,3
+- Prompt: 下列何者工作於逆向偏壓？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## digital-electronics-b:11700-02-026
+
+- Replacement PNG: `public/question-images/117002-11700-02-026.png`
+- App path: `/question-images/117002-11700-02-026.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-02-026.png`
+- Current fallback page: `/question-pages/11700-page-8.jpg`
+- Kind: multiple
+- Official answer: 2,3
+- Prompt: 下圖所示，下列敘述何者正確？
+- Options:
+  - 1. Pre 接 0 時，輸出 Q=0
+  - 2. Pre 接 0 時，輸出 Q=1
+  - 3. Clr 接 0 時，輸出 Q=0
+  - 4. Clr 接 0 時，輸出 Q=1
+
+## digital-electronics-b:11700-02-029
+
+- Replacement PNG: `public/question-images/117002-11700-02-029.png`
+- App path: `/question-images/117002-11700-02-029.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-02-029.png`
+- Current fallback page: `/question-pages/11700-page-8.jpg`
+- Kind: multiple
+- Official answer: 1,4
+- Prompt: 下圖所示，感溫 IC AD590 的溫度係數為 1μA/K，25°C 時，其端電流為298.2μA，則下列敘述何者正確？
+- Options:
+  - 1. 0°C 時，其端電流為 273.2μA
+  - 2. 0°C 時，Vo=0V
+  - 3. 15°C 時，Vo=0.15V
+  - 4. 25°C 時，Vo=2.982V
+
+## digital-electronics-b:11700-03-030
+
+- Replacement PNG: `public/question-images/117002-11700-03-030.png`
+- App path: `/question-images/117002-11700-03-030.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-03-030.png`
+- Current fallback page: `/question-pages/11700-page-10.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖之調幅波，若 A=10Vp-pB=2Vp-p 時，其調變百分比為何？
+- Options:
+  - 1. 2％
+  - 2. 10％
+  - 3. 50％
+  - 4. 67％
+
+## digital-electronics-b:11700-03-034
+
+- Replacement PNG: `public/question-images/117002-11700-03-034.png`
+- App path: `/question-images/117002-11700-03-034.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-03-034.png`
+- Current fallback page: `/question-pages/11700-page-11.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 有一正弦波信號 v(t)=2sin628t，不經衰減直接加到示波器垂直輸入端，在不使用水平放大增益，且微調旋鈕也置於校正位置時，若示波器所顯示的波形如下圖，則示波器水平與垂直旋鈕應分別是撥在下列何種位置？
+- Options:
+  - 1. 2.5ms/DIV、1V/DIV
+  - 2. 2.5ms/DIV、2V/DIV
+  - 3. 5ms/DIV、2V/DIV
+  - 4. 2ms/DIV、1V/DIV
+
+## digital-electronics-b:11700-03-041
+
+- Replacement PNG: `public/question-images/117002-11700-03-041.png`
+- App path: `/question-images/117002-11700-03-041.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-03-041.png`
+- Current fallback page: `/question-pages/11700-page-11.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 以標準方波信號輸入放大器的輸入端，由示波器觀測放大器輸出端的信號如下圖時，顯示放大器的特性為
+- Options:
+  - 1. 低頻響應不足
+  - 2. 低頻響應過大
+  - 3. 高頻響應不足
+  - 4. 高頻響應過大
+
+## digital-electronics-b:11700-03-061
+
+- Replacement PNG: `public/question-images/117002-11700-03-061.png`
+- App path: `/question-images/117002-11700-03-061.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-03-061.png`
+- Current fallback page: `/question-pages/11700-page-13.jpg`
+- Kind: multiple
+- Official answer: 1,2
+- Prompt: 下圖之直流電源供應器使用，下列敘述何者正確？
+- Options:
+  - 1. 獨立模式：可分別調整輸出電壓及限定電流的大小
+  - 2. 串聯追蹤模式：兩組電源的輸出電壓值相同，並由 CH1 主電源輸出調整鈕控制電壓大小
+  - 3. 並聯追蹤模式：輸出電壓與最大電流完全由 CH1 控制，可提供最多一倍的電流輸出
+  - 4. 輸出控制開關 OFF 時輸出端隔離，無電壓輸出也無法顯示設定的最大電流
+
+## digital-electronics-b:11700-03-062
+
+- Replacement PNG: `public/question-images/117002-11700-03-062.png`
+- App path: `/question-images/117002-11700-03-062.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-03-062.png`
+- Current fallback page: `/question-pages/11700-page-13.jpg`
+- Kind: multiple
+- Official answer: 1,2,3
+- Prompt: 使用三用電表量測某電路各點結果分別如下圖 A、B、C、D，下列之判讀何者正確？
+- Options:
+  - 1. 當指針偏轉於圖中 A 所示位置且檔數置於 ACV 1000V時，量測之交流電壓值約為 460V
+  - 2. 當指針偏轉於圖中 B 所示位置且檔數置於 ACV 250V 時，量測之交流電壓值約為 165V
+  - 3. 當指針偏轉於圖中 C所示位置且檔數置於 ACV 50V 時，量測之交流電壓值約為 42V
+  - 4. 當指針偏轉於圖中 D 所示位置且檔數置於 ACV 10V 時，量測之交流電壓值約為3.3V
+
+## digital-electronics-b:11700-03-070
+
+- Replacement PNG: `public/question-images/117002-11700-03-070-option-1.png`
+- App path: `/question-images/117002-11700-03-070-option-1.png`
+- Linked uploaded images:
+  - `/question-images/117002-11700-03-070-option-1.png`
+  - `/question-images/117002-11700-03-070-option-2.png`
+  - `/question-images/117002-11700-03-070-option-3.png`
+  - `/question-images/117002-11700-03-070-option-4.png`
+- Current fallback page: `/question-pages/11700-page-14.jpg`
+- Kind: multiple
+- Official answer: 1,4
+- Prompt: 數位儲存示波器中，在不同的 X：Y 比率頻率下，相位偏移量測結果，下列敘述何者正確？
+- Options:
+  - 1. X：Y=1：1
+  - 2. X：Y=1：2
+  - 3. X：Y=1：3
+  - 4. X：Y=1：4
+
+## digital-electronics-b:11700-04-003
+
+- Replacement PNG: `public/question-images/117002-11700-04-003-option-1.png`
+- App path: `/question-images/117002-11700-04-003-option-1.png`
+- Linked uploaded images:
+  - `/question-images/117002-11700-04-003-option-1.png`
+  - `/question-images/117002-11700-04-003-option-2.png`
+  - `/question-images/117002-11700-04-003-option-3.png`
+  - `/question-images/117002-11700-04-003-option-4.png`
+- Current fallback page: `/question-pages/11700-page-14.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下列 PC 板佈線，A、B、C、D 四焊點需接通，另 E、F 兩焊點亦須接通，何者佈線較適宜？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## digital-electronics-b:11700-04-005
+
+- Replacement PNG: `public/question-images/117002-11700-04-005.png`
+- App path: `/question-images/117002-11700-04-005.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-04-005.png`
+- Current fallback page: `/question-pages/11700-page-15.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖中，A、B 長度之差要在
+- Options:
+  - 1. 0.1 ㎜以下
+  - 2. 1 ㎜以下
+  - 3. 5 ㎜以下
+  - 4. 10㎜以下
+
+## digital-electronics-b:11700-04-007
+
+- Replacement PNG: `public/question-images/117002-11700-04-007.png`
+- App path: `/question-images/117002-11700-04-007.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-04-007.png`
+- Current fallback page: `/question-pages/11700-page-15.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖中，d 的長度是從圓點邊緣算起，不得超過
+- Options:
+  - 1. 0.5 ㎜
+  - 2. 2 ㎜
+  - 3. 5 ㎜
+  - 4. 5 ㎝
+
+## digital-electronics-b:11700-04-008
+
+- Replacement PNG: `public/question-images/117002-11700-04-008.png`
+- App path: `/question-images/117002-11700-04-008.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-04-008.png`
+- Current fallback page: `/question-pages/11700-page-15.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖中，L 的長度要在
+- Options:
+  - 1. 0.1 ㎜以下
+  - 2. 0.5 ㎜以下
+  - 3. 2 ㎜以下
+  - 4. 10 ㎜以下
+
+## digital-electronics-b:11700-04-011
+
+- Replacement PNG: `public/question-images/117002-11700-04-011-option-1.png`
+- App path: `/question-images/117002-11700-04-011-option-1.png`
+- Linked uploaded images:
+  - `/question-images/117002-11700-04-011-option-1.png`
+  - `/question-images/117002-11700-04-011-option-2.png`
+  - `/question-images/117002-11700-04-011-option-3.png`
+  - `/question-images/117002-11700-04-011-option-4.png`
+- Current fallback page: `/question-pages/11700-page-15.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 以一般電流表 A（內阻=0.5Ω）及電壓表 V（內阻=1MΩ）同時測量流過低阻抗元件 R（阻值=1Ω）之電流及其上電壓時，應以下列何種接法最為適宜？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## digital-electronics-b:11700-04-031
+
+- Replacement PNG: `public/question-images/117002-11700-04-031.png`
+- App path: `/question-images/117002-11700-04-031.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-04-031.png`
+- Current fallback page: `/question-pages/11700-page-17.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 晶片的封裝技術種類繁多，下圖為何種封裝？
+- Options:
+  - 1. QFN 封裝
+  - 2. SOP 封裝
+  - 3. QFP 封裝
+  - 4. BGA 封裝
+
+## digital-electronics-b:11700-04-035
+
+- Replacement PNG: `public/question-images/117002-11700-04-035.png`
+- App path: `/question-images/117002-11700-04-035.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-04-035.png`
+- Current fallback page: `/question-pages/11700-page-17.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖之焊錫量不應超過幾度？
+- Options:
+  - 1. 30
+  - 2. 45
+  - 3. 60
+  - 4. 75
+
+## digital-electronics-b:11700-04-042
+
+- Replacement PNG: `public/question-images/117002-11700-04-042.png`
+- App path: `/question-images/117002-11700-04-042.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-04-042.png`
+- Current fallback page: `/question-pages/11700-page-17.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖之焊錫焊接高度應為元件端子高度的幾分之幾以上？
+- Options:
+  - 1. 1/2
+  - 2. 1/3
+  - 3. 1/4
+  - 4. 1/5
+
+## digital-electronics-b:11700-04-043
+
+- Replacement PNG: `public/question-images/117002-11700-04-043.png`
+- App path: `/question-images/117002-11700-04-043.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-04-043.png`
+- Current fallback page: `/question-pages/11700-page-18.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖之 SMT 元件電極應覆蓋在銅箔接點上的多少長度以上？
+- Options:
+  - 1. 1/2E
+  - 2. 1/3E
+  - 3. 1/4E
+  - 4. 1/5E
+
+## digital-electronics-b:11700-05-007
+
+- Replacement PNG: `public/question-images/117002-11700-05-007.png`
+- App path: `/question-images/117002-11700-05-007.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-007.png`
+- Current fallback page: `/question-pages/11700-page-19.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖之電路，若採用理想的運算放大器，則輸出電壓為
+- Options:
+  - 1. -2V
+  - 2. -1.5V
+  - 3. 1.5V
+  - 4. 2V
+
+## digital-electronics-b:11700-05-015
+
+- Replacement PNG: `public/question-images/117002-11700-05-015.png`
+- App path: `/question-images/117002-11700-05-015.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-015.png`
+- Current fallback page: `/question-pages/11700-page-20.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖為 CE 放大電路之交流等效電路，hfe=50，hie=1KΩ，則基極的輸入阻抗為
+- Options:
+  - 1. 1KΩ
+  - 2. 10KΩ
+  - 3. 52KΩ
+  - 4. 104KΩ
+
+## digital-electronics-b:11700-05-019
+
+- Replacement PNG: `public/question-images/117002-11700-05-019.png`
+- App path: `/question-images/117002-11700-05-019.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-019.png`
+- Current fallback page: `/question-pages/11700-page-20.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖之截波（Clipper）電路，若-6V≦Vi≦6V，二極體為理想二極體，則 Vo 的大小為
+- Options:
+  - 1. 1.5V≦Vo≦3V
+  - 2. 3V≦Vo≦6V
+  - 3. -3V≦Vo≦-1.5V
+  - 4. -6V≦Vo≦-3V
+
+## digital-electronics-b:11700-05-020
+
+- Replacement PNG: `public/question-images/117002-11700-05-020.png`
+- App path: `/question-images/117002-11700-05-020.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-020.png`
+- Current fallback page: `/question-pages/11700-page-21.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖之電路，欲使電晶體飽和，則 Rb 之值應小於
+- Options:
+  - 1. βRc
+  - 2. Rc
+  - 3. 2βRc
+  - 4. Rc/β
+
+## digital-electronics-b:11700-05-023
+
+- Replacement PNG: `public/question-images/117002-11700-05-023.png`
+- App path: `/question-images/117002-11700-05-023.png`
+- Linked uploaded images:
+  - `/question-images/117002-11700-05-023.png`
+  - `/question-images/117002-11700-05-023-option-1.png`
+  - `/question-images/117002-11700-05-023-option-2.png`
+  - `/question-images/117002-11700-05-023-option-3.png`
+  - `/question-images/117002-11700-05-023-option-4.png`
+- Current fallback page: `/question-pages/11700-page-21.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖之電路，依據米勒定理（Miller's Theorem），兩圖為等效電路，設，則 Z 1 及 Z 2 分別為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## digital-electronics-b:11700-05-027
+
+- Replacement PNG: `public/question-images/117002-11700-05-027-option-1.png`
+- App path: `/question-images/117002-11700-05-027-option-1.png`
+- Linked uploaded images:
+  - `/question-images/117002-11700-05-027-option-1.png`
+  - `/question-images/117002-11700-05-027-option-2.png`
+  - `/question-images/117002-11700-05-027-option-3.png`
+  - `/question-images/117002-11700-05-027-option-4.png`
+  - `/question-images/117002-11700-05-027-5.png`
+- Current fallback page: `/question-pages/11700-page-22.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖的箝位電路，當輸入為 10sinωt 時，則輸出 Vo 為何？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## digital-electronics-b:11700-05-028
+
+- Replacement PNG: `public/question-images/117002-11700-05-028-option-1.png`
+- App path: `/question-images/117002-11700-05-028-option-1.png`
+- Linked uploaded images:
+  - `/question-images/117002-11700-05-028-option-1.png`
+  - `/question-images/117002-11700-05-028-option-2.png`
+  - `/question-images/117002-11700-05-028-option-3.png`
+  - `/question-images/117002-11700-05-028-option-4.png`
+- Current fallback page: `/question-pages/11700-page-22.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 達靈頓對（Darlington-Pair）的總電流增益約為
+- Options:
+  - 1. h f e 1 ‧h f e 2
+  - 2. h f e 1 +h f e 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## digital-electronics-b:11700-05-033
+
+- Replacement PNG: `public/question-images/117002-11700-05-033-option-1.png`
+- App path: `/question-images/117002-11700-05-033-option-1.png`
+- Linked uploaded images:
+  - `/question-images/117002-11700-05-033-option-1.png`
+  - `/question-images/117002-11700-05-033-option-2.png`
+  - `/question-images/117002-11700-05-033-option-3.png`
+  - `/question-images/117002-11700-05-033-option-4.png`
+- Current fallback page: `/question-pages/11700-page-22.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 放大器在其高頻或低頻截止頻率時的功率增益，為其中頻段功率增益的多少倍？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 2
+  - 3. 圖示選項 3
+  - 4. 1/2
+
+## digital-electronics-b:11700-05-037
+
+- Replacement PNG: `public/question-images/117002-11700-05-037.png`
+- App path: `/question-images/117002-11700-05-037.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-037.png`
+- Current fallback page: `/question-pages/11700-page-23.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖之電路為何種負回授電路？
+- Options:
+  - 1. 電壓串聯負回授電路
+  - 2. 電壓並聯負回授電路
+  - 3. 電流串聯負回授電路
+  - 4. 電流並聯負回授電路
+
+## digital-electronics-b:11700-05-039
+
+- Replacement PNG: `public/question-images/117002-11700-05-039.png`
+- App path: `/question-images/117002-11700-05-039.png`
+- Linked uploaded images:
+  - `/question-images/117002-11700-05-039.png`
+  - `/question-images/117002-11700-05-039-option-1.png`
+  - `/question-images/117002-11700-05-039-option-2.png`
+  - `/question-images/117002-11700-05-039-option-3.png`
+  - `/question-images/117002-11700-05-039-option-4.png`
+- Current fallback page: `/question-pages/11700-page-23.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖之電路，其振盪頻率 f 為何？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## digital-electronics-b:11700-05-043
+
+- Replacement PNG: `public/question-images/117002-11700-05-043.png`
+- App path: `/question-images/117002-11700-05-043.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-043.png`
+- Current fallback page: `/question-pages/11700-page-23.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖之電路，若 Q1、Q2 導通時之 Vbe=0.5V，飽和時 Vce(sat)=0V，則此電路之上限觸發電壓為
+- Options:
+  - 1. 0.5V
+  - 2. 2.5V
+  - 3. 4.5V
+  - 4. 6.5V
+
+## digital-electronics-b:11700-05-044
+
+- Replacement PNG: `public/question-images/117002-11700-05-044.png`
+- App path: `/question-images/117002-11700-05-044.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-044.png`
+- Current fallback page: `/question-pages/11700-page-24.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖之無穩態多諧振盪器，電晶體的β、 Rb、及 Rc 間的關係為何？
+- Options:
+  - 1. Rc＜βRb
+  - 2. Rc＞Rb
+  - 3. βRc＜Rb
+  - 4. βRc＞Rb
+
+## digital-electronics-b:11700-05-045
+
+- Replacement PNG: `public/question-images/117002-11700-05-045.png`
+- App path: `/question-images/117002-11700-05-045.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-045.png`
+- Current fallback page: `/question-pages/11700-page-24.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖為 IC 555 所構成的電路，下列敘述何者錯誤？
+- Options:
+  - 1. 為一無穩態多諧振盪器
+  - 2. 振盪週期 T=0.7(Ra+2Rb)C
+  - 3. Vo 為高電位的時間th=0.7(Ra+Rb)C
+  - 4. Vo 為低電位的時間 tl=0.7RaC
+
+## digital-electronics-b:11700-05-046
+
+- Replacement PNG: `public/question-images/117002-11700-05-046.png`
+- App path: `/question-images/117002-11700-05-046.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-046.png`
+- Current fallback page: `/question-pages/11700-page-24.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖之電路，其 h 參數中的 h11 為
+- Options:
+  - 1. 5KΩ
+  - 2. 10KΩ
+  - 3. 15KΩ
+  - 4. 20KΩ
+
+## digital-electronics-b:11700-05-047
+
+- Replacement PNG: `public/question-images/117002-11700-05-047.png`
+- App path: `/question-images/117002-11700-05-047.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-047.png`
+- Current fallback page: `/question-pages/11700-page-24.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖之偏壓電路，其熱穩定因數 ST 為
+- Options:
+  - 1. 0
+  - 2. 1
+  - 3. Rc/Rb
+  - 4. 1+β
+
+## digital-electronics-b:11700-05-049
+
+- Replacement PNG: `public/question-images/117002-11700-05-049.png`
+- App path: `/question-images/117002-11700-05-049.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-049.png`
+- Current fallback page: `/question-pages/11700-page-25.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖之電路，若 Vo(sat)=±12V，則此電路的上限電壓 Vut、及下限電壓V 𝓁 t 為
+- Options:
+  - 1. ±1V
+  - 2. ±4V
+  - 3. ±9V
+  - 4. ±12V
+
+## digital-electronics-b:11700-05-050
+
+- Replacement PNG: `public/question-images/117002-11700-05-050.png`
+- App path: `/question-images/117002-11700-05-050.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-050.png`
+- Current fallback page: `/question-pages/11700-page-25.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖之電路，若 V1=3V、V2=-1V，則 Vo 為
+- Options:
+  - 1. -8V
+  - 2. -4V
+  - 3. 4V
+  - 4. 8V
+
+## digital-electronics-b:11700-05-051
+
+- Replacement PNG: `public/question-images/117002-11700-05-051.png`
+- App path: `/question-images/117002-11700-05-051.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-051.png`
+- Current fallback page: `/question-pages/11700-page-25.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖之振盪電路，其振盪頻率為
+- Options:
+  - 1. 1/2π√(R1C1)
+  - 2. 1/2π√(R3R4C1C2)
+  - 3. 1/2π√(R1R2C1C2)
+  - 4. 1/2π(R3+R4)(C1+C2)
+
+## digital-electronics-b:11700-05-052
+
+- Replacement PNG: `public/question-images/117002-11700-05-052.png`
+- App path: `/question-images/117002-11700-05-052.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-052.png`
+- Current fallback page: `/question-pages/11700-page-25.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖之穩壓電路，設電晶體 B 與 E 間的順向壓降為 Vbe，稽納二極體的稽納電壓為 Vz，則其輸出電壓 Vout 為
+- Options:
+  - 1. Vout=Vin+Vz -Vbe
+  - 2. Vout=Vbe(1+R 1 /R 2 )
+  - 3. Vout=Vz(1+R 1 /R 2 )
+  - 4. Vout=(Vz+Vbe)(1+R 1 /R 2 )
+
+## digital-electronics-b:11700-05-053
+
+- Replacement PNG: `public/question-images/117002-11700-05-053.png`
+- App path: `/question-images/117002-11700-05-053.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-053.png`
+- Current fallback page: `/question-pages/11700-page-25.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖為一相鎖 PLL 迴路，其輸出信號的頻率 fout 與輸入信號的頻率 fin之間的關係為何？
+- Options:
+  - 1. fout=fin‧N
+  - 2. fout=fin/N
+  - 3. fout=fin
+  - 4. fout=2(fin)N
+
+## digital-electronics-b:11700-05-054
+
+- Replacement PNG: `public/question-images/117002-11700-05-054.png`
+- App path: `/question-images/117002-11700-05-054.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-054.png`
+- Current fallback page: `/question-pages/11700-page-26.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖為一定電流源電路，流經 RL 的電流 I 恆為
+- Options:
+  - 1. 5mA
+  - 2. 10mA
+  - 3. 15mA
+  - 4. 20mA
+
+## digital-electronics-b:11700-05-056
+
+- Replacement PNG: `public/question-images/117002-11700-05-056.png`
+- App path: `/question-images/117002-11700-05-056.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-056.png`
+- Current fallback page: `/question-pages/11700-page-26.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖為一個低通主動濾波器電路，下列敘述何者正確？
+- Options:
+  - 1. 其低頻截止頻率 fL=1/(2πRC)
+  - 2. 其高頻截止頻率 fH=1/(2πRC)
+  - 3. 其高頻截止頻率
+  - 4. 其低頻截止頻率
+
+## digital-electronics-b:11700-05-058
+
+- Replacement PNG: `public/question-images/117002-11700-05-058.png`
+- App path: `/question-images/117002-11700-05-058.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-058.png`
+- Current fallback page: `/question-pages/11700-page-27.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖之電路，其二極體 D 的作用為
+- Options:
+  - 1. 補償 Ico 的變化
+  - 2. 補償 Vbe 的變化
+  - 3. 保護電晶體
+  - 4. 整流用
+
+## digital-electronics-b:11700-05-059
+
+- Replacement PNG: `public/question-images/117002-11700-05-059.png`
+- App path: `/question-images/117002-11700-05-059.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-059.png`
+- Current fallback page: `/question-pages/11700-page-27.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖之電路，下列敘述何者錯誤？
+- Options:
+  - 1. RE 開路時電晶體截止
+  - 2. RE 開路時VC =Vcc
+  - 3. R2 短路時，VE =0V
+  - 4. R1 開路時，VC =0V
+
+## digital-electronics-b:11700-05-061
+
+- Replacement PNG: `public/question-images/117002-11700-05-061.png`
+- App path: `/question-images/117002-11700-05-061.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-061.png`
+- Current fallback page: `/question-pages/11700-page-28.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖之電路為
+- Options:
+  - 1. 對數放大器
+  - 2. 指數放大器
+  - 3. 均值檢出器
+  - 4. 峰值檢出器
+
+## digital-electronics-b:11700-05-062
+
+- Replacement PNG: `public/question-images/117002-11700-05-062.png`
+- App path: `/question-images/117002-11700-05-062.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-062.png`
+- Current fallback page: `/question-pages/11700-page-28.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖之電路的輸入阻抗（R i n）與輸出阻抗（R o u t）分別為
+- Options:
+  - 1. R i n →∞，R o u t →∞
+  - 2. R i n →∞，R o u t →０
+  - 3. R i n →０，R o u t →∞
+  - 4. R i n →０，R o u t →０
+
+## digital-electronics-b:11700-05-063
+
+- Replacement PNG: `public/question-images/117002-11700-05-063.png`
+- App path: `/question-images/117002-11700-05-063.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-063.png`
+- Current fallback page: `/question-pages/11700-page-28.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖之電路為單極點放大器，已知 0dB 時頻寬為 500KHz，則閉迴路頻寬為
+- Options:
+  - 1. 500KHz
+  - 2. 400KHz
+  - 3. 125KHz
+  - 4. 100KHz
+
+## digital-electronics-b:11700-05-064
+
+- Replacement PNG: `public/question-images/117002-11700-05-064.png`
+- App path: `/question-images/117002-11700-05-064.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-064.png`
+- Current fallback page: `/question-pages/11700-page-28.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖之電路是一個典型的
+- Options:
+  - 1. 低通濾波器
+  - 2. 高通濾波器
+  - 3. 峰值檢出器
+  - 4. 對數電路
+
+## digital-electronics-b:11700-05-071
+
+- Replacement PNG: `public/question-images/117002-11700-05-071.png`
+- App path: `/question-images/117002-11700-05-071.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-071.png`
+- Current fallback page: `/question-pages/11700-page-29.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖之電路中，若該矽電晶體之 hfe=30、ICBO=0，則此電晶體動作為
+- Options:
+  - 1. 截止
+  - 2. 飽和
+  - 3. 工作
+  - 4. 不動作
+
+## digital-electronics-b:11700-05-072
+
+- Replacement PNG: `public/question-images/117002-11700-05-072.png`
+- App path: `/question-images/117002-11700-05-072.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-072.png`
+- Current fallback page: `/question-pages/11700-page-29.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖之放大器中，若 V i =2V，則 V o 為
+- Options:
+  - 1. 2V
+  - 2. 4V
+  - 3. 8V
+  - 4. 12V
+
+## digital-electronics-b:11700-05-075
+
+- Replacement PNG: `public/question-images/117002-11700-05-075.png`
+- App path: `/question-images/117002-11700-05-075.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-075.png`
+- Current fallback page: `/question-pages/11700-page-29.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖之高通濾波器，若輸入正弦波之頻率恰等於此電路之 -3dB 頻率時（截止頻率），則輸出波形的相位比輸入波形
+- Options:
+  - 1. 落後 90°
+  - 2. 領先 90°
+  - 3. 落後 45°
+  - 4. 領先 45°
+
+## digital-electronics-b:11700-05-077
+
+- Replacement PNG: `public/question-images/117002-11700-05-077.png`
+- App path: `/question-images/117002-11700-05-077.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-077.png`
+- Current fallback page: `/question-pages/11700-page-30.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖之電路中，其電流 I 為
+- Options:
+  - 1. 1A
+  - 2. 2A
+  - 3. 3A
+  - 4. 4A
+
+## digital-electronics-b:11700-05-079
+
+- Replacement PNG: `public/question-images/117002-11700-05-079.png`
+- App path: `/question-images/117002-11700-05-079.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-079.png`
+- Current fallback page: `/question-pages/11700-page-30.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖在 1Ω兩端之壓降為何？（圖中電阻的單位均為Ω）
+- Options:
+  - 1. 1V
+  - 2. 1.2V
+  - 3. 1.5V
+  - 4. 2V
+
+## digital-electronics-b:11700-05-080
+
+- Replacement PNG: `public/question-images/117002-11700-05-080.png`
+- App path: `/question-images/117002-11700-05-080.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-080.png`
+- Current fallback page: `/question-pages/11700-page-30.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖所示，設 VO ( s a t ) =±12V，求臨界電壓上限 VU 為
+- Options:
+  - 1. +6V
+  - 2. -6V
+  - 3. +12V
+  - 4. -12V
+
+## digital-electronics-b:11700-05-081
+
+- Replacement PNG: `public/question-images/117002-11700-05-081.png`
+- App path: `/question-images/117002-11700-05-081.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-081.png`
+- Current fallback page: `/question-pages/11700-page-30.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖所示，設稽納二極體 I z ( m i n ) =0mA，VZ=10V，PZ=400mW，求達到正常穩壓時之 RL 最大值為
+- Options:
+  - 1. 100Ω
+  - 2. 250Ω
+  - 3. 500Ω
+  - 4. 1000Ω
+
+## digital-electronics-b:11700-05-082
+
+- Replacement PNG: `public/question-images/117002-11700-05-082.png`
+- App path: `/question-images/117002-11700-05-082.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-082.png`
+- Current fallback page: `/question-pages/11700-page-31.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖之倍壓電路中，設 D1、D2 及 D3 皆為理想二極體，求直流平均輸出電壓 Vo 為
+- Options:
+  - 1. 0V
+  - 2. +5V
+  - 3. -5V
+  - 4. +10V
+
+## digital-electronics-b:11700-05-084
+
+- Replacement PNG: `public/question-images/117002-11700-05-084.png`
+- App path: `/question-images/117002-11700-05-084.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-084.png`
+- Current fallback page: `/question-pages/11700-page-31.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖之 Q1 與 Q2 的 VB E 均視為 0.6V，求 IO UT 的限流值為
+- Options:
+  - 1. 0.5mA
+  - 2. 1mA
+  - 3. 0.5A
+  - 4. 1A
+
+## digital-electronics-b:11700-05-086
+
+- Replacement PNG: `public/question-images/117002-11700-05-086.png`
+- App path: `/question-images/117002-11700-05-086.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-086.png`
+- Current fallback page: `/question-pages/11700-page-31.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖所示，電路的電壓增益為 100 倍，求電路有效輸入電容量 Cin 約為
+- Options:
+  - 1. 0.1pF
+  - 2. 1pF
+  - 3. 10pF
+  - 4. 100pF
+
+## digital-electronics-b:11700-05-089
+
+- Replacement PNG: `public/question-images/117002-11700-05-089.png`
+- App path: `/question-images/117002-11700-05-089.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-089.png`
+- Current fallback page: `/question-pages/11700-page-32.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖之達靈頓對（Darlington-Pair），其電路特質為
+- Options:
+  - 1. 異型 PNP 靈頓對
+  - 2. 同型 PNP 靈頓對
+  - 3. 異型 NPN 靈頓對
+  - 4. 同型 NPN 靈頓對
+
+## digital-electronics-b:11700-05-093
+
+- Replacement PNG: `public/question-images/117002-11700-05-093.png`
+- App path: `/question-images/117002-11700-05-093.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-093.png`
+- Current fallback page: `/question-pages/11700-page-32.jpg`
+- Kind: multiple
+- Official answer: 1,2,3
+- Prompt: 下圖之電路，下列敘述何者正確？
+- Options:
+  - 1. 該電路為 RC 耦合電路，容易隔離兩級間直流電壓的相互干擾
+  - 2. R 1、R 2 為偏壓電阻，提供電晶體偏壓
+  - 3. CE 2 為旁路電容，可提高電壓增益
+  - 4. RE 1 及 RE 2 為正回授電阻，可穩定直流偏壓，不受溫度變化影響
+
+## digital-electronics-b:11700-05-096
+
+- Replacement PNG: `public/question-images/117002-11700-05-096.png`
+- App path: `/question-images/117002-11700-05-096.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-096.png`
+- Current fallback page: `/question-pages/11700-page-33.jpg`
+- Kind: multiple
+- Official answer: 2,3
+- Prompt: 已知一顆高亮度 LED 正常點亮的順向電壓為 3.2V 與順向電流為 10～15mA，則下列哪些為下圖中之 R 1 合理值？
+- Options:
+  - 1. 390
+  - 2. 270
+  - 3. 200
+  - 4. 100
+
+## digital-electronics-b:11700-05-101
+
+- Replacement PNG: `public/question-images/117002-11700-05-101.png`
+- App path: `/question-images/117002-11700-05-101.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-101.png`
+- Current fallback page: `/question-pages/11700-page-33.jpg`
+- Kind: multiple
+- Official answer: 2,3,4
+- Prompt: 下圖所示，若 Vcc =5V，LED 順向電壓為 1.7V，順向電流界定在 10mA～20mA 之間，則 R x 應可選用下列哪些電阻較合適？
+- Options:
+  - 1. 150Ω
+  - 2. 220Ω
+  - 3. 270Ω
+  - 4. 300Ω
+
+## digital-electronics-b:11700-05-102
+
+- Replacement PNG: `public/question-images/117002-11700-05-102.png`
+- App path: `/question-images/117002-11700-05-102.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-102.png`
+- Current fallback page: `/question-pages/11700-page-33.jpg`
+- Kind: multiple
+- Official answer: 2,3
+- Prompt: 下圖為一典型直流穩壓電源調整電路， Vbe=0.7V，其輸出電壓可調整之範圍，下列敘述何者正確？
+- Options:
+  - 1. 最小 2.7V
+  - 2. 最小 3.3.V
+  - 3. 最大 18.3V
+  - 4. 最大 21V
+
+## digital-electronics-b:11700-05-104
+
+- Replacement PNG: `public/question-images/117002-11700-05-104.png`
+- App path: `/question-images/117002-11700-05-104.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-104.png`
+- Current fallback page: `/question-pages/11700-page-34.jpg`
+- Kind: multiple
+- Official answer: 1,2
+- Prompt: 橋式全波整流電路圖如下，下列敘述何者正確？
+- Options:
+  - 1. D1、D4 順向偏壓時，D2、D3 逆向偏壓
+  - 2. D2、D3 順向偏壓時，D1、D4 逆向偏壓
+  - 3. D1、D2 順向偏壓時，D3、D4 逆向偏壓
+  - 4. D3、D4 順向偏壓時，D1、D2 逆向偏壓
+
+## digital-electronics-b:11700-05-106
+
+- Replacement PNG: `public/question-images/117002-11700-05-106.png`
+- App path: `/question-images/117002-11700-05-106.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-106.png`
+- Current fallback page: `/question-pages/11700-page-34.jpg`
+- Kind: multiple
+- Official answer: 1,4
+- Prompt: 下圖之半波整流電路中，輸入電壓 Vi(t)=200sin(377t)V，下列敘述何者正確？
+- Options:
+  - 1. Vo(t)的頻率為 60Hz
+  - 2. Vo(t)的有效值為 63.6V
+  - 3. Vo(t)的平均值為 100V
+  - 4. 二極體的 PIV 值為 200V
+
+## digital-electronics-b:11700-05-108
+
+- Replacement PNG: `public/question-images/117002-11700-05-108.png`
+- App path: `/question-images/117002-11700-05-108.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-108.png`
+- Current fallback page: `/question-pages/11700-page-35.jpg`
+- Kind: multiple
+- Official answer: 2,3
+- Prompt: 下圖之 CE 放大器中，VC C =20V，β=120，VB E =0.7V，下列何者正確？
+- Options:
+  - 1. IB =28.38μA
+  - 2. IC =1.86mA
+  - 3. VC E =11.26V
+  - 4. VB C =10.56
+
+## digital-electronics-b:11700-05-114
+
+- Replacement PNG: `public/question-images/117002-11700-05-114-option-1.png`
+- App path: `/question-images/117002-11700-05-114-option-1.png`
+- Linked uploaded images:
+  - `/question-images/117002-11700-05-114-option-1.png`
+  - `/question-images/117002-11700-05-114-option-2.png`
+  - `/question-images/117002-11700-05-114-option-3.png`
+  - `/question-images/117002-11700-05-114-option-4.png`
+- Current fallback page: `/question-pages/11700-page-35.jpg`
+- Kind: multiple
+- Official answer: 1,2
+- Prompt: 有關電晶體直流參數之敘述，下列何者正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## digital-electronics-b:11700-05-116
+
+- Replacement PNG: `public/question-images/117002-11700-05-116.png`
+- App path: `/question-images/117002-11700-05-116.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-116.png`
+- Current fallback page: `/question-pages/11700-page-36.jpg`
+- Kind: multiple
+- Official answer: 1,4
+- Prompt: 下圖之電路中，下列何者正確？
+- Options:
+  - 1. Vab=0V
+  - 2. Vb=68V
+  - 3. Vdb=10V
+  - 4. Vc=68V
+
+## digital-electronics-b:11700-05-117
+
+- Replacement PNG: `public/question-images/117002-11700-05-117.png`
+- App path: `/question-images/117002-11700-05-117.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-05-117.png`
+- Current fallback page: `/question-pages/11700-page-36.jpg`
+- Kind: multiple
+- Official answer: 2,3,4
+- Prompt: 下圖之電路中，下列何者正確？
+- Options:
+  - 1. 總電組 RT =4Ω
+  - 2. 總電流 IT =5A
+  - 3. 流經 6Ω的電流 I 6 Ω =0
+  - 4. 流經 2Ω的電流 I 2 Ω =2.5A
+
+## digital-electronics-b:11700-06-012
+
+- Replacement PNG: `public/question-images/117002-11700-06-012.png`
+- App path: `/question-images/117002-11700-06-012.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-012.png`
+- Current fallback page: `/question-pages/11700-page-37.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖之 CK 輸入頻率為 f，則其輸出頻率為
+- Options:
+  - 1. f
+  - 2. f/2
+  - 3. f/3
+  - 4. f/4
+
+## digital-electronics-b:11700-06-013
+
+- Replacement PNG: `public/question-images/117002-11700-06-013.png`
+- App path: `/question-images/117002-11700-06-013.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-013.png`
+- Current fallback page: `/question-pages/11700-page-38.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖之電路可做何使用？
+- Options:
+  - 1. 編碼器（encoder）
+  - 2. 解碼器（decoder）
+  - 3. 比較器
+  - 4. 多工器（multiplexer）
+
+## digital-electronics-b:11700-06-014
+
+- Replacement PNG: `public/question-images/117002-11700-06-014.png`
+- App path: `/question-images/117002-11700-06-014.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-014.png`
+- Current fallback page: `/question-pages/11700-page-38.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖中，當 G=0，且 A=1、B=0 時，則其輸出 Y 3 Y 2 Y 1 Y 0 應為
+- Options:
+  - 1. 1111
+  - 2. 0000
+  - 3. 1101
+  - 4. 0010
+
+## digital-electronics-b:11700-06-018
+
+- Replacement PNG: `public/question-images/117002-11700-06-018.png`
+- App path: `/question-images/117002-11700-06-018.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-018.png`
+- Current fallback page: `/question-pages/11700-page-38.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖中，Y 之結果為
+- Options:
+  - 1. (S'+A)(S+B)
+  - 2. S'A+SB
+  - 3. S'A'+SB
+  - 4. (S'A)(S+B)
+
+## digital-electronics-b:11700-06-019
+
+- Replacement PNG: `public/question-images/117002-11700-06-019.png`
+- App path: `/question-images/117002-11700-06-019.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-019.png`
+- Current fallback page: `/question-pages/11700-page-39.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖中，QB QA 之輸出狀態依序為
+- Options:
+  - 1. 00,01,10,11
+  - 2. 00,11,01,10
+  - 3. 00,11,10,01
+  - 4. 11,10,00,01
+
+## digital-electronics-b:11700-06-020
+
+- Replacement PNG: `public/question-images/117002-11700-06-020.png`
+- App path: `/question-images/117002-11700-06-020.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-020.png`
+- Current fallback page: `/question-pages/11700-page-39.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖之電路，其邏輯關係式為
+- Options:
+  - 1. F=A⊕B⊕C⊕D
+  - 2. F=A⊙B⊙C⊙D
+  - 3. F=ABCD
+  - 4. F=A+B+C+D
+
+## digital-electronics-b:11700-06-021
+
+- Replacement PNG: `public/question-images/117002-11700-06-021.png`
+- App path: `/question-images/117002-11700-06-021.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-021.png`
+- Current fallback page: `/question-pages/11700-page-39.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 若開關的開路視為邏輯 0，通路視為邏輯 1，則下圖之電路 X 至 Y 電路的邏輯式為
+- Options:
+  - 1. AB
+  - 2. A+B
+  - 3. AB+(A+B)
+  - 4. (A+B)'+AB
+
+## digital-electronics-b:11700-06-022
+
+- Replacement PNG: `public/question-images/117002-11700-06-022.png`
+- App path: `/question-images/117002-11700-06-022.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-022.png`
+- Current fallback page: `/question-pages/11700-page-39.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下所示之卡諾圖，下列何者為化簡後的結果？
+- Options:
+  - 1. f=C'D+CD'+B'C+A'B'
+  - 2. f=AB'+A'B+D'
+  - 3. f=(B+C'+D')(B+C+D)
+  - 4. f=A'C'+C'D+CD'+AB
+
+## digital-electronics-b:11700-06-024
+
+- Replacement PNG: `public/question-images/117002-11700-06-024-option-1.png`
+- App path: `/question-images/117002-11700-06-024-option-1.png`
+- Linked uploaded images:
+  - `/question-images/117002-11700-06-024-option-1.png`
+  - `/question-images/117002-11700-06-024-option-2.png`
+  - `/question-images/117002-11700-06-024-option-3.png`
+  - `/question-images/117002-11700-06-024-option-4.png`
+- Current fallback page: `/question-pages/11700-page-40.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下列何者為 TTL 之圖騰柱（totem-pole）輸出級電路？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## digital-electronics-b:11700-06-027
+
+- Replacement PNG: `public/question-images/117002-11700-06-027.png`
+- App path: `/question-images/117002-11700-06-027.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-027.png`
+- Current fallback page: `/question-pages/11700-page-40.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖之電路，其邏輯關係式為何？
+- Options:
+  - 1. Y=A⊕B
+  - 2. Y=A+B
+  - 3. Y=AB
+  - 4. Y=(A+B)(A+B)'
+
+## digital-electronics-b:11700-06-028
+
+- Replacement PNG: `public/question-images/117002-11700-06-028.png`
+- App path: `/question-images/117002-11700-06-028.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-028.png`
+- Current fallback page: `/question-pages/11700-page-40.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如下所示之卡諾圖，下列何者為化簡後的結果？
+- Options:
+  - 1. f(A,B,C)=A'+B
+  - 2. f(A,B,C)=A+B'
+  - 3. f(A,B,C)=A'+B+C
+  - 4. f(A,B,C)=A+B'+C
+
+## digital-electronics-b:11700-06-029
+
+- Replacement PNG: `public/question-images/117002-11700-06-029-option-1.png`
+- App path: `/question-images/117002-11700-06-029-option-1.png`
+- Linked uploaded images:
+  - `/question-images/117002-11700-06-029-option-1.png`
+  - `/question-images/117002-11700-06-029-option-2.png`
+  - `/question-images/117002-11700-06-029-option-3.png`
+  - `/question-images/117002-11700-06-029-option-4.png`
+  - `/question-images/117002-11700-06-029-5.png`
+- Current fallback page: `/question-pages/11700-page-41.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖之電路的開關為常開（normally open），若開關在 t1 時按下，而後在 t2 時放開，則其輸出波形為何？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## digital-electronics-b:11700-06-033
+
+- Replacement PNG: `public/question-images/117002-11700-06-033.png`
+- App path: `/question-images/117002-11700-06-033.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-033.png`
+- Current fallback page: `/question-pages/11700-page-41.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 某數位電路之輸入為 A 與 B 端，輸出為 X 與 Y 端，其真值表如下表所示，則此邏輯電路為
+- Options:
+  - 1. RS 正反器
+  - 2. JK 正反器
+  - 3. 半加器
+  - 4. 全加器
+
+## digital-electronics-b:11700-06-036
+
+- Replacement PNG: `public/question-images/117002-11700-06-036.png`
+- App path: `/question-images/117002-11700-06-036.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-036.png`
+- Current fallback page: `/question-pages/11700-page-42.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖為半減器結構時，A 與 B 分別為
+- Options:
+  - 1. A=XOR，B=AND
+  - 2. A=XNOR，B=AND
+  - 3. A=AND，B=XOR
+  - 4. A=AND，B=XNOR
+
+## digital-electronics-b:11700-06-038
+
+- Replacement PNG: `public/question-images/117002-11700-06-038.png`
+- App path: `/question-images/117002-11700-06-038.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-038.png`
+- Current fallback page: `/question-pages/11700-page-42.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖之邏輯電路，輸出 F 為
+- Options:
+  - 1. A+B
+  - 2. A‧B
+  - 3. (A+B)'
+  - 4. A⊕B
+
+## digital-electronics-b:11700-06-042
+
+- Replacement PNG: `public/question-images/117002-11700-06-042.png`
+- App path: `/question-images/117002-11700-06-042.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-042.png`
+- Current fallback page: `/question-pages/11700-page-42.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖所示，當 Fin 為 1KHz 方波時，Fout 應為
+- Options:
+  - 1. 邏輯位準"0"
+  - 2. 邏輯位準"1"
+  - 3. 1KHz 脈波
+  - 4. 2KHz 脈波
+
+## digital-electronics-b:11700-06-043
+
+- Replacement PNG: `public/question-images/117002-11700-06-043.png`
+- App path: `/question-images/117002-11700-06-043.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-043.png`
+- Current fallback page: `/question-pages/11700-page-42.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖所示，晶體振盪電路所使用的反或閘是 CMOS 元件 CD4001，圖中之回授電阻 R 至少應為何值，方能正常振盪？
+- Options:
+  - 1. 330Ω
+  - 2. 1KΩ
+  - 3. 10KΩ
+  - 4. 1MΩ
+
+## digital-electronics-b:11700-06-044
+
+- Replacement PNG: `public/question-images/117002-11700-06-044.png`
+- App path: `/question-images/117002-11700-06-044.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-044.png`
+- Current fallback page: `/question-pages/11700-page-43.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖所示，此一由 TTL 元件所組成的振盪電路，其輸出頻率（OUTPUT）應為
+- Options:
+  - 1. 0Hz
+  - 2. 3MHz
+  - 3. 6MHz
+  - 4. 12MHz
+
+## digital-electronics-b:11700-06-046
+
+- Replacement PNG: `public/question-images/117002-11700-06-046.png`
+- App path: `/question-images/117002-11700-06-046.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-046.png`
+- Current fallback page: `/question-pages/11700-page-43.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖所示，其應屬於下列何種編碼轉換電路？
+- Options:
+  - 1. BCD/Binary
+  - 2. Binary/BCD
+  - 3. Binary/Gray
+  - 4. Gray/BCD
+
+## digital-electronics-b:11700-06-049
+
+- Replacement PNG: `public/question-images/117002-11700-06-049.png`
+- App path: `/question-images/117002-11700-06-049.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-049.png`
+- Current fallback page: `/question-pages/11700-page-43.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖中，Y 為 0 的情況有幾種？
+- Options:
+  - 1. 9 種
+  - 2. 7 種
+  - 3. 5 種
+  - 4. 3 種
+
+## digital-electronics-b:11700-06-050
+
+- Replacement PNG: `public/question-images/117002-11700-06-050.png`
+- App path: `/question-images/117002-11700-06-050.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-050.png`
+- Current fallback page: `/question-pages/11700-page-44.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖之電路，若 A=B=C=1，則輸出為
+- Options:
+  - 1. X=0，Y=0
+  - 2. X=1，Y=0
+  - 3. X=0，Y=1
+  - 4. X=1，Y=1
+
+## digital-electronics-b:11700-06-051
+
+- Replacement PNG: `public/question-images/117002-11700-06-051.png`
+- App path: `/question-images/117002-11700-06-051.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-051.png`
+- Current fallback page: `/question-pages/11700-page-44.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖中，初始輸出狀態 Q1Q2Q3=100，且電路中，時鐘 CK 的頻率F=150KHz，則輸出頻率 FO 2 為
+- Options:
+  - 1. 50KHz
+  - 2. 75KHz
+  - 3. 150KHz
+  - 4. 300KHz
+
+## digital-electronics-b:11700-06-052
+
+- Replacement PNG: `public/question-images/117002-11700-06-052.png`
+- App path: `/question-images/117002-11700-06-052.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-052.png`
+- Current fallback page: `/question-pages/11700-page-44.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖為一四位元的移位型暫存器，其輸出與輸入特徵為
+- Options:
+  - 1. 並入並出PIPO
+  - 2. 並入串出 PISO
+  - 3. 串入並出 SIPO
+  - 4. 串入串出 SISO
+
+## digital-electronics-b:11700-06-053
+
+- Replacement PNG: `public/question-images/117002-11700-06-053.png`
+- App path: `/question-images/117002-11700-06-053.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-053.png`
+- Current fallback page: `/question-pages/11700-page-44.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖為一 RC 充電波形，若輸入電壓為 E，求第一個 RC 時間常數的 A 點到第二個 RC 時間常數的 B 點間，電壓共增加
+- Options:
+  - 1. 0.63E
+  - 2. 0.37E
+  - 3. 0.63‧0.37E
+  - 4. 0.63‧0.63E
+
+## digital-electronics-b:11700-06-054
+
+- Replacement PNG: `public/question-images/117002-11700-06-054.png`
+- App path: `/question-images/117002-11700-06-054.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-054.png`
+- Current fallback page: `/question-pages/11700-page-45.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖之元件為
+- Options:
+  - 1. NOT
+  - 2. SCR
+  - 3. 三態型 NOT
+  - 4. 三態型 BUFFER
+
+## digital-electronics-b:11700-06-057
+
+- Replacement PNG: `public/question-images/117002-11700-06-057.png`
+- App path: `/question-images/117002-11700-06-057.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-057.png`
+- Current fallback page: `/question-pages/11700-page-45.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖的卡諾圖，經化簡後 Y(A,B,C,D)應為
+- Options:
+  - 1. Y=A+B+C
+  - 2. Y=AC'+A'C
+  - 3. Y=BD+B'D'
+  - 4. Y=A'C'+AC
+
+## digital-electronics-b:11700-06-058
+
+- Replacement PNG: `public/question-images/117002-11700-06-058.png`
+- App path: `/question-images/117002-11700-06-058.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-058.png`
+- Current fallback page: `/question-pages/11700-page-45.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖中，若 5RC＜＜Tw（脈寬），則電路應為
+- Options:
+  - 1. 單擊電路（One Shot）
+  - 2. 除頻電路
+  - 3. 倍頻電路
+  - 4. 觸發電路
+
+## digital-electronics-b:11700-06-060
+
+- Replacement PNG: `public/question-images/117002-11700-06-060.png`
+- App path: `/question-images/117002-11700-06-060.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-060.png`
+- Current fallback page: `/question-pages/11700-page-45.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖的計數器，其輸出 f o 為
+- Options:
+  - 1. f c k
+  - 2. f c k /2
+  - 3. f c k /3
+  - 4. f c k /4
+
+## digital-electronics-b:11700-06-074
+
+- Replacement PNG: `public/question-images/117002-11700-06-074.png`
+- App path: `/question-images/117002-11700-06-074.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-074.png`
+- Current fallback page: `/question-pages/11700-page-46.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖之 CD4510 BCD 計數器，下列敘述何者正確？
+- Options:
+  - 1. U/D 是往上或往下計數的控制腳
+  - 2. PE（Preset Enable）主要作用是將 Q 輸出清除為零
+  - 3. CLK 是負緣觸發
+  - 4. CI 在高電位時才能計數
+
+## digital-electronics-b:11700-06-078
+
+- Replacement PNG: `public/question-images/117002-11700-06-078.png`
+- App path: `/question-images/117002-11700-06-078.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-078.png`
+- Current fallback page: `/question-pages/11700-page-47.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖所示，下列敘述何者正確？
+- Options:
+  - 1. 其功能為 NAND 閘
+  - 2. 其功能為 NOR閘
+  - 3. VDD 接負電壓時，電路正常動作
+  - 4. 屬於 TTL 邏輯族
+
+## digital-electronics-b:11700-06-079
+
+- Replacement PNG: `public/question-images/117002-11700-06-079.png`
+- App path: `/question-images/117002-11700-06-079.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-079.png`
+- Current fallback page: `/question-pages/11700-page-47.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖為已知邏輯電路，下列輸出函數何者正確？
+- Options:
+  - 1. Y1(A,B,C)= Σ(0,3,5)
+  - 2. Y2(A,B,C)= Σ(1,5,7)
+  - 3. Y1(A,B,C)=Σ(0,2,3,5)
+  - 4. Y2(A,B,C)= Σ(5,6)
+
+## digital-electronics-b:11700-06-080
+
+- Replacement PNG: `public/question-images/117002-11700-06-080.png`
+- App path: `/question-images/117002-11700-06-080.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-080.png`
+- Current fallback page: `/question-pages/11700-page-48.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖所示，其功能之敘述下列何者正確？
+- Options:
+  - 1. 模數 3 計數器
+  - 2. 下數計數器
+  - 3. 上數計數器
+  - 4. 同步計數器
+
+## digital-electronics-b:11700-06-086
+
+- Replacement PNG: `public/question-images/117002-11700-06-086.png`
+- App path: `/question-images/117002-11700-06-086.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-086.png`
+- Current fallback page: `/question-pages/11700-page-48.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 對於下圖之組合邏輯（A） A ＞ B 時， f 1 =1（其餘為 0）、（B） A = B 時，f 2 =1（其餘為 0）、（C） A ＜ B 時， f 3 =1（其餘為 0）；則其邏輯方程式f 1 =
+- Options:
+  - 1. A ' B
+  - 2. A ' B '+ AB
+  - 3. AB '
+  - 4. A + B
+
+## digital-electronics-b:11700-06-087
+
+- Replacement PNG: `public/question-images/117002-11700-06-087.png`
+- App path: `/question-images/117002-11700-06-087.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-087.png`
+- Current fallback page: `/question-pages/11700-page-49.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖所示，小林想應用 CPLD 電路板來控制一顆 LED 的明滅，若供給電壓 Vcc 為 3.3V，LED 工作電壓為 1.8V，若小林想要限制流經 LED 的電流在 5mA～15mA 之間，則小林應該選用的電阻 R 應該為何者較為適當？
+- Options:
+  - 1. 100Ω～300Ω
+  - 2. 100Ω～200Ω
+  - 3. 50Ω～150kΩ
+  - 4. 50Ω～200Ω
+
+## digital-electronics-b:11700-06-090
+
+- Replacement PNG: `public/question-images/117002-11700-06-090.png`
+- App path: `/question-images/117002-11700-06-090.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-090.png`
+- Current fallback page: `/question-pages/11700-page-49.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖所示，IC 74138 的輸出端設定為高電位作動（active high），並將F a F b F c F d F e F f F g 經由限流電阻連接到共陰極七段顯示器的 abcdefg 上，若輸入端 CBA=111，則七段顯示器應顯示下列何字？
+- Options:
+  - 1. F
+  - 2. 7
+  - 3. L
+  - 4. 0
+
+## digital-electronics-b:11700-06-091
+
+- Replacement PNG: `public/question-images/117002-11700-06-091.png`
+- App path: `/question-images/117002-11700-06-091.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-091.png`
+- Current fallback page: `/question-pages/11700-page-50.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖所示，IC 74292 為可程式化之除頻器，若輸入端 GCLK 輸入4.096MHZ 之時脈，則輸出端 OUT 脈波之頻率為何？
+- Options:
+  - 1. 8Hz
+  - 2. 4Hz
+  - 3. 2Hz
+  - 4. 1Hz
+
+## digital-electronics-b:11700-06-092
+
+- Replacement PNG: `public/question-images/117002-11700-06-092.png`
+- App path: `/question-images/117002-11700-06-092.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-092.png`
+- Current fallback page: `/question-pages/11700-page-50.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖所示，F 與 A、B 之邏輯關悉為何？
+- Options:
+  - 1. XOR
+  - 2. OR
+  - 3. NOR
+  - 4. AND
+
+## digital-electronics-b:11700-06-094
+
+- Replacement PNG: `public/question-images/117002-11700-06-094.png`
+- App path: `/question-images/117002-11700-06-094.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-094.png`
+- Current fallback page: `/question-pages/11700-page-50.jpg`
+- Kind: multiple
+- Official answer: 2,4
+- Prompt: 下圖之電路的輸入、輸出組合中，下列敘述何者正確？
+- Options:
+  - 1. (A,B,F)=(0,0,1)
+  - 2. (A,B,F)=(0,1,0)
+  - 3. (A,B,F)=(1,0,1)
+  - 4. (A,B,F)=(1,1,0)
+
+## digital-electronics-b:11700-06-096
+
+- Replacement PNG: `public/question-images/117002-11700-06-096.png`
+- App path: `/question-images/117002-11700-06-096.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-096.png`
+- Current fallback page: `/question-pages/11700-page-51.jpg`
+- Kind: multiple
+- Official answer: 1,4
+- Prompt: 下圖之計數電路，何者敘述正確？
+- Options:
+  - 1. 屬於非同步計數電路
+  - 2. 為除 5 電路
+  - 3. Q 1 的工作週期約 33.3％
+  - 4. Q 3 的工作週期約 33.3％
+
+## digital-electronics-b:11700-06-097
+
+- Replacement PNG: `public/question-images/117002-11700-06-097.png`
+- App path: `/question-images/117002-11700-06-097.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-097.png`
+- Current fallback page: `/question-pages/11700-page-51.jpg`
+- Kind: multiple
+- Official answer: 2,4
+- Prompt: 下圖係以 4×1 多工器來完成布林函數式 Y(A,B,C)=(0,2,3,4,6,7)，則各輸入接腳之接法何者正確？
+- Options:
+  - 1. I 0 =C
+  - 2. I 1 =1
+  - 3. I 2 =1
+  - 4. I 3 =1
+
+## digital-electronics-b:11700-06-100
+
+- Replacement PNG: `public/question-images/117002-11700-06-100.png`
+- App path: `/question-images/117002-11700-06-100.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-100.png`
+- Current fallback page: `/question-pages/11700-page-51.jpg`
+- Kind: multiple
+- Official answer: 1,3
+- Prompt: 下圖所示，具有下列哪些特性？
+- Options:
+  - 1. C1 充放電壓振幅為 4V～8V
+  - 2. OUT電壓輸出之頻率為 500Hz
+  - 3. 第 5 腳 CON 電壓為 8V
+  - 4. OUT 電壓輸出之工作週期約 60％
+
+## digital-electronics-b:11700-06-108
+
+- Replacement PNG: `public/question-images/117002-11700-06-108.png`
+- App path: `/question-images/117002-11700-06-108.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-108.png`
+- Current fallback page: `/question-pages/11700-page-53.jpg`
+- Kind: multiple
+- Official answer: 2,3
+- Prompt: 下圖所示，下列敘述何者正確？
+- Options:
+  - 1. 其功能為 NAND 閘
+  - 2. 其功能為 NOR閘
+  - 3. 屬於 CMOS 邏輯族
+  - 4. 屬於 TTL 邏輯族
+
+## digital-electronics-b:11700-06-109
+
+- Replacement PNG: `public/question-images/117002-11700-06-109.png`
+- App path: `/question-images/117002-11700-06-109.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-109.png`
+- Current fallback page: `/question-pages/11700-page-53.jpg`
+- Kind: multiple
+- Official answer: 1,4
+- Prompt: 下圖所示，下列敘述何者正確？
+- Options:
+  - 1. 其功能為 NAND 閘
+  - 2. 其功能為 NOR閘
+  - 3. 屬於 CMOS 邏輯族
+  - 4. 屬於 DTL 邏輯族
+
+## digital-electronics-b:11700-06-111
+
+- Replacement PNG: `public/question-images/117002-11700-06-111.png`
+- App path: `/question-images/117002-11700-06-111.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-111.png`
+- Current fallback page: `/question-pages/11700-page-53.jpg`
+- Kind: multiple
+- Official answer: 3,4
+- Prompt: 下圖之計數器，下列敘述何者正確？
+- Options:
+  - 1. 為環型計數器（Ring counter）
+  - 2. 為除 5 電路
+  - 3. 為強森計數器（Johnson counter）
+  - 4. 為除 8 電
+
+## digital-electronics-b:11700-06-112
+
+- Replacement PNG: `public/question-images/117002-11700-06-112.png`
+- App path: `/question-images/117002-11700-06-112.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-112.png`
+- Current fallback page: `/question-pages/11700-page-54.jpg`
+- Kind: multiple
+- Official answer: 1,2,3
+- Prompt: 有一卡諾圖，下列何者為化簡後的輸出函數？
+- Options:
+  - 1. A⊕C
+  - 2. AC'+A'C
+  - 3. (A+C)(A'+C')
+  - 4. (A+C')(A'+C)
+
+## digital-electronics-b:11700-06-113
+
+- Replacement PNG: `public/question-images/117002-11700-06-113.png`
+- App path: `/question-images/117002-11700-06-113.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-113.png`
+- Current fallback page: `/question-pages/11700-page-54.jpg`
+- Kind: multiple
+- Official answer: 2,3
+- Prompt: 下圖為已知邏輯電路，下列輸出函數何者正確？
+- Options:
+  - 1. Y1(A,B,C)= Σ(0,3,5)
+  - 2. Y2(A,B,C)= Σ(5,7)
+  - 3. Y1(A,B,C)=Σ(0,2,3,5)
+  - 4. Y2(A,B,C)=Σ(5,6)
+
+## digital-electronics-b:11700-06-114
+
+- Replacement PNG: `public/question-images/117002-11700-06-114.png`
+- App path: `/question-images/117002-11700-06-114.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-114.png`
+- Current fallback page: `/question-pages/11700-page-54.jpg`
+- Kind: multiple
+- Official answer: 1,2,3
+- Prompt: 下圖為已知全加器邏輯電路，下列敘述何者正確？
+- Options:
+  - 1. N2=A⊕B
+  - 2. Co=AB+Ci(A ⊕B)
+  - 3. S=A⊕B⊕Ci
+  - 4. 若 A=B=Ci=1，則 S=0，Co=1
+
+## digital-electronics-b:11700-06-115
+
+- Replacement PNG: `public/question-images/117002-11700-06-115.png`
+- App path: `/question-images/117002-11700-06-115.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-115.png`
+- Current fallback page: `/question-pages/11700-page-54.jpg`
+- Kind: multiple
+- Official answer: 1,4
+- Prompt: 如下為 1 對 4 解多工器真值表，下列輸出信號之布林函數何者正確？
+- Options:
+  - 1. Y0=S1'S2'D
+  - 2. Y1=S1'+S2+D
+  - 3. Y2=S1+S2'+D
+  - 4. Y3=S1S2D
+
+## digital-electronics-b:11700-06-116
+
+- Replacement PNG: `public/question-images/117002-11700-06-116.png`
+- App path: `/question-images/117002-11700-06-116.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-116.png`
+- Current fallback page: `/question-pages/11700-page-55.jpg`
+- Kind: multiple
+- Official answer: 2,3
+- Prompt: 如下列真值表所示，下列輸出函數何者正確？
+- Options:
+  - 1. Y0=(EAB)'
+  - 2. Y1=E'B
+  - 3. Y2=E'(A'B+AB')
+  - 4. Y3=E'(A'B'+AB)
+
+## digital-electronics-b:11700-06-117
+
+- Replacement PNG: `public/question-images/117002-11700-06-117-option-1.png`
+- App path: `/question-images/117002-11700-06-117-option-1.png`
+- Linked uploaded images:
+  - `/question-images/117002-11700-06-117-option-1.png`
+  - `/question-images/117002-11700-06-117-option-2.png`
+  - `/question-images/117002-11700-06-117-option-3.png`
+  - `/question-images/117002-11700-06-117-option-4.png`
+- Current fallback page: `/question-pages/11700-page-55.jpg`
+- Kind: multiple
+- Official answer: 2,3
+- Prompt: 下列哪些正反器的激勵表正確？
+- Options:
+  - 1. SR 正反器激勵表
+  - 2. D 型正反器激勵表
+  - 3. JK 正反器激勵表
+  - 4. T 型正反器激勵表
+
+## digital-electronics-b:11700-06-119
+
+- Replacement PNG: `public/question-images/117002-11700-06-119.png`
+- App path: `/question-images/117002-11700-06-119.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-119.png`
+- Current fallback page: `/question-pages/11700-page-55.jpg`
+- Kind: multiple
+- Official answer: 2,3,4
+- Prompt: 如下列真值表所示，其輸入和輸出關係為
+- Options:
+  - 1. Y1=A⊙B⊙C
+  - 2. Y1=A⊕B⊕C
+  - 3. Y0=AB+AC+BC
+  - 4. Y0=AC+BC+ABC'
+
+## digital-electronics-b:11700-06-122
+
+- Replacement PNG: `public/question-images/117002-11700-06-122.png`
+- App path: `/question-images/117002-11700-06-122.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-122.png`
+- Current fallback page: `/question-pages/11700-page-56.jpg`
+- Kind: multiple
+- Official answer: 2,4
+- Prompt: 下圖之電路的輸入、輸出組合中，下列敘述何者正確？
+- Options:
+  - 1. (A,B,F)=(0,0,1)
+  - 2. (A,B,F)=(0,1,0)
+  - 3. (A,B,F)=(1,0,1)
+  - 4. (A,B,F)=(1,1,0)
+
+## digital-electronics-b:11700-06-127
+
+- Replacement PNG: `public/question-images/117002-11700-06-127.png`
+- App path: `/question-images/117002-11700-06-127.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-127.png`
+- Current fallback page: `/question-pages/11700-page-56.jpg`
+- Kind: multiple
+- Official answer: 1,2
+- Prompt: 下圖所示，其功能之敘述下列何者正確？
+- Options:
+  - 1. 並列加法器
+  - 2. 並列減法器
+  - 3. 串列加法器
+  - 4. 串並列減法器
+
+## digital-electronics-b:11700-06-128
+
+- Replacement PNG: `public/question-images/117002-11700-06-128.png`
+- App path: `/question-images/117002-11700-06-128.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-128.png`
+- Current fallback page: `/question-pages/11700-page-57.jpg`
+- Kind: multiple
+- Official answer: 1,2
+- Prompt: 下圖所示，其功能之敘述下列何者正確？
+- Options:
+  - 1. 非同步計數器
+  - 2. 下數計數器
+  - 3. 上數計數器
+  - 4. 同步計數器
+
+## digital-electronics-b:11700-06-129
+
+- Replacement PNG: `public/question-images/117002-11700-06-129.png`
+- App path: `/question-images/117002-11700-06-129.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-129.png`
+- Current fallback page: `/question-pages/11700-page-57.jpg`
+- Kind: multiple
+- Official answer: 1,3
+- Prompt: 化簡如下列之卡諾圖，其邏輯函數應為何？
+- Options:
+  - 1. A'C+AB+AC'
+  - 2. A'C+CD+AC'
+  - 3. (A+C)(A'+B+C')
+  - 4. (A'+C')(A+B'+C)
+
+## digital-electronics-b:11700-06-136
+
+- Replacement PNG: `public/question-images/117002-11700-06-136.png`
+- App path: `/question-images/117002-11700-06-136.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-136.png`
+- Current fallback page: `/question-pages/11700-page-58.jpg`
+- Kind: multiple
+- Official answer: 1,2
+- Prompt: 下圖之電路的功能為何？
+- Options:
+  - 1. 並列加法器
+  - 2. 並列減法器
+  - 3. 串列式加法器
+  - 4. 串列式除法器
+
+## digital-electronics-b:11700-06-138
+
+- Replacement PNG: `public/question-images/117002-11700-06-138.png`
+- App path: `/question-images/117002-11700-06-138.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-06-138.png`
+- Current fallback page: `/question-pages/11700-page-58.jpg`
+- Kind: multiple
+- Official answer: 3,4
+- Prompt: 下圖所示，下列敘述何者正確？
+- Options:
+  - 1. C1 充放電壓振幅為 0V～3V
+  - 2. OUT電壓輸出之頻率為 500Hz
+  - 3. 第 5 腳 CON 電壓為 8V
+  - 4. OUT 電壓輸出之工作週期約 50％
+
+## digital-electronics-b:11700-06-140
+
+- Replacement PNG: `public/question-images/117002-11700-06-140-option-1.png`
+- App path: `/question-images/117002-11700-06-140-option-1.png`
+- Linked uploaded images:
+  - `/question-images/117002-11700-06-140-option-1.png`
+  - `/question-images/117002-11700-06-140-option-2.png`
+  - `/question-images/117002-11700-06-140-option-3.png`
+  - `/question-images/117002-11700-06-140-option-4.png`
+- Current fallback page: `/question-pages/11700-page-58.jpg`
+- Kind: multiple
+- Official answer: 1,2
+- Prompt: 下列何者等同 XNOR 電路？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## digital-electronics-b:11700-07-081
+
+- Replacement PNG: `public/question-images/117002-11700-07-081.png`
+- App path: `/question-images/117002-11700-07-081.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-07-081.png`
+- Current fallback page: `/question-pages/11700-page-64.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖之符號為
+- Options:
+  - 1. 印表機
+  - 2. 紅外線
+  - 3. 區域網路
+  - 4. 通用序列
+
+## digital-electronics-b:11700-08-007
+
+- Replacement PNG: `public/question-images/117002-11700-08-007.png`
+- App path: `/question-images/117002-11700-08-007.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-08-007.png`
+- Current fallback page: `/question-pages/11700-page-68.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 執行下列 C 語言程式，其輸出結果為何？
+- Options:
+  - 1. 2
+  - 2. 7
+  - 3. 1
+  - 4. 6
+
+## digital-electronics-b:11700-08-011
+
+- Replacement PNG: `public/question-images/117002-11700-08-011.png`
+- App path: `/question-images/117002-11700-08-011.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-08-011.png`
+- Current fallback page: `/question-pages/11700-page-68.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 執行下列 C 語言程式，其中 do…while 迴圈會執行幾次？
+- Options:
+  - 1. 3
+  - 2. 4
+  - 3. 5
+  - 4. 6
+
+## digital-electronics-b:11700-08-014
+
+- Replacement PNG: `public/question-images/117002-11700-08-014.png`
+- App path: `/question-images/117002-11700-08-014.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-08-014.png`
+- Current fallback page: `/question-pages/11700-page-69.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下列 C 語言程式中，for 迴圈的執行次數，何者正確？
+- Options:
+  - 1. 是無窮迴圈
+  - 2. 執行 5 次
+  - 3. 執行 4 次
+  - 4. 執行 3 次
+
+## digital-electronics-b:11700-08-015
+
+- Replacement PNG: `public/question-images/117002-11700-08-015.png`
+- App path: `/question-images/117002-11700-08-015.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-08-015.png`
+- Current fallback page: `/question-pages/11700-page-69.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 執行下列 C 語言程式，其輸出結果為何？
+- Options:
+  - 1. a
+  - 2. b
+  - 3. bc
+  - 4. bcd
+
+## digital-electronics-b:11700-08-016
+
+- Replacement PNG: `public/question-images/117002-11700-08-016.png`
+- App path: `/question-images/117002-11700-08-016.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-08-016.png`
+- Current fallback page: `/question-pages/11700-page-69.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 執行下列 for 巢狀迴圈的程式，其中 printf("\n")共執行幾次？
+- Options:
+  - 1. 12 次
+  - 2. 9 次
+  - 3. 4 次
+  - 4. 3 次
+
+## digital-electronics-b:11700-08-017
+
+- Replacement PNG: `public/question-images/117002-11700-08-017.png`
+- App path: `/question-images/117002-11700-08-017.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-08-017.png`
+- Current fallback page: `/question-pages/11700-page-70.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 執行下列 C 語言程式，其輸出結果為何？
+- Options:
+  - 1. x=16,y=7
+  - 2. x=17,y=7
+  - 3. x=12,y=7
+  - 4. x=11,y=7
+
+## digital-electronics-b:11700-08-018
+
+- Replacement PNG: `public/question-images/117002-11700-08-018.png`
+- App path: `/question-images/117002-11700-08-018.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-08-018.png`
+- Current fallback page: `/question-pages/11700-page-70.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 執行下列 C 語言程式，其輸出結果為何？
+- Options:
+  - 1. b=0
+  - 2. b=3
+  - 3. b=4
+  - 4. b=5
+
+## digital-electronics-b:11700-08-021
+
+- Replacement PNG: `public/question-images/117002-11700-08-021.png`
+- App path: `/question-images/117002-11700-08-021.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-08-021.png`
+- Current fallback page: `/question-pages/11700-page-70.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 執行下列 C 語言程式，其輸出結果為
+- Options:
+  - 1. a=10, b=20
+  - 2. a=20, b=10
+  - 3. a=10,b=10
+  - 4. a=20, b=20
+
+## digital-electronics-b:11700-08-022
+
+- Replacement PNG: `public/question-images/117002-11700-08-022.png`
+- App path: `/question-images/117002-11700-08-022.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-08-022.png`
+- Current fallback page: `/question-pages/11700-page-71.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 執行下列 C 語言程式，其輸出結果為
+- Options:
+  - 1. 10
+  - 2. 11
+  - 3. 12
+  - 4. 13
+
+## digital-electronics-b:11700-08-024
+
+- Replacement PNG: `public/question-images/117002-11700-08-024.png`
+- App path: `/question-images/117002-11700-08-024.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-08-024.png`
+- Current fallback page: `/question-pages/11700-page-71.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 執行下列 C 語言程式，其輸出結果為
+- Options:
+  - 1. ab
+  - 2. abc
+  - 3. abcd
+  - 4. abcdef
+
+## digital-electronics-b:11700-08-029
+
+- Replacement PNG: `public/question-images/117002-11700-08-029.png`
+- App path: `/question-images/117002-11700-08-029.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-08-029.png`
+- Current fallback page: `/question-pages/11700-page-72.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 執行下列 C 語言程式，其輸出結果為
+- Options:
+  - 1. i=2,sum=3
+  - 2. i=3,sum=6
+  - 3. i=10,sum=45
+  - 4. i=11,sum=55
+
+## digital-electronics-b:11700-08-031
+
+- Replacement PNG: `public/question-images/117002-11700-08-031.png`
+- App path: `/question-images/117002-11700-08-031.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-08-031.png`
+- Current fallback page: `/question-pages/11700-page-72.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 執行下列 C 語言程式，其輸出結果為
+- Options:
+  - 1. x=c,y=183
+  - 2. x=12,y=183
+  - 3. x=c,y=b7
+  - 4. x=c,y=267
+
+## digital-electronics-b:11700-08-035
+
+- Replacement PNG: `public/question-images/117002-11700-08-035.png`
+- App path: `/question-images/117002-11700-08-035.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-08-035.png`
+- Current fallback page: `/question-pages/11700-page-73.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 執行下列 C 語言程式，其輸出為何？
+- Options:
+  - 1. 12340
+  - 2. 11140
+  - 3. 11110
+  - 4. 11111
+
+## digital-electronics-b:11700-08-036
+
+- Replacement PNG: `public/question-images/117002-11700-08-036.png`
+- App path: `/question-images/117002-11700-08-036.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-08-036.png`
+- Current fallback page: `/question-pages/11700-page-73.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 執行下列 C 語言程式，其輸出為何？
+- Options:
+  - 1. a=123,b=3,c=30
+  - 2. a=123,b=3,c=1
+  - 3. a=123,b=30,c=3
+  - 4. a=123,b=123,c=30
+
+## digital-electronics-b:11700-08-043
+
+- Replacement PNG: `public/question-images/117002-11700-08-043.png`
+- App path: `/question-images/117002-11700-08-043.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-08-043.png`
+- Current fallback page: `/question-pages/11700-page-74.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 將 C 語言程式中的 Port 以 P1 取代，是在哪一個編譯過程？
+- Options:
+  - 1. Assembling
+  - 2. Compiling
+  - 3. Linking
+  - 4. Preprocessing
+
+## digital-electronics-b:11700-08-057
+
+- Replacement PNG: `public/question-images/117002-11700-08-057.png`
+- App path: `/question-images/117002-11700-08-057.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-08-057.png`
+- Current fallback page: `/question-pages/11700-page-75.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下列標準 C 語言指令後加入下列哪一個指令，可將存放於 x[]字串陣列中的資料複製到 y 所指到的記憶體空間？
+- Options:
+  - 1. y = x;
+  - 2. y = x[];
+  - 3. strcmp(x,y);
+  - 4. sprintf(y, x);
+
+## digital-electronics-b:11700-08-058
+
+- Replacement PNG: `public/question-images/117002-11700-08-058.png`
+- App path: `/question-images/117002-11700-08-058.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-08-058.png`
+- Current fallback page: `/question-pages/11700-page-75.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 執行下列標準 C 語言程式，輸出為何？
+- Options:
+  - 1. True
+  - 2. False
+  - 3. 編譯時會出現錯誤
+  - 4. 執行時會崩潰（crash）
+
+## digital-electronics-b:11700-08-059
+
+- Replacement PNG: `public/question-images/117002-11700-08-059.png`
+- App path: `/question-images/117002-11700-08-059.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-08-059.png`
+- Current fallback page: `/question-pages/11700-page-75.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 執行下列標準 C 語言程式，輸出為何？
+- Options:
+  - 1. NNNN
+  - 2. MMMM
+  - 3. MLKJ
+  - 4. MNOP
+
+## digital-electronics-b:11700-08-060
+
+- Replacement PNG: `public/question-images/117002-11700-08-060.png`
+- App path: `/question-images/117002-11700-08-060.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-08-060.png`
+- Current fallback page: `/question-pages/11700-page-76.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 執行下列標準 C 語言程式，輸出為何？
+- Options:
+  - 1. 20 20
+  - 2. 20 10
+  - 3. 10 10
+  - 4. 10 20
+
+## digital-electronics-b:11700-08-061
+
+- Replacement PNG: `public/question-images/117002-11700-08-061.png`
+- App path: `/question-images/117002-11700-08-061.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-08-061.png`
+- Current fallback page: `/question-pages/11700-page-76.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 執行下列標準 C 語言程式，輸出為何？
+- Options:
+  - 1. 1000
+  - 2. 100
+  - 3. 532
+  - 4. 235
+
+## digital-electronics-b:11700-08-062
+
+- Replacement PNG: `public/question-images/117002-11700-08-062.png`
+- App path: `/question-images/117002-11700-08-062.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-08-062.png`
+- Current fallback page: `/question-pages/11700-page-76.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 執行下列標準 C 語言程式，輸出為何？
+- Options:
+  - 1. b
+  - 2. a
+  - 3. 10
+  - 4. 11
+
+## digital-electronics-b:11700-08-063
+
+- Replacement PNG: `public/question-images/117002-11700-08-063.png`
+- App path: `/question-images/117002-11700-08-063.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-08-063.png`
+- Current fallback page: `/question-pages/11700-page-77.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 執行下列標準 C 語言程式，輸出為何？
+- Options:
+  - 1. 2
+  - 2. 4
+  - 3. 1
+  - 4. 8
+
+## digital-electronics-b:11700-08-064
+
+- Replacement PNG: `public/question-images/117002-11700-08-064.png`
+- App path: `/question-images/117002-11700-08-064.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-08-064.png`
+- Current fallback page: `/question-pages/11700-page-77.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 執行下列標準 C 語言程式，輸出為何？
+- Options:
+  - 1. 178
+  - 2. 179
+  - 3. 77
+  - 4. 17
+
+## digital-electronics-b:11700-08-065
+
+- Replacement PNG: `public/question-images/117002-11700-08-065.png`
+- App path: `/question-images/117002-11700-08-065.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-08-065.png`
+- Current fallback page: `/question-pages/11700-page-77.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 執行下列標準 C 語言程式，輸出為何？
+- Options:
+  - 1. 100
+  - 2. 202
+  - 3. 146
+  - 4. 200
+
+## digital-electronics-b:11700-08-071
+
+- Replacement PNG: `public/question-images/117002-11700-08-071.png`
+- App path: `/question-images/117002-11700-08-071.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-08-071.png`
+- Current fallback page: `/question-pages/11700-page-77.jpg`
+- Kind: multiple
+- Official answer: 1,4
+- Prompt: 下列 C 語言程式，何者正確？
+- Options:
+  - 1. 執行至第 10 列後，其輸出為：a=100,b=10
+  - 2. 執行至第 10 列，其輸出為：a=50,b=10
+  - 3. 執行至第 12 列，其輸出為：a=350,b=360
+  - 4. 執行至第 12 列，其輸出為：a=100,b=360
+
+## digital-electronics-b:11700-08-074
+
+- Replacement PNG: `public/question-images/117002-11700-08-074.png`
+- App path: `/question-images/117002-11700-08-074.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-08-074.png`
+- Current fallback page: `/question-pages/11700-page-78.jpg`
+- Kind: multiple
+- Official answer: 1,2
+- Prompt: 已知 ASCII Code a=97, A=65，若下列程式執行結果為 King 或 KING，程式中之 n[4]陣列初值要如何設定？
+- Options:
+  - 1. {30, 5, -7}
+  - 2. {-2, 5, -7}
+  - 3. {32, 5, -7}
+  - 4. {22, 5, -7}
+
+## digital-electronics-b:11700-08-075
+
+- Replacement PNG: `public/question-images/117002-11700-08-075.png`
+- App path: `/question-images/117002-11700-08-075.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-08-075.png`
+- Current fallback page: `/question-pages/11700-page-79.jpg`
+- Kind: multiple
+- Official answer: 1,2
+- Prompt: 有關標準 C 語言中，union 執行下列程式後，請選出正確結果
+- Options:
+  - 1. a[0] =0x64
+  - 2. sizeof(A1) = 8
+  - 3. A1.a = 10
+  - 4. sizeof(A1) = 12
+
+## digital-electronics-b:11700-08-076
+
+- Replacement PNG: `public/question-images/117002-11700-08-076.png`
+- App path: `/question-images/117002-11700-08-076.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-08-076.png`
+- Current fallback page: `/question-pages/11700-page-79.jpg`
+- Kind: multiple
+- Official answer: 1,2
+- Prompt: 有關標準 C 語言中，結構（struct）定義的記憶體安排，下列程式中，sizeof(A)與 sizeof(B)分別為
+- Options:
+  - 1. sizeof(A)=24
+  - 2. sizeof(B)=16
+  - 3. sizeof(A)=14
+  - 4. sizeof(B)=14
+
+## digital-electronics-b:11700-10-023
+
+- Replacement PNG: `public/question-images/117002-11700-10-023.png`
+- App path: `/question-images/117002-11700-10-023.png`
+- Linked uploaded image:
+  - `/question-images/117002-11700-10-023.png`
+- Current fallback page: `/question-pages/11700-page-84.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖為一軟體掃描方式的鍵盤電路，圖中的電阻器作用為
+- Options:
+  - 1. 在無按鍵時輸入為低電位
+  - 2. 保護輸入元件
+  - 3. 消除鍵盤彈跳效應（Debounce）
+  - 4. 消除電源雜訊
 
 ## computer-software-application-b:11800-02-076
 
@@ -5700,8 +9203,12 @@ Total active image questions: 490
 
 - Replacement PNG: `public/question-images/120003-12000-01-003.png`
 - App path: `/question-images/120003-12000-01-003.png`
-- Linked uploaded image:
+- Linked uploaded images:
   - `/question-images/120003-12000-01-003.png`
+  - `/question-images/120003-12000-01-003-1.png`
+  - `/question-images/120003-12000-01-003-2.png`
+  - `/question-images/120003-12000-01-003-3.png`
+  - `/question-images/120003-12000-01-003-4.png`
 - Current fallback page: `/question-pages/12000-page-2.jpg`
 - Kind: single
 - Official answer: 4
@@ -6212,8 +9719,12 @@ Total active image questions: 490
 
 - Replacement PNG: `public/question-images/12600-01-043.png`
 - App path: `/question-images/12600-01-043.png`
-- Linked uploaded image:
+- Linked uploaded images:
   - `/question-images/12600-01-043.png`
+  - `/question-images/12600-01-043-1.png`
+  - `/question-images/12600-01-043-2.png`
+  - `/question-images/12600-01-043-3.png`
+  - `/question-images/12600-01-043-4.png`
 - Current fallback page: `/question-pages/12600-page-4.jpg`
 - Kind: single
 - Official answer: 2
@@ -6228,8 +9739,12 @@ Total active image questions: 490
 
 - Replacement PNG: `public/question-images/12600-01-044.png`
 - App path: `/question-images/12600-01-044.png`
-- Linked uploaded image:
+- Linked uploaded images:
   - `/question-images/12600-01-044.png`
+  - `/question-images/12600-01-044-1.png`
+  - `/question-images/12600-01-044-2.png`
+  - `/question-images/12600-01-044-3.png`
+  - `/question-images/12600-01-044-4.png`
 - Current fallback page: `/question-pages/12600-page-4.jpg`
 - Kind: single
 - Official answer: 2
@@ -6244,8 +9759,12 @@ Total active image questions: 490
 
 - Replacement PNG: `public/question-images/12600-01-045.png`
 - App path: `/question-images/12600-01-045.png`
-- Linked uploaded image:
+- Linked uploaded images:
   - `/question-images/12600-01-045.png`
+  - `/question-images/12600-01-045-1.png`
+  - `/question-images/12600-01-045-2.png`
+  - `/question-images/12600-01-045-3.png`
+  - `/question-images/12600-01-045-4.png`
 - Current fallback page: `/question-pages/12600-page-5.jpg`
 - Kind: single
 - Official answer: 4
@@ -6274,10 +9793,13 @@ Total active image questions: 490
 
 ## interior-decoration-management-b:12600-01-052
 
-- Replacement PNG: `public/question-images/12600-01-052.png`
-- App path: `/question-images/12600-01-052.png`
-- Linked uploaded image:
-  - `/question-images/12600-01-052.png`
+- Replacement PNG: `public/question-images/12600-01-052-1.png`
+- App path: `/question-images/12600-01-052-1.png`
+- Linked uploaded images:
+  - `/question-images/12600-01-052-1.png`
+  - `/question-images/12600-01-052-2.png`
+  - `/question-images/12600-01-052-3.png`
+  - `/question-images/12600-01-052-4.png`
 - Current fallback page: `/question-pages/12600-page-5.jpg`
 - Kind: multiple
 - Official answer: 1,2,4
@@ -6290,10 +9812,13 @@ Total active image questions: 490
 
 ## interior-decoration-management-b:12600-01-054
 
-- Replacement PNG: `public/question-images/12600-01-054.png`
-- App path: `/question-images/12600-01-054.png`
-- Linked uploaded image:
-  - `/question-images/12600-01-054.png`
+- Replacement PNG: `public/question-images/12600-01-054-1.png`
+- App path: `/question-images/12600-01-054-1.png`
+- Linked uploaded images:
+  - `/question-images/12600-01-054-1.png`
+  - `/question-images/12600-01-054-2.png`
+  - `/question-images/12600-01-054-3.png`
+  - `/question-images/12600-01-054-4.png`
 - Current fallback page: `/question-pages/12600-page-5.jpg`
 - Kind: multiple
 - Official answer: 1,2,3
@@ -6306,10 +9831,13 @@ Total active image questions: 490
 
 ## interior-decoration-management-b:12600-01-057
 
-- Replacement PNG: `public/question-images/12600-01-057.png`
-- App path: `/question-images/12600-01-057.png`
-- Linked uploaded image:
-  - `/question-images/12600-01-057.png`
+- Replacement PNG: `public/question-images/12600-01-057-1.png`
+- App path: `/question-images/12600-01-057-1.png`
+- Linked uploaded images:
+  - `/question-images/12600-01-057-1.png`
+  - `/question-images/12600-01-057-2.png`
+  - `/question-images/12600-01-057-3.png`
+  - `/question-images/12600-01-057-4.png`
 - Current fallback page: `/question-pages/12600-page-5.jpg`
 - Kind: multiple
 - Official answer: 2,4
@@ -6322,10 +9850,13 @@ Total active image questions: 490
 
 ## interior-decoration-management-b:12600-01-059
 
-- Replacement PNG: `public/question-images/12600-01-059.png`
-- App path: `/question-images/12600-01-059.png`
-- Linked uploaded image:
-  - `/question-images/12600-01-059.png`
+- Replacement PNG: `public/question-images/12600-01-059-1.png`
+- App path: `/question-images/12600-01-059-1.png`
+- Linked uploaded images:
+  - `/question-images/12600-01-059-1.png`
+  - `/question-images/12600-01-059-2.png`
+  - `/question-images/12600-01-059-3.png`
+  - `/question-images/12600-01-059-4.png`
 - Current fallback page: `/question-pages/12600-page-6.jpg`
 - Kind: multiple
 - Official answer: 1,4
@@ -6338,10 +9869,13 @@ Total active image questions: 490
 
 ## interior-decoration-management-b:12600-01-060
 
-- Replacement PNG: `public/question-images/12600-01-060.png`
-- App path: `/question-images/12600-01-060.png`
-- Linked uploaded image:
-  - `/question-images/12600-01-060.png`
+- Replacement PNG: `public/question-images/12600-01-060-1.png`
+- App path: `/question-images/12600-01-060-1.png`
+- Linked uploaded images:
+  - `/question-images/12600-01-060-1.png`
+  - `/question-images/12600-01-060-2.png`
+  - `/question-images/12600-01-060-3.png`
+  - `/question-images/12600-01-060-4.png`
 - Current fallback page: `/question-pages/12600-page-6.jpg`
 - Kind: multiple
 - Official answer: 1,2
@@ -6354,10 +9888,13 @@ Total active image questions: 490
 
 ## interior-decoration-management-b:12600-01-061
 
-- Replacement PNG: `public/question-images/12600-01-061.png`
-- App path: `/question-images/12600-01-061.png`
-- Linked uploaded image:
-  - `/question-images/12600-01-061.png`
+- Replacement PNG: `public/question-images/12600-01-061-1.png`
+- App path: `/question-images/12600-01-061-1.png`
+- Linked uploaded images:
+  - `/question-images/12600-01-061-1.png`
+  - `/question-images/12600-01-061-2.png`
+  - `/question-images/12600-01-061-3.png`
+  - `/question-images/12600-01-061-4.png`
 - Current fallback page: `/question-pages/12600-page-6.jpg`
 - Kind: multiple
 - Official answer: 1,4
@@ -6370,10 +9907,13 @@ Total active image questions: 490
 
 ## interior-decoration-management-b:12600-01-062
 
-- Replacement PNG: `public/question-images/12600-01-062.png`
-- App path: `/question-images/12600-01-062.png`
-- Linked uploaded image:
-  - `/question-images/12600-01-062.png`
+- Replacement PNG: `public/question-images/12600-01-062-1.png`
+- App path: `/question-images/12600-01-062-1.png`
+- Linked uploaded images:
+  - `/question-images/12600-01-062-1.png`
+  - `/question-images/12600-01-062-2.png`
+  - `/question-images/12600-01-062-3.png`
+  - `/question-images/12600-01-062-4.png`
 - Current fallback page: `/question-pages/12600-page-6.jpg`
 - Kind: multiple
 - Official answer: 2,3,4
@@ -6386,10 +9926,13 @@ Total active image questions: 490
 
 ## interior-decoration-management-b:12600-01-063
 
-- Replacement PNG: `public/question-images/12600-01-063.png`
-- App path: `/question-images/12600-01-063.png`
-- Linked uploaded image:
-  - `/question-images/12600-01-063.png`
+- Replacement PNG: `public/question-images/12600-01-063-1.png`
+- App path: `/question-images/12600-01-063-1.png`
+- Linked uploaded images:
+  - `/question-images/12600-01-063-1.png`
+  - `/question-images/12600-01-063-2.png`
+  - `/question-images/12600-01-063-3.png`
+  - `/question-images/12600-01-063-4.png`
 - Current fallback page: `/question-pages/12600-page-6.jpg`
 - Kind: multiple
 - Official answer: 1,3,4
@@ -6402,10 +9945,13 @@ Total active image questions: 490
 
 ## interior-decoration-management-b:12600-01-064
 
-- Replacement PNG: `public/question-images/12600-01-064.png`
-- App path: `/question-images/12600-01-064.png`
-- Linked uploaded image:
-  - `/question-images/12600-01-064.png`
+- Replacement PNG: `public/question-images/12600-01-064-1.png`
+- App path: `/question-images/12600-01-064-1.png`
+- Linked uploaded images:
+  - `/question-images/12600-01-064-1.png`
+  - `/question-images/12600-01-064-2.png`
+  - `/question-images/12600-01-064-3.png`
+  - `/question-images/12600-01-064-4.png`
 - Current fallback page: `/question-pages/12600-page-6.jpg`
 - Kind: multiple
 - Official answer: 1,2,3
@@ -6418,10 +9964,13 @@ Total active image questions: 490
 
 ## interior-decoration-management-b:12600-01-065
 
-- Replacement PNG: `public/question-images/12600-01-065.png`
-- App path: `/question-images/12600-01-065.png`
-- Linked uploaded image:
-  - `/question-images/12600-01-065.png`
+- Replacement PNG: `public/question-images/12600-01-065-1.png`
+- App path: `/question-images/12600-01-065-1.png`
+- Linked uploaded images:
+  - `/question-images/12600-01-065-1.png`
+  - `/question-images/12600-01-065-2.png`
+  - `/question-images/12600-01-065-3.png`
+  - `/question-images/12600-01-065-4.png`
 - Current fallback page: `/question-pages/12600-page-6.jpg`
 - Kind: multiple
 - Official answer: 2,3,4
@@ -6434,10 +9983,13 @@ Total active image questions: 490
 
 ## interior-decoration-management-b:12600-01-067
 
-- Replacement PNG: `public/question-images/12600-01-067.png`
-- App path: `/question-images/12600-01-067.png`
-- Linked uploaded image:
-  - `/question-images/12600-01-067.png`
+- Replacement PNG: `public/question-images/12600-01-067-1.png`
+- App path: `/question-images/12600-01-067-1.png`
+- Linked uploaded images:
+  - `/question-images/12600-01-067-1.png`
+  - `/question-images/12600-01-067-2.png`
+  - `/question-images/12600-01-067-3.png`
+  - `/question-images/12600-01-067-4.png`
 - Current fallback page: `/question-pages/12600-page-6.jpg`
 - Kind: multiple
 - Official answer: 2,3,4
@@ -6450,10 +10002,13 @@ Total active image questions: 490
 
 ## interior-decoration-management-b:12600-01-068
 
-- Replacement PNG: `public/question-images/12600-01-068.png`
-- App path: `/question-images/12600-01-068.png`
-- Linked uploaded image:
-  - `/question-images/12600-01-068.png`
+- Replacement PNG: `public/question-images/12600-01-068-1.png`
+- App path: `/question-images/12600-01-068-1.png`
+- Linked uploaded images:
+  - `/question-images/12600-01-068-1.png`
+  - `/question-images/12600-01-068-2.png`
+  - `/question-images/12600-01-068-3.png`
+  - `/question-images/12600-01-068-4.png`
 - Current fallback page: `/question-pages/12600-page-6.jpg`
 - Kind: multiple
 - Official answer: 1,4
@@ -6466,10 +10021,13 @@ Total active image questions: 490
 
 ## interior-decoration-management-b:12600-01-069
 
-- Replacement PNG: `public/question-images/12600-01-069.png`
-- App path: `/question-images/12600-01-069.png`
-- Linked uploaded image:
-  - `/question-images/12600-01-069.png`
+- Replacement PNG: `public/question-images/12600-01-069-1.png`
+- App path: `/question-images/12600-01-069-1.png`
+- Linked uploaded images:
+  - `/question-images/12600-01-069-1.png`
+  - `/question-images/12600-01-069-2.png`
+  - `/question-images/12600-01-069-3.png`
+  - `/question-images/12600-01-069-4.png`
 - Current fallback page: `/question-pages/12600-page-7.jpg`
 - Kind: multiple
 - Official answer: 1,3
@@ -6482,10 +10040,13 @@ Total active image questions: 490
 
 ## interior-decoration-management-b:12600-01-070
 
-- Replacement PNG: `public/question-images/12600-01-070.png`
-- App path: `/question-images/12600-01-070.png`
-- Linked uploaded image:
-  - `/question-images/12600-01-070.png`
+- Replacement PNG: `public/question-images/12600-01-070-1.png`
+- App path: `/question-images/12600-01-070-1.png`
+- Linked uploaded images:
+  - `/question-images/12600-01-070-1.png`
+  - `/question-images/12600-01-070-2.png`
+  - `/question-images/12600-01-070-3.png`
+  - `/question-images/12600-01-070-4.png`
 - Current fallback page: `/question-pages/12600-page-7.jpg`
 - Kind: multiple
 - Official answer: 1,2,4
@@ -6498,10 +10059,13 @@ Total active image questions: 490
 
 ## interior-decoration-management-b:12600-02-003
 
-- Replacement PNG: `public/question-images/12600-02-003.png`
-- App path: `/question-images/12600-02-003.png`
-- Linked uploaded image:
-  - `/question-images/12600-02-003.png`
+- Replacement PNG: `public/question-images/12600-02-003-1.png`
+- App path: `/question-images/12600-02-003-1.png`
+- Linked uploaded images:
+  - `/question-images/12600-02-003-1.png`
+  - `/question-images/12600-02-003-2.png`
+  - `/question-images/12600-02-003-3.png`
+  - `/question-images/12600-02-003-4.png`
 - Current fallback page: `/question-pages/12600-page-7.jpg`
 - Kind: single
 - Official answer: 1
@@ -6544,6 +10108,230 @@ Total active image questions: 490
   - 3. 錯誤線
   - 4. 轉移線
 
+## motorcycle-repair-c:14500-01-037
+
+- Replacement PNG: `public/question-images/145003-14500-01-037.png`
+- App path: `/question-images/145003-14500-01-037.png`
+- Linked uploaded image:
+  - `/question-images/145003-14500-01-037.png`
+- Current fallback page: `/question-pages/14500-page-3.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 如圖所示，三用電錶中之 10A 為下列何者之檔位？
+- Options:
+  - 1. 電壓
+  - 2. 瓦特
+  - 3. 電流
+  - 4. 電阻
+
+## motorcycle-repair-c:14500-01-065
+
+- Replacement PNG: `public/question-images/145003-14500-01-065.png`
+- App path: `/question-images/145003-14500-01-065.png`
+- Linked uploaded image:
+  - `/question-images/145003-14500-01-065.png`
+- Current fallback page: `/question-pages/14500-page-5.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如圖所示為鎖緊螺絲的扭力刻度，扭力扳手作用臂長 2m 時，施力為
+- Options:
+  - 1. 1kg
+  - 2. 2kg
+  - 3. 4kg
+  - 4. 8kg
+
+## motorcycle-repair-c:14500-01-066
+
+- Replacement PNG: `public/question-images/145003-14500-01-066.png`
+- App path: `/question-images/145003-14500-01-066.png`
+- Linked uploaded image:
+  - `/question-images/145003-14500-01-066.png`
+- Current fallback page: `/question-pages/14500-page-5.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 如圖所示，測微器刻度是
+- Options:
+  - 1. 22.43mm
+  - 2. 21.93mm
+  - 3. 21.47mm
+  - 4. 21.43mm
+
+## motorcycle-repair-c:14500-01-067
+
+- Replacement PNG: `public/question-images/145003-14500-01-067.png`
+- App path: `/question-images/145003-14500-01-067.png`
+- Linked uploaded image:
+  - `/question-images/145003-14500-01-067.png`
+- Current fallback page: `/question-pages/14500-page-5.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如圖所示，游標卡尺刻度是
+- Options:
+  - 1. 20.21mm
+  - 2. 15.25mm
+  - 3. 15.4mm
+  - 4. 15.10mm
+
+## motorcycle-repair-c:14500-02-006
+
+- Replacement PNG: `public/question-images/145003-14500-02-006.png`
+- App path: `/question-images/145003-14500-02-006.png`
+- Linked uploaded image:
+  - `/question-images/145003-14500-02-006.png`
+- Current fallback page: `/question-pages/14500-page-6.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 如圖所示，機器腳踏車車身高度指下列何者？
+- Options:
+  - 1. A
+  - 2. B
+  - 3. C
+  - 4. D
+
+## motorcycle-repair-c:14500-03-187
+
+- Replacement PNG: `public/question-images/145003-14500-03-187.png`
+- App path: `/question-images/145003-14500-03-187.png`
+- Linked uploaded image:
+  - `/question-images/145003-14500-03-187.png`
+- Current fallback page: `/question-pages/14500-page-17.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如圖所示，曲軸位置感知器為何種型式？
+- Options:
+  - 1. 光電式
+  - 2. 磁感式
+  - 3. 可變電阻式
+  - 4. 壓容式
+
+## motorcycle-repair-c:14500-03-190
+
+- Replacement PNG: `public/question-images/145003-14500-03-190.png`
+- App path: `/question-images/145003-14500-03-190.png`
+- Linked uploaded image:
+  - `/question-images/145003-14500-03-190.png`
+- Current fallback page: `/question-pages/14500-page-18.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 如圖所示，使用 NTC 型之溫度感知器，當溫度達 40℃時，感知器之電阻值為
+- Options:
+  - 1. 0.1Ω
+  - 2. 1Ω
+  - 3. 1KΩ
+  - 4. 20KΩ
+
+## motorcycle-repair-c:14500-03-194
+
+- Replacement PNG: `public/question-images/145003-14500-03-194.png`
+- App path: `/question-images/145003-14500-03-194.png`
+- Linked uploaded image:
+  - `/question-images/145003-14500-03-194.png`
+- Current fallback page: `/question-pages/14500-page-18.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如圖所示，含氧感知器輸出電壓持續偏高，下列何者正確？
+- Options:
+  - 1. 噴油時間增加
+  - 2. 混合比濃度維持於理論值
+  - 3. 廢氣含氧量過多
+  - 4. 混合比濃度過稀
+
+## motorcycle-repair-c:14500-03-195
+
+- Replacement PNG: `public/question-images/145003-14500-03-195.png`
+- App path: `/question-images/145003-14500-03-195.png`
+- Linked uploaded image:
+  - `/question-images/145003-14500-03-195.png`
+- Current fallback page: `/question-pages/14500-page-18.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 如圖所示，節流閥位置感知器，其搭鐵腳位為何？
+- Options:
+  - 1. 1 號端子
+  - 2. 2 號端子
+  - 3. 3 號端子
+  - 4. 2 與 3 號端子均可
+
+## motorcycle-repair-c:14500-03-196
+
+- Replacement PNG: `public/question-images/145003-14500-03-196.png`
+- App path: `/question-images/145003-14500-03-196.png`
+- Linked uploaded image:
+  - `/question-images/145003-14500-03-196.png`
+- Current fallback page: `/question-pages/14500-page-19.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如圖所示，節流閥位置感知器，其信號腳位為何？
+- Options:
+  - 1. 1 號端子
+  - 2. 2 號端子
+  - 3. 3 號端子
+  - 4. 2 與 3 號端子均可
+
+## motorcycle-repair-c:14500-04-117
+
+- Replacement PNG: `public/question-images/145003-14500-04-117.png`
+- App path: `/question-images/145003-14500-04-117.png`
+- Linked uploaded image:
+  - `/question-images/145003-14500-04-117.png`
+- Current fallback page: `/question-pages/14500-page-32.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 如圖所示，一工作週期（duty cycle）為
+- Options:
+  - 1. A／B
+  - 2. B／A
+  - 3. A／（A＋B）
+  - 4. B／（A＋B）
+
+## motorcycle-repair-c:14500-04-118
+
+- Replacement PNG: `public/question-images/145003-14500-04-118.png`
+- App path: `/question-images/145003-14500-04-118.png`
+- Linked uploaded image:
+  - `/question-images/145003-14500-04-118.png`
+- Current fallback page: `/question-pages/14500-page-32.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 如圖所示，進行無負載測試時，量測儀器必須使用何種檔位？
+- Options:
+  - 1. 直流電壓檔
+  - 2. 交流電壓檔
+  - 3. 歐姆檔
+  - 4. 直流電流檔
+
+## motorcycle-repair-c:14500-04-119
+
+- Replacement PNG: `public/question-images/145003-14500-04-119.png`
+- App path: `/question-images/145003-14500-04-119.png`
+- Linked uploaded image:
+  - `/question-images/145003-14500-04-119.png`
+- Current fallback page: `/question-pages/14500-page-32.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如圖所示，進行無負載測試時，必須使用何種檔位？
+- Options:
+  - 1. 直流電壓檔
+  - 2. 交流電壓檔
+  - 3. 歐姆檔
+  - 4. 電流檔
+
+## motorcycle-repair-c:14500-06-035
+
+- Replacement PNG: `public/question-images/145003-14500-06-035.png`
+- App path: `/question-images/145003-14500-06-035.png`
+- Linked uploaded image:
+  - `/question-images/145003-14500-06-035.png`
+- Current fallback page: `/question-pages/14500-page-40.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如圖所示，輪胎上烙印有製造日期，下列何者正確？
+- Options:
+  - 1. 4 碼的後 2 碼為年別，前 2 碼為週別
+  - 2. 4 碼的前 2 碼為年別，後 2 碼為週別
+  - 3. 年別碼為民國年
+  - 4. 第 4 碼為月別
+
 ## forklift-operation-single:15100-01-090
 
 - Replacement PNG: `public/question-images/15100-01-090.png`
@@ -6578,10 +10366,13 @@ Total active image questions: 490
 
 ## forklift-operation-single:15100-02-015
 
-- Replacement PNG: `public/question-images/15100-02-015.png`
-- App path: `/question-images/15100-02-015.png`
-- Linked uploaded image:
-  - `/question-images/15100-02-015.png`
+- Replacement PNG: `public/question-images/15100-02-015-1.png`
+- App path: `/question-images/15100-02-015-1.png`
+- Linked uploaded images:
+  - `/question-images/15100-02-015-1.png`
+  - `/question-images/15100-02-015-2.png`
+  - `/question-images/15100-02-015-3.png`
+  - `/question-images/15100-02-015-4.png`
 - Current fallback page: `/question-pages/15100-page-11.jpg`
 - Kind: single
 - Official answer: 2
@@ -7136,12 +10927,1757 @@ Total active image questions: 490
   - 3. 禁止站立操作堆高機
   - 4. 禁止非合格人員操作
 
+## electrical-equipment-inspection-c:16600-04-005
+
+- Replacement PNG: `public/question-images/166003-16600-04-005.png`
+- App path: `/question-images/166003-16600-04-005.png`
+- Linked uploaded image:
+  - `/question-images/166003-16600-04-005.png`
+- Current fallback page: `/question-pages/16600-page-35.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖示乏時計之接線，當 R.S.T.為正相序，則正確計量之接線法為下列何種方式？
+- Options:
+  - 1. T-1S、S-2S、R-3S
+  - 2. T-1S、R-2S、S-3S
+  - 3. T-2S、R-1S、S-3S
+  - 4. T-3S、R-2S、S-1S
+
+## electrical-equipment-inspection-c:16600-04-008
+
+- Replacement PNG: `public/question-images/166003-16600-04-008.png`
+- App path: `/question-images/166003-16600-04-008.png`
+- Linked uploaded image:
+  - `/question-images/166003-16600-04-008.png`
+- Current fallback page: `/question-pages/16600-page-36.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 三相三線式兩元件之瓦時計，其 2S 端子應接於燈力併供變壓器之那一端子？
+- Options:
+  - 1. C
+  - 2. A
+  - 3. N
+  - 4. B
+
+## electrical-equipment-inspection-c:16600-04-038
+
+- Replacement PNG: `public/question-images/166003-16600-04-038-1.png`
+- App path: `/question-images/166003-16600-04-038-1.png`
+- Linked uploaded images:
+  - `/question-images/166003-16600-04-038-1.png`
+  - `/question-images/166003-16600-04-038-2.png`
+  - `/question-images/166003-16600-04-038-3.png`
+  - `/question-images/166003-16600-04-038-4.png`
+- Current fallback page: `/question-pages/16600-page-37.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 瓩需量計用戶用電設備裝置規則之設計圖符號為何？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## electrical-equipment-inspection-c:16600-04-054
+
+- Replacement PNG: `public/question-images/166003-16600-04-054.png`
+- App path: `/question-images/166003-16600-04-054.png`
+- Linked uploaded image:
+  - `/question-images/166003-16600-04-054.png`
+- Current fallback page: `/question-pages/16600-page-38.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 台電智慧型電表上顯示由左至右代表什麼意義？
+- Options:
+  - 1. 電流由電力系統流向用戶端
+  - 2. 電流由用戶端流向電力系統
+  - 3. 超前功因
+  - 4. 落後功因
+
+## electrical-equipment-inspection-c:16600-04-059
+
+- Replacement PNG: `public/question-images/166003-16600-04-059.png`
+- App path: `/question-images/166003-16600-04-059.png`
+- Linked uploaded image:
+  - `/question-images/166003-16600-04-059.png`
+- Current fallback page: `/question-pages/16600-page-39.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 台電智慧型電表上顯示由右至左代表什麼意義？
+- Options:
+  - 1. 電流由電力系統流向用戶端
+  - 2. 電流由用戶端流向電力系統
+  - 3. 超前功因
+  - 4. 落後功因
+
+## retail-service-c:18100-01-127
+
+- Replacement PNG: `public/question-images/181003-18100-01-127.png`
+- App path: `/question-images/181003-18100-01-127.png`
+- Linked uploaded image:
+  - `/question-images/181003-18100-01-127.png`
+- Current fallback page: `/question-pages/18100-page-9.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下列 3 圖示(分別為百貨公司、精緻超市及便利商店 )的商品價格中，哪一個圖形對應便利商店的中心價格帶？
+- Options:
+  - 1. A 圖
+  - 2. B 圖
+  - 3. C 圖
+  - 4. 不一定
+
+## retail-service-c:18100-01-128
+
+- Replacement PNG: `public/question-images/181003-18100-01-128.png`
+- App path: `/question-images/181003-18100-01-128.png`
+- Linked uploaded image:
+  - `/question-images/181003-18100-01-128.png`
+- Current fallback page: `/question-pages/18100-page-9.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下列 3 圖示（分別為百貨公司、精緻超市及便利商店）的商品價格中，哪一個圖形對應百貨公司的中心價格帶？
+- Options:
+  - 1. A 圖
+  - 2. B 圖
+  - 3. C 圖
+  - 4. 不一定
+
+## retail-service-c:18100-02-079
+
+- Replacement PNG: `public/question-images/181003-18100-02-079-option-1.png`
+- App path: `/question-images/181003-18100-02-079-option-1.png`
+- Linked uploaded images:
+  - `/question-images/181003-18100-02-079-option-1.png`
+  - `/question-images/181003-18100-02-079-option-2.png`
+  - `/question-images/181003-18100-02-079-option-3.png`
+  - `/question-images/181003-18100-02-079-option-4.png`
+- Current fallback page: `/question-pages/18100-page-14.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下列何者是最佳協力的合作團隊？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## retail-service-c:18100-02-080
+
+- Replacement PNG: `public/question-images/181003-18100-02-080.png`
+- App path: `/question-images/181003-18100-02-080.png`
+- Linked uploaded image:
+  - `/question-images/181003-18100-02-080.png`
+- Current fallback page: `/question-pages/18100-page-15.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如下圖，小芳店長由單日 4 項商品的圖表中得知訂購、銷售、降價及報廢的情況，下列敘述何者為錯誤的判斷？
+- Options:
+  - 1. 潮服毛利高通常當作促銷品用來吸引人潮，常試穿因此報廢也高
+  - 2. 棉 T 訂購不足須加量
+  - 3. 皮包訂購須再考量訂購無銷售的因素
+  - 4. 皮帶須檢討無銷售及報廢量太高的原因
+
+## retail-service-c:18100-03-055
+
+- Replacement PNG: `public/question-images/181003-18100-03-055-option-1.png`
+- App path: `/question-images/181003-18100-03-055-option-1.png`
+- Linked uploaded images:
+  - `/question-images/181003-18100-03-055-option-1.png`
+  - `/question-images/181003-18100-03-055-option-2.png`
+  - `/question-images/181003-18100-03-055-option-3.png`
+  - `/question-images/181003-18100-03-055-option-4.png`
+- Current fallback page: `/question-pages/18100-page-20.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 小智店長拿了一瓶酒精，下述何者無法直接噴用？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## retail-service-c:18100-04-018
+
+- Replacement PNG: `public/question-images/181003-18100-04-018-option-1.png`
+- App path: `/question-images/181003-18100-04-018-option-1.png`
+- Linked uploaded images:
+  - `/question-images/181003-18100-04-018-option-1.png`
+  - `/question-images/181003-18100-04-018-option-2.png`
+  - `/question-images/181003-18100-04-018-option-3.png`
+  - `/question-images/181003-18100-04-018-option-4.png`
+- Current fallback page: `/question-pages/18100-page-22.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 以賣場一台展示櫃（90cm×135cm）為例，顧客的主要視線焦點區域應為下列哪一項圖示？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## retail-service-c:18100-04-019
+
+- Replacement PNG: `public/question-images/181003-18100-04-019-option-1.png`
+- App path: `/question-images/181003-18100-04-019-option-1.png`
+- Linked uploaded images:
+  - `/question-images/181003-18100-04-019-option-1.png`
+  - `/question-images/181003-18100-04-019-option-2.png`
+  - `/question-images/181003-18100-04-019-option-3.png`
+  - `/question-images/181003-18100-04-019-option-4.png`
+- Current fallback page: `/question-pages/18100-page-22.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下列箱積式陳列方式何者有誤？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## retail-service-c:18100-04-023
+
+- Replacement PNG: `public/question-images/181003-18100-04-023-option-1.png`
+- App path: `/question-images/181003-18100-04-023-option-1.png`
+- Linked uploaded images:
+  - `/question-images/181003-18100-04-023-option-1.png`
+  - `/question-images/181003-18100-04-023-option-2.png`
+  - `/question-images/181003-18100-04-023-option-3.png`
+  - `/question-images/181003-18100-04-023-option-4.png`
+- Current fallback page: `/question-pages/18100-page-22.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下列冷藏機台（open-case）所陳列之甜點商品因進貨前數量較少時，該如何陳列以吸引消費者的目光？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## retail-service-c:18100-04-024
+
+- Replacement PNG: `public/question-images/181003-18100-04-024-option-1.png`
+- App path: `/question-images/181003-18100-04-024-option-1.png`
+- Linked uploaded images:
+  - `/question-images/181003-18100-04-024-option-1.png`
+  - `/question-images/181003-18100-04-024-option-2.png`
+  - `/question-images/181003-18100-04-024-option-3.png`
+  - `/question-images/181003-18100-04-024-option-4.png`
+- Current fallback page: `/question-pages/18100-page-22.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 小強至超級市場購買牛奶發現有 4 種標籤，下列何者為正確標價方式？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## retail-service-c:18100-04-069
+
+- Replacement PNG: `public/question-images/181003-18100-04-069-option-1.png`
+- App path: `/question-images/181003-18100-04-069-option-1.png`
+- Linked uploaded images:
+  - `/question-images/181003-18100-04-069-option-1.png`
+  - `/question-images/181003-18100-04-069-option-2.png`
+  - `/question-images/181003-18100-04-069-option-3.png`
+  - `/question-images/181003-18100-04-069-option-4.png`
+- Current fallback page: `/question-pages/18100-page-26.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下列何種商品較具有目的性購買之特性？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## retail-service-c:18100-04-070
+
+- Replacement PNG: `public/question-images/181003-18100-04-070.png`
+- App path: `/question-images/181003-18100-04-070.png`
+- Linked uploaded image:
+  - `/question-images/181003-18100-04-070.png`
+- Current fallback page: `/question-pages/18100-page-26.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 如下圖所示一位 160 公分的女性消費者站在商品貨架前 50 公分處，商品貨架約 135 公分，請問下列敍述其視力可及範圍何者正確？
+- Options:
+  - 1. 商品貨架最下層~第五層以上之間的範圍 (約 30~160 公分間)
+  - 2. 商品貨架第二層~第五層之間的範圍(約 50~135 公分間)
+  - 3. 商品貨架第三層~第五層以上之間的範圍(約 90~150 公分間)
+  - 4. 商品貨架第二層~第五層以上之間的範圍(約50~160 公分間)
+
+## retail-service-c:18100-04-071
+
+- Replacement PNG: `public/question-images/181003-18100-04-071.png`
+- App path: `/question-images/181003-18100-04-071.png`
+- Linked uploaded image:
+  - `/question-images/181003-18100-04-071.png`
+- Current fallback page: `/question-pages/18100-page-26.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 就下圖消費者所站的位置與下列何者敘述是無關的？
+- Options:
+  - 1. 讓遠距離的機車騎士，騎過店外，透過資訊看板設計吸引注意，進而了解目前門市活動
+  - 2. 讓消費者經過店外，透過活動海報設計吸引消費者注意推廣促銷活動
+  - 3. 店外布旗不適合精緻的商品露出，亦不宜放置太多商品圖
+  - 4. 消費者等待結帳時，透過收銀機前螢幕或設計吸引消費者注意
+
+## retail-service-c:18100-04-072
+
+- Replacement PNG: `public/question-images/181003-18100-04-072.png`
+- App path: `/question-images/181003-18100-04-072.png`
+- Linked uploaded image:
+  - `/question-images/181003-18100-04-072.png`
+- Current fallback page: `/question-pages/18100-page-26.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 貨架陳列商品如下圖，小方副店長見了不妥請工讀生整理，下列敘述何者是錯誤？
+- Options:
+  - 1. A 層商品已銷售完會使陳列架上有空格，從 D 層抽屜的庫存補缺貨
+  - 2. B 層商品已銷售完畢會使陳列架上有空格，先作臨近擴排
+  - 3. C 層商品已銷售完會使陳列架上有空格，從 D 層抽屜的庫存補缺貨
+  - 4. 各品類商品應先依貨架別作分類陳列
+
+## retail-service-c:18100-04-073
+
+- Replacement PNG: `public/question-images/181003-18100-04-073.png`
+- App path: `/question-images/181003-18100-04-073.png`
+- Linked uploaded image:
+  - `/question-images/181003-18100-04-073.png`
+- Current fallback page: `/question-pages/18100-page-27.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 小婷店長為配合新品廣告期間、話題性或促銷商品，請由下列 A~D 圖示擇一陳列
+- Options:
+  - 1. A 圖
+  - 2. B 圖
+  - 3. C 圖
+  - 4. D 圖
+
+## retail-service-c:18100-04-074
+
+- Replacement PNG: `public/question-images/181003-18100-04-074.png`
+- App path: `/question-images/181003-18100-04-074.png`
+- Linked uploaded image:
+  - `/question-images/181003-18100-04-074.png`
+- Current fallback page: `/question-pages/18100-page-27.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 新工讀生陳列商品，請由下列 A~D 圖示擇一陳列？
+- Options:
+  - 1. A 圖
+  - 2. B 圖
+  - 3. C 圖
+  - 4. D 圖
+
+## retail-service-c:18100-04-075
+
+- Replacement PNG: `public/question-images/181003-18100-04-075.png`
+- App path: `/question-images/181003-18100-04-075.png`
+- Linked uploaded image:
+  - `/question-images/181003-18100-04-075.png`
+- Current fallback page: `/question-pages/18100-page-27.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 小婷店長正在想如何讓訊息能引起顧客注意到商品的方法，下列敘述何者不正確？
+- Options:
+  - 1. A 圖汰換銷售不佳以維持商品的新鮮感
+  - 2. B 圖強打商品可以插牌標示出來
+  - 3. C 圖在店門佈置活動訊息
+  - 4. D 圖把 DM(傳單)或優惠訊息與顧客交流
+
+## retail-service-c:18100-04-076
+
+- Replacement PNG: `public/question-images/181003-18100-04-076.png`
+- App path: `/question-images/181003-18100-04-076.png`
+- Linked uploaded image:
+  - `/question-images/181003-18100-04-076.png`
+- Current fallback page: `/question-pages/18100-page-27.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 小柔因應季節轉變而變更貨架上之商品陳列，店長看了說要重新再調整，請問下列哪一項是店長對小柔指導或其所做的陳列說明？
+- Options:
+  - 1. A 圖店長以同系列同屬性陳列商品
+  - 2. B 圖店長商品集中陳列與顧客視線對上，以提高被看到的機會
+  - 3. C 圖店長陳列商品以提高被拿起來看的機會
+  - 4. 店長指導為方便顧客選購，應將同屬性春夏及秋冬型商品陳列同一區塊
+
+## retail-service-c:18100-04-077
+
+- Replacement PNG: `public/question-images/181003-18100-04-077.png`
+- App path: `/question-images/181003-18100-04-077.png`
+- Linked uploaded image:
+  - `/question-images/181003-18100-04-077.png`
+- Current fallback page: `/question-pages/18100-page-28.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 比較下圖中，消費者動線集中性最多的是哪一個區域？
+- Options:
+  - 1. 收銀台區域
+  - 2. 生鮮區
+  - 3. 飲料區
+  - 4. 日用什貨區
+
+## retail-service-c:18100-04-078
+
+- Replacement PNG: `public/question-images/181003-18100-04-078.png`
+- App path: `/question-images/181003-18100-04-078.png`
+- Linked uploaded image:
+  - `/question-images/181003-18100-04-078.png`
+- Current fallback page: `/question-pages/18100-page-28.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖中，調理室最理想的區域應置於何處？
+- Options:
+  - 1. A 區
+  - 2. B 區
+  - 3. C 區
+  - 4. D區
+
+## retail-service-c:18100-04-079
+
+- Replacement PNG: `public/question-images/181003-18100-04-079.png`
+- App path: `/question-images/181003-18100-04-079.png`
+- Linked uploaded image:
+  - `/question-images/181003-18100-04-079.png`
+- Current fallback page: `/question-pages/18100-page-28.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖中，倉庫最理想的區域應置於何區域？
+- Options:
+  - 1. A 區
+  - 2. B 區
+  - 3. C 區
+  - 4. D區
+
+## retail-service-c:18100-04-080
+
+- Replacement PNG: `public/question-images/181003-18100-04-080.png`
+- App path: `/question-images/181003-18100-04-080.png`
+- Linked uploaded image:
+  - `/question-images/181003-18100-04-080.png`
+- Current fallback page: `/question-pages/18100-page-28.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖虛線圓圈中，放何種商品或規劃何種區域最有效益？
+- Options:
+  - 1. 落地陳列商品
+  - 2. 一般商品貨架
+  - 3. 花車商品
+  - 4. 休息區
+
+## retail-service-c:18100-04-081
+
+- Replacement PNG: `public/question-images/181003-18100-04-081.png`
+- App path: `/question-images/181003-18100-04-081.png`
+- Linked uploaded image:
+  - `/question-images/181003-18100-04-081.png`
+- Current fallback page: `/question-pages/18100-page-28.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 消費者站在壁面貨架的位置，距離遠近視線區上下延伸如下圖所示，下列敘述何者為誤？
+- Options:
+  - 1. 消費者站 5m 位置視線最高可看到 200cm
+  - 2. 消費者站1m 位置視線最高可看到 170cm 處
+  - 3. 消費者站 50cm 位置視線約在90~150cm 間
+  - 4. 消費者任何位置視線範圍皆約在 90~150cm 處
+
+## retail-service-c:18100-06-123
+
+- Replacement PNG: `public/question-images/181003-18100-06-123.png`
+- App path: `/question-images/181003-18100-06-123.png`
+- Linked uploaded image:
+  - `/question-images/181003-18100-06-123.png`
+- Current fallback page: `/question-pages/18100-page-42.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 小梅購買一杯熱飲不小心打翻了！小梅表示願意再以 50 元買一杯，請由下圖 A~D 圖擇一最佳的處理服務？
+- Options:
+  - 1. A 圖門市人員立即現作一杯熱飲賣給小梅並收取 50 元
+  - 2. B 圖門市人員立即現作一杯熱飲賣給小梅並詢問是否有燙傷或須服務之處
+  - 3. C 圖門市人員先處理打翻的熱飲，並詢問是否有燙傷或須服務之處，立即現作一杯熱飲提供小梅
+  - 4. D 圖門市人員先放告示牌於打翻的熱飲前，立即現作一杯熱飲賣給小梅及詢問是否有燙傷或須服務之處
+
+## retail-service-c:18100-07-005
+
+- Replacement PNG: `public/question-images/181003-18100-07-005-option-1.png`
+- App path: `/question-images/181003-18100-07-005-option-1.png`
+- Linked uploaded images:
+  - `/question-images/181003-18100-07-005-option-1.png`
+  - `/question-images/181003-18100-07-005-option-2.png`
+  - `/question-images/181003-18100-07-005-option-3.png`
+  - `/question-images/181003-18100-07-005-option-4.png`
+- Current fallback page: `/question-pages/18100-page-43.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下列哪一項照明度比較可以美化、展現商品的色彩、材質等？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## retail-service-c:18100-07-064
+
+- Replacement PNG: `public/question-images/181003-18100-07-064-option-1.png`
+- App path: `/question-images/181003-18100-07-064-option-1.png`
+- Linked uploaded images:
+  - `/question-images/181003-18100-07-064-option-1.png`
+  - `/question-images/181003-18100-07-064-option-2.png`
+  - `/question-images/181003-18100-07-064-option-3.png`
+  - `/question-images/181003-18100-07-064-option-4.png`
+- Current fallback page: `/question-pages/18100-page-48.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 職業災害的發生，可能在不安全的工作環境或不安全的個人行為所造成，都可於工作前事先準備或加強防範意識。請試於下圖中選擇適當的工作姿勢，以避免造成局部性肢體的酸痛和傷害？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## cnc-milling-b:18201-01-033
+
+- Replacement PNG: `public/question-images/182012-18201-01-033.png`
+- App path: `/question-images/182012-18201-01-033.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-01-033.png`
+- Current fallback page: `/question-pages/18201-page-3.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖分厘卡量測時，其讀值為
+- Options:
+  - 1. 12.41 ㎜
+  - 2. 8.41 ㎜
+  - 3. 11.41 ㎜
+  - 4. 7.89㎜
+
+## cnc-milling-b:18201-02-041
+
+- Replacement PNG: `public/question-images/182012-18201-02-041-option-1.png`
+- App path: `/question-images/182012-18201-02-041-option-1.png`
+- Linked uploaded images:
+  - `/question-images/182012-18201-02-041-option-1.png`
+  - `/question-images/182012-18201-02-041-option-2.png`
+  - `/question-images/182012-18201-02-041-option-3.png`
+  - `/question-images/182012-18201-02-041-option-4.png`
+- Current fallback page: `/question-pages/18201-page-6.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: NC 程式欲輸入補正值資料時，應按下列何機能鍵再進行補正值輸入？
+- Options:
+  - 1. 程式
+  - 2. 圖形
+  - 3. 參數
+  - 4. 補正
+
+## cnc-milling-b:18201-02-044
+
+- Replacement PNG: `public/question-images/182012-18201-02-044-option-1.png`
+- App path: `/question-images/182012-18201-02-044-option-1.png`
+- Linked uploaded images:
+  - `/question-images/182012-18201-02-044-option-1.png`
+  - `/question-images/182012-18201-02-044-option-2.png`
+  - `/question-images/182012-18201-02-044-option-3-1.png`
+  - `/question-images/182012-18201-02-044-option-3-2.png`
+  - `/question-images/182012-18201-02-044-option-4.png`
+- Current fallback page: `/question-pages/18201-page-6.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 在 CNC 銑床控制器上選擇 ISO 或 EIA 碼，須在控制面板上選擇
+- Options:
+  - 1. 程式
+  - 2. 替換
+  - 3. 參數或設定
+  - 4. 座標
+
+## cnc-milling-b:18201-02-097
+
+- Replacement PNG: `public/question-images/182012-18201-02-097.png`
+- App path: `/question-images/182012-18201-02-097.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-02-097.png`
+- Current fallback page: `/question-pages/18201-page-9.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 如下圖所示，程式 N1 G91 G42 G0 X15.0 Y15.0 D1; N2 G1 Y30.0 F100;N3 X30.0; N4 Y -30.0; N5 X -30.0; N6 G40 X-15.0 Y-15.0; 若 D1=5.0 則執行至 N5 時刀具中心的座標為
+- Options:
+  - 1. X0 Y-5.0
+  - 2. X-5.0 Y0
+  - 3. X5.0 Y0
+  - 4. X0 Y5.0
+
+## cnc-milling-b:18201-02-101
+
+- Replacement PNG: `public/question-images/182012-18201-02-101.png`
+- App path: `/question-images/182012-18201-02-101.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-02-101.png`
+- Current fallback page: `/question-pages/18201-page-10.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如下圖，若以工件 A 點為程式原點，其控制器之 G54 工件座標系為X180.0 Y-150.0 Z0。若欲將程式原點移至 B 點，則 SHIFT 工件座標系為
+- Options:
+  - 1. X200.0 Y100.0 Z0
+  - 2. X-200.0 Y-100.0 Z0
+  - 3. X380.0 Y -50.0 Z0
+  - 4. X-20.0 Y-250.0 Z0
+
+## cnc-milling-b:18201-02-102
+
+- Replacement PNG: `public/question-images/182012-18201-02-102.png`
+- App path: `/question-images/182012-18201-02-102.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-02-102.png`
+- Current fallback page: `/question-pages/18201-page-10.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 如下圖，若以工件 A 點為程式原點，其控制器之 G54 工作座標系的設定值為 X180.0 Y -150.0 Z0。若欲以 B 點為第二程式原點，則 G55 工件座標系需設為
+- Options:
+  - 1. X50.0 Y30.0 Z0
+  - 2. X-50.0 Y-30.0 Z0
+  - 3. X130.0 Y -180.0 Z0
+  - 4. X230.0 Y -120.0 Z0
+
+## cnc-milling-b:18201-02-111
+
+- Replacement PNG: `public/question-images/182012-18201-02-111.png`
+- App path: `/question-images/182012-18201-02-111.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-02-111.png`
+- Current fallback page: `/question-pages/18201-page-10.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 如下圖所示，刀具目前在 A 點欲沿著圓弧切至 B 點，若圓心座標為(25,15)，圓弧半徑為 10，則程式為 (sin30°=0.5, cos30°=0.866, sin45°=0.707, cos45 °=0.707)
+- Options:
+  - 1. G91 G18 G02 X20.0 Y23.66 R -10.0;
+  - 2. G90 G18 G02 X20.0 Y23.66 I5.0 J -8.66;
+  - 3. G90 G17 G02 X -12.07 Y15.73 R10.0;
+  - 4. G91 G17 G02 X-12.07 Y15.73 I -7.07 J7.07;
+
+## cnc-milling-b:18201-02-113
+
+- Replacement PNG: `public/question-images/182012-18201-02-113.png`
+- App path: `/question-images/182012-18201-02-113.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-02-113.png`
+- Current fallback page: `/question-pages/18201-page-11.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 圓弧切削如下圖所示，下列選項何者正確？
+- Options:
+  - 1. G90 G18 G3 X -15.0 Z0 I15.0;
+  - 2. G90 G19 G3 X-15.0 I-15.0;
+  - 3. G91 G18 G2 X -30.0 I-15.0;
+  - 4. G91 G19 G2 X-30.0 I15.0;
+
+## cnc-milling-b:18201-02-117
+
+- Replacement PNG: `public/question-images/182012-18201-02-117.png`
+- App path: `/question-images/182012-18201-02-117.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-02-117.png`
+- Current fallback page: `/question-pages/18201-page-11.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 以 20mm 端銑刀進行輪廓銑削，如下圖所示，在無刀徑補正狀態下，則直線切削至下一點之單節程式為
+- Options:
+  - 1. G91 G01 X50.0 Y0.0 ;
+  - 2. G91 G01 X55.0 Y0.0 ;
+  - 3. G91 G01 X58.66 Y0 ;
+  - 4. G91 G01 X55.774 Y0 ;。(sin30°=0.5, cos30°=0.866, tan30 °=0.5774)
+
+## cnc-milling-b:18201-02-118
+
+- Replacement PNG: `public/question-images/182012-18201-02-118.png`
+- App path: `/question-images/182012-18201-02-118.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-02-118.png`
+- Current fallback page: `/question-pages/18201-page-11.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖在 XZ 平面上銑削圓弧，下列程式何者正確？
+- Options:
+  - 1. G18 G02 X_ Z_R_ ;
+  - 2. G18 G03 X_ Z_ R_ ;
+  - 3. G19 G02 X_ Z_ R_ ;
+  - 4. G19 G03 X_ Z_R_
+
+## cnc-milling-b:18201-02-120
+
+- Replacement PNG: `public/question-images/182012-18201-02-120.png`
+- App path: `/question-images/182012-18201-02-120.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-02-120.png`
+- Current fallback page: `/question-pages/18201-page-12.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 以 20mm 端銑刀進行輪廓銑削，目前位置及絕對原點位置如下圖所示，在無刀徑補正狀態下，則直線切削至下一點之 X 絕對座標為
+- Options:
+  - 1. -25.0
+  - 2. -27.887
+  - 3. -28.66
+  - 4. -30.0。 (sin30°=0.5, cos30°=0.866, tan30 °=0.57735)
+
+## cnc-milling-b:18201-02-134
+
+- Replacement PNG: `public/question-images/182012-18201-02-134.png`
+- App path: `/question-images/182012-18201-02-134.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-02-134.png`
+- Current fallback page: `/question-pages/18201-page-13.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 程式 N1 G91 G42 G00 X15.0 Y15.0 D1; N2 G01 Y30.0 F100; N3 X30.0;N4 Y-30.0; N5 X -30.0; N6 G40 X -15.0 Y-15.0; 如下圖所示，若D1=5.0，則執行至 N4 時，刀具中心的座標為
+- Options:
+  - 1. X0 Y-5.0
+  - 2. X-5.0 Y0
+  - 3. X25.0 Y0
+  - 4. X25.0 Y5.0
+
+## cnc-milling-b:18201-02-141
+
+- Replacement PNG: `public/question-images/182012-18201-02-141-option-1.png`
+- App path: `/question-images/182012-18201-02-141-option-1.png`
+- Linked uploaded images:
+  - `/question-images/182012-18201-02-141-option-1.png`
+  - `/question-images/182012-18201-02-141-option-2.png`
+  - `/question-images/182012-18201-02-141-option-3.png`
+  - `/question-images/182012-18201-02-141-option-4.png`
+- Current fallback page: `/question-pages/18201-page-13.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 程式 G90 G03 X95.0 Y90.0 R -65.0;，下圖之路徑何者為正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## cnc-milling-b:18201-02-160
+
+- Replacement PNG: `public/question-images/182012-18201-02-160.png`
+- App path: `/question-images/182012-18201-02-160.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-02-160.png`
+- Current fallback page: `/question-pages/18201-page-15.jpg`
+- Kind: multiple
+- Official answer: 1,3
+- Prompt: 如下圖之銑削溝槽之示意圖，最不可能應用於何種銑床？
+- Options:
+  - 1. 立式銑床
+  - 2. 臥式銑床
+  - 3. 砲塔式銑床
+  - 4. 萬能銑床
+
+## cnc-milling-b:18201-02-161
+
+- Replacement PNG: `public/question-images/182012-18201-02-161.png`
+- App path: `/question-images/182012-18201-02-161.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-02-161.png`
+- Current fallback page: `/question-pages/18201-page-15.jpg`
+- Kind: multiple
+- Official answer: 1,2,4
+- Prompt: 如下圖所示之工具機名稱不應為
+- Options:
+  - 1. 立式銑床
+  - 2. 立式拉床
+  - 3. 立式搪床
+  - 4. 立式刨床
+
+## cnc-milling-b:18201-02-180
+
+- Replacement PNG: `public/question-images/182012-18201-02-180-option-1.png`
+- App path: `/question-images/182012-18201-02-180-option-1.png`
+- Linked uploaded images:
+  - `/question-images/182012-18201-02-180-option-1.png`
+  - `/question-images/182012-18201-02-180-option-2.png`
+  - `/question-images/182012-18201-02-180-option-3.png`
+  - `/question-images/182012-18201-02-180-option-4.png`
+- Current fallback page: `/question-pages/18201-page-16.jpg`
+- Kind: multiple
+- Official answer: 1,2,4
+- Prompt: 塑膠工件的尋邊操作宜使用下列哪些尋邊器？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## cnc-milling-b:18201-02-186
+
+- Replacement PNG: `public/question-images/182012-18201-02-186.png`
+- App path: `/question-images/182012-18201-02-186.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-02-186.png`
+- Current fallback page: `/question-pages/18201-page-17.jpg`
+- Kind: multiple
+- Official answer: 1,3
+- Prompt: 依下圖在銑床上做虎鉗校正，當虎鉗螺栓左邊輕鎖右邊放鬆時，下列操作何者不宜？
+- Options:
+  - 1. 量錶移到右側後旋轉錶面歸零
+  - 2. 量錶移到左側後旋轉錶面歸零
+  - 3. 量錶可固定於移動床台上
+  - 4. 量錶應固定於銑床不動處
+
+## cnc-milling-b:18201-03-022
+
+- Replacement PNG: `public/question-images/182012-18201-03-022.png`
+- App path: `/question-images/182012-18201-03-022.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-03-022.png`
+- Current fallback page: `/question-pages/18201-page-18.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 工件如圖所示，斜度為 1/10，長度為 50mm 大端尺寸為 25mm 則小端尺寸為
+- Options:
+  - 1. 20mm
+  - 2. 15mm
+  - 3. 10mm
+  - 4. 2mm
+
+## cnc-milling-b:18201-03-034
+
+- Replacement PNG: `public/question-images/182012-18201-03-034.png`
+- App path: `/question-images/182012-18201-03-034.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-03-034.png`
+- Current fallback page: `/question-pages/18201-page-19.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 由壓板與螺栓組合而成的夾緊構件，如下圖所示，夾緊力若要較大，則應選用下列何者？
+- Options:
+  - 1. P 愈接近工件
+  - 2. P 愈遠離工件
+  - 3. R 愈接近工件
+  - 4. 任何方均可
+
+## cnc-milling-b:18201-03-103
+
+- Replacement PNG: `public/question-images/182012-18201-03-103.png`
+- App path: `/question-images/182012-18201-03-103.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-03-103.png`
+- Current fallback page: `/question-pages/18201-page-23.jpg`
+- Kind: multiple
+- Official answer: 1,3,4
+- Prompt: 茲以公差±0.10mm 與±0.02mm 分別畫成圓 1 及圓 2，如圖所示；圓心 O代表正確值，可接受公差為 0.01mm。現將量測到的工件尺寸標示為小黑點，下列何者不是該 5 個量測數據所呈現之準確度與重現性？
+- Options:
+  - 1. 高準確度與高重現性
+  - 2. 低準確度與高重現性
+  - 3. 高準確度與低重現性
+  - 4. 低準確度與低重現性
+
+## cnc-milling-b:18201-03-108
+
+- Replacement PNG: `public/question-images/182012-18201-03-108.png`
+- App path: `/question-images/182012-18201-03-108.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-03-108.png`
+- Current fallback page: `/question-pages/18201-page-23.jpg`
+- Kind: multiple
+- Official answer: 1,4
+- Prompt: 銑削如圖六面體，下列敘述何者正確？
+- Options:
+  - 1. 第一面選擇較大平面銑削做為基準面
+  - 2. 銑削第二面時，工件和固定鉗口間可放置銅棒輔助夾持
+  - 3. 銑削第三面時，第二面是靠於固定鉗口面上
+  - 4. 銑削第五面時，須校對工件相鄰面與虎鉗底部的垂直度
+
+## cnc-milling-b:18201-03-112
+
+- Replacement PNG: `public/question-images/182012-18201-03-112-option-1.png`
+- App path: `/question-images/182012-18201-03-112-option-1.png`
+- Linked uploaded images:
+  - `/question-images/182012-18201-03-112-option-1.png`
+  - `/question-images/182012-18201-03-112-option-2.png`
+  - `/question-images/182012-18201-03-112-option-3.png`
+  - `/question-images/182012-18201-03-112-option-4.png`
+- Current fallback page: `/question-pages/18201-page-24.jpg`
+- Kind: multiple
+- Official answer: 1,2
+- Prompt: 如圖所示對工件頂面作銑削時，虎鉗夾持方式何者不宜？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## cnc-milling-b:18201-03-123
+
+- Replacement PNG: `public/question-images/182012-18201-03-123.png`
+- App path: `/question-images/182012-18201-03-123.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-03-123.png`
+- Current fallback page: `/question-pages/18201-page-25.jpg`
+- Kind: multiple
+- Official answer: 2,3
+- Prompt: 如圖，具斷屑功能之銑刀刀刃，下列敘述何者正確？
+- Options:
+  - 1. 可側銑出光滑面
+  - 2. 切削扭矩較小
+  - 3. 適合重切削加工
+  - 4. 切削速度較高
+
+## cnc-milling-b:18201-04-017
+
+- Replacement PNG: `public/question-images/182012-18201-04-017.png`
+- App path: `/question-images/182012-18201-04-017.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-04-017.png`
+- Current fallback page: `/question-pages/18201-page-27.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 在 CNC 銑床上鑽削陣列孔，其中 X 方向計有 6 個孔，間距為 120 ㎜，Y方向計有 4 個孔，間距為 40 ㎜，如下圖所示。若每鑽一孔所需時間為 5秒，且每一孔與每一孔間的移動速度為 600 ㎜/min，試估算最少的總加工時間約為
+- Options:
+  - 1. 2.2 min
+  - 2. 3.2 min
+  - 3. 4.2 min
+  - 4. 5.2 min
+
+## cnc-milling-b:18201-04-070
+
+- Replacement PNG: `public/question-images/182012-18201-04-070.png`
+- App path: `/question-images/182012-18201-04-070.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-04-070.png`
+- Current fallback page: `/question-pages/18201-page-30.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 有一 60 度鳩尾形槽如下圖，內肩角距為 40mm，圓桿直徑 10mm，則其A 值應為
+- Options:
+  - 1. 11.86mm
+  - 2. 12.68mm
+  - 3. 13.86mm
+  - 4. 14.68mm
+
+## cnc-milling-b:18201-04-168
+
+- Replacement PNG: `public/question-images/182012-18201-04-168.png`
+- App path: `/question-images/182012-18201-04-168.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-04-168.png`
+- Current fallback page: `/question-pages/18201-page-36.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如下圖所示，以平口端銑刀銑削長方形凹穴，若在轉角處不發生殘料的情況下，則最大刀具路徑間距約等於
+- Options:
+  - 1. 0.85×刀距直徑
+  - 2. 0.707×刀距直徑
+  - 3. 0.866×刀距直徑
+  - 4. 0.5×刀距直徑。(cos30°=0.866，cos45°=0.707，cos60°=0.5)
+
+## cnc-milling-b:18201-04-182
+
+- Replacement PNG: `public/question-images/182012-18201-04-182.png`
+- App path: `/question-images/182012-18201-04-182.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-04-182.png`
+- Current fallback page: `/question-pages/18201-page-37.jpg`
+- Kind: multiple
+- Official answer: 2,3
+- Prompt: 如下圖，以面銑刀銑削一道次，不考慮表面粗糙度下，得到的切削面可能是
+- Options:
+  - 1. 凸面
+  - 2. 凹面
+  - 3. 平面
+  - 4. 波浪面
+
+## cnc-milling-b:18201-04-183
+
+- Replacement PNG: `public/question-images/182012-18201-04-183.png`
+- App path: `/question-images/182012-18201-04-183.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-04-183.png`
+- Current fallback page: `/question-pages/18201-page-37.jpg`
+- Kind: multiple
+- Official answer: 2,3,4
+- Prompt: 如下圖，銑削長方體後，測量 6 個位置，其厚度分別為A20.10,B20.10,C20.10,D20.02,E20.02,F20.02mm，可能原因為
+- Options:
+  - 1. 進給率與轉速搭配不當
+  - 2. 虎鉗底面有切屑
+  - 3. 夾持時活動鉗口將工件向上推
+  - 4. 兩個墊塊不等高
+
+## cnc-milling-b:18201-04-184
+
+- Replacement PNG: `public/question-images/182012-18201-04-184.png`
+- App path: `/question-images/182012-18201-04-184.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-04-184.png`
+- Current fallback page: `/question-pages/18201-page-37.jpg`
+- Kind: multiple
+- Official answer: 1,2,4
+- Prompt: 如下圖，使用端銑刀的側刃切削工件後，工件的側面與切削面的直角度未達要求，應改進下列的哪些項目？
+- Options:
+  - 1. 重新校正虎鉗的固定鉗口平行度
+  - 2. 切削時進給率求平穩
+  - 3. 降低夾持力
+  - 4. 精削量不宜過大
+
+## cnc-milling-b:18201-04-207
+
+- Replacement PNG: `public/question-images/182012-18201-04-207-option-1.png`
+- App path: `/question-images/182012-18201-04-207-option-1.png`
+- Linked uploaded images:
+  - `/question-images/182012-18201-04-207-option-1.png`
+  - `/question-images/182012-18201-04-207-option-2.png`
+  - `/question-images/182012-18201-04-207-option-3.png`
+  - `/question-images/182012-18201-04-207-option-4.png`
+- Current fallback page: `/question-pages/18201-page-39.jpg`
+- Kind: multiple
+- Official answer: 1,3
+- Prompt: 在傳統銑床上以直徑 20mm 端銑刀作深度 50mm 側邊粗銑，應避免下列何種銑削方式？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## cnc-milling-b:18201-04-208
+
+- Replacement PNG: `public/question-images/182012-18201-04-208.png`
+- App path: `/question-images/182012-18201-04-208.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-04-208.png`
+- Current fallback page: `/question-pages/18201-page-39.jpg`
+- Kind: multiple
+- Official answer: 2,4
+- Prompt: 如下圖所示，若要在 10 度斜面處再銑一 50 度斜面，則下列 x 方向移動量與量錶數據的關係何者有誤？
+- Options:
+  - 1. x 軸走 10mm 量錶指針轉 6.43mm
+  - 2. x軸走 8mm 量錶指針轉 7.95mm
+  - 3. x 軸走 7.78mm 量錶指針轉 5.0mm
+  - 4. x軸走 6.58mm 量錶指針轉 6.0mm(sin40 °=0.64278)
+
+## cnc-milling-b:18201-04-209
+
+- Replacement PNG: `public/question-images/182012-18201-04-209.png`
+- App path: `/question-images/182012-18201-04-209.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-04-209.png`
+- Current fallback page: `/question-pages/18201-page-39.jpg`
+- Kind: multiple
+- Official answer: 2,4
+- Prompt: 若銑床 X 方向的進給手輪每格刻度 0.02mm，一轉 2.5mm，已知背隙有5 格。要鑽三孔，如圖所示，若手輪正轉定位 A 孔，鑽完後，再鑽 BC兩孔，下列定位過程何者有誤？
+- Options:
+  - 1. 正轉 4 圈鑽 B 孔，再正轉 4 圈鑽 C孔
+  - 2. 正轉 8 圈鑽 C 孔，再反轉 4 圈鑽 B 孔
+  - 3. 正轉 8 圈鑽 C 孔，再反轉5 格加 4 圈後鑽 B 孔
+  - 4. 正轉 8 圈加 5 格鑽 C 孔，再反轉 4 圈鑽 B 孔
+
+## cnc-milling-b:18201-04-210
+
+- Replacement PNG: `public/question-images/182012-18201-04-210.png`
+- App path: `/question-images/182012-18201-04-210.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-04-210.png`
+- Current fallback page: `/question-pages/18201-page-39.jpg`
+- Kind: multiple
+- Official answer: 2,4
+- Prompt: 工件夾持於虎鉗作端銑與側銑的情況下，將兩端面平行的圓錐形工件，銑成具有 24 個直角的六面體，如下圖所示，應如何安排各面的銑削順序？
+- Options:
+  - 1. 1→2→3→6→4→5
+  - 2. 4→6→3→5→2→1
+  - 3. 3→1→4→5→6→2
+  - 4. 3→5→4→6→1→2
+
+## cnc-milling-b:18201-04-216
+
+- Replacement PNG: `public/question-images/182012-18201-04-216.png`
+- App path: `/question-images/182012-18201-04-216.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-04-216.png`
+- Current fallback page: `/question-pages/18201-page-40.jpg`
+- Kind: multiple
+- Official answer: 1,2,3
+- Prompt: 精銑削 60°鳩尾槽，如下圖，刀端中心為刀具基準點，下列何者正確？
+- Options:
+  - 1. 銑削 A 點時刀具的 Y 座標為 23.56mm
+  - 2. 銑削 B 點時刀具的 Y 座標為26.44mm
+  - 3. 銑削 C 點時刀具的 Y 座標為 22.11mm
+  - 4. 銑削 D 點時刀具的Y 座標為 26.88mm
+
+## cnc-milling-b:18201-04-223
+
+- Replacement PNG: `public/question-images/182012-18201-04-223.png`
+- App path: `/question-images/182012-18201-04-223.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-04-223.png`
+- Current fallback page: `/question-pages/18201-page-41.jpg`
+- Kind: multiple
+- Official answer: 1,2
+- Prompt: 如圖所示之凹槽欲利用 NC 銑床作最後一道精銑，宜選用下列何直徑之端銑刀
+- Options:
+  - 1. 6mm
+  - 2. 8mm
+  - 3. 10mm
+  - 4. 12mm
+
+## cnc-milling-b:18201-04-227
+
+- Replacement PNG: `public/question-images/182012-18201-04-227-option-1.png`
+- App path: `/question-images/182012-18201-04-227-option-1.png`
+- Linked uploaded images:
+  - `/question-images/182012-18201-04-227-option-1.png`
+  - `/question-images/182012-18201-04-227-option-2.png`
+  - `/question-images/182012-18201-04-227-option-3.png`
+  - `/question-images/182012-18201-04-227-option-4.png`
+- Current fallback page: `/question-pages/18201-page-41.jpg`
+- Kind: multiple
+- Official answer: 1,2
+- Prompt: NC 銑床在 XY 平面上的圓弧銑削(O 為圓心，P 為起點，Q 為終點)，下列敘述何者正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## cnc-milling-b:18201-04-228
+
+- Replacement PNG: `public/question-images/182012-18201-04-228.png`
+- App path: `/question-images/182012-18201-04-228.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-04-228.png`
+- Current fallback page: `/question-pages/18201-page-41.jpg`
+- Kind: multiple
+- Official answer: 1,4
+- Prompt: 工件如圖所示，欲在 XY 平面上鑽直徑 8mm 數孔，O 為程式原點，執行程式 G90 G81 X10.0 Y10.0 R3.0 Z -20.0 F150;G91 X12.0 Y12.0 K5; 下列敘述何者正確？
+- Options:
+  - 1. 數孔中心為一直線排列且與 X 軸呈 45 度
+  - 2. 共鑽 5 孔
+  - 3. 最終孔之位置為(60,60)
+  - 4. 鑽孔深度為 20mm
+
+## cnc-milling-b:18201-04-229
+
+- Replacement PNG: `public/question-images/182012-18201-04-229-option-1.png`
+- App path: `/question-images/182012-18201-04-229-option-1.png`
+- Linked uploaded images:
+  - `/question-images/182012-18201-04-229-option-1.png`
+  - `/question-images/182012-18201-04-229-option-2.png`
+  - `/question-images/182012-18201-04-229-option-3.png`
+  - `/question-images/182012-18201-04-229-option-4.png`
+- Current fallback page: `/question-pages/18201-page-41.jpg`
+- Kind: multiple
+- Official answer: 2,4
+- Prompt: 執行 G00 快速定位指令，由 A 點至 B 點路徑，下列圖形何者正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## cnc-milling-b:18201-04-230
+
+- Replacement PNG: `public/question-images/182012-18201-04-230-option-1.png`
+- App path: `/question-images/182012-18201-04-230-option-1.png`
+- Linked uploaded images:
+  - `/question-images/182012-18201-04-230-option-1.png`
+  - `/question-images/182012-18201-04-230-option-2.png`
+  - `/question-images/182012-18201-04-230-option-3.png`
+  - `/question-images/182012-18201-04-230-option-4.png`
+- Current fallback page: `/question-pages/18201-page-41.jpg`
+- Kind: multiple
+- Official answer: 1,3
+- Prompt: 在不同的加工平面上以 G03 沿箭頭方向切削圓弧，下列何者正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## cnc-milling-b:18201-04-237
+
+- Replacement PNG: `public/question-images/182012-18201-04-237-option-1.png`
+- App path: `/question-images/182012-18201-04-237-option-1.png`
+- Linked uploaded images:
+  - `/question-images/182012-18201-04-237-option-1.png`
+  - `/question-images/182012-18201-04-237-option-2.png`
+  - `/question-images/182012-18201-04-237-option-3.png`
+  - `/question-images/182012-18201-04-237-option-4.png`
+- Current fallback page: `/question-pages/18201-page-42.jpg`
+- Kind: multiple
+- Official answer: 3,4
+- Prompt: 使用刀徑補正(正值)與其刀具路徑方向，下列圖形何者正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## cnc-milling-b:18201-04-239
+
+- Replacement PNG: `public/question-images/182012-18201-04-239.png`
+- App path: `/question-images/182012-18201-04-239.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-04-239.png`
+- Current fallback page: `/question-pages/18201-page-42.jpg`
+- Kind: multiple
+- Official answer: 2,4
+- Prompt: 如圖所示，欲設定 G43 之刀長補正值，當工作座標系之 Z 值設為 0.0時，則下列補正值何者正確？
+- Options:
+  - 1. H1=0.0
+  - 2. H1=-120.0
+  - 3. H2=20.0
+  - 4. H2=-100.0
+
+## cnc-milling-b:18201-04-241
+
+- Replacement PNG: `public/question-images/182012-18201-04-241.png`
+- App path: `/question-images/182012-18201-04-241.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-04-241.png`
+- Current fallback page: `/question-pages/18201-page-42.jpg`
+- Kind: multiple
+- Official answer: 1,3
+- Prompt: 如圖，欲設定各刀之 G43 刀長補正值，當控制器內 G54 之 Z 值已設定為-50.0 時，則下列補正值何者正確？
+- Options:
+  - 1. H1=-200.0
+  - 2. H1=-250.0
+  - 3. H2=-180.0
+  - 4. H2=-230.0
+
+## cnc-milling-b:18201-04-243
+
+- Replacement PNG: `public/question-images/182012-18201-04-243.png`
+- App path: `/question-images/182012-18201-04-243.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-04-243.png`
+- Current fallback page: `/question-pages/18201-page-43.jpg`
+- Kind: multiple
+- Official answer: 1,3
+- Prompt: 機械原點與工件原點之相對位置如下圖，若測出右上 A 孔之機械座標如表所示，則工件原點之機械座標為何？
+- Options:
+  - 1. X=277.160
+  - 2. Y=–121.712
+  - 3. Y=–196.712
+  - 4. X=427.160
+
+## cnc-milling-b:18201-04-244
+
+- Replacement PNG: `public/question-images/182012-18201-04-244.png`
+- App path: `/question-images/182012-18201-04-244.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-04-244.png`
+- Current fallback page: `/question-pages/18201-page-43.jpg`
+- Kind: multiple
+- Official answer: 3,4
+- Prompt: 將一長方形工件夾於虎鉗，以球頭直徑 10mm 光電尋邊器尋找程式原點，碰觸時之座標如下圖所示，程式原點的機械座標為何？
+- Options:
+  - 1. X=247.160
+  - 2. Y=–125.10
+  - 3. X=305.20
+  - 4. Y=–191.902
+
+## cnc-milling-b:18201-04-245
+
+- Replacement PNG: `public/question-images/182012-18201-04-245.png`
+- App path: `/question-images/182012-18201-04-245.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-04-245.png`
+- Current fallback page: `/question-pages/18201-page-43.jpg`
+- Kind: multiple
+- Official answer: 1,4
+- Prompt: 如下圖所示，程式原點位於工件頂面正中央，以光電尋邊器尋找程式原點，若球頭直徑為 10mm，則程式原點的機械座標為何？
+- Options:
+  - 1. X=410.5
+  - 2. Y=–185.21
+  - 3. X=400.118
+  - 4. Y=–163.431
+
+## cnc-milling-b:18201-04-247
+
+- Replacement PNG: `public/question-images/182012-18201-04-247.png`
+- App path: `/question-images/182012-18201-04-247.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-04-247.png`
+- Current fallback page: `/question-pages/18201-page-43.jpg`
+- Kind: multiple
+- Official answer: 1,3
+- Prompt: 如圖所示要在銑床上鑽出六孔，則下列何者非此六孔的座標？
+- Options:
+  - 1. (-75,129.9)
+  - 2. (0,150)
+  - 3. (75,129.9)
+  - 4. (-129.9,75)
+
+## cnc-milling-b:18201-05-008
+
+- Replacement PNG: `public/question-images/182012-18201-05-008.png`
+- App path: `/question-images/182012-18201-05-008.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-05-008.png`
+- Current fallback page: `/question-pages/18201-page-44.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 在傳統銑床上銑削半徑為 10 ㎜的內圓弧如下圖所示，則選用的刀具直徑為
+- Options:
+  - 1. 10 ㎜
+  - 2. 20 ㎜
+  - 3. 30 ㎜
+  - 4. 40 ㎜
+
+## cnc-milling-b:18201-05-011
+
+- Replacement PNG: `public/question-images/182012-18201-05-011.png`
+- App path: `/question-images/182012-18201-05-011.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-05-011.png`
+- Current fallback page: `/question-pages/18201-page-44.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 在傳統銑床上銑削圓弧狀溝槽如下圖所示，宜配合使用
+- Options:
+  - 1. 正弦虎鉗
+  - 2. 轉盤
+  - 3. V 枕
+  - 4. 千斤頂
+
+## cnc-milling-b:18201-05-021
+
+- Replacement PNG: `public/question-images/182012-18201-05-021.png`
+- App path: `/question-images/182012-18201-05-021.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-05-021.png`
+- Current fallback page: `/question-pages/18201-page-45.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 在傳統銑床上利用分度盤銑削圓弧溝槽，如下圖所示，將工件固定在分度盤的內容不包括
+- Options:
+  - 1. 調整工件底邊平行 X 軸
+  - 2. 鎖緊分度盤的盤面
+  - 3. 使工件的圓弧中心對正分度盤中心
+  - 4. 調整工件垂直中心線平行 Y 軸
+
+## cnc-milling-b:18201-05-031
+
+- Replacement PNG: `public/question-images/182012-18201-05-031.png`
+- App path: `/question-images/182012-18201-05-031.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-05-031.png`
+- Current fallback page: `/question-pages/18201-page-46.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 刀具路徑如下圖所示，則補正指令為
+- Options:
+  - 1. G40
+  - 2. G41
+  - 3. G42
+  - 4. G43
+
+## cnc-milling-b:18201-05-040
+
+- Replacement PNG: `public/question-images/182012-18201-05-040.png`
+- App path: `/question-images/182012-18201-05-040.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-05-040.png`
+- Current fallback page: `/question-pages/18201-page-46.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 如下圖所示，使用圓弧指令銑削曲面，下列何種方式較佳？
+- Options:
+  - 1. 用控制器補正方式，以圓弧 A、圓弧 B 所形成的曲面為範圍製作程式，使用球刀加工
+  - 2. 用控制器補正方式，以圓弧 A、圓弧 B 向 Z 方向加刀具半徑之尺寸求出補正曲面製作程式，使用球刀加工
+  - 3. 不使用控制器補正，以圓弧A、圓弧 B 所形成的曲面向法線方向求出補正曲面製作程式，使用球刀加工
+  - 4. 以用控制器補正方式，以圓弧 A、圓弧 B 所形成的曲面範圍製作程式，使用平口端銑刀
+
+## cnc-milling-b:18201-05-041
+
+- Replacement PNG: `public/question-images/182012-18201-05-041.png`
+- App path: `/question-images/182012-18201-05-041.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-05-041.png`
+- Current fallback page: `/question-pages/18201-page-47.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖所示，使用圓弧指令銑削曲面，下列何種刀具較適合？
+- Options:
+  - 1. 平口端銑刀
+  - 2. 球刀
+  - 3. 圓角端銑刀
+  - 4. 錐形端銑刀
+
+## cnc-milling-b:18201-05-042
+
+- Replacement PNG: `public/question-images/182012-18201-05-042.png`
+- App path: `/question-images/182012-18201-05-042.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-05-042.png`
+- Current fallback page: `/question-pages/18201-page-47.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如下圖，精銑削曲面部分，使用下列何種刀具較適合？
+- Options:
+  - 1. 平口端銑刀
+  - 2. 球刀
+  - 3. 圓角端銑刀
+  - 4. 錐形端銑刀
+
+## cnc-milling-b:18201-05-047
+
+- Replacement PNG: `public/question-images/182012-18201-05-047.png`
+- App path: `/question-images/182012-18201-05-047.png`
+- Linked uploaded images:
+  - `/question-images/182012-18201-05-047.png`
+  - `/question-images/182012-18201-05-047-option-1.png`
+  - `/question-images/182012-18201-05-047-option-2.png`
+  - `/question-images/182012-18201-05-047-option-3.png`
+  - `/question-images/182012-18201-05-047-option-4.png`
+- Current fallback page: `/question-pages/18201-page-47.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 如下圖所示，10 ㎜球刀之中心在半圓球曲面上，若半圓球的中心座標(0,0,0)，半徑 20 ㎜，當球刀中心座標移至 X= -10.0，Y=12.0，則其 Z 座標值為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## cnc-milling-b:18201-05-048
+
+- Replacement PNG: `public/question-images/182012-18201-05-048-option-1.png`
+- App path: `/question-images/182012-18201-05-048-option-1.png`
+- Linked uploaded images:
+  - `/question-images/182012-18201-05-048-option-1.png`
+  - `/question-images/182012-18201-05-048-option-2.png`
+  - `/question-images/182012-18201-05-048-option-3.png`
+  - `/question-images/182012-18201-05-048-option-4.png`
+- Current fallback page: `/question-pages/18201-page-47.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 執行程式 G91 G01 X50.0 Y100.0 Z150.0 F80 ; 刀具在 Z 方向移動 100mm時，X 方向移動量計算式為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## cnc-milling-b:18201-05-049
+
+- Replacement PNG: `public/question-images/182012-18201-05-049.png`
+- App path: `/question-images/182012-18201-05-049.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-05-049.png`
+- Current fallback page: `/question-pages/18201-page-47.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 如下圖以 R2 球銑刀銑削圖示半圓槽，在不啟動刀徑補正下，由點 1→點2 之球刀中心路徑程式為
+- Options:
+  - 1. G91 G18 G02 X-12.0 R6.0；
+  - 2. G91 G18 G03 X-12.0 R6.0；
+  - 3. G91 G18 G02 X-8.0 R4.0；
+  - 4. G91 G18 G03 X -8.0 R4.0；
+
+## cnc-milling-b:18201-05-050
+
+- Replacement PNG: `public/question-images/182012-18201-05-050.png`
+- App path: `/question-images/182012-18201-05-050.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-05-050.png`
+- Current fallback page: `/question-pages/18201-page-48.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖所示，刀尖自 A 點逆時鐘之全圓銑削路徑程式為
+- Options:
+  - 1. G03 I5.0；
+  - 2. G03 J5.0；
+  - 3. G03 I-5.0；
+  - 4. G03 J-5.0；
+
+## cnc-milling-b:18201-05-051
+
+- Replacement PNG: `public/question-images/182012-18201-05-051.png`
+- App path: `/question-images/182012-18201-05-051.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-05-051.png`
+- Current fallback page: `/question-pages/18201-page-48.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 如下圖所示，刀尖自 A 點→B 點之圓弧銑削路徑程式為
+- Options:
+  - 1. G91 G19 G02 Y-20.0 J10.0；
+  - 2. G91 G19 G03 Y -20.0 J10.0；
+  - 3. G91 G19 G02 Y-20.0 J -10.0；
+  - 4. G91 G19 G03 Y-20.0 J-10.0；
+
+## cnc-milling-b:18201-05-052
+
+- Replacement PNG: `public/question-images/182012-18201-05-052.png`
+- App path: `/question-images/182012-18201-05-052.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-05-052.png`
+- Current fallback page: `/question-pages/18201-page-48.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 以直徑 10 端銑刀銑削圓弧溝槽，尺寸如下圖，若程式為 G90 G00 X αYβ; G01 Z-3.0 F50; G91 G17 G02 X γ Yδ R30.0; 則
+- Options:
+  - 1. α=11.481, β=-27.716 ,γ=11.481, δ=27.716
+  - 2. α=-11.481, β=27.716 ,γ=22.962, δ=0
+  - 3. α=11.481, β=-27.716 ,γ=22.962, δ=27.716
+  - 4. α=-11.481, β=27.716 ,γ=11.481, δ=0。 (sin22.5°=0.38268, cos22.5°=0.92388,tan22.5°=0.41421)
+
+## cnc-milling-b:18201-05-053
+
+- Replacement PNG: `public/question-images/182012-18201-05-053.png`
+- App path: `/question-images/182012-18201-05-053.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-05-053.png`
+- Current fallback page: `/question-pages/18201-page-48.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如下圖所示，圓鼻刀 (刀徑 10mm，圓角 2mm)與半圓柱曲面(半徑 25mm)的接觸點為 P，則刀端中心 Q 之座標為
+- Options:
+  - 1. X26.382 Z11.5
+  - 2. X26.182 Z11.6
+  - 3. X26.082 Z11.7
+  - 4. X25.982 Z11.8。(sin30°=0.5, cos30°=0.866,tan30°=0.5774)
+
+## cnc-milling-b:18201-05-060
+
+- Replacement PNG: `public/question-images/182012-18201-05-060.png`
+- App path: `/question-images/182012-18201-05-060.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-05-060.png`
+- Current fallback page: `/question-pages/18201-page-49.jpg`
+- Kind: multiple
+- Official answer: 1,2
+- Prompt: 欲銑削成如圖所示之斜面，宜使用下列何種工具？
+- Options:
+  - 1. 虎鉗、轉盤和平口端銑刀
+  - 2. 虎鉗、斜度墊塊和平口端銑刀
+  - 3. 虎鉗、平行墊塊和錐度銑刀
+  - 4. 虎鉗、轉盤和錐度銑刀
+
+## cnc-milling-b:18201-05-061
+
+- Replacement PNG: `public/question-images/182012-18201-05-061.png`
+- App path: `/question-images/182012-18201-05-061.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-05-061.png`
+- Current fallback page: `/question-pages/18201-page-49.jpg`
+- Kind: multiple
+- Official answer: 1,2
+- Prompt: 欲銑削成如下圖所示之 90°V 形斜面，宜使用下列何種工具？
+- Options:
+  - 1. 虎鉗、V形枕和平口端銑刀
+  - 2. 虎鉗、平行墊塊和 90°成形銑刀
+  - 3. 虎鉗、轉盤和錐度銑刀
+  - 4. 虎鉗、轉盤和平口端銑刀
+
+## cnc-milling-b:18201-05-064
+
+- Replacement PNG: `public/question-images/182012-18201-05-064-option-1.png`
+- App path: `/question-images/182012-18201-05-064-option-1.png`
+- Linked uploaded images:
+  - `/question-images/182012-18201-05-064-option-1.png`
+  - `/question-images/182012-18201-05-064-option-2.png`
+  - `/question-images/182012-18201-05-064-option-3.png`
+  - `/question-images/182012-18201-05-064-option-4.png`
+  - `/question-images/182012-18201-05-064-5.png`
+- Current fallback page: `/question-pages/18201-page-49.jpg`
+- Kind: multiple
+- Official answer: 1,2
+- Prompt: 以附轉盤式虎鉗之銑床銑削如下圖之等邊三角形，下列轉盤旋轉位置何者正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## cnc-milling-b:18201-05-066
+
+- Replacement PNG: `public/question-images/182012-18201-05-066.png`
+- App path: `/question-images/182012-18201-05-066.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-05-066.png`
+- Current fallback page: `/question-pages/18201-page-50.jpg`
+- Kind: multiple
+- Official answer: 2,3,4
+- Prompt: 如下圖所示，P 點不正確的 X 座標約為
+- Options:
+  - 1. 30.006
+  - 2. 30.056
+  - 3. 30.106
+  - 4. 30.156。 (sin15°=0.259,cos15 °=0.966)
+
+## cnc-milling-b:18201-05-067
+
+- Replacement PNG: `public/question-images/182012-18201-05-067.png`
+- App path: `/question-images/182012-18201-05-067.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-05-067.png`
+- Current fallback page: `/question-pages/18201-page-50.jpg`
+- Kind: multiple
+- Official answer: 1,3,4
+- Prompt: 程式 O123；N1 G92 X0 Y0；N2 G42 G0 X20.0 Y10.0 D1；N3 G1 X50.0；N4 G91 G28 X0 Y0 Z0；N5…，D1 為刀具半徑。當執行完 N3時，刀具中心位置不會在下圖所示的
+- Options:
+  - 1. A 點
+  - 2. B 點
+  - 3. C 點
+  - 4. D 點
+
+## cnc-milling-b:18201-05-068
+
+- Replacement PNG: `public/question-images/182012-18201-05-068.png`
+- App path: `/question-images/182012-18201-05-068.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-05-068.png`
+- Current fallback page: `/question-pages/18201-page-50.jpg`
+- Kind: multiple
+- Official answer: 2,4
+- Prompt: 如下圖球形端刀沿 X 軸方向往復精削凸出的半球面，若球刀在 Y 軸方向的路徑間距皆相同，則殘料較多區域出現在何範圍內
+- Options:
+  - 1. A 區
+  - 2. B 區
+  - 3. C區
+  - 4. D 區
+
+## cnc-milling-b:18201-05-071
+
+- Replacement PNG: `public/question-images/182012-18201-05-071.png`
+- App path: `/question-images/182012-18201-05-071.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-05-071.png`
+- Current fallback page: `/question-pages/18201-page-50.jpg`
+- Kind: multiple
+- Official answer: 2,3
+- Prompt: 刀具路徑如下圖所示，則補正指令為
+- Options:
+  - 1. G41D1(D1 值＜0)
+  - 2. G41D1(D1 值＞0)
+  - 3. G42D1(D1 值＜0)
+  - 4. G42D1(D1 值＞0)
+
+## cnc-milling-b:18201-05-077
+
+- Replacement PNG: `public/question-images/182012-18201-05-077.png`
+- App path: `/question-images/182012-18201-05-077.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-05-077.png`
+- Current fallback page: `/question-pages/18201-page-51.jpg`
+- Kind: multiple
+- Official answer: 2,3
+- Prompt: NC 銑床上，加工路徑及銑刀關係如下圖所示，所須使用的指令為何？
+- Options:
+  - 1. G02
+  - 2. G03
+  - 3. G41
+  - 4. G42
+
+## cnc-milling-b:18201-05-078
+
+- Replacement PNG: `public/question-images/182012-18201-05-078.png`
+- App path: `/question-images/182012-18201-05-078.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-05-078.png`
+- Current fallback page: `/question-pages/18201-page-51.jpg`
+- Kind: multiple
+- Official answer: 1,4
+- Prompt: NC 銑床上，加工路徑及銑刀關係如下圖所示，所須使用的指令為何？
+- Options:
+  - 1. G02
+  - 2. G03
+  - 3. G41
+  - 4. G42
+
+## cnc-milling-b:18201-05-079
+
+- Replacement PNG: `public/question-images/182012-18201-05-079.png`
+- App path: `/question-images/182012-18201-05-079.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-05-079.png`
+- Current fallback page: `/question-pages/18201-page-51.jpg`
+- Kind: multiple
+- Official answer: 1,3
+- Prompt: NC 銑床上，曲面加工路徑及銑刀關係如下圖所示，所須使用的指令為何？
+- Options:
+  - 1. G02
+  - 2. G03
+  - 3. G18
+  - 4. G19
+
+## cnc-milling-b:18201-05-081
+
+- Replacement PNG: `public/question-images/182012-18201-05-081-option-1.png`
+- App path: `/question-images/182012-18201-05-081-option-1.png`
+- Linked uploaded images:
+  - `/question-images/182012-18201-05-081-option-1.png`
+  - `/question-images/182012-18201-05-081-option-2.png`
+  - `/question-images/182012-18201-05-081-option-3.png`
+  - `/question-images/182012-18201-05-081-option-4.png`
+- Current fallback page: `/question-pages/18201-page-51.jpg`
+- Kind: multiple
+- Official answer: 2,3
+- Prompt: 以 90°倒角刀對工件之頂面四周進行倒角，則下列何者可得等邊倒角 (相鄰兩邊倒角距離相等)？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## cnc-milling-b:18201-05-082
+
+- Replacement PNG: `public/question-images/182012-18201-05-082-option-1.png`
+- App path: `/question-images/182012-18201-05-082-option-1.png`
+- Linked uploaded images:
+  - `/question-images/182012-18201-05-082-option-1.png`
+  - `/question-images/182012-18201-05-082-option-2.png`
+  - `/question-images/182012-18201-05-082-option-3.png`
+  - `/question-images/182012-18201-05-082-option-4.png`
+- Current fallback page: `/question-pages/18201-page-51.jpg`
+- Kind: multiple
+- Official answer: 1,4
+- Prompt: 對工件之頂面四周進行等邊倒角(相鄰兩邊倒角距離相等 )，則下列何者之倒角斜面不為 45°？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## cnc-milling-b:18201-05-084
+
+- Replacement PNG: `public/question-images/182012-18201-05-084.png`
+- App path: `/question-images/182012-18201-05-084.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-05-084.png`
+- Current fallback page: `/question-pages/18201-page-52.jpg`
+- Kind: multiple
+- Official answer: 3,4
+- Prompt: 只用一把球刀精銑如圖之全圓弧曲面，宜使用球刀直徑為
+- Options:
+  - 1. 8
+  - 2. 7
+  - 3. 5
+  - 4. 4 mm
+
+## cnc-milling-b:18201-05-085
+
+- Replacement PNG: `public/question-images/182012-18201-05-085.png`
+- App path: `/question-images/182012-18201-05-085.png`
+- Linked uploaded image:
+  - `/question-images/182012-18201-05-085.png`
+- Current fallback page: `/question-pages/18201-page-52.jpg`
+- Kind: multiple
+- Official answer: 2,3,4
+- Prompt: 如圖以 NC 程式銑削工件外形後，欲使用相同程式銑削頂面倒角，當主軸換刀後，須修改那些條件？
+- Options:
+  - 1. 刀徑補正方向
+  - 2. 下刀深度
+  - 3. 刀長補正號
+  - 4. 刀徑補正量
+
 ## beverage-preparation-c:20600-02-016
 
-- Replacement PNG: `public/question-images/20600-02-016.png`
-- App path: `/question-images/20600-02-016.png`
-- Linked uploaded image:
-  - `/question-images/20600-02-016.png`
+- Replacement PNG: `public/question-images/20600-02-016-1.png`
+- App path: `/question-images/20600-02-016-1.png`
+- Linked uploaded images:
+  - `/question-images/20600-02-016-1.png`
+  - `/question-images/20600-02-016-2.png`
+  - `/question-images/20600-02-016-3.png`
+  - `/question-images/20600-02-016-4.png`
 - Current fallback page: `/question-pages/20600-page-6.jpg`
 - Kind: single
 - Official answer: 3
@@ -7216,6 +12752,1295 @@ Total active image questions: 490
   - 3. 濾水器
   - 4. 茶桶清洗器
 
+## dining-service-c:21500-01-001
+
+- Replacement PNG: `public/question-images/215003-21500-01-001.png`
+- App path: `/question-images/215003-21500-01-001.png`
+- Linked uploaded image:
+  - `/question-images/215003-21500-01-001.png`
+- Current fallback page: `/question-pages/21500-page-2.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖為西餐餐具之
+- Options:
+  - 1. 牛排刀
+  - 2. 奶油刀
+  - 3. 魚刀
+  - 4. 水果刀
+
+## dining-service-c:21500-01-022
+
+- Replacement PNG: `public/question-images/215003-21500-01-022.png`
+- App path: `/question-images/215003-21500-01-022.png`
+- Linked uploaded image:
+  - `/question-images/215003-21500-01-022.png`
+- Current fallback page: `/question-pages/21500-page-3.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖之餐巾摺疊法稱之為
+- Options:
+  - 1. 大星光
+  - 2. 立扇
+  - 3. 星光燦爛
+  - 4. 教宗帽
+
+## dining-service-c:21500-01-023
+
+- Replacement PNG: `public/question-images/215003-21500-01-023.png`
+- App path: `/question-images/215003-21500-01-023.png`
+- Linked uploaded image:
+  - `/question-images/215003-21500-01-023.png`
+- Current fallback page: `/question-pages/21500-page-3.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖之餐巾摺疊法稱之為
+- Options:
+  - 1. 法國摺
+  - 2. 服務巾
+  - 3. 野玫瑰
+  - 4. 三明治
+
+## dining-service-c:21500-01-028
+
+- Replacement PNG: `public/question-images/215003-21500-01-028.png`
+- App path: `/question-images/215003-21500-01-028.png`
+- Linked uploaded image:
+  - `/question-images/215003-21500-01-028.png`
+- Current fallback page: `/question-pages/21500-page-3.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖為西餐餐具之
+- Options:
+  - 1. 奶油刀
+  - 2. 餐刀
+  - 3. 牛排刀
+  - 4. 水果刀
+
+## dining-service-c:21500-03-073
+
+- Replacement PNG: `public/question-images/215003-21500-03-073.png`
+- App path: `/question-images/215003-21500-03-073.png`
+- Linked uploaded image:
+  - `/question-images/215003-21500-03-073.png`
+- Current fallback page: `/question-pages/21500-page-19.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖是哪一種酒杯？
+- Options:
+  - 1. 香甜酒杯
+  - 2. 白蘭地杯
+  - 3. 香檳杯
+  - 4. 雪莉酒杯
+
+## dining-service-c:21500-03-074
+
+- Replacement PNG: `public/question-images/215003-21500-03-074.png`
+- App path: `/question-images/215003-21500-03-074.png`
+- Linked uploaded image:
+  - `/question-images/215003-21500-03-074.png`
+- Current fallback page: `/question-pages/21500-page-20.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖是哪一種酒杯？
+- Options:
+  - 1. 馬丁尼杯
+  - 2. 酸酒杯
+  - 3. 香檳杯
+  - 4. 啤酒杯
+
+## dining-service-c:21500-03-075
+
+- Replacement PNG: `public/question-images/215003-21500-03-075.png`
+- App path: `/question-images/215003-21500-03-075.png`
+- Linked uploaded image:
+  - `/question-images/215003-21500-03-075.png`
+- Current fallback page: `/question-pages/21500-page-20.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖是哪一種酒杯？
+- Options:
+  - 1. 雞尾酒杯
+  - 2. 酸酒杯
+  - 3. 古典杯
+  - 4. 啤酒杯
+
+## dining-service-c:21500-03-097
+
+- Replacement PNG: `public/question-images/215003-21500-03-097-1.png`
+- App path: `/question-images/215003-21500-03-097-1.png`
+- Linked uploaded images:
+  - `/question-images/215003-21500-03-097-1.png`
+  - `/question-images/215003-21500-03-097-2.png`
+  - `/question-images/215003-21500-03-097-3.png`
+  - `/question-images/215003-21500-03-097-4.png`
+- Current fallback page: `/question-pages/21500-page-21.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 一般雞尾酒會所使用的馬丁尼杯是下列哪一種？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## dining-service-c:21500-03-098
+
+- Replacement PNG: `public/question-images/215003-21500-03-098-1.png`
+- App path: `/question-images/215003-21500-03-098-1.png`
+- Linked uploaded images:
+  - `/question-images/215003-21500-03-098-1.png`
+  - `/question-images/215003-21500-03-098-2.png`
+  - `/question-images/215003-21500-03-098-3.png`
+  - `/question-images/215003-21500-03-098-4.png`
+- Current fallback page: `/question-pages/21500-page-21.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如果客人點叫一杯威士忌加冰塊，請問你將以下列何種酒杯來服務？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## occupational-safety-management-a:22000-03-185
+
+- Replacement PNG: `public/question-images/220001-22000-03-185.png`
+- App path: `/question-images/220001-22000-03-185.png`
+- Linked uploaded image:
+  - `/question-images/220001-22000-03-185.png`
+- Current fallback page: `/question-pages/22000-page-38.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 單相二線式接地系統受電之電氣設備負載於絕緣裂化發生故障點時，在設備接地未設置，則下圖之電流動作型漏電斷路器動作情況下列何者正確？
+- Options:
+  - 1. 跳脫
+  - 2. 不動作
+  - 3. 短路
+  - 4. 過載
+
+## occupational-safety-management-a:22000-03-186
+
+- Replacement PNG: `public/question-images/220001-22000-03-186.png`
+- App path: `/question-images/220001-22000-03-186.png`
+- Linked uploaded image:
+  - `/question-images/220001-22000-03-186.png`
+- Current fallback page: `/question-pages/22000-page-38.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 依職業安全衛生設施規則及機械設備器具安全標準規定，用於氣體類之防爆電氣設備，其危險區域劃分應符合國家標準 CNS3376 系列、國際標準 IEC60079 系列或與其同等之標準規定，CNS3376-10 對危險場所分類：1. 0 區（Zone0）：爆炸性氣體環境連續性或長期存在之場所。2. 1 區（Zone1）：爆炸性氣體環境在正常操作下可能存在之場所。 3.2 區（Zone2）：爆炸性氣體環境在正常操作下不太可能存在，如果只有偶爾發生且只存在短期間之場所。試問一個固定式具易燃液體蒸氣之製程混合槽，位於室內，因為操作原因會週期性被打開。液體打入桶槽或抽出，皆經由桶槽上完全焊接之管路時，下圖之危險區域劃分何者正確？
+- Options:
+  - 1. ：Zone 0
+  - 2. ：Zone1
+  - 3. ：Zone2
+  - 4. ：Zone1。a：從洩漏源處水平距離 1m，b：從洩漏源上方 1m，c：水平距離 1m，d：水平距離 2m
+
+## occupational-safety-management-a:22000-03-203
+
+- Replacement PNG: `public/question-images/220001-22000-03-203.png`
+- App path: `/question-images/220001-22000-03-203.png`
+- Linked uploaded image:
+  - `/question-images/220001-22000-03-203.png`
+- Current fallback page: `/question-pages/22000-page-40.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖所示以兩條鋼索吊掛一鋼樑，鋼樑長度為 2 公尺，重心位於鋼梁中心位置，吊掛鋼索與鋼樑之夾角為 30 度，鋼樑質量為 200 公斤，請計算每條吊掛鋼索之受力為多少公斤重？
+- Options:
+  - 1. 100
+  - 2. 200
+  - 3. 300
+  - 4. 400
+
+## occupational-hygiene-management-a:22100-03-038
+
+- Replacement PNG: `public/question-images/221001-22100-03-038-1.png`
+- App path: `/question-images/221001-22100-03-038-1.png`
+- Linked uploaded images:
+  - `/question-images/221001-22100-03-038-1.png`
+  - `/question-images/221001-22100-03-038-2.png`
+  - `/question-images/221001-22100-03-038-3.png`
+  - `/question-images/221001-22100-03-038-4.png`
+- Current fallback page: `/question-pages/22100-page-30.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下列何者為我國職業安全衛生法規之機械設備器具驗證合格標章？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## occupational-hygiene-management-a:22100-03-039
+
+- Replacement PNG: `public/question-images/221001-22100-03-039-1.png`
+- App path: `/question-images/221001-22100-03-039-1.png`
+- Linked uploaded images:
+  - `/question-images/221001-22100-03-039-1.png`
+  - `/question-images/221001-22100-03-039-2.png`
+  - `/question-images/221001-22100-03-039-3.png`
+  - `/question-images/221001-22100-03-039-4.png`
+- Current fallback page: `/question-pages/22100-page-30.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下列何者為我國職業安全衛生法規之機械設備器具安全標示？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## occupational-hygiene-management-a:22100-03-054
+
+- Replacement PNG: `public/question-images/221001-22100-03-054.png`
+- App path: `/question-images/221001-22100-03-054.png`
+- Linked uploaded image:
+  - `/question-images/221001-22100-03-054.png`
+- Current fallback page: `/question-pages/22100-page-31.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下列何種危害性化學品一般不會使用如下圖式？
+- Options:
+  - 1. 壓縮氣體
+  - 2. 液化氣體
+  - 3. 溶解氣體
+  - 4. 冷凍氣膠。（外框標準為紅色）
+
+## occupational-hygiene-management-a:22100-03-055
+
+- Replacement PNG: `public/question-images/221001-22100-03-055.png`
+- App path: `/question-images/221001-22100-03-055.png`
+- Linked uploaded image:
+  - `/question-images/221001-22100-03-055.png`
+- Current fallback page: `/question-pages/22100-page-31.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 何種危害性化學品一般會使用如下圖式？
+- Options:
+  - 1. 易燃液體
+  - 2. 易燃氣膠
+  - 3. 氧化性液體
+  - 4. 金屬腐蝕物。（外框標準為紅色）
+
+## occupational-hygiene-management-a:22100-03-056
+
+- Replacement PNG: `public/question-images/221001-22100-03-056.png`
+- App path: `/question-images/221001-22100-03-056.png`
+- Linked uploaded image:
+  - `/question-images/221001-22100-03-056.png`
+- Current fallback page: `/question-pages/22100-page-31.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下列何種危害性化學品一般不會使用如下圖式？
+- Options:
+  - 1. 急毒性物質：吞食
+  - 2. 急毒性物質：皮膚
+  - 3. 急毒性物質：吸入
+  - 4. 致癌物質。（外框標準為紅色）
+
+## occupational-hygiene-management-a:22100-03-057
+
+- Replacement PNG: `public/question-images/221001-22100-03-057.png`
+- App path: `/question-images/221001-22100-03-057.png`
+- Linked uploaded image:
+  - `/question-images/221001-22100-03-057.png`
+- Current fallback page: `/question-pages/22100-page-32.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 何種危害性化學品一般不會使用如下圖式？
+- Options:
+  - 1. 生殖毒性物質
+  - 2. 腐蝕／刺激皮膚物質
+  - 3. 急毒性物質：吸入
+  - 4. 致癌物質。（外框標準為紅色）
+
+## occupational-hygiene-management-a:22100-03-058
+
+- Replacement PNG: `public/question-images/221001-22100-03-058.png`
+- App path: `/question-images/221001-22100-03-058.png`
+- Linked uploaded image:
+  - `/question-images/221001-22100-03-058.png`
+- Current fallback page: `/question-pages/22100-page-32.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下列何種危害性化學品一般不會使用如下圖式？
+- Options:
+  - 1. 腐蝕／刺激皮膚物質
+  - 2. 皮膚過敏物質
+  - 3. 急毒性物質：吸入
+  - 4. 爆炸物。（外框標準為紅色）
+
+## occupational-hygiene-management-a:22100-03-059
+
+- Replacement PNG: `public/question-images/221001-22100-03-059.png`
+- App path: `/question-images/221001-22100-03-059.png`
+- Linked uploaded image:
+  - `/question-images/221001-22100-03-059.png`
+- Current fallback page: `/question-pages/22100-page-32.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下列何種危害性化學品一般不會使用如下圖式？
+- Options:
+  - 1. 易燃氣體
+  - 2. 易燃液體
+  - 3. 金屬腐蝕物
+  - 4. 易燃氣膠。（外框標準為紅色）
+
+## occupational-hygiene-management-a:22100-03-060
+
+- Replacement PNG: `public/question-images/221001-22100-03-060.png`
+- App path: `/question-images/221001-22100-03-060.png`
+- Linked uploaded image:
+  - `/question-images/221001-22100-03-060.png`
+- Current fallback page: `/question-pages/22100-page-32.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下列何種危害性化學品一般不會使用如下圖式？
+- Options:
+  - 1. 腐蝕／刺激皮膚物質
+  - 2. 致癌物質
+  - 3. 嚴重損傷／刺激眼睛物質
+  - 4. 金屬腐蝕物。（外框標準為紅色）
+
+## occupational-hygiene-management-a:22100-03-062
+
+- Replacement PNG: `public/question-images/221001-22100-03-062.png`
+- App path: `/question-images/221001-22100-03-062.png`
+- Linked uploaded image:
+  - `/question-images/221001-22100-03-062.png`
+- Current fallback page: `/question-pages/22100-page-32.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 當處置使用具有如下圖式之危害性化學品時，不宜採取何措施？
+- Options:
+  - 1. 以鐵器敲打攪拌
+  - 2. 遠離熱源
+  - 3. 避免震動
+  - 4. 操作時穿著防易產生靜電之衣服鞋具。（外框標準為紅色）
+
+## occupational-hygiene-management-a:22100-03-063
+
+- Replacement PNG: `public/question-images/221001-22100-03-063.png`
+- App path: `/question-images/221001-22100-03-063.png`
+- Linked uploaded image:
+  - `/question-images/221001-22100-03-063.png`
+- Current fallback page: `/question-pages/22100-page-32.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 當處置使用具有如下圖式之危害性化學品時，不宜採取何措施？
+- Options:
+  - 1. 廢液倒入廢液桶中
+  - 2. 操作時穿戴合適之個人防護具
+  - 3. 用剩之化學品以水稀釋後直接倒入排水溝
+  - 4. 依 SOP 操作。（外框標準為紅色）
+
+## occupational-hygiene-management-a:22100-03-258
+
+- Replacement PNG: `public/question-images/221001-22100-03-258-1.png`
+- App path: `/question-images/221001-22100-03-258-1.png`
+- Linked uploaded images:
+  - `/question-images/221001-22100-03-258-1.png`
+  - `/question-images/221001-22100-03-258-2.png`
+  - `/question-images/221001-22100-03-258-3.png`
+  - `/question-images/221001-22100-03-258-4.png`
+- Current fallback page: `/question-pages/22100-page-46.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 有一酸洗槽上有懸吊式氣罩，酸洗槽作業面周長 18 公尺，其與氣罩間垂直高度差為 3 公尺，若氣罩寬 3.75 公尺，長 6 公尺，捕捉風速平均為 7.5m/s，其理論排氣量為 X。若其為加強補集效果，在氣罩下多加三片塑膠版，圍住三面，僅餘一長面操作，則理論排氣量為 Y。下列何者正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## cnc-milling-b:90001-01-001
+
+- Replacement PNG: `public/question-images/900012-90001-01-001.png`
+- App path: `/question-images/900012-90001-01-001.png`
+- Linked uploaded images:
+  - `/question-images/900012-90001-01-001.png`
+  - `/question-images/900012-90001-01-001-2.png`
+  - `/question-images/900012-90001-01-001-3.png`
+  - `/question-images/900012-90001-01-001-4.png`
+- Current fallback page: `/question-pages/90001-page-2.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 依據 CNS 標準，下列何者屬於幾何公差之方向公差符號？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## cnc-milling-b:90001-01-002
+
+- Replacement PNG: `public/question-images/900012-90001-01-002.png`
+- App path: `/question-images/900012-90001-01-002.png`
+- Linked uploaded images:
+  - `/question-images/900012-90001-01-002.png`
+  - `/question-images/900012-90001-01-002-2.png`
+  - `/question-images/900012-90001-01-002-3.png`
+  - `/question-images/900012-90001-01-002-4.png`
+- Current fallback page: `/question-pages/90001-page-2.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 依據 CNS 中華民國國家標準，下列何者屬於幾何公差之形狀公差符號？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## cnc-milling-b:90001-01-004
+
+- Replacement PNG: `public/question-images/900012-90001-01-004.png`
+- App path: `/question-images/900012-90001-01-004.png`
+- Linked uploaded image:
+  - `/question-images/900012-90001-01-004.png`
+- Current fallback page: `/question-pages/90001-page-2.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 工件圖面尺寸，經加工後檢查合格者為
+- Options:
+  - 1. 36
+  - 2. 36.016
+  - 3. 36.038
+  - 4. 36.052
+
+## cnc-milling-b:90001-01-005
+
+- Replacement PNG: `public/question-images/900012-90001-01-005.png`
+- App path: `/question-images/900012-90001-01-005.png`
+- Linked uploaded images:
+  - `/question-images/900012-90001-01-005.png`
+  - `/question-images/900012-90001-01-005-2.png`
+  - `/question-images/900012-90001-01-005-3.png`
+  - `/question-images/900012-90001-01-005-4.png`
+  - `/question-images/900012-90001-01-005-5.png`
+- Current fallback page: `/question-pages/90001-page-2.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 工件俯視圖如右圖所示，其半剖面應繪製為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## cnc-milling-b:90001-01-006
+
+- Replacement PNG: `public/question-images/900012-90001-01-006.png`
+- App path: `/question-images/900012-90001-01-006.png`
+- Linked uploaded images:
+  - `/question-images/900012-90001-01-006.png`
+  - `/question-images/900012-90001-01-006-2.png`
+  - `/question-images/900012-90001-01-006-3.png`
+  - `/question-images/900012-90001-01-006-4.png`
+  - `/question-images/900012-90001-01-006-5.png`
+- Current fallback page: `/question-pages/90001-page-2.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 工件視圖如下圖所示，依據箭頭方向，其輔助視圖為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## cnc-milling-b:90001-01-007
+
+- Replacement PNG: `public/question-images/900012-90001-01-007.png`
+- App path: `/question-images/900012-90001-01-007.png`
+- Linked uploaded images:
+  - `/question-images/900012-90001-01-007.png`
+  - `/question-images/900012-90001-01-007-2.png`
+  - `/question-images/900012-90001-01-007-3.png`
+  - `/question-images/900012-90001-01-007-4.png`
+  - `/question-images/900012-90001-01-007-5.png`
+- Current fallback page: `/question-pages/90001-page-2.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 依據 CNS 標準，內螺紋習用畫法如下圖所示，其右側視圖第三角畫法應為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## cnc-milling-b:90001-01-009
+
+- Replacement PNG: `public/question-images/900012-90001-01-009.png`
+- App path: `/question-images/900012-90001-01-009.png`
+- Linked uploaded images:
+  - `/question-images/900012-90001-01-009.png`
+  - `/question-images/900012-90001-01-009-2.png`
+  - `/question-images/900012-90001-01-009-3.png`
+  - `/question-images/900012-90001-01-009-4.png`
+- Current fallback page: `/question-pages/90001-page-2.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 依據 CNS 標準，蝸桿的前視圖畫法為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## cnc-milling-b:90001-01-010
+
+- Replacement PNG: `public/question-images/900012-90001-01-010.png`
+- App path: `/question-images/900012-90001-01-010.png`
+- Linked uploaded images:
+  - `/question-images/900012-90001-01-010.png`
+  - `/question-images/900012-90001-01-010-2.png`
+  - `/question-images/900012-90001-01-010-3.png`
+  - `/question-images/900012-90001-01-010-4.png`
+- Current fallback page: `/question-pages/90001-page-2.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 依據 CNS 標準，滾珠軸承的一般表示法為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## cnc-milling-b:90001-01-011
+
+- Replacement PNG: `public/question-images/900012-90001-01-011.png`
+- App path: `/question-images/900012-90001-01-011.png`
+- Linked uploaded images:
+  - `/question-images/900012-90001-01-011.png`
+  - `/question-images/900012-90001-01-011-2.png`
+  - `/question-images/900012-90001-01-011-3.png`
+  - `/question-images/900012-90001-01-011-4.png`
+- Current fallback page: `/question-pages/90001-page-2.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 依據 CNS 標準，正齒輪組合的習用表示法為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## cnc-milling-b:90001-01-012
+
+- Replacement PNG: `public/question-images/900012-90001-01-012.png`
+- App path: `/question-images/900012-90001-01-012.png`
+- Linked uploaded images:
+  - `/question-images/900012-90001-01-012.png`
+  - `/question-images/900012-90001-01-012-2.png`
+  - `/question-images/900012-90001-01-012-3.png`
+  - `/question-images/900012-90001-01-012-4.png`
+- Current fallback page: `/question-pages/90001-page-3.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 依據 CNS 標準，內外螺紋組合的組合剖視圖畫法為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## cnc-milling-b:90001-01-013
+
+- Replacement PNG: `public/question-images/900012-90001-01-013.png`
+- App path: `/question-images/900012-90001-01-013.png`
+- Linked uploaded images:
+  - `/question-images/900012-90001-01-013.png`
+  - `/question-images/900012-90001-01-013-2.png`
+  - `/question-images/900012-90001-01-013-3.png`
+  - `/question-images/900012-90001-01-013-4.png`
+- Current fallback page: `/question-pages/90001-page-3.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 依據 CNS 標準，渦形彈簧的簡易表示法為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## cnc-milling-b:90001-01-017
+
+- Replacement PNG: `public/question-images/900012-90001-01-017.png`
+- App path: `/question-images/900012-90001-01-017.png`
+- Linked uploaded image:
+  - `/question-images/900012-90001-01-017.png`
+- Current fallback page: `/question-pages/90001-page-3.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 依據 CNS 標準，熔接符號表示為
+- Options:
+  - 1. 點熔接
+  - 2. 全周熔接
+  - 3. 現場焊接
+  - 4. 縫熔接
+
+## cnc-milling-b:90001-01-018
+
+- Replacement PNG: `public/question-images/900012-90001-01-018.png`
+- App path: `/question-images/900012-90001-01-018.png`
+- Linked uploaded images:
+  - `/question-images/900012-90001-01-018.png`
+  - `/question-images/900012-90001-01-018-2.png`
+  - `/question-images/900012-90001-01-018-3.png`
+  - `/question-images/900012-90001-01-018-4.png`
+  - `/question-images/900012-90001-01-018-5.png`
+- Current fallback page: `/question-pages/90001-page-3.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 如下圖為熔接道詳圖，依據 CNS 標準，其熔接符號應為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## cnc-milling-b:90001-01-035
+
+- Replacement PNG: `public/question-images/900012-90001-01-035.png`
+- App path: `/question-images/900012-90001-01-035.png`
+- Linked uploaded images:
+  - `/question-images/900012-90001-01-035.png`
+  - `/question-images/900012-90001-01-035-2.png`
+  - `/question-images/900012-90001-01-035-3.png`
+  - `/question-images/900012-90001-01-035-4.png`
+- Current fallback page: `/question-pages/90001-page-4.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 工程製圖國家標準之規定，真圓度的符號是
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## cnc-milling-b:90001-02-002
+
+- Replacement PNG: `public/question-images/900012-90001-02-002.png`
+- App path: `/question-images/900012-90001-02-002.png`
+- Linked uploaded image:
+  - `/question-images/900012-90001-02-002.png`
+- Current fallback page: `/question-pages/90001-page-4.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 方程式的解為 x=
+- Options:
+  - 1. -3
+  - 2. 3
+  - 3. -1
+  - 4. 1
+
+## cnc-milling-b:90001-02-003
+
+- Replacement PNG: `public/question-images/900012-90001-02-003.png`
+- App path: `/question-images/900012-90001-02-003.png`
+- Linked uploaded images:
+  - `/question-images/900012-90001-02-003.png`
+  - `/question-images/900012-90001-02-003-2.png`
+  - `/question-images/900012-90001-02-003-3.png`
+  - `/question-images/900012-90001-02-003-4.png`
+- Current fallback page: `/question-pages/90001-page-4.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下列何者為一元二次方程式？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## cnc-milling-b:90001-02-004
+
+- Replacement PNG: `public/question-images/900012-90001-02-004.png`
+- App path: `/question-images/900012-90001-02-004.png`
+- Linked uploaded image:
+  - `/question-images/900012-90001-02-004.png`
+- Current fallback page: `/question-pages/90001-page-4.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 若方程式，則 2x－3y＝
+- Options:
+  - 1. -1
+  - 2. 2
+  - 3. 4
+  - 4. 5
+
+## cnc-milling-b:90001-02-005
+
+- Replacement PNG: `public/question-images/900012-90001-02-005.png`
+- App path: `/question-images/900012-90001-02-005.png`
+- Linked uploaded images:
+  - `/question-images/900012-90001-02-005.png`
+  - `/question-images/900012-90001-02-005-2.png`
+  - `/question-images/900012-90001-02-005-3.png`
+  - `/question-images/900012-90001-02-005-4.png`
+  - `/question-images/900012-90001-02-005-5.png`
+- Current fallback page: `/question-pages/90001-page-4.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 有一個三角形的高為底長之，如果高為 x cm，則此三角形之面積為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## cnc-milling-b:90001-02-009
+
+- Replacement PNG: `public/question-images/900012-90001-02-009.png`
+- App path: `/question-images/900012-90001-02-009.png`
+- Linked uploaded images:
+  - `/question-images/900012-90001-02-009.png`
+  - `/question-images/900012-90001-02-009-2.png`
+  - `/question-images/900012-90001-02-009-3.png`
+  - `/question-images/900012-90001-02-009-4.png`
+  - `/question-images/900012-90001-02-009-5.png`
+- Current fallback page: `/question-pages/90001-page-5.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 求一元二次方程式之解為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## cnc-milling-b:90001-02-012
+
+- Replacement PNG: `public/question-images/900012-90001-02-012.png`
+- App path: `/question-images/900012-90001-02-012.png`
+- Linked uploaded images:
+  - `/question-images/900012-90001-02-012.png`
+  - `/question-images/900012-90001-02-012-2.png`
+  - `/question-images/900012-90001-02-012-3.png`
+  - `/question-images/900012-90001-02-012-4.png`
+  - `/question-images/900012-90001-02-012-5.png`
+- Current fallback page: `/question-pages/90001-page-5.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 解下列一次方程式，則 x＝
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## cnc-milling-b:90001-02-014
+
+- Replacement PNG: `public/question-images/900012-90001-02-014.png`
+- App path: `/question-images/900012-90001-02-014.png`
+- Linked uploaded images:
+  - `/question-images/900012-90001-02-014.png`
+  - `/question-images/900012-90001-02-014-2.png`
+  - `/question-images/900012-90001-02-014-3.png`
+- Current fallback page: `/question-pages/90001-page-5.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 已知，，，，則 d＝
+- Options:
+  - 1. 5
+  - 2. 7
+  - 3. 9
+  - 4. 13
+
+## cnc-milling-b:90001-02-015
+
+- Replacement PNG: `public/question-images/900012-90001-02-015.png`
+- App path: `/question-images/900012-90001-02-015.png`
+- Linked uploaded image:
+  - `/question-images/900012-90001-02-015.png`
+- Current fallback page: `/question-pages/90001-page-5.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 將多項式因式分解，可以得到
+- Options:
+  - 1. (2x+2)(y+5)
+  - 2. (2y+2)(x+5)
+  - 3. (2y+5)(x+2)
+  - 4. (2x+5)(y+2)
+
+## cnc-milling-b:90001-02-028
+
+- Replacement PNG: `public/question-images/900012-90001-02-028.png`
+- App path: `/question-images/900012-90001-02-028.png`
+- Linked uploaded images:
+  - `/question-images/900012-90001-02-028.png`
+  - `/question-images/900012-90001-02-028-2.png`
+  - `/question-images/900012-90001-02-028-3.png`
+  - `/question-images/900012-90001-02-028-4.png`
+- Current fallback page: `/question-pages/90001-page-6.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 有一個氣球在距離 A 同學 10m 處的距離由地面垂直等速上升，經過 10sec後，A 同學看到氣球的角度剛好為仰角 60 度，則此氣球上升的速度為
+- Options:
+  - 1. m/sec
+  - 2. m/sec
+  - 3. m/sec
+  - 4. m/sec
+
+## cnc-milling-b:90001-02-032
+
+- Replacement PNG: `public/question-images/900012-90001-02-032.png`
+- App path: `/question-images/900012-90001-02-032.png`
+- Linked uploaded image:
+  - `/question-images/900012-90001-02-032.png`
+- Current fallback page: `/question-pages/90001-page-6.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 若            =0，則θ=
+- Options:
+  - 1. 30°
+  - 2. 45°
+  - 3. 60°
+  - 4. 90°
+
+## cnc-milling-b:90001-02-034
+
+- Replacement PNG: `public/question-images/900012-90001-02-034.png`
+- App path: `/question-images/900012-90001-02-034.png`
+- Linked uploaded image:
+  - `/question-images/900012-90001-02-034.png`
+- Current fallback page: `/question-pages/90001-page-6.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 若α代表角度，已知，則α=
+- Options:
+  - 1. 10°
+  - 2. 12°
+  - 3. 15°
+  - 4. 18°
+
+## cnc-milling-b:90001-02-041
+
+- Replacement PNG: `public/question-images/900012-90001-02-041.png`
+- App path: `/question-images/900012-90001-02-041.png`
+- Linked uploaded image:
+  - `/question-images/900012-90001-02-041.png`
+- Current fallback page: `/question-pages/90001-page-6.jpg`
+- Kind: multiple
+- Official answer: 1,2,3
+- Prompt: 方程式之幾何，下列敘述何者正確？
+- Options:
+  - 1. 頂點座標(1,1)
+  - 2. 焦點座標(1,-0.5)
+  - 3. 準線方程式 y=2.5
+  - 4. 軸線平行於 x 軸
+
+## cnc-milling-b:90001-02-042
+
+- Replacement PNG: `public/question-images/900012-90001-02-042.png`
+- App path: `/question-images/900012-90001-02-042.png`
+- Linked uploaded images:
+  - `/question-images/900012-90001-02-042.png`
+  - `/question-images/900012-90001-02-042-2.png`
+  - `/question-images/900012-90001-02-042-3.png`
+  - `/question-images/900012-90001-02-042-4.png`
+- Current fallback page: `/question-pages/90001-page-6.jpg`
+- Kind: multiple
+- Official answer: 1,3,4
+- Prompt: 下列公式何者正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## cnc-milling-b:90001-02-044
+
+- Replacement PNG: `public/question-images/900012-90001-02-044.png`
+- App path: `/question-images/900012-90001-02-044.png`
+- Linked uploaded image:
+  - `/question-images/900012-90001-02-044.png`
+- Current fallback page: `/question-pages/90001-page-6.jpg`
+- Kind: multiple
+- Official answer: 1,4
+- Prompt: 如下圖所示有一直徑 Xmm 之圓棒，欲切削成對邊為 12mm 之正六邊形，則下列何者比較節省材料？
+- Options:
+  - 1. X=13.86
+  - 2. X=12.26
+  - 3. h=0.98
+  - 4. h=0.93
+
+## cnc-milling-b:90001-02-045
+
+- Replacement PNG: `public/question-images/900012-90001-02-045.png`
+- App path: `/question-images/900012-90001-02-045.png`
+- Linked uploaded images:
+  - `/question-images/900012-90001-02-045.png`
+  - `/question-images/900012-90001-02-045-2.png`
+- Current fallback page: `/question-pages/90001-page-7.jpg`
+- Kind: multiple
+- Official answer: 2,3
+- Prompt: 二次函數的圖形如下圖所示，下列何者正確？
+- Options:
+  - 1. a＜0
+  - 2. b＜0
+  - 3. c＜0
+  - 4. b 2 -4ac＜0
+
+## cnc-milling-b:90001-02-046
+
+- Replacement PNG: `public/question-images/900012-90001-02-046.png`
+- App path: `/question-images/900012-90001-02-046.png`
+- Linked uploaded images:
+  - `/question-images/900012-90001-02-046.png`
+  - `/question-images/900012-90001-02-046-2.png`
+  - `/question-images/900012-90001-02-046-3.png`
+  - `/question-images/900012-90001-02-046-4.png`
+  - `/question-images/900012-90001-02-046-5.png`
+- Current fallback page: `/question-pages/90001-page-7.jpg`
+- Kind: multiple
+- Official answer: 1,3
+- Prompt: 解出不等式，下列何者正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## cnc-milling-b:90001-03-015
+
+- Replacement PNG: `public/question-images/900012-90001-03-015.png`
+- App path: `/question-images/900012-90001-03-015.png`
+- Linked uploaded image:
+  - `/question-images/900012-90001-03-015.png`
+- Current fallback page: `/question-pages/90001-page-8.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 如下圖，以一般游標尺量測 A、B、C、D，並計算兩孔中心之距離，下列不適合的方法為
+- Options:
+  - 1. (A + B)/2
+  - 2. B+10
+  - 3. A-10
+  - 4. C+D
+
+## cnc-milling-b:90001-03-039
+
+- Replacement PNG: `public/question-images/900012-90001-03-039.png`
+- App path: `/question-images/900012-90001-03-039.png`
+- Linked uploaded image:
+  - `/question-images/900012-90001-03-039.png`
+- Current fallback page: `/question-pages/90001-page-10.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 以 100 mm 正弦規量測下圖所示工件的斜度，則塊規累積尺寸為
+- Options:
+  - 1. 58.339 mm
+  - 2. 60.000 mm
+  - 3. 60.339 mm
+  - 4. 65.000 mm
+
+## cnc-milling-b:90001-05-027
+
+- Replacement PNG: `public/question-images/900012-90001-05-027.png`
+- App path: `/question-images/900012-90001-05-027.png`
+- Linked uploaded images:
+  - `/question-images/900012-90001-05-027.png`
+  - `/question-images/900012-90001-05-027-2.png`
+  - `/question-images/900012-90001-05-027-3.png`
+  - `/question-images/900012-90001-05-027-4.png`
+- Current fallback page: `/question-pages/90001-page-16.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 銑床分度頭(1:40)中，一分度板有 15、16、17、18、19、20 孔圈，若要銑削 32 齒之齒輪，每銑一齒則搖柄迴轉數為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## cnc-milling-b:90001-08-001
+
+- Replacement PNG: `public/question-images/900012-90001-08-001.png`
+- App path: `/question-images/900012-90001-08-001.png`
+- Linked uploaded image:
+  - `/question-images/900012-90001-08-001.png`
+- Current fallback page: `/question-pages/90001-page-24.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 氣壓元件符號，係指
+- Options:
+  - 1. 乾燥器
+  - 2. 潤滑器
+  - 3. 調理組合
+  - 4. 冷卻器
+
+## cnc-milling-b:90001-08-003
+
+- Replacement PNG: `public/question-images/900012-90001-08-003.png`
+- App path: `/question-images/900012-90001-08-003.png`
+- Linked uploaded image:
+  - `/question-images/900012-90001-08-003.png`
+- Current fallback page: `/question-pages/90001-page-24.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 元件符號，係指
+- Options:
+  - 1. 單向定排量油壓馬達
+  - 2. 單向定排量油壓泵
+  - 3. 單向可變排量油壓泵
+  - 4. 單向可變排量油壓馬達
+
+## cnc-milling-b:90001-08-005
+
+- Replacement PNG: `public/question-images/900012-90001-08-005.png`
+- App path: `/question-images/900012-90001-08-005.png`
+- Linked uploaded image:
+  - `/question-images/900012-90001-08-005.png`
+- Current fallback page: `/question-pages/90001-page-24.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 油壓元件符號，係指
+- Options:
+  - 1. 單動缸
+  - 2. 雙動缸
+  - 3. 單動雙緩衝缸
+  - 4. 雙動雙緩衝缸
+
+## cnc-milling-b:90001-08-006
+
+- Replacement PNG: `public/question-images/900012-90001-08-006.png`
+- App path: `/question-images/900012-90001-08-006.png`
+- Linked uploaded image:
+  - `/question-images/900012-90001-08-006.png`
+- Current fallback page: `/question-pages/90001-page-24.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 元件符號，係指
+- Options:
+  - 1. 雙動雙緩衝油壓缸
+  - 2. 單動雙緩衝油壓缸
+  - 3. 雙動油壓缸
+  - 4. 單動油壓缸
+
+## cnc-milling-b:90001-08-008
+
+- Replacement PNG: `public/question-images/900012-90001-08-008.png`
+- App path: `/question-images/900012-90001-08-008.png`
+- Linked uploaded image:
+  - `/question-images/900012-90001-08-008.png`
+- Current fallback page: `/question-pages/90001-page-25.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖所示之單動氣壓缸控制迴路，係採
+- Options:
+  - 1. 直接控制
+  - 2. 間接控制
+  - 3. 伺服控制
+  - 4. 閉迴路控制
+
+## cnc-milling-b:90001-08-009
+
+- Replacement PNG: `public/question-images/900012-90001-08-009.png`
+- App path: `/question-images/900012-90001-08-009.png`
+- Linked uploaded image:
+  - `/question-images/900012-90001-08-009.png`
+- Current fallback page: `/question-pages/90001-page-25.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 油壓元件符號，係指
+- Options:
+  - 1. 卸載閥
+  - 2. 減壓閥
+  - 3. 順序閥
+  - 4. 釋壓閥
+
+## cnc-milling-b:90001-08-013
+
+- Replacement PNG: `public/question-images/900012-90001-08-013.png`
+- App path: `/question-images/900012-90001-08-013.png`
+- Linked uploaded image:
+  - `/question-images/900012-90001-08-013.png`
+- Current fallback page: `/question-pages/90001-page-25.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖所示之油壓系統裝置，適用於
+- Options:
+  - 1. 車床刀架
+  - 2. 千斤頂
+  - 3. 火箭推進系統
+  - 4. 銑床進給機構
+
+## cnc-milling-b:90001-08-014
+
+- Replacement PNG: `public/question-images/900012-90001-08-014.png`
+- App path: `/question-images/900012-90001-08-014.png`
+- Linked uploaded image:
+  - `/question-images/900012-90001-08-014.png`
+- Current fallback page: `/question-pages/90001-page-25.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 如下圖所示之液壓系統基本電路圖，元件 A 表示
+- Options:
+  - 1. 繼電器
+  - 2. 定時器
+  - 3. 油壓閥
+  - 4. 開關
+
+## cnc-milling-b:90001-08-016
+
+- Replacement PNG: `public/question-images/900012-90001-08-016.png`
+- App path: `/question-images/900012-90001-08-016.png`
+- Linked uploaded image:
+  - `/question-images/900012-90001-08-016.png`
+- Current fallback page: `/question-pages/90001-page-25.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖所示之系統裝置是一種
+- Options:
+  - 1. 空壓系統
+  - 2. 油壓系統
+  - 3. 油氣壓系統
+  - 4. 電氣控制系統
+
+## cnc-milling-b:90001-08-017
+
+- Replacement PNG: `public/question-images/900012-90001-08-017.png`
+- App path: `/question-images/900012-90001-08-017.png`
+- Linked uploaded image:
+  - `/question-images/900012-90001-08-017.png`
+- Current fallback page: `/question-pages/90001-page-26.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如下圖，油壓元件符號係指
+- Options:
+  - 1. 減壓閥
+  - 2. 卸載閥
+  - 3. 流量閥
+  - 4. 安全閥
+
+## cnc-milling-b:90001-08-018
+
+- Replacement PNG: `public/question-images/900012-90001-08-018.png`
+- App path: `/question-images/900012-90001-08-018.png`
+- Linked uploaded image:
+  - `/question-images/900012-90001-08-018.png`
+- Current fallback page: `/question-pages/90001-page-26.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 如下圖所示之液壓系統裝置，元件 M 表示
+- Options:
+  - 1. 油壓馬達
+  - 2. 油壓泵
+  - 3. 油壓箱
+  - 4. 電動馬達
+
+## cnc-milling-b:90001-08-019
+
+- Replacement PNG: `public/question-images/900012-90001-08-019.png`
+- App path: `/question-images/900012-90001-08-019.png`
+- Linked uploaded image:
+  - `/question-images/900012-90001-08-019.png`
+- Current fallback page: `/question-pages/90001-page-26.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如下圖所示之液壓系統基本電路圖，元件 T 表示
+- Options:
+  - 1. 定時器
+  - 2. 反向器
+  - 3. 轉轍器
+  - 4. 安定器
+
+## cnc-milling-b:90001-08-022
+
+- Replacement PNG: `public/question-images/900012-90001-08-022.png`
+- App path: `/question-images/900012-90001-08-022.png`
+- Linked uploaded image:
+  - `/question-images/900012-90001-08-022.png`
+- Current fallback page: `/question-pages/90001-page-26.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖所示之油壓系統裝置，其中之壓力控制閥係一種
+- Options:
+  - 1. 減壓閥
+  - 2. 溢流閥
+  - 3. 順序閥
+  - 4. 卸載閥
+
+## cnc-milling-b:90001-08-026
+
+- Replacement PNG: `public/question-images/900012-90001-08-026.png`
+- App path: `/question-images/900012-90001-08-026.png`
+- Linked uploaded image:
+  - `/question-images/900012-90001-08-026.png`
+- Current fallback page: `/question-pages/90001-page-27.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖所示之氣壓元件符號，係指
+- Options:
+  - 1. 3/2 常開方向閥
+  - 2. 3/2 常閉方向閥
+  - 3. 2/3 常開方向閥
+  - 4. 2/3 常閉方向閥
+
+## cnc-milling-b:90001-08-029
+
+- Replacement PNG: `public/question-images/900012-90001-08-029.png`
+- App path: `/question-images/900012-90001-08-029.png`
+- Linked uploaded image:
+  - `/question-images/900012-90001-08-029.png`
+- Current fallback page: `/question-pages/90001-page-27.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖元件符號，係指
+- Options:
+  - 1. 雙向定排量油壓馬達
+  - 2. 雙向定排量油壓泵
+  - 3. 雙向可變排量油壓馬達
+  - 4. 雙向可變排量油壓泵
+
+## cnc-milling-b:90001-08-042
+
+- Replacement PNG: `public/question-images/900012-90001-08-042.png`
+- App path: `/question-images/900012-90001-08-042.png`
+- Linked uploaded image:
+  - `/question-images/900012-90001-08-042.png`
+- Current fallback page: `/question-pages/90001-page-27.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 氣壓元件符號"         "，係指
+- Options:
+  - 1. 節流閥
+  - 2. 止回閥
+  - 3. 方向控制閥
+  - 4. 壓力控制閥
+
+## cnc-milling-b:90001-08-043
+
+- Replacement PNG: `public/question-images/900012-90001-08-043.png`
+- App path: `/question-images/900012-90001-08-043.png`
+- Linked uploaded image:
+  - `/question-images/900012-90001-08-043.png`
+- Current fallback page: `/question-pages/90001-page-27.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 液壓元件符號"          "，係指
+- Options:
+  - 1. 壓力計
+  - 2. 流量計
+  - 3. 蓄壓計
+  - 4. 過濾器
+
+## cnc-milling-b:90001-08-047
+
+- Replacement PNG: `public/question-images/900012-90001-08-047.png`
+- App path: `/question-images/900012-90001-08-047.png`
+- Linked uploaded images:
+  - `/question-images/900012-90001-08-047.png`
+  - `/question-images/900012-90001-08-047-2.png`
+  - `/question-images/900012-90001-08-047-3.png`
+  - `/question-images/900012-90001-08-047-4.png`
+- Current fallback page: `/question-pages/90001-page-28.jpg`
+- Kind: multiple
+- Official answer: 2,3,4
+- Prompt: 下列何者為油壓之止回閥的快速接頭？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
 ## accounting-c:90008-03-013
 
 - Replacement PNG: `public/question-images/90008-page-2 13-1.png`
@@ -7288,51 +14113,6 @@ Total active image questions: 490
 
 ## computer-hardware-repair-c:90011-04-001
 
-- Replacement PNG: `public/question-images/120003-90011-04-001.png`
-- App path: `/question-images/120003-90011-04-001.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-6.jpg`
-- Kind: single
-- Official answer: 1
-- Prompt: 下列流程圖所對應的 C/C++指令為何？
-- Options:
-  - 1. do...while
-  - 2. while
-  - 3. switch...case
-  - 4. if...then...else
-
-## computer-software-application-b:90011-04-001
-
-- Replacement PNG: `public/question-images/118002-90011-04-001.png`
-- App path: `/question-images/118002-90011-04-001.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-6.jpg`
-- Kind: single
-- Official answer: 1
-- Prompt: 下列流程圖所對應的 C/C++指令為何？
-- Options:
-  - 1. do...while
-  - 2. while
-  - 3. switch...case
-  - 4. if...then...else
-
-## computer-software-application-c:90011-04-001
-
-- Replacement PNG: `public/question-images/90011-04-001.png`
-- App path: `/question-images/90011-04-001.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-6.jpg`
-- Kind: single
-- Official answer: 1
-- Prompt: 下列流程圖所對應的 C/C++指令為何？
-- Options:
-  - 1. do...while
-  - 2. while
-  - 3. switch...case
-  - 4. if...then...else
-
-## web-design-b:90011-04-001
-
 - Replacement PNG: `public/question-images/90011-page-5 1.png`
 - App path: `/question-images/90011-page-5%201.png`
 - Linked uploaded image:
@@ -7348,51 +14128,6 @@ Total active image questions: 490
   - 4. if...then...else
 
 ## computer-hardware-repair-c:90011-04-002
-
-- Replacement PNG: `public/question-images/120003-90011-04-002.png`
-- App path: `/question-images/120003-90011-04-002.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-6.jpg`
-- Kind: single
-- Official answer: 4
-- Prompt: 下列流程圖所對應的 C/C++指令為何？
-- Options:
-  - 1. do...while
-  - 2. while
-  - 3. switch...case
-  - 4. if...then...else
-
-## computer-software-application-b:90011-04-002
-
-- Replacement PNG: `public/question-images/118002-90011-04-002.png`
-- App path: `/question-images/118002-90011-04-002.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-6.jpg`
-- Kind: single
-- Official answer: 4
-- Prompt: 下列流程圖所對應的 C/C++指令為何？
-- Options:
-  - 1. do...while
-  - 2. while
-  - 3. switch...case
-  - 4. if...then...else
-
-## computer-software-application-c:90011-04-002
-
-- Replacement PNG: `public/question-images/90011-04-002.png`
-- App path: `/question-images/90011-04-002.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-6.jpg`
-- Kind: single
-- Official answer: 4
-- Prompt: 下列流程圖所對應的 C/C++指令為何？
-- Options:
-  - 1. do...while
-  - 2. while
-  - 3. switch...case
-  - 4. if...then...else
-
-## web-design-b:90011-04-002
 
 - Replacement PNG: `public/question-images/90011-page-5 2.png`
 - App path: `/question-images/90011-page-5%202.png`
@@ -7410,51 +14145,6 @@ Total active image questions: 490
 
 ## computer-hardware-repair-c:90011-04-003
 
-- Replacement PNG: `public/question-images/120003-90011-04-003.png`
-- App path: `/question-images/120003-90011-04-003.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-7.jpg`
-- Kind: single
-- Official answer: 2
-- Prompt: 下列流程圖所對應的 C/C++指令為何？
-- Options:
-  - 1. do...while
-  - 2. while
-  - 3. switch...case
-  - 4. if...then...else
-
-## computer-software-application-b:90011-04-003
-
-- Replacement PNG: `public/question-images/118002-90011-04-003.png`
-- App path: `/question-images/118002-90011-04-003.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-7.jpg`
-- Kind: single
-- Official answer: 2
-- Prompt: 下列流程圖所對應的 C/C++指令為何？
-- Options:
-  - 1. do...while
-  - 2. while
-  - 3. switch...case
-  - 4. if...then...else
-
-## computer-software-application-c:90011-04-003
-
-- Replacement PNG: `public/question-images/90011-04-003.png`
-- App path: `/question-images/90011-04-003.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-7.jpg`
-- Kind: single
-- Official answer: 2
-- Prompt: 下列流程圖所對應的 C/C++指令為何？
-- Options:
-  - 1. do...while
-  - 2. while
-  - 3. switch...case
-  - 4. if...then...else
-
-## web-design-b:90011-04-003
-
 - Replacement PNG: `public/question-images/90011-page-6 3.png`
 - App path: `/question-images/90011-page-6%203.png`
 - Linked uploaded image:
@@ -7471,51 +14161,6 @@ Total active image questions: 490
 
 ## computer-hardware-repair-c:90011-04-004
 
-- Replacement PNG: `public/question-images/120003-90011-04-004.png`
-- App path: `/question-images/120003-90011-04-004.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-7.jpg`
-- Kind: single
-- Official answer: 2
-- Prompt: 下列流程圖所對應的 C/C++程式為何？
-- Options:
-  - 1. 圖示選項 1
-  - 2. 圖示選項 2
-  - 3. 圖示選項 3
-  - 4. 圖示選項 4
-
-## computer-software-application-b:90011-04-004
-
-- Replacement PNG: `public/question-images/118002-90011-04-004.png`
-- App path: `/question-images/118002-90011-04-004.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-7.jpg`
-- Kind: single
-- Official answer: 2
-- Prompt: 下列流程圖所對應的 C/C++程式為何？
-- Options:
-  - 1. 圖示選項 1
-  - 2. 圖示選項 2
-  - 3. 圖示選項 3
-  - 4. 圖示選項 4
-
-## computer-software-application-c:90011-04-004
-
-- Replacement PNG: `public/question-images/90011-04-004.png`
-- App path: `/question-images/90011-04-004.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-7.jpg`
-- Kind: single
-- Official answer: 2
-- Prompt: 下列流程圖所對應的 C/C++程式為何？
-- Options:
-  - 1. 圖示選項 1
-  - 2. 圖示選項 2
-  - 3. 圖示選項 3
-  - 4. 圖示選項 4
-
-## web-design-b:90011-04-004
-
 - Replacement PNG: `public/question-images/90011-page-6 4.png`
 - App path: `/question-images/90011-page-6%204.png`
 - Linked uploaded image:
@@ -7529,454 +14174,4 @@ Total active image questions: 490
   - 2. 圖示選項 2
   - 3. 圖示選項 3
   - 4. 圖示選項 4
-
-## computer-hardware-repair-c:90011-04-005
-
-- Replacement PNG: `public/question-images/120003-90011-04-005.png`
-- App path: `/question-images/120003-90011-04-005.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-7.jpg`
-- Kind: single
-- Official answer: 3
-- Prompt: 下列 C/C++程式片段之敘述，何者正確？
-- Options:
-  - 1. 輸入三個變數
-  - 2. 找出輸入數值最小值
-  - 3. 找出輸入數值最大值
-  - 4. 輸出結果為 the output is:c
-
-## computer-software-application-b:90011-04-005
-
-- Replacement PNG: `public/question-images/118002-90011-04-005.png`
-- App path: `/question-images/118002-90011-04-005.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-7.jpg`
-- Kind: single
-- Official answer: 3
-- Prompt: 下列 C/C++程式片段之敘述，何者正確？
-- Options:
-  - 1. 輸入三個變數
-  - 2. 找出輸入數值最小值
-  - 3. 找出輸入數值最大值
-  - 4. 輸出結果為 the output is:c
-
-## computer-software-application-c:90011-04-005
-
-- Replacement PNG: `public/question-images/90011-04-005.png`
-- App path: `/question-images/90011-04-005.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-7.jpg`
-- Kind: single
-- Official answer: 3
-- Prompt: 下列 C/C++程式片段之敘述，何者正確？
-- Options:
-  - 1. 輸入三個變數
-  - 2. 找出輸入數值最小值
-  - 3. 找出輸入數值最大值
-  - 4. 輸出結果為 the output is:c
-
-## computer-hardware-repair-c:90011-04-009
-
-- Replacement PNG: `public/question-images/120003-90011-04-009.png`
-- App path: `/question-images/120003-90011-04-009.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-8.jpg`
-- Kind: single
-- Official answer: 3
-- Prompt: 下列 C/C++程式片段，何者敘述正確？
-- Options:
-  - 1. 小括號應該改成大括號
-  - 2. sum =sum +30; 必須使用大括號括起來
-  - 3. While 應該改成 while
-  - 4. While ( sum＜=1000 )之後應該要有分號
-
-## computer-software-application-b:90011-04-009
-
-- Replacement PNG: `public/question-images/118002-90011-04-009.png`
-- App path: `/question-images/118002-90011-04-009.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-8.jpg`
-- Kind: single
-- Official answer: 3
-- Prompt: 下列 C/C++程式片段，何者敘述正確？
-- Options:
-  - 1. 小括號應該改成大括號
-  - 2. sum =sum +30; 必須使用大括號括起來
-  - 3. While 應該改成 while
-  - 4. While ( sum＜=1000 )之後應該要有分號
-
-## computer-software-application-c:90011-04-009
-
-- Replacement PNG: `public/question-images/90011-04-009.png`
-- App path: `/question-images/90011-04-009.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-8.jpg`
-- Kind: single
-- Official answer: 3
-- Prompt: 下列 C/C++程式片段，何者敘述正確？
-- Options:
-  - 1. 小括號應該改成大括號
-  - 2. sum =sum +30; 必須使用大括號括起來
-  - 3. While 應該改成 while
-  - 4. While ( sum＜=1000 )之後應該要有分號
-
-## computer-hardware-repair-c:90011-04-013
-
-- Replacement PNG: `public/question-images/120003-90011-04-013.png`
-- App path: `/question-images/120003-90011-04-013.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-8.jpg`
-- Kind: single
-- Official answer: 4
-- Prompt: 下列 C/C++程式片段，輸出結果何者正確？
-- Options:
-  - 1. 1
-  - 2. 2
-  - 3. 3
-  - 4. 4
-
-## computer-software-application-b:90011-04-013
-
-- Replacement PNG: `public/question-images/118002-90011-04-013.png`
-- App path: `/question-images/118002-90011-04-013.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-8.jpg`
-- Kind: single
-- Official answer: 4
-- Prompt: 下列 C/C++程式片段，輸出結果何者正確？
-- Options:
-  - 1. 1
-  - 2. 2
-  - 3. 3
-  - 4. 4
-
-## computer-software-application-c:90011-04-013
-
-- Replacement PNG: `public/question-images/90011-04-013.png`
-- App path: `/question-images/90011-04-013.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-8.jpg`
-- Kind: single
-- Official answer: 4
-- Prompt: 下列 C/C++程式片段，輸出結果何者正確？
-- Options:
-  - 1. 1
-  - 2. 2
-  - 3. 3
-  - 4. 4
-
-## computer-hardware-repair-c:90011-04-014
-
-- Replacement PNG: `public/question-images/120003-90011-04-014.png`
-- App path: `/question-images/120003-90011-04-014.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-8.jpg`
-- Kind: single
-- Official answer: 3
-- Prompt: 下列 C/C++程式片段，輸出結果何者正確？
-- Options:
-  - 1. 1
-  - 2. 2
-  - 3. 3
-  - 4. 4
-
-## computer-software-application-b:90011-04-014
-
-- Replacement PNG: `public/question-images/118002-90011-04-014.png`
-- App path: `/question-images/118002-90011-04-014.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-8.jpg`
-- Kind: single
-- Official answer: 3
-- Prompt: 下列 C/C++程式片段，輸出結果何者正確？
-- Options:
-  - 1. 1
-  - 2. 2
-  - 3. 3
-  - 4. 4
-
-## computer-software-application-c:90011-04-014
-
-- Replacement PNG: `public/question-images/90011-04-014.png`
-- App path: `/question-images/90011-04-014.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-8.jpg`
-- Kind: single
-- Official answer: 3
-- Prompt: 下列 C/C++程式片段，輸出結果何者正確？
-- Options:
-  - 1. 1
-  - 2. 2
-  - 3. 3
-  - 4. 4
-
-## computer-hardware-repair-c:90011-04-015
-
-- Replacement PNG: `public/question-images/120003-90011-04-015.png`
-- App path: `/question-images/120003-90011-04-015.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-8.jpg`
-- Kind: single
-- Official answer: 4
-- Prompt: 下列 C/C++程式片段，若 x = 2，則 y 值為何？
-- Options:
-  - 1. 2
-  - 2. 3
-  - 3. 7
-  - 4. 9
-
-## computer-software-application-b:90011-04-015
-
-- Replacement PNG: `public/question-images/118002-90011-04-015.png`
-- App path: `/question-images/118002-90011-04-015.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-8.jpg`
-- Kind: single
-- Official answer: 4
-- Prompt: 下列 C/C++程式片段，若 x = 2，則 y 值為何？
-- Options:
-  - 1. 2
-  - 2. 3
-  - 3. 7
-  - 4. 9
-
-## computer-software-application-c:90011-04-015
-
-- Replacement PNG: `public/question-images/90011-04-015.png`
-- App path: `/question-images/90011-04-015.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-8.jpg`
-- Kind: single
-- Official answer: 4
-- Prompt: 下列 C/C++程式片段，若 x = 2，則 y 值為何？
-- Options:
-  - 1. 2
-  - 2. 3
-  - 3. 7
-  - 4. 9
-
-## computer-hardware-repair-c:90011-04-016
-
-- Replacement PNG: `public/question-images/120003-90011-04-016.png`
-- App path: `/question-images/120003-90011-04-016.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-8.jpg`
-- Kind: single
-- Official answer: 3
-- Prompt: 下列 C/C++程式片段，其 x 之輸出結果何者正確？
-- Options:
-  - 1. 2
-  - 2. 3
-  - 3. 4
-  - 4. 5
-
-## computer-software-application-b:90011-04-016
-
-- Replacement PNG: `public/question-images/118002-90011-04-016.png`
-- App path: `/question-images/118002-90011-04-016.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-8.jpg`
-- Kind: single
-- Official answer: 3
-- Prompt: 下列 C/C++程式片段，其 x 之輸出結果何者正確？
-- Options:
-  - 1. 2
-  - 2. 3
-  - 3. 4
-  - 4. 5
-
-## computer-software-application-c:90011-04-016
-
-- Replacement PNG: `public/question-images/90011-04-016.png`
-- App path: `/question-images/90011-04-016.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-8.jpg`
-- Kind: single
-- Official answer: 3
-- Prompt: 下列 C/C++程式片段，其 x 之輸出結果何者正確？
-- Options:
-  - 1. 2
-  - 2. 3
-  - 3. 4
-  - 4. 5
-
-## computer-hardware-repair-c:90011-04-017
-
-- Replacement PNG: `public/question-images/120003-90011-04-017.png`
-- App path: `/question-images/120003-90011-04-017.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-8.jpg`
-- Kind: single
-- Official answer: 2
-- Prompt: 下列 C/C++程式片段，執行後 x 值為何？
-- Options:
-  - 1. 0
-  - 2. 1
-  - 3. 2
-  - 4. 3
-
-## computer-software-application-b:90011-04-017
-
-- Replacement PNG: `public/question-images/118002-90011-04-017.png`
-- App path: `/question-images/118002-90011-04-017.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-8.jpg`
-- Kind: single
-- Official answer: 2
-- Prompt: 下列 C/C++程式片段，執行後 x 值為何？
-- Options:
-  - 1. 0
-  - 2. 1
-  - 3. 2
-  - 4. 3
-
-## computer-software-application-c:90011-04-017
-
-- Replacement PNG: `public/question-images/90011-04-017.png`
-- App path: `/question-images/90011-04-017.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-8.jpg`
-- Kind: single
-- Official answer: 2
-- Prompt: 下列 C/C++程式片段，執行後 x 值為何？
-- Options:
-  - 1. 0
-  - 2. 1
-  - 3. 2
-  - 4. 3
-
-## computer-hardware-repair-c:90011-04-018
-
-- Replacement PNG: `public/question-images/120003-90011-04-018.png`
-- App path: `/question-images/120003-90011-04-018.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-8.jpg`
-- Kind: single
-- Official answer: 2
-- Prompt: 下列 C/C++程式片段，f(8, 3)輸出為何？
-- Options:
-  - 1. 3
-  - 2. 5
-  - 3. 8
-  - 4. 11
-
-## computer-software-application-b:90011-04-018
-
-- Replacement PNG: `public/question-images/118002-90011-04-018.png`
-- App path: `/question-images/118002-90011-04-018.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-8.jpg`
-- Kind: single
-- Official answer: 2
-- Prompt: 下列 C/C++程式片段，f(8, 3)輸出為何？
-- Options:
-  - 1. 3
-  - 2. 5
-  - 3. 8
-  - 4. 11
-
-## computer-software-application-c:90011-04-018
-
-- Replacement PNG: `public/question-images/90011-04-018.png`
-- App path: `/question-images/90011-04-018.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-8.jpg`
-- Kind: single
-- Official answer: 2
-- Prompt: 下列 C/C++程式片段，f(8, 3)輸出為何？
-- Options:
-  - 1. 3
-  - 2. 5
-  - 3. 8
-  - 4. 11
-
-## computer-hardware-repair-c:90011-04-019
-
-- Replacement PNG: `public/question-images/120003-90011-04-019.png`
-- App path: `/question-images/120003-90011-04-019.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-8.jpg`
-- Kind: single
-- Official answer: 3
-- Prompt: 對於下列 C/C++程式，何者敘述正確？
-- Options:
-  - 1. 將 a 及 b 兩矩陣相加後，儲存至c 矩陣
-  - 2. 若 a[2][2]={{1, 2}, {3, 4}}及 b[2][2]= {{1,0},{2, -3}}，執行結束後 c[2][2]= {{5,6}, {11,12}}
-  - 3. 若 a 及 b 均為 2x2 矩陣，最內層 for 迴圈執行 8 次
-  - 4. 若 a 及 b 均為 2x2 矩陣，最外層 for 迴圈執行 4 次
-
-## computer-software-application-b:90011-04-019
-
-- Replacement PNG: `public/question-images/118002-90011-04-019.png`
-- App path: `/question-images/118002-90011-04-019.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-8.jpg`
-- Kind: single
-- Official answer: 3
-- Prompt: 對於下列 C/C++程式，何者敘述正確？
-- Options:
-  - 1. 將 a 及 b 兩矩陣相加後，儲存至c 矩陣
-  - 2. 若 a[2][2]={{1, 2}, {3, 4}}及 b[2][2]= {{1,0},{2, -3}}，執行結束後 c[2][2]= {{5,6}, {11,12}}
-  - 3. 若 a 及 b 均為 2x2 矩陣，最內層 for 迴圈執行 8 次
-  - 4. 若 a 及 b 均為 2x2 矩陣，最外層 for 迴圈執行 4 次
-
-## computer-software-application-c:90011-04-019
-
-- Replacement PNG: `public/question-images/90011-04-019.png`
-- App path: `/question-images/90011-04-019.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-8.jpg`
-- Kind: single
-- Official answer: 3
-- Prompt: 對於下列 C/C++程式，何者敘述正確？
-- Options:
-  - 1. 將 a 及 b 兩矩陣相加後，儲存至c 矩陣
-  - 2. 若 a[2][2]={{1, 2}, {3, 4}}及 b[2][2]= {{1,0},{2, -3}}，執行結束後 c[2][2]= {{5,6}, {11,12}}
-  - 3. 若 a 及 b 均為 2x2 矩陣，最內層 for 迴圈執行 8 次
-  - 4. 若 a 及 b 均為 2x2 矩陣，最外層 for 迴圈執行 4 次
-
-## computer-hardware-repair-c:90011-04-020
-
-- Replacement PNG: `public/question-images/120003-90011-04-020.png`
-- App path: `/question-images/120003-90011-04-020.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-9.jpg`
-- Kind: single
-- Official answer: 3
-- Prompt: 對於下列 C/C++程式片段，何者敘述有誤？
-- Options:
-  - 1. 程式輸出為 4x+-4y+8=0
-  - 2. 若(x1,x2)及(y1,y2)視為兩個二維平面座標，程式功能為計算直線方程式
-  - 3. 若(x1,x2)及(y1,y2)視為兩個二維平面座標，則直線方程式的斜率為 -4/3
-  - 4. 若(x1,x2),(y1,y2) 及(3,5)視為三個二維平面座標，則會構成一個直角三角形
-
-## computer-software-application-b:90011-04-020
-
-- Replacement PNG: `public/question-images/118002-90011-04-020.png`
-- App path: `/question-images/118002-90011-04-020.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-9.jpg`
-- Kind: single
-- Official answer: 3
-- Prompt: 對於下列 C/C++程式片段，何者敘述有誤？
-- Options:
-  - 1. 程式輸出為 4x+-4y+8=0
-  - 2. 若(x1,x2)及(y1,y2)視為兩個二維平面座標，程式功能為計算直線方程式
-  - 3. 若(x1,x2)及(y1,y2)視為兩個二維平面座標，則直線方程式的斜率為 -4/3
-  - 4. 若(x1,x2),(y1,y2) 及(3,5)視為三個二維平面座標，則會構成一個直角三角形
-
-## computer-software-application-c:90011-04-020
-
-- Replacement PNG: `public/question-images/90011-04-020.png`
-- App path: `/question-images/90011-04-020.png`
-- Linked uploaded images: none yet
-- Current fallback page: `/question-pages/90011-page-9.jpg`
-- Kind: single
-- Official answer: 3
-- Prompt: 對於下列 C/C++程式片段，何者敘述有誤？
-- Options:
-  - 1. 程式輸出為 4x+-4y+8=0
-  - 2. 若(x1,x2)及(y1,y2)視為兩個二維平面座標，程式功能為計算直線方程式
-  - 3. 若(x1,x2)及(y1,y2)視為兩個二維平面座標，則直線方程式的斜率為 -4/3
-  - 4. 若(x1,x2),(y1,y2) 及(3,5)視為三個二維平面座標，則會構成一個直角三角形
 

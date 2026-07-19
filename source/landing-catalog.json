@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-19T07:27:40.827Z",
-  "examCount": 32,
-  "activeQuestionCount": 37934,
+  "generatedAt": "2026-07-19T10:38:22.909Z",
+  "examCount": 33,
+  "activeQuestionCount": 39014,
   "demandPeriod": "115年截至6月底止通過技能檢定學術科測試",
   "featuredExamIds": [
     "forklift-operation-single",
@@ -214,6 +214,13 @@
       "applicantCount": 973
     },
     {
+      "examId": "electrical-equipment-inspection-c",
+      "titleZh": "用電設備檢驗丙級",
+      "code": "16600",
+      "level": "丙級",
+      "applicantCount": 850
+    },
+    {
       "examId": "web-design-b",
       "titleZh": "網頁設計乙級",
       "code": "17300",
@@ -235,5 +242,5 @@
       "applicantCount": null
     }
   ],
-  "metaDescription": "升級吧收錄 32 種技術士技能檢定學科題庫，包括堆高機操作單一級、職業安全衛生管理乙級、中餐烹調－葷食丙級、電腦軟體應用丙級。練官方公告題目、錯題複習與計時模擬考；免費、免註冊、可離線。"
+  "metaDescription": "升級吧收錄 33 種技術士技能檢定學科題庫，包括堆高機操作單一級、職業安全衛生管理乙級、中餐烹調－葷食丙級、電腦軟體應用丙級。練官方公告題目、錯題複習與計時模擬考；免費、免註冊、可離線。"
 }

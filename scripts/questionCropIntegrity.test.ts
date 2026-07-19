@@ -26,6 +26,7 @@ const PACKS = [
   { examId: 'excavator-operation-single', occupationCode: '07002', sourceQuestions: 668, inactive: 0, figures: 12, cropPrefix: '070024', tightCrops: true },
   { examId: 'loader-operation-single', occupationCode: '07004', sourceQuestions: 676, inactive: 0, figures: 11, cropPrefix: '070044', tightCrops: true },
   { examId: 'motorcycle-repair-c', occupationCode: '14500', sourceQuestions: 599, inactive: 0, figures: 14, cropPrefix: '145003', tightCrops: true },
+  { examId: 'electrical-equipment-inspection-c', occupationCode: '16600', sourceQuestions: 685, inactive: 0, figures: 5, cropPrefix: '166003', tightCrops: true },
   { examId: 'dining-service-c', occupationCode: '21500', sourceQuestions: 524, inactive: 4, figures: 9, cropPrefix: '215003', tightCrops: true },
   { examId: 'occupational-safety-management-a', occupationCode: '22000', sourceQuestions: 615, inactive: 0, figures: 3, cropPrefix: '220001', tightCrops: true },
   { examId: 'occupational-hygiene-management-a', occupationCode: '22100', sourceQuestions: 722, inactive: 0, figures: 12, cropPrefix: '221001', tightCrops: true },
@@ -194,6 +195,48 @@ describe('new high-demand exam packs', () => {
       expect(width, id).toBeLessThanOrEqual(expected.maxWidth)
       expect(height, id).toBeGreaterThanOrEqual(expected.minHeight)
       expect(height, id).toBeLessThanOrEqual(expected.maxHeight)
+    }
+  })
+
+  it('uses exact wiring and symbol crops for electrical equipment inspection C', () => {
+    const questions = JSON.parse(readFileSync(
+      new URL('../public/data/exams/electrical-equipment-inspection-c/questions.json', import.meta.url),
+      'utf8',
+    )) as Array<{
+      id: string
+      subjectCode: string
+      sourceImage?: string
+      sourceImages?: string[]
+    }>
+    const byId = new Map(
+      questions
+        .filter((question) => question.subjectCode === '16600')
+        .map((question) => [question.id, question]),
+    )
+
+    expect(byId.get('16600-04-005')?.sourceImage).toBe('/question-images/166003-16600-04-005.png')
+    expect(byId.get('16600-04-008')?.sourceImage).toBe('/question-images/166003-16600-04-008.png')
+    expect(byId.get('16600-04-038')?.sourceImages).toEqual([
+      '/question-images/166003-16600-04-038-1.png',
+      '/question-images/166003-16600-04-038-2.png',
+      '/question-images/166003-16600-04-038-3.png',
+      '/question-images/166003-16600-04-038-4.png',
+    ])
+    expect(byId.get('16600-04-054')?.sourceImage).toBe('/question-images/166003-16600-04-054.png')
+    expect(byId.get('16600-04-059')?.sourceImage).toBe('/question-images/166003-16600-04-059.png')
+
+    for (const [file, expected] of [
+      ['166003-16600-04-005.png', { width: 600, height: 224 }],
+      ['166003-16600-04-008.png', { width: 280, height: 114 }],
+      ['166003-16600-04-038-1.png', { width: 52, height: 80 }],
+      ['166003-16600-04-038-2.png', { width: 49, height: 80 }],
+      ['166003-16600-04-038-3.png', { width: 61, height: 80 }],
+      ['166003-16600-04-038-4.png', { width: 52, height: 80 }],
+      ['166003-16600-04-054.png', { width: 72, height: 28 }],
+      ['166003-16600-04-059.png', { width: 72, height: 28 }],
+    ] as const) {
+      const bytes = readFileSync(new URL(`../public/question-images/${file}`, import.meta.url))
+      expect(pngDimensions(bytes), file).toEqual(expected)
     }
   })
 

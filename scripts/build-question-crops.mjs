@@ -129,6 +129,25 @@ const BANKS = [
   },
   { code: '14500', source: '145003A13', cropPrefix: '145003' },
   {
+    code: '16600',
+    source: '166003A15',
+    cropPrefix: '166003',
+    splitImageOptions: true,
+    extraFigures: ['16600-04-008'],
+    figureRects: {
+      // 005 starts at the bottom of PDF page 35, but its wiring diagram is on
+      // the next page. The default same-page crop lands on blank space.
+      '16600-04-005': { page: 36, x: 110, y: 63, width: 300, height: 112 },
+      // 008's prompt never says "圖", but the line diagram is required to
+      // answer which terminal the 2S lead connects to.
+      '16600-04-008': { page: 36, x: 110, y: 307, width: 140, height: 57 },
+      // These smart-meter arrow symbols are inline in the prompt. Keep only
+      // the symbol itself, not the neighbouring Chinese text.
+      '16600-04-054': { x: 240, y: 697, width: 36, height: 14 },
+      '16600-04-059': { x: 240, y: 158, width: 36, height: 14 },
+    },
+  },
+  {
     code: '21500',
     source: '215003A11',
     cropPrefix: '215003',

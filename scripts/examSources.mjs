@@ -22,6 +22,7 @@ export const SOURCE_BANKS = {
   '14900': { version: 'A15', pdfFilename: '149003A15.pdf' },
   '15100': { version: 'A14', pdfFilename: '151004A14.pdf' },
   '15400': { version: 'A17', pdfFilename: '154004A17.pdf' },
+  '16600': { version: 'A15', pdfFilename: '166003A15.pdf' },
   '17300': { version: 'A13', pdfFilename: '173002A13.pdf' },
   '17800': { version: 'A13', pdfFilename: '178004A13.pdf' },
   '19500': { version: 'A17', pdfFilename: '195002A17.pdf' },

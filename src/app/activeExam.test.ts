@@ -89,12 +89,14 @@ describe('active exam selection', () => {
       'loader-operation-single',
       'interior-decoration-management-b',
       'beverage-preparation-c',
+      'dining-service-c',
       'computer-software-application-b',
       'indoor-wiring-b',
       'indoor-wiring-c',
       'industrial-electronics-c',
       'computer-hardware-repair-c',
       'water-pipe-fitting-c',
+      'motorcycle-repair-c',
     ]))
   })
 
@@ -130,10 +132,12 @@ describe('active exam selection', () => {
       'chinese-cooking-meat-c',
       'baking-food-c',
       'beverage-preparation-c',
+      'dining-service-c',
       'western-cooking-c',
     ])
     expect(groups.find((group) => group.category === '車輛修護')?.exams.map((exam) => exam.examId)).toEqual([
       'car-repair-c',
+      'motorcycle-repair-c',
     ])
   })
 

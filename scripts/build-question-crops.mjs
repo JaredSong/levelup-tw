@@ -127,6 +127,24 @@ const BANKS = [
     embeddedImages: true,
     imageReferenceFile: '070024A10-image-reference.json',
   },
+  { code: '14500', source: '145003A13', cropPrefix: '145003' },
+  {
+    code: '21500',
+    source: '215003A11',
+    cropPrefix: '215003',
+    splitImageOptions: true,
+    optionRectOverrides: {
+      // 098's four glass choices are taller than the generic 40pt option band.
+      // The auto crops cut off the lower half of options 2-4, so keep measured
+      // rectangles from the official PDF page.
+      '21500-03-098': [
+        { x: 110, y: 366, width: 67, height: 62 },
+        { x: 192, y: 366, width: 75, height: 62 },
+        { x: 281, y: 374, width: 75, height: 74 },
+        { x: 370, y: 374, width: 77, height: 74 },
+      ],
+    },
+  },
   { code: '22000', source: '220001A15', cropPrefix: '220001' },
   {
     code: '22100',

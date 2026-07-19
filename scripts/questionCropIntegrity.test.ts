@@ -25,6 +25,8 @@ const PACKS = [
   { examId: 'water-pipe-fitting-c', occupationCode: '01600', sourceQuestions: 707, inactive: 0, figures: 34, cropPrefix: '016003', tightCrops: true },
   { examId: 'excavator-operation-single', occupationCode: '07002', sourceQuestions: 668, inactive: 0, figures: 12, cropPrefix: '070024', tightCrops: true },
   { examId: 'loader-operation-single', occupationCode: '07004', sourceQuestions: 676, inactive: 0, figures: 11, cropPrefix: '070044', tightCrops: true },
+  { examId: 'motorcycle-repair-c', occupationCode: '14500', sourceQuestions: 599, inactive: 0, figures: 14, cropPrefix: '145003', tightCrops: true },
+  { examId: 'dining-service-c', occupationCode: '21500', sourceQuestions: 524, inactive: 4, figures: 9, cropPrefix: '215003', tightCrops: true },
   { examId: 'occupational-safety-management-a', occupationCode: '22000', sourceQuestions: 615, inactive: 0, figures: 3, cropPrefix: '220001', tightCrops: true },
   { examId: 'occupational-hygiene-management-a', occupationCode: '22100', sourceQuestions: 722, inactive: 0, figures: 12, cropPrefix: '221001', tightCrops: true },
   // 180 → 183: 11700-05-028/033/114 had four "圖示選項 N" placeholders and no

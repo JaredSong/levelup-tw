@@ -483,6 +483,8 @@ describe('published question bank', () => {
       { examId: 'occupational-safety-management-a', occupationCode: '22000', published: 615, active: 615, total: 1015, activeTotal: 1010, sections: 7 },
       { examId: 'occupational-hygiene-management-a', occupationCode: '22100', published: 722, active: 722, total: 1122, activeTotal: 1117, sections: 7 },
       { examId: 'loader-operation-single', occupationCode: '07004', published: 676, active: 676, total: 1076, activeTotal: 1071, sections: 7 },
+      { examId: 'motorcycle-repair-c', occupationCode: '14500', published: 599, active: 599, total: 999, activeTotal: 994, sections: 11 },
+      { examId: 'dining-service-c', occupationCode: '21500', published: 524, active: 520, total: 1205, activeTotal: 1195, sections: 12 },
     ]
 
     for (const item of cases) {

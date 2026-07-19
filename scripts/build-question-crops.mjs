@@ -127,6 +127,25 @@ const BANKS = [
     embeddedImages: true,
     imageReferenceFile: '070024A10-image-reference.json',
   },
+  { code: '22000', source: '220001A15', cropPrefix: '220001' },
+  {
+    code: '22100',
+    source: '221001A14',
+    cropPrefix: '221001',
+    splitImageOptions: true,
+    optionRectOverrides: {
+      // 039's option markers sit on the prompt row, but the four certification
+      // marks wrap onto the next row. The first auto crop lands on whitespace;
+      // keep explicit measured rectangles from the official PDF page.
+      '22100-03-039': [
+        { x: 134, y: 574, width: 43, height: 40 },
+        { x: 190, y: 574, width: 49, height: 40 },
+        { x: 258, y: 574, width: 47, height: 40 },
+        { x: 331, y: 574, width: 47, height: 48 },
+      ],
+    },
+  },
+  { code: '07004', source: '070044A12', cropPrefix: '070044', splitImageOptions: true },
   {
     code: '11700',
     source: '117002A13',

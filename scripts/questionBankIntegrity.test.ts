@@ -480,6 +480,9 @@ describe('published question bank', () => {
       { examId: 'childcare-single', occupationCode: '15400', published: 892, active: 892, total: 1292, activeTotal: 1287, sections: 10 },
       { examId: 'care-service-single', occupationCode: '17800', published: 625, active: 620, total: 1025, activeTotal: 1015, sections: 10 },
       { examId: 'occupational-safety-health-management-b', occupationCode: '22200', published: 932, active: 922, total: 1332, activeTotal: 1317, sections: 7 },
+      { examId: 'occupational-safety-management-a', occupationCode: '22000', published: 615, active: 615, total: 1015, activeTotal: 1010, sections: 7 },
+      { examId: 'occupational-hygiene-management-a', occupationCode: '22100', published: 722, active: 722, total: 1122, activeTotal: 1117, sections: 7 },
+      { examId: 'loader-operation-single', occupationCode: '07004', published: 676, active: 676, total: 1076, activeTotal: 1071, sections: 7 },
     ]
 
     for (const item of cases) {

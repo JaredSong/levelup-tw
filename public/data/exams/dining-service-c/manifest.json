@@ -64,7 +64,7 @@
   },
   "sourceRevision": "215003A11 + 900100A16 + 900060A18/900070A17/900080A16/900090A11",
   "questionCount": 1205,
-  "activeQuestionCount": 1195,
+  "activeQuestionCount": 1194,
   "sections": [
     {
       "id": "21500-01",
@@ -88,7 +88,7 @@
       "sourceGroup": "occupation",
       "titleZh": "餐飲概論",
       "questionCount": 119,
-      "activeQuestionCount": 119
+      "activeQuestionCount": 118
     },
     {
       "id": "21500-04",
@@ -201,8 +201,8 @@
   },
   "integrity": {
     "status": "fully_verified",
-    "inactiveQuestionCount": 10,
-    "imageQuestionCount": 13,
+    "inactiveQuestionCount": 11,
+    "imageQuestionCount": 12,
     "note": "Answer keys independently cross-checked against the official PDF during import."
   }
 }

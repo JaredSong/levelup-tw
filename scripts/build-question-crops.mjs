@@ -170,6 +170,22 @@ const BANKS = [
     source: '221001A14',
     cropPrefix: '221001',
     splitImageOptions: true,
+    figureRects: {
+      // GHS hazard pictograms are small prompt figures below the question row.
+      // The generic vertical-gap crop captures the full text column width,
+      // leaving the symbol floating in a huge blank strip. Keep only the
+      // pictogram itself; the prompt already carries the "(外框標準為紅色)"
+      // wording from the official question.
+      '22100-03-054': { x: 120, y: 565.978, width: 44, height: 36, padTo: { width: 140, height: 100 } },
+      '22100-03-055': { x: 120, y: 640.648, width: 44, height: 36, padTo: { width: 140, height: 100 } },
+      '22100-03-056': { x: 120, y: 715.168, width: 44, height: 36, padTo: { width: 140, height: 100 } },
+      '22100-03-057': { x: 120, y: 84.248, width: 44, height: 36, padTo: { width: 140, height: 100 } },
+      '22100-03-058': { x: 120, y: 158.768, width: 44, height: 36, padTo: { width: 140, height: 100 } },
+      '22100-03-059': { x: 120, y: 233.288, width: 44, height: 36, padTo: { width: 140, height: 100 } },
+      '22100-03-060': { x: 120, y: 307.958, width: 44, height: 36, padTo: { width: 140, height: 100 } },
+      '22100-03-062': { x: 120, y: 457.258, width: 44, height: 36, padTo: { width: 140, height: 100 } },
+      '22100-03-063': { x: 120, y: 549.778, width: 44, height: 36, padTo: { width: 140, height: 100 } },
+    },
     optionRectOverrides: {
       // 039's option markers sit on the prompt row, but the four certification
       // marks wrap onto the next row. The first auto crop lands on whitespace;
@@ -340,13 +356,18 @@ function clampRect(rect, page) {
 }
 
 function cropImage(renderedPage, output, page, rect) {
-  const crop = clampRect(rect, page)
+  const { padTo, ...rawRect } = rect
+  const crop = clampRect(rawRect, page)
   if (crop.width <= 3 || crop.height <= 3) {
     throw new Error(`${output}: invalid crop ${JSON.stringify(crop)}`)
   }
+  const filters = [`crop=${Math.floor(crop.width * SCALE)}:${Math.ceil(crop.height * SCALE)}:${Math.floor(crop.x * SCALE)}:${Math.floor(crop.y * SCALE)}`]
+  if (padTo) {
+    filters.push(`pad=${padTo.width}:${padTo.height}:(ow-iw)/2:(oh-ih)/2:white`)
+  }
   execFileSync('ffmpeg', [
     '-loglevel', 'error', '-y', '-i', renderedPage,
-    '-vf', `crop=${Math.floor(crop.width * SCALE)}:${Math.ceil(crop.height * SCALE)}:${Math.floor(crop.x * SCALE)}:${Math.floor(crop.y * SCALE)}`,
+    '-vf', filters.join(','),
     '-frames:v', '1', output,
   ], { stdio: 'ignore' })
 }

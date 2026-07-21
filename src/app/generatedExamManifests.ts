@@ -2339,7 +2339,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "sourceRevision": "145003A13 + 900060A18/900070A17/900080A16/900090A11",
     "questionCount": 999,
-    "activeQuestionCount": 994,
+    "activeQuestionCount": 993,
     "sections": [
       {
         "id": "14500-01",
@@ -2363,7 +2363,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "occupation",
         "titleZh": "檢查、調整及更換引擎相關裝備",
         "questionCount": 249,
-        "activeQuestionCount": 249
+        "activeQuestionCount": 248
       },
       {
         "id": "14500-04",
@@ -2464,8 +2464,8 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 5,
-      "imageQuestionCount": 18,
+      "inactiveQuestionCount": 6,
+      "imageQuestionCount": 17,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
   },
@@ -3579,7 +3579,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "sourceRevision": "220001A15 + 900060A18/900070A17/900080A16/900090A11",
     "questionCount": 1015,
-    "activeQuestionCount": 1010,
+    "activeQuestionCount": 1009,
     "sections": [
       {
         "id": "22000-01",
@@ -3603,7 +3603,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "occupation",
         "titleZh": "專業課程",
         "questionCount": 303,
-        "activeQuestionCount": 303
+        "activeQuestionCount": 302
       },
       {
         "id": "90006-01",
@@ -3672,8 +3672,8 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 5,
-      "imageQuestionCount": 7,
+      "inactiveQuestionCount": 6,
+      "imageQuestionCount": 6,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
   },
@@ -4615,7 +4615,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "sourceRevision": "215003A11 + 900100A16 + 900060A18/900070A17/900080A16/900090A11",
     "questionCount": 1205,
-    "activeQuestionCount": 1195,
+    "activeQuestionCount": 1194,
     "sections": [
       {
         "id": "21500-01",
@@ -4639,7 +4639,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "occupation",
         "titleZh": "餐飲概論",
         "questionCount": 119,
-        "activeQuestionCount": 119
+        "activeQuestionCount": 118
       },
       {
         "id": "21500-04",
@@ -4752,8 +4752,8 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 10,
-      "imageQuestionCount": 13,
+      "inactiveQuestionCount": 11,
+      "imageQuestionCount": 12,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
   },

@@ -476,16 +476,22 @@ describe('published question bank', () => {
   })
 
   it('publishes the high-demand third-round care and safety packs from official banks', () => {
+    // occupational-safety-management-a active 615 → 614 / activeTotal 1010 →
+    // 1009, motorcycle-repair-c active 599 → 598 / activeTotal 994 → 993,
+    // dining-service-c active 520 → 519 / activeTotal 1195 → 1194: each
+    // pack's crop-defect trio (22000-03-186, 14500-03-195, 21500-03-073 —
+    // pure-white PNGs at a source page boundary) was pulled by Wen
+    // (2026-07-21). See INACTIVE_IDS in build-exam-packs.mjs.
     const cases = [
       { examId: 'childcare-single', occupationCode: '15400', published: 892, active: 892, total: 1292, activeTotal: 1287, sections: 10 },
       { examId: 'care-service-single', occupationCode: '17800', published: 625, active: 620, total: 1025, activeTotal: 1015, sections: 10 },
       { examId: 'occupational-safety-health-management-b', occupationCode: '22200', published: 932, active: 922, total: 1332, activeTotal: 1317, sections: 7 },
-      { examId: 'occupational-safety-management-a', occupationCode: '22000', published: 615, active: 615, total: 1015, activeTotal: 1010, sections: 7 },
+      { examId: 'occupational-safety-management-a', occupationCode: '22000', published: 615, active: 614, total: 1015, activeTotal: 1009, sections: 7 },
       { examId: 'occupational-hygiene-management-a', occupationCode: '22100', published: 722, active: 722, total: 1122, activeTotal: 1117, sections: 7 },
       { examId: 'loader-operation-single', occupationCode: '07004', published: 676, active: 676, total: 1076, activeTotal: 1071, sections: 7 },
-      { examId: 'motorcycle-repair-c', occupationCode: '14500', published: 599, active: 599, total: 999, activeTotal: 994, sections: 11 },
+      { examId: 'motorcycle-repair-c', occupationCode: '14500', published: 599, active: 598, total: 999, activeTotal: 993, sections: 11 },
       { examId: 'electrical-equipment-inspection-c', occupationCode: '16600', published: 685, active: 685, total: 1085, activeTotal: 1080, sections: 9 },
-      { examId: 'dining-service-c', occupationCode: '21500', published: 524, active: 520, total: 1205, activeTotal: 1195, sections: 12 },
+      { examId: 'dining-service-c', occupationCode: '21500', published: 524, active: 519, total: 1205, activeTotal: 1194, sections: 12 },
     ]
 
     for (const item of cases) {

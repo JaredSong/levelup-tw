@@ -56,7 +56,7 @@
   },
   "sourceRevision": "220001A15 + 900060A18/900070A17/900080A16/900090A11",
   "questionCount": 1015,
-  "activeQuestionCount": 1010,
+  "activeQuestionCount": 1009,
   "sections": [
     {
       "id": "22000-01",
@@ -80,7 +80,7 @@
       "sourceGroup": "occupation",
       "titleZh": "專業課程",
       "questionCount": 303,
-      "activeQuestionCount": 303
+      "activeQuestionCount": 302
     },
     {
       "id": "90006-01",
@@ -149,8 +149,8 @@
   },
   "integrity": {
     "status": "fully_verified",
-    "inactiveQuestionCount": 5,
-    "imageQuestionCount": 7,
+    "inactiveQuestionCount": 6,
+    "imageQuestionCount": 6,
     "note": "Answer keys independently cross-checked against the official PDF during import."
   }
 }

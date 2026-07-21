@@ -83,6 +83,24 @@ const INACTIVE_IDS = new Set([
   // Not building it for one question — reopen if this 3-prompt+4-option
   // shape recurs elsewhere in a future pack.
   '11700-05-057',
+  // Blank-crop trio (Wen audit, 2026-07-21): the figure genuinely exists in
+  // the source PDF but the crop produced a pure-white PNG (min=max=255 —
+  // confirmed with PIL against every pixel). All three sit at a page
+  // boundary in their source PDF, so the likely cause is an off-by-one/
+  // page-break fault in the crop bounds, not missing source content.
+  // Prompt/options/answer key are all correct; only the image is empty, so
+  // shipping them would show an unanswerable question. Pull until the crop
+  // bounds are fixed and the image is re-cropped, then reopen.
+  // 21500-03-073 (dining-service-c): 215003-21500-03-073.png, 870x147.
+  // 「下圖是哪一種酒杯？」 — figure is on source/215003A11.pdf p.20.
+  '21500-03-073',
+  // 14500-03-195 (motorcycle-repair-c): 145003-14500-03-195.png, 870x353.
+  // Figure is on source/145003A13.pdf p.18.
+  '14500-03-195',
+  // 22000-03-186 (occupational-safety-management-a): 220001-22000-03-186.png,
+  // 870x46. Zone 0/1/2 hazard diagram spans a page break in
+  // source/220001A15.pdf p.38-39.
+  '22000-03-186',
 ])
 
 // These questions contain inline figures that the PDF text layer describes

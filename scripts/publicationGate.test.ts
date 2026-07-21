@@ -78,11 +78,16 @@ describe('publication gate', () => {
   })
 
   it('every installed pack is currently publishable', async () => {
+    // Now decodes every active question's PNG crops to catch a blank one
+    // (see auditPackImages in publicationGate.mjs) — ~1500 unique images,
+    // cached across packs but still real I/O + zlib work. That runs ~4.3s
+    // locally; give it real headroom above vitest's 5000ms default instead
+    // of living on a margin that flakes on a slower CI machine.
     const results = await auditInstalledPacks(examsRoot)
     expect(results.length).toBeGreaterThan(0)
     const failing = results.filter((result) => result.failures.length > 0)
     expect(failing, JSON.stringify(failing, null, 2)).toEqual([])
-  })
+  }, 20_000)
 
   it('stays wired into the build', async () => {
     // The gate only blocks deploys while `npm run build` (what Cloudflare

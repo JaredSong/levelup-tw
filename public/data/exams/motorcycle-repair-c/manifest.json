@@ -56,7 +56,7 @@
   },
   "sourceRevision": "145003A13 + 900060A18/900070A17/900080A16/900090A11",
   "questionCount": 999,
-  "activeQuestionCount": 994,
+  "activeQuestionCount": 993,
   "sections": [
     {
       "id": "14500-01",
@@ -80,7 +80,7 @@
       "sourceGroup": "occupation",
       "titleZh": "檢查、調整及更換引擎相關裝備",
       "questionCount": 249,
-      "activeQuestionCount": 249
+      "activeQuestionCount": 248
     },
     {
       "id": "14500-04",
@@ -181,8 +181,8 @@
   },
   "integrity": {
     "status": "fully_verified",
-    "inactiveQuestionCount": 5,
-    "imageQuestionCount": 18,
+    "inactiveQuestionCount": 6,
+    "imageQuestionCount": 17,
     "note": "Answer keys independently cross-checked against the official PDF during import."
   }
 }

@@ -1,5 +1,6 @@
 import { readFile, readdir } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
+import { checkPngFlatness } from './pngPixelCheck.mjs'
 import { buildDriftReport } from './wdaCatalog.mjs'
 
 // Publication gate. `npm run build` runs this via the npm `prebuild` hook, and
@@ -56,6 +57,88 @@ export function auditManifest(manifest) {
   return failures
 }
 
+// A crop that lands entirely off its source figure doesn't fail to import —
+// it imports cleanly as a valid, correctly-sized PNG that happens to be a
+// single flat colour (see the three questions pulled into INACTIVE_IDS in
+// build-exam-packs.mjs on 2026-07-21: 21500-03-073, 14500-03-195,
+// 22000-03-186, all min=max=255 on every pixel). auditManifest can't catch
+// that — it only reads manifest.json, never the image bytes — so a pack
+// with a blank figure still audited as fully_verified. This closes that
+// hole by decoding every PNG an *active* question ships and rejecting an
+// exactly-flat one.
+//
+// Threshold: exact flatness (min === max across every colour-channel
+// sample), not a near-blank tolerance. A real scanned or rendered figure —
+// even a sparse line diagram on a white background — always carries at
+// least a few pixels of anti-aliasing or scan noise, so this has no known
+// false-positive path against the packs currently shipped (verified: 1523
+// of 1523 question-image PNGs decode cleanly, and exactly the three known-
+// bad crops flag as flat, zero others). A variance/near-blank tolerance
+// would catch more theoretical defects but risks flagging a genuinely
+// sparse figure — and a gate that blocks a good deploy is its own failure,
+// which this design treats as the worse failure mode to guard against here.
+//
+// Inactive questions are skipped: they are withheld from learners by
+// definition, so a blank crop behind an inactive id is not a shipping risk
+// (and the three questions this check exists to catch are already inactive
+// — without the skip, this check would fail the very build it's meant to
+// protect).
+// Many packs share the same underlying crop (common-subject questions like
+// 90008/90009/90011 ship in dozens of exams), so auditing every pack
+// separately would decode the same PNG bytes over and over. Cache by
+// resolved path — keyed by promise, not resolved value, so the concurrent
+// per-exam audits below (Promise.all in auditInstalledPacks) dedupe the
+// read+decode instead of racing each other into doing it twice.
+const flatnessCache = new Map()
+
+function checkImageFlatnessCached(imagePath) {
+  const key = imagePath.href
+  let pending = flatnessCache.get(key)
+  if (!pending) {
+    pending = readFile(imagePath).then(
+      (buffer) => ({ ok: true, result: checkPngFlatness(buffer) }),
+      (error) => ({ ok: false, error }),
+    )
+    flatnessCache.set(key, pending)
+  }
+  return pending
+}
+
+async function auditPackImages(examId, examsRoot) {
+  const publicRoot = new URL('../public/', import.meta.url)
+  let questions
+  try {
+    questions = JSON.parse(await readFile(new URL(`${examId}/questions.json`, examsRoot), 'utf8'))
+  } catch (error) {
+    return [`questions.json unreadable: ${error.message}`]
+  }
+  if (!Array.isArray(questions)) return [`questions.json is not an array`]
+
+  const failures = []
+  for (const question of questions) {
+    if (question.active === false) continue
+    const images = question.sourceImages?.length
+      ? question.sourceImages
+      : question.sourceImage ? [question.sourceImage] : []
+    for (const image of images) {
+      // Only PNG is decoded here — see pngPixelCheck.mjs header for why
+      // JPEG (one file, repo-wide) is out of scope for this check.
+      if (!image || !image.toLowerCase().endsWith('.png')) continue
+      const imagePath = new URL(`.${decodeURIComponent(image)}`, publicRoot)
+      const outcome = await checkImageFlatnessCached(imagePath)
+      if (!outcome.ok) {
+        failures.push(`${question.id}: image referenced but unreadable — ${image} (${outcome.error.code ?? outcome.error.message})`)
+        continue
+      }
+      const result = outcome.result
+      if (result.supported && result.flat) {
+        failures.push(`${question.id}: ${image} is a single flat colour (value ${result.min} on every pixel) — the crop produced no figure`)
+      }
+    }
+  }
+  return failures
+}
+
 export async function auditInstalledPacks(root) {
   const directories = (await readdir(root, { withFileTypes: true }))
     .filter((entry) => entry.isDirectory())
@@ -68,7 +151,8 @@ export async function auditInstalledPacks(root) {
     } catch (error) {
       return { examId, manifest: null, failures: [`manifest.json unreadable: ${error.message}`] }
     }
-    return { examId, manifest, failures: auditManifest(manifest) }
+    const imageFailures = await auditPackImages(examId, root)
+    return { examId, manifest, failures: [...auditManifest(manifest), ...imageFailures] }
   }))
 }
 

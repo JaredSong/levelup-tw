@@ -1,6 +1,6 @@
 # Image Question Map
 
-Generated: 2026-07-19T10:39:25.900Z
+Generated: 2026-07-21T15:41:06.300Z
 
 These are the questions that currently need a figure, graph, code screenshot, or image-option reference.
 
@@ -12,7 +12,7 @@ Replacement workflow:
 
 Do not include the official answer-key column in replacement images.
 
-Total active image questions: 845
+Total active image questions: 842
 
 ## indoor-wiring-b:00700-01-001
 
@@ -10236,22 +10236,6 @@ Total active image questions: 845
   - 3. 廢氣含氧量過多
   - 4. 混合比濃度過稀
 
-## motorcycle-repair-c:14500-03-195
-
-- Replacement PNG: `public/question-images/145003-14500-03-195.png`
-- App path: `/question-images/145003-14500-03-195.png`
-- Linked uploaded image:
-  - `/question-images/145003-14500-03-195.png`
-- Current fallback page: `/question-pages/14500-page-18.jpg`
-- Kind: single
-- Official answer: 3
-- Prompt: 如圖所示，節流閥位置感知器，其搭鐵腳位為何？
-- Options:
-  - 1. 1 號端子
-  - 2. 2 號端子
-  - 3. 3 號端子
-  - 4. 2 與 3 號端子均可
-
 ## motorcycle-repair-c:14500-03-196
 
 - Replacement PNG: `public/question-images/145003-14500-03-196.png`
@@ -12816,22 +12800,6 @@ Total active image questions: 845
   - 3. 牛排刀
   - 4. 水果刀
 
-## dining-service-c:21500-03-073
-
-- Replacement PNG: `public/question-images/215003-21500-03-073.png`
-- App path: `/question-images/215003-21500-03-073.png`
-- Linked uploaded image:
-  - `/question-images/215003-21500-03-073.png`
-- Current fallback page: `/question-pages/21500-page-19.jpg`
-- Kind: single
-- Official answer: 2
-- Prompt: 下圖是哪一種酒杯？
-- Options:
-  - 1. 香甜酒杯
-  - 2. 白蘭地杯
-  - 3. 香檳杯
-  - 4. 雪莉酒杯
-
 ## dining-service-c:21500-03-074
 
 - Replacement PNG: `public/question-images/215003-21500-03-074.png`
@@ -12917,22 +12885,6 @@ Total active image questions: 845
   - 2. 不動作
   - 3. 短路
   - 4. 過載
-
-## occupational-safety-management-a:22000-03-186
-
-- Replacement PNG: `public/question-images/220001-22000-03-186.png`
-- App path: `/question-images/220001-22000-03-186.png`
-- Linked uploaded image:
-  - `/question-images/220001-22000-03-186.png`
-- Current fallback page: `/question-pages/22000-page-38.jpg`
-- Kind: single
-- Official answer: 2
-- Prompt: 依職業安全衛生設施規則及機械設備器具安全標準規定，用於氣體類之防爆電氣設備，其危險區域劃分應符合國家標準 CNS3376 系列、國際標準 IEC60079 系列或與其同等之標準規定，CNS3376-10 對危險場所分類：1. 0 區（Zone0）：爆炸性氣體環境連續性或長期存在之場所。2. 1 區（Zone1）：爆炸性氣體環境在正常操作下可能存在之場所。 3.2 區（Zone2）：爆炸性氣體環境在正常操作下不太可能存在，如果只有偶爾發生且只存在短期間之場所。試問一個固定式具易燃液體蒸氣之製程混合槽，位於室內，因為操作原因會週期性被打開。液體打入桶槽或抽出，皆經由桶槽上完全焊接之管路時，下圖之危險區域劃分何者正確？
-- Options:
-  - 1. ：Zone 0
-  - 2. ：Zone1
-  - 3. ：Zone2
-  - 4. ：Zone1。a：從洩漏源處水平距離 1m，b：從洩漏源上方 1m，c：水平距離 1m，d：水平距離 2m
 
 ## occupational-safety-management-a:22000-03-203
 

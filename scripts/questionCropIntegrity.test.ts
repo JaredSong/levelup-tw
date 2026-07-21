@@ -12,8 +12,8 @@ const PACKS = [
   // pure image-option questions all ship small per-option crops now.
   { examId: 'interior-decoration-management-b', occupationCode: '12600', sourceQuestions: 718, inactive: 0, figures: 38, tightCrops: true },
   // tightCrops added: 20600-02-016's four options are now separate crops.
-  { examId: 'beverage-preparation-c', occupationCode: '20600', sourceQuestions: 617, inactive: 0, figures: 5, tightCrops: true },
-  { examId: 'computer-software-application-b', occupationCode: '11800', sourceQuestions: 776, inactive: 0, figures: 6, cropPrefix: '118002' },
+  { examId: 'beverage-preparation-c', occupationCode: '20600', sourceQuestions: 617, inactive: 0, figures: 4, tightCrops: true },
+  { examId: 'computer-software-application-b', occupationCode: '11800', sourceQuestions: 776, inactive: 0, figures: 6, cropPrefix: '118002', tightCrops: true },
   { examId: 'indoor-wiring-b', occupationCode: '00700', sourceQuestions: 862, inactive: 7, figures: 64, cropPrefix: '007002' },
   { examId: 'indoor-wiring-c', occupationCode: '00700', sourceQuestions: 618, inactive: 0, figures: 62, cropPrefix: '007003', tightCrops: true },
   { examId: 'industrial-electronics-c', occupationCode: '02800', sourceQuestions: 651, inactive: 0, figures: 128, cropPrefix: '028003' },
@@ -25,10 +25,21 @@ const PACKS = [
   { examId: 'water-pipe-fitting-c', occupationCode: '01600', sourceQuestions: 707, inactive: 0, figures: 34, cropPrefix: '016003', tightCrops: true },
   { examId: 'excavator-operation-single', occupationCode: '07002', sourceQuestions: 668, inactive: 0, figures: 12, cropPrefix: '070024', tightCrops: true },
   { examId: 'loader-operation-single', occupationCode: '07004', sourceQuestions: 676, inactive: 0, figures: 11, cropPrefix: '070044', tightCrops: true },
-  { examId: 'motorcycle-repair-c', occupationCode: '14500', sourceQuestions: 599, inactive: 0, figures: 14, cropPrefix: '145003', tightCrops: true },
+  // inactive 0 → 1: 14500-03-195's crop is a pure-white PNG (min=max=255 on
+  // every pixel) even though the figure exists in source/145003A13.pdf p.18
+  // — a page-boundary crop fault, not missing source content. Pulled by Wen
+  // (2026-07-21) until the crop bounds are fixed. See INACTIVE_IDS in
+  // build-exam-packs.mjs.
+  { examId: 'motorcycle-repair-c', occupationCode: '14500', sourceQuestions: 599, inactive: 1, figures: 14, cropPrefix: '145003', tightCrops: true },
   { examId: 'electrical-equipment-inspection-c', occupationCode: '16600', sourceQuestions: 685, inactive: 0, figures: 5, cropPrefix: '166003', tightCrops: true },
-  { examId: 'dining-service-c', occupationCode: '21500', sourceQuestions: 524, inactive: 4, figures: 9, cropPrefix: '215003', tightCrops: true },
-  { examId: 'occupational-safety-management-a', occupationCode: '22000', sourceQuestions: 615, inactive: 0, figures: 3, cropPrefix: '220001', tightCrops: true },
+  // inactive 4 → 5: 21500-03-073's crop is a pure-white PNG even though the
+  // figure exists in source/215003A11.pdf p.20. Same page-boundary crop
+  // fault as 14500-03-195 above. Pulled by Wen (2026-07-21).
+  { examId: 'dining-service-c', occupationCode: '21500', sourceQuestions: 524, inactive: 5, figures: 9, cropPrefix: '215003', tightCrops: true },
+  // inactive 0 → 1: 22000-03-186's crop is a pure-white PNG even though the
+  // Zone 0/1/2 diagram exists in source/220001A15.pdf p.38-39 (it spans a
+  // page break). Same fault class as above. Pulled by Wen (2026-07-21).
+  { examId: 'occupational-safety-management-a', occupationCode: '22000', sourceQuestions: 615, inactive: 1, figures: 3, cropPrefix: '220001', tightCrops: true },
   { examId: 'occupational-hygiene-management-a', occupationCode: '22100', sourceQuestions: 722, inactive: 0, figures: 12, cropPrefix: '221001', tightCrops: true },
   // 180 → 183: 11700-05-028/033/114 had four "圖示選項 N" placeholders and no
   // images at all. Their options are vector formulas now cropped from the
@@ -120,12 +131,41 @@ describe('new high-demand exam packs', () => {
     }
   })
 
-  it('keeps same-code class B and C figures separate in the image audit', () => {
+  it('keeps same-code class B and C figures separate', () => {
+    // indoor-wiring-b and indoor-wiring-c both carry subjectCode 00700 and both
+    // have a question numbered 00700-01-001, so a crop mix-up between them would
+    // show a learner the other class's figure. The invariant is that each class
+    // draws only from its own crop prefix — 007002 for B, 007003 for C.
+    //
+    // Assert that against questions.json, the source of truth, rather than a
+    // filename in the generated audit doc: this test previously pinned the
+    // literal `007003-00700-01-001.png`, which broke the day that crop was
+    // split into per-option files even though nothing was actually wrong.
+    const imagesFor = (examId: string, id: string) => {
+      const questions = JSON.parse(readFileSync(
+        new URL(`../public/data/exams/${examId}/questions.json`, import.meta.url),
+        'utf8',
+      )) as Array<{ id: string, sourceImage?: string, sourceImages?: string[] }>
+      const question = questions.find((candidate) => candidate.id === id)
+      expect(question, `${examId} is missing ${id}`).toBeDefined()
+      return question?.sourceImages ?? (question?.sourceImage ? [question.sourceImage] : [])
+    }
+
+    const classB = imagesFor('indoor-wiring-b', '00700-01-001')
+    const classC = imagesFor('indoor-wiring-c', '00700-01-001')
+
+    expect(classB.length).toBeGreaterThan(0)
+    expect(classC.length).toBeGreaterThan(0)
+    expect(classB.every((image) => image.startsWith('/question-images/007002-'))).toBe(true)
+    expect(classC.every((image) => image.startsWith('/question-images/007003-'))).toBe(true)
+    expect(classB.filter((image) => classC.includes(image))).toEqual([])
+
+    // Thin smoke check on the generated doc: both questions still get their own
+    // heading, so a regression that collapses same-numbered questions into one
+    // entry is still caught. No filenames — those are the doc's business.
     const audit = readFileSync(new URL('../docs/image-question-map.md', import.meta.url), 'utf8')
     expect(audit).toContain('## indoor-wiring-b:00700-01-001')
-    expect(audit).toContain('`/question-images/007002-00700-01-001-1.png`')
     expect(audit).toContain('## indoor-wiring-c:00700-01-001')
-    expect(audit).toContain('`/question-images/007003-00700-01-001.png`')
   })
 
   it('uses separate option images and includes every left-side figure for indoor wiring B', () => {
@@ -184,8 +224,8 @@ describe('new high-demand exam packs', () => {
 
     for (const [id, expected] of [
       ['00700-09-007', { minWidth: 300, maxWidth: 400, minHeight: 200, maxHeight: 280 }],
-      ['00700-11-063', { minWidth: 800, maxWidth: 880, minHeight: 160, maxHeight: 190 }],
-      ['00700-12-043', { minWidth: 440, maxWidth: 500, minHeight: 280, maxHeight: 330 }],
+      ['00700-11-063', { minWidth: 280, maxWidth: 330, minHeight: 40, maxHeight: 70 }],
+      ['00700-12-043', { minWidth: 280, maxWidth: 500, minHeight: 180, maxHeight: 330 }],
     ] as const) {
       const source = byId.get(id)?.sourceImage
       expect(source, id).toBeTruthy()

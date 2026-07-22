@@ -1,6 +1,7 @@
 import { readFile, readdir } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 import { checkPngFlatness } from './pngPixelCheck.mjs'
+import { auditQuestionImages } from './questionImageQualityAudit.mjs'
 import { buildDriftReport } from './wdaCatalog.mjs'
 
 // Publication gate. `npm run build` runs this via the npm `prebuild` hook, and
@@ -179,8 +180,13 @@ async function main() {
   for (const missing of drift.missing) {
     console.error(`BLOCKED ${missing.examId}: ${missing.subjectCode} is missing from committed WDA catalog`)
   }
+  const imageQuality = await auditQuestionImages()
+  for (const failure of imageQuality.failures) {
+    console.error(`BLOCKED image-quality: ${failure}`)
+  }
   console.log(`Publication gate: ${results.length - failing.length}/${results.length} packs publishable`)
-  if (failing.length > 0 || !drift.ok) {
+  console.log(`Image quality gate: ${imageQuality.activeImageCount} active PNGs, ${imageQuality.failures.length} new unreviewed crop risks`)
+  if (failing.length > 0 || !drift.ok || imageQuality.failures.length > 0) {
     console.error('Build refused: fix or unship the packs above. A pack that ships with wrong keys is worse than a pack that does not ship.')
     process.exit(1)
   }

@@ -5,23 +5,35 @@ import {
   Ban,
   BadgeCheck,
   BookOpenCheck,
+  Car,
   CheckCircle2,
+  CircuitBoard,
   Clock,
+  Cog,
   Database,
+  Flame,
   Github,
+  HardHat,
+  HeartHandshake,
   Languages,
   Menu,
+  Monitor,
   Moon,
   Plus,
   RotateCcw,
+  Scissors,
   Share,
   ShieldCheck,
+  Store,
   Sun,
   Timer,
+  UtensilsCrossed,
   WifiOff,
   X,
+  Zap,
 } from 'lucide-react'
-import { Fragment, useEffect, useMemo, useState } from 'react'
+import type { LucideIcon } from 'lucide-react'
+import { useEffect, useMemo, useState } from 'react'
 import type { CSSProperties } from 'react'
 import type { ExamManifest } from '../core/exam'
 import { zhTW } from '../i18n/zh-TW'
@@ -61,6 +73,32 @@ const EN_LEVEL: Record<string, string> = {
   乙級: 'Class B',
   甲級: 'Class A',
   單一級: 'Single Level',
+}
+
+// Each exam card gets a category glyph instead of repeating the same generic
+// database icon four times. Keyed on the manifest's Chinese category.
+const CATEGORY_ICON: Record<string, LucideIcon> = {
+  商業服務: Store,
+  餐飲食品: UtensilsCrossed,
+  美容美髮: Scissors,
+  車輛修護: Car,
+  照護服務: HeartHandshake,
+  資訊: Monitor,
+  機械操作: Cog,
+  電機工程: Zap,
+  電子儀表: CircuitBoard,
+  營造工程: HardHat,
+  職業安全衛生: ShieldCheck,
+  銲接配管: Flame,
+}
+
+const CJK_PUNCT = new Set(['，', '。', '！', '？', '；', '：', '、'])
+/** Full-width CJK punctuation at display size leaves awkward gaps; wrap it so
+    CSS can shrink the glyph without touching the copy itself. */
+function displayText(text: string) {
+  return text.split(/([，。！？；：、])/).map((part, index) =>
+    CJK_PUNCT.has(part) ? <span className="landing-punct" key={index}>{part}</span> : part,
+  )
 }
 
 // ROC (民國) year = Gregorian − 1911. Dates come from nationalExamSchedule.ts,
@@ -168,7 +206,6 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
   const examTitle = (exam: ExamManifest) => (lang === 'en' ? exam.titleEn : exam.titleZh)
   const examCategory = (exam: ExamManifest) => (lang === 'en' ? EN_CATEGORY[exam.category] ?? exam.category : exam.category)
   const examLevel = (exam: ExamManifest) => (lang === 'en' ? EN_LEVEL[exam.level] ?? exam.level : exam.level)
-  const restSeparator = lang === 'en' ? ', ' : '、'
 
   // Counts and lists all derive from the manifests, so a new pack needs no copy
   // edit: it either matches FEATURED_EXAM_IDS or falls into 其他考科 by itself.
@@ -187,6 +224,11 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
     [exams],
   )
 
+  // The nearest upcoming round gets a visual highlight — derived from the same
+  // schedule data, so it needs no copy and never drifts. sv-SE gives local YYYY-MM-DD.
+  const todayIso = new Date().toLocaleDateString('sv-SE')
+  const nextScheduleId = NATIONAL_EXAM_SCHEDULE_115.find((entry) => entry.writtenDate >= todayIso)?.id
+
   useEffect(() => {
     const onScroll = () => setShowTop(window.scrollY > 700)
     onScroll()
@@ -200,6 +242,24 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
     }
     document.addEventListener('keydown', onKey)
     return () => document.removeEventListener('keydown', onKey)
+  }, [])
+
+  // Scroll-reveal: sections fade/slide in once as they enter the viewport. The
+  // classes are added from JS only, so the prerendered no-JS page stays visible.
+  useEffect(() => {
+    const root = document.querySelector('.landing-page')
+    if (!root || !('IntersectionObserver' in window)) return
+    const targets = root.querySelectorAll('section:not(.landing-hero)')
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('landing-in')
+          observer.unobserve(entry.target)
+        }
+      }
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.04 })
+    targets.forEach((el) => { el.classList.add('landing-reveal'); observer.observe(el) })
+    return () => observer.disconnect()
   }, [])
 
   const copyJkopay = async () => {
@@ -266,6 +326,7 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
             </button>
           </div>
         </nav>
+        <span aria-hidden="true" className="landing-nav-progress" />
 
         {menuOpen ? (
           <div className="landing-nav-sheet">
@@ -280,9 +341,9 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
         <div className="landing-hero-copy">
           <p className="landing-hero-badge">{t.eyebrow}</p>
           <h1>
-            {t.titleLead}
-            <em>{t.titleAccent}</em>
-            {t.titleTail}
+            {displayText(t.titleLead)}
+            <em>{displayText(t.titleAccent)}</em>
+            {displayText(t.titleTail)}
           </h1>
           <p className="landing-hero-description">{t.description}</p>
           <div className="landing-hero-actions">
@@ -313,51 +374,53 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
         <header className="landing-section-head">
           <div>
             <p className="landing-eyebrow">{t.examSectionEyebrow(totalQuestions)}</p>
-            <h2>{t.examSectionTitle}</h2>
+            <h2>{displayText(t.examSectionTitle)}</h2>
           </div>
           <p>{t.examSectionDescription}</p>
         </header>
         <div className="landing-exam-grid">
-          {featured.map((exam, index) => (
-            // A real link to the exam's SEO page (crawlable, passes link equity),
-            // but a click keeps the fast path straight into practice.
-            <a
-              className="landing-exam-card"
-              key={exam.examId}
-              href={`/exam/${exam.examId}`}
-              onClick={(event) => { event.preventDefault(); onSelectExam(exam.examId) }}
-              style={{ '--landing-index': index } as CSSProperties}
-            >
-              <span className="landing-exam-icon"><Database size={17} /></span>
-              <span className="landing-exam-copy">
-                <strong>{examTitle(exam)}</strong>
-                <small>{exam.sections[0]?.subjectCode ?? exam.examId} · {examCategory(exam)} · {examLevel(exam)}</small>
-              </span>
-              <small className="landing-exam-count">{t.examCount(exam.activeQuestionCount)}</small>
-              <span className="landing-exam-arrow" aria-label={t.examAction(examTitle(exam))}>
-                <ArrowRight size={16} />
-              </span>
-            </a>
-          ))}
+          {featured.map((exam, index) => {
+            const ExamIcon = CATEGORY_ICON[exam.category] ?? Database
+            return (
+              // A real link to the exam's SEO page (crawlable, passes link equity),
+              // but a click keeps the fast path straight into practice.
+              <a
+                className="landing-exam-card"
+                key={exam.examId}
+                href={`/exam/${exam.examId}`}
+                onClick={(event) => { event.preventDefault(); onSelectExam(exam.examId) }}
+                style={{ '--landing-index': index } as CSSProperties}
+              >
+                <span className="landing-exam-icon"><ExamIcon size={17} /></span>
+                <span className="landing-exam-copy">
+                  <strong>{examTitle(exam)}</strong>
+                  <small>{exam.sections[0]?.subjectCode ?? exam.examId} · {examCategory(exam)} · {examLevel(exam)}</small>
+                </span>
+                <small className="landing-exam-count">{t.examCount(exam.activeQuestionCount)}</small>
+                <span className="landing-exam-arrow" aria-label={t.examAction(examTitle(exam))}>
+                  <ArrowRight size={16} />
+                </span>
+              </a>
+            )
+          })}
         </div>
 
         {rest.length ? (
-          // Named in plain text rather than hidden behind the button: someone
-          // searching 「會計事務丙級 題庫」 should still find this page.
+          // Names stay as plain crawlable links (someone searching 「會計事務丙級
+          // 題庫」 should still find this page) but read as scannable chips rather
+          // than a punctuated wall of text.
           <div className="landing-exam-rest">
-            <p>
-              <span>{t.examRestLabel}</span>
-              {rest.map((exam, index) => (
-                <Fragment key={exam.examId}>
-                  {index > 0 ? restSeparator : ''}
-                  <a
-                    className="landing-exam-rest-link"
-                    href={`/exam/${exam.examId}`}
-                    onClick={(event) => { event.preventDefault(); onSelectExam(exam.examId) }}
-                  >{examTitle(exam)}</a>
-                </Fragment>
+            <p className="landing-exam-rest-label">{t.examRestLabel}</p>
+            <div className="landing-exam-chips">
+              {rest.map((exam) => (
+                <a
+                  className="landing-exam-chip"
+                  key={exam.examId}
+                  href={`/exam/${exam.examId}`}
+                  onClick={(event) => { event.preventDefault(); onSelectExam(exam.examId) }}
+                >{examTitle(exam)}</a>
               ))}
-            </p>
+            </div>
             <button className="landing-secondary" onClick={() => onEnter('exam_see_all')} type="button">
               {t.examSeeAll}<ArrowRight size={16} />
             </button>
@@ -368,7 +431,7 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
       <section className="landing-method" id="landing-how">
         <div className="landing-method-copy">
           <p className="landing-eyebrow">{t.methodEyebrow}</p>
-          <h2>{t.methodTitle}</h2>
+          <h2>{displayText(t.methodTitle)}</h2>
           <p>{t.methodDescription}</p>
         </div>
         <ol className="landing-loop">
@@ -386,7 +449,7 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
       <section className="landing-screens">
         <div className="landing-screens-head">
           <p className="landing-eyebrow">{t.screensEyebrow}</p>
-          <h2>{t.screensTitle}</h2>
+          <h2>{displayText(t.screensTitle)}</h2>
         </div>
         <div className="landing-screens-grid">
           {screenShots.map((item) => (
@@ -409,7 +472,7 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
         <div className="landing-trust-head">
           <div>
             <p className="landing-eyebrow">{t.trustEyebrow}</p>
-            <h2>{t.trustTitle}</h2>
+            <h2>{displayText(t.trustTitle)}</h2>
           </div>
           <p>{t.trustBody}</p>
         </div>
@@ -427,14 +490,17 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
       <section className="landing-schedule" id="landing-schedule">
         <div className="landing-schedule-head">
           <p className="landing-eyebrow">{t.scheduleEyebrow}</p>
-          <h2>{t.scheduleTitle}</h2>
+          <h2>{displayText(t.scheduleTitle)}</h2>
           <p>{t.scheduleBody}</p>
         </div>
         <div className="landing-schedule-grid">
           {NATIONAL_EXAM_SCHEDULE_115.map((entry) => (
-            <div className="landing-schedule-card" key={entry.id}>
+            <div
+              className={entry.id === nextScheduleId ? 'landing-schedule-card landing-schedule-next' : 'landing-schedule-card'}
+              key={entry.id}
+            >
               <strong>{scheduleLabel(entry, lang)}</strong>
-              <p><span>{t.scheduleWritten}</span>{writtenDate(entry.writtenDate, lang)}</p>
+              <p className="landing-schedule-written"><span>{t.scheduleWritten}</span>{writtenDate(entry.writtenDate, lang)}</p>
               <p><span>{t.scheduleReg}</span>{monthDayRange(entry.registrationStart, entry.registrationEnd)}</p>
             </div>
           ))}
@@ -450,7 +516,7 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
       <section className="landing-install" id="landing-install">
         <div className="landing-install-copy">
           <p className="landing-eyebrow">{t.installEyebrow}</p>
-          <h2>{t.installTitle}</h2>
+          <h2>{displayText(t.installTitle)}</h2>
           <p>{t.installBody}</p>
           <p className="landing-install-note">
             <ShieldCheck size={17} />
@@ -487,7 +553,7 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
       <section className="landing-faq" id="landing-faq">
         <div className="landing-faq-head">
           <p className="landing-eyebrow">{t.faqEyebrow}</p>
-          <h2>{t.faqTitle}</h2>
+          <h2>{displayText(t.faqTitle)}</h2>
         </div>
         <div className="landing-faq-list">
           {faqItems.map((item, index) => (
@@ -500,7 +566,9 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
                 {item.q}
                 {openFaq === index ? <X size={16} /> : <Plus size={16} />}
               </button>
-              {openFaq === index ? <p>{item.a}</p> : null}
+              <div className={openFaq === index ? 'landing-faq-answer landing-open' : 'landing-faq-answer'}>
+                <div><p>{item.a}</p></div>
+              </div>
             </div>
           ))}
         </div>
@@ -510,7 +578,7 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
         <div className="landing-donate-card">
           <div>
             <p className="landing-eyebrow">{t.donateEyebrow}</p>
-            <h2>{t.donateTitle}</h2>
+            <h2>{displayText(t.donateTitle)}</h2>
             <p>{t.donateBody}</p>
           </div>
           <div className="landing-donate-actions">

@@ -78,6 +78,10 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
    serif so we ship no webfont on an offline-first app. */
 .landing-page h1,
 .landing-page h2 { font-family: "Noto Serif TC", "Songti TC", "Source Han Serif TC", serif; letter-spacing: 0; }
+/* Full-width CJK punctuation wrapped by displayText(): shrink it at display size
+   so 、，。 don't leave huge trailing gaps in headlines. */
+.landing-page h1 .landing-punct,
+.landing-page h2 .landing-punct { font-size: .58em; }
 .landing-page section { scroll-margin-top: 76px; }
 .landing-eyebrow { margin: 0 0 10px; color: var(--accent-ink); font-size: .76rem; font-weight: 800; letter-spacing: .06em; text-transform: none; }
 
@@ -105,6 +109,13 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 /* Hero */
 .landing-hero { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 56px; align-items: center; padding: clamp(48px, 7vw, 92px) var(--pad); background: var(--surface); }
 .landing-hero-copy { min-width: 0; }
+/* Load-in cascade: badge → headline → description → CTAs → proof → source note. */
+.landing-hero-copy > * { animation: landing-enter 520ms cubic-bezier(.16, 1, .3, 1) backwards; }
+.landing-hero-copy > *:nth-child(2) { animation-delay: 70ms; }
+.landing-hero-copy > *:nth-child(3) { animation-delay: 140ms; }
+.landing-hero-copy > *:nth-child(4) { animation-delay: 210ms; }
+.landing-hero-copy > *:nth-child(5) { animation-delay: 280ms; }
+.landing-hero-copy > *:nth-child(6) { animation-delay: 350ms; }
 .landing-hero-badge { display: inline-block; margin: 0 0 22px; padding: 7px 14px; border-radius: 999px; background: var(--accent-pale); color: var(--accent-ink); font-size: .76rem; font-weight: 800; }
 .landing-hero h1 { max-width: 15ch; margin: 0; font-size: clamp(2.3rem, 4.6vw, 3.9rem); font-weight: 900; line-height: 1.2; color: var(--ink); }
 .landing-hero h1 em { font-style: normal; color: var(--accent); }
@@ -120,14 +131,16 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .landing-primary:hover { background: var(--accent); border-color: var(--accent); }
 .landing-secondary { border: 1px solid var(--line); background: transparent; color: var(--ink); }
 .landing-secondary:hover { border-color: var(--accent); }
-.landing-primary:active, .landing-secondary:active { transform: translateY(1px); }
+.landing-primary svg, .landing-secondary svg { transition: transform 180ms ease; }
+.landing-primary:hover svg, .landing-secondary:hover svg { transform: translateX(3px); }
+.landing-primary:active, .landing-secondary:active { transform: translateY(1px) scale(.98); }
 .landing-proof { display: flex; flex-wrap: wrap; gap: 10px 20px; margin-top: 30px; color: var(--ink2); font-size: .8rem; font-weight: 750; }
 .landing-proof span { display: inline-flex; align-items: center; gap: 7px; }
 .landing-proof svg { color: var(--accent); }
 .landing-source-note { max-width: 56ch; margin: 18px 0 0; color: var(--faint); font-size: .72rem; line-height: 1.65; }
-.landing-hero-visual { position: relative; justify-self: center; min-width: 0; }
+.landing-hero-visual { position: relative; justify-self: center; min-width: 0; animation: landing-enter 640ms cubic-bezier(.16, 1, .3, 1) 200ms backwards; }
 .landing-hero-glow { position: absolute; inset: 28px -22px -22px 26px; border-radius: 34px; background: var(--accent-pale); }
-.landing-phone { position: relative; width: min(310px, 74vw); padding: 11px; border-radius: 42px; background: var(--bezel); box-shadow: var(--bezel-shadow); }
+.landing-phone { position: relative; width: min(310px, 74vw); padding: 11px; border-radius: 42px; background: var(--bezel); box-shadow: var(--bezel-shadow); animation: landing-float 7s ease-in-out infinite; }
 .landing-phone-screen { position: relative; aspect-ratio: 300 / 600; border-radius: 32px; overflow: hidden; background: var(--screen-bg); }
 .landing-phone-screen img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
@@ -137,23 +150,23 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .landing-section-head h2 { margin: 0; font-size: clamp(1.75rem, 4vw, 3.15rem); line-height: 1.15; }
 .landing-section-head > p { margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.7; }
 .landing-exam-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 22px; }
-.landing-exam-rest { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line); }
-.landing-exam-rest p { max-width: 120ch; margin: 0; color: var(--muted); font-size: .8rem; line-height: 1.65; }
-.landing-exam-rest p span { color: var(--ink2); font-weight: 800; }
-.landing-exam-rest .landing-secondary { min-height: 40px; padding: 9px 16px; font-size: .82rem; }
+.landing-exam-rest { display: grid; gap: 12px; margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line); }
+.landing-exam-rest-label { margin: 0; color: var(--ink2); font-size: .8rem; font-weight: 800; }
+.landing-exam-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.landing-exam-chip { padding: 7px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink2); font-size: .78rem; font-weight: 700; text-decoration: none; transition: border-color 160ms ease, color 160ms ease, background 160ms ease; }
+.landing-exam-chip:hover { border-color: var(--accent); background: var(--accent-pale); color: var(--accent-ink); }
+.landing-exam-rest .landing-secondary { justify-self: start; min-height: 40px; padding: 9px 16px; font-size: .82rem; }
 .landing-exam-card { --landing-index: 0; width: 100%; display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; align-items: center; gap: 11px; padding: 12px 13px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--ink); text-align: left; cursor: pointer; opacity: 0; animation: landing-enter 420ms cubic-bezier(.16, 1, .3, 1) forwards; animation-delay: calc(var(--landing-index) * 60ms); transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease; }
 .landing-exam-card { text-decoration: none; }
 .landing-exam-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 14px 30px rgba(24, 32, 27, .08); }
-.landing-exam-rest-link { color: var(--ink2); font-weight: 700; text-decoration: none; }
-.landing-exam-rest-link:hover { color: var(--accent-ink); text-decoration: underline; }
 .landing-exam-card:active { transform: translateY(0); }
 .landing-exam-icon { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 8px; background: var(--accent-pale); color: var(--accent-ink); }
 .landing-exam-copy { min-width: 0; display: grid; gap: 1px; }
 .landing-exam-copy small { overflow: hidden; color: var(--faint); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .62rem; font-weight: 700; white-space: nowrap; text-overflow: ellipsis; }
-.landing-exam-count { color: var(--ink2); font-size: .74rem; font-weight: 800; white-space: nowrap; }
+.landing-exam-count { color: var(--ink2); font-size: .8rem; font-variant-numeric: tabular-nums; font-weight: 800; white-space: nowrap; }
 .landing-exam-copy strong { overflow: hidden; font-size: .98rem; font-weight: 800; white-space: nowrap; text-overflow: ellipsis; }
-.landing-exam-arrow { color: var(--faint); }
-.landing-exam-card:hover .landing-exam-arrow { color: var(--accent); }
+.landing-exam-arrow { color: var(--faint); transition: transform 180ms ease, color 180ms ease; }
+.landing-exam-card:hover .landing-exam-arrow { color: var(--accent); transform: translateX(3px); }
 
 /* How it works */
 .landing-method { padding: clamp(56px, 8vw, 104px) var(--pad); border-top: 1px solid var(--line2); background: var(--surface); }
@@ -185,6 +198,11 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .landing-shot img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .landing-screens-grid figcaption strong { font-size: 1rem; font-weight: 800; }
 .landing-screens-grid figcaption p { margin: 4px 0 0; color: var(--muted); font-size: .84rem; line-height: 1.6; }
+/* Break the three-equal-cards row: the middle shot steps down on wide viewports. */
+@media (min-width: 761px) {
+  .landing-screens-grid { padding-bottom: 28px; }
+  .landing-screens-grid figure:nth-child(2) { transform: translateY(28px); }
+}
 
 /* Trust (dark band) */
 .landing-trust { padding: clamp(56px, 8vw, 104px) var(--pad); background: #143625; color: #f4f7f2; }
@@ -210,12 +228,16 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 @media (max-width: 560px) { .landing-lang-toggle span { display: none; } }
 
 /* Exam schedule */
-.landing-schedule { padding: clamp(56px, 8vw, 104px) var(--pad); border-top: 1px solid var(--line2); background: var(--paper); }
+.landing-schedule { padding: clamp(56px, 8vw, 104px) var(--pad); background: var(--paper); }
 .landing-schedule-head { max-width: 640px; }
 .landing-schedule-head h2 { margin: 8px 0 0; font-size: clamp(1.6rem, 3.4vw, 2.6rem); line-height: 1.25; }
 .landing-schedule-head > p { margin: 16px 0 0; color: var(--muted); font-size: .9rem; line-height: 1.7; }
 .landing-schedule-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 30px; }
 .landing-schedule-card { display: grid; gap: 12px; padding: 22px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }
+.landing-schedule-next { border-color: var(--accent); background: var(--accent-pale); }
+/* The written-test date is the anchor of each card: small label above, big date. */
+.landing-schedule-card p.landing-schedule-written { display: grid; gap: 5px; color: var(--ink); font-family: "Noto Serif TC", "Songti TC", "Source Han Serif TC", serif; font-size: 1.42rem; font-variant-numeric: tabular-nums; font-weight: 900; }
+.landing-schedule-card p.landing-schedule-written span { color: var(--muted); font-family: "Avenir Next", "PingFang TC", "Noto Sans TC", system-ui, sans-serif; font-size: .78rem; font-weight: 600; }
 .landing-schedule-card strong { font-size: 1rem; font-weight: 800; }
 .landing-schedule-card p { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 0; color: var(--ink2); font-size: .88rem; font-weight: 700; }
 .landing-schedule-card p span { color: var(--muted); font-size: .8rem; font-weight: 600; }
@@ -245,6 +267,10 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .landing-faq-list button { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; padding: 22px 4px; border: 0; background: transparent; color: var(--ink); font-family: inherit; font-size: 1rem; font-weight: 800; text-align: left; cursor: pointer; }
 .landing-faq-list button svg { flex: 0 0 auto; color: var(--accent); }
 .landing-faq-list p { margin: 0; padding: 0 4px 22px; color: var(--muted); font-size: .92rem; line-height: 1.75; }
+/* Height animation without measuring in JS: grid-rows 0fr → 1fr. */
+.landing-faq-answer { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 340ms cubic-bezier(.16, 1, .3, 1); }
+.landing-faq-answer.landing-open { grid-template-rows: 1fr; }
+.landing-faq-answer > div { min-height: 0; overflow: hidden; }
 
 /* Donate */
 .landing-donate { padding: clamp(48px, 6vw, 84px) var(--pad); border-top: 1px solid var(--line2); background: var(--surface); }
@@ -252,11 +278,12 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .landing-donate-card h2 { margin: 0; font-size: clamp(1.3rem, 2.4vw, 1.85rem); line-height: 1.4; }
 .landing-donate-card > div > p:last-child { max-width: 54ch; margin: 12px 0 0; color: var(--muted); font-size: .9rem; line-height: 1.7; }
 .landing-donate-actions { display: grid; gap: 8px; justify-items: center; }
-.landing-donate-actions button { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border: 0; border-radius: 999px; background: #e5342e; color: #fff; font-family: inherit; font-size: .92rem; font-weight: 800; white-space: nowrap; cursor: pointer; transition: transform 180ms ease, background 180ms ease; }
-.landing-donate-actions button:hover { background: #cf2b25; }
-.landing-donate-actions button:active { transform: translateY(1px); }
+/* The JKOPAY red stays only in the 街 badge; the button joins the green system. */
+.landing-donate-actions button { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border: 0; border-radius: 999px; background: var(--accent-dark); color: #f4f7f2; font-family: inherit; font-size: .92rem; font-weight: 800; white-space: nowrap; cursor: pointer; transition: transform 180ms ease, background 180ms ease; }
+.landing-donate-actions button:hover { background: var(--accent); }
+.landing-donate-actions button:active { transform: translateY(1px) scale(.98); }
 .landing-donate-actions button > span { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 6px; background: #fff; color: #e5342e; font-size: .72rem; font-weight: 900; }
-.landing-donate-actions small { color: #e5342e; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .78rem; font-weight: 800; }
+.landing-donate-actions small { color: var(--accent-ink); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .78rem; font-weight: 800; }
 
 /* Footer */
 .landing-footer { padding: 34px var(--pad) calc(34px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line2); background: var(--paper); }
@@ -269,6 +296,25 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .landing-to-top { position: fixed; right: 20px; bottom: 20px; z-index: 40; display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: var(--accent-dark); color: #f4f7f2; box-shadow: 0 10px 26px rgba(24, 32, 27, .34); }
 
 @keyframes landing-enter { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes landing-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+/* Scroll-reveal: JS adds .landing-reveal before observing, .landing-in on intersect. */
+.landing-reveal { opacity: 0; transform: translateY(16px); transition: opacity 560ms cubic-bezier(.16, 1, .3, 1), transform 560ms cubic-bezier(.16, 1, .3, 1); }
+.landing-reveal.landing-in { opacity: 1; transform: none; }
+/* Exam cards keep their stagger: replay it when the section scrolls into view. */
+.landing-reveal:not(.landing-in) .landing-exam-card { animation: none; }
+
+/* Scroll-progress hairline under the sticky nav (progressive enhancement). */
+.landing-nav-progress { position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: 0 50%; }
+@supports (animation-timeline: scroll()) {
+  .landing-nav-progress { animation: landing-progress linear both; animation-timeline: scroll(root); }
+}
+@keyframes landing-progress { to { transform: scaleX(1); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .landing-page *, .landing-page *::before, .landing-page *::after { animation: none !important; transition: none !important; }
+  .landing-reveal { opacity: 1; transform: none; }
+}
 
 @media (max-width: 960px) {
   .landing-hero { grid-template-columns: minmax(0, 1fr); gap: 44px; }

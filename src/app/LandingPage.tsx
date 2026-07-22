@@ -13,6 +13,7 @@ import {
   Database,
   Flame,
   Github,
+  Hammer,
   HardHat,
   HeartHandshake,
   Languages,
@@ -67,6 +68,7 @@ const EN_CATEGORY: Record<string, string> = {
   營造工程: 'Construction',
   職業安全衛生: 'Occupational Safety & Health',
   銲接配管: 'Welding & Piping',
+  金屬及機械加工: 'Metal & Machinery Processing',
 }
 const EN_LEVEL: Record<string, string> = {
   丙級: 'Class C',
@@ -90,6 +92,7 @@ const CATEGORY_ICON: Record<string, LucideIcon> = {
   營造工程: HardHat,
   職業安全衛生: ShieldCheck,
   銲接配管: Flame,
+  金屬及機械加工: Hammer,
 }
 
 const CJK_PUNCT = new Set(['，', '。', '！', '？', '；', '：', '、'])
@@ -137,6 +140,10 @@ interface Props {
 
 const FEATURED_EXAM_IDS: readonly string[] = GENERATED_LANDING_CATALOG.featuredExamIds
 
+// Rotation inside the hero phone. 'home' must stay first: it is the LCP image
+// and the only one mounted before load.
+const HERO_SHOTS = ['home', 'practice', 'review', 'mock'] as const
+
 /** Theme lives on <html data-theme>; the toggle records an explicit choice. */
 function useTheme(): [Theme, () => void] {
   const [theme, setTheme] = useState<Theme>(currentTheme)
@@ -155,6 +162,9 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
   const [openFaq, setOpenFaq] = useState(0)
   const [showTop, setShowTop] = useState(false)
   const [copied, setCopied] = useState(false)
+  const [ctaVisible, setCtaVisible] = useState(false)
+  const [cycleShots, setCycleShots] = useState(false)
+  const [heroShot, setHeroShot] = useState(0)
 
   const navLinks = [
     { href: '#landing-exams', label: t.navExams },
@@ -223,11 +233,30 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
     () => exams.filter((exam) => !FEATURED_EXAM_IDS.includes(exam.examId)),
     [exams],
   )
+  // 30+ chips pass the scannability limit; cluster them under category labels.
+  // Order follows first appearance in the manifest list, links stay untouched.
+  const restByCategory = useMemo(() => {
+    const groups: { category: string; exams: ExamManifest[] }[] = []
+    for (const exam of rest) {
+      const group = groups.find((g) => g.category === exam.category)
+      if (group) group.exams.push(exam)
+      else groups.push({ category: exam.category, exams: [exam] })
+    }
+    return groups
+  }, [rest])
 
-  // The nearest upcoming round gets a visual highlight — derived from the same
-  // schedule data, so it needs no copy and never drifts. sv-SE gives local YYYY-MM-DD.
+  // The nearest upcoming round drives both the schedule highlight and the hero
+  // countdown chip — derived from the same schedule data, so it never drifts.
+  // sv-SE gives local YYYY-MM-DD. Once every listed round has passed (and no
+  // next-year data exists yet) both disappear instead of counting negative days.
   const todayIso = new Date().toLocaleDateString('sv-SE')
-  const nextScheduleId = NATIONAL_EXAM_SCHEDULE_115.find((entry) => entry.writtenDate >= todayIso)?.id
+  const nextEntry = NATIONAL_EXAM_SCHEDULE_115.find((entry) => entry.writtenDate >= todayIso)
+  const nextScheduleId = nextEntry?.id
+  const daysToWritten = nextEntry
+    ? Math.max(0, Math.round(
+        (new Date(`${nextEntry.writtenDate}T00:00:00`).getTime() - new Date(`${todayIso}T00:00:00`).getTime()) / 86_400_000,
+      ))
+    : null
 
   useEffect(() => {
     const onScroll = () => setShowTop(window.scrollY > 700)
@@ -261,6 +290,46 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
     targets.forEach((el) => { el.classList.add('landing-reveal'); observer.observe(el) })
     return () => observer.disconnect()
   }, [])
+
+  // Sticky mobile CTA: show once the hero has scrolled away, hide again at the
+  // footer (which has its own primary button — two CTAs stacked reads desperate).
+  useEffect(() => {
+    const hero = document.querySelector('.landing-hero')
+    const footer = document.querySelector('.landing-footer')
+    if (!hero || !footer || !('IntersectionObserver' in window)) return
+    let heroGone = false
+    let footerHere = false
+    const update = () => setCtaVisible(heroGone && !footerHere)
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.target === hero) heroGone = !entry.isIntersecting
+        if (entry.target === footer) footerHere = entry.isIntersecting
+      }
+      update()
+    })
+    observer.observe(hero)
+    observer.observe(footer)
+    return () => observer.disconnect()
+  }, [])
+
+  // Hero phone crossfade. The extra webps mount only after load, so first paint
+  // stays the single home shot (the LCP image) and nothing competes with it.
+  useEffect(() => {
+    const start = () => setCycleShots(true)
+    if (document.readyState === 'complete') {
+      start()
+      return
+    }
+    window.addEventListener('load', start, { once: true })
+    return () => window.removeEventListener('load', start)
+  }, [])
+
+  useEffect(() => {
+    if (!cycleShots) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const timer = window.setInterval(() => setHeroShot((i) => (i + 1) % HERO_SHOTS.length), 5000)
+    return () => window.clearInterval(timer)
+  }, [cycleShots])
 
   const copyJkopay = async () => {
     try {
@@ -352,6 +421,12 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
             </button>
             <a className="landing-secondary" href="#landing-how" onClick={() => trackLanding('secondary_how')}>{t.secondaryAction}</a>
           </div>
+          {nextEntry && daysToWritten !== null ? (
+            <a className="landing-countdown" href="#landing-schedule" onClick={() => trackLanding('countdown_chip')}>
+              <Timer size={15} />
+              {t.countdownChip(nextEntry.round, daysToWritten)}
+            </a>
+          ) : null}
           <div className="landing-proof">
             <span><CheckCircle2 size={16} /> {t.freeLabel}</span>
             <span><WifiOff size={16} /> {t.offlineLabel}</span>
@@ -364,7 +439,29 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
           <span aria-hidden="true" className="landing-hero-glow" />
           <div className="landing-phone">
             <div className="landing-phone-screen">
-              <img alt="" src={shot('home')} width={780} height={1560} />
+              {/* Stacked crossfade: only the active shot is opaque. 'home' is the
+                  LCP image (preloaded, fetchpriority=high); the rest mount after
+                  load so they never compete with first paint. */}
+              <img
+                alt=""
+                className={heroShot === 0 ? 'landing-active' : ''}
+                fetchPriority="high"
+                height={1560}
+                src={shot('home')}
+                width={780}
+              />
+              {cycleShots ? HERO_SHOTS.slice(1).map((name, index) => (
+                <img
+                  alt=""
+                  aria-hidden="true"
+                  className={heroShot === index + 1 ? 'landing-active' : ''}
+                  height={1560}
+                  key={name}
+                  loading="lazy"
+                  src={shot(name)}
+                  width={780}
+                />
+              )) : null}
             </div>
           </div>
         </div>
@@ -412,13 +509,19 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
           <div className="landing-exam-rest">
             <p className="landing-exam-rest-label">{t.examRestLabel}</p>
             <div className="landing-exam-chips">
-              {rest.map((exam) => (
-                <a
-                  className="landing-exam-chip"
-                  key={exam.examId}
-                  href={`/exam/${exam.examId}`}
-                  onClick={(event) => { event.preventDefault(); onSelectExam(exam.examId) }}
-                >{examTitle(exam)}</a>
+              {restByCategory.map((group) => (
+                <div className="landing-exam-chip-group" key={group.category}>
+                  <span className="landing-exam-chip-cat">{examCategory(group.exams[0])}</span>
+                  {group.exams.map((exam) => (
+                    <a
+                      className="landing-exam-chip"
+                      key={exam.examId}
+                      href={`/exam/${exam.examId}`}
+                      onClick={(event) => { event.preventDefault(); onSelectExam(exam.examId) }}
+                      title={t.examCount(exam.activeQuestionCount)}
+                    >{examTitle(exam)}</a>
+                  ))}
+                </div>
               ))}
             </div>
             <button className="landing-secondary" onClick={() => onEnter('exam_see_all')} type="button">
@@ -625,6 +728,14 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
           <ArrowUp size={18} />
         </a>
       ) : null}
+
+      {/* Sticky mobile CTA: CSS confines it to small viewports; JS shows it only
+          between the hero and the footer. */}
+      <div className={ctaVisible ? 'landing-mobile-cta landing-in' : 'landing-mobile-cta'}>
+        <button className="landing-primary" onClick={() => onEnter('mobile_cta')} type="button">
+          {t.primaryAction}<ArrowRight size={16} />
+        </button>
+      </div>
     </main>
   )
 }

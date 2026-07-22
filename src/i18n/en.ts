@@ -79,6 +79,7 @@ export const enLanding: LandingStrings = {
   scheduleReg: 'Registration',
   scheduleNote: 'Compiled from the Workforce Development Agency’s certification center notices; for reference only.',
   scheduleSource: '2026 prospectus',
+  countdownChip: (round: number, days: number) => `${days} days until the Round ${round} written exam`,
   navSchedule: 'Exam dates',
   installEyebrow: 'Install to your phone',
   installTitle: 'Add to the home screen, open it like an app.',

@@ -120,6 +120,9 @@ export const zhTW = {
     scheduleReg: '報名期間',
     scheduleNote: '資料整理自勞動部勞動力發展署技能檢定中心公告，僅供參考。',
     scheduleSource: '115 年度簡章',
+    // Hero countdown chip, derived from the same schedule data. Function-shaped
+    // so round/day counts slot into the sentence; no upcoming round → no chip.
+    countdownChip: (round: number, days: number) => `距第${round}梯次學科測驗還有 ${days} 天`,
     navSchedule: '考試日期',
     installEyebrow: '安裝到手機',
     installTitle: '加到主畫面，像 App 一樣打開。',

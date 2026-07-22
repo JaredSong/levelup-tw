@@ -12,6 +12,11 @@
     <meta name="description" content="__LANDING_META_DESCRIPTION__" />
     <!-- gtag.js loads from googletagmanager; warm the connection early. -->
     <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <!-- LCP: the hero phone shot. Theme comes from localStorage, not media queries,
+         so only the light variant is preloaded (first-time visitors and crawlers
+         all get light); dark-mode returners take one un-preloaded fetch rather
+         than everyone paying for both. -->
+    <link rel="preload" as="image" href="/screens/home-light.webp" fetchpriority="high" />
     <link rel="canonical" href="https://levelup.tw/" />
     <!-- Both language pages carry the same alternates; prerender rewrites only the
          canonical + og for /en. x-default points at the Chinese (primary) page. -->

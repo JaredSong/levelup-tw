@@ -125,7 +125,7 @@ const BANKS = [
     source: '021003A12',
     cropPrefix: '021003',
     splitImageOptions: true,
-    excludedFigures: ['02100-03-009'],
+    excludedFigures: ['02100-03-009', '02100-08-011'],
     figureRects: {
       '02100-07-004': { x: 202, y: 116, width: 30, height: 34, padTo: { width: 140, height: 100 } },
       '02100-08-003': { x: 105, y: 64, width: 275, height: 82, padTo: { width: 640, height: 220 } },
@@ -137,12 +137,6 @@ const BANKS = [
         { x: 172, y: 362, width: 38, height: 40, padTo: { width: 120, height: 120 } },
         { x: 225, y: 362, width: 35, height: 40, padTo: { width: 120, height: 120 } },
         { x: 276, y: 362, width: 36, height: 40, padTo: { width: 120, height: 120 } },
-      ],
-      '02100-08-011': [
-        { x: 323, y: 432, width: 16, height: 23, padTo: { width: 90, height: 70 } },
-        { x: 354, y: 432, width: 19, height: 23, padTo: { width: 90, height: 70 } },
-        { x: 387, y: 432, width: 18, height: 23, padTo: { width: 90, height: 70 } },
-        { x: 421, y: 432, width: 16, height: 23, padTo: { width: 90, height: 70 } },
       ],
     },
   },

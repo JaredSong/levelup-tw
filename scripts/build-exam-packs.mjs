@@ -237,6 +237,7 @@ const QUESTION_PROMPT_OVERRIDES = {
 }
 
 const QUESTION_OPTION_OVERRIDES = {
+  '02100-08-011': ['～', '▽▽▽', '▽▽', '▽'],
   '90001-02-010': ['2', '2/3', '1/2', '3/4'],
   '90001-02-016': ['−π', '3π/4', 'π/2', 'π/3'],
   '90001-02-017': ['5/12', '12/13', '5/13', '12/5'],
@@ -897,7 +898,7 @@ const EXAMS = [
     extraCommonCodes: [],
     cropPrefix: '021003',
     splitImageOptions: true,
-    excludedFigureIds: ['02100-03-009'],
+    excludedFigureIds: ['02100-03-009', '02100-08-011'],
     requireQuestionCrops: true,
     mockRules: {
       occupationQuota: 64,

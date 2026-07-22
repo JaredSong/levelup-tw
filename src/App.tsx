@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { AlertTriangle, ArrowRight, CheckCircle2, LoaderCircle, RotateCcw } from 'lucide-react'
 import { ActiveExamHeader } from './app/ActiveExamHeader'
-import { trackEnterApp, trackInitialView, trackLanding } from './app/analytics'
+import { trackAppMilestone, trackEnterApp, trackInitialView, trackLanding } from './app/analytics'
 import { LandingPage } from './app/LandingPage'
 import { ExamPage } from './app/ExamPage'
 import { GuidePage } from './app/GuidePage'
@@ -390,6 +390,7 @@ function StudyApp() {
     setSummary(null)
     setSession(createSession(examId, mode, questions, title, { ...options, mockDurationMs }))
     setPracticeOpen(true)
+    trackAppMilestone('session_start', mode)
   }
 
   const startMock = (mockFeedback = false) => {
@@ -570,6 +571,7 @@ function StudyApp() {
 
   const complete = async () => {
     if (!session) return
+    trackAppMilestone('session_done', session.mode)
     if (session.mode === 'sequential') {
       const lastId = session.questionIds.at(-1)
       const lastIndex = bank.questions.findIndex((question) => question.id === lastId)

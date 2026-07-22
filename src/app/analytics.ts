@@ -88,6 +88,21 @@ export function trackLanding(
   gtag?.('event', 'landing_click', { action, ...params })
 }
 
+/**
+ * An in-app usage milestone — a practice or mock session started or finished.
+ * Deliberately count-only: it carries the session MODE (practice / mock / …) and
+ * nothing else. No question ids, no answers, no scores, no progress — so it keeps
+ * the privacy promise ("anonymous usage counts, never your answers") while still
+ * turning enter_app into a real funnel: opened → practised → finished.
+ */
+export function trackAppMilestone(
+  action: 'session_start' | 'session_done',
+  mode: string,
+  gtag: Gtag | undefined = windowGtag(),
+): void {
+  gtag?.('event', 'app_milestone', { action, mode })
+}
+
 /** Test seam: lets a test observe a fresh first call. */
 export function resetInitialViewForTests(): void {
   sent = false

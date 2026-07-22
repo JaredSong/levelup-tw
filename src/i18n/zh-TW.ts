@@ -166,7 +166,7 @@ export const zhTW = {
     // Disclaimer. Covers, in order: no affiliation, source + practice-only scope,
     // best-effort accuracy with official material as the authority, no guarantee
     // of passing / no liability, third-party marks, and what analytics collect.
-    footerNote: '升級吧是免費的個人專案，不隸屬於也未受託於勞動部勞動力發展署技能檢定中心或任何官方機構。題目整理自官方公開的學科題庫，僅供個人練習參考；本站已盡力校對，但不保證內容完全正確、完整或為最新版本，一切請以官方最新公告與題庫為準。使用本站不保證通過檢定，本站亦不對因使用或無法使用本站內容所生之任何損失負責。各考科名稱、標章與商標均屬其各自所有權人所有。本站使用 Google Analytics 與 Cloudflare 分析瀏覽流量，不會蒐集你的作答內容或練習進度。',
+    footerNote: '升級吧是免費的個人專案，不隸屬於也未受託於勞動部勞動力發展署技能檢定中心或任何官方機構。題目整理自官方公開的學科題庫，僅供個人練習參考；本站已盡力校對，但不保證內容完全正確、完整或為最新版本，一切請以官方最新公告與題庫為準。使用本站不保證通過檢定，本站亦不對因使用或無法使用本站內容所生之任何損失負責。各考科名稱、標章與商標均屬其各自所有權人所有。本站使用 Google Analytics 與 Cloudflare 分析瀏覽流量與匿名使用次數（例如你完成了一次練習），但不會蒐集你的作答內容、分數或任何個人資料。',
   },
   examPage: {
     home: '首頁',

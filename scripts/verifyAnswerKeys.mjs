@@ -31,6 +31,7 @@ const TARGETS = {
   'retail-service-c': { subjectCode: '18100', pdf: 'source/181003A13.pdf', bank: 'public/data/exams/retail-service-c/questions.json' },
   'cnc-milling-b': { subjectCode: '18201', pdf: 'source/182012A10.pdf', bank: 'public/data/exams/cnc-milling-b/questions.json' },
   'industrial-electronics-c': { subjectCode: '02800', pdf: 'source/028003A11.pdf', bank: 'public/data/exams/industrial-electronics-c/questions.json' },
+  'heat-treatment-c': { subjectCode: '02100', pdf: 'source/021003A12.pdf', bank: 'public/data/exams/heat-treatment-c/questions.json' },
   'interior-decoration-management-b': { subjectCode: '12600', pdf: 'source/126002A12.pdf', bank: 'public/data/exams/interior-decoration-management-b/questions.json' },
   'accounting-c': { subjectCode: '14900', pdf: 'source/149003A15.pdf', bank: 'public/data/exams/accounting-c/questions.json' },
   'forklift-operation-single': { subjectCode: '15100', pdf: 'source/151004A14.pdf', bank: 'public/data/exams/forklift-operation-single/questions.json' },

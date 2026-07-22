@@ -116,8 +116,8 @@ describe('active exam selection', () => {
       '機械操作',
       '營造工程',
       '電子儀表',
-      '銲接配管',
       '金屬及機械加工',
+      '銲接配管',
     ])
     expect(groups.find((group) => group.category === '資訊')?.exams.map((exam) => exam.examId)).toEqual([
       'web-design-b',

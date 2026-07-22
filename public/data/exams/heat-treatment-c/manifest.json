@@ -1,27 +1,19 @@
 {
-  "examId": "beverage-preparation-c",
+  "examId": "heat-treatment-c",
   "level": "丙級",
-  "titleZh": "飲料調製丙級",
-  "titleEn": "Beverage Preparation (Class C)",
-  "category": "餐飲食品",
-  "version": "A13",
-  "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/206003A13.pdf",
+  "titleZh": "熱處理丙級",
+  "titleEn": "Heat Treatment (Class C)",
+  "category": "金屬及機械加工",
+  "version": "A12",
+  "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/021003A12.pdf",
   "sources": [
     {
-      "subjectCode": "20600",
-      "version": "A13",
-      "pdfFilename": "206003A13.pdf",
-      "localFilename": "206003A13.pdf",
-      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/206003A13.pdf",
-      "sha256": "6acadc3c4aeb1cc6cf92011923a48fd315c0149f25e228d36383bd844087b97b"
-    },
-    {
-      "subjectCode": "90010",
-      "version": "A16",
-      "pdfFilename": "900100A16.pdf",
-      "localFilename": "900100A16.pdf",
-      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900100A16.pdf",
-      "sha256": "d6cee10bff92420a35eaf3915b521289613083ded74a7ded647c66189ea2230d"
+      "subjectCode": "02100",
+      "version": "A12",
+      "pdfFilename": "021003A12.pdf",
+      "localFilename": "021003A12.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/021003A12.pdf",
+      "sha256": "ef399a38eb8c5820dce6f9359a21aca098446d9f458b14dc22b1b0f239d5bed0"
     },
     {
       "subjectCode": "90006",
@@ -62,81 +54,81 @@
     "handbook": "https://skill.tcte.edu.tw/download.php",
     "questionBank": "https://techbank.wdasec.gov.tw/"
   },
-  "sourceRevision": "206003A13 + 900100A16 + 900060A18/900070A17/900080A16/900090A11",
-  "questionCount": 1298,
-  "activeQuestionCount": 1292,
+  "sourceRevision": "021003A12 + 900060A18/900070A17/900080A16/900090A11",
+  "questionCount": 1009,
+  "activeQuestionCount": 1004,
   "sections": [
     {
-      "id": "20600-01",
-      "subjectCode": "20600",
+      "id": "02100-01",
+      "subjectCode": "02100",
       "sourceGroup": "occupation",
-      "titleZh": "吧檯清潔",
-      "questionCount": 57,
-      "activeQuestionCount": 57
+      "titleZh": "鋼鐵材料之組織與變態",
+      "questionCount": 116,
+      "activeQuestionCount": 116
     },
     {
-      "id": "20600-02",
-      "subjectCode": "20600",
+      "id": "02100-02",
+      "subjectCode": "02100",
       "sourceGroup": "occupation",
-      "titleZh": "作業準備",
-      "questionCount": 146,
-      "activeQuestionCount": 146
+      "titleZh": "基本的熱處理方法",
+      "questionCount": 161,
+      "activeQuestionCount": 161
     },
     {
-      "id": "20600-03",
-      "subjectCode": "20600",
+      "id": "02100-03",
+      "subjectCode": "02100",
       "sourceGroup": "occupation",
-      "titleZh": "飲料調製",
-      "questionCount": 210,
-      "activeQuestionCount": 210
+      "titleZh": "加熱及泠卻裝置的種類、構造",
+      "questionCount": 68,
+      "activeQuestionCount": 68
     },
     {
-      "id": "20600-04",
-      "subjectCode": "20600",
+      "id": "02100-04",
+      "subjectCode": "02100",
       "sourceGroup": "occupation",
-      "titleZh": "善後作業",
-      "questionCount": 94,
-      "activeQuestionCount": 94
+      "titleZh": "前處理及後處理方法",
+      "questionCount": 28,
+      "activeQuestionCount": 28
     },
     {
-      "id": "20600-05",
-      "subjectCode": "20600",
+      "id": "02100-05",
+      "subjectCode": "02100",
       "sourceGroup": "occupation",
-      "titleZh": "飲料調製服務特性",
-      "questionCount": 62,
-      "activeQuestionCount": 62
+      "titleZh": "金屬材料的種類、成份、性質",
+      "questionCount": 77,
+      "activeQuestionCount": 77
     },
     {
-      "id": "20600-06",
-      "subjectCode": "20600",
+      "id": "02100-06",
+      "subjectCode": "02100",
       "sourceGroup": "occupation",
-      "titleZh": "飲料調製衛生事項",
-      "questionCount": 48,
-      "activeQuestionCount": 48
+      "titleZh": "材料試驗",
+      "questionCount": 70,
+      "activeQuestionCount": 70
     },
     {
-      "id": "90010-01",
-      "subjectCode": "90010",
-      "sourceGroup": "general-common",
-      "titleZh": "食品安全衛生",
-      "questionCount": 172,
-      "activeQuestionCount": 171
+      "id": "02100-07",
+      "subjectCode": "02100",
+      "sourceGroup": "occupation",
+      "titleZh": "機械加工法",
+      "questionCount": 34,
+      "activeQuestionCount": 34
     },
     {
-      "id": "90010-02",
-      "subjectCode": "90010",
-      "sourceGroup": "general-common",
-      "titleZh": "食品安全衛生",
-      "questionCount": 40,
-      "activeQuestionCount": 40
+      "id": "02100-08",
+      "subjectCode": "02100",
+      "sourceGroup": "occupation",
+      "titleZh": "製圖",
+      "questionCount": 33,
+      "activeQuestionCount": 33
     },
     {
-      "id": "90010-03",
-      "subjectCode": "90010",
-      "sourceGroup": "general-common",
-      "titleZh": "營養及健康飲",
-      "questionCount": 69,
-      "activeQuestionCount": 69
+      "id": "02100-09",
+      "subjectCode": "02100",
+      "sourceGroup": "occupation",
+      "titleZh": "電工",
+      "questionCount": 22,
+      "activeQuestionCount": 22
     },
     {
       "id": "90006-01",
@@ -182,12 +174,8 @@
     "weightMultiple": 0,
     "subjectQuota": [
       {
-        "subjectCode": "20600",
-        "count": 60
-      },
-      {
-        "subjectCode": "90010",
-        "count": 4
+        "subjectCode": "02100",
+        "count": 64
       },
       {
         "subjectCode": "90006",
@@ -209,8 +197,8 @@
   },
   "integrity": {
     "status": "fully_verified",
-    "inactiveQuestionCount": 6,
-    "imageQuestionCount": 8,
+    "inactiveQuestionCount": 5,
+    "imageQuestionCount": 9,
     "note": "Answer keys independently cross-checked against the official PDF during import."
   }
 }

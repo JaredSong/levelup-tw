@@ -4545,7 +4545,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     "integrity": {
       "status": "fully_verified",
       "inactiveQuestionCount": 6,
-      "imageQuestionCount": 9,
+      "imageQuestionCount": 8,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
   },
@@ -4958,6 +4958,210 @@ export const GENERATED_EXAM_MANIFESTS = [
       "status": "fully_verified",
       "inactiveQuestionCount": 5,
       "imageQuestionCount": 132,
+      "note": "Answer keys independently cross-checked against the official PDF during import."
+    }
+  },
+  {
+    "examId": "heat-treatment-c",
+    "level": "丙級",
+    "titleZh": "熱處理丙級",
+    "titleEn": "Heat Treatment (Class C)",
+    "category": "金屬及機械加工",
+    "version": "A12",
+    "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/021003A12.pdf",
+    "sources": [
+      {
+        "subjectCode": "02100",
+        "version": "A12",
+        "pdfFilename": "021003A12.pdf",
+        "localFilename": "021003A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/021003A12.pdf",
+        "sha256": "ef399a38eb8c5820dce6f9359a21aca098446d9f458b14dc22b1b0f239d5bed0"
+      },
+      {
+        "subjectCode": "90006",
+        "version": "A18",
+        "pdfFilename": "900060A18.pdf",
+        "localFilename": "900060A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A18.pdf",
+        "sha256": "0afd298e136567131ed5771bb5d8e0a501e745798823242966bd9b517e5b42ec"
+      },
+      {
+        "subjectCode": "90007",
+        "version": "A17",
+        "pdfFilename": "900070A17.pdf",
+        "localFilename": "900070A17.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A17.pdf",
+        "sha256": "ec3bc07bc147f77cfaaa6928648485c9f86c6e58d715a01f49e5618d12ac3319"
+      },
+      {
+        "subjectCode": "90008",
+        "version": "A16",
+        "pdfFilename": "900080A16.pdf",
+        "localFilename": "900080A16.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A16.pdf",
+        "sha256": "3c097485bd020af2d3766c08a5c5f385a5dbc56512d8903ce6cf850903ea2f01"
+      },
+      {
+        "subjectCode": "90009",
+        "version": "A11",
+        "pdfFilename": "900090A11.pdf",
+        "localFilename": "900090A11-latest.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A11.pdf",
+        "sha256": "e58b753294079574f8c1360ef5a345e77062c0c3ee693d509254de455a533835"
+      }
+    ],
+    "officialLinks": {
+      "registration": "https://skill.tcte.edu.tw/notice.php",
+      "scoreLookup": "https://eservice.wdasec.gov.tw/",
+      "handbook": "https://skill.tcte.edu.tw/download.php",
+      "questionBank": "https://techbank.wdasec.gov.tw/"
+    },
+    "sourceRevision": "021003A12 + 900060A18/900070A17/900080A16/900090A11",
+    "questionCount": 1009,
+    "activeQuestionCount": 1004,
+    "sections": [
+      {
+        "id": "02100-01",
+        "subjectCode": "02100",
+        "sourceGroup": "occupation",
+        "titleZh": "鋼鐵材料之組織與變態",
+        "questionCount": 116,
+        "activeQuestionCount": 116
+      },
+      {
+        "id": "02100-02",
+        "subjectCode": "02100",
+        "sourceGroup": "occupation",
+        "titleZh": "基本的熱處理方法",
+        "questionCount": 161,
+        "activeQuestionCount": 161
+      },
+      {
+        "id": "02100-03",
+        "subjectCode": "02100",
+        "sourceGroup": "occupation",
+        "titleZh": "加熱及泠卻裝置的種類、構造",
+        "questionCount": 68,
+        "activeQuestionCount": 68
+      },
+      {
+        "id": "02100-04",
+        "subjectCode": "02100",
+        "sourceGroup": "occupation",
+        "titleZh": "前處理及後處理方法",
+        "questionCount": 28,
+        "activeQuestionCount": 28
+      },
+      {
+        "id": "02100-05",
+        "subjectCode": "02100",
+        "sourceGroup": "occupation",
+        "titleZh": "金屬材料的種類、成份、性質",
+        "questionCount": 77,
+        "activeQuestionCount": 77
+      },
+      {
+        "id": "02100-06",
+        "subjectCode": "02100",
+        "sourceGroup": "occupation",
+        "titleZh": "材料試驗",
+        "questionCount": 70,
+        "activeQuestionCount": 70
+      },
+      {
+        "id": "02100-07",
+        "subjectCode": "02100",
+        "sourceGroup": "occupation",
+        "titleZh": "機械加工法",
+        "questionCount": 34,
+        "activeQuestionCount": 34
+      },
+      {
+        "id": "02100-08",
+        "subjectCode": "02100",
+        "sourceGroup": "occupation",
+        "titleZh": "製圖",
+        "questionCount": 33,
+        "activeQuestionCount": 33
+      },
+      {
+        "id": "02100-09",
+        "subjectCode": "02100",
+        "sourceGroup": "occupation",
+        "titleZh": "電工",
+        "questionCount": 22,
+        "activeQuestionCount": 22
+      },
+      {
+        "id": "90006-01",
+        "subjectCode": "90006",
+        "sourceGroup": "general-common",
+        "titleZh": "職業安全衛生",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      },
+      {
+        "id": "90007-01",
+        "subjectCode": "90007",
+        "sourceGroup": "general-common",
+        "titleZh": "工作倫理與職業道德",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      },
+      {
+        "id": "90008-03",
+        "subjectCode": "90008",
+        "sourceGroup": "general-common",
+        "titleZh": "環境保護",
+        "questionCount": 100,
+        "activeQuestionCount": 95
+      },
+      {
+        "id": "90009-04",
+        "subjectCode": "90009",
+        "sourceGroup": "general-common",
+        "titleZh": "節能減碳",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      }
+    ],
+    "mockRules": {
+      "totalQuestions": 80,
+      "singleCount": 80,
+      "multipleCount": 0,
+      "durationMinutes": 100,
+      "passScore": 60,
+      "maxScore": 100,
+      "weightSingle": 1.25,
+      "weightMultiple": 0,
+      "subjectQuota": [
+        {
+          "subjectCode": "02100",
+          "count": 64
+        },
+        {
+          "subjectCode": "90006",
+          "count": 4
+        },
+        {
+          "subjectCode": "90007",
+          "count": 4
+        },
+        {
+          "subjectCode": "90008",
+          "count": 4
+        },
+        {
+          "subjectCode": "90009",
+          "count": 4
+        }
+      ]
+    },
+    "integrity": {
+      "status": "fully_verified",
+      "inactiveQuestionCount": 5,
+      "imageQuestionCount": 9,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
   },

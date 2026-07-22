@@ -17,6 +17,7 @@ const PACKS = [
   { examId: 'indoor-wiring-b', occupationCode: '00700', sourceQuestions: 862, inactive: 7, figures: 64, cropPrefix: '007002' },
   { examId: 'indoor-wiring-c', occupationCode: '00700', sourceQuestions: 618, inactive: 0, figures: 62, cropPrefix: '007003', tightCrops: true },
   { examId: 'industrial-electronics-c', occupationCode: '02800', sourceQuestions: 651, inactive: 0, figures: 128, cropPrefix: '028003' },
+  { examId: 'heat-treatment-c', occupationCode: '02100', sourceQuestions: 609, inactive: 0, figures: 5, cropPrefix: '021003', tightCrops: true },
   // tightCrops added: 12000-01-003 (mixedFigureOptions) now ships a small
   // base figure plus four small option crops instead of one combined strip.
   { examId: 'computer-hardware-repair-c', occupationCode: '12000', sourceQuestions: 707, inactive: 0, figures: 17, cropPrefix: '120003', tightCrops: true },

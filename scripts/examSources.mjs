@@ -8,6 +8,7 @@ export const SOURCE_BANKS = {
   '00700-3': { subjectCode: '00700', version: 'A13', pdfFilename: '007003A13.pdf' },
   '01600': { version: 'A12', pdfFilename: '016003A12.pdf' },
   '02000': { version: 'A11', pdfFilename: '020003A11.pdf' },
+  '02100': { version: 'A12', pdfFilename: '021003A12.pdf' },
   '02800': { version: 'A11', pdfFilename: '028003A11.pdf' },
   '06000': { version: 'A12', pdfFilename: '060003A12.pdf' },
   '06700': { version: 'A13', pdfFilename: '067003A13.pdf' },

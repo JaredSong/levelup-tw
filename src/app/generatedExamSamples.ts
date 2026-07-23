@@ -607,6 +607,75 @@ export const GENERATED_EXAM_SAMPLES: Record<string, ExamSampleSet> = {
       }
     ]
   },
+  "computer-hardware-repair-b": {
+    "sections": [
+      "電腦、電子及電機機械",
+      "作業準備",
+      "儀表、軟體及一般工具",
+      "工作方法",
+      "裝修及控制應用",
+      "資訊安全措施",
+      "電腦硬體架構",
+      "網路概論與應用",
+      "作業系統",
+      "資訊運算思維",
+      "資訊安全",
+      "職業安全衛生",
+      "工作倫理與職業道德",
+      "環境保護",
+      "節能減碳"
+    ],
+    "samples": [
+      {
+        "id": "12000-01-001",
+        "sectionTitle": "電腦、電子及電機機械",
+        "prompt": "繪製流程圖時，起始符號通常放置於",
+        "options": [
+          "上方",
+          "下方",
+          "左方",
+          "右方"
+        ],
+        "answer": 1
+      },
+      {
+        "id": "12000-02-001",
+        "sectionTitle": "作業準備",
+        "prompt": "資料傳輸使用同位元檢查做為資料錯誤之檢查，若採奇同位資料錯誤檢查，下列資料中何者為正確？",
+        "options": [
+          "011110100",
+          "101110110",
+          "010100101",
+          "110011110"
+        ],
+        "answer": 1
+      },
+      {
+        "id": "12000-03-001",
+        "sectionTitle": "儀表、軟體及一般工具",
+        "prompt": "一部電腦系統大致可以分為 4 個單元，不包括下列何者？",
+        "options": [
+          "維護人員",
+          "作業系統",
+          "應用程式",
+          "硬體"
+        ],
+        "answer": 1
+      },
+      {
+        "id": "12000-04-001",
+        "sectionTitle": "工作方法",
+        "prompt": "全球資訊網 WWW 的 URL 敘述，下列何者才是正確的？",
+        "options": [
+          "http\\\\:www.hello.net",
+          "http/:/www.hello.net",
+          "http://www.hello.net",
+          "http//www.hello.net"
+        ],
+        "answer": 3
+      }
+    ]
+  },
   "computer-hardware-repair-c": {
     "sections": [
       "電腦、電子及電機機械識圖",

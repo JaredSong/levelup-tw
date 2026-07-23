@@ -1,6 +1,6 @@
 # Image Question Map
 
-Generated: 2026-07-21T15:41:06.300Z
+Generated: 2026-07-23T06:15:19.360Z
 
 These are the questions that currently need a figure, graph, code screenshot, or image-option reference.
 
@@ -12,7 +12,7 @@ Replacement workflow:
 
 Do not include the official answer-key column in replacement images.
 
-Total active image questions: 842
+Total active image questions: 921
 
 ## indoor-wiring-b:00700-01-001
 
@@ -3552,6 +3552,73 @@ Total active image questions: 842
   - 2. a-b 為鎖到 3kg-m 後放鬆，再鎖緊到 6kg-m
   - 3. b-c 是將螺栓放鬆到 0kg-m
   - 4. 鎖到 e 之後要再鎖緊 90 度角
+
+## heat-treatment-c:02100-07-004
+
+- Replacement PNG: `public/question-images/021003-02100-07-004.png`
+- App path: `/question-images/021003-02100-07-004.png`
+- Linked uploaded image:
+  - `/question-images/021003-02100-07-004.png`
+- Current fallback page: `/question-pages/02100-page-28.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 三角皮帶的角度為
+- Options:
+  - 1. 35°
+  - 2. 40°
+  - 3. 45°
+  - 4. 60°
+
+## heat-treatment-c:02100-08-003
+
+- Replacement PNG: `public/question-images/021003-02100-08-003.png`
+- App path: `/question-images/021003-02100-08-003.png`
+- Linked uploaded image:
+  - `/question-images/021003-02100-08-003.png`
+- Current fallback page: `/question-pages/02100-page-30.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如下圖之投影圖，數值「32」是表示
+- Options:
+  - 1. 弦長
+  - 2. 弧長
+  - 3. 半徑長
+  - 4. 弧線展開長
+
+## heat-treatment-c:02100-08-006
+
+- Replacement PNG: `public/question-images/021003-02100-08-006.png`
+- App path: `/question-images/021003-02100-08-006.png`
+- Linked uploaded image:
+  - `/question-images/021003-02100-08-006.png`
+- Current fallback page: `/question-pages/02100-page-30.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 工作圖之尺寸是表示
+- Options:
+  - 1. 圓柱之長度可作到 75.015～74.990 之間
+  - 2. 圓柱直徑可作到 75.005～75.010 之間
+  - 3. 圓孔直徑可作到 75.015～74.990之間
+  - 4. 圓孔直徑可作到 75.015～75.010 之間
+
+## heat-treatment-c:02100-08-010
+
+- Replacement PNG: `public/question-images/021003-02100-08-010-1.png`
+- App path: `/question-images/021003-02100-08-010-1.png`
+- Linked uploaded images:
+  - `/question-images/021003-02100-08-010-1.png`
+  - `/question-images/021003-02100-08-010-2.png`
+  - `/question-images/021003-02100-08-010-3.png`
+  - `/question-images/021003-02100-08-010-4.png`
+- Current fallback page: `/question-pages/02100-page-30.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下列投影圖，以第三角畫法所畫者，其中那一組圖不成立
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
 
 ## industrial-electronics-c:02800-02-001
 
@@ -9199,6 +9266,22 @@ Total active image questions: 842
   - 3. 解多工器
   - 4. 解碼器
 
+## computer-hardware-repair-b:12000-01-003
+
+- Replacement PNG: `public/question-images/120002-12000-01-003.png`
+- App path: `/question-images/120002-12000-01-003.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-003.png`
+- Current fallback page: `/question-pages/12000-page-2.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖電腦處理作業流程圖符號表示
+- Options:
+  - 1. 終端
+  - 2. 文件輸出
+  - 3. 流向
+  - 4. 判斷
+
 ## computer-hardware-repair-c:12000-01-003
 
 - Replacement PNG: `public/question-images/120003-12000-01-003.png`
@@ -9218,6 +9301,22 @@ Total active image questions: 842
   - 2. 圖示選項 2
   - 3. 圖示選項 3
   - 4. 圖示選項 4
+
+## computer-hardware-repair-b:12000-01-004
+
+- Replacement PNG: `public/question-images/120002-12000-01-004.png`
+- App path: `/question-images/120002-12000-01-004.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-004.png`
+- Current fallback page: `/question-pages/12000-page-2.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖電腦處理作業流程圖符號表示
+- Options:
+  - 1. 輸出輸入
+  - 2. 文件輸出
+  - 3. 迴圈
+  - 4. 判斷
 
 ## computer-hardware-repair-c:12000-01-004
 
@@ -9251,6 +9350,22 @@ Total active image questions: 842
   - 3. Ｃ腳
   - 4. Ｄ腳
 
+## computer-hardware-repair-b:12000-01-006
+
+- Replacement PNG: `public/question-images/120002-12000-01-006.png`
+- App path: `/question-images/120002-12000-01-006.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-006.png`
+- Current fallback page: `/question-pages/12000-page-2.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖的電子符號是用來表示
+- Options:
+  - 1. 固定電阻器
+  - 2. 可變電阻器
+  - 3. 熱敏電阻器
+  - 4. 光敏電阻器
+
 ## computer-hardware-repair-c:12000-01-006
 
 - Replacement PNG: `public/question-images/120003-12000-01-006.png`
@@ -9266,6 +9381,22 @@ Total active image questions: 842
   - 2. 直流安培計
   - 3. 交流安培計
   - 4. 瓦特計
+
+## computer-hardware-repair-b:12000-01-007
+
+- Replacement PNG: `public/question-images/120002-12000-01-007.png`
+- App path: `/question-images/120002-12000-01-007.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-007.png`
+- Current fallback page: `/question-pages/12000-page-2.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖電子符號表示
+- Options:
+  - 1. 安培計
+  - 2. 電壓源
+  - 3. 電流源
+  - 4. 伏特計
 
 ## computer-hardware-repair-c:12000-01-007
 
@@ -9331,6 +9462,350 @@ Total active image questions: 842
   - 3. 正準位觸發
   - 4. 負準位觸發
 
+## computer-hardware-repair-b:12000-01-012
+
+- Replacement PNG: `public/question-images/120002-12000-01-012.png`
+- App path: `/question-images/120002-12000-01-012.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-012.png`
+- Current fallback page: `/question-pages/12000-page-2.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: MS OFFICE 軟體中，下圖代表
+- Options:
+  - 1. 剪下
+  - 2. 刪除
+  - 3. 複製格式
+  - 4. 列印
+
+## computer-hardware-repair-b:12000-01-013
+
+- Replacement PNG: `public/question-images/120002-12000-01-013.png`
+- App path: `/question-images/120002-12000-01-013.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-013.png`
+- Current fallback page: `/question-pages/12000-page-2.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: MS WORD 軟體中，下圖代表
+- Options:
+  - 1. 段落
+  - 2. 註解
+  - 3. 自動格式設定
+  - 4. 開啟舊檔
+
+## computer-hardware-repair-b:12000-01-022
+
+- Replacement PNG: `public/question-images/120002-12000-01-022.png`
+- App path: `/question-images/120002-12000-01-022.png`
+- Linked uploaded images:
+  - `/question-images/120002-12000-01-022.png`
+  - `/question-images/120002-12000-01-022-1.png`
+  - `/question-images/120002-12000-01-022-2.png`
+  - `/question-images/120002-12000-01-022-3.png`
+  - `/question-images/120002-12000-01-022-4.png`
+- Current fallback page: `/question-pages/12000-page-3.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 如下圖之等角圖所示，下列圖形何者不是該圖的多視圖？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## computer-hardware-repair-b:12000-01-023
+
+- Replacement PNG: `public/question-images/120002-12000-01-023.png`
+- App path: `/question-images/120002-12000-01-023.png`
+- Linked uploaded images:
+  - `/question-images/120002-12000-01-023.png`
+  - `/question-images/120002-12000-01-023-1.png`
+  - `/question-images/120002-12000-01-023-2.png`
+  - `/question-images/120002-12000-01-023-3.png`
+  - `/question-images/120002-12000-01-023-4.png`
+- Current fallback page: `/question-pages/12000-page-3.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖之等角圖所示，下列圖形何者為該圖的多視圖？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## computer-hardware-repair-b:12000-01-026
+
+- Replacement PNG: `public/question-images/120002-12000-01-026.png`
+- App path: `/question-images/120002-12000-01-026.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-026.png`
+- Current fallback page: `/question-pages/12000-page-3.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖所示之邏輯電路，輸出 Y 為
+- Options:
+  - 1. A‧B
+  - 2. A＋B
+  - 3. A⊕B
+  - 4. A⊙B
+
+## computer-hardware-repair-b:12000-01-027
+
+- Replacement PNG: `public/question-images/120002-12000-01-027.png`
+- App path: `/question-images/120002-12000-01-027.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-027.png`
+- Current fallback page: `/question-pages/12000-page-3.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖所示之邏輯電路，輸出 Y 為
+- Options:
+  - 1. A‧B
+  - 2. A＋B
+  - 3. A⊕B
+  - 4. A⊙B
+
+## computer-hardware-repair-b:12000-01-029
+
+- Replacement PNG: `public/question-images/120002-12000-01-029.png`
+- App path: `/question-images/120002-12000-01-029.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-029.png`
+- Current fallback page: `/question-pages/12000-page-4.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖所示之電路，若於輸入端加入 100KHz 之方波信號，則輸出端之頻率為
+- Options:
+  - 1. 100KHz
+  - 2. 50KHz
+  - 3. 25KHz
+  - 4. 12.5KHz
+
+## computer-hardware-repair-b:12000-01-033
+
+- Replacement PNG: `public/question-images/120002-12000-01-033.png`
+- App path: `/question-images/120002-12000-01-033.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-033.png`
+- Current fallback page: `/question-pages/12000-page-4.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖輸出 Y 為 0 之情況最多有
+- Options:
+  - 1. 1
+  - 2. 2
+  - 3. 4
+  - 4. 7 種
+
+## computer-hardware-repair-b:12000-01-034
+
+- Replacement PNG: `public/question-images/120002-12000-01-034.png`
+- App path: `/question-images/120002-12000-01-034.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-034.png`
+- Current fallback page: `/question-pages/12000-page-4.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖輸出 Y 為 1 之情況最多有
+- Options:
+  - 1. 1
+  - 2. 2
+  - 3. 3
+  - 4. 4 種
+
+## computer-hardware-repair-b:12000-01-035
+
+- Replacement PNG: `public/question-images/120002-12000-01-035.png`
+- App path: `/question-images/120002-12000-01-035.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-035.png`
+- Current fallback page: `/question-pages/12000-page-4.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖為電阻串聯電路，其等效電阻 Rt＝
+- Options:
+  - 1. 8
+  - 2. 8.5
+  - 3. 9
+  - 4. 9.5 KΩ
+
+## computer-hardware-repair-b:12000-01-036
+
+- Replacement PNG: `public/question-images/120002-12000-01-036.png`
+- App path: `/question-images/120002-12000-01-036.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-036.png`
+- Current fallback page: `/question-pages/12000-page-4.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖電阻並聯電路，其等效電阻 Rt＝
+- Options:
+  - 1. 2
+  - 2. 4
+  - 3. 6
+  - 4. 8 KΩ
+
+## computer-hardware-repair-b:12000-01-037
+
+- Replacement PNG: `public/question-images/120002-12000-01-037.png`
+- App path: `/question-images/120002-12000-01-037.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-037.png`
+- Current fallback page: `/question-pages/12000-page-4.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖每一方格代表一個除以 2 電路，若 Vin 輸入電壓為 5V，頻率為10KHz 之方波，則下列 Vo 之輸出何者正確？
+- Options:
+  - 1. 0.625V
+  - 2. 1.25V
+  - 3. 2.5KHz
+  - 4. 5KHz
+
+## computer-hardware-repair-b:12000-01-040
+
+- Replacement PNG: `public/question-images/120002-12000-01-040.png`
+- App path: `/question-images/120002-12000-01-040.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-040.png`
+- Current fallback page: `/question-pages/12000-page-5.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖符號為
+- Options:
+  - 1. IEEE 1394a
+  - 2. USB
+  - 3. GPIB
+  - 4. RS-232C
+
+## computer-hardware-repair-b:12000-01-042
+
+- Replacement PNG: `public/question-images/120002-12000-01-042.png`
+- App path: `/question-images/120002-12000-01-042.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-042.png`
+- Current fallback page: `/question-pages/12000-page-5.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖排阻符號的電阻值為
+- Options:
+  - 1. 10Ω
+  - 2. 10KΩ
+  - 3. 100KΩ
+  - 4. 1MΩ
+
+## computer-hardware-repair-b:12000-01-043
+
+- Replacement PNG: `public/question-images/120002-12000-01-043.png`
+- App path: `/question-images/120002-12000-01-043.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-043.png`
+- Current fallback page: `/question-pages/12000-page-5.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖電子元件符號為
+- Options:
+  - 1. NPN 型達靈頓對電晶體
+  - 2. PNP 型達靈頓對電晶體
+  - 3. N 型金屬氧化物半導體場效應電晶體
+  - 4. P 型金屬氧化物半導體場效應電晶體
+
+## computer-hardware-repair-b:12000-01-044
+
+- Replacement PNG: `public/question-images/120002-12000-01-044.png`
+- App path: `/question-images/120002-12000-01-044.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-044.png`
+- Current fallback page: `/question-pages/12000-page-5.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖電子元件符號為
+- Options:
+  - 1. NPN 型達靈頓對電晶體
+  - 2. PNP 型達靈頓對電晶體
+  - 3. N 型金屬氧化物半導體場效應電晶體
+  - 4. P 型金屬氧化物半導體場效應電晶體
+
+## computer-hardware-repair-b:12000-01-045
+
+- Replacement PNG: `public/question-images/120002-12000-01-045.png`
+- App path: `/question-images/120002-12000-01-045.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-045.png`
+- Current fallback page: `/question-pages/12000-page-5.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖電子元件符號為具有
+- Options:
+  - 1. 正緣觸發
+  - 2. 負緣觸發
+  - 3. 正準位觸發
+  - 4. 負準位觸發之 JK 正反器
+
+## computer-hardware-repair-b:12000-01-046
+
+- Replacement PNG: `public/question-images/120002-12000-01-046.png`
+- App path: `/question-images/120002-12000-01-046.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-046.png`
+- Current fallback page: `/question-pages/12000-page-5.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖之流程圖符號表示
+- Options:
+  - 1. 程序
+  - 2. 顯示
+  - 3. 程式開始與結束
+  - 4. 列印
+
+## computer-hardware-repair-b:12000-01-047
+
+- Replacement PNG: `public/question-images/120002-12000-01-047.png`
+- App path: `/question-images/120002-12000-01-047.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-047.png`
+- Current fallback page: `/question-pages/12000-page-5.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖之流程圖符號表示
+- Options:
+  - 1. 程序
+  - 2. 顯示
+  - 3. 程式開始與結束
+  - 4. 列印
+
+## computer-hardware-repair-b:12000-01-048
+
+- Replacement PNG: `public/question-images/120002-12000-01-048.png`
+- App path: `/question-images/120002-12000-01-048.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-048.png`
+- Current fallback page: `/question-pages/12000-page-5.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖之流程圖符號表示
+- Options:
+  - 1. 程序
+  - 2. 顯示
+  - 3. 程式開始或結束
+  - 4. 列印
+
+## computer-hardware-repair-b:12000-01-049
+
+- Replacement PNG: `public/question-images/120002-12000-01-049.png`
+- App path: `/question-images/120002-12000-01-049.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-049.png`
+- Current fallback page: `/question-pages/12000-page-6.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖為
+- Options:
+  - 1. 樹狀
+  - 2. 環狀
+  - 3. 星狀
+  - 4. 匯流排網路架構
+
 ## computer-hardware-repair-c:12000-01-049
 
 - Replacement PNG: `public/question-images/120003-12000-01-049.png`
@@ -9346,6 +9821,457 @@ Total active image questions: 842
   - 2. Mini-B
   - 3. Micro-B
   - 4. Type-A
+
+## computer-hardware-repair-b:12000-01-050
+
+- Replacement PNG: `public/question-images/120002-12000-01-050.png`
+- App path: `/question-images/120002-12000-01-050.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-050.png`
+- Current fallback page: `/question-pages/12000-page-6.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖為
+- Options:
+  - 1. 樹狀
+  - 2. 環狀
+  - 3. 星狀
+  - 4. 匯流排網路架構
+
+## computer-hardware-repair-b:12000-01-051
+
+- Replacement PNG: `public/question-images/120002-12000-01-051.png`
+- App path: `/question-images/120002-12000-01-051.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-051.png`
+- Current fallback page: `/question-pages/12000-page-6.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖電子元件符號為
+- Options:
+  - 1. 石英振盪晶體
+  - 2. 電容器
+  - 3. 可變電容器
+  - 4. 電感器
+
+## computer-hardware-repair-b:12000-01-052
+
+- Replacement PNG: `public/question-images/120002-12000-01-052.png`
+- App path: `/question-images/120002-12000-01-052.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-052.png`
+- Current fallback page: `/question-pages/12000-page-6.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖電路符號為傳輸閘，當
+- Options:
+  - 1. A 為"LOW"時，Y= X
+  - 2. A 為"LOW"時，Y=NOTX
+  - 3. A 為"HIGH"時，Y= X
+  - 4. A 為"HIGH"時，Y=NOTX
+
+## computer-hardware-repair-b:12000-01-053
+
+- Replacement PNG: `public/question-images/120002-12000-01-053.png`
+- App path: `/question-images/120002-12000-01-053.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-053.png`
+- Current fallback page: `/question-pages/12000-page-6.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖金屬皮膜電阻之電阻值範圍為
+- Options:
+  - 1. 0.9 kΩ~1.1kΩ
+  - 2. 9.9 kΩ~10.1kΩ
+  - 3. 99 kΩ~101kΩ
+  - 4. 990 kΩ~1010kΩ
+
+## computer-hardware-repair-b:12000-01-054
+
+- Replacement PNG: `public/question-images/120002-12000-01-054.png`
+- App path: `/question-images/120002-12000-01-054.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-054.png`
+- Current fallback page: `/question-pages/12000-page-6.jpg`
+- Kind: multiple
+- Official answer: 1,4
+- Prompt: 有關下圖之敘述，下列何者正確？
+- Options:
+  - 1. 為 High Definition Multimedia Interface；HDMI 接頭
+  - 2. 為 Digital Visual Interface；DVI 接頭
+  - 3. 只可以傳送視訊信號
+  - 4. 可以同時傳送音訊和視訊信號
+
+## computer-hardware-repair-b:12000-01-055
+
+- Replacement PNG: `public/question-images/120002-12000-01-055.png`
+- App path: `/question-images/120002-12000-01-055.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-055.png`
+- Current fallback page: `/question-pages/12000-page-6.jpg`
+- Kind: multiple
+- Official answer: 2,3
+- Prompt: 有關下圖之敘述，下列何者正確？
+- Options:
+  - 1. 為 High Definition Multimedia Interface；HDMI 接頭
+  - 2. 為 Digital Visual Interface；DVI 接頭
+  - 3. 只可以傳送視訊信號
+  - 4. 可以同時傳送音訊和視訊信號
+
+## computer-hardware-repair-b:12000-01-056
+
+- Replacement PNG: `public/question-images/120002-12000-01-056.png`
+- App path: `/question-images/120002-12000-01-056.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-056.png`
+- Current fallback page: `/question-pages/12000-page-7.jpg`
+- Kind: multiple
+- Official answer: 1,3,4
+- Prompt: 有關下圖之敘述，下列何者正確？
+- Options:
+  - 1. 為 Serial Advanced Technology Attachment；SATA 接頭
+  - 2. 為 Universal Serial Bus；USB 接頭
+  - 3. 2.0 版本最大傳輸頻寬約為 3Gbps
+  - 4. 3.0 版本最大傳輸頻寬約為 6Gbps
+
+## computer-hardware-repair-b:12000-01-057
+
+- Replacement PNG: `public/question-images/120002-12000-01-057.png`
+- App path: `/question-images/120002-12000-01-057.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-057.png`
+- Current fallback page: `/question-pages/12000-page-7.jpg`
+- Kind: multiple
+- Official answer: 2,4
+- Prompt: 有關下圖之敘述，下列何者正確？
+- Options:
+  - 1. 為 Serial Advanced Technology Attachment；SATA 接頭
+  - 2. 為 Universal Serial Bus；USB 接頭
+  - 3. 2.0 版本最大傳輸頻寬約為 3Gbps
+  - 4. 3.0 版本最大傳輸頻寬約為 5Gbps
+
+## computer-hardware-repair-b:12000-01-058
+
+- Replacement PNG: `public/question-images/120002-12000-01-058.png`
+- App path: `/question-images/120002-12000-01-058.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-058.png`
+- Current fallback page: `/question-pages/12000-page-7.jpg`
+- Kind: multiple
+- Official answer: 1,3
+- Prompt: 有關下圖傳輸線之敘述，下列何者正確？
+- Options:
+  - 1. 為 USB to Micro USB 接頭
+  - 2. 為 USB to Mini USB 接頭
+  - 3. 2.0 版本最大傳輸頻寬約為 480Mbps
+  - 4. 3.0版本最大傳輸頻寬約為 6Gbps
+
+## computer-hardware-repair-b:12000-01-059
+
+- Replacement PNG: `public/question-images/120002-12000-01-059.png`
+- App path: `/question-images/120002-12000-01-059.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-059.png`
+- Current fallback page: `/question-pages/12000-page-7.jpg`
+- Kind: multiple
+- Official answer: 2,3
+- Prompt: 有關下圖傳輸線之敘述，下列何者正確？
+- Options:
+  - 1. 為 USB to Micro USB 接頭
+  - 2. 為 USB to Mini USB 接頭
+  - 3. 2.0 版本最大傳輸頻寬約為 480Mbps
+  - 4. 3.0版本最大傳輸頻寬約為 6Gbps
+
+## computer-hardware-repair-b:12000-01-060
+
+- Replacement PNG: `public/question-images/120002-12000-01-060.png`
+- App path: `/question-images/120002-12000-01-060.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-060.png`
+- Current fallback page: `/question-pages/12000-page-7.jpg`
+- Kind: multiple
+- Official answer: 1,2
+- Prompt: 有關下圖之敘述，下列何者正確？
+- Options:
+  - 1. 為 PCI Express，簡稱 PCI-E
+  - 2. 可用於顯示卡介面
+  - 3. 不支援熱拔插特性
+  - 4. 不支援熱交換特性
+
+## computer-hardware-repair-b:12000-01-061
+
+- Replacement PNG: `public/question-images/120002-12000-01-061.png`
+- App path: `/question-images/120002-12000-01-061.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-061.png`
+- Current fallback page: `/question-pages/12000-page-7.jpg`
+- Kind: multiple
+- Official answer: 1,3,4
+- Prompt: 有關下圖之敘述，下列何者正確？
+- Options:
+  - 1. 為 Serial Advanced Technology Attachment；SATA
+  - 2. 為 Universal Serial Bus；USB
+  - 3. 3.0 版本最大傳輸頻寬約為 6Gbps
+  - 4. 支援熱交換特性
+
+## computer-hardware-repair-b:12000-01-062
+
+- Replacement PNG: `public/question-images/120002-12000-01-062.png`
+- App path: `/question-images/120002-12000-01-062.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-062.png`
+- Current fallback page: `/question-pages/12000-page-7.jpg`
+- Kind: multiple
+- Official answer: 2,3,4
+- Prompt: 下圖為一個描述輸入與輸出之波形圖，其中「S」表示來源選擇，「A0,A1」表示輸入，且「Y」表示輸出，下列何者正確？
+- Options:
+  - 1. 此波形圖的電路為 1 對 2 解多工器
+  - 2. Y=S'A0+SA1
+  - 3. 當來源選擇線 S 為 1 時，資料輸入端 A1 連接到資料輸出端 Y
+  - 4. 當來源選擇線 S 為 0 時，資料輸入端A0 連接到資料輸出端 Y
+
+## computer-hardware-repair-b:12000-01-063
+
+- Replacement PNG: `public/question-images/120002-12000-01-063.png`
+- App path: `/question-images/120002-12000-01-063.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-063.png`
+- Current fallback page: `/question-pages/12000-page-8.jpg`
+- Kind: multiple
+- Official answer: 1,3,4
+- Prompt: 下圖是由三個 2 對 1 多工器組成的電路，有關其特性之敘述中，下列何者正確？
+- Options:
+  - 1. 此電路為 4 對 1 多工器
+  - 2. 當來源選擇線 S1 為 1，S0 為 1 時，資料輸入端 D0 連接到資料輸出端 Y
+  - 3. 當來源選擇線 S1 為 1，S0 為 0時，資料輸入端 D2 連接到資料輸出端 Y
+  - 4. 五個 4 對 1 多工器，可以擴充成一個 16 對 1 多工器
+
+## computer-hardware-repair-b:12000-01-064
+
+- Replacement PNG: `public/question-images/120002-12000-01-064.png`
+- App path: `/question-images/120002-12000-01-064.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-064.png`
+- Current fallback page: `/question-pages/12000-page-8.jpg`
+- Kind: multiple
+- Official answer: 1,4
+- Prompt: 有關下圖特性之敘述，下列何者正確？
+- Options:
+  - 1. 此電路為 1 對 2 解多工器
+  - 2. F0=SD
+  - 3. F1=S'D
+  - 4. 當來源選擇線 S=1，資料輸入端 D 連接到資料輸出端F1
+
+## computer-hardware-repair-b:12000-01-065
+
+- Replacement PNG: `public/question-images/120002-12000-01-065.png`
+- App path: `/question-images/120002-12000-01-065.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-065.png`
+- Current fallback page: `/question-pages/12000-page-8.jpg`
+- Kind: multiple
+- Official answer: 1,2,3
+- Prompt: 有關下圖之敘述，下列何者正確？
+- Options:
+  - 1. 為等效 D 型正反器
+  - 2. 若啟動預置(PRN)端，則輸出(Q)立即改變成「1」的狀態
+  - 3. 若啟動清除(CLRN)端，則輸出(Q)立即改變成「0」的狀態
+  - 4. 預置端與清除端皆為高電位啟動
+
+## computer-hardware-repair-b:12000-01-066
+
+- Replacement PNG: `public/question-images/120002-12000-01-066.png`
+- App path: `/question-images/120002-12000-01-066.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-01-066.png`
+- Current fallback page: `/question-pages/12000-page-8.jpg`
+- Kind: multiple
+- Official answer: 2,3,4
+- Prompt: 下圖有關藍牙之敘述，下列何者正確？
+- Options:
+  - 1. 藍牙具有「低耗電藍牙」、「中耗電藍牙」和「高耗電藍牙」三種模式
+  - 2. 使用 2.4GHz 無線電頻率
+  - 3. 屬於無線應用
+  - 4. 低耗電藍牙 BLE(Bluetooth Low Energy) 傳輸距離小於30M
+
+## computer-hardware-repair-b:12000-02-022
+
+- Replacement PNG: `public/question-images/120002-12000-02-022-1.png`
+- App path: `/question-images/120002-12000-02-022-1.png`
+- Linked uploaded images:
+  - `/question-images/120002-12000-02-022-1.png`
+  - `/question-images/120002-12000-02-022-2.png`
+  - `/question-images/120002-12000-02-022-3.png`
+  - `/question-images/120002-12000-02-022-4.png`
+- Current fallback page: `/question-pages/12000-page-10.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: Visual BASIC 中，下列哪一個圖示表示文字標籤 (Label)？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## computer-hardware-repair-b:12000-02-060
+
+- Replacement PNG: `public/question-images/120002-12000-02-060.png`
+- App path: `/question-images/120002-12000-02-060.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-02-060.png`
+- Current fallback page: `/question-pages/12000-page-11.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖 AND 閘的輸出 Y 為
+- Options:
+  - 1. 1
+  - 2. 0
+  - 3. A
+  - 4. NOTA
+
+## computer-hardware-repair-b:12000-02-061
+
+- Replacement PNG: `public/question-images/120002-12000-02-061.png`
+- App path: `/question-images/120002-12000-02-061.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-02-061.png`
+- Current fallback page: `/question-pages/12000-page-12.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖 OR 閘的 Y 輸出為
+- Options:
+  - 1. 1
+  - 2. 0
+  - 3. A
+  - 4. NOTA
+
+## computer-hardware-repair-b:12000-02-062
+
+- Replacement PNG: `public/question-images/120002-12000-02-062.png`
+- App path: `/question-images/120002-12000-02-062.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-02-062.png`
+- Current fallback page: `/question-pages/12000-page-12.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖七段顯示器測量結果
+- Options:
+  - 1. 各段完全不亮
+  - 2. a 段會亮
+  - 3. f 段會亮
+  - 4. g 段會亮
+
+## computer-hardware-repair-b:12000-02-063
+
+- Replacement PNG: `public/question-images/120002-12000-02-063.png`
+- App path: `/question-images/120002-12000-02-063.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-02-063.png`
+- Current fallback page: `/question-pages/12000-page-12.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖示波器螢幕顯示之波形為
+- Options:
+  - 1. 25Hz
+  - 2. 250Hz
+  - 3. 2.5KHz
+  - 4. 25KHz 之脈波
+
+## computer-hardware-repair-b:12000-02-067
+
+- Replacement PNG: `public/question-images/120002-12000-02-067.png`
+- App path: `/question-images/120002-12000-02-067.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-02-067.png`
+- Current fallback page: `/question-pages/12000-page-13.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖為正邏輯狀態時，則 Y 之布林函數為 Y=
+- Options:
+  - 1. AB
+  - 2. A+B
+  - 3. A⊕B
+  - 4. A⊙B
+
+## computer-hardware-repair-b:12000-02-068
+
+- Replacement PNG: `public/question-images/120002-12000-02-068.png`
+- App path: `/question-images/120002-12000-02-068.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-02-068.png`
+- Current fallback page: `/question-pages/12000-page-13.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖所示電路為
+- Options:
+  - 1. OR
+  - 2. AND
+  - 3. NOR
+  - 4. NAND 閘
+
+## computer-hardware-repair-b:12000-02-071
+
+- Replacement PNG: `public/question-images/120002-12000-02-071.png`
+- App path: `/question-images/120002-12000-02-071.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-02-071.png`
+- Current fallback page: `/question-pages/12000-page-13.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖邏輯符號的等效邏輯閘為
+- Options:
+  - 1. OR
+  - 2. AND
+  - 3. NOR
+  - 4. NAND 閘
+
+## computer-hardware-repair-b:12000-02-072
+
+- Replacement PNG: `public/question-images/120002-12000-02-072.png`
+- App path: `/question-images/120002-12000-02-072.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-02-072.png`
+- Current fallback page: `/question-pages/12000-page-13.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖為何種等效邏輯閘？
+- Options:
+  - 1. NAND
+  - 2. NOR
+  - 3. XOR
+  - 4. XNOR
+
+## computer-hardware-repair-b:12000-02-073
+
+- Replacement PNG: `public/question-images/120002-12000-02-073.png`
+- App path: `/question-images/120002-12000-02-073.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-02-073.png`
+- Current fallback page: `/question-pages/12000-page-13.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖為何種等效邏輯閘？
+- Options:
+  - 1. NAND
+  - 2. NOR
+  - 3. XOR
+  - 4. XNOR
+
+## computer-hardware-repair-b:12000-03-094
+
+- Replacement PNG: `public/question-images/120002-12000-03-094.png`
+- App path: `/question-images/120002-12000-03-094.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-03-094.png`
+- Current fallback page: `/question-pages/12000-page-20.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下列程式片段執行後實數 C 最後輸出值結果為何？
+- Options:
+  - 1. 1
+  - 2. 2
+  - 3. 3
+  - 4. 4
 
 ## computer-hardware-repair-c:12000-03-128
 
@@ -9378,6 +10304,54 @@ Total active image questions: 842
   - 2. 5
   - 3. 0.5
   - 4. 0.05
+
+## computer-hardware-repair-b:12000-03-199
+
+- Replacement PNG: `public/question-images/120002-12000-03-199.png`
+- App path: `/question-images/120002-12000-03-199.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-03-199.png`
+- Current fallback page: `/question-pages/12000-page-26.jpg`
+- Kind: multiple
+- Official answer: 1,3
+- Prompt: 若在下圖中的「1」代表 Vcc，則有關此圖之敘述，下列何者正確？
+- Options:
+  - 1. 為同步除 3 電路
+  - 2. 為非同步除 3 電路
+  - 3. 為上數計數器
+  - 4. 為下數計數器
+
+## computer-hardware-repair-b:12000-04-126
+
+- Replacement PNG: `public/question-images/120002-12000-04-126.png`
+- App path: `/question-images/120002-12000-04-126.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-04-126.png`
+- Current fallback page: `/question-pages/12000-page-35.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖「F」輸出之函數值為何者？
+- Options:
+  - 1. AB+CD
+  - 2. (A+B)(C+D)
+  - 3. AC+BD
+  - 4. (A+C)(B+D)
+
+## computer-hardware-repair-b:12000-04-127
+
+- Replacement PNG: `public/question-images/120002-12000-04-127.png`
+- App path: `/question-images/120002-12000-04-127.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-04-127.png`
+- Current fallback page: `/question-pages/12000-page-35.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖「F」輸出之函數值為何者？
+- Options:
+  - 1. AB+CD
+  - 2. (A+B)(C+D)
+  - 3. AC+BD
+  - 4. (A+C)(B+D)
 
 ## computer-hardware-repair-c:12000-04-158
 
@@ -9442,6 +10416,326 @@ Total active image questions: 842
   - 2. 4
   - 3. 5
   - 4. 6
+
+## computer-hardware-repair-b:12000-05-060
+
+- Replacement PNG: `public/question-images/120002-12000-05-060.png`
+- App path: `/question-images/120002-12000-05-060.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-05-060.png`
+- Current fallback page: `/question-pages/12000-page-43.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 有關下圖電路的敘述，下列哪一個是正確的？
+- Options:
+  - 1. 這是一個共集極放大電路
+  - 2. B 點的直流電壓為+4.8V
+  - 3. 集極電流 Ic 約為 1.76mA
+  - 4. 從 Vin 到Vo 的電壓放大率約為 48
+
+## computer-hardware-repair-b:12000-05-061
+
+- Replacement PNG: `public/question-images/120002-12000-05-061.png`
+- App path: `/question-images/120002-12000-05-061.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-05-061.png`
+- Current fallback page: `/question-pages/12000-page-43.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖為一個 RC 相移振盪器，設 C 均為 0.001μF，R 均為 10KΩ，其 Rf的值應該為多少才能符合振盪的要求？
+- Options:
+  - 1. 100KΩ
+  - 2. 290KΩ
+  - 3. 360KΩ
+  - 4. 470KΩ
+
+## computer-hardware-repair-b:12000-05-063
+
+- Replacement PNG: `public/question-images/120002-12000-05-063.png`
+- App path: `/question-images/120002-12000-05-063.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-05-063.png`
+- Current fallback page: `/question-pages/12000-page-43.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖電路的臨界頻率 (fc)為
+- Options:
+  - 1. 0.159Hz
+  - 2. 15.9Hz
+  - 3. 159Hz
+  - 4. 1.59KHz
+
+## computer-hardware-repair-b:12000-05-064
+
+- Replacement PNG: `public/question-images/120002-12000-05-064.png`
+- App path: `/question-images/120002-12000-05-064.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-05-064.png`
+- Current fallback page: `/question-pages/12000-page-44.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖濾波器的頻率下降率為
+- Options:
+  - 1. -3dB/decade
+  - 2. -10dB/decade
+  - 3. -15dB/decade
+  - 4. -20dB/decade
+
+## computer-hardware-repair-b:12000-05-100
+
+- Replacement PNG: `public/question-images/120002-12000-05-100.png`
+- App path: `/question-images/120002-12000-05-100.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-05-100.png`
+- Current fallback page: `/question-pages/12000-page-46.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖電路中流過 2KΩ電阻之電流（IL）為下列何者？
+- Options:
+  - 1. 0.6mA
+  - 2. -0.6mA
+  - 3. 1.2mA
+  - 4. -1.2mA
+
+## computer-hardware-repair-b:12000-05-101
+
+- Replacement PNG: `public/question-images/120002-12000-05-101.png`
+- App path: `/question-images/120002-12000-05-101.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-05-101.png`
+- Current fallback page: `/question-pages/12000-page-46.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖電路中流過 R3 電阻的電流為下列何者？
+- Options:
+  - 1. 0.3mA
+  - 2. 0.5mA
+  - 3. 1.2mA
+  - 4. 1.5mA
+
+## computer-hardware-repair-b:12000-05-103
+
+- Replacement PNG: `public/question-images/120002-12000-05-103.png`
+- App path: `/question-images/120002-12000-05-103.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-05-103.png`
+- Current fallback page: `/question-pages/12000-page-46.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖電路中集極與射極之間的電壓 VC E 為下列何者？
+- Options:
+  - 1. 3.3V
+  - 2. 3.8V
+  - 3. 4.7V
+  - 4. 5.3V
+
+## computer-hardware-repair-b:12000-05-104
+
+- Replacement PNG: `public/question-images/120002-12000-05-104.png`
+- App path: `/question-images/120002-12000-05-104.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-05-104.png`
+- Current fallback page: `/question-pages/12000-page-47.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖電路中電晶體集極與射極之間的電壓 VC E 為下列何者？
+- Options:
+  - 1. 6.7V
+  - 2. 5.0V
+  - 3. 4.3V
+  - 4. 3.4V
+
+## computer-hardware-repair-b:12000-05-105
+
+- Replacement PNG: `public/question-images/120002-12000-05-105.png`
+- App path: `/question-images/120002-12000-05-105.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-05-105.png`
+- Current fallback page: `/question-pages/12000-page-47.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖電路中電晶體集極與射極之間的電壓 VC E 約為下列何者？
+- Options:
+  - 1. 8.6V
+  - 2. 10.7V
+  - 3. 11.3V
+  - 4. 12.8V
+
+## computer-hardware-repair-b:12000-05-106
+
+- Replacement PNG: `public/question-images/120002-12000-05-106.png`
+- App path: `/question-images/120002-12000-05-106.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-05-106.png`
+- Current fallback page: `/question-pages/12000-page-47.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖電路在室溫下由基極（Rin(base)）看入的輸入阻抗約為多少歐姆？
+- Options:
+  - 1. 0.94KΩ
+  - 2. 1.25KΩ
+  - 3. 12.5KΩ
+  - 4. 24KΩ
+
+## computer-hardware-repair-b:12000-05-107
+
+- Replacement PNG: `public/question-images/120002-12000-05-107.png`
+- App path: `/question-images/120002-12000-05-107.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-05-107.png`
+- Current fallback page: `/question-pages/12000-page-47.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖電路由 Vin 端看入的總輸入阻抗約為多少歐姆？
+- Options:
+  - 1. 0.625KΩ
+  - 2. 2KΩ
+  - 3. 2.4KΩ
+  - 4. 12KΩ
+
+## computer-hardware-repair-b:12000-05-108
+
+- Replacement PNG: `public/question-images/120002-12000-05-108.png`
+- App path: `/question-images/120002-12000-05-108.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-05-108.png`
+- Current fallback page: `/question-pages/12000-page-48.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖電路圖示中從基極看入的輸入電阻約為多少歐姆？
+- Options:
+  - 1. 2.25KΩ
+  - 2. 22KΩ
+  - 3. 124KΩ
+  - 4. 202KΩ
+
+## computer-hardware-repair-b:12000-05-109
+
+- Replacement PNG: `public/question-images/120002-12000-05-109.png`
+- App path: `/question-images/120002-12000-05-109.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-05-109.png`
+- Current fallback page: `/question-pages/12000-page-48.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖電路中小信號由基極加入 1mV，在輸出端 Vo 可獲得多少電壓？
+- Options:
+  - 1. 98mV
+  - 2. 108mV
+  - 3. 240mV
+  - 4. 276mV
+
+## computer-hardware-repair-b:12000-05-112
+
+- Replacement PNG: `public/question-images/120002-12000-05-112.png`
+- App path: `/question-images/120002-12000-05-112.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-05-112.png`
+- Current fallback page: `/question-pages/12000-page-48.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖電路為一個電壓調整器，調整後的 Vo 輸出電壓為下列何者？
+- Options:
+  - 1. 5V
+  - 2. 7.5V
+  - 3. 15V
+  - 4. 25V
+
+## computer-hardware-repair-b:12000-05-115
+
+- Replacement PNG: `public/question-images/120002-12000-05-115.png`
+- App path: `/question-images/120002-12000-05-115.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-05-115.png`
+- Current fallback page: `/question-pages/12000-page-48.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖所示電路為何種電路？
+- Options:
+  - 1. 低通電路
+  - 2. 高通電路
+  - 3. 帶通電路
+  - 4. 帶拒電路
+
+## computer-hardware-repair-b:12000-05-124
+
+- Replacement PNG: `public/question-images/120002-12000-05-124.png`
+- App path: `/question-images/120002-12000-05-124.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-05-124.png`
+- Current fallback page: `/question-pages/12000-page-49.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖 IC 555 組成的方波振盪電路，其輸出信號的工作週期為下列何者？
+- Options:
+  - 1. 33.3%
+  - 2. 50%
+  - 3. 66.67%
+  - 4. 75.0%
+
+## computer-hardware-repair-b:12000-05-125
+
+- Replacement PNG: `public/question-images/120002-12000-05-125.png`
+- App path: `/question-images/120002-12000-05-125.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-05-125.png`
+- Current fallback page: `/question-pages/12000-page-49.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖電路流過 R4 電阻 6KΩ的電流為下列何者？
+- Options:
+  - 1. 0.3mA
+  - 2. 0.667mA
+  - 3. 1.20mA
+  - 4. 1.40mA
+
+## computer-hardware-repair-b:12000-05-126
+
+- Replacement PNG: `public/question-images/120002-12000-05-126.png`
+- App path: `/question-images/120002-12000-05-126.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-05-126.png`
+- Current fallback page: `/question-pages/12000-page-49.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖電路的輸入電壓假設為 10V，則下列敘述哪一個不正確？
+- Options:
+  - 1. 本電路是一個電壓調整器電路
+  - 2. 假設 Iref 小到可以忽略，其輸出電壓約為 0V
+  - 3. 如果想要在輸出端獲得+5V 電壓輸出，則要將 R2 短路
+  - 4. 將 R2 的電阻改用可變電阻則可以改變輸出的電壓
+
+## computer-hardware-repair-b:12000-05-132
+
+- Replacement PNG: `public/question-images/120002-12000-05-132.png`
+- App path: `/question-images/120002-12000-05-132.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-05-132.png`
+- Current fallback page: `/question-pages/12000-page-50.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下圖電路為哪一型式的濾波電路？
+- Options:
+  - 1. 高通濾波器
+  - 2. 低通濾波器
+  - 3. 帶通濾波器
+  - 4. 帶拒濾波器
+
+## computer-hardware-repair-b:12000-05-133
+
+- Replacement PNG: `public/question-images/120002-12000-05-133.png`
+- App path: `/question-images/120002-12000-05-133.png`
+- Linked uploaded image:
+  - `/question-images/120002-12000-05-133.png`
+- Current fallback page: `/question-pages/12000-page-50.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 有關下圖電路的敘述哪一個正確？
+- Options:
+  - 1. 一階高通濾波器其截止頻率為1.59MHz
+  - 2. 一階低通濾波器，其截止頻率為 1.59KHz
+  - 3. 二階高通濾波器其截止頻率為 1.59KHz
+  - 4. 二階低通濾波器，其截止頻率為 1.59MHz
 
 ## interior-decoration-management-b:12600-01-004
 
@@ -12672,22 +13966,6 @@ Total active image questions: 842
   - 3. 圖示選項 3
   - 4. 圖示選項 4
 
-## beverage-preparation-c:20600-03-058
-
-- Replacement PNG: `public/question-images/20600-03-058.png`
-- App path: `/question-images/20600-03-058.png`
-- Linked uploaded image:
-  - `/question-images/20600-03-058.png`
-- Current fallback page: `/question-pages/20600-page-16.jpg`
-- Kind: single
-- Official answer: 1
-- Prompt: 咖啡生長的條件年均溫最好在
-- Options:
-  - 1. 20℃
-  - 2. 30℃
-  - 3. 35℃
-  - 4. 40℃            左右
-
 ## beverage-preparation-c:20600-06-037
 
 - Replacement PNG: `public/question-images/20600-06-037.png`
@@ -14063,7 +15341,7 @@ Total active image questions: 842
   - 3. 省水標章
   - 4. 節能標章
 
-## computer-hardware-repair-c:90011-04-001
+## computer-hardware-repair-b:90011-04-001
 
 - Replacement PNG: `public/question-images/90011-page-5 1.png`
 - App path: `/question-images/90011-page-5%201.png`
@@ -14079,7 +15357,7 @@ Total active image questions: 842
   - 3. switch...case
   - 4. if...then...else
 
-## computer-hardware-repair-c:90011-04-002
+## computer-hardware-repair-b:90011-04-002
 
 - Replacement PNG: `public/question-images/90011-page-5 2.png`
 - App path: `/question-images/90011-page-5%202.png`
@@ -14095,7 +15373,7 @@ Total active image questions: 842
   - 3. switch...case
   - 4. if...then...else
 
-## computer-hardware-repair-c:90011-04-003
+## computer-hardware-repair-b:90011-04-003
 
 - Replacement PNG: `public/question-images/90011-page-6 3.png`
 - App path: `/question-images/90011-page-6%203.png`
@@ -14111,7 +15389,7 @@ Total active image questions: 842
   - 3. switch...case
   - 4. if...then...else
 
-## computer-hardware-repair-c:90011-04-004
+## computer-hardware-repair-b:90011-04-004
 
 - Replacement PNG: `public/question-images/90011-page-6 4.png`
 - App path: `/question-images/90011-page-6%204.png`

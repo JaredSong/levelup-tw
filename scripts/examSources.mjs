@@ -18,6 +18,7 @@ export const SOURCE_BANKS = {
   '11800': { version: 'A14', pdfFilename: '118003A14.pdf' },
   '11800-2': { subjectCode: '11800', version: 'A15', pdfFilename: '118002A15.pdf' },
   '12000': { version: 'A12', pdfFilename: '120003A12.pdf' },
+  '12000-2': { subjectCode: '12000', version: 'A12', pdfFilename: '120002A12.pdf' },
   '12600': { version: 'A12', pdfFilename: '126002A12.pdf' },
   '14500': { version: 'A13', pdfFilename: '145003A13.pdf' },
   '14900': { version: 'A15', pdfFilename: '149003A15.pdf' },

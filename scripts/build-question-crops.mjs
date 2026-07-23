@@ -1,9 +1,11 @@
 import { execFileSync } from 'node:child_process'
 import { createHash } from 'node:crypto'
+import { readFileSync, renameSync } from 'node:fs'
 import { access, copyFile, mkdir, readFile, readdir, unlink, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { analyzePngContent } from './pngPixelCheck.mjs'
 import { parseQuestionBank } from './questionParser.mjs'
 
 const EXTRA_FIGURES = new Set([
@@ -315,6 +317,28 @@ const BANKS = [
   },
   {
     code: '12000',
+    source: '120002A12',
+    cropPrefix: '120002',
+    splitImageOptions: true,
+    mixedFigureOptions: ['12000-01-022', '12000-01-023'],
+    figureRects: {
+      '12000-01-022': { x: 118, y: 310, width: 96, height: 58 },
+      '12000-01-023': { x: 118, y: 436, width: 88, height: 52 },
+      '12000-01-062': { page: 8, x: 115, y: 60, width: 310, height: 64 },
+      '12000-03-199': { page: 27, x: 120, y: 72, width: 260, height: 108 },
+      '12000-05-124': { x: 124, y: 352, width: 76, height: 82 },
+    },
+    optionRectOverrides: {
+      '12000-01-022': [
+        { x: 118, y: 224, width: 92, height: 62 },
+        { x: 230, y: 224, width: 92, height: 24 },
+        { x: 340, y: 224, width: 80, height: 24 },
+        { x: 118, y: 288, width: 92, height: 24 },
+      ],
+    },
+  },
+  {
+    code: '12000',
     source: '120003A12',
     cropPrefix: '120003',
     splitImageOptions: true,
@@ -390,6 +414,33 @@ function cropImage(renderedPage, output, page, rect) {
     '-vf', filters.join(','),
     '-frames:v', '1', output,
   ], { stdio: 'ignore' })
+  trimWhitePadding(output)
+}
+
+function trimWhitePadding(output) {
+  const analysis = analyzePngContent(readFileSync(output))
+  if (!analysis.supported || !analysis.bbox) return
+  const pad = 8
+  const { bbox } = analysis
+  const alreadyTight = bbox.margins.left <= pad
+    && bbox.margins.top <= pad
+    && bbox.margins.right <= pad
+    && bbox.margins.bottom <= pad
+  if (alreadyTight) return
+  const tmpOutput = `${output}.trim.png`
+  execFileSync('ffmpeg', [
+    '-loglevel', 'error', '-y', '-i', output,
+    '-vf', `crop=${bbox.width}:${bbox.height}:${bbox.x}:${bbox.y},pad=${bbox.width + pad * 2}:${bbox.height + pad * 2}:${pad}:${pad}:white`,
+    '-frames:v', '1', tmpOutput,
+  ], { stdio: 'ignore' })
+  renameSync(tmpOutput, output)
+}
+
+function popplerEnv() {
+  return {
+    ...process.env,
+    XDG_CACHE_HOME: process.env.XDG_CACHE_HOME ?? tmpdir(),
+  }
 }
 
 function renderPage({ rendered, work, pdfPath, sourcePage }) {
@@ -400,7 +451,7 @@ function renderPage({ rendered, work, pdfPath, sourcePage }) {
       '-f', String(sourcePage), '-l', String(sourcePage),
       '-r', '144', '-png', '-singlefile',
       pdfPath, prefix,
-    ], { stdio: 'ignore' })
+    ], { env: popplerEnv(), stdio: 'ignore' })
     renderedPage = `${prefix}.png`
     rendered.set(sourcePage, renderedPage)
   }
@@ -578,7 +629,7 @@ async function buildEmbeddedBank({
       execFileSync('pdftoppm', [
         '-f', String(question.sourcePage), '-l', String(question.sourcePage),
         '-r', '144', '-png', '-singlefile', pdfPath, prefix,
-      ], { stdio: 'ignore' })
+      ], { env: popplerEnv(), stdio: 'ignore' })
       renderedPage = `${prefix}.png`
       renderedPages.set(question.sourcePage, renderedPage)
     }
@@ -908,13 +959,16 @@ async function buildBank({
   const pdfPath = fileURLToPath(new URL(`../source/${source}.pdf`, import.meta.url))
   const raw = await readFile(new URL(`../source/${source}-raw.txt`, import.meta.url), 'utf8')
   const questions = parseQuestionBank(raw)
-  const figures = questions.filter((question) => !excludedFigures.includes(question.id) && (
+  let figures = questions.filter((question) => !excludedFigures.includes(question.id) && (
     question.hasFigure
       || EXTRA_FIGURES.has(question.id)
       || extraFigures.includes(question.id)
       || (includeLeftFigures && question.prompt.includes('左圖'))
       || / {2,}/.test(`${question.prompt}${question.options.join('')}`)
   ))
+  if (requestedQuestionIds.size) {
+    figures = figures.filter((question) => requestedQuestionIds.has(question.id))
+  }
   const work = join(tmpdir(), `level-up-crops-${source}`)
   await mkdir(work, { recursive: true })
   const bboxPath = join(work, 'bbox.html')
@@ -937,12 +991,6 @@ async function buildBank({
     const top = Math.max(0, marker.y - 5)
     const bottom = Math.min(page.height - 24, next ? next.y - 4 : page.height - 30)
     if (bottom <= top) throw new Error(`${question.id}: invalid crop bounds ${top}-${bottom}`)
-
-    const rectOverride = figureRects[question.id]
-    const cropPageNumber = rectOverride?.page ?? question.sourcePage
-    const cropPage = pages[cropPageNumber - 1]
-    if (!cropPage) throw new Error(`${question.id}: crop page ${cropPageNumber} missing`)
-    const renderedPage = renderPage({ rendered, work, pdfPath, sourcePage: cropPageNumber })
 
     const imageOptions = splitImageOptions && question.options.some((option) => option.includes('圖示選項'))
     const hasQuestionFigure = mixedFigureOptions.includes(question.id)
@@ -977,6 +1025,13 @@ async function buildBank({
       }))
       if (present.every(Boolean)) continue
     }
+
+    const rectOverride = figureRects[question.id]
+    const cropPageNumber = rectOverride?.page ?? question.sourcePage
+    const cropPage = pages[cropPageNumber - 1]
+    if (!cropPage) throw new Error(`${question.id}: crop page ${cropPageNumber} missing`)
+    const renderedPage = renderPage({ rendered, work, pdfPath, sourcePage: cropPageNumber })
+
     if (imageOptions && !optionRects) {
       throw new Error(`${question.id}: expected four graphical option markers on page ${question.sourcePage}`)
     }
@@ -997,7 +1052,11 @@ async function buildBank({
 }
 
 let total = 0
-const requestedSources = new Set(process.argv.slice(2).filter((arg) => !['--missing', '--figures-only'].includes(arg)))
+const idsArg = process.argv.slice(2).find((arg) => arg.startsWith('--ids='))
+const requestedQuestionIds = new Set(idsArg ? idsArg.slice('--ids='.length).split(',').filter(Boolean) : [])
+const requestedSources = new Set(process.argv.slice(2).filter((arg) => (
+  !['--missing', '--figures-only'].includes(arg) && !arg.startsWith('--ids=')
+)))
 const selectedBanks = requestedSources.size ? BANKS.filter((bank) => requestedSources.has(bank.source)) : BANKS
 if (requestedSources.size && selectedBanks.length !== requestedSources.size) {
   const known = BANKS.map((bank) => bank.source).join(', ')

@@ -20,6 +20,7 @@ const TARGETS = {
   'beauty-c': { subjectCode: '10000', pdf: 'source/100003A15.pdf', bank: 'public/data/exams/beauty-c/questions.json' },
   'computer-software-application-c': { subjectCode: '11800', pdf: 'source/118003A14.pdf', bank: 'public/data/exams/computer-software-application-c/questions.json' },
   'computer-software-application-b': { subjectCode: '11800', pdf: 'source/118002A15.pdf', bank: 'public/data/exams/computer-software-application-b/questions.json' },
+  'computer-hardware-repair-b': { subjectCode: '12000', pdf: 'source/120002A12.pdf', bank: 'public/data/exams/computer-hardware-repair-b/questions.json' },
   'computer-hardware-repair-c': { subjectCode: '12000', pdf: 'source/120003A12.pdf', bank: 'public/data/exams/computer-hardware-repair-c/questions.json' },
   'motorcycle-repair-c': { subjectCode: '14500', pdf: 'source/145003A13.pdf', bank: 'public/data/exams/motorcycle-repair-c/questions.json' },
   'indoor-wiring-b': { subjectCode: '00700', pdf: 'source/007002A15.pdf', bank: 'public/data/exams/indoor-wiring-b/questions.json' },
@@ -92,7 +93,7 @@ function verifyTarget(target) {
 
   const fromPdf = extractOfficialKeys(source.pdf)
   const bank = JSON.parse(readFileSync(source.bank, 'utf8'))
-  const published = bank.filter((question) => question.subjectCode === subjectCode)
+  const published = bank.filter((question) => question.subjectCode === subjectCode && question.active !== false)
   let checked = 0
   let agreed = 0
   const mismatches = []

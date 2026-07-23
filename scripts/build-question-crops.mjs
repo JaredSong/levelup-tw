@@ -127,16 +127,16 @@ const BANKS = [
     splitImageOptions: true,
     excludedFigures: ['02100-03-009', '02100-08-011'],
     figureRects: {
-      '02100-07-004': { x: 202, y: 116, width: 30, height: 34, padTo: { width: 140, height: 100 } },
-      '02100-08-003': { x: 105, y: 64, width: 275, height: 82, padTo: { width: 640, height: 220 } },
-      '02100-08-006': { x: 189, y: 219, width: 44, height: 29, padTo: { width: 160, height: 100 } },
+      '02100-07-004': { x: 203, y: 118, width: 28, height: 20, padTo: { width: 72, height: 56 } },
+      '02100-08-003': { x: 113, y: 84, width: 98, height: 58, padTo: { width: 212, height: 132 } },
+      '02100-08-006': { x: 192, y: 226, width: 38, height: 16, padTo: { width: 92, height: 48 } },
     },
     optionRectOverrides: {
       '02100-08-010': [
-        { x: 124, y: 362, width: 33, height: 40, padTo: { width: 120, height: 120 } },
-        { x: 172, y: 362, width: 38, height: 40, padTo: { width: 120, height: 120 } },
-        { x: 225, y: 362, width: 35, height: 40, padTo: { width: 120, height: 120 } },
-        { x: 276, y: 362, width: 36, height: 40, padTo: { width: 120, height: 120 } },
+        { x: 124, y: 369, width: 35, height: 57, padTo: { width: 86, height: 130 } },
+        { x: 172, y: 369, width: 31, height: 57, padTo: { width: 78, height: 130 } },
+        { x: 228, y: 369, width: 28, height: 57, padTo: { width: 72, height: 130 } },
+        { x: 280, y: 369, width: 31, height: 57, padTo: { width: 78, height: 130 } },
       ],
     },
   },

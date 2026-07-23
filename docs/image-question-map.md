@@ -1,6 +1,6 @@
 # Image Question Map
 
-Generated: 2026-07-23T06:15:19.360Z
+Generated: 2026-07-23T13:33:43.392Z
 
 These are the questions that currently need a figure, graph, code screenshot, or image-option reference.
 
@@ -12,7 +12,7 @@ Replacement workflow:
 
 Do not include the official answer-key column in replacement images.
 
-Total active image questions: 921
+Total active image questions: 920
 
 ## indoor-wiring-b:00700-01-001
 
@@ -10256,22 +10256,6 @@ Total active image questions: 921
   - 2. NOR
   - 3. XOR
   - 4. XNOR
-
-## computer-hardware-repair-b:12000-03-094
-
-- Replacement PNG: `public/question-images/120002-12000-03-094.png`
-- App path: `/question-images/120002-12000-03-094.png`
-- Linked uploaded image:
-  - `/question-images/120002-12000-03-094.png`
-- Current fallback page: `/question-pages/12000-page-20.jpg`
-- Kind: single
-- Official answer: 2
-- Prompt: 下列程式片段執行後實數 C 最後輸出值結果為何？
-- Options:
-  - 1. 1
-  - 2. 2
-  - 3. 3
-  - 4. 4
 
 ## computer-hardware-repair-c:12000-03-128
 

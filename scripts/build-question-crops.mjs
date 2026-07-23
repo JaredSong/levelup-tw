@@ -320,10 +320,12 @@ const BANKS = [
     source: '120002A12',
     cropPrefix: '120002',
     splitImageOptions: true,
+    excludedFigures: ['12000-01-025'],
     mixedFigureOptions: ['12000-01-022', '12000-01-023'],
     figureRects: {
       '12000-01-022': { x: 118, y: 310, width: 96, height: 58 },
       '12000-01-023': { x: 118, y: 436, width: 88, height: 52 },
+      '12000-01-046': { x: 114, y: 598, width: 44, height: 28, trimThreshold: 245 },
       '12000-01-062': { page: 8, x: 115, y: 60, width: 310, height: 64 },
       '12000-03-199': { page: 27, x: 120, y: 72, width: 260, height: 108 },
       '12000-05-124': { x: 124, y: 352, width: 76, height: 82 },
@@ -400,7 +402,7 @@ function clampRect(rect, page) {
 }
 
 function cropImage(renderedPage, output, page, rect) {
-  const { padTo, ...rawRect } = rect
+  const { padTo, trimThreshold, ...rawRect } = rect
   const crop = clampRect(rawRect, page)
   if (crop.width <= 3 || crop.height <= 3) {
     throw new Error(`${output}: invalid crop ${JSON.stringify(crop)}`)
@@ -414,11 +416,11 @@ function cropImage(renderedPage, output, page, rect) {
     '-vf', filters.join(','),
     '-frames:v', '1', output,
   ], { stdio: 'ignore' })
-  trimWhitePadding(output)
+  trimWhitePadding(output, { whiteThreshold: trimThreshold ?? 180 })
 }
 
-function trimWhitePadding(output) {
-  const analysis = analyzePngContent(readFileSync(output))
+function trimWhitePadding(output, { whiteThreshold = 180 } = {}) {
+  const analysis = analyzePngContent(readFileSync(output), { whiteThreshold })
   if (!analysis.supported || !analysis.bbox) return
   const pad = 8
   const { bbox } = analysis

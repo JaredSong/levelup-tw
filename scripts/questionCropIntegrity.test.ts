@@ -18,7 +18,9 @@ const PACKS = [
   { examId: 'indoor-wiring-c', occupationCode: '00700', sourceQuestions: 618, inactive: 0, figures: 62, cropPrefix: '007003', tightCrops: true },
   { examId: 'industrial-electronics-c', occupationCode: '02800', sourceQuestions: 651, inactive: 0, figures: 128, cropPrefix: '028003' },
   { examId: 'heat-treatment-c', occupationCode: '02100', sourceQuestions: 609, inactive: 0, figures: 4, cropPrefix: '021003', tightCrops: true },
-  { examId: 'computer-hardware-repair-b', occupationCode: '12000', sourceQuestions: 773, inactive: 3, figures: 76, cropPrefix: '120002', tightCrops: true },
+  // 76 → 75: 12000-03-094 is a program snippet, now rendered as selectable
+  // code text instead of a fuzzy screenshot crop.
+  { examId: 'computer-hardware-repair-b', occupationCode: '12000', sourceQuestions: 773, inactive: 3, figures: 75, cropPrefix: '120002', tightCrops: true },
   // tightCrops added: 12000-01-003 (mixedFigureOptions) now ships a small
   // base figure plus four small option crops instead of one combined strip.
   { examId: 'computer-hardware-repair-c', occupationCode: '12000', sourceQuestions: 707, inactive: 0, figures: 17, cropPrefix: '120003', tightCrops: true },

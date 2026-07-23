@@ -51,6 +51,9 @@ export const INFORMATION_COMMON_SOURCE_PAGE_OVERRIDES = {
 // `90011-04-004` is the exception — its four *options* are code, while the
 // prompt keeps a single figure, so only the first override image is used.
 export const INFORMATION_COMMON_CODE_BLOCK_OVERRIDES = {
+  '12000-03-094': {
+    codeBlock: 'A=20:B=5:C=0\nDO WHILE A > B\n  B=B+5\n  A=A-5\n  C=C+1\nWEND',
+  },
   '90011-04-004': {
     optionCodeBlocks: [
       'X>3? cout<<B:cout<<A;\nX=X+1',

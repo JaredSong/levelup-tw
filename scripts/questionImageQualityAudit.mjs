@@ -14,7 +14,7 @@ function minMargin(bbox) {
   return Math.min(bbox.margins.left, bbox.margins.top, bbox.margins.right, bbox.margins.bottom)
 }
 
-function classifyImage(image, result) {
+function classifyImage(image, result, sparseResult = result) {
   const risks = []
   if (!result.supported) return risks
   if (result.flat) risks.push('flat')
@@ -22,7 +22,11 @@ function classifyImage(image, result) {
   if (!result.bbox) return risks
 
   const area = result.width * result.height
-  const bboxArea = result.bbox.width * result.bbox.height
+  // The official WDA watermark is intentionally pale. For sparse-crop
+  // detection, ignore it; otherwise a tiny real figure on a huge white strip
+  // can look "non-sparse" just because the watermark stretches the bbox.
+  const sparseBox = sparseResult.bbox ?? result.bbox
+  const bboxArea = sparseBox.width * sparseBox.height
   const bboxRatio = bboxArea / area
   const margin = minMargin(result.bbox)
   const isSmall = result.width <= 240 && result.height <= 240
@@ -104,7 +108,8 @@ export async function auditQuestionImages({ baselinePath = DEFAULT_BASELINE } = 
       continue
     }
     const result = analyzePngContent(buffer)
-    const risks = classifyImage(entry.image, result)
+    const watermarkIgnoredResult = analyzePngContent(buffer, { whiteThreshold: 180 })
+    const risks = classifyImage(entry.image, result, watermarkIgnoredResult)
     items.push({ ...entry, result, risks })
   }
 

@@ -14,7 +14,7 @@ const PACKS = [
   // tightCrops added: 20600-02-016's four options are now separate crops.
   { examId: 'beverage-preparation-c', occupationCode: '20600', sourceQuestions: 617, inactive: 0, figures: 4, tightCrops: true },
   { examId: 'computer-software-application-b', occupationCode: '11800', sourceQuestions: 776, inactive: 0, figures: 6, cropPrefix: '118002', tightCrops: true },
-  { examId: 'industrial-wiring-c', occupationCode: '01300', sourceQuestions: 600, inactive: 0, figures: 98, cropPrefix: '013003', tightCrops: true },
+    { examId: 'industrial-wiring-c', occupationCode: '01300', sourceQuestions: 600, inactive: 0, figures: 96, cropPrefix: '013003', tightCrops: true },
   { examId: 'indoor-wiring-b', occupationCode: '00700', sourceQuestions: 862, inactive: 7, figures: 64, cropPrefix: '007002' },
   { examId: 'indoor-wiring-c', occupationCode: '00700', sourceQuestions: 618, inactive: 0, figures: 62, cropPrefix: '007003', tightCrops: true },
   { examId: 'industrial-electronics-c', occupationCode: '02800', sourceQuestions: 651, inactive: 0, figures: 128, cropPrefix: '028003' },

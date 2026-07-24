@@ -68,15 +68,30 @@ const BANKS = [
     source: '013003A13',
     cropPrefix: '013003',
     splitImageOptions: true,
-    excludedFigures: ['01300-05-061'],
+    excludedFigures: ['01300-04-085', '01300-05-061', '01300-05-063'],
     optionRectOverrides: {
       '01300-01-017': [null, null, null, { x: 110, y: 548, width: 150, height: 46 }],
       '01300-01-024': [null, null, { x: 118, y: 208, width: 82, height: 36 }, null],
-      '01300-01-029': [null, { x: 118, y: 612, width: 95, height: 35 }, null, null],
+      '01300-01-029': [
+        { x: 440, y: 576, width: 58, height: 24 },
+        { x: 118, y: 604, width: 55, height: 22 },
+        { x: 196, y: 604, width: 62, height: 22 },
+        { x: 272, y: 604, width: 62, height: 22 },
+      ],
       '01300-03-001': [null, null, null, { x: 118, y: 82, width: 80, height: 32 }],
       '01300-03-018': [null, null, null, { x: 118, y: 369, width: 115, height: 55 }],
-      '01300-04-105': [null, { x: 385, y: 268, width: 86, height: 54 }, null, null],
-      '01300-05-091': [null, { x: 118, y: 326, width: 165, height: 74 }, null, { x: 118, y: 400, width: 165, height: 70 }],
+      '01300-04-105': [
+        { x: 120, y: 316, width: 70, height: 55 },
+        { x: 382, y: 268, width: 82, height: 48 },
+        { x: 232, y: 328, width: 72, height: 43 },
+        { x: 342, y: 338, width: 72, height: 38 },
+      ],
+      '01300-05-091': [
+        { x: 285, y: 220, width: 160, height: 48 },
+        { x: 112, y: 276, width: 145, height: 44 },
+        { x: 290, y: 275, width: 150, height: 48 },
+        { x: 112, y: 325, width: 145, height: 45 },
+      ],
     },
   },
   { code: '15100', source: '151004A14', splitImageOptions: true },
@@ -679,8 +694,13 @@ async function buildEmbeddedBank({
     })
   }
 
+  const stalePrefixes = requestedQuestionIds.size
+    ? [...requestedQuestionIds].map((id) => `${cropPrefix ? `${cropPrefix}-` : ''}${id}`)
+    : [`${cropPrefix}-`]
   for (const file of await readdir(outputRoot)) {
-    if (file.startsWith(`${cropPrefix}-`) && file.endsWith('.png')) await unlink(new URL(file, outputRoot))
+    if (file.endsWith('.png') && stalePrefixes.some((prefix) => file.startsWith(prefix))) {
+      await unlink(new URL(file, outputRoot))
+    }
   }
 
   const imageMap = {}

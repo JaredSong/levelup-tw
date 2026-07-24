@@ -1,6 +1,6 @@
 # Image Question Map
 
-Generated: 2026-07-24T06:23:51.978Z
+Generated: 2026-07-24T14:03:10.689Z
 
 These are the questions that currently need a figure, graph, code screenshot, or image-option reference.
 
@@ -12,7 +12,7 @@ Replacement workflow:
 
 Do not include the official answer-key column in replacement images.
 
-Total active image questions: 1018
+Total active image questions: 1016
 
 ## indoor-wiring-b:00700-01-001
 
@@ -3058,25 +3058,6 @@ Total active image questions: 1018
   - 3. 圖示選項 3
   - 4. 圖示選項 4
 
-## industrial-wiring-c:01300-04-085
-
-- Replacement PNG: `public/question-images/013003-01300-04-085-1.png`
-- App path: `/question-images/013003-01300-04-085-1.png`
-- Linked uploaded images:
-  - `/question-images/013003-01300-04-085-1.png`
-  - `/question-images/013003-01300-04-085-2.png`
-  - `/question-images/013003-01300-04-085-3.png`
-  - `/question-images/013003-01300-04-085-4.png`
-- Current fallback page: `/question-pages/01300-page-26.jpg`
-- Kind: single
-- Official answer: 2
-- Prompt: 3ψ220V△接線感應電動機，欲接於 3ψ380V 電源時，應改接為
-- Options:
-  - 1. V
-  - 2. 圖示選項 2
-  - 3. 雙
-  - 4. 雙△
-
 ## industrial-wiring-c:01300-04-096
 
 - Replacement PNG: `public/question-images/013003-01300-04-096-1.png`
@@ -3417,22 +3398,6 @@ Total active image questions: 1018
   - 2. 50Ω
   - 3. 40Ω
   - 4. 30Ω
-
-## industrial-wiring-c:01300-05-063
-
-- Replacement PNG: `public/question-images/013003-01300-05-063.png`
-- App path: `/question-images/013003-01300-05-063.png`
-- Linked uploaded image:
-  - `/question-images/013003-01300-05-063.png`
-- Current fallback page: `/question-pages/01300-page-34.jpg`
-- Kind: single
-- Official answer: 2
-- Prompt: 在平衡三相電路中功率因數為 1 時，電功率為線電壓及線電流乘積之
-- Options:
-  - 1. 3倍
-  - 2. 倍
-  - 3. 1/3 倍
-  - 4. 1/   倍
 
 ## industrial-wiring-c:01300-05-067
 

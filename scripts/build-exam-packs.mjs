@@ -279,7 +279,9 @@ const QUESTION_OPTION_OVERRIDES = {
   '02800-10-023': ['Y = AB + ¬A·B', 'Y = ¬A·B + A·¬B', 'Y = AB + ¬(AB)', 'Y = A ⊕ B'],
   '02800-10-029': ['Y = A·B', 'Y = A + B', 'Y = ¬(AB)', 'Y = ¬(A + B)'],
   '02800-10-060': ['I₀I₁ = 00', 'I₀I₁ = 01', 'I₀I₁ = 10', 'I₀I₁ = 11'],
+  '01300-04-085': ['V', 'Y', '雙Y', '雙△'],
   '01300-05-061': ['R + X', '√(R² + X²)', 'R / √(R² + X²)', 'X / √(R² + X²)'],
+  '01300-05-063': ['3倍', '√3倍', '1/3倍', '1/√3倍'],
   // Looked like a graphical-option question (three blank ①②③ markers), but
   // checking the rendered PDF page showed plain "1/2π√(...)" formulas, not
   // circuit diagrams — the radical/vinculum glyphs just didn't extract as
@@ -429,7 +431,7 @@ const EXAMS = [
     cropPrefix: '013003',
     requireQuestionCrops: true,
     splitImageOptions: true,
-    excludedFigureIds: ['01300-05-061'],
+      excludedFigureIds: ['01300-04-085', '01300-05-061', '01300-05-063'],
     mockRules: {
       occupationQuota: 64,
       singleCount: 80,

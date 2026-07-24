@@ -16,6 +16,9 @@ tmp/
 .venv-paddle/
 __pycache__/
 
+# HyperFrames video projects (promo clips, captures, renders) — local only.
+videos/
+
 # Personal study notes. This project publishes the official 學科 (written) bank
 # only; 術科 material is sent to registered examinees rather than published, so
 # it is not ours to redistribute.

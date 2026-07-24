@@ -63,6 +63,22 @@ const BANKS = [
       '00700-01-006': [{ x: 110, y: 404, width: 40, height: 40 }, null, null, null],
     },
   },
+  {
+    code: '01300',
+    source: '013003A13',
+    cropPrefix: '013003',
+    splitImageOptions: true,
+    excludedFigures: ['01300-05-061'],
+    optionRectOverrides: {
+      '01300-01-017': [null, null, null, { x: 110, y: 548, width: 150, height: 46 }],
+      '01300-01-024': [null, null, { x: 118, y: 208, width: 82, height: 36 }, null],
+      '01300-01-029': [null, { x: 118, y: 612, width: 95, height: 35 }, null, null],
+      '01300-03-001': [null, null, null, { x: 118, y: 82, width: 80, height: 32 }],
+      '01300-03-018': [null, null, null, { x: 118, y: 369, width: 115, height: 55 }],
+      '01300-04-105': [null, { x: 385, y: 268, width: 86, height: 54 }, null, null],
+      '01300-05-091': [null, { x: 118, y: 326, width: 165, height: 74 }, null, { x: 118, y: 400, width: 165, height: 70 }],
+    },
+  },
   { code: '15100', source: '151004A14', splitImageOptions: true },
   {
     code: '12600',

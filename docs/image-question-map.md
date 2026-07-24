@@ -1,6 +1,6 @@
 # Image Question Map
 
-Generated: 2026-07-23T13:33:43.392Z
+Generated: 2026-07-24T06:23:51.978Z
 
 These are the questions that currently need a figure, graph, code screenshot, or image-option reference.
 
@@ -12,7 +12,7 @@ Replacement workflow:
 
 Do not include the official answer-key column in replacement images.
 
-Total active image questions: 920
+Total active image questions: 1018
 
 ## indoor-wiring-b:00700-01-001
 
@@ -2192,6 +2192,1637 @@ Total active image questions: 920
   - 2. 寸動控制
   - 3. 能 OFF，不能 ON
   - 4. 能 ON，能 OFF
+
+## industrial-wiring-c:01300-01-001
+
+- Replacement PNG: `public/question-images/013003-01300-01-001.png`
+- App path: `/question-images/013003-01300-01-001.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-01-001.png`
+- Current fallback page: `/question-pages/01300-page-2.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如下圖所示，IEC 國際標準符號為
+- Options:
+  - 1. 有機械連鎖之電驛線圈
+  - 2. 沒有機械連鎖之電驛線圈
+  - 3. 接於直流之電驛線圈
+  - 4. 接於交流之電驛線圈
+
+## industrial-wiring-c:01300-01-002
+
+- Replacement PNG: `public/question-images/013003-01300-01-002.png`
+- App path: `/question-images/013003-01300-01-002.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-01-002.png`
+- Current fallback page: `/question-pages/01300-page-2.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 如下圖所示，IEC 國際標準符號為
+- Options:
+  - 1. 有機械連鎖之電驛線圈
+  - 2. 沒有機械連鎖之電驛線圈
+  - 3. 接於直流之電驛線圈
+  - 4. 接於交流之電驛線圈
+
+## industrial-wiring-c:01300-01-003
+
+- Replacement PNG: `public/question-images/013003-01300-01-003.png`
+- App path: `/question-images/013003-01300-01-003.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-01-003.png`
+- Current fallback page: `/question-pages/01300-page-2.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 如下圖所示，IEC 國際標準符號為
+- Options:
+  - 1. 有機械連鎖之常閉接點
+  - 2. 能延時動作的常閉接點
+  - 3. 極限開關的常開接點
+  - 4. 極限開關的常閉接點
+
+## industrial-wiring-c:01300-01-004
+
+- Replacement PNG: `public/question-images/013003-01300-01-004.png`
+- App path: `/question-images/013003-01300-01-004.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-01-004.png`
+- Current fallback page: `/question-pages/01300-page-2.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖所示，IEC 國際標準符號為
+- Options:
+  - 1. 有機械連鎖之常開接點
+  - 2. 能延時復歸的常開接點
+  - 3. 常開接點
+  - 4. 常閉接點
+
+## industrial-wiring-c:01300-01-005
+
+- Replacement PNG: `public/question-images/013003-01300-01-005.png`
+- App path: `/question-images/013003-01300-01-005.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-01-005.png`
+- Current fallback page: `/question-pages/01300-page-2.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 如下圖所示，IEC 國際標準符號為
+- Options:
+  - 1. 有機械連鎖之常開接點
+  - 2. 能延時動作的常開接點
+  - 3. 按鈕開關的常開接點
+  - 4. 按鈕開關的常閉接點
+
+## industrial-wiring-c:01300-01-006
+
+- Replacement PNG: `public/question-images/013003-01300-01-006.png`
+- App path: `/question-images/013003-01300-01-006.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-01-006.png`
+- Current fallback page: `/question-pages/01300-page-2.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 如下圖所示，IEC 國際標準符號為
+- Options:
+  - 1. 有機械連鎖之常閉接點
+  - 2. 能延時動作的常閉接點
+  - 3. 緊急停止用之常開接點
+  - 4. 緊急停止用之常閉接點
+
+## industrial-wiring-c:01300-01-007
+
+- Replacement PNG: `public/question-images/013003-01300-01-007.png`
+- App path: `/question-images/013003-01300-01-007.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-01-007.png`
+- Current fallback page: `/question-pages/01300-page-2.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如下圖所示，IEC 國際標準符號為
+- Options:
+  - 1. 拉動以啟閉之常閉接點
+  - 2. 轉動以啟閉之常閉接點
+  - 3. 能延時動作之常閉接點
+  - 4. 緊急停止用之常閉接點
+
+## industrial-wiring-c:01300-01-008
+
+- Replacement PNG: `public/question-images/013003-01300-01-008.png`
+- App path: `/question-images/013003-01300-01-008.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-01-008.png`
+- Current fallback page: `/question-pages/01300-page-2.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖所示，IEC 國際標準符號為
+- Options:
+  - 1. 拉動以啟閉之常開接點
+  - 2. 轉動以啟閉之常開接點
+  - 3. 能延時動作之常開接點
+  - 4. 緊急停止用之常開接點
+
+## industrial-wiring-c:01300-01-009
+
+- Replacement PNG: `public/question-images/013003-01300-01-009.png`
+- App path: `/question-images/013003-01300-01-009.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-01-009.png`
+- Current fallback page: `/question-pages/01300-page-2.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 如下圖所示，IEC 國際標準符號為
+- Options:
+  - 1. 指示燈
+  - 2. 電阻
+  - 3. 線圈
+  - 4. 蜂鳴器
+
+## industrial-wiring-c:01300-01-010
+
+- Replacement PNG: `public/question-images/013003-01300-01-010.png`
+- App path: `/question-images/013003-01300-01-010.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-01-010.png`
+- Current fallback page: `/question-pages/01300-page-3.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖所示，IEC 國際標準符號為
+- Options:
+  - 1. 蜂鳴器
+  - 2. 能閃爍的指示燈
+  - 3. 接交流電之電磁鐵
+  - 4. 接於交流之電驛線圈
+
+## industrial-wiring-c:01300-01-011
+
+- Replacement PNG: `public/question-images/013003-01300-01-011.png`
+- App path: `/question-images/013003-01300-01-011.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-01-011.png`
+- Current fallback page: `/question-pages/01300-page-3.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 如下圖所示，IEC 國際標準符號為
+- Options:
+  - 1. 指示燈
+  - 2. 蜂鳴器
+  - 3. 電驛之線圈
+  - 4. 栓型保險絲
+
+## industrial-wiring-c:01300-01-016
+
+- Replacement PNG: `public/question-images/013003-01300-01-016.png`
+- App path: `/question-images/013003-01300-01-016.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-01-016.png`
+- Current fallback page: `/question-pages/01300-page-3.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如下圖所示之符號為
+- Options:
+  - 1. 繞線型感應電動機
+  - 2. 鼠籠型感應電動機
+  - 3. 感應發電機
+  - 4. 同步發電機
+
+## industrial-wiring-c:01300-01-017
+
+- Replacement PNG: `public/question-images/013003-01300-01-017-1.png`
+- App path: `/question-images/013003-01300-01-017-1.png`
+- Linked uploaded images:
+  - `/question-images/013003-01300-01-017-1.png`
+  - `/question-images/013003-01300-01-017-2.png`
+  - `/question-images/013003-01300-01-017-3.png`
+  - `/question-images/013003-01300-01-017-4.png`
+- Current fallback page: `/question-pages/01300-page-3.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 零相比流器之符號為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-wiring-c:01300-01-021
+
+- Replacement PNG: `public/question-images/013003-01300-01-021-1.png`
+- App path: `/question-images/013003-01300-01-021-1.png`
+- Linked uploaded images:
+  - `/question-images/013003-01300-01-021-1.png`
+  - `/question-images/013003-01300-01-021-2.png`
+  - `/question-images/013003-01300-01-021-3.png`
+  - `/question-images/013003-01300-01-021-4.png`
+- Current fallback page: `/question-pages/01300-page-3.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下列符號何者為電解質電容器？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-wiring-c:01300-01-024
+
+- Replacement PNG: `public/question-images/013003-01300-01-024-1.png`
+- App path: `/question-images/013003-01300-01-024-1.png`
+- Linked uploaded images:
+  - `/question-images/013003-01300-01-024-1.png`
+  - `/question-images/013003-01300-01-024-2.png`
+  - `/question-images/013003-01300-01-024-3.png`
+  - `/question-images/013003-01300-01-024-4.png`
+- Current fallback page: `/question-pages/01300-page-4.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下列何者為雙極雙投之開關符號？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-wiring-c:01300-01-025
+
+- Replacement PNG: `public/question-images/013003-01300-01-025.png`
+- App path: `/question-images/013003-01300-01-025.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-01-025.png`
+- Current fallback page: `/question-pages/01300-page-4.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 如下圖所示之符號為
+- Options:
+  - 1. 電磁開關 b 接點
+  - 2. 電磁開關 a 接點
+  - 3. 按鈕開關 a接點
+  - 4. 按鈕開關 b 接點
+
+## industrial-wiring-c:01300-01-026
+
+- Replacement PNG: `public/question-images/013003-01300-01-026.png`
+- App path: `/question-images/013003-01300-01-026.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-01-026.png`
+- Current fallback page: `/question-pages/01300-page-4.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖所示之符號為
+- Options:
+  - 1. 通電延時動作電驛 a 接點
+  - 2. 斷電延時復歸電驛 a接點
+  - 3. 手動復歸 b 接點
+  - 4. 殘留 a 接點
+
+## industrial-wiring-c:01300-01-027
+
+- Replacement PNG: `public/question-images/013003-01300-01-027.png`
+- App path: `/question-images/013003-01300-01-027.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-01-027.png`
+- Current fallback page: `/question-pages/01300-page-4.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 如下圖所示之符號為
+- Options:
+  - 1. a 接點
+  - 2. b 接點
+  - 3. 熱動 a 接點
+  - 4. 限時復歸 a 接點
+
+## industrial-wiring-c:01300-01-029
+
+- Replacement PNG: `public/question-images/013003-01300-01-029-1.png`
+- App path: `/question-images/013003-01300-01-029-1.png`
+- Linked uploaded images:
+  - `/question-images/013003-01300-01-029-1.png`
+  - `/question-images/013003-01300-01-029-2.png`
+  - `/question-images/013003-01300-01-029-3.png`
+  - `/question-images/013003-01300-01-029-4.png`
+- Current fallback page: `/question-pages/01300-page-4.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 限制開關（Limit Switch）之常開接點（N.O）符號為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-wiring-c:01300-01-036
+
+- Replacement PNG: `public/question-images/013003-01300-01-036.png`
+- App path: `/question-images/013003-01300-01-036.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-01-036.png`
+- Current fallback page: `/question-pages/01300-page-5.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如下圖所示之符號為
+- Options:
+  - 1. 按鈕開關接點
+  - 2. 限制開關接點
+  - 3. 閃爍電驛接點
+  - 4. 限時電驛接點
+
+## industrial-wiring-c:01300-01-037
+
+- Replacement PNG: `public/question-images/013003-01300-01-037.png`
+- App path: `/question-images/013003-01300-01-037.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-01-037.png`
+- Current fallback page: `/question-pages/01300-page-5.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 電路圖中，如下圖所示之符號為
+- Options:
+  - 1. 電阻器
+  - 2. 積熱電驛
+  - 3. 熱敏電阻
+  - 4. 輔助電驛
+
+## industrial-wiring-c:01300-01-038
+
+- Replacement PNG: `public/question-images/013003-01300-01-038.png`
+- App path: `/question-images/013003-01300-01-038.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-01-038.png`
+- Current fallback page: `/question-pages/01300-page-5.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖所示之符號為
+- Options:
+  - 1. 電磁開關 a 接點
+  - 2. 電磁開關 b 接點
+  - 3. 按鈕開關 a接點
+  - 4. 按鈕開關 b 接點
+
+## industrial-wiring-c:01300-01-039
+
+- Replacement PNG: `public/question-images/013003-01300-01-039-1.png`
+- App path: `/question-images/013003-01300-01-039-1.png`
+- Linked uploaded images:
+  - `/question-images/013003-01300-01-039-1.png`
+  - `/question-images/013003-01300-01-039-2.png`
+  - `/question-images/013003-01300-01-039-3.png`
+  - `/question-images/013003-01300-01-039-4.png`
+- Current fallback page: `/question-pages/01300-page-5.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 變壓器之符號為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-wiring-c:01300-01-040
+
+- Replacement PNG: `public/question-images/013003-01300-01-040.png`
+- App path: `/question-images/013003-01300-01-040.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-01-040.png`
+- Current fallback page: `/question-pages/01300-page-5.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖所示之符號為
+- Options:
+  - 1. 可調電阻器
+  - 2. 可調自耦變壓器
+  - 3. 電鈴
+  - 4. 蜂鳴器
+
+## industrial-wiring-c:01300-01-046
+
+- Replacement PNG: `public/question-images/013003-01300-01-046.png`
+- App path: `/question-images/013003-01300-01-046.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-01-046.png`
+- Current fallback page: `/question-pages/01300-page-5.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如下圖所示氣壓控制閥，其型式為
+- Options:
+  - 1. 四孔二位閥
+  - 2. 四孔三位閥
+  - 3. 五孔二位閥
+  - 4. 五孔三位閥
+
+## industrial-wiring-c:01300-01-047
+
+- Replacement PNG: `public/question-images/013003-01300-01-047-1.png`
+- App path: `/question-images/013003-01300-01-047-1.png`
+- Linked uploaded images:
+  - `/question-images/013003-01300-01-047-1.png`
+  - `/question-images/013003-01300-01-047-2.png`
+  - `/question-images/013003-01300-01-047-3.png`
+  - `/question-images/013003-01300-01-047-4.png`
+- Current fallback page: `/question-pages/01300-page-6.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 通電開始計時的延時電驛，其計時到接點斷開的接點符號為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-wiring-c:01300-01-048
+
+- Replacement PNG: `public/question-images/013003-01300-01-048-1.png`
+- App path: `/question-images/013003-01300-01-048-1.png`
+- Linked uploaded images:
+  - `/question-images/013003-01300-01-048-1.png`
+  - `/question-images/013003-01300-01-048-2.png`
+  - `/question-images/013003-01300-01-048-3.png`
+  - `/question-images/013003-01300-01-048-4.png`
+- Current fallback page: `/question-pages/01300-page-6.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 限制開關 LS 未受到碰觸時，其內部 b 接點的電路符號為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-wiring-c:01300-01-049
+
+- Replacement PNG: `public/question-images/013003-01300-01-049.png`
+- App path: `/question-images/013003-01300-01-049.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-01-049.png`
+- Current fallback page: `/question-pages/01300-page-6.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 如下圖所示 IEC 國際標準符號為
+- Options:
+  - 1. 限時動作之常開接點
+  - 2. 緊急停止用之常閉接點
+  - 3. 積熱過載保護電驛常開接點
+  - 4. 轉動以啟閉之常開接點
+
+## industrial-wiring-c:01300-01-050
+
+- Replacement PNG: `public/question-images/013003-01300-01-050.png`
+- App path: `/question-images/013003-01300-01-050.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-01-050.png`
+- Current fallback page: `/question-pages/01300-page-6.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 如下圖所示，IEC 國際標準符號為
+- Options:
+  - 1. 電磁接觸器輔助常開接點
+  - 2. 電磁接觸器線圈
+  - 3. 電磁接觸器輔助常閉接點
+  - 4. 輔助電驛常開接點
+
+## industrial-wiring-c:01300-01-051
+
+- Replacement PNG: `public/question-images/013003-01300-01-051.png`
+- App path: `/question-images/013003-01300-01-051.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-01-051.png`
+- Current fallback page: `/question-pages/01300-page-6.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如下圖所示，IEC 國際標準符號為
+- Options:
+  - 1. 限時電驛線圈
+  - 2. 輔助電驛線圈
+  - 3. 指示燈
+  - 4. 溫度開關線
+
+## industrial-wiring-c:01300-01-052
+
+- Replacement PNG: `public/question-images/013003-01300-01-052.png`
+- App path: `/question-images/013003-01300-01-052.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-01-052.png`
+- Current fallback page: `/question-pages/01300-page-6.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖所示，IEC 國際標準符號為
+- Options:
+  - 1. 限時電驛通電延時常閉接點
+  - 2. 限時電驛通電延時常開接點
+  - 3. 限時電驛斷電延時常閉接點
+  - 4. 限時電驛斷電延時常開接點
+
+## industrial-wiring-c:01300-01-053
+
+- Replacement PNG: `public/question-images/013003-01300-01-053.png`
+- App path: `/question-images/013003-01300-01-053.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-01-053.png`
+- Current fallback page: `/question-pages/01300-page-6.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如下圖所示，IEC 國際標準符號為
+- Options:
+  - 1. 限時電驛通電延時常閉接點
+  - 2. 限時電驛通電延時常開接點
+  - 3. 限時電驛斷電延時常閉接點
+  - 4. 限時電驛斷電延時常開接點
+
+## industrial-wiring-c:01300-01-054
+
+- Replacement PNG: `public/question-images/013003-01300-01-054.png`
+- App path: `/question-images/013003-01300-01-054.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-01-054.png`
+- Current fallback page: `/question-pages/01300-page-7.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下圖為兩只電磁接觸器（KM1、KM2）主接點符號，中間虛線及▽符號代表兩只電磁接觸器
+- Options:
+  - 1. 通電延時
+  - 2. 電器連鎖
+  - 3. 斷電延時
+  - 4. 機械連鎖
+
+## industrial-wiring-c:01300-01-055
+
+- Replacement PNG: `public/question-images/013003-01300-01-055.png`
+- App path: `/question-images/013003-01300-01-055.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-01-055.png`
+- Current fallback page: `/question-pages/01300-page-7.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖所示為電動機保護斷路器之 IEC 符號，此斷路器具有下列何保護功能
+- Options:
+  - 1. 短路、延時
+  - 2. 短路、過載
+  - 3. 延時、過載
+  - 4. 跳脫、變頻
+
+## industrial-wiring-c:01300-01-056
+
+- Replacement PNG: `public/question-images/013003-01300-01-056-1.png`
+- App path: `/question-images/013003-01300-01-056-1.png`
+- Linked uploaded images:
+  - `/question-images/013003-01300-01-056-1.png`
+  - `/question-images/013003-01300-01-056-2.png`
+  - `/question-images/013003-01300-01-056-3.png`
+  - `/question-images/013003-01300-01-056-4.png`
+- Current fallback page: `/question-pages/01300-page-7.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 閃爍電驛 a 接點的符號為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-wiring-c:01300-01-057
+
+- Replacement PNG: `public/question-images/013003-01300-01-057.png`
+- App path: `/question-images/013003-01300-01-057.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-01-057.png`
+- Current fallback page: `/question-pages/01300-page-7.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 如下圖所示為電動機保護斷路器之 IEC 符號，其操作方式為
+- Options:
+  - 1. 自動切換自動跳脫
+  - 2. 自動切換手動跳脫
+  - 3. 手動切換自動跳脫
+  - 4. 手動切換手動跳脫
+
+## industrial-wiring-c:01300-01-058
+
+- Replacement PNG: `public/question-images/013003-01300-01-058.png`
+- App path: `/question-images/013003-01300-01-058.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-01-058.png`
+- Current fallback page: `/question-pages/01300-page-7.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖所示氣壓控制閥，其型式為
+- Options:
+  - 1. 五口三位中位全開並附手動開關
+  - 2. 五口三位中位全閉並附手動開關
+  - 3. 三口五位中位全閉並附手動開關
+  - 4. 三口五位中位全開並附手動開關
+
+## industrial-wiring-c:01300-01-059
+
+- Replacement PNG: `public/question-images/013003-01300-01-059.png`
+- App path: `/question-images/013003-01300-01-059.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-01-059.png`
+- Current fallback page: `/question-pages/01300-page-7.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 如下圖所示氣壓控制閥，其型式為
+- Options:
+  - 1. 二口五位自動復歸
+  - 2. 三口五位中位全閉
+  - 3. 五口二位自動復歸
+  - 4. 五口三位中位全閉
+
+## industrial-wiring-c:01300-02-061
+
+- Replacement PNG: `public/question-images/013003-01300-02-061.png`
+- App path: `/question-images/013003-01300-02-061.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-02-061.png`
+- Current fallback page: `/question-pages/01300-page-11.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 如下圖所示，為液面控制器感測棒 E1、E2、E3，其中須接地之感測棒為
+- Options:
+  - 1. E1
+  - 2. E2
+  - 3. E3
+  - 4. 任一感測棒
+
+## industrial-wiring-c:01300-03-001
+
+- Replacement PNG: `public/question-images/013003-01300-03-001-1.png`
+- App path: `/question-images/013003-01300-03-001-1.png`
+- Linked uploaded images:
+  - `/question-images/013003-01300-03-001-1.png`
+  - `/question-images/013003-01300-03-001-2.png`
+  - `/question-images/013003-01300-03-001-3.png`
+  - `/question-images/013003-01300-03-001-4.png`
+- Current fallback page: `/question-pages/01300-page-12.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 電氣儀表上表示交直流兩用之符號為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-wiring-c:01300-03-004
+
+- Replacement PNG: `public/question-images/013003-01300-03-004.png`
+- App path: `/question-images/013003-01300-03-004.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-03-004.png`
+- Current fallback page: `/question-pages/01300-page-12.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖所示，兩只額定 100V 之電壓表，靈敏度分別為 20KΩ／V 及 40KΩ／V，當串聯接於 120V 電壓時，兩只電壓表分別指示
+- Options:
+  - 1. 20V、100V
+  - 2. 40V、80V
+  - 3. 60V、60V
+  - 4. 80V、40V
+
+## industrial-wiring-c:01300-03-007
+
+- Replacement PNG: `public/question-images/013003-01300-03-007.png`
+- App path: `/question-images/013003-01300-03-007.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-03-007.png`
+- Current fallback page: `/question-pages/01300-page-12.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖所示電路，電壓表 V 應指示
+- Options:
+  - 1. 50VAC
+  - 2. 50VDC
+  - 3. 75VAC
+  - 4. 75VDC
+
+## industrial-wiring-c:01300-03-008
+
+- Replacement PNG: `public/question-images/013003-01300-03-008.png`
+- App path: `/question-images/013003-01300-03-008.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-03-008.png`
+- Current fallback page: `/question-pages/01300-page-12.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 兩內阻不同之電壓表 V 1 及 V 2，如下圖所示之結線，V 2 之讀數為
+- Options:
+  - 1. 50V
+  - 2. 75V
+  - 3. 100V
+  - 4. 150V
+
+## industrial-wiring-c:01300-03-015
+
+- Replacement PNG: `public/question-images/013003-01300-03-015.png`
+- App path: `/question-images/013003-01300-03-015.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-03-015.png`
+- Current fallback page: `/question-pages/01300-page-13.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 如下圖所示，在 SWON 後，電流表之讀數應為
+- Options:
+  - 1. 6A
+  - 2. 4A
+  - 3. 3A
+  - 4. 2A
+
+## industrial-wiring-c:01300-03-018
+
+- Replacement PNG: `public/question-images/013003-01300-03-018-1.png`
+- App path: `/question-images/013003-01300-03-018-1.png`
+- Linked uploaded images:
+  - `/question-images/013003-01300-03-018-1.png`
+  - `/question-images/013003-01300-03-018-2.png`
+  - `/question-images/013003-01300-03-018-3.png`
+  - `/question-images/013003-01300-03-018-4.png`
+- Current fallback page: `/question-pages/01300-page-13.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 使用一只伏特表及一只安培表測電熱器之消耗功率時，下列何者為正確接法？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-wiring-c:01300-03-114
+
+- Replacement PNG: `public/question-images/013003-01300-03-114.png`
+- App path: `/question-images/013003-01300-03-114.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-03-114.png`
+- Current fallback page: `/question-pages/01300-page-18.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖所示，單切開關 ON 時，E 1、E 2 的電壓降分別為
+- Options:
+  - 1. E 1 ＝12V、E 2 ＝12V
+  - 2. E 1 ＝0V、E 2 ＝12V
+  - 3. E1＝0V、E 2 ＝24V
+  - 4. E1＝24V、E 2 ＝0V
+
+## industrial-wiring-c:01300-03-115
+
+- Replacement PNG: `public/question-images/013003-01300-03-115.png`
+- App path: `/question-images/013003-01300-03-115.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-03-115.png`
+- Current fallback page: `/question-pages/01300-page-18.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 如下圖所示，單切開關 OFF 時，E 1、E 2 的電壓降分別為
+- Options:
+  - 1. E 1 ＝12V、E 2＝12V
+  - 2. E 1 ＝0V、E 2 ＝12V
+  - 3. E 1 ＝0V、E 2 ＝24V
+  - 4. E 1 ＝24V、E 2 ＝0V
+
+## industrial-wiring-c:01300-03-130
+
+- Replacement PNG: `public/question-images/013003-01300-03-130.png`
+- App path: `/question-images/013003-01300-03-130.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-03-130.png`
+- Current fallback page: `/question-pages/01300-page-19.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖，PB、PL 及 BZ 裝置於操作面盤上，配置過門端子台時，最少須使用
+- Options:
+  - 1. 5P
+  - 2. 7P
+  - 3. 8P
+  - 4. 10P
+
+## industrial-wiring-c:01300-03-131
+
+- Replacement PNG: `public/question-images/013003-01300-03-131.png`
+- App path: `/question-images/013003-01300-03-131.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-03-131.png`
+- Current fallback page: `/question-pages/01300-page-20.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖配線規劃時，須編製多少個線號？
+- Options:
+  - 1. 6
+  - 2. 8
+  - 3. 10
+  - 4. 11
+
+## industrial-wiring-c:01300-03-147
+
+- Replacement PNG: `public/question-images/013003-01300-03-147.png`
+- App path: `/question-images/013003-01300-03-147.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-03-147.png`
+- Current fallback page: `/question-pages/01300-page-21.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 送電並按下 ON 開關後，使用三用電表做如下圖之測量，則三用電表檢測值為
+- Options:
+  - 1. 0V
+  - 2. 110V
+  - 3. 220V
+  - 4. 380V
+
+## industrial-wiring-c:01300-03-148
+
+- Replacement PNG: `public/question-images/013003-01300-03-148.png`
+- App path: `/question-images/013003-01300-03-148.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-03-148.png`
+- Current fallback page: `/question-pages/01300-page-21.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 當 OL 未動作時，送電並按下 ON 開關後，使用三用電表做如下圖之測量，則三用電表檢測值為
+- Options:
+  - 1. 0V
+  - 2. 110V
+  - 3. 220V
+  - 4. 380V
+
+## industrial-wiring-c:01300-04-058
+
+- Replacement PNG: `public/question-images/013003-01300-04-058-1.png`
+- App path: `/question-images/013003-01300-04-058-1.png`
+- Linked uploaded images:
+  - `/question-images/013003-01300-04-058-1.png`
+  - `/question-images/013003-01300-04-058-2.png`
+  - `/question-images/013003-01300-04-058-3.png`
+  - `/question-images/013003-01300-04-058-4.png`
+- Current fallback page: `/question-pages/01300-page-24.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 變壓器△－△接線之單線圖表示法
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-wiring-c:01300-04-085
+
+- Replacement PNG: `public/question-images/013003-01300-04-085-1.png`
+- App path: `/question-images/013003-01300-04-085-1.png`
+- Linked uploaded images:
+  - `/question-images/013003-01300-04-085-1.png`
+  - `/question-images/013003-01300-04-085-2.png`
+  - `/question-images/013003-01300-04-085-3.png`
+  - `/question-images/013003-01300-04-085-4.png`
+- Current fallback page: `/question-pages/01300-page-26.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 3ψ220V△接線感應電動機，欲接於 3ψ380V 電源時，應改接為
+- Options:
+  - 1. V
+  - 2. 圖示選項 2
+  - 3. 雙
+  - 4. 雙△
+
+## industrial-wiring-c:01300-04-096
+
+- Replacement PNG: `public/question-images/013003-01300-04-096-1.png`
+- App path: `/question-images/013003-01300-04-096-1.png`
+- Linked uploaded images:
+  - `/question-images/013003-01300-04-096-1.png`
+  - `/question-images/013003-01300-04-096-2.png`
+  - `/question-images/013003-01300-04-096-3.png`
+  - `/question-images/013003-01300-04-096-4.png`
+- Current fallback page: `/question-pages/01300-page-26.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 變壓器一二次電流與線圈匝數之關係式為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-wiring-c:01300-04-105
+
+- Replacement PNG: `public/question-images/013003-01300-04-105-1.png`
+- App path: `/question-images/013003-01300-04-105-1.png`
+- Linked uploaded images:
+  - `/question-images/013003-01300-04-105-1.png`
+  - `/question-images/013003-01300-04-105-2.png`
+  - `/question-images/013003-01300-04-105-3.png`
+  - `/question-images/013003-01300-04-105-4.png`
+- Current fallback page: `/question-pages/01300-page-27.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 直流電容器充電時之時間電壓曲線表示圖為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-wiring-c:01300-04-108
+
+- Replacement PNG: `public/question-images/013003-01300-04-108-1.png`
+- App path: `/question-images/013003-01300-04-108-1.png`
+- Linked uploaded images:
+  - `/question-images/013003-01300-04-108-1.png`
+  - `/question-images/013003-01300-04-108-2.png`
+  - `/question-images/013003-01300-04-108-3.png`
+  - `/question-images/013003-01300-04-108-4.png`
+- Current fallback page: `/question-pages/01300-page-27.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下列何者為歐姆定律？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-wiring-c:01300-04-141
+
+- Replacement PNG: `public/question-images/013003-01300-04-141.png`
+- App path: `/question-images/013003-01300-04-141.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-04-141.png`
+- Current fallback page: `/question-pages/01300-page-29.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如下圖所示，單相二線式中， r 為傳輸線路電阻，I 為線路電流，負載端電壓降為
+- Options:
+  - 1. 2rI
+  - 2. 3rI
+  - 3. rI
+  - 4. 3I
+
+## industrial-wiring-c:01300-04-142
+
+- Replacement PNG: `public/question-images/013003-01300-04-142.png`
+- App path: `/question-images/013003-01300-04-142.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-04-142.png`
+- Current fallback page: `/question-pages/01300-page-29.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如下圖所示，單相三線式中， r 為傳輸線路電阻，I 為線路電流，當負載平衡時，單一負載端電壓降為
+- Options:
+  - 1. rI
+  - 2. 2rI
+  - 3. 3rI
+  - 4. 4rI
+
+## industrial-wiring-c:01300-05-007
+
+- Replacement PNG: `public/question-images/013003-01300-05-007.png`
+- App path: `/question-images/013003-01300-05-007.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-05-007.png`
+- Current fallback page: `/question-pages/01300-page-30.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 在溫度控制中，如下圖符號表示
+- Options:
+  - 1. 直熱式熱電偶檢出裝置
+  - 2. 傍熱式熱電偶裝置
+  - 3. 直熱式電阻溫度之檢出裝置
+  - 4. 光電式溫度之檢出裝置。「」
+
+## industrial-wiring-c:01300-05-012
+
+- Replacement PNG: `public/question-images/013003-01300-05-012.png`
+- App path: `/question-images/013003-01300-05-012.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-05-012.png`
+- Current fallback page: `/question-pages/01300-page-30.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖所示，使用保持電驛控制 RL 及 GL，當按下 PB1 後 RL 燈亮；因故停電再復電後
+- Options:
+  - 1. RL 及 GL 均亮
+  - 2. RL 亮，GL 不亮
+  - 3. GL 亮，RL 不亮
+  - 4. RL 及 GL 均不亮
+
+## industrial-wiring-c:01300-05-015
+
+- Replacement PNG: `public/question-images/013003-01300-05-015-1.png`
+- App path: `/question-images/013003-01300-05-015-1.png`
+- Linked uploaded images:
+  - `/question-images/013003-01300-05-015-1.png`
+  - `/question-images/013003-01300-05-015-2.png`
+  - `/question-images/013003-01300-05-015-3.png`
+  - `/question-images/013003-01300-05-015-4.png`
+- Current fallback page: `/question-pages/01300-page-31.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 在時間電驛中，表示限時復歸，瞬時動作之 b 接點為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-wiring-c:01300-05-019
+
+- Replacement PNG: `public/question-images/013003-01300-05-019.png`
+- App path: `/question-images/013003-01300-05-019.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-05-019.png`
+- Current fallback page: `/question-pages/01300-page-31.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 如下圖所示，為
+- Options:
+  - 1. 減極性比流器
+  - 2. 加極性比流器
+  - 3. 加極性比壓器
+  - 4. 減極性比壓器
+
+## industrial-wiring-c:01300-05-020
+
+- Replacement PNG: `public/question-images/013003-01300-05-020.png`
+- App path: `/question-images/013003-01300-05-020.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-05-020.png`
+- Current fallback page: `/question-pages/01300-page-31.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如下圖所示，此法可量測電路之
+- Options:
+  - 1. 視在功率
+  - 2. 有效功率
+  - 3. 無效功率
+  - 4. 功率因數
+
+## industrial-wiring-c:01300-05-021
+
+- Replacement PNG: `public/question-images/013003-01300-05-021.png`
+- App path: `/question-images/013003-01300-05-021.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-05-021.png`
+- Current fallback page: `/question-pages/01300-page-31.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 工作者將導線在一貫穿型比流器上捲繞，如下圖貫穿匝數
+- Options:
+  - 1. 3 匝
+  - 2. 3.5 匝
+  - 3. 4 匝
+  - 4. 4.5 匝
+
+## industrial-wiring-c:01300-05-022
+
+- Replacement PNG: `public/question-images/013003-01300-05-022.png`
+- App path: `/question-images/013003-01300-05-022.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-05-022.png`
+- Current fallback page: `/question-pages/01300-page-32.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如下圖所示，電流表 A 指示
+- Options:
+  - 1. R 相電流
+  - 2. S 相電流
+  - 3. T 相電流
+  - 4. 零相電流
+
+## industrial-wiring-c:01300-05-023
+
+- Replacement PNG: `public/question-images/013003-01300-05-023.png`
+- App path: `/question-images/013003-01300-05-023.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-05-023.png`
+- Current fallback page: `/question-pages/01300-page-32.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖所示，電流表 A 2 指示之電流為
+- Options:
+  - 1. R 相
+  - 2. S 相
+  - 3. T 相
+  - 4. 零相
+
+## industrial-wiring-c:01300-05-024
+
+- Replacement PNG: `public/question-images/013003-01300-05-024.png`
+- App path: `/question-images/013003-01300-05-024.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-05-024.png`
+- Current fallback page: `/question-pages/01300-page-32.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如下圖所示， 三相電路連接單相負載 L，通過電流表 A 1 為 5A 時，電流表 A 3 指示應為
+- Options:
+  - 1. 0A
+  - 2. 5A
+  - 3. 10A
+  - 4. 20A
+
+## industrial-wiring-c:01300-05-041
+
+- Replacement PNG: `public/question-images/013003-01300-05-041-1.png`
+- App path: `/question-images/013003-01300-05-041-1.png`
+- Linked uploaded images:
+  - `/question-images/013003-01300-05-041-1.png`
+  - `/question-images/013003-01300-05-041-2.png`
+  - `/question-images/013003-01300-05-041-3.png`
+  - `/question-images/013003-01300-05-041-4.png`
+- Current fallback page: `/question-pages/01300-page-33.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: n 個 r 歐姆之電阻並聯時，其總電阻 R 為
+- Options:
+  - 1. nr
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. rn 2
+
+## industrial-wiring-c:01300-05-042
+
+- Replacement PNG: `public/question-images/013003-01300-05-042.png`
+- App path: `/question-images/013003-01300-05-042.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-05-042.png`
+- Current fallback page: `/question-pages/01300-page-33.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 如下圖所示電路，ab 間之等效電阻為
+- Options:
+  - 1. 7.5Ω
+  - 2. 15Ω
+  - 3. 30Ω
+  - 4. 45Ω
+
+## industrial-wiring-c:01300-05-043
+
+- Replacement PNG: `public/question-images/013003-01300-05-043-1.png`
+- App path: `/question-images/013003-01300-05-043-1.png`
+- Linked uploaded images:
+  - `/question-images/013003-01300-05-043-1.png`
+  - `/question-images/013003-01300-05-043-2.png`
+  - `/question-images/013003-01300-05-043-3.png`
+  - `/question-images/013003-01300-05-043-4.png`
+- Current fallback page: `/question-pages/01300-page-33.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 電阻 R 1、R 2、R 3 並聯，則總電阻為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-wiring-c:01300-05-047
+
+- Replacement PNG: `public/question-images/013003-01300-05-047.png`
+- App path: `/question-images/013003-01300-05-047.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-05-047.png`
+- Current fallback page: `/question-pages/01300-page-33.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 交流電壓有效值為 100V，其峰值電壓為
+- Options:
+  - 1. 100/               V
+  - 2. 100V
+  - 3. 100    V
+  - 4. 200V
+
+## industrial-wiring-c:01300-05-052
+
+- Replacement PNG: `public/question-images/013003-01300-05-052-1.png`
+- App path: `/question-images/013003-01300-05-052-1.png`
+- Linked uploaded images:
+  - `/question-images/013003-01300-05-052-1.png`
+  - `/question-images/013003-01300-05-052-2.png`
+  - `/question-images/013003-01300-05-052-3.png`
+  - `/question-images/013003-01300-05-052-4.png`
+- Current fallback page: `/question-pages/01300-page-33.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 交流正弦波最大值為有效值之
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 2 倍
+
+## industrial-wiring-c:01300-05-054
+
+- Replacement PNG: `public/question-images/013003-01300-05-054.png`
+- App path: `/question-images/013003-01300-05-054.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-05-054.png`
+- Current fallback page: `/question-pages/01300-page-34.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖所示，電路之阻抗值為
+- Options:
+  - 1. 130Ω
+  - 2. 50Ω
+  - 3. 40Ω
+  - 4. 30Ω
+
+## industrial-wiring-c:01300-05-063
+
+- Replacement PNG: `public/question-images/013003-01300-05-063.png`
+- App path: `/question-images/013003-01300-05-063.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-05-063.png`
+- Current fallback page: `/question-pages/01300-page-34.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 在平衡三相電路中功率因數為 1 時，電功率為線電壓及線電流乘積之
+- Options:
+  - 1. 3倍
+  - 2. 倍
+  - 3. 1/3 倍
+  - 4. 1/   倍
+
+## industrial-wiring-c:01300-05-067
+
+- Replacement PNG: `public/question-images/013003-01300-05-067.png`
+- App path: `/question-images/013003-01300-05-067.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-05-067.png`
+- Current fallback page: `/question-pages/01300-page-34.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 如下圖所示，三個 10Ω電阻所消耗有效功率（KW）為
+- Options:
+  - 1. 21
+  - 2. 18
+  - 3. 12
+  - 4. 4
+
+## industrial-wiring-c:01300-05-072
+
+- Replacement PNG: `public/question-images/013003-01300-05-072.png`
+- App path: `/question-images/013003-01300-05-072.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-05-072.png`
+- Current fallback page: `/question-pages/01300-page-35.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 連接之三相平衡負載，若改為△連接，則其功率將為
+- Options:
+  - 1. 不變
+  - 2. 原來的1/3 倍
+  - 3. 原來的 3 倍
+  - 4. 原來的倍
+
+## industrial-wiring-c:01300-05-073
+
+- Replacement PNG: `public/question-images/013003-01300-05-073.png`
+- App path: `/question-images/013003-01300-05-073.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-05-073.png`
+- Current fallback page: `/question-pages/01300-page-35.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 平衡三相之總功率等於任何一相功率之
+- Options:
+  - 1. 2             倍
+  - 2. 倍
+  - 3. 3 倍
+  - 4. 2倍
+
+## industrial-wiring-c:01300-05-085
+
+- Replacement PNG: `public/question-images/013003-01300-05-085.png`
+- App path: `/question-images/013003-01300-05-085.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-05-085.png`
+- Current fallback page: `/question-pages/01300-page-35.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖所示，何者正確？
+- Options:
+  - 1. A 端表示正極
+  - 2. B 端表示正極
+  - 3. 此電路為穩壓電路
+  - 4. AB 為交流端
+
+## industrial-wiring-c:01300-05-091
+
+- Replacement PNG: `public/question-images/013003-01300-05-091-1.png`
+- App path: `/question-images/013003-01300-05-091-1.png`
+- Linked uploaded images:
+  - `/question-images/013003-01300-05-091-1.png`
+  - `/question-images/013003-01300-05-091-2.png`
+  - `/question-images/013003-01300-05-091-3.png`
+  - `/question-images/013003-01300-05-091-4.png`
+- Current fallback page: `/question-pages/01300-page-36.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下列何者為全波整流電路？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-wiring-c:01300-05-092
+
+- Replacement PNG: `public/question-images/013003-01300-05-092-1.png`
+- App path: `/question-images/013003-01300-05-092-1.png`
+- Linked uploaded images:
+  - `/question-images/013003-01300-05-092-1.png`
+  - `/question-images/013003-01300-05-092-2.png`
+  - `/question-images/013003-01300-05-092-3.png`
+  - `/question-images/013003-01300-05-092-4.png`
+- Current fallback page: `/question-pages/01300-page-36.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 附加電容濾波之交流全波整流電路，其輸出波形為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## industrial-wiring-c:01300-05-093
+
+- Replacement PNG: `public/question-images/013003-01300-05-093.png`
+- App path: `/question-images/013003-01300-05-093.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-05-093.png`
+- Current fallback page: `/question-pages/01300-page-36.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 如下圖所示之橋式整流電路，下列何者方向錯誤？
+- Options:
+  - 1. D1
+  - 2. D2
+  - 3. D3
+  - 4. D4
+
+## industrial-wiring-c:01300-05-095
+
+- Replacement PNG: `public/question-images/013003-01300-05-095.png`
+- App path: `/question-images/013003-01300-05-095.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-05-095.png`
+- Current fallback page: `/question-pages/01300-page-36.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 三相連接之電阻負載，若改為△連接，則功率為原來連接時之
+- Options:
+  - 1. 1/√3 倍
+  - 2. √3 倍
+  - 3. 1/3 倍
+  - 4. 3 倍
+
+## industrial-wiring-c:01300-06-001
+
+- Replacement PNG: `public/question-images/013003-01300-06-001.png`
+- App path: `/question-images/013003-01300-06-001.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-06-001.png`
+- Current fallback page: `/question-pages/01300-page-38.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 如下圖所示，加上額定電壓（E）時，電驛 R
+- Options:
+  - 1. 不動作
+  - 2. 瞬間動作後停
+  - 3. 正常動作
+  - 4. 反覆動作
+
+## industrial-wiring-c:01300-06-003
+
+- Replacement PNG: `public/question-images/013003-01300-06-003.png`
+- App path: `/question-images/013003-01300-06-003.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-06-003.png`
+- Current fallback page: `/question-pages/01300-page-38.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 如下圖所示，下列敘述何者正確？
+- Options:
+  - 1. 當開關切入 1，2 位置時，a 及 1 不通
+  - 2. 當開關切入 c 位置時，c 與 3 及 4 不通
+  - 3. 當開關切入 b 位置時，1 與2 不通
+  - 4. 當開關切入 a 位置時，5 與 6 是通路
+
+## industrial-wiring-c:01300-06-004
+
+- Replacement PNG: `public/question-images/013003-01300-06-004.png`
+- App path: `/question-images/013003-01300-06-004.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-06-004.png`
+- Current fallback page: `/question-pages/01300-page-39.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 如下圖所示，X 電驛之動作為
+- Options:
+  - 1. 能 ON 能 OFF
+  - 2. 不能 ON 亦不能 OFF
+  - 3. 能 ON 但不能 OFF
+  - 4. 不能 ON 但能 OFF
+
+## industrial-wiring-c:01300-06-005
+
+- Replacement PNG: `public/question-images/013003-01300-06-005.png`
+- App path: `/question-images/013003-01300-06-005.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-06-005.png`
+- Current fallback page: `/question-pages/01300-page-39.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖所示，控制電路可做為一台三相感應電動機
+- Options:
+  - 1. －△啟動控制
+  - 2. 正逆轉控制
+  - 3. 斷續動作控制
+  - 4. ON、OFF 起動控制
+
+## industrial-wiring-c:01300-06-006
+
+- Replacement PNG: `public/question-images/013003-01300-06-006.png`
+- App path: `/question-images/013003-01300-06-006.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-06-006.png`
+- Current fallback page: `/question-pages/01300-page-39.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖所示，電磁接觸器 MCF 在運轉中，如再按 ON 2 按鈕，則電磁接觸器 MCR
+- Options:
+  - 1. 不一定動作
+  - 2. 不動作
+  - 3. 動作
+  - 4. 發生故障
+
+## industrial-wiring-c:01300-06-007
+
+- Replacement PNG: `public/question-images/013003-01300-06-007.png`
+- App path: `/question-images/013003-01300-06-007.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-06-007.png`
+- Current fallback page: `/question-pages/01300-page-39.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖所示，當 ON 及 OFF 按鈕開關同時押下時，電磁接觸器 MC 之線圈
+- Options:
+  - 1. 不一定動作
+  - 2. 動作
+  - 3. 電路短路
+  - 4. 斷續動作
+
+## industrial-wiring-c:01300-06-008
+
+- Replacement PNG: `public/question-images/013003-01300-06-008.png`
+- App path: `/question-images/013003-01300-06-008.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-06-008.png`
+- Current fallback page: `/question-pages/01300-page-39.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 如下圖所示，當 A 1、A 4 之接點閉合時
+- Options:
+  - 1. GL 1、GL 2、GL 3、GL 4 亮度相同
+  - 2. GL 1 較亮，GL 2、GL 3、GL 4 不亮
+  - 3. GL 2 較亮，GL 1、GL 3、GL 4 微亮
+  - 4. GL 1、GL 4 亮，GL 2、GL 3 微亮
+
+## industrial-wiring-c:01300-06-009
+
+- Replacement PNG: `public/question-images/013003-01300-06-009.png`
+- App path: `/question-images/013003-01300-06-009.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-06-009.png`
+- Current fallback page: `/question-pages/01300-page-39.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖所示，A、B 兩接點之作用為
+- Options:
+  - 1. 連動
+  - 2. 避免同時投入
+  - 3. 保持接點
+  - 4. 可同時投入
+
+## industrial-wiring-c:01300-06-037
+
+- Replacement PNG: `public/question-images/013003-01300-06-037.png`
+- App path: `/question-images/013003-01300-06-037.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-06-037.png`
+- Current fallback page: `/question-pages/01300-page-41.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 在下圖中將 S 投入後指示燈即
+- Options:
+  - 1. 繼續亮
+  - 2. 熄滅
+  - 3. 反覆點滅
+  - 4. 只亮一次，旋即熄滅
+
+## industrial-wiring-c:01300-06-050
+
+- Replacement PNG: `public/question-images/013003-01300-06-050.png`
+- App path: `/question-images/013003-01300-06-050.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-06-050.png`
+- Current fallback page: `/question-pages/01300-page-42.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 如下圖所示，未通電時，以三用電表量測按鈕開關 PB1 之 a 接點兩端之電阻值為
+- Options:
+  - 1. 無限大
+  - 2. 接近無限大
+  - 3. 電磁接觸器線圈與指示燈內阻之並聯值
+  - 4. 電磁接觸器線圈與指示燈內阻之串聯值
+
+## industrial-wiring-c:01300-06-051
+
+- Replacement PNG: `public/question-images/013003-01300-06-051.png`
+- App path: `/question-images/013003-01300-06-051.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-06-051.png`
+- Current fallback page: `/question-pages/01300-page-42.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖所示，電磁接觸器線圈之內阻值為 300Ω，指示燈之內阻值為 600Ω。通電後，若 PB1 或 PB2 均未動作，則電磁接觸器輔助 a 接點間之電壓值為
+- Options:
+  - 1. 0VAC
+  - 2. 220VAC
+  - 3. VAC
+  - 4. 220×600/900 VAC
+
+## industrial-wiring-c:01300-06-057
+
+- Replacement PNG: `public/question-images/013003-01300-06-057.png`
+- App path: `/question-images/013003-01300-06-057.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-06-057.png`
+- Current fallback page: `/question-pages/01300-page-43.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 如下圖所示之歐規斷路器，若其規格為 3P 220VAC 25KA 25A，下列有關該器具之功能敘述何者錯誤？
+- Options:
+  - 1. 適用於 3ψ3W 220VAC 之電源系統
+  - 2. 具有三相同時投入與切離之手動裝置
+  - 3. 當二次側短路時，自動跳脫
+  - 4. 當二次側負載電流大於 25A 時，自動跳脫
+
+## industrial-wiring-c:01300-06-058
+
+- Replacement PNG: `public/question-images/013003-01300-06-058.png`
+- App path: `/question-images/013003-01300-06-058.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-06-058.png`
+- Current fallback page: `/question-pages/01300-page-43.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如下圖所示之歐規斷路器，若其規格為 3P 220VAC 25KA 2.5~4A 過載可調，瞬跳值為 10 倍以上，下列有關該器具之功能敘述何者錯誤？
+- Options:
+  - 1. 當過載旋鈕切於 4A 時，若負載電流大於 40A，則該斷路器做過載跳脫
+  - 2. 該斷路器具有過載及短路跳脫功能
+  - 3. 當短路電流大於 25KA 時，該斷路器無跳脫功能
+  - 4. 該斷路器二次側不必加裝過載保護電驛
+
+## industrial-wiring-c:01300-06-059
+
+- Replacement PNG: `public/question-images/013003-01300-06-059.png`
+- App path: `/question-images/013003-01300-06-059.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-06-059.png`
+- Current fallback page: `/question-pages/01300-page-43.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如圖 1 所示電路圖，某工作者配線如圖 2，則此配線
+- Options:
+  - 1. 未按電路圖施工應判定為施工錯誤
+  - 2. 功能一樣，視為合格
+  - 3. 與電路圖一致，視為完全正確
+  - 4. 工作者為工作方便，節省材料這樣更好
+
+## industrial-wiring-c:01300-06-061
+
+- Replacement PNG: `public/question-images/013003-01300-06-061.png`
+- App path: `/question-images/013003-01300-06-061.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-06-061.png`
+- Current fallback page: `/question-pages/01300-page-44.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖所示，當檢修時，將感應電動機（IM）暫時切離，此時於送電後，觸發固態接觸器（SSC），以三用電表量測固態接觸器（SSC）主接點二次側間之電壓值為
+- Options:
+  - 1. 0VAC
+  - 2. 220VAC
+  - 3. 220√3VAC
+  - 4. 230VAC
+
+## industrial-wiring-c:01300-06-062
+
+- Replacement PNG: `public/question-images/013003-01300-06-062.png`
+- App path: `/question-images/013003-01300-06-062.png`
+- Linked uploaded image:
+  - `/question-images/013003-01300-06-062.png`
+- Current fallback page: `/question-pages/01300-page-44.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如下圖所示，當檢修時，若未切離感應電動機（IM），此時於送電後，觸發固態接觸器（SSC），以三用電表量測固態接觸器（SSC）主接點二次側間之電壓值為
+- Options:
+  - 1. 0VA
+  - 2. 220VA
+  - 3. 220√3VAC
+  - 4. 約為 220VAC
 
 ## water-pipe-fitting-c:01600-01-001
 

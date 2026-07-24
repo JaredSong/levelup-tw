@@ -6,6 +6,7 @@ const WDA_DOWNLOAD_ROOT = 'https://owinform.wdasec.gov.tw/owInform/DLowFile'
 export const SOURCE_BANKS = {
   '00700-2': { subjectCode: '00700', version: 'A15', pdfFilename: '007002A15.pdf' },
   '00700-3': { subjectCode: '00700', version: 'A13', pdfFilename: '007003A13.pdf' },
+  '01300': { version: 'A13', pdfFilename: '013003A13.pdf' },
   '01600': { version: 'A12', pdfFilename: '016003A12.pdf' },
   '02000': { version: 'A11', pdfFilename: '020003A11.pdf' },
   '02100': { version: 'A12', pdfFilename: '021003A12.pdf' },

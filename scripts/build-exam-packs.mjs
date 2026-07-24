@@ -279,6 +279,7 @@ const QUESTION_OPTION_OVERRIDES = {
   '02800-10-023': ['Y = AB + ¬A·B', 'Y = ¬A·B + A·¬B', 'Y = AB + ¬(AB)', 'Y = A ⊕ B'],
   '02800-10-029': ['Y = A·B', 'Y = A + B', 'Y = ¬(AB)', 'Y = ¬(A + B)'],
   '02800-10-060': ['I₀I₁ = 00', 'I₀I₁ = 01', 'I₀I₁ = 10', 'I₀I₁ = 11'],
+  '01300-05-061': ['R + X', '√(R² + X²)', 'R / √(R² + X²)', 'X / √(R² + X²)'],
   // Looked like a graphical-option question (three blank ①②③ markers), but
   // checking the rendered PDF page showed plain "1/2π√(...)" formulas, not
   // circuit diagrams — the radical/vinculum glyphs just didn't extract as
@@ -411,6 +412,31 @@ const EXAMS = [
       weightSingle: 1,
       weightMultiple: 2,
       extraSubjectQuota: [{ subjectCode: '90011', count: 4 }],
+    },
+  },
+  {
+    examId: 'industrial-wiring-c',
+    titleZh: '工業配線丙級',
+    titleEn: 'Industrial Wiring (Class C)',
+    level: '丙級',
+    category: '電機工程',
+    occupationCode: '01300',
+    occupationFile: '013003A13-raw.txt',
+    occupationExpected: 600,
+    version: 'A13',
+    sourceRevision: '013003A13 + 900060A18/900070A17/900080A16/900090A11',
+    extraCommonCodes: [],
+    cropPrefix: '013003',
+    requireQuestionCrops: true,
+    splitImageOptions: true,
+    excludedFigureIds: ['01300-05-061'],
+    mockRules: {
+      occupationQuota: 64,
+      singleCount: 80,
+      multipleCount: 0,
+      weightSingle: 1.25,
+      weightMultiple: 0,
+      extraSubjectQuota: [],
     },
   },
   {

@@ -23,6 +23,7 @@ const TARGETS = {
   'computer-hardware-repair-b': { subjectCode: '12000', pdf: 'source/120002A12.pdf', bank: 'public/data/exams/computer-hardware-repair-b/questions.json' },
   'computer-hardware-repair-c': { subjectCode: '12000', pdf: 'source/120003A12.pdf', bank: 'public/data/exams/computer-hardware-repair-c/questions.json' },
   'motorcycle-repair-c': { subjectCode: '14500', pdf: 'source/145003A13.pdf', bank: 'public/data/exams/motorcycle-repair-c/questions.json' },
+  'industrial-wiring-c': { subjectCode: '01300', pdf: 'source/013003A13.pdf', bank: 'public/data/exams/industrial-wiring-c/questions.json' },
   'indoor-wiring-b': { subjectCode: '00700', pdf: 'source/007002A15.pdf', bank: 'public/data/exams/indoor-wiring-b/questions.json' },
   'indoor-wiring-c': { subjectCode: '00700', pdf: 'source/007003A13.pdf', bank: 'public/data/exams/indoor-wiring-c/questions.json' },
   'water-pipe-fitting-c': { subjectCode: '01600', pdf: 'source/016003A12.pdf', bank: 'public/data/exams/water-pipe-fitting-c/questions.json' },

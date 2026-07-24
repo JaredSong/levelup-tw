@@ -91,6 +91,7 @@ describe('active exam selection', () => {
       'beverage-preparation-c',
       'dining-service-c',
       'computer-software-application-b',
+      'industrial-wiring-c',
       'indoor-wiring-b',
       'indoor-wiring-c',
       'industrial-electronics-c',
@@ -127,6 +128,7 @@ describe('active exam selection', () => {
       'computer-hardware-repair-c',
     ])
     expect(groups.find((group) => group.category === '電機工程')?.exams.map((exam) => exam.examId)).toEqual([
+      'industrial-wiring-c',
       'indoor-wiring-b',
       'indoor-wiring-c',
       'electrical-equipment-inspection-c',

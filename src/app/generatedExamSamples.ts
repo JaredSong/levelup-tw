@@ -1544,6 +1544,70 @@ export const GENERATED_EXAM_SAMPLES: Record<string, ExamSampleSet> = {
       }
     ]
   },
+  "industrial-wiring-c": {
+    "sections": [
+      "識圖與繪圖",
+      "電氣器具之裝置",
+      "電氣器具之使用",
+      "主電路裝配",
+      "控制電路裝配",
+      "檢查及故障排除",
+      "職業安全衛生",
+      "工作倫理與職業道德",
+      "環境保護",
+      "節能減碳"
+    ],
+    "samples": [
+      {
+        "id": "01300-01-012",
+        "sectionTitle": "識圖與繪圖",
+        "prompt": "線圈符號旁加註 TC 者為",
+        "options": [
+          "投入線圈",
+          "動作線圈",
+          "記憶線圈",
+          "跳脫線圈"
+        ],
+        "answer": 4
+      },
+      {
+        "id": "01300-02-001",
+        "sectionTitle": "電氣器具之裝置",
+        "prompt": "使用中心沖的作用為",
+        "options": [
+          "測距離",
+          "鑽孔",
+          "定位",
+          "攻牙"
+        ],
+        "answer": 3
+      },
+      {
+        "id": "01300-03-002",
+        "sectionTitle": "電氣器具之使用",
+        "prompt": "0.5Class（級）之電表，其允許誤差為",
+        "options": [
+          "最小刻度之 0.5％",
+          "滿刻度之 0.5％",
+          "任何指示值的 0.5％",
+          "任何指示值的 50％"
+        ],
+        "answer": 2
+      },
+      {
+        "id": "01300-04-001",
+        "sectionTitle": "主電路裝配",
+        "prompt": "七根直徑為 2mm 之導線其截面積相當於",
+        "options": [
+          "8mm 2",
+          "14mm 2",
+          "22mm 2",
+          "30mm 2"
+        ],
+        "answer": 3
+      }
+    ]
+  },
   "interior-decoration-management-b": {
     "sections": [
       "圖說判讀",

@@ -1,0 +1,180 @@
+{
+  "examId": "industrial-wiring-c",
+  "level": "丙級",
+  "titleZh": "工業配線丙級",
+  "titleEn": "Industrial Wiring (Class C)",
+  "category": "電機工程",
+  "version": "A13",
+  "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/013003A13.pdf",
+  "sources": [
+    {
+      "subjectCode": "01300",
+      "version": "A13",
+      "pdfFilename": "013003A13.pdf",
+      "localFilename": "013003A13.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/013003A13.pdf",
+      "sha256": "b05f16a23957b77cbe3325588c438062df2dce71e46f5f35230b181f33198110"
+    },
+    {
+      "subjectCode": "90006",
+      "version": "A18",
+      "pdfFilename": "900060A18.pdf",
+      "localFilename": "900060A18.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A18.pdf",
+      "sha256": "0afd298e136567131ed5771bb5d8e0a501e745798823242966bd9b517e5b42ec"
+    },
+    {
+      "subjectCode": "90007",
+      "version": "A17",
+      "pdfFilename": "900070A17.pdf",
+      "localFilename": "900070A17.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A17.pdf",
+      "sha256": "ec3bc07bc147f77cfaaa6928648485c9f86c6e58d715a01f49e5618d12ac3319"
+    },
+    {
+      "subjectCode": "90008",
+      "version": "A16",
+      "pdfFilename": "900080A16.pdf",
+      "localFilename": "900080A16.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A16.pdf",
+      "sha256": "3c097485bd020af2d3766c08a5c5f385a5dbc56512d8903ce6cf850903ea2f01"
+    },
+    {
+      "subjectCode": "90009",
+      "version": "A11",
+      "pdfFilename": "900090A11.pdf",
+      "localFilename": "900090A11-latest.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A11.pdf",
+      "sha256": "e58b753294079574f8c1360ef5a345e77062c0c3ee693d509254de455a533835"
+    }
+  ],
+  "officialLinks": {
+    "registration": "https://skill.tcte.edu.tw/notice.php",
+    "scoreLookup": "https://eservice.wdasec.gov.tw/",
+    "handbook": "https://skill.tcte.edu.tw/download.php",
+    "questionBank": "https://techbank.wdasec.gov.tw/"
+  },
+  "sourceRevision": "013003A13 + 900060A18/900070A17/900080A16/900090A11",
+  "questionCount": 1000,
+  "activeQuestionCount": 995,
+  "sections": [
+    {
+      "id": "01300-01",
+      "subjectCode": "01300",
+      "sourceGroup": "occupation",
+      "titleZh": "識圖與繪圖",
+      "questionCount": 61,
+      "activeQuestionCount": 61
+    },
+    {
+      "id": "01300-02",
+      "subjectCode": "01300",
+      "sourceGroup": "occupation",
+      "titleZh": "電氣器具之裝置",
+      "questionCount": 70,
+      "activeQuestionCount": 70
+    },
+    {
+      "id": "01300-03",
+      "subjectCode": "01300",
+      "sourceGroup": "occupation",
+      "titleZh": "電氣器具之使用",
+      "questionCount": 148,
+      "activeQuestionCount": 148
+    },
+    {
+      "id": "01300-04",
+      "subjectCode": "01300",
+      "sourceGroup": "occupation",
+      "titleZh": "主電路裝配",
+      "questionCount": 142,
+      "activeQuestionCount": 142
+    },
+    {
+      "id": "01300-05",
+      "subjectCode": "01300",
+      "sourceGroup": "occupation",
+      "titleZh": "控制電路裝配",
+      "questionCount": 117,
+      "activeQuestionCount": 117
+    },
+    {
+      "id": "01300-06",
+      "subjectCode": "01300",
+      "sourceGroup": "occupation",
+      "titleZh": "檢查及故障排除",
+      "questionCount": 62,
+      "activeQuestionCount": 62
+    },
+    {
+      "id": "90006-01",
+      "subjectCode": "90006",
+      "sourceGroup": "general-common",
+      "titleZh": "職業安全衛生",
+      "questionCount": 100,
+      "activeQuestionCount": 100
+    },
+    {
+      "id": "90007-01",
+      "subjectCode": "90007",
+      "sourceGroup": "general-common",
+      "titleZh": "工作倫理與職業道德",
+      "questionCount": 100,
+      "activeQuestionCount": 100
+    },
+    {
+      "id": "90008-03",
+      "subjectCode": "90008",
+      "sourceGroup": "general-common",
+      "titleZh": "環境保護",
+      "questionCount": 100,
+      "activeQuestionCount": 95
+    },
+    {
+      "id": "90009-04",
+      "subjectCode": "90009",
+      "sourceGroup": "general-common",
+      "titleZh": "節能減碳",
+      "questionCount": 100,
+      "activeQuestionCount": 100
+    }
+  ],
+  "mockRules": {
+    "totalQuestions": 80,
+    "singleCount": 80,
+    "multipleCount": 0,
+    "durationMinutes": 100,
+    "passScore": 60,
+    "maxScore": 100,
+    "weightSingle": 1.25,
+    "weightMultiple": 0,
+    "subjectQuota": [
+      {
+        "subjectCode": "01300",
+        "count": 64
+      },
+      {
+        "subjectCode": "90006",
+        "count": 4
+      },
+      {
+        "subjectCode": "90007",
+        "count": 4
+      },
+      {
+        "subjectCode": "90008",
+        "count": 4
+      },
+      {
+        "subjectCode": "90009",
+        "count": 4
+      }
+    ]
+  },
+  "integrity": {
+    "status": "fully_verified",
+    "inactiveQuestionCount": 5,
+    "imageQuestionCount": 102,
+    "note": "Answer keys independently cross-checked against the official PDF during import."
+  }
+}

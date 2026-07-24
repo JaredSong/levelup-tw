@@ -272,12 +272,12 @@ describe('new high-demand exam packs', () => {
     for (const [file, expected] of [
       ['166003-16600-04-005.png', { width: 600, height: 224 }],
       ['166003-16600-04-008.png', { width: 280, height: 114 }],
-      ['166003-16600-04-038-1.png', { width: 52, height: 80 }],
-      ['166003-16600-04-038-2.png', { width: 49, height: 80 }],
-      ['166003-16600-04-038-3.png', { width: 61, height: 80 }],
+      ['166003-16600-04-038-1.png', { width: 62, height: 61 }],
+      ['166003-16600-04-038-2.png', { width: 61, height: 61 }],
+      ['166003-16600-04-038-3.png', { width: 60, height: 61 }],
       ['166003-16600-04-038-4.png', { width: 52, height: 80 }],
-      ['166003-16600-04-054.png', { width: 72, height: 28 }],
-      ['166003-16600-04-059.png', { width: 72, height: 28 }],
+      ['166003-16600-04-054.png', { width: 84, height: 29 }],
+      ['166003-16600-04-059.png', { width: 83, height: 33 }],
     ] as const) {
       const bytes = readFileSync(new URL(`../public/question-images/${file}`, import.meta.url))
       expect(pngDimensions(bytes), file).toEqual(expected)
@@ -340,7 +340,7 @@ describe('new high-demand exam packs', () => {
     })
 
     for (const [id, expected] of [
-      ['02800-02-056', { width: 125, height: 54 }],
+      ['02800-02-056', { width: 127, height: 66 }],
       ['02800-02-057', { width: 158, height: 54 }],
       ['02800-04-025', { width: 406, height: 127 }],
       ['02800-05-002', { width: 540, height: 299 }],

@@ -424,11 +424,9 @@ function trimWhitePadding(output, { whiteThreshold = 180 } = {}) {
   if (!analysis.supported || !analysis.bbox) return
   const pad = 8
   const { bbox } = analysis
-  const alreadyTight = bbox.margins.left <= pad
-    && bbox.margins.top <= pad
-    && bbox.margins.right <= pad
-    && bbox.margins.bottom <= pad
-  if (alreadyTight) return
+  const margins = Object.values(bbox.margins)
+  const alreadyPadded = margins.every((margin) => margin >= pad && margin <= pad + 2)
+  if (alreadyPadded) return
   const tmpOutput = `${output}.trim.png`
   execFileSync('ffmpeg', [
     '-loglevel', 'error', '-y', '-i', output,

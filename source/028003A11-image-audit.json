@@ -320,7 +320,7 @@
       {
         "file": "028003-02800-02-041.png",
         "reference": "p52",
-        "sha256": "6bcfcfffd3f168cbfd527b430063c7f49b2f141512f1f3d922f9e35238ee0bb2"
+        "sha256": "0cc7639c169e44651a8a709c566f3dbc91ba1afd1c4ca830546348d12a647063"
       }
     ],
     "02800-02-042": [
@@ -334,50 +334,50 @@
       {
         "file": "028003-02800-02-043.png",
         "reference": "p54",
-        "sha256": "d0cffd1c7d1913426fe9c3bd155f14330c7561d72fe09e67b9ae1559043a5134"
+        "sha256": "cdd7380f7c399c0fa19f84ba0a7c71fe802fab5cdcfc7bea516248fee3cdc9e5"
       }
     ],
     "02800-02-044": [
       {
         "file": "028003-02800-02-044-1.png",
         "reference": "p55",
-        "sha256": "00416c90c316baf9abbcd2a2477850a27e2684916230bb179c539ccec766c385"
+        "sha256": "a6f414bb7d1db5711c1efc458826733d709f63b1722cb7f4a0db197ce551d9ea"
       },
       {
         "file": "028003-02800-02-044-2.png",
         "reference": "p56",
-        "sha256": "7e37c01edccd61f3018d3782e5c35c1aa9054cfdb11fedbf58e11b1b5f367037"
+        "sha256": "dece6cd5de6bc30763f9c43f6b95c6726b1ce4c9b9a7ab8c1a589b494d543bce"
       },
       {
         "file": "028003-02800-02-044-3.png",
         "reference": "p57",
-        "sha256": "ba6998badcff67e64b226f62190c8a7e837f0cedd051b56b728e80b0f403665d"
+        "sha256": "6c4c194379126ce73ddc9cbc7080dadbc4c74b565cc9e0a6321d4d271c46e54c"
       },
       {
         "file": "028003-02800-02-044-4.png",
         "reference": "p58",
-        "sha256": "dd44a3265ddf8916be5a132e5423462d613001ac86f09fc5786b4af2f7e8b448"
+        "sha256": "80a87fe3c9536f5a5f2c4a2786d6e7d23731bb0a73d2c49c0cee21a377d05c3d"
       }
     ],
     "02800-02-045": [
       {
         "file": "028003-02800-02-045.png",
         "reference": "p59",
-        "sha256": "b1b0dff038bec0675bf404f29d518f7fee6ba175f551230492cb7b3d6000c447"
+        "sha256": "d035c20757a0639b0bb540fe2008541660641d703a43694df55f6f966583c49d"
       }
     ],
     "02800-02-046": [
       {
         "file": "028003-02800-02-046.png",
         "reference": "p60",
-        "sha256": "95a602309d5e1f71ee2cb4d528d929fea31934ae507f5ec08899bd46d15542c2"
+        "sha256": "083e9d5903efe1f6c7ddd85c70fcde78a980301317216534c046ba4710231ae8"
       }
     ],
     "02800-02-047": [
       {
         "file": "028003-02800-02-047.png",
         "reference": "p61",
-        "sha256": "31ab8985583a90bb7469b2410f78d559440170550915b5e4b16f0bc0a9876c46"
+        "sha256": "84f99948fa97da387456beeaaad809943845cbf8f8af6e73b5e2e90a206ec6ee"
       }
     ],
     "02800-02-048": [
@@ -391,29 +391,29 @@
       {
         "file": "028003-02800-02-049-1.png",
         "reference": "p63",
-        "sha256": "b72a0b43b41a3eb41acc80c5f6999014460e48129e4df1abbe96a8dbde102e9a"
+        "sha256": "8bdae4cbf7b4fb75c9ed90b930336e3b755b3088943417516e380d10436dbb89"
       },
       {
         "file": "028003-02800-02-049-2.png",
         "reference": "p64",
-        "sha256": "135bbb54bfe42617c9cef5a47c40460fee3f105281fb1bcab346943cfb07130d"
+        "sha256": "cb1bf2e3fd0b17ec8d80e2b023f30e725111f1d723a1c2c4b38873a528833ff0"
       },
       {
         "file": "028003-02800-02-049-3.png",
         "reference": "p65",
-        "sha256": "f5f005efd9ac006ebdca3380e928e632e5decf8b11a3750cf6820b3612a5f6e7"
+        "sha256": "c67df453a3f462fe942b9895d395617042ce751638e5bb301b5d7fb652104766"
       },
       {
         "file": "028003-02800-02-049-4.png",
         "reference": "p66",
-        "sha256": "459a3fa9c55aaae72ab4924e9388b2d4e527e2ef80629ba7d017521e52fdc566"
+        "sha256": "bcae1dfdfe98b090946284d55bc866a11ba91c298796aec3317f0b041bd9255b"
       }
     ],
     "02800-02-050": [
       {
         "file": "028003-02800-02-050.png",
         "reference": "p67",
-        "sha256": "353e5e50045cfa36eb3e132fbf394102f92efda646228909b716608f8723b059"
+        "sha256": "71fa41fc52cb685392e1798ee9d64ebd195e6ade4fd6a4e21f1133ce6ca5e8cd"
       }
     ],
     "02800-02-051": [
@@ -448,14 +448,14 @@
       {
         "file": "028003-02800-02-055.png",
         "reference": "p72",
-        "sha256": "f8f31424e237a89c1d3eb6f092583b252a9087737fdd1bc06eea07707d0fdc65"
+        "sha256": "fc31c1bb41b36d06a442fc13e2b4fe9bc630cdd7d82a8be56e24261ce9ced611"
       }
     ],
     "02800-02-056": [
       {
         "file": "028003-02800-02-056.png",
         "reference": "p73",
-        "sha256": "63afbda06ca6aafea50773c255d30a90755df256c287f0faa41cc2b25aabdbb3"
+        "sha256": "7392d7c5acfe42c9ba3812792af61217589c459c90dc18a06ff59fe353568416"
       }
     ],
     "02800-02-057": [
@@ -823,7 +823,7 @@
       {
         "file": "028003-02800-08-109.png",
         "reference": "p146",
-        "sha256": "b85410ab3807e011e761d792a812f51c0aaffe2337868acceb3cf049cf80d8d9"
+        "sha256": "4ba7c642a96ae428d3043c98e18182a17b2f7e686ac20f53db10e4e2ba3a6de2"
       }
     ],
     "02800-08-110": [

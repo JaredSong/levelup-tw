@@ -217,7 +217,14 @@ const BANKS = [
       ],
     },
   },
-  { code: '22000', source: '220001A15', cropPrefix: '220001' },
+  {
+    code: '22000',
+    source: '220001A15',
+    cropPrefix: '220001',
+    figureRects: {
+      '22000-03-186': { page: 39, x: 178, y: 68, width: 300, height: 88 },
+    },
+  },
   {
     code: '22100',
     source: '221001A14',

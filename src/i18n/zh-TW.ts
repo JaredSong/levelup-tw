@@ -488,6 +488,12 @@ export const zhTW = {
     repeatSession: '再練一次',
     practiceGroup: '練習這一組',
     commuteTitle: (count: number) => `通勤筆記 · ${count} 題錯題`,
+    installNudge: {
+      text: '裝到主畫面，明天打開更快，離線也能練。',
+      action: '加到主畫面',
+      iosHint: 'iPhone：點下方「分享」→「加入主畫面」。',
+      dismiss: '關閉',
+    },
   },
   onboarding: {
     eyebrow: '裝置設定',

@@ -1,15 +1,16 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { AlertTriangle, ArrowRight, CheckCircle2, LoaderCircle, RotateCcw } from 'lucide-react'
 import { ActiveExamHeader } from './app/ActiveExamHeader'
-import { trackAppMilestone, trackEnterApp, trackInitialView, trackLanding } from './app/analytics'
+import { trackAppMilestone, trackEnterApp, trackInitialView, trackInstall, trackLanding } from './app/analytics'
 import { LandingPage } from './app/LandingPage'
 import { ExamPage } from './app/ExamPage'
 import { GuidePage } from './app/GuidePage'
 import { enLanding } from './i18n/en'
 import { OnboardingGate } from './app/OnboardingGate'
-import { hasCompletedOnboarding, PROFILE_NAME_KEY, shouldShowLanding } from './app/onboardingState'
+import { dismissInstallNudge, hasCompletedOnboarding, isInstallNudgeDismissed, PROFILE_NAME_KEY, shouldShowLanding } from './app/onboardingState'
 import { readSyncLink } from './app/syncCode'
 import { BottomNav, type Tab } from './components/BottomNav'
+import { InstallNudge } from './components/InstallNudge'
 import { PracticeView } from './components/PracticeView'
 import { HomePage } from './app/pages/HomePage'
 import { InsightsPage } from './app/pages/InsightsPage'
@@ -277,6 +278,13 @@ export default function App() {
   return <StudyApp />
 }
 
+// Chrome fires this before offering to install; we capture it so the summary's
+// install nudge can trigger the real prompt on tap. Not in lib.dom yet.
+interface BeforeInstallPromptEvent extends Event {
+  prompt: () => Promise<void>
+  userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>
+}
+
 function StudyApp() {
   const { activeExam } = useActiveExam()
   const examId = activeExam.examId
@@ -290,6 +298,55 @@ function StudyApp() {
   const [summary, setSummary] = useState<StudySession | null>(null)
   const [settingsOpen, setSettingsOpen] = useState(false)
   const prefetchedCueSessionRef = useRef('')
+
+  // Post-session install nudge (very quiet). Show it on the summary screen only
+  // when not already installed and not previously dismissed — Android/Chrome gets
+  // the real native prompt; iOS Safari gets the share-sheet hint.
+  const installPromptRef = useRef<BeforeInstallPromptEvent | null>(null)
+  const [canInstall, setCanInstall] = useState(false)
+  const [installDismissed, setInstallDismissed] = useState(isInstallNudgeDismissed)
+  const installShownRef = useRef(false)
+  const isStandalone = window.matchMedia('(display-mode: standalone)').matches
+    || Boolean((navigator as Navigator & { standalone?: boolean }).standalone)
+  const isIos = /iphone|ipad|ipod/i.test(navigator.userAgent)
+  const showInstallNudge = Boolean(summary) && !isStandalone && !installDismissed && (canInstall || isIos)
+
+  useEffect(() => {
+    const onBeforeInstall = (event: Event) => {
+      event.preventDefault()
+      installPromptRef.current = event as BeforeInstallPromptEvent
+      setCanInstall(true)
+    }
+    window.addEventListener('beforeinstallprompt', onBeforeInstall)
+    return () => window.removeEventListener('beforeinstallprompt', onBeforeInstall)
+  }, [])
+
+  useEffect(() => {
+    if (showInstallNudge && !installShownRef.current) {
+      installShownRef.current = true
+      trackInstall('shown')
+    }
+  }, [showInstallNudge])
+
+  const acceptInstall = async () => {
+    const prompt = installPromptRef.current
+    if (!prompt) return
+    trackInstall('accepted')
+    await prompt.prompt()
+    const choice = await prompt.userChoice.catch(() => null)
+    installPromptRef.current = null
+    setCanInstall(false)
+    if (choice?.outcome === 'accepted') {
+      dismissInstallNudge()
+      setInstallDismissed(true)
+    }
+  }
+
+  const dismissInstall = () => {
+    trackInstall('dismissed')
+    dismissInstallNudge()
+    setInstallDismissed(true)
+  }
 
   useEffect(() => {
     if (session?.examId && session.examId !== examId) return
@@ -714,6 +771,10 @@ function StudyApp() {
           <button className="primary-action" onClick={() => { setSummary(null); setTab('home') }} type="button">{zhTW.session.backToHome}</button>
           <button className="secondary-action" onClick={() => begin(summarySession.mode, summarySession.questionIds.map((id) => bank.byId.get(id)).filter((q): q is Question => !!q), displaySessionTitle(summarySession), { mockFeedback: summarySession.mockFeedback })} type="button"><RotateCcw size={17} /> {zhTW.session.repeatSession}</button>
         </div>
+
+        {showInstallNudge ? (
+          <InstallNudge canPrompt={canInstall} isIos={isIos} onInstall={() => void acceptInstall()} onDismiss={dismissInstall} />
+        ) : null}
       </main>
     )
   }

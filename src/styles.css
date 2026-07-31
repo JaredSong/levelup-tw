@@ -403,6 +403,13 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .exam-related a { display: inline-flex; align-items: center; padding: 9px 15px; border: 1px solid var(--line); border-radius: 999px; background: var(--panel); color: var(--ink2); font-size: .9rem; font-weight: 700; text-decoration: none; }
 .exam-related a:hover { border-color: var(--accent); background: var(--accent-pale); color: var(--accent-ink); }
 
+/* Post-session install nudge — deliberately quiet: a single muted line, no card, no colour block. */
+.install-nudge { display: flex; align-items: center; gap: 10px; width: 100%; max-width: 420px; margin: 22px auto 0; padding: 10px 6px 0; border-top: 1px solid var(--line2); color: var(--muted); font-size: .82rem; line-height: 1.5; }
+.install-nudge-text { flex: 1; }
+.install-nudge-action { flex: 0 0 auto; display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: none; color: var(--accent-ink); font-size: .82rem; font-weight: 800; cursor: pointer; }
+.install-nudge-x { flex: 0 0 auto; display: grid; place-items: center; width: 26px; height: 26px; border: 0; border-radius: 999px; background: none; color: var(--muted); cursor: pointer; }
+.install-nudge-x:hover { background: var(--surface); color: var(--ink2); }
+
 /* AEO guide page (reuses .exam-* layout) */
 .guide-lead { font-weight: 500; color: var(--ink2); }
 .guide-section { padding: clamp(28px, 4.5vw, 52px) var(--pad); border-top: 1px solid var(--line2); }

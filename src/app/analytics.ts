@@ -103,6 +103,18 @@ export function trackAppMilestone(
   gtag?.('event', 'app_milestone', { action, mode })
 }
 
+/**
+ * The post-session install nudge — shown, accepted, or dismissed. Count-only, so
+ * it measures whether the nudge lifts installs (and returning users) without
+ * touching anything personal. `shown` fires once per session summary.
+ */
+export function trackInstall(
+  action: 'shown' | 'accepted' | 'dismissed',
+  gtag: Gtag | undefined = windowGtag(),
+): void {
+  gtag?.('event', 'install_nudge', { action })
+}
+
 /** Test seam: lets a test observe a fresh first call. */
 export function resetInitialViewForTests(): void {
   sent = false

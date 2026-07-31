@@ -172,5 +172,22 @@ const entries = [
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${entries.join('\n')}\n</urlset>\n`
 writeFileSync(new URL('../dist/sitemap.xml', import.meta.url), sitemap)
 
+// --- llms.txt: a Markdown map of the site for AI agents (llmstxt.org). Built
+// from the same EXAM_META as the sitemap, so it can never drift from the packs. ---
+const llmsExamLines = EXAM_META
+  .map((m) => `- [${m.titleZh}學科題庫](https://levelup.tw/exam/${m.id}): 官方公開學科題庫（${m.subjectCode}），共 ${m.count.toLocaleString()} 題，可免費線上練習。`)
+  .join('\n')
+const llms = `# 升級吧 Level Up
+
+> 免費、免註冊、可離線的技術士技能檢定學科題庫。題目整理自勞動部勞動力發展署技能檢定中心公開的學科題庫；練習時寫錯的自動進錯題本、快忘的依遺忘曲線排進複習、考前用計時模擬考驗收。個人專案，不隸屬於官方機構，一切以官方最新公告為準。
+
+## 指南
+- [免費技能檢定題庫：線上刷題與模擬考完整指南](https://levelup.tw/guide): 技能檢定學科題庫哪裡找、怎麼免費刷題、學科怎麼準備，以及官方 PDF、線上刷題與付費題庫的比較。
+
+## 考科題庫
+${llmsExamLines}
+`
+writeFileSync(new URL('../dist/llms.txt', import.meta.url), llms)
+
 rmSync(SSR_OUT, { recursive: true, force: true })
-console.log(`prerender: wrote zh + en landings, ${EXAM_META.length} exam pages, and sitemap`)
+console.log(`prerender: wrote zh + en landings, ${EXAM_META.length} exam pages, sitemap, and llms.txt`)

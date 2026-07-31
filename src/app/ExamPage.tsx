@@ -1,6 +1,7 @@
 import { ArrowRight, BadgeCheck, CheckCircle2, Database, ShieldCheck, WifiOff } from 'lucide-react'
 import type { ExamManifest } from '../core/exam'
 import { zhTW } from '../i18n/zh-TW'
+import { INSTALLED_EXAMS } from './activeExam'
 import { trackLanding } from './analytics'
 import { GENERATED_EXAM_SAMPLES } from './generatedExamSamples'
 
@@ -19,6 +20,14 @@ export function ExamPage({ exam, onEnter, onHome }: Props) {
   const t = zhTW.examPage
   const data = GENERATED_EXAM_SAMPLES[exam.examId] ?? { sections: [], samples: [] }
   const subjectCode = exam.sections[0]?.subjectCode ?? exam.examId
+
+  // Related exams: same category first (a real "explore" cluster for readers and
+  // an internal-linking signal for crawlers), topped up with others, capped at 6.
+  const others = INSTALLED_EXAMS.filter((e) => e.examId !== exam.examId)
+  const related = [
+    ...others.filter((e) => e.category === exam.category),
+    ...others.filter((e) => e.category !== exam.category),
+  ].slice(0, 6)
 
   const homeClick = (event: { preventDefault: () => void }) => {
     event.preventDefault()
@@ -117,6 +126,19 @@ export function ExamPage({ exam, onEnter, onHome }: Props) {
           <a className="landing-secondary" href="/" onClick={homeClick}>{t.seeAll}<ArrowRight size={16} /></a>
         </div>
       </section>
+
+      {related.length ? (
+        <section className="exam-related">
+          <h2>{t.relatedTitle}</h2>
+          <ul>
+            {related.map((e) => (
+              <li key={e.examId}>
+                <a href={`/exam/${e.examId}`}>{e.titleZh}</a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
 
       <section className="exam-about">
         <h3>{t.aboutTitle}</h3>

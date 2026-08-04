@@ -385,6 +385,17 @@ const BANKS = [
     // "下圖之右側視圖為" — the isometric reference shape sits above the
     // option line, so keep it as a base image alongside the four option crops.
     mixedFigureOptions: ['12000-01-003'],
+    figureRects: {
+      // The generic image detector takes the whole question row for these
+      // inline figures. Keep only the visual reference from the official page.
+      '12000-01-049': { x: 110, y: 314, width: 84, height: 66 },
+      '12000-03-128': { x: 110, y: 500, width: 160, height: 98 },
+      '12000-03-130': { x: 110, y: 708, width: 250, height: 65 },
+      '12000-04-158': { x: 110, y: 139, width: 150, height: 44 },
+      '12000-04-163': { x: 110, y: 429, width: 280, height: 54 },
+      '12000-04-164': { x: 110, y: 518, width: 280, height: 66 },
+      '12000-04-168': { page: 28, x: 110, y: 105, width: 280, height: 65 },
+    },
   },
   {
     code: '01600',

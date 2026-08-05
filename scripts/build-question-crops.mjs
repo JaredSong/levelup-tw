@@ -219,7 +219,7 @@ const BANKS = [
       // The DEM interpolation diagram follows at the top of page 50.
       '04202-04-097': { page: 50, x: 120, y: 64, width: 75, height: 74 },
       '04202-05-066': { page: 55, x: 130, y: 484, width: 102, height: 82 },
-      '04202-05-104': { page: 58, x: 130, y: 585, width: 175, height: 34 },
+      '04202-05-104': { page: 58, x: 130, y: 592, width: 175, height: 27 },
     },
     optionRectOverrides: {
       '04202-03-029': [
@@ -262,7 +262,7 @@ const BANKS = [
         null,
         null,
         null,
-        { page: 28, x: 127, y: 264, width: 82, height: 27 },
+        { page: 28, x: 127, y: 264, width: 66, height: 27 },
       ],
       '04202-03-057': [
         null,
@@ -279,14 +279,14 @@ const BANKS = [
       '04202-04-041': [
         null,
         null,
-        null,
-        { page: 43, x: 119, y: 126, width: 102, height: 62 },
+        { page: 43, x: 398, y: 70, width: 85, height: 45, binarizeThreshold: 220 },
+        { page: 43, x: 119, y: 126, width: 88, height: 62 },
       ],
       '04202-04-076': [
         { page: 46, x: 121, y: 10, width: 87, height: 84 },
         { page: 46, x: 210, y: 10, width: 91, height: 84 },
         { page: 46, x: 299, y: 10, width: 91, height: 84 },
-        { page: 46, x: 391, y: 10, width: 98, height: 84 },
+        { page: 46, x: 406, y: 10, width: 80, height: 84, binarizeThreshold: 220 },
       ],
       '04202-04-090': [
         { page: 48, x: 244, y: 382, width: 113, height: 105 },
@@ -301,13 +301,13 @@ const BANKS = [
         { page: 48, x: 136, y: 714, width: 75, height: 88 },
       ],
       '04202-04-092': [
-        { page: 49, x: 407, y: 80, width: 86, height: 63 },
+        { page: 49, x: 407, y: 80, width: 86, height: 63, binarizeThreshold: 220 },
         { page: 49, x: 136, y: 142, width: 75, height: 63 },
         { page: 49, x: 242, y: 142, width: 78, height: 63 },
-        { page: 49, x: 338, y: 142, width: 88, height: 63 },
+        { page: 49, x: 338, y: 142, width: 88, height: 63, binarizeThreshold: 220 },
       ],
       '04202-04-093': [
-        { page: 49, x: 407, y: 249, width: 86, height: 62 },
+        { page: 49, x: 407, y: 249, width: 86, height: 62, binarizeThreshold: 220 },
         { page: 49, x: 136, y: 309, width: 77, height: 75 },
         { page: 49, x: 242, y: 309, width: 78, height: 75 },
         { page: 49, x: 338, y: 309, width: 88, height: 75 },

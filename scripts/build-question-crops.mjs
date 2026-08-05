@@ -212,6 +212,44 @@ const BANKS = [
     },
   },
   {
+    code: '17600',
+    source: '176003A12',
+    cropPrefix: '176003',
+    includeLeftFigures: true,
+    excludedFigures: [
+      '17600-01-033', '17600-01-057', '17600-01-058', '17600-01-066',
+      '17600-04-046', '17600-06-033',
+    ],
+    figureRects: {
+      '17600-01-001': { page: 2, x: 110.667, y: 73.333, width: 147.333, height: 22 },
+      '17600-01-004': { page: 2, x: 110.667, y: 234, width: 92, height: 13.333 },
+      // The question starts at the bottom of PDF page 4, while the caliper
+      // scale needed to answer it continues at the top of page 5.
+      '17600-01-051': { page: 5, x: 110.667, y: 61.333, width: 234.667, height: 57.333 },
+      '17600-01-052': { page: 5, x: 110.667, y: 195.333, width: 225.333, height: 56 },
+      // These symbols and circuit diagrams sit beside the prompt. Automatic
+      // detection tends to include prompt text or select nearby punctuation,
+      // so keep every crop anchored to the official A12 PDF coordinates.
+      '17600-06-001': { page: 31, x: 110.667, y: 432.667, width: 28.667, height: 15.333 },
+      '17600-06-002': { page: 31, x: 110.667, y: 472.667, width: 40, height: 22.667 },
+      '17600-06-003': { page: 31, x: 110.667, y: 502.667, width: 40, height: 11.333 },
+      '17600-06-004': { page: 31, x: 110.667, y: 523.333, width: 30, height: 22 },
+      '17600-06-005': { page: 31, x: 110.667, y: 571.333, width: 40, height: 13.333 },
+      '17600-06-006': { page: 31, x: 110.667, y: 592, width: 40, height: 8.667 },
+      '17600-06-010': { page: 32, x: 110.667, y: 63.333, width: 108.667, height: 49.333 },
+      '17600-06-019': { page: 32, x: 116, y: 386, width: 150, height: 81.333 },
+      '17600-06-020': { page: 32, x: 110.667, y: 490, width: 150, height: 80 },
+      '17600-06-021': { page: 32, x: 110.667, y: 578.667, width: 150, height: 81.333 },
+      '17600-06-022': { page: 32, x: 110.667, y: 684.667, width: 150, height: 81.333 },
+      '17600-06-023': { page: 33, x: 110.667, y: 45.333, width: 150, height: 81.333 },
+      '17600-06-024': { page: 33, x: 110.667, y: 151.333, width: 73.333, height: 36 },
+      '17600-06-025': { page: 33, x: 110.667, y: 212.667, width: 118, height: 58 },
+      '17600-06-026': { page: 33, x: 110.667, y: 296, width: 73.333, height: 36 },
+      '17600-06-027': { page: 33, x: 110.667, y: 339.333, width: 73.333, height: 36 },
+      '17600-06-037': { page: 33, x: 110.667, y: 668, width: 90, height: 21.333 },
+    },
+  },
+  {
     code: '21500',
     source: '215003A11',
     cropPrefix: '215003',

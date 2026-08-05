@@ -112,6 +112,7 @@ describe('active exam selection', () => {
       '電機工程',
       '餐飲食品',
       '車輛修護',
+      '航空修護',
       '照護服務',
       '職業安全衛生',
       '機械操作',
@@ -143,6 +144,9 @@ describe('active exam selection', () => {
     expect(groups.find((group) => group.category === '車輛修護')?.exams.map((exam) => exam.examId)).toEqual([
       'car-repair-c',
       'motorcycle-repair-c',
+    ])
+    expect(groups.find((group) => group.category === '航空修護')?.exams.map((exam) => exam.examId)).toEqual([
+      'aircraft-maintenance-c',
     ])
   })
 

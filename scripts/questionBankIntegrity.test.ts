@@ -475,6 +475,40 @@ describe('published question bank', () => {
     }
   })
 
+  it('publishes the official aircraft maintenance class C pack', () => {
+    const questions = loadExamBank('aircraft-maintenance-c')
+    const manifest = JSON.parse(
+      readFileSync(new URL('../public/data/exams/aircraft-maintenance-c/manifest.json', import.meta.url), 'utf8'),
+    ) as {
+      version: string
+      questionCount: number
+      activeQuestionCount: number
+      sections: unknown[]
+      mockRules: Parameters<typeof buildMockQueue>[1]
+    }
+
+    expect(manifest.version).toBe('A12')
+    expect(manifest.questionCount).toBe(1043)
+    expect(manifest.activeQuestionCount).toBe(1038)
+    expect(manifest.sections).toHaveLength(12)
+    expect(questions.filter((question) => question.subjectCode === '17600')).toHaveLength(643)
+    expect(questions.filter((question) => question.subjectCode === '17600' && question.hasFigure)).toHaveLength(21)
+    for (const id of ['17600-01-033', '17600-01-057', '17600-01-058', '17600-01-066']) {
+      const question = questions.find((item) => item.id === id)
+      expect(question?.hasFigure, id).toBe(false)
+      expect(question?.options.some((option) => option.includes('圖示選項')), id).toBe(false)
+    }
+    expect(questions.find((item) => item.id === '17600-04-046')?.options).toEqual(['1800 呎', '24000 呎', '30000 呎', '36000 呎'])
+    expect(questions.find((item) => item.id === '17600-06-033')?.prompt).toContain('v = 100√2 sin ωt')
+    expect(questions.find((item) => item.id === '17600-06-033')?.options).toEqual(['5A', '2√2 A', '2A', '1A'])
+    expect(questions.every((question) => question.examId === 'aircraft-maintenance-c')).toBe(true)
+
+    const active = questions.filter((question) => question.active !== false)
+    const mock = buildMockQueue(active, manifest.mockRules, () => 0.41)
+    expect(mock).toHaveLength(80)
+    expect(mock.filter((question) => question.subjectCode === '17600')).toHaveLength(64)
+  })
+
   it('publishes the high-demand third-round care and safety packs from official banks', () => {
     // occupational-safety-management-a active 615 → 614 / activeTotal 1010 →
     // 1009, motorcycle-repair-c active 599 → 598 / activeTotal 994 → 993,

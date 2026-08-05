@@ -234,6 +234,9 @@ const QUESTION_PROMPT_OVERRIDES = {
   '02800-08-015': '下圖 v(t) = 12√2 cos ωt 伏特，則其總電流之有效值 I_rms 為',
   '02800-09-006': '下圖 V₀ 輸出波形近似於',
   '02800-10-060': '如圖所示，y = ¬A 之輸入條件為',
+  '17600-04-046': '高度超過多少呎以上，溫度保持常數約為 -69.7℉？',
+  '17600-06-033': '交流純電阻電路，若 v = 100√2 sin ωt（V），而 R＝50Ω，則其電流有效值為',
+  '17600-06-039': '若要對額定 24V 的電瓶充電，其充電電壓可為',
 }
 
 const QUESTION_OPTION_OVERRIDES = {
@@ -288,6 +291,18 @@ const QUESTION_OPTION_OVERRIDES = {
   // inline text the way option 4 on the same line did. Text beats an image
   // crop for learner quality here.
   '11700-05-051': ['1/2π√(R1C1)', '1/2π√(R3R4C1C2)', '1/2π√(R1R2C1C2)', '1/2π(R3+R4)(C1+C2)'],
+  // These are vector fractions/formulas in the official PDF, not diagrams.
+  // Keep them selectable and legible in dark mode instead of shipping four
+  // fuzzy screenshots per question.
+  '17600-01-033': ['T₁ = (T + A) / (A + B)', 'T₁ = (T × A) / (A + B)', 'T₁ = (T × A) / (A × B)', 'T₁ = (T - A) / (A - B)'],
+  '17600-01-057': ['3/4 英吋', '1 1/8 英吋', '9/16 英吋', '9/12 英吋'],
+  '17600-01-058': ['3/4 英吋', '1 1/8 英吋', '9/16 英吋', '9/12 英吋'],
+  '17600-01-066': ['1/32 英吋', '1/16 英吋', '1/8 英吋', '3/16 英吋'],
+  '17600-04-046': ['1800 呎', '24000 呎', '30000 呎', '36000 呎'],
+  '17600-04-142': ['飛機型別核照資料表（TCDS）', '發動機型別核照資料表（TCDS）', '螺旋槳型別核照資料表（TCDS）', '螺旋槳經歷紀錄簿'],
+  '17600-06-023': ['4W', '8W', '12W', '16W'],
+  '17600-06-026': ['4A', '8A', '12A', '16A'],
+  '17600-06-033': ['5A', '2√2 A', '2A', '1A'],
 }
 
 const NO_SOURCE_PAGE_IMAGE = new Set(['07700-03-003'])
@@ -582,6 +597,34 @@ const EXAMS = [
     extraCommonCodes: [],
     cropPrefix: '145003',
     requireQuestionCrops: true,
+    mockRules: {
+      occupationQuota: 64,
+      singleCount: 80,
+      multipleCount: 0,
+      weightSingle: 1.25,
+      weightMultiple: 0,
+      extraSubjectQuota: [],
+    },
+  },
+  {
+    examId: 'aircraft-maintenance-c',
+    titleZh: '飛機修護丙級',
+    titleEn: 'Aircraft Maintenance (Class C)',
+    level: '丙級',
+    category: '航空修護',
+    occupationCode: '17600',
+    occupationFile: '176003A12-raw.txt',
+    occupationExpected: 643,
+    version: 'A12',
+    sourceRevision: '176003A12 + 900060A18/900070A17/900080A16/900090A11',
+    extraCommonCodes: [],
+    cropPrefix: '176003',
+    requireQuestionCrops: true,
+    includeLeftFigures: true,
+    excludedFigureIds: [
+      '17600-01-033', '17600-01-057', '17600-01-058', '17600-01-066',
+      '17600-04-046', '17600-06-033',
+    ],
     mockRules: {
       occupationQuota: 64,
       singleCount: 80,

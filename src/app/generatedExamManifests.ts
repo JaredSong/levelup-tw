@@ -2650,6 +2650,202 @@ export const GENERATED_EXAM_MANIFESTS = [
     }
   },
   {
+    "examId": "aircraft-maintenance-c",
+    "level": "丙級",
+    "titleZh": "飛機修護丙級",
+    "titleEn": "Aircraft Maintenance (Class C)",
+    "category": "航空修護",
+    "version": "A12",
+    "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/176003A12.pdf",
+    "sources": [
+      {
+        "subjectCode": "17600",
+        "version": "A12",
+        "pdfFilename": "176003A12.pdf",
+        "localFilename": "176003A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/176003A12.pdf",
+        "sha256": "a8aa3ac2731fdd812823c087f61bdfb543015bd15256f163ee2b1dfa6a88820e"
+      },
+      {
+        "subjectCode": "90006",
+        "version": "A18",
+        "pdfFilename": "900060A18.pdf",
+        "localFilename": "900060A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A18.pdf",
+        "sha256": "0afd298e136567131ed5771bb5d8e0a501e745798823242966bd9b517e5b42ec"
+      },
+      {
+        "subjectCode": "90007",
+        "version": "A17",
+        "pdfFilename": "900070A17.pdf",
+        "localFilename": "900070A17.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A17.pdf",
+        "sha256": "ec3bc07bc147f77cfaaa6928648485c9f86c6e58d715a01f49e5618d12ac3319"
+      },
+      {
+        "subjectCode": "90008",
+        "version": "A16",
+        "pdfFilename": "900080A16.pdf",
+        "localFilename": "900080A16.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A16.pdf",
+        "sha256": "3c097485bd020af2d3766c08a5c5f385a5dbc56512d8903ce6cf850903ea2f01"
+      },
+      {
+        "subjectCode": "90009",
+        "version": "A11",
+        "pdfFilename": "900090A11.pdf",
+        "localFilename": "900090A11-latest.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A11.pdf",
+        "sha256": "e58b753294079574f8c1360ef5a345e77062c0c3ee693d509254de455a533835"
+      }
+    ],
+    "officialLinks": {
+      "registration": "https://skill.tcte.edu.tw/notice.php",
+      "scoreLookup": "https://eservice.wdasec.gov.tw/",
+      "handbook": "https://skill.tcte.edu.tw/download.php",
+      "questionBank": "https://techbank.wdasec.gov.tw/"
+    },
+    "sourceRevision": "176003A12 + 900060A18/900070A17/900080A16/900090A11",
+    "questionCount": 1043,
+    "activeQuestionCount": 1038,
+    "sections": [
+      {
+        "id": "17600-01",
+        "subjectCode": "17600",
+        "sourceGroup": "occupation",
+        "titleZh": "飛機修護基礎技術",
+        "questionCount": 171,
+        "activeQuestionCount": 171
+      },
+      {
+        "id": "17600-02",
+        "subjectCode": "17600",
+        "sourceGroup": "occupation",
+        "titleZh": "飛機各部位中英文名稱及功能",
+        "questionCount": 80,
+        "activeQuestionCount": 80
+      },
+      {
+        "id": "17600-03",
+        "subjectCode": "17600",
+        "sourceGroup": "occupation",
+        "titleZh": "各類儀表的認識",
+        "questionCount": 36,
+        "activeQuestionCount": 36
+      },
+      {
+        "id": "17600-04",
+        "subjectCode": "17600",
+        "sourceGroup": "occupation",
+        "titleZh": "發動機基礎概念",
+        "questionCount": 151,
+        "activeQuestionCount": 151
+      },
+      {
+        "id": "17600-05",
+        "subjectCode": "17600",
+        "sourceGroup": "occupation",
+        "titleZh": "專業英文及手冊查閱",
+        "questionCount": 82,
+        "activeQuestionCount": 82
+      },
+      {
+        "id": "17600-06",
+        "subjectCode": "17600",
+        "sourceGroup": "occupation",
+        "titleZh": "基本電學",
+        "questionCount": 68,
+        "activeQuestionCount": 68
+      },
+      {
+        "id": "17600-07",
+        "subjectCode": "17600",
+        "sourceGroup": "occupation",
+        "titleZh": "安全措施",
+        "questionCount": 18,
+        "activeQuestionCount": 18
+      },
+      {
+        "id": "17600-08",
+        "subjectCode": "17600",
+        "sourceGroup": "occupation",
+        "titleZh": "職業道德及航空法規",
+        "questionCount": 37,
+        "activeQuestionCount": 37
+      },
+      {
+        "id": "90006-01",
+        "subjectCode": "90006",
+        "sourceGroup": "general-common",
+        "titleZh": "職業安全衛生",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      },
+      {
+        "id": "90007-01",
+        "subjectCode": "90007",
+        "sourceGroup": "general-common",
+        "titleZh": "工作倫理與職業道德",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      },
+      {
+        "id": "90008-03",
+        "subjectCode": "90008",
+        "sourceGroup": "general-common",
+        "titleZh": "環境保護",
+        "questionCount": 100,
+        "activeQuestionCount": 95
+      },
+      {
+        "id": "90009-04",
+        "subjectCode": "90009",
+        "sourceGroup": "general-common",
+        "titleZh": "節能減碳",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      }
+    ],
+    "mockRules": {
+      "totalQuestions": 80,
+      "singleCount": 80,
+      "multipleCount": 0,
+      "durationMinutes": 100,
+      "passScore": 60,
+      "maxScore": 100,
+      "weightSingle": 1.25,
+      "weightMultiple": 0,
+      "subjectQuota": [
+        {
+          "subjectCode": "17600",
+          "count": 64
+        },
+        {
+          "subjectCode": "90006",
+          "count": 4
+        },
+        {
+          "subjectCode": "90007",
+          "count": 4
+        },
+        {
+          "subjectCode": "90008",
+          "count": 4
+        },
+        {
+          "subjectCode": "90009",
+          "count": 4
+        }
+      ]
+    },
+    "integrity": {
+      "status": "fully_verified",
+      "inactiveQuestionCount": 5,
+      "imageQuestionCount": 25,
+      "note": "Answer keys independently cross-checked against the official PDF during import."
+    }
+  },
+  {
     "examId": "beauty-c",
     "level": "丙級",
     "titleZh": "美容丙級",

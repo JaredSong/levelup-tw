@@ -278,6 +278,22 @@ const BANKS = [
         { x: 112, y: 657, width: 64, height: 59 },
         null,
       ],
+      // These rows sit under the PDF watermark. Keep the official symbol
+      // geometry, then remove only the pale watermark pixels from the crop.
+      '17200-01-059': [
+        null, null, null,
+        { x: 421, y: 57, width: 65, height: 40, binarizeThreshold: 220 },
+      ],
+      '17200-01-060': [
+        null, null,
+        { x: 366, y: 114, width: 67, height: 40, binarizeThreshold: 220 },
+        { x: 446, y: 114, width: 67, height: 40, binarizeThreshold: 220 },
+      ],
+      // The official raster has isolated scan marks above these symbols.
+      '17200-01-020': [null, null, { x: 319, y: 210, width: 55, height: 35 }, null],
+      '17200-01-037': [null, null, { x: 332, y: 226, width: 55, height: 28 }, null],
+      '17200-01-064': [null, null, { x: 360, y: 347, width: 67, height: 34 }, null],
+      '17200-01-065': [null, null, null, { x: 356, y: 404, width: 70, height: 22 }],
     },
   },
   {
@@ -531,12 +547,15 @@ function clampRect(rect, page) {
 }
 
 function cropImage(renderedPage, output, page, rect) {
-  const { padTo, trimThreshold, ...rawRect } = rect
+  const { padTo, trimThreshold, binarizeThreshold, ...rawRect } = rect
   const crop = clampRect(rawRect, page)
   if (crop.width <= 3 || crop.height <= 3) {
     throw new Error(`${output}: invalid crop ${JSON.stringify(crop)}`)
   }
   const filters = [`crop=${Math.floor(crop.width * SCALE)}:${Math.ceil(crop.height * SCALE)}:${Math.floor(crop.x * SCALE)}:${Math.floor(crop.y * SCALE)}`]
+  if (binarizeThreshold !== undefined) {
+    filters.push(`format=gray,lut=y='if(lt(val,${binarizeThreshold}),0,255)'`)
+  }
   if (padTo) {
     filters.push(`pad=${padTo.width}:${padTo.height}:(ow-iw)/2:(oh-ih)/2:white`)
   }

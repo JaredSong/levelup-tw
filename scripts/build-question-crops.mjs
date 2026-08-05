@@ -266,8 +266,18 @@ const BANKS = [
       ],
       // In both topology rows, option 3's ring diagram wraps beneath the
       // first line of choices and has no nearby marker for the heuristic.
-      '17200-01-043': [null, null, { x: 112, y: 459, width: 64, height: 59 }, null],
-      '17200-01-045': [null, null, { x: 112, y: 657, width: 64, height: 59 }, null],
+      '17200-01-043': [
+        null,
+        { x: 424, y: 405, width: 69, height: 58 },
+        { x: 112, y: 459, width: 64, height: 59 },
+        null,
+      ],
+      '17200-01-045': [
+        null,
+        { x: 410, y: 602, width: 67, height: 58 },
+        { x: 112, y: 657, width: 64, height: 59 },
+        null,
+      ],
     },
   },
   {

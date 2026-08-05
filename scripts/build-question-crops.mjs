@@ -180,7 +180,16 @@ const BANKS = [
     embeddedImages: true,
     imageReferenceFile: '070024A10-image-reference.json',
   },
-  { code: '14500', source: '145003A13', cropPrefix: '145003' },
+  {
+    code: '14500',
+    source: '145003A13',
+    cropPrefix: '145003',
+    figureRects: {
+      // Question 195's prompt ends at the bottom of page 18; its TPS diagram
+      // starts at the top of page 19 in the official paper.
+      '14500-03-195': { page: 19, x: 110, y: 45, width: 220, height: 175 },
+    },
+  },
   {
     code: '16600',
     source: '166003A15',

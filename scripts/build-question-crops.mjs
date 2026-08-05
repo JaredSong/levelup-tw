@@ -250,6 +250,27 @@ const BANKS = [
     },
   },
   {
+    code: '17200',
+    source: '172003A14',
+    cropPrefix: '172003',
+    splitImageOptions: true,
+    optionRectOverrides: {
+      // 017 lays its four charts out as a 2x2 grid. Options 3 and 4 wrap to
+      // the next row, so marker-anchored cropping returns blank/sliver images.
+      // Keep all four measured rectangles together to preserve equal framing.
+      '17200-01-017': [
+        { x: 218, y: 598, width: 102, height: 90 },
+        { x: 353, y: 598, width: 104, height: 90 },
+        { x: 128, y: 692, width: 103, height: 98 },
+        { x: 265, y: 692, width: 103, height: 98 },
+      ],
+      // In both topology rows, option 3's ring diagram wraps beneath the
+      // first line of choices and has no nearby marker for the heuristic.
+      '17200-01-043': [null, null, { x: 112, y: 459, width: 64, height: 59 }, null],
+      '17200-01-045': [null, null, { x: 112, y: 657, width: 64, height: 59 }, null],
+    },
+  },
+  {
     code: '21500',
     source: '215003A11',
     cropPrefix: '215003',

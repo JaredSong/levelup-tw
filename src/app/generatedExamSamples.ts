@@ -1935,6 +1935,68 @@ export const GENERATED_EXAM_SAMPLES: Record<string, ExamSampleSet> = {
       }
     ]
   },
+  "network-installation-c": {
+    "sections": [
+      "識圖與製圖及相關法規",
+      "作業準備",
+      "網路架設佈線",
+      "網路元件及軟體安裝與應用",
+      "職業安全衛生",
+      "工作倫理與職業道德",
+      "環境保護",
+      "節能減碳"
+    ],
+    "samples": [
+      {
+        "id": "17200-01-001",
+        "sectionTitle": "識圖與製圖及相關法規",
+        "prompt": "英文稱為“bus”的網路結構型式是下列何者？",
+        "options": [
+          "星狀",
+          "環狀",
+          "匯流排",
+          "樹狀"
+        ],
+        "answer": 3
+      },
+      {
+        "id": "17200-02-001",
+        "sectionTitle": "作業準備",
+        "prompt": "語音頻率 4000Hz 轉換為數位信號後，最少需多少傳輸速率？",
+        "options": [
+          "64kbps",
+          "128kbps",
+          "368kbps",
+          "1.544Mbps"
+        ],
+        "answer": 1
+      },
+      {
+        "id": "17200-03-001",
+        "sectionTitle": "網路架設佈線",
+        "prompt": "100 BaseT 網路使用下列何種線材？",
+        "options": [
+          "RG-58 A/U",
+          "RG-62",
+          "Cat.3 UTP",
+          "Cat.5e UTP"
+        ],
+        "answer": 4
+      },
+      {
+        "id": "17200-04-001",
+        "sectionTitle": "網路元件及軟體安裝與應用",
+        "prompt": "在 OSI 7 層協定中「網路硬體協定」，屬於以下哪一層？",
+        "options": [
+          "網路層（Network）",
+          "實體層（Physical）",
+          "應用層（Application）",
+          "傳輸層（Transport）"
+        ],
+        "answer": 2
+      }
+    ]
+  },
   "occupational-hygiene-management-a": {
     "sections": [
       "職業安全衛生相關法規",

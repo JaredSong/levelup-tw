@@ -6006,6 +6006,170 @@ export const GENERATED_EXAM_MANIFESTS = [
     }
   },
   {
+    "examId": "network-installation-c",
+    "level": "丙級",
+    "titleZh": "網路架設丙級",
+    "titleEn": "Network Installation (Class C)",
+    "category": "資訊",
+    "version": "A14",
+    "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/172003A14.pdf",
+    "sources": [
+      {
+        "subjectCode": "17200",
+        "version": "A14",
+        "pdfFilename": "172003A14.pdf",
+        "localFilename": "172003A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/172003A14.pdf",
+        "sha256": "fc84a4f64fc985bdffb575193468d3189cb228f38ca85468b5e68647224a129b"
+      },
+      {
+        "subjectCode": "90006",
+        "version": "A18",
+        "pdfFilename": "900060A18.pdf",
+        "localFilename": "900060A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A18.pdf",
+        "sha256": "0afd298e136567131ed5771bb5d8e0a501e745798823242966bd9b517e5b42ec"
+      },
+      {
+        "subjectCode": "90007",
+        "version": "A17",
+        "pdfFilename": "900070A17.pdf",
+        "localFilename": "900070A17.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A17.pdf",
+        "sha256": "ec3bc07bc147f77cfaaa6928648485c9f86c6e58d715a01f49e5618d12ac3319"
+      },
+      {
+        "subjectCode": "90008",
+        "version": "A16",
+        "pdfFilename": "900080A16.pdf",
+        "localFilename": "900080A16.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A16.pdf",
+        "sha256": "3c097485bd020af2d3766c08a5c5f385a5dbc56512d8903ce6cf850903ea2f01"
+      },
+      {
+        "subjectCode": "90009",
+        "version": "A11",
+        "pdfFilename": "900090A11.pdf",
+        "localFilename": "900090A11-latest.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A11.pdf",
+        "sha256": "e58b753294079574f8c1360ef5a345e77062c0c3ee693d509254de455a533835"
+      }
+    ],
+    "officialLinks": {
+      "registration": "https://skill.tcte.edu.tw/notice.php",
+      "scoreLookup": "https://eservice.wdasec.gov.tw/",
+      "handbook": "https://skill.tcte.edu.tw/download.php",
+      "questionBank": "https://techbank.wdasec.gov.tw/"
+    },
+    "sourceRevision": "172003A14 + 900060A18/900070A17/900080A16/900090A11",
+    "questionCount": 886,
+    "activeQuestionCount": 881,
+    "sections": [
+      {
+        "id": "17200-01",
+        "subjectCode": "17200",
+        "sourceGroup": "occupation",
+        "titleZh": "識圖與製圖及相關法規",
+        "questionCount": 65,
+        "activeQuestionCount": 65
+      },
+      {
+        "id": "17200-02",
+        "subjectCode": "17200",
+        "sourceGroup": "occupation",
+        "titleZh": "作業準備",
+        "questionCount": 49,
+        "activeQuestionCount": 49
+      },
+      {
+        "id": "17200-03",
+        "subjectCode": "17200",
+        "sourceGroup": "occupation",
+        "titleZh": "網路架設佈線",
+        "questionCount": 143,
+        "activeQuestionCount": 143
+      },
+      {
+        "id": "17200-04",
+        "subjectCode": "17200",
+        "sourceGroup": "occupation",
+        "titleZh": "網路元件及軟體安裝與應用",
+        "questionCount": 229,
+        "activeQuestionCount": 229
+      },
+      {
+        "id": "90006-01",
+        "subjectCode": "90006",
+        "sourceGroup": "general-common",
+        "titleZh": "職業安全衛生",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      },
+      {
+        "id": "90007-01",
+        "subjectCode": "90007",
+        "sourceGroup": "general-common",
+        "titleZh": "工作倫理與職業道德",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      },
+      {
+        "id": "90008-03",
+        "subjectCode": "90008",
+        "sourceGroup": "general-common",
+        "titleZh": "環境保護",
+        "questionCount": 100,
+        "activeQuestionCount": 95
+      },
+      {
+        "id": "90009-04",
+        "subjectCode": "90009",
+        "sourceGroup": "general-common",
+        "titleZh": "節能減碳",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      }
+    ],
+    "mockRules": {
+      "totalQuestions": 80,
+      "singleCount": 80,
+      "multipleCount": 0,
+      "durationMinutes": 100,
+      "passScore": 60,
+      "maxScore": 100,
+      "weightSingle": 1.25,
+      "weightMultiple": 0,
+      "subjectQuota": [
+        {
+          "subjectCode": "17200",
+          "count": 64
+        },
+        {
+          "subjectCode": "90006",
+          "count": 4
+        },
+        {
+          "subjectCode": "90007",
+          "count": 4
+        },
+        {
+          "subjectCode": "90008",
+          "count": 4
+        },
+        {
+          "subjectCode": "90009",
+          "count": 4
+        }
+      ]
+    },
+    "integrity": {
+      "status": "fully_verified",
+      "inactiveQuestionCount": 5,
+      "imageQuestionCount": 30,
+      "note": "Answer keys independently cross-checked against the official PDF during import."
+    }
+  },
+  {
     "examId": "water-pipe-fitting-c",
     "level": "丙級",
     "titleZh": "自來水管配管丙級",

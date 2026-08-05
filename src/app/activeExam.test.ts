@@ -127,6 +127,7 @@ describe('active exam selection', () => {
       'computer-software-application-b',
       'computer-hardware-repair-b',
       'computer-hardware-repair-c',
+      'network-installation-c',
     ])
     expect(groups.find((group) => group.category === '電機工程')?.exams.map((exam) => exam.examId)).toEqual([
       'industrial-wiring-c',

@@ -446,6 +446,16 @@ describe('published question bank', () => {
         sections: 13,
         occupationQuota: 64,
       },
+      {
+        examId: 'network-installation-c',
+        occupationCode: '17200',
+        version: 'A14',
+        occupation: 486,
+        total: 886,
+        active: 881,
+        sections: 8,
+        occupationQuota: 64,
+      },
     ]
 
     for (const item of cases) {

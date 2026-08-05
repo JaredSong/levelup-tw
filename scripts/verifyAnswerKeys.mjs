@@ -39,6 +39,7 @@ const TARGETS = {
   'forklift-operation-single': { subjectCode: '15100', pdf: 'source/151004A14.pdf', bank: 'public/data/exams/forklift-operation-single/questions.json' },
   'childcare-single': { subjectCode: '15400', pdf: 'source/154004A17.pdf', bank: 'public/data/exams/childcare-single/questions.json' },
   'electrical-equipment-inspection-c': { subjectCode: '16600', pdf: 'source/166003A15.pdf', bank: 'public/data/exams/electrical-equipment-inspection-c/questions.json' },
+  'network-installation-c': { subjectCode: '17200', pdf: 'source/172003A14.pdf', bank: 'public/data/exams/network-installation-c/questions.json' },
   'aircraft-maintenance-c': { subjectCode: '17600', pdf: 'source/176003A12.pdf', bank: 'public/data/exams/aircraft-maintenance-c/questions.json' },
   'care-service-single': { subjectCode: '17800', pdf: 'source/178004A13.pdf', bank: 'public/data/exams/care-service-single/questions.json' },
   'web-design-b': { subjectCode: '17300', pdf: 'source/173002A13.pdf', bank: 'public/data/exams/web-design-b/questions.json' },

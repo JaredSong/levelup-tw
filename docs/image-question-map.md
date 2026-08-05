@@ -1,6 +1,6 @@
 # Image Question Map
 
-Generated: 2026-07-24T14:03:10.689Z
+Generated: 2026-08-05T05:25:21.105Z
 
 These are the questions that currently need a figure, graph, code screenshot, or image-option reference.
 
@@ -12,7 +12,7 @@ Replacement workflow:
 
 Do not include the official answer-key column in replacement images.
 
-Total active image questions: 1016
+Total active image questions: 1063
 
 ## indoor-wiring-b:00700-01-001
 
@@ -13867,6 +13867,836 @@ Total active image questions: 1016
   - 2. 電流由用戶端流向電力系統
   - 3. 超前功因
   - 4. 落後功因
+
+## network-installation-c:17200-01-017
+
+- Replacement PNG: `public/question-images/172003-17200-01-017-1.png`
+- App path: `/question-images/172003-17200-01-017-1.png`
+- Linked uploaded images:
+  - `/question-images/172003-17200-01-017-1.png`
+  - `/question-images/172003-17200-01-017-2.png`
+  - `/question-images/172003-17200-01-017-3.png`
+  - `/question-images/172003-17200-01-017-4.png`
+- Current fallback page: `/question-pages/17200-page-2.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下列何者為單模光纖纜線鏈路衰減與距離的正確關係圖 (橫軸為距離，縱軸為衰減 dB)？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## network-installation-c:17200-01-018
+
+- Replacement PNG: `public/question-images/172003-17200-01-018-1.png`
+- App path: `/question-images/172003-17200-01-018-1.png`
+- Linked uploaded images:
+  - `/question-images/172003-17200-01-018-1.png`
+  - `/question-images/172003-17200-01-018-2.png`
+  - `/question-images/172003-17200-01-018-3.png`
+  - `/question-images/172003-17200-01-018-4.png`
+- Current fallback page: `/question-pages/17200-page-3.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 依據「建築物屋內外電信設備設置技術規範」規定，下列哪個圖示代表電信用插座？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## network-installation-c:17200-01-019
+
+- Replacement PNG: `public/question-images/172003-17200-01-019-1.png`
+- App path: `/question-images/172003-17200-01-019-1.png`
+- Linked uploaded images:
+  - `/question-images/172003-17200-01-019-1.png`
+  - `/question-images/172003-17200-01-019-2.png`
+  - `/question-images/172003-17200-01-019-3.png`
+  - `/question-images/172003-17200-01-019-4.png`
+- Current fallback page: `/question-pages/17200-page-3.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 依據「建築物屋內外電信設備設置技術規範」規定，下列哪個圖示代表總配線箱？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## network-installation-c:17200-01-020
+
+- Replacement PNG: `public/question-images/172003-17200-01-020-1.png`
+- App path: `/question-images/172003-17200-01-020-1.png`
+- Linked uploaded images:
+  - `/question-images/172003-17200-01-020-1.png`
+  - `/question-images/172003-17200-01-020-2.png`
+  - `/question-images/172003-17200-01-020-3.png`
+  - `/question-images/172003-17200-01-020-4.png`
+- Current fallback page: `/question-pages/17200-page-3.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 依據「建築物屋內外電信設備設置技術規範」規定，下列哪個圖示代表主配線箱？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## network-installation-c:17200-01-021
+
+- Replacement PNG: `public/question-images/172003-17200-01-021-1.png`
+- App path: `/question-images/172003-17200-01-021-1.png`
+- Linked uploaded images:
+  - `/question-images/172003-17200-01-021-1.png`
+  - `/question-images/172003-17200-01-021-2.png`
+  - `/question-images/172003-17200-01-021-3.png`
+  - `/question-images/172003-17200-01-021-4.png`
+- Current fallback page: `/question-pages/17200-page-3.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 依據「建築物屋內外電信設備設置技術規範」規定，下列哪個圖示代表總接地箱？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## network-installation-c:17200-01-022
+
+- Replacement PNG: `public/question-images/172003-17200-01-022-1.png`
+- App path: `/question-images/172003-17200-01-022-1.png`
+- Linked uploaded images:
+  - `/question-images/172003-17200-01-022-1.png`
+  - `/question-images/172003-17200-01-022-2.png`
+  - `/question-images/172003-17200-01-022-3.png`
+  - `/question-images/172003-17200-01-022-4.png`
+- Current fallback page: `/question-pages/17200-page-3.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 依據「建築物屋內外電信設備設置技術規範」規定，下列哪個圖示代表電信室？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## network-installation-c:17200-01-023
+
+- Replacement PNG: `public/question-images/172003-17200-01-023-1.png`
+- App path: `/question-images/172003-17200-01-023-1.png`
+- Linked uploaded images:
+  - `/question-images/172003-17200-01-023-1.png`
+  - `/question-images/172003-17200-01-023-2.png`
+  - `/question-images/172003-17200-01-023-3.png`
+  - `/question-images/172003-17200-01-023-4.png`
+- Current fallback page: `/question-pages/17200-page-3.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 依據「建築物屋內外電信設備設置技術規範」規定，下列哪個圖示不屬於配線箱？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## network-installation-c:17200-01-024
+
+- Replacement PNG: `public/question-images/172003-17200-01-024-1.png`
+- App path: `/question-images/172003-17200-01-024-1.png`
+- Linked uploaded images:
+  - `/question-images/172003-17200-01-024-1.png`
+  - `/question-images/172003-17200-01-024-2.png`
+  - `/question-images/172003-17200-01-024-3.png`
+  - `/question-images/172003-17200-01-024-4.png`
+- Current fallback page: `/question-pages/17200-page-3.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 依據「建築物屋內外電信設備設置技術規範」規定，下列哪個圖示代表支配線箱？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## network-installation-c:17200-01-025
+
+- Replacement PNG: `public/question-images/172003-17200-01-025-1.png`
+- App path: `/question-images/172003-17200-01-025-1.png`
+- Linked uploaded images:
+  - `/question-images/172003-17200-01-025-1.png`
+  - `/question-images/172003-17200-01-025-2.png`
+  - `/question-images/172003-17200-01-025-3.png`
+  - `/question-images/172003-17200-01-025-4.png`
+- Current fallback page: `/question-pages/17200-page-3.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 依據「建築物屋內外電信設備設置技術規範」規定，下列哪個圖示代表電線管線暗式？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## network-installation-c:17200-01-026
+
+- Replacement PNG: `public/question-images/172003-17200-01-026-1.png`
+- App path: `/question-images/172003-17200-01-026-1.png`
+- Linked uploaded images:
+  - `/question-images/172003-17200-01-026-1.png`
+  - `/question-images/172003-17200-01-026-2.png`
+  - `/question-images/172003-17200-01-026-3.png`
+  - `/question-images/172003-17200-01-026-4.png`
+- Current fallback page: `/question-pages/17200-page-3.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 依據「建築物屋內外電信設備設置技術規範」規定，下列哪個圖示代表電線管線明式？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## network-installation-c:17200-01-037
+
+- Replacement PNG: `public/question-images/172003-17200-01-037-1.png`
+- App path: `/question-images/172003-17200-01-037-1.png`
+- Linked uploaded images:
+  - `/question-images/172003-17200-01-037-1.png`
+  - `/question-images/172003-17200-01-037-2.png`
+  - `/question-images/172003-17200-01-037-3.png`
+  - `/question-images/172003-17200-01-037-4.png`
+- Current fallback page: `/question-pages/17200-page-4.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 依據「建築物屋內外電信設備設置技術規範」規定，下列哪個圖示代表宅內配線箱？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## network-installation-c:17200-01-043
+
+- Replacement PNG: `public/question-images/172003-17200-01-043-1.png`
+- App path: `/question-images/172003-17200-01-043-1.png`
+- Linked uploaded images:
+  - `/question-images/172003-17200-01-043-1.png`
+  - `/question-images/172003-17200-01-043-2.png`
+  - `/question-images/172003-17200-01-043-3.png`
+  - `/question-images/172003-17200-01-043-4.png`
+- Current fallback page: `/question-pages/17200-page-4.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下列何者為匯流排網路架構圖？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## network-installation-c:17200-01-044
+
+- Replacement PNG: `public/question-images/172003-17200-01-044-1.png`
+- App path: `/question-images/172003-17200-01-044-1.png`
+- Linked uploaded images:
+  - `/question-images/172003-17200-01-044-1.png`
+  - `/question-images/172003-17200-01-044-2.png`
+  - `/question-images/172003-17200-01-044-3.png`
+  - `/question-images/172003-17200-01-044-4.png`
+- Current fallback page: `/question-pages/17200-page-4.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下列何者為星狀網路架構圖？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## network-installation-c:17200-01-045
+
+- Replacement PNG: `public/question-images/172003-17200-01-045-1.png`
+- App path: `/question-images/172003-17200-01-045-1.png`
+- Linked uploaded images:
+  - `/question-images/172003-17200-01-045-1.png`
+  - `/question-images/172003-17200-01-045-2.png`
+  - `/question-images/172003-17200-01-045-3.png`
+  - `/question-images/172003-17200-01-045-4.png`
+- Current fallback page: `/question-pages/17200-page-4.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下列何者為環狀網路架構圖？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## network-installation-c:17200-01-046
+
+- Replacement PNG: `public/question-images/172003-17200-01-046-1.png`
+- App path: `/question-images/172003-17200-01-046-1.png`
+- Linked uploaded images:
+  - `/question-images/172003-17200-01-046-1.png`
+  - `/question-images/172003-17200-01-046-2.png`
+  - `/question-images/172003-17200-01-046-3.png`
+  - `/question-images/172003-17200-01-046-4.png`
+- Current fallback page: `/question-pages/17200-page-5.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 下列何者為樹狀網路架構圖？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## network-installation-c:17200-01-055
+
+- Replacement PNG: `public/question-images/172003-17200-01-055-1.png`
+- App path: `/question-images/172003-17200-01-055-1.png`
+- Linked uploaded images:
+  - `/question-images/172003-17200-01-055-1.png`
+  - `/question-images/172003-17200-01-055-2.png`
+  - `/question-images/172003-17200-01-055-3.png`
+  - `/question-images/172003-17200-01-055-4.png`
+- Current fallback page: `/question-pages/17200-page-5.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 依據「建築物屋內外電信設備設置技術規範」規定，下列電信插座圖示之方向何者正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## network-installation-c:17200-01-056
+
+- Replacement PNG: `public/question-images/172003-17200-01-056-1.png`
+- App path: `/question-images/172003-17200-01-056-1.png`
+- Linked uploaded images:
+  - `/question-images/172003-17200-01-056-1.png`
+  - `/question-images/172003-17200-01-056-2.png`
+  - `/question-images/172003-17200-01-056-3.png`
+  - `/question-images/172003-17200-01-056-4.png`
+- Current fallback page: `/question-pages/17200-page-5.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 依據「建築物屋內外電信設備設置技術規範」規定，下列哪個圖示代表光資訊單插座？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## network-installation-c:17200-01-057
+
+- Replacement PNG: `public/question-images/172003-17200-01-057-1.png`
+- App path: `/question-images/172003-17200-01-057-1.png`
+- Linked uploaded images:
+  - `/question-images/172003-17200-01-057-1.png`
+  - `/question-images/172003-17200-01-057-2.png`
+  - `/question-images/172003-17200-01-057-3.png`
+  - `/question-images/172003-17200-01-057-4.png`
+- Current fallback page: `/question-pages/17200-page-5.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 依據「建築物屋內外電信設備設置技術規範」規定，下列哪個圖示代表光纖出線匣？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## network-installation-c:17200-01-058
+
+- Replacement PNG: `public/question-images/172003-17200-01-058-1.png`
+- App path: `/question-images/172003-17200-01-058-1.png`
+- Linked uploaded images:
+  - `/question-images/172003-17200-01-058-1.png`
+  - `/question-images/172003-17200-01-058-2.png`
+  - `/question-images/172003-17200-01-058-3.png`
+  - `/question-images/172003-17200-01-058-4.png`
+- Current fallback page: `/question-pages/17200-page-5.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 依據「建築物屋內外電信設備設置技術規範」規定，下列哪個圖示代表光纖管線暗式？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## network-installation-c:17200-01-059
+
+- Replacement PNG: `public/question-images/172003-17200-01-059-1.png`
+- App path: `/question-images/172003-17200-01-059-1.png`
+- Linked uploaded images:
+  - `/question-images/172003-17200-01-059-1.png`
+  - `/question-images/172003-17200-01-059-2.png`
+  - `/question-images/172003-17200-01-059-3.png`
+  - `/question-images/172003-17200-01-059-4.png`
+- Current fallback page: `/question-pages/17200-page-6.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 依據「建築物屋內外電信設備設置技術規範」規定，下列哪個圖示代表資訊管線明式？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## network-installation-c:17200-01-060
+
+- Replacement PNG: `public/question-images/172003-17200-01-060-1.png`
+- App path: `/question-images/172003-17200-01-060-1.png`
+- Linked uploaded images:
+  - `/question-images/172003-17200-01-060-1.png`
+  - `/question-images/172003-17200-01-060-2.png`
+  - `/question-images/172003-17200-01-060-3.png`
+  - `/question-images/172003-17200-01-060-4.png`
+- Current fallback page: `/question-pages/17200-page-6.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 依據「建築物屋內外電信設備設置技術規範」規定，下列哪個圖示代表光纖管線明式？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## network-installation-c:17200-01-061
+
+- Replacement PNG: `public/question-images/172003-17200-01-061-1.png`
+- App path: `/question-images/172003-17200-01-061-1.png`
+- Linked uploaded images:
+  - `/question-images/172003-17200-01-061-1.png`
+  - `/question-images/172003-17200-01-061-2.png`
+  - `/question-images/172003-17200-01-061-3.png`
+  - `/question-images/172003-17200-01-061-4.png`
+- Current fallback page: `/question-pages/17200-page-6.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 依據「建築物屋內外電信設備設置技術規範」規定，下列哪個圖示代表拖線箱？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## network-installation-c:17200-01-062
+
+- Replacement PNG: `public/question-images/172003-17200-01-062-1.png`
+- App path: `/question-images/172003-17200-01-062-1.png`
+- Linked uploaded images:
+  - `/question-images/172003-17200-01-062-1.png`
+  - `/question-images/172003-17200-01-062-2.png`
+  - `/question-images/172003-17200-01-062-3.png`
+  - `/question-images/172003-17200-01-062-4.png`
+- Current fallback page: `/question-pages/17200-page-6.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 依據「建築物屋內外電信設備設置技術規範」規定，下列哪個圖示代表資訊出線匣？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## network-installation-c:17200-01-063
+
+- Replacement PNG: `public/question-images/172003-17200-01-063-1.png`
+- App path: `/question-images/172003-17200-01-063-1.png`
+- Linked uploaded images:
+  - `/question-images/172003-17200-01-063-1.png`
+  - `/question-images/172003-17200-01-063-2.png`
+  - `/question-images/172003-17200-01-063-3.png`
+  - `/question-images/172003-17200-01-063-4.png`
+- Current fallback page: `/question-pages/17200-page-6.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 依據「建築物屋內外電信設備設置技術規範」規定，下列哪個圖示代表資訊雙插座？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## network-installation-c:17200-01-064
+
+- Replacement PNG: `public/question-images/172003-17200-01-064-1.png`
+- App path: `/question-images/172003-17200-01-064-1.png`
+- Linked uploaded images:
+  - `/question-images/172003-17200-01-064-1.png`
+  - `/question-images/172003-17200-01-064-2.png`
+  - `/question-images/172003-17200-01-064-3.png`
+  - `/question-images/172003-17200-01-064-4.png`
+- Current fallback page: `/question-pages/17200-page-6.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 依據「建築物屋內外電信設備設置技術規範」規定，下列哪個圖示代表資訊管線暗式？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## network-installation-c:17200-01-065
+
+- Replacement PNG: `public/question-images/172003-17200-01-065-1.png`
+- App path: `/question-images/172003-17200-01-065-1.png`
+- Linked uploaded images:
+  - `/question-images/172003-17200-01-065-1.png`
+  - `/question-images/172003-17200-01-065-2.png`
+  - `/question-images/172003-17200-01-065-3.png`
+  - `/question-images/172003-17200-01-065-4.png`
+- Current fallback page: `/question-pages/17200-page-6.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 依據「建築物屋內外電信設備設置技術規範」規定，下列哪個圖示代表接地？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## aircraft-maintenance-c:17600-01-001
+
+- Replacement PNG: `public/question-images/176003-17600-01-001.png`
+- App path: `/question-images/176003-17600-01-001.png`
+- Linked uploaded image:
+  - `/question-images/176003-17600-01-001.png`
+- Current fallback page: `/question-pages/17600-page-2.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如左圖此種形式的鬆緊套的保險方法叫做
+- Options:
+  - 1. 單線交叉保
+  - 2. 單線單保
+  - 3. 雙線單保
+  - 4. 雙線交叉保
+
+## aircraft-maintenance-c:17600-01-004
+
+- Replacement PNG: `public/question-images/176003-17600-01-004.png`
+- App path: `/question-images/176003-17600-01-004.png`
+- Linked uploaded image:
+  - `/question-images/176003-17600-01-004.png`
+- Current fallback page: `/question-pages/17600-page-2.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 如左圖此種形式的鬆緊套的保險方法叫做
+- Options:
+  - 1. 單線交叉保
+  - 2. 單線單保
+  - 3. 雙線單保
+  - 4. 雙線交叉保
+
+## aircraft-maintenance-c:17600-01-051
+
+- Replacement PNG: `public/question-images/176003-17600-01-051.png`
+- App path: `/question-images/176003-17600-01-051.png`
+- Linked uploaded image:
+  - `/question-images/176003-17600-01-051.png`
+- Current fallback page: `/question-pages/17600-page-4.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 精度 1/50mm 游標卡尺，本尺每分度為 1mm，游尺取本尺 49 分度長等分為 50 等分，每分度=1×49×0.98mm，每分度相差 1-0.98=0.02mm，則如下圖之讀數為
+- Options:
+  - 1. 43.26mm
+  - 2. 43.12mm
+  - 3. 49.00mm
+  - 4. 49.12mm
+
+## aircraft-maintenance-c:17600-01-052
+
+- Replacement PNG: `public/question-images/176003-17600-01-052.png`
+- App path: `/question-images/176003-17600-01-052.png`
+- Linked uploaded image:
+  - `/question-images/176003-17600-01-052.png`
+- Current fallback page: `/question-pages/17600-page-5.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 精度 1/20mm 游標卡尺，本尺每分度為 1mm，游尺取本尺 19 分度長等分為 20 分度，每分度=1×19×(1/20)=0.95mm，則本尺 1 分度與游尺 1 分度相差 1-0.95=0.05mm，則如下圖之讀數為
+- Options:
+  - 1. 9.15mm
+  - 2. 9.50mm
+  - 3. 9.95mm
+  - 4. 15.00mm
+
+## aircraft-maintenance-c:17600-06-001
+
+- Replacement PNG: `public/question-images/176003-17600-06-001.png`
+- App path: `/question-images/176003-17600-06-001.png`
+- Linked uploaded image:
+  - `/question-images/176003-17600-06-001.png`
+- Current fallback page: `/question-pages/17600-page-31.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 左圖示為何種元件之符號：
+- Options:
+  - 1. 二極體
+  - 2. 電晶體
+  - 3. 電阻器
+  - 4. 電感器
+
+## aircraft-maintenance-c:17600-06-002
+
+- Replacement PNG: `public/question-images/176003-17600-06-002.png`
+- App path: `/question-images/176003-17600-06-002.png`
+- Linked uploaded image:
+  - `/question-images/176003-17600-06-002.png`
+- Current fallback page: `/question-pages/17600-page-31.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 左圖示為：
+- Options:
+  - 1. 電容器
+  - 2. 發電機
+  - 3. 變壓器
+  - 4. 電動機
+
+## aircraft-maintenance-c:17600-06-003
+
+- Replacement PNG: `public/question-images/176003-17600-06-003.png`
+- App path: `/question-images/176003-17600-06-003.png`
+- Linked uploaded image:
+  - `/question-images/176003-17600-06-003.png`
+- Current fallback page: `/question-pages/17600-page-31.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 左圖示為：
+- Options:
+  - 1. 瓦特計
+  - 2. 伏特計
+  - 3. 安培計
+  - 4. 歐姆計
+
+## aircraft-maintenance-c:17600-06-004
+
+- Replacement PNG: `public/question-images/176003-17600-06-004.png`
+- App path: `/question-images/176003-17600-06-004.png`
+- Linked uploaded image:
+  - `/question-images/176003-17600-06-004.png`
+- Current fallback page: `/question-pages/17600-page-31.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 左圖示為
+- Options:
+  - 1. NPN 型電晶體
+  - 2. PNP 型電晶體
+  - 3. 二極體
+  - 4. 場效電晶體
+
+## aircraft-maintenance-c:17600-06-005
+
+- Replacement PNG: `public/question-images/176003-17600-06-005.png`
+- App path: `/question-images/176003-17600-06-005.png`
+- Linked uploaded image:
+  - `/question-images/176003-17600-06-005.png`
+- Current fallback page: `/question-pages/17600-page-31.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 左圖示為：
+- Options:
+  - 1. 電感器
+  - 2. 電阻器
+  - 3. 電晶體
+  - 4. 電容器
+
+## aircraft-maintenance-c:17600-06-006
+
+- Replacement PNG: `public/question-images/176003-17600-06-006.png`
+- App path: `/question-images/176003-17600-06-006.png`
+- Linked uploaded image:
+  - `/question-images/176003-17600-06-006.png`
+- Current fallback page: `/question-pages/17600-page-31.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 左圖示為
+- Options:
+  - 1. 開關
+  - 2. 接地
+  - 3. 熔絲
+  - 4. 電池
+
+## aircraft-maintenance-c:17600-06-010
+
+- Replacement PNG: `public/question-images/176003-17600-06-010.png`
+- App path: `/question-images/176003-17600-06-010.png`
+- Linked uploaded image:
+  - `/question-images/176003-17600-06-010.png`
+- Current fallback page: `/question-pages/17600-page-32.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如下圖示，利用安培計及伏特器計量測未知電阻，此種接法適合量測
+- Options:
+  - 1. 低電阻
+  - 2. 高電阻
+  - 3. 熱電阻
+  - 4. 光敏電阻
+
+## aircraft-maintenance-c:17600-06-019
+
+- Replacement PNG: `public/question-images/176003-17600-06-019.png`
+- App path: `/question-images/176003-17600-06-019.png`
+- Linked uploaded image:
+  - `/question-images/176003-17600-06-019.png`
+- Current fallback page: `/question-pages/17600-page-32.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 下圖示為何種基本電路：
+- Options:
+  - 1. 串聯電路
+  - 2. 並聯電路
+  - 3. 串並聯電路
+  - 4. 無法辨識
+
+## aircraft-maintenance-c:17600-06-020
+
+- Replacement PNG: `public/question-images/176003-17600-06-020.png`
+- App path: `/question-images/176003-17600-06-020.png`
+- Linked uploaded image:
+  - `/question-images/176003-17600-06-020.png`
+- Current fallback page: `/question-pages/17600-page-32.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 下圖示電路總電阻為
+- Options:
+  - 1. 12Ω
+  - 2. 18Ω
+  - 3. 6Ω
+  - 4. 4Ω
+
+## aircraft-maintenance-c:17600-06-021
+
+- Replacement PNG: `public/question-images/176003-17600-06-021.png`
+- App path: `/question-images/176003-17600-06-021.png`
+- Linked uploaded image:
+  - `/question-images/176003-17600-06-021.png`
+- Current fallback page: `/question-pages/17600-page-32.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 左圖示電路總電流為：
+- Options:
+  - 1. 1A
+  - 2. 2A
+  - 3. 3A
+  - 4. 4A
+
+## aircraft-maintenance-c:17600-06-022
+
+- Replacement PNG: `public/question-images/176003-17600-06-022.png`
+- App path: `/question-images/176003-17600-06-022.png`
+- Linked uploaded image:
+  - `/question-images/176003-17600-06-022.png`
+- Current fallback page: `/question-pages/17600-page-32.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 左圖示 2Ω電壓降為：
+- Options:
+  - 1. 1V
+  - 2. 2V
+  - 3. 3V
+  - 4. 4V
+
+## aircraft-maintenance-c:17600-06-023
+
+- Replacement PNG: `public/question-images/176003-17600-06-023.png`
+- App path: `/question-images/176003-17600-06-023.png`
+- Linked uploaded image:
+  - `/question-images/176003-17600-06-023.png`
+- Current fallback page: `/question-pages/17600-page-33.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 左圖示 3Ω電阻消耗功率為：
+- Options:
+  - 1. 4W
+  - 2. 8W
+  - 3. 12W
+  - 4. 16W
+
+## aircraft-maintenance-c:17600-06-024
+
+- Replacement PNG: `public/question-images/176003-17600-06-024.png`
+- App path: `/question-images/176003-17600-06-024.png`
+- Linked uploaded image:
+  - `/question-images/176003-17600-06-024.png`
+- Current fallback page: `/question-pages/17600-page-33.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 左圖為何種基本電路：
+- Options:
+  - 1. 串聯
+  - 2. 並聯
+  - 3. 串並聯
+  - 4. 無法辨識
+
+## aircraft-maintenance-c:17600-06-025
+
+- Replacement PNG: `public/question-images/176003-17600-06-025.png`
+- App path: `/question-images/176003-17600-06-025.png`
+- Linked uploaded image:
+  - `/question-images/176003-17600-06-025.png`
+- Current fallback page: `/question-pages/17600-page-33.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 左圖電壓源流出之電流為：
+- Options:
+  - 1. 4A
+  - 2. 8A
+  - 3. 12A
+  - 4. 16A
+
+## aircraft-maintenance-c:17600-06-026
+
+- Replacement PNG: `public/question-images/176003-17600-06-026.png`
+- App path: `/question-images/176003-17600-06-026.png`
+- Linked uploaded image:
+  - `/question-images/176003-17600-06-026.png`
+- Current fallback page: `/question-pages/17600-page-33.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 左圖流經 3Ω之電流為：
+- Options:
+  - 1. 4A
+  - 2. 8A
+  - 3. 12A
+  - 4. 16A
+
+## aircraft-maintenance-c:17600-06-027
+
+- Replacement PNG: `public/question-images/176003-17600-06-027.png`
+- App path: `/question-images/176003-17600-06-027.png`
+- Linked uploaded image:
+  - `/question-images/176003-17600-06-027.png`
+- Current fallback page: `/question-pages/17600-page-33.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 左圖並聯總電阻為：
+- Options:
+  - 1. 18Ω
+  - 2. 9Ω
+  - 3. 3Ω
+  - 4. 2Ω
+
+## aircraft-maintenance-c:17600-06-037
+
+- Replacement PNG: `public/question-images/176003-17600-06-037.png`
+- App path: `/question-images/176003-17600-06-037.png`
+- Linked uploaded image:
+  - `/question-images/176003-17600-06-037.png`
+- Current fallback page: `/question-pages/17600-page-33.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 左圖為何符號
+- Options:
+  - 1. 電瓶
+  - 2. 開關
+  - 3. 接地
+  - 4. 電容
 
 ## retail-service-c:18100-01-127
 

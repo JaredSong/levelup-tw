@@ -38,6 +38,7 @@ const PACKS = [
   { examId: 'motorcycle-repair-c', occupationCode: '14500', sourceQuestions: 599, inactive: 1, figures: 14, cropPrefix: '145003', tightCrops: true },
   { examId: 'electrical-equipment-inspection-c', occupationCode: '16600', sourceQuestions: 685, inactive: 0, figures: 5, cropPrefix: '166003', tightCrops: true },
   { examId: 'aircraft-maintenance-c', occupationCode: '17600', sourceQuestions: 643, inactive: 0, figures: 21, cropPrefix: '176003', tightCrops: true },
+  { examId: 'network-installation-c', occupationCode: '17200', sourceQuestions: 486, inactive: 0, figures: 26, cropPrefix: '172003', tightCrops: true },
   // inactive 4 → 5: 21500-03-073's crop is a pure-white PNG even though the
   // figure exists in source/215003A11.pdf p.20. Same page-boundary crop
   // fault as 14500-03-195 above. Pulled by Wen (2026-07-21).

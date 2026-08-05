@@ -128,6 +128,8 @@ const BANKS = [
     },
   },
   { code: '20600', source: '206003A13', splitImageOptions: true },
+  { code: '02000', source: '020003A11', splitImageOptions: true },
+  { code: '07700', source: '077003A12', splitImageOptions: true },
   {
     code: '02800',
     source: '028003A11',

@@ -39,6 +39,7 @@ const PACKS = [
   { examId: 'electrical-equipment-inspection-c', occupationCode: '16600', sourceQuestions: 685, inactive: 0, figures: 5, cropPrefix: '166003', tightCrops: true },
   { examId: 'aircraft-maintenance-c', occupationCode: '17600', sourceQuestions: 643, inactive: 0, figures: 21, cropPrefix: '176003', tightCrops: true },
   { examId: 'network-installation-c', occupationCode: '17200', sourceQuestions: 486, inactive: 0, figures: 26, cropPrefix: '172003', tightCrops: true },
+  { examId: 'engineering-surveying-b', occupationCode: '04202', sourceQuestions: 769, inactive: 11, figures: 52, cropPrefix: '042022', tightCrops: true },
   // inactive 4 → 5: 21500-03-073's crop is a pure-white PNG even though the
   // figure exists in source/215003A11.pdf p.20. Same page-boundary crop
   // fault as 14500-03-195 above. Pulled by Wen (2026-07-21).
@@ -69,6 +70,19 @@ function pngDimensions(bytes: Buffer) {
 }
 
 describe('new high-demand exam packs', () => {
+  it('keeps the engineering-surveying distance values as selectable question text', () => {
+    const questions = JSON.parse(readFileSync(
+      new URL('../public/data/exams/engineering-surveying-b/questions.json', import.meta.url),
+      'utf8',
+    )) as Array<{ id: string; prompt: string; hasFigure?: boolean; sourceImages?: string[] }>
+    const question = questions.find((item) => item.id === '04202-06-028')
+
+    expect(question?.prompt).toContain('AB＝20.000m 及 BC＝30.000m')
+    expect(question?.prompt).toContain('AB＝20.020m 及 AC＝50.050m')
+    expect(question?.hasFigure).toBe(false)
+    expect(question?.sourceImages).toBeUndefined()
+  })
+
   for (const expected of PACKS) {
     it(`${expected.examId} keeps its official records and usable question crops`, () => {
       const questions = JSON.parse(readFileSync(

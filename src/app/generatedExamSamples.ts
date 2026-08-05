@@ -1200,6 +1200,70 @@ export const GENERATED_EXAM_SAMPLES: Record<string, ExamSampleSet> = {
       }
     ]
   },
+  "engineering-surveying-b": {
+    "sections": [
+      "測繪資料分析",
+      "基本測量方法",
+      "控制測量",
+      "地形測量",
+      "應用測量",
+      "儀器檢校",
+      "職業安全衛生",
+      "工作倫理與職業道德",
+      "環境保護",
+      "節能減碳"
+    ],
+    "samples": [
+      {
+        "id": "04202-01-001",
+        "sectionTitle": "測繪資料分析",
+        "prompt": "誤差依其發生之來源分為幾種？",
+        "options": [
+          "二",
+          "三",
+          "四",
+          "五"
+        ],
+        "answer": 2
+      },
+      {
+        "id": "04202-02-001",
+        "sectionTitle": "基本測量方法",
+        "prompt": "用鋼卷尺量得 A、B 兩點間之斜距為 50.000m，已知 A、B 兩點之高程差為 4.310m，則 AB 之水平距離為",
+        "options": [
+          "50.186m",
+          "49.814m",
+          "50.093m",
+          "49.907m"
+        ],
+        "answer": 2
+      },
+      {
+        "id": "04202-03-001",
+        "sectionTitle": "控制測量",
+        "prompt": "三點法又稱",
+        "options": [
+          "前方交會法",
+          "側方交會法",
+          "後方交會法",
+          "四方交會法"
+        ],
+        "answer": 3
+      },
+      {
+        "id": "04202-04-001",
+        "sectionTitle": "地形測量",
+        "prompt": "設一地形圖之等高距為 2m，則 20m 之等高線為",
+        "options": [
+          "首曲線",
+          "計曲線",
+          "助曲線",
+          "間曲線"
+        ],
+        "answer": 2
+      }
+    ]
+  },
   "excavator-operation-single": {
     "sections": [
       "基本保養檢查",

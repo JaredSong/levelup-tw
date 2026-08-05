@@ -176,6 +176,145 @@ const BANKS = [
     },
   },
   {
+    code: '04202',
+    source: '042022A11',
+    cropPrefix: '042022',
+    splitImageOptions: true,
+    mixedFigureOptions: [
+      '04202-03-029', '04202-03-030', '04202-03-031', '04202-03-032',
+      '04202-03-034', '04202-03-045', '04202-03-057', '04202-03-066',
+      '04202-04-041', '04202-04-076',
+    ],
+    textOptionQuestions: [
+      '04202-03-029', '04202-03-030', '04202-03-031', '04202-03-032',
+      '04202-03-034', '04202-03-045', '04202-03-057', '04202-03-066',
+    ],
+    excludedFigures: [
+      '04202-01-103', '04202-02-011', '04202-02-048', '04202-02-073',
+      '04202-03-023', '04202-05-026', '04202-06-028',
+    ],
+    figureRects: {
+      // The prompt starts at the bottom of page 5; the actual centering-error
+      // diagram continues at the top of page 6.
+      '04202-01-066': { page: 6, x: 122, y: 64, width: 150, height: 64 },
+      '04202-03-029': { page: 25, x: 128, y: 610, width: 100, height: 45 },
+      // Question 030 starts at the bottom of page 25. Its remaining formula
+      // choices and the triangle-chain diagram continue on page 26.
+      '04202-03-030': { page: 26, x: 134, y: 65, width: 94, height: 46 },
+      '04202-03-031': { page: 26, x: 126, y: 154, width: 270, height: 84 },
+      '04202-03-032': { page: 26, x: 127, y: 310, width: 135, height: 55 },
+      '04202-03-034': { page: 26, x: 133, y: 463, width: 96, height: 50 },
+      '04202-03-045': { page: 27, x: 132, y: 409, width: 166, height: 80 },
+      '04202-03-057': { page: 28, x: 128, y: 590, width: 97, height: 46 },
+      '04202-03-066': { page: 29, x: 120, y: 350, width: 200, height: 60 },
+      '04202-04-041': { page: 43, x: 120, y: 188, width: 100, height: 48 },
+      // Preserve only the legend marks. Automatic gap detection included text
+      // from the neighbouring question and made the tiny symbols unreadable.
+      '04202-04-062': { page: 44, x: 206, y: 500, width: 36, height: 13, padTo: { width: 150, height: 60 } },
+      '04202-04-063': { page: 44, x: 206, y: 521, width: 27, height: 14, padTo: { width: 150, height: 60 } },
+      '04202-04-064': { page: 44, x: 207, y: 542, width: 25, height: 14, padTo: { width: 150, height: 60 } },
+      // Question 076 begins at the foot of page 45. Page 46 contains a clean
+      // base contour map beneath its four candidate watershed boundaries.
+      '04202-04-076': { page: 46, x: 120, y: 96, width: 91, height: 55 },
+      // The DEM interpolation diagram follows at the top of page 50.
+      '04202-04-097': { page: 50, x: 120, y: 64, width: 75, height: 74 },
+      '04202-05-066': { page: 55, x: 130, y: 484, width: 102, height: 82 },
+      '04202-05-104': { page: 58, x: 130, y: 585, width: 175, height: 34 },
+    },
+    optionRectOverrides: {
+      '04202-03-029': [
+        { page: 25, x: 142, y: 558, width: 101, height: 35 },
+        null,
+        null,
+        { page: 25, x: 127, y: 589, width: 129, height: 31 },
+      ],
+      '04202-03-030': [
+        { page: 25, x: 141, y: 704, width: 101, height: 31 },
+        { page: 25, x: 260, y: 704, width: 106, height: 31 },
+        { page: 26, x: 140, y: 17, width: 103, height: 29 },
+        { page: 26, x: 263, y: 17, width: 112, height: 29 },
+      ],
+      '04202-03-031': [
+        { page: 26, x: 96, y: 119, width: 65, height: 24 },
+        { page: 26, x: 163, y: 119, width: 84, height: 24 },
+        null,
+        null,
+      ],
+      '04202-03-032': [
+        { page: 26, x: 135, y: 287, width: 79, height: 28 },
+        { page: 26, x: 226, y: 287, width: 74, height: 28 },
+        null,
+        null,
+      ],
+      '04202-03-034': [
+        null,
+        { page: 26, x: 128, y: 451, width: 160, height: 27 },
+        null,
+        null,
+      ],
+      '04202-03-045': [
+        { page: 27, x: 174, y: 345, width: 322, height: 27 },
+        { page: 27, x: 127, y: 371, width: 184, height: 27 },
+        null,
+        { page: 27, x: 127, y: 397, width: 221, height: 27 },
+      ],
+      '04202-03-052': [
+        null,
+        null,
+        null,
+        { page: 28, x: 127, y: 264, width: 82, height: 27 },
+      ],
+      '04202-03-057': [
+        null,
+        null,
+        null,
+        { page: 28, x: 127, y: 563, width: 94, height: 28 },
+      ],
+      '04202-03-066': [
+        { page: 29, x: 136, y: 326, width: 82, height: 30 },
+        { page: 29, x: 216, y: 326, width: 86, height: 30 },
+        null,
+        null,
+      ],
+      '04202-04-041': [
+        null,
+        null,
+        null,
+        { page: 43, x: 119, y: 126, width: 102, height: 62 },
+      ],
+      '04202-04-076': [
+        { page: 46, x: 121, y: 10, width: 87, height: 84 },
+        { page: 46, x: 210, y: 10, width: 91, height: 84 },
+        { page: 46, x: 299, y: 10, width: 91, height: 84 },
+        { page: 46, x: 391, y: 10, width: 98, height: 84 },
+      ],
+      '04202-04-090': [
+        { page: 48, x: 244, y: 382, width: 113, height: 105 },
+        { page: 48, x: 370, y: 382, width: 115, height: 105 },
+        { page: 48, x: 122, y: 497, width: 112, height: 105 },
+        { page: 48, x: 250, y: 497, width: 115, height: 105 },
+      ],
+      '04202-04-091': [
+        { page: 48, x: 269, y: 641, width: 75, height: 82 },
+        { page: 48, x: 358, y: 641, width: 75, height: 82 },
+        { page: 48, x: 447, y: 641, width: 75, height: 82 },
+        { page: 48, x: 136, y: 714, width: 75, height: 88 },
+      ],
+      '04202-04-092': [
+        { page: 49, x: 407, y: 80, width: 86, height: 63 },
+        { page: 49, x: 136, y: 142, width: 75, height: 63 },
+        { page: 49, x: 242, y: 142, width: 78, height: 63 },
+        { page: 49, x: 338, y: 142, width: 88, height: 63 },
+      ],
+      '04202-04-093': [
+        { page: 49, x: 407, y: 249, width: 86, height: 62 },
+        { page: 49, x: 136, y: 309, width: 77, height: 75 },
+        { page: 49, x: 242, y: 309, width: 78, height: 75 },
+        { page: 49, x: 338, y: 309, width: 88, height: 75 },
+      ],
+    },
+  },
+  {
     code: '07002',
     source: '070024A10',
     cropPrefix: '070024',
@@ -1104,6 +1243,7 @@ async function buildBank({
   extraFigures = [],
   excludedFigures = [],
   mixedFigureOptions = [],
+  textOptionQuestions = [],
   figureRects = {},
   splitImageOptions = false,
   includeLeftFigures = false,
@@ -1131,6 +1271,15 @@ async function buildBank({
   const outputRoot = new URL('../public/question-images/', import.meta.url)
   await mkdir(outputRoot, { recursive: true })
 
+  // Explicitly excluded or transcribed questions must not leave obsolete
+  // generated PNGs behind after a re-import. Otherwise a local image audit
+  // can still surface assets the published question no longer references.
+  for (const questionId of excludedFigures) {
+    const stem = `${cropPrefix ? `${cropPrefix}-` : ''}${questionId}`
+    await Promise.all([`${stem}.png`, ...[1, 2, 3, 4].map((index) => `${stem}-${index}.png`)]
+      .map((file) => unlink(new URL(file, outputRoot)).catch(() => undefined)))
+  }
+
   for (const question of figures) {
     const outputName = `${cropPrefix ? `${cropPrefix}-` : ''}${question.id}`
     const output = fileURLToPath(new URL(`${outputName}.png`, outputRoot))
@@ -1145,10 +1294,16 @@ async function buildBank({
     const bottom = Math.min(page.height - 24, next ? next.y - 4 : page.height - 30)
     if (bottom <= top) throw new Error(`${question.id}: invalid crop bounds ${top}-${bottom}`)
 
-    const imageOptions = splitImageOptions && question.options.some((option) => option.includes('圖示選項'))
+    const imageOptions = splitImageOptions
+      && !textOptionQuestions.includes(question.id)
+      && question.options.some((option) => option.includes('圖示選項'))
     const hasQuestionFigure = mixedFigureOptions.includes(question.id)
+    if (textOptionQuestions.includes(question.id)) {
+      await Promise.all([1, 2, 3, 4]
+        .map((index) => unlink(new URL(`${outputName}-${index}.png`, outputRoot)).catch(() => undefined)))
+    }
     if (figuresOnly && imageOptions && !hasQuestionFigure) continue
-    const optionRects = imageOptions ? optionCropRects(page, top, bottom) : null
+    let optionRects = imageOptions ? optionCropRects(page, top, bottom) : null
     // The auto heuristic anchors an option's crop on its own marker line. When
     // an option's symbol has no room left on that line and wraps onto a blank
     // row of its own — with nothing to anchor on but a "。" several lines down
@@ -1156,7 +1311,10 @@ async function buildBank({
     // than guess a general detector from one pack's hand-tuned layout, take an
     // explicit per-option rect straight from the PDF.
     const optionOverride = optionRectOverrides[question.id]
-    if (optionRects && optionOverride) {
+    if (imageOptions && !optionRects && optionOverride?.length === 4 && optionOverride.every(Boolean)) {
+      optionRects = [...optionOverride]
+    }
+    if (imageOptions && optionRects && optionOverride) {
       optionOverride.forEach((rect, index) => {
         if (rect) optionRects[index] = rect
       })
@@ -1194,7 +1352,13 @@ async function buildBank({
           ?? figureCropRect(question, page, top, bottom, { ignoreInlineGap: true }))
       }
       if (!figuresOnly) {
-        optionRects.forEach((rect, index) => cropImage(renderedPage, optionOutputs[index], page, rect))
+        optionRects.forEach((rect, index) => {
+          const optionPageNumber = rect.page ?? question.sourcePage
+          const optionPage = pages[optionPageNumber - 1]
+          if (!optionPage) throw new Error(`${question.id}: option crop page ${optionPageNumber} missing`)
+          const renderedOptionPage = renderPage({ rendered, work, pdfPath, sourcePage: optionPageNumber })
+          cropImage(renderedOptionPage, optionOutputs[index], optionPage, rect)
+        })
       }
     } else {
       cropImage(renderedPage, output, cropPage, rectOverride

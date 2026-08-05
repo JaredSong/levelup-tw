@@ -1,6 +1,6 @@
 # Image Question Map
 
-Generated: 2026-08-05T05:25:21.105Z
+Generated: 2026-08-05T10:19:28.297Z
 
 These are the questions that currently need a figure, graph, code screenshot, or image-option reference.
 
@@ -12,7 +12,7 @@ Replacement workflow:
 
 Do not include the official answer-key column in replacement images.
 
-Total active image questions: 1063
+Total active image questions: 1115
 
 ## indoor-wiring-b:00700-01-001
 
@@ -7322,6 +7322,891 @@ Total active image questions: 1063
   - 2. 電流放大電路用
   - 3. 電壓放大電路用
   - 4. 消除開關的彈跳現象用
+
+## engineering-surveying-b:04202-01-013
+
+- Replacement PNG: `public/question-images/042022-04202-01-013-1.png`
+- App path: `/question-images/042022-04202-01-013-1.png`
+- Linked uploaded images:
+  - `/question-images/042022-04202-01-013-1.png`
+  - `/question-images/042022-04202-01-013-2.png`
+  - `/question-images/042022-04202-01-013-3.png`
+  - `/question-images/042022-04202-01-013-4.png`
+- Current fallback page: `/question-pages/04202-page-2.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: AB 長度用鋼卷尺量了 n 次，獲得每次量距之改正數為，，則最或是值之標準誤差（中誤差）為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## engineering-surveying-b:04202-01-014
+
+- Replacement PNG: `public/question-images/042022-04202-01-014-1.png`
+- App path: `/question-images/042022-04202-01-014-1.png`
+- Linked uploaded images:
+  - `/question-images/042022-04202-01-014-1.png`
+  - `/question-images/042022-04202-01-014-2.png`
+  - `/question-images/042022-04202-01-014-3.png`
+  - `/question-images/042022-04202-01-014-4.png`
+- Current fallback page: `/question-pages/04202-page-2.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: AB 長度用鋼卷尺量了 n 次，獲得每次量距之改正數為，，則觀測值之標準誤差（中誤差）為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## engineering-surveying-b:04202-01-066
+
+- Replacement PNG: `public/question-images/042022-04202-01-066.png`
+- App path: `/question-images/042022-04202-01-066.png`
+- Linked uploaded image:
+  - `/question-images/042022-04202-01-066.png`
+- Current fallback page: `/question-pages/04202-page-5.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 如下圖所示，假設 A、B、O、O'位於一平面上，O 為測站地面點位，A、B 分為照準點地面點位，O'為經緯儀中心於地面之投影點位，因定心不正確所造成之偏心距 OO'=3mm，距離 OA=OB=60m，O'A=O'B，觀測水平角∠AO'B=100°(內角)，則定心誤差對正確水平角∠AOB(內角)之影響量為何？
+- Options:
+  - 1. 14.3 秒
+  - 2. 14.8 秒
+  - 3. 15.8 秒
+  - 4. 16.5 秒
+
+## engineering-surveying-b:04202-01-072
+
+- Replacement PNG: `public/question-images/042022-04202-01-072.png`
+- App path: `/question-images/042022-04202-01-072.png`
+- Linked uploaded image:
+  - `/question-images/042022-04202-01-072.png`
+- Current fallback page: `/question-pages/04202-page-6.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖所示，假設 A、O、C 位於一平面上，O 為測站地面點位，A 為照準點地面點位，B 為稜鏡中心點，C 為 B 於地面之投影點位， A 與 B 不在同一垂線上，距離 OA=60.0m，距離 AB=1.6m，∠ABC=15 秒，觀測水平角時照準 B，此時對正確水平方向觀測之影響為何？
+- Options:
+  - 1. 0.2 秒
+  - 2. 0.4秒
+  - 3. 0.6 秒
+  - 4. 0.8 秒
+
+## engineering-surveying-b:04202-01-079
+
+- Replacement PNG: `public/question-images/042022-04202-01-079.png`
+- App path: `/question-images/042022-04202-01-079.png`
+- Linked uploaded image:
+  - `/question-images/042022-04202-01-079.png`
+- Current fallback page: `/question-pages/04202-page-7.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 如下圖所示，∠C=90°，斜邊 S=163.563m±0.004m，角度α=32°15'26"±5"，假設 S 與α之觀測誤差獨立，請問高差Δh 之中誤差為
+- Options:
+  - 1. ±2mm
+  - 2. ±3mm
+  - 3. ±4mm
+  - 4. ±5mm
+
+## engineering-surveying-b:04202-01-089
+
+- Replacement PNG: `public/question-images/042022-04202-01-089.png`
+- App path: `/question-images/042022-04202-01-089.png`
+- Linked uploaded image:
+  - `/question-images/042022-04202-01-089.png`
+- Current fallback page: `/question-pages/04202-page-8.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖所示，P 點不易到達，若 A 點高程為 91.029m，B 點高程為91.906m，A 點儀器高 hiA=1.692m，B 點儀器高 hiB=1.670m，A 點與 B點之水平距離為 41.590m，水平角∠PAB=44°12'34"，水平角∠ABP=39°26'56"，垂直角∠V1=8°12'47"，垂直角∠V2=5°50'10"，P 點之平均高程為
+- Options:
+  - 1. 96.459m
+  - 2. 96.559m
+  - 3. 96.569m
+  - 4. 96.579m
+
+## engineering-surveying-b:04202-01-096
+
+- Replacement PNG: `public/question-images/042022-04202-01-096.png`
+- App path: `/question-images/042022-04202-01-096.png`
+- Linked uploaded image:
+  - `/question-images/042022-04202-01-096.png`
+- Current fallback page: `/question-pages/04202-page-9.jpg`
+- Kind: multiple
+- Official answer: 2,3,4
+- Prompt: 如下圖所示，有關 A、B、C、D 四個目標的方向表示方法，下列敘述哪些正確？
+- Options:
+  - 1. D 點的方位角為 20°
+  - 2. B 點的方位角為 161°
+  - 3. C 點的方向角為 S 62°W
+  - 4. A 點的方向角為 N 35°E
+
+## engineering-surveying-b:04202-01-116
+
+- Replacement PNG: `public/question-images/042022-04202-01-116.png`
+- App path: `/question-images/042022-04202-01-116.png`
+- Linked uploaded image:
+  - `/question-images/042022-04202-01-116.png`
+- Current fallback page: `/question-pages/04202-page-11.jpg`
+- Kind: multiple
+- Official answer: 2,3,4
+- Prompt: 如下圖所示，A、P、B 近似成一直線，若欲監測 P 點，則下列敘述哪些正確？
+- Options:
+  - 1. 若已測得的距離，則自 B 點量測距離可以提升 P 點垂直於方向的定位結果精度
+  - 2. 若已測得的方向，則自 B 點量測距離可以提升 P 點平行於方向的定位結果精度
+  - 3. 若∠ACP 接近 90 度，並已測得的距離，則量測距離可以提升 C 點的定位結果精度
+  - 4. 若的距離小於的距離，則宜以為後視參考基準線定 C 點的方向，可以獲得較好的結果
+
+## engineering-surveying-b:04202-01-120
+
+- Replacement PNG: `public/question-images/042022-04202-01-120.png`
+- App path: `/question-images/042022-04202-01-120.png`
+- Linked uploaded image:
+  - `/question-images/042022-04202-01-120.png`
+- Current fallback page: `/question-pages/04202-page-11.jpg`
+- Kind: multiple
+- Official answer: 2,3
+- Prompt: 如下圖所示，∠ABC 為直角，若測得 =40.05±0.04m，∠CAB=30°00'00"±30"，則下列敘述哪些正確？
+- Options:
+  - 1. =25.85m
+  - 2. 的誤差約為±0.02m
+  - 3. =34.68m
+  - 4. 與彼此獨立不相關
+
+## engineering-surveying-b:04202-02-004
+
+- Replacement PNG: `public/question-images/042022-04202-02-004-1.png`
+- App path: `/question-images/042022-04202-02-004-1.png`
+- Linked uploaded images:
+  - `/question-images/042022-04202-02-004-1.png`
+  - `/question-images/042022-04202-02-004-2.png`
+  - `/question-images/042022-04202-02-004-3.png`
+  - `/question-images/042022-04202-02-004-4.png`
+- Current fallback page: `/question-pages/04202-page-12.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 設一斜距離為 S，其兩端之高程差為 h，則水平距離 D 可依下列何者近似公式計算？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## engineering-surveying-b:04202-03-022
+
+- Replacement PNG: `public/question-images/042022-04202-03-022-1.png`
+- App path: `/question-images/042022-04202-03-022-1.png`
+- Linked uploaded images:
+  - `/question-images/042022-04202-03-022-1.png`
+  - `/question-images/042022-04202-03-022-2.png`
+  - `/question-images/042022-04202-03-022-3.png`
+  - `/question-images/042022-04202-03-022-4.png`
+- Current fallback page: `/question-pages/04202-page-25.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 設導線有 N 個折角，則該導線的角度閉合差限度為 (其中 C 為常數)
+- Options:
+  - 1. 圖示選項 1
+  - 2. CN
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## engineering-surveying-b:04202-03-026
+
+- Replacement PNG: `public/question-images/042022-04202-03-026-1.png`
+- App path: `/question-images/042022-04202-03-026-1.png`
+- Linked uploaded images:
+  - `/question-images/042022-04202-03-026-1.png`
+  - `/question-images/042022-04202-03-026-2.png`
+  - `/question-images/042022-04202-03-026-3.png`
+  - `/question-images/042022-04202-03-026-4.png`
+- Current fallback page: `/question-pages/04202-page-25.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 設導線之橫距閉合差為Ｗ E，縱距閉合差為Ｗ N，導線之總長為[L]，則導線閉合比數計算公式為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## engineering-surveying-b:04202-03-028
+
+- Replacement PNG: `public/question-images/042022-04202-03-028-1.png`
+- App path: `/question-images/042022-04202-03-028-1.png`
+- Linked uploaded images:
+  - `/question-images/042022-04202-03-028-1.png`
+  - `/question-images/042022-04202-03-028-2.png`
+  - `/question-images/042022-04202-03-028-3.png`
+  - `/question-images/042022-04202-03-028-4.png`
+- Current fallback page: `/question-pages/04202-page-25.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 已知三角形三內角 A、B、C，及角 B 之對邊 b，則角 A 對邊等於
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## engineering-surveying-b:04202-03-029
+
+- Replacement PNG: `public/question-images/042022-04202-03-029.png`
+- App path: `/question-images/042022-04202-03-029.png`
+- Linked uploaded image:
+  - `/question-images/042022-04202-03-029.png`
+- Current fallback page: `/question-pages/04202-page-25.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 四邊形如下圖示，其中角度 1 至 8 為平差後之角度，其邊條件方程式為下列何者？
+- Options:
+  - 1. (sin1＋sin2＋sin3＋sin4) / (sin5＋sin6＋sin7＋sin8)＝1
+  - 2. (sin1·sin2·sin3·sin4) / (sin5·sin6·sin7·sin8)＝1
+  - 3. (sin2·sin4·sin6·sin8) / (sin1·sin3·sin5·sin7)＝1
+  - 4. (AB·sin2·sin4·sin6·sin8) / (CD·sin1·sin3·sin5·sin7)＝1
+
+## engineering-surveying-b:04202-03-030
+
+- Replacement PNG: `public/question-images/042022-04202-03-030.png`
+- App path: `/question-images/042022-04202-03-030.png`
+- Linked uploaded image:
+  - `/question-images/042022-04202-03-030.png`
+- Current fallback page: `/question-pages/04202-page-25.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 一單三角鎖如下圖示，已知 AB 邊長為 S 1，DE 邊長為 S 2，其中角度A1 至 A3、B1 至 B3 為平差後之角度，則基線條件長條件方程式為
+- Options:
+  - 1. (S₁·sinA1·sinA2·sinA3) / (S₂·sinB1·sinB2·sinB3)＝1
+  - 2. (S₁·sinB1·sinB2·sinB3) / (S₂·sinA1·sinA2·sinA3)＝1
+  - 3. (S₂·sinA1·sinA2·sinA3) / (S₁·sinC1·sinC2·sinC3)＝1
+  - 4. (S₂·sinB1·sinB2·sinB3) / (S₁·sinC1·sinC2·sinC3)＝1
+
+## engineering-surveying-b:04202-03-031
+
+- Replacement PNG: `public/question-images/042022-04202-03-031.png`
+- App path: `/question-images/042022-04202-03-031.png`
+- Linked uploaded image:
+  - `/question-images/042022-04202-03-031.png`
+- Current fallback page: `/question-pages/04202-page-26.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 如下圖，設 C 為標石中心，B 為經緯儀中心，e 及ψ為歸心元素，則水平角 a 等於
+- Options:
+  - 1. r＋x₁＋x₂
+  - 2. r＋x₁－x₂
+  - 3. r－x₁＋x₂
+  - 4. r－x₁－x₂
+
+## engineering-surveying-b:04202-03-032
+
+- Replacement PNG: `public/question-images/042022-04202-03-032.png`
+- App path: `/question-images/042022-04202-03-032.png`
+- Linked uploaded image:
+  - `/question-images/042022-04202-03-032.png`
+- Current fallback page: `/question-pages/04202-page-26.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖，設 C 為標石中心，B 為經緯儀中心，e 及ψ為歸心元素，，已知 S 1 及 S 2，則水平角 X 1 等於：(式中ρ"=206265")
+- Options:
+  - 1. ρ″·(e / S₂)·sin(360°－φ)
+  - 2. ρ″·(e / S₁)·sin(360°－φ)
+  - 3. ρ″·(e / S₁)·sin(360°－φ＋r)
+  - 4. ρ″·(e / S₂)·sin(360°－φ＋r)
+
+## engineering-surveying-b:04202-03-034
+
+- Replacement PNG: `public/question-images/042022-04202-03-034.png`
+- App path: `/question-images/042022-04202-03-034.png`
+- Linked uploaded image:
+  - `/question-images/042022-04202-03-034.png`
+- Current fallback page: `/question-pages/04202-page-26.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 如下圖之三角鎖，AB 及 DE 之方位角均為已知，其中角度 C1 至 C3 平差後之角度，則方位角條件為
+- Options:
+  - 1. φAB－φDE＋C1－C2＋C3＋180°＝0
+  - 2. φDE－φAB＋C1－C2＋C3＋180°＝0
+  - 3. φAB－φDE－C1＋C2－C3＋180°＝0
+  - 4. φDE－φAB－C1＋C2－C3＋180°＝0
+
+## engineering-surveying-b:04202-03-041
+
+- Replacement PNG: `public/question-images/042022-04202-03-041.png`
+- App path: `/question-images/042022-04202-03-041.png`
+- Linked uploaded image:
+  - `/question-images/042022-04202-03-041.png`
+- Current fallback page: `/question-pages/04202-page-27.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 設一半網如下圖示，觀測三角形各內角，∠ ADF，及基線，其平差條件有
+- Options:
+  - 1. 六個角條件
+  - 2. 一個基線條件，五個角條件
+  - 3. 一個基線條件，四個角條件
+  - 4. 二個基線條件，四個角條件
+
+## engineering-surveying-b:04202-03-045
+
+- Replacement PNG: `public/question-images/042022-04202-03-045.png`
+- App path: `/question-images/042022-04202-03-045.png`
+- Linked uploaded image:
+  - `/question-images/042022-04202-03-045.png`
+- Current fallback page: `/question-pages/04202-page-27.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 一單三角鎖如下圖所示；若已知 AB 及 DE 之方位角為ψ AB 及 ψ DE，其方位角閉合差ω之計算式為
+- Options:
+  - 1. ω＝φAB－φDE＋180°－C1＋C2－C3
+  - 2. ω＝φDE－φAB＋180°－C1＋C2－C3
+  - 3. ω＝φAB－φDE－C1＋C2－C3
+  - 4. ω＝φDE－φAB－C1＋C2－C3
+
+## engineering-surveying-b:04202-03-049
+
+- Replacement PNG: `public/question-images/042022-04202-03-049.png`
+- App path: `/question-images/042022-04202-03-049.png`
+- Linked uploaded image:
+  - `/question-images/042022-04202-03-049.png`
+- Current fallback page: `/question-pages/04202-page-27.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 如下圖示，AB 方位角為 140°，B 角為 120°，C 角為 230°，則 CD 之方位角為
+- Options:
+  - 1. 110°
+  - 2. 120°
+  - 3. 130°
+  - 4. 140°
+
+## engineering-surveying-b:04202-03-050
+
+- Replacement PNG: `public/question-images/042022-04202-03-050.png`
+- App path: `/question-images/042022-04202-03-050.png`
+- Linked uploaded image:
+  - `/question-images/042022-04202-03-050.png`
+- Current fallback page: `/question-pages/04202-page-28.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖示，AB 方位角為 150°，B 角為 110°，C 角為 220°，則 CD 之方位角為
+- Options:
+  - 1. 110°
+  - 2. 120°
+  - 3. 130°
+  - 4. 140°
+
+## engineering-surveying-b:04202-03-051
+
+- Replacement PNG: `public/question-images/042022-04202-03-051.png`
+- App path: `/question-images/042022-04202-03-051.png`
+- Linked uploaded image:
+  - `/question-images/042022-04202-03-051.png`
+- Current fallback page: `/question-pages/04202-page-28.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖示，四邊形中之八角皆已測出，則其獨立角條件計有
+- Options:
+  - 1. 2
+  - 2. 3
+  - 3. 4
+  - 4. 5 個
+
+## engineering-surveying-b:04202-03-052
+
+- Replacement PNG: `public/question-images/042022-04202-03-052-1.png`
+- App path: `/question-images/042022-04202-03-052-1.png`
+- Linked uploaded images:
+  - `/question-images/042022-04202-03-052-1.png`
+  - `/question-images/042022-04202-03-052-2.png`
+  - `/question-images/042022-04202-03-052-3.png`
+  - `/question-images/042022-04202-03-052-4.png`
+- Current fallback page: `/question-pages/04202-page-28.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 已知 AB 點之座標為(EA，NA )，(EB，NB )，E 表橫座標，N 表縱座標，則 AB 之方位角為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## engineering-surveying-b:04202-03-057
+
+- Replacement PNG: `public/question-images/042022-04202-03-057.png`
+- App path: `/question-images/042022-04202-03-057.png`
+- Linked uploaded image:
+  - `/question-images/042022-04202-03-057.png`
+- Current fallback page: `/question-pages/04202-page-28.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如下圖示，一多邊三角網，其中角度 1 至 9 為平差後之角度，則其邊條件方程式為
+- Options:
+  - 1. (sin2·sin4·sin6) / (sin1·sin3·sin5)＝1
+  - 2. (sin1·sin2·sin3) / (sin4·sin5·sin6)＝1
+  - 3. (sin2＋sin4＋sin6) / (sin1＋sin3＋sin5)＝1
+  - 4. (sin1＋sin2＋sin3) / (sin4＋sin5＋sin6)＝1
+
+## engineering-surveying-b:04202-03-058
+
+- Replacement PNG: `public/question-images/042022-04202-03-058.png`
+- App path: `/question-images/042022-04202-03-058.png`
+- Linked uploaded image:
+  - `/question-images/042022-04202-03-058.png`
+- Current fallback page: `/question-pages/04202-page-28.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 一多邊三角網，共測得 9 角如下圖示，則其角條件數(含測站條件)為
+- Options:
+  - 1. 3
+  - 2. 4
+  - 3. 5
+  - 4. 6 個
+
+## engineering-surveying-b:04202-03-065
+
+- Replacement PNG: `public/question-images/042022-04202-03-065-1.png`
+- App path: `/question-images/042022-04202-03-065-1.png`
+- Linked uploaded images:
+  - `/question-images/042022-04202-03-065-1.png`
+  - `/question-images/042022-04202-03-065-2.png`
+  - `/question-images/042022-04202-03-065-3.png`
+  - `/question-images/042022-04202-03-065-4.png`
+- Current fallback page: `/question-pages/04202-page-29.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 若導線測量之縱距閉合差 WN 及橫距閉合差 WE 太大時，假設只有一個邊長量錯，應檢查下列何一方向及其相反方向之邊長？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## engineering-surveying-b:04202-03-066
+
+- Replacement PNG: `public/question-images/042022-04202-03-066.png`
+- App path: `/question-images/042022-04202-03-066.png`
+- Linked uploaded image:
+  - `/question-images/042022-04202-03-066.png`
+- Current fallback page: `/question-pages/04202-page-29.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 如下圖示，設 C 為標石中心，B 為經緯儀中心，e 及ψ為歸心元素，，已知 S 1 及 S 2，則水平角 x 2 等於：(式中ρ"=206265")
+- Options:
+  - 1. ρ″·(e / S₂)·sin(360°－φ)
+  - 2. ρ″·(e / S₁)·sin(360°－φ)
+  - 3. ρ″·(e / S₁)·sin(360°－φ＋r)
+  - 4. ρ″·(e / S₂)·sin(360°－φ＋r)
+
+## engineering-surveying-b:04202-03-113
+
+- Replacement PNG: `public/question-images/042022-04202-03-113.png`
+- App path: `/question-images/042022-04202-03-113.png`
+- Linked uploaded image:
+  - `/question-images/042022-04202-03-113.png`
+- Current fallback page: `/question-pages/04202-page-32.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 如下圖示，C、D 為已知點，Q 為新點，測量γ及δ求 Q 點座標，以附圖 ABP 之制式表格計算 Q 點座標，此時應以何點、何角分別對應於 A點、α角？
+- Options:
+  - 1. C、δ
+  - 2. D、γ
+  - 3. C、γ
+  - 4. D、δ
+
+## engineering-surveying-b:04202-04-038
+
+- Replacement PNG: `public/question-images/042022-04202-04-038.png`
+- App path: `/question-images/042022-04202-04-038.png`
+- Linked uploaded image:
+  - `/question-images/042022-04202-04-038.png`
+- Current fallback page: `/question-pages/04202-page-42.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 某小山丘地形之剖面圖如下圖，若測繪地形圖考慮精度及效率時，最適合測量哪些地形點？
+- Options:
+  - 1. A 至 I 點全部
+  - 2. A、D、E、F、I
+  - 3. A、B、E、H、I
+  - 4. C、E、G
+
+## engineering-surveying-b:04202-04-039
+
+- Replacement PNG: `public/question-images/042022-04202-04-039.png`
+- App path: `/question-images/042022-04202-04-039.png`
+- Linked uploaded image:
+  - `/question-images/042022-04202-04-039.png`
+- Current fallback page: `/question-pages/04202-page-42.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 某一條道路如下圖所示，欲測繪其中一側之邊緣線，若測繪地形圖考慮精度及效率時，最適合測量哪些點？
+- Options:
+  - 1. A 至 G 全部
+  - 2. A、C、G
+  - 3. A、C、D、E、G
+  - 4. A、D、G
+
+## engineering-surveying-b:04202-04-041
+
+- Replacement PNG: `public/question-images/042022-04202-04-041.png`
+- App path: `/question-images/042022-04202-04-041.png`
+- Linked uploaded images:
+  - `/question-images/042022-04202-04-041.png`
+  - `/question-images/042022-04202-04-041-1.png`
+  - `/question-images/042022-04202-04-041-2.png`
+  - `/question-images/042022-04202-04-041-3.png`
+  - `/question-images/042022-04202-04-041-4.png`
+- Current fallback page: `/question-pages/04202-page-43.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 某地形之剖面圖如下圖，下列何種等高線圖較接近此地形？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## engineering-surveying-b:04202-04-062
+
+- Replacement PNG: `public/question-images/042022-04202-04-062.png`
+- App path: `/question-images/042022-04202-04-062.png`
+- Linked uploaded image:
+  - `/question-images/042022-04202-04-062.png`
+- Current fallback page: `/question-pages/04202-page-44.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 地形圖圖例中"      "表示
+- Options:
+  - 1. 草地
+  - 2. 水田
+  - 3. 鐵絲網
+  - 4. 生籬
+
+## engineering-surveying-b:04202-04-063
+
+- Replacement PNG: `public/question-images/042022-04202-04-063.png`
+- App path: `/question-images/042022-04202-04-063.png`
+- Linked uploaded image:
+  - `/question-images/042022-04202-04-063.png`
+- Current fallback page: `/question-pages/04202-page-44.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 地形圖圖例中"     "表示
+- Options:
+  - 1. 草地
+  - 2. 水田
+  - 3. 果園
+  - 4. 竹林
+
+## engineering-surveying-b:04202-04-064
+
+- Replacement PNG: `public/question-images/042022-04202-04-064.png`
+- App path: `/question-images/042022-04202-04-064.png`
+- Linked uploaded image:
+  - `/question-images/042022-04202-04-064.png`
+- Current fallback page: `/question-pages/04202-page-44.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 地形圖圖例中"    "表示
+- Options:
+  - 1. 草地
+  - 2. 水田
+  - 3. 果園
+  - 4. 竹林
+
+## engineering-surveying-b:04202-04-076
+
+- Replacement PNG: `public/question-images/042022-04202-04-076.png`
+- App path: `/question-images/042022-04202-04-076.png`
+- Linked uploaded images:
+  - `/question-images/042022-04202-04-076.png`
+  - `/question-images/042022-04202-04-076-1.png`
+  - `/question-images/042022-04202-04-076-2.png`
+  - `/question-images/042022-04202-04-076-3.png`
+  - `/question-images/042022-04202-04-076-4.png`
+- Current fallback page: `/question-pages/04202-page-45.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 有某一等高線圖如下，其中各等高線之高程註記於右側，欲由等高線圖確定匯水區域時，各選項圖中虛線代表分水線，下列何者分水線之位置最為正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## engineering-surveying-b:04202-04-082
+
+- Replacement PNG: `public/question-images/042022-04202-04-082.png`
+- App path: `/question-images/042022-04202-04-082.png`
+- Linked uploaded image:
+  - `/question-images/042022-04202-04-082.png`
+- Current fallback page: `/question-pages/04202-page-47.jpg`
+- Kind: multiple
+- Official answer: 1,2,3
+- Prompt: 如下圖所示之等高線圖，下列敘述哪些正確？
+- Options:
+  - 1. A 是山頂
+  - 2. B 較 A 高
+  - 3. C 附近是絕壁
+  - 4. D 之坡度較平緩，E 之坡度較陡峭
+
+## engineering-surveying-b:04202-04-088
+
+- Replacement PNG: `public/question-images/042022-04202-04-088.png`
+- App path: `/question-images/042022-04202-04-088.png`
+- Linked uploaded image:
+  - `/question-images/042022-04202-04-088.png`
+- Current fallback page: `/question-pages/04202-page-48.jpg`
+- Kind: multiple
+- Official answer: 1,2,4
+- Prompt: 方格法水準測量之成果如下圖所示，各格點之高程標示圖上，單位為公尺，則高程 12m 之等高線將通過哪些區域？
+- Options:
+  - 1. A
+  - 2. B
+  - 3. C
+  - 4. D
+
+## engineering-surveying-b:04202-04-089
+
+- Replacement PNG: `public/question-images/042022-04202-04-089.png`
+- App path: `/question-images/042022-04202-04-089.png`
+- Linked uploaded image:
+  - `/question-images/042022-04202-04-089.png`
+- Current fallback page: `/question-pages/04202-page-48.jpg`
+- Kind: multiple
+- Official answer: 2,3,4
+- Prompt: 方格法水準測量之成果如下圖所示，各格點之高程標示圖上，單位為公尺，則高程 12.5m 之等高線將通過哪些區域？
+- Options:
+  - 1. A
+  - 2. B
+  - 3. C
+  - 4. D
+
+## engineering-surveying-b:04202-04-090
+
+- Replacement PNG: `public/question-images/042022-04202-04-090-1.png`
+- App path: `/question-images/042022-04202-04-090-1.png`
+- Linked uploaded images:
+  - `/question-images/042022-04202-04-090-1.png`
+  - `/question-images/042022-04202-04-090-2.png`
+  - `/question-images/042022-04202-04-090-3.png`
+  - `/question-images/042022-04202-04-090-4.png`
+- Current fallback page: `/question-pages/04202-page-48.jpg`
+- Kind: multiple
+- Official answer: 2,4
+- Prompt: 測量地形點之高程如圖，該高程點之位置為三角形之頂點，等高距為0.5m，等高線(圖中實線)上註記之數值為該等高線之高程，則下列等高線位置哪些正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## engineering-surveying-b:04202-04-091
+
+- Replacement PNG: `public/question-images/042022-04202-04-091-1.png`
+- App path: `/question-images/042022-04202-04-091-1.png`
+- Linked uploaded images:
+  - `/question-images/042022-04202-04-091-1.png`
+  - `/question-images/042022-04202-04-091-2.png`
+  - `/question-images/042022-04202-04-091-3.png`
+  - `/question-images/042022-04202-04-091-4.png`
+- Current fallback page: `/question-pages/04202-page-48.jpg`
+- Kind: multiple
+- Official answer: 3,4
+- Prompt: 測量地形點之位置及高程如圖，該高程點之位置為三角形之頂點，等高距為 0.5m，等高線(圖中實線)上註記之數值為該等高線之高程，則下列等高線位置哪些正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## engineering-surveying-b:04202-04-092
+
+- Replacement PNG: `public/question-images/042022-04202-04-092-1.png`
+- App path: `/question-images/042022-04202-04-092-1.png`
+- Linked uploaded images:
+  - `/question-images/042022-04202-04-092-1.png`
+  - `/question-images/042022-04202-04-092-2.png`
+  - `/question-images/042022-04202-04-092-3.png`
+  - `/question-images/042022-04202-04-092-4.png`
+- Current fallback page: `/question-pages/04202-page-49.jpg`
+- Kind: multiple
+- Official answer: 1,4
+- Prompt: 測量地形點之位置及高程如圖，該高程點之位置為三角形之頂點，等高距為 0.5m，等高線(圖中實線)上註記之數值為該等高線之高程，該等高線尚未平滑化，則下列等高線位置哪些正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## engineering-surveying-b:04202-04-093
+
+- Replacement PNG: `public/question-images/042022-04202-04-093-1.png`
+- App path: `/question-images/042022-04202-04-093-1.png`
+- Linked uploaded images:
+  - `/question-images/042022-04202-04-093-1.png`
+  - `/question-images/042022-04202-04-093-2.png`
+  - `/question-images/042022-04202-04-093-3.png`
+  - `/question-images/042022-04202-04-093-4.png`
+- Current fallback page: `/question-pages/04202-page-49.jpg`
+- Kind: multiple
+- Official answer: 2,4
+- Prompt: 測量地形點之位置及高程如圖，該高程點之位置為三角形之頂點，等高距為 0.5m，等高線(圖中實線)上註記之數值為該等高線之高程，該等高線尚未平滑化，則下列等高線位置哪些正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## engineering-surveying-b:04202-04-097
+
+- Replacement PNG: `public/question-images/042022-04202-04-097.png`
+- App path: `/question-images/042022-04202-04-097.png`
+- Linked uploaded image:
+  - `/question-images/042022-04202-04-097.png`
+- Current fallback page: `/question-pages/04202-page-49.jpg`
+- Kind: multiple
+- Official answer: 2,3,4
+- Prompt: P 點平面坐標(E,N)為(251212.34,2655613.45)，單位為公尺。在一個網格式數值高程模型（Digital Elevation Model,DEM）中，其相鄰四個格點之平面三維坐標(E,N,H)分別為 A(251200,2655600,51.10)、B(251240,2655600,52.20)、C(251200,2655640,52.20)、D(251240,2655640,53.30)，若欲採用內插方式計算 P 點高程時，假設採用之方法如下圖先分別內插計算 F 及 G 點之高程，再由 F 及 G 點之高程內插計算 P 點高程，則下列敘述哪些正確？
+- Options:
+  - 1. HF =51.71m
+  - 2. HG =52.54
+  - 3. HP =51.81
+  - 4. 採用最鄰近點法時，HP =51.10m
+
+## engineering-surveying-b:04202-04-098
+
+- Replacement PNG: `public/question-images/042022-04202-04-098.png`
+- App path: `/question-images/042022-04202-04-098.png`
+- Linked uploaded image:
+  - `/question-images/042022-04202-04-098.png`
+- Current fallback page: `/question-pages/04202-page-50.jpg`
+- Kind: multiple
+- Official answer: 1,3
+- Prompt: P 點平面坐標(E,N)為(251210.56,2655613.89)，單位為公尺。在一個網格式數值高程模型（Digital Elevation Model,DEM）中，其相鄰四個格點之平面三維坐標(E,N,H)分別為 A(251200,2655600,51.10)、B(251240,2655600,52.20)、C(251200,2655640,52.20)、D(251240,2655640,53.30)，若欲採用內插方式計算 P 點高程時，假設採用之方法如下圖先分別內插計算 F 及 G 點之高程，再由 F 及 G 點之高程內插計算 P 點高程，則下列敘述哪些正確？
+- Options:
+  - 1. HF =51.39m
+  - 2. HG =52.57
+  - 3. HP =51.77
+  - 4. 採用最鄰近點法時，HP =53.30m
+
+## engineering-surveying-b:04202-04-099
+
+- Replacement PNG: `public/question-images/042022-04202-04-099.png`
+- App path: `/question-images/042022-04202-04-099.png`
+- Linked uploaded image:
+  - `/question-images/042022-04202-04-099.png`
+- Current fallback page: `/question-pages/04202-page-50.jpg`
+- Kind: multiple
+- Official answer: 1,4
+- Prompt: 比例尺 1/500 之地形圖如下圖所示，已知 O 點坐標 Eo=251000m，No=2762000m，以直尺量得 x=50.0mm，y=40.0mm，假設 x 及 y 之量測中誤差分別均為± 0.2mm，並假設 E 坐標誤差只受 x 誤差之影響，則下列敘述哪些正確？
+- Options:
+  - 1. Ep=251025.0m
+  - 2. Np=2762200.0m
+  - 3. 高程 Hp=30.8m
+  - 4. Ep 之中誤差為±10cm
+
+## engineering-surveying-b:04202-05-019
+
+- Replacement PNG: `public/question-images/042022-04202-05-019-1.png`
+- App path: `/question-images/042022-04202-05-019-1.png`
+- Linked uploaded images:
+  - `/question-images/042022-04202-05-019-1.png`
+  - `/question-images/042022-04202-05-019-2.png`
+  - `/question-images/042022-04202-05-019-3.png`
+  - `/question-images/042022-04202-05-019-4.png`
+- Current fallback page: `/question-pages/04202-page-52.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 單曲線之交角(外偏角)為 I，外距 E 之計算公式為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## engineering-surveying-b:04202-05-024
+
+- Replacement PNG: `public/question-images/042022-04202-05-024-1.png`
+- App path: `/question-images/042022-04202-05-024-1.png`
+- Linked uploaded images:
+  - `/question-images/042022-04202-05-024-1.png`
+  - `/question-images/042022-04202-05-024-2.png`
+  - `/question-images/042022-04202-05-024-3.png`
+  - `/question-images/042022-04202-05-024-4.png`
+- Current fallback page: `/question-pages/04202-page-52.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 設 V=行車速度，R=曲線半徑；g=重力加速度，G=路寬，若不考慮路面摩擦係數時，則道路外超高為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## engineering-surveying-b:04202-05-046
+
+- Replacement PNG: `public/question-images/042022-04202-05-046-1.png`
+- App path: `/question-images/042022-04202-05-046-1.png`
+- Linked uploaded images:
+  - `/question-images/042022-04202-05-046-1.png`
+  - `/question-images/042022-04202-05-046-2.png`
+  - `/question-images/042022-04202-05-046-3.png`
+  - `/question-images/042022-04202-05-046-4.png`
+- Current fallback page: `/question-pages/04202-page-54.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 一單曲線之曲度為 D，半徑為 R，曲線起點(B.C.)恰為整樁。如用切線支距法測設，則距曲線起點 (B.C.)第一整樁點之支距為
+- Options:
+  - 1. R‧cosD
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## engineering-surveying-b:04202-05-066
+
+- Replacement PNG: `public/question-images/042022-04202-05-066.png`
+- App path: `/question-images/042022-04202-05-066.png`
+- Linked uploaded image:
+  - `/question-images/042022-04202-05-066.png`
+- Current fallback page: `/question-pages/04202-page-55.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 如下圖，方格邊長 50m，圖中註記數字為挖土深度，單位為 m，求開挖土方為多少 m 3？
+- Options:
+  - 1. 25687.5m 3
+  - 2. 26687.5m 3
+  - 3. 27687.5m 3
+  - 4. 28687.5m 3
+
+## engineering-surveying-b:04202-05-104
+
+- Replacement PNG: `public/question-images/042022-04202-05-104.png`
+- App path: `/question-images/042022-04202-05-104.png`
+- Linked uploaded image:
+  - `/question-images/042022-04202-05-104.png`
+- Current fallback page: `/question-pages/04202-page-58.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 如下圖(單位：m)，該斷面之面積為
+- Options:
+  - 1. 37.3m 2
+  - 2. 31.0m 2
+  - 3. 34.3m 2
+  - 4. 28.0m 2
+
+## engineering-surveying-b:04202-06-026
+
+- Replacement PNG: `public/question-images/042022-04202-06-026.png`
+- App path: `/question-images/042022-04202-06-026.png`
+- Linked uploaded image:
+  - `/question-images/042022-04202-06-026.png`
+- Current fallback page: `/question-pages/04202-page-64.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 當經緯儀有視準軸誤差時，正鏡照準目標 A 之情形如下圖 a，則倒鏡後應為圖 b、圖 c、圖 d、圖 e 之何者？
+- Options:
+  - 1. 圖 b
+  - 2. 圖 c
+  - 3. 圖 d
+  - 4. 圖 e
 
 ## excavator-operation-single:07002-01-037
 

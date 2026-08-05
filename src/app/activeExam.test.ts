@@ -88,6 +88,7 @@ describe('active exam selection', () => {
       'forklift-operation-single',
       'loader-operation-single',
       'interior-decoration-management-b',
+      'engineering-surveying-b',
       'beverage-preparation-c',
       'dining-service-c',
       'computer-software-application-b',
@@ -148,6 +149,10 @@ describe('active exam selection', () => {
     ])
     expect(groups.find((group) => group.category === '航空修護')?.exams.map((exam) => exam.examId)).toEqual([
       'aircraft-maintenance-c',
+    ])
+    expect(groups.find((group) => group.category === '營造工程')?.exams.map((exam) => exam.examId)).toEqual([
+      'interior-decoration-management-b',
+      'engineering-surveying-b',
     ])
   })
 

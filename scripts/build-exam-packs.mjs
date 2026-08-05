@@ -207,6 +207,8 @@ const SECTION_TITLE_OVERRIDES = {
 }
 
 const QUESTION_PROMPT_OVERRIDES = {
+  '04202-02-048': '三角高程測量公式 H_B−H_A＝i_A＋V−z_B＋S²/(2R)−KS²/(2R)，公式中 K 為大氣折光係數，R 為地球曲率半徑，而 −KS²/(2R) 稱為何者？',
+  '04202-06-028': '設 A、B、C 三點位依序在同一直線上，先以經檢定的鋼捲尺測得平距 AB＝20.000m 及 BC＝30.000m，再以電子測距儀測得平距 AB＝20.020m 及 AC＝50.050m，請依上述結果判斷電子測距儀可能有下列那一項系統誤差？',
   '90001-02-010': '若 (3/2)x＋1＝5/4，則 1－2x 之值等於',
   '90001-02-017': '已知 △ABC 為一個直角三角形，其中 ∠C＝90°，∠A 為較大的銳角，兩股長分別為 5、12，則 sin A＝',
   '90001-02-018': 'sin 30° × cos 30° × tan 30° × cot 30° × sec 30° 的值等於',
@@ -240,6 +242,74 @@ const QUESTION_PROMPT_OVERRIDES = {
 }
 
 const QUESTION_OPTION_OVERRIDES = {
+  '04202-01-103': [
+    '地圖比例尺為實地距離與圖面距離的比值',
+    '一座邊長 1m 的正方形花圃可以在 1/25000 的地圖上顯示其輪廓形狀',
+    '地圖上各處的比例尺並不相同',
+    '1/10000 的地形圖較 1/5000 的地形圖具有更細緻的地物、地貌資訊',
+  ],
+  '04202-02-011': [
+    '(Z₁＋Z₂＋180°) / 2',
+    '(Z₁－Z₂＋180°) / 2',
+    '(Z₁＋Z₂) / 2－180°',
+    '(Z₂－Z₁) / 2＋180°',
+  ],
+  '04202-02-073': [
+    'D＝b / (tan α₁－tan α₂)',
+    'D＝b / (cot α₁－cot α₂)',
+    'D＝b / (sin α₁－sin α₂)',
+    'D＝b / (cos α₁－cos α₂)',
+  ],
+  '04202-03-023': [
+    '√(Wₑ²＋Wₙ²)',
+    '√(Wₑ²－Wₙ²)',
+    '(Wₑ²＋Wₙ²) / [L]',
+    '(Wₑ²－Wₙ²) / [L]',
+  ],
+  '04202-03-029': [
+    '(sin1＋sin2＋sin3＋sin4) / (sin5＋sin6＋sin7＋sin8)＝1',
+    '(sin1·sin2·sin3·sin4) / (sin5·sin6·sin7·sin8)＝1',
+    '(sin2·sin4·sin6·sin8) / (sin1·sin3·sin5·sin7)＝1',
+    '(AB·sin2·sin4·sin6·sin8) / (CD·sin1·sin3·sin5·sin7)＝1',
+  ],
+  '04202-03-030': [
+    '(S₁·sinA1·sinA2·sinA3) / (S₂·sinB1·sinB2·sinB3)＝1',
+    '(S₁·sinB1·sinB2·sinB3) / (S₂·sinA1·sinA2·sinA3)＝1',
+    '(S₂·sinA1·sinA2·sinA3) / (S₁·sinC1·sinC2·sinC3)＝1',
+    '(S₂·sinB1·sinB2·sinB3) / (S₁·sinC1·sinC2·sinC3)＝1',
+  ],
+  '04202-03-031': ['r＋x₁＋x₂', 'r＋x₁－x₂', 'r－x₁＋x₂', 'r－x₁－x₂'],
+  '04202-03-032': [
+    'ρ″·(e / S₂)·sin(360°－φ)',
+    'ρ″·(e / S₁)·sin(360°－φ)',
+    'ρ″·(e / S₁)·sin(360°－φ＋r)',
+    'ρ″·(e / S₂)·sin(360°－φ＋r)',
+  ],
+  '04202-03-034': [
+    'φAB－φDE＋C1－C2＋C3＋180°＝0',
+    'φDE－φAB＋C1－C2＋C3＋180°＝0',
+    'φAB－φDE－C1＋C2－C3＋180°＝0',
+    'φDE－φAB－C1＋C2－C3＋180°＝0',
+  ],
+  '04202-03-045': [
+    'ω＝φAB－φDE＋180°－C1＋C2－C3',
+    'ω＝φDE－φAB＋180°－C1＋C2－C3',
+    'ω＝φAB－φDE－C1＋C2－C3',
+    'ω＝φDE－φAB－C1＋C2－C3',
+  ],
+  '04202-03-057': [
+    '(sin2·sin4·sin6) / (sin1·sin3·sin5)＝1',
+    '(sin1·sin2·sin3) / (sin4·sin5·sin6)＝1',
+    '(sin2＋sin4＋sin6) / (sin1＋sin3＋sin5)＝1',
+    '(sin1＋sin2＋sin3) / (sin4＋sin5＋sin6)＝1',
+  ],
+  '04202-03-066': [
+    'ρ″·(e / S₂)·sin(360°－φ)',
+    'ρ″·(e / S₁)·sin(360°－φ)',
+    'ρ″·(e / S₁)·sin(360°－φ＋r)',
+    'ρ″·(e / S₂)·sin(360°－φ＋r)',
+  ],
+  '04202-05-026': ['RL＝A', 'RL＝1/A', 'RL＝A²', 'RL＝1/A²'],
   '02100-08-011': ['～', '▽▽▽', '▽▽', '▽'],
   '90001-02-010': ['2', '2/3', '1/2', '3/4'],
   '90001-02-016': ['−π', '3π/4', 'π/2', 'π/3'],
@@ -446,7 +516,7 @@ const EXAMS = [
     cropPrefix: '013003',
     requireQuestionCrops: true,
     splitImageOptions: true,
-      excludedFigureIds: ['01300-04-085', '01300-05-061', '01300-05-063'],
+    excludedFigureIds: ['01300-04-085', '01300-05-061', '01300-05-063'],
     mockRules: {
       occupationQuota: 64,
       singleCount: 80,
@@ -873,6 +943,44 @@ const EXAMS = [
     requireQuestionCrops: true,
     splitImageOptions: true,
     mixedFigureOptionIds: ['12600-01-043', '12600-01-044', '12600-01-045'],
+    mockRules: {
+      occupationQuota: 64,
+      singleCount: 60,
+      multipleCount: 20,
+      weightSingle: 1,
+      weightMultiple: 2,
+      extraSubjectQuota: [],
+    },
+  },
+  {
+    examId: 'engineering-surveying-b',
+    titleZh: '測量－工程測量乙級',
+    titleEn: 'Engineering Surveying (Class B)',
+    level: '乙級',
+    category: '營造工程',
+    occupationCode: '04202',
+    occupationFile: '042022A11-raw.txt',
+    occupationExpected: 769,
+    version: 'A11',
+    sourceRevision: '042022A11 + 900060A18/900070A17/900080A16/900090A11',
+    extraCommonCodes: [],
+    cropPrefix: '042022',
+    requireQuestionCrops: true,
+    splitImageOptions: true,
+    excludedFigureIds: [
+      '04202-01-103', '04202-02-011', '04202-02-048', '04202-02-073',
+      '04202-03-023', '04202-05-026', '04202-06-028',
+    ],
+    mixedFigureOptionIds: [
+      '04202-03-029', '04202-03-030', '04202-03-031', '04202-03-032',
+      '04202-03-034', '04202-03-045', '04202-03-057', '04202-03-066',
+      '04202-04-041', '04202-04-076',
+    ],
+    inactiveIds: [
+      '04202-01-080', '04202-01-081', '04202-01-082', '04202-01-083',
+      '04202-01-084', '04202-01-085', '04202-01-086', '04202-01-087',
+      '04202-02-059', '04202-02-071', '04202-03-195',
+    ],
     mockRules: {
       occupationQuota: 64,
       singleCount: 60,

@@ -456,6 +456,16 @@ describe('published question bank', () => {
         sections: 8,
         occupationQuota: 64,
       },
+      {
+        examId: 'engineering-surveying-b',
+        occupationCode: '04202',
+        version: 'A11',
+        occupation: 769,
+        total: 1169,
+        active: 1153,
+        sections: 10,
+        occupationQuota: 64,
+      },
     ]
 
     for (const item of cases) {

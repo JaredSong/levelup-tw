@@ -1,5 +1,13 @@
-# The English landing is a real prerendered file at /en/index.html; serve it for
-# /en (and /en/) before the SPA catch-all rewrites everything to the root page.
-/en      /en/index.html   200
-/en/     /en/index.html   200
-/*       /index.html      200
+# Every prerendered page is a real file on disk, but the SPA catch-all below
+# rewrites anything unmatched to the root landing. Each prerendered route
+# therefore needs an explicit rule ABOVE the catch-all, or a crawler can be
+# served the landing page (or a redirect it can't resolve) instead of the page
+# it asked for. Both the bare and trailing-slash forms are listed so the two
+# spellings resolve identically rather than bouncing between each other.
+/en            /en/index.html            200
+/en/           /en/index.html            200
+/guide         /guide/index.html         200
+/guide/        /guide/index.html         200
+/exam/:id/     /exam/:id/index.html      200
+/exam/:id      /exam/:id/index.html      200
+/*             /index.html               200

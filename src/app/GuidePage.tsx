@@ -3,6 +3,7 @@ import { useMemo } from 'react'
 import type { ExamManifest } from '../core/exam'
 import { zhTW } from '../i18n/zh-TW'
 import { trackLanding } from './analytics'
+import { guideFaqs } from './guideFaqs'
 
 interface Props {
   exams: ExamManifest[]
@@ -95,7 +96,7 @@ export function GuidePage({ exams, onEnter, onHome }: Props) {
       <section className="guide-section guide-faq">
         <h2>{t.faqTitle}</h2>
         <div className="guide-faq-list">
-          {t.faqs.map((item) => (
+          {guideFaqs(new Date()).map((item) => (
             <div key={item.q}>
               <h3>{item.q}</h3>
               <p>{item.a}</p>

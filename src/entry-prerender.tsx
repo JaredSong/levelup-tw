@@ -8,8 +8,8 @@ import { INSTALLED_EXAMS } from './app/activeExam'
 import { LandingPage } from './app/LandingPage'
 import { ExamPage } from './app/ExamPage'
 import { GuidePage } from './app/GuidePage'
+import { guideFaqs } from './app/guideFaqs'
 import { enLanding } from './i18n/en'
-import { zhTW } from './i18n/zh-TW'
 
 const noop = () => undefined
 
@@ -25,7 +25,7 @@ export const GUIDE_FAQ_JSONLD: string = JSON.stringify(
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     inLanguage: 'zh-Hant-TW',
-    mainEntity: zhTW.guide.faqs.map((item) => ({
+    mainEntity: guideFaqs(new Date()).map((item) => ({
       '@type': 'Question',
       name: item.q,
       acceptedAnswer: { '@type': 'Answer', text: item.a },

@@ -4,6 +4,7 @@ import { zhTW } from '../i18n/zh-TW'
 import { INSTALLED_EXAMS } from './activeExam'
 import { trackLanding } from './analytics'
 import { GENERATED_EXAM_SAMPLES } from './generatedExamSamples'
+import { getNextNationalExamEntry } from './nationalExamSchedule'
 
 interface Props {
   exam: ExamManifest
@@ -28,6 +29,23 @@ export function ExamPage({ exam, onEnter, onHome }: Props) {
     ...others.filter((e) => e.category === exam.category),
     ...others.filter((e) => e.category !== exam.category),
   ].slice(0, 6)
+
+  // Registration dates, pass mark and official links: the questions people
+  // actually search during registration season. All of it comes from the
+  // manifest and the schedule module — never hand-typed here, so a stale date
+  // can't outlive the data it came from. Computed at prerender time, which is
+  // why it is the next *upcoming* round rather than a fixed one.
+  const nextRound = getNextNationalExamEntry(new Date())
+  const links = exam.officialLinks ?? {}
+  const linkCandidates: { href?: string; label: string }[] = [
+    { href: links.registration, label: t.officialRegistration },
+    { href: links.scoreLookup, label: t.officialScore },
+    { href: links.handbook, label: t.officialHandbook },
+    { href: links.questionBank, label: t.officialBank },
+  ]
+  const officialLinks = linkCandidates.filter(
+    (link): link is { href: string; label: string } => Boolean(link.href),
+  )
 
   const homeClick = (event: { preventDefault: () => void }) => {
     event.preventDefault()
@@ -115,6 +133,38 @@ export function ExamPage({ exam, onEnter, onHome }: Props) {
           </div>
         </section>
       ) : null}
+
+      <section className="exam-facts">
+        <h2>{t.factsTitle}</h2>
+        <dl className="exam-facts-list">
+          <div>
+            <dt>{t.passLabel}</dt>
+            <dd>{t.passValue(exam.mockRules.passScore, exam.mockRules.maxScore)}</dd>
+          </div>
+          {nextRound ? (
+            <>
+              <div>
+                <dt>{t.scheduleLabel(nextRound.label)}</dt>
+                <dd>{t.scheduleValue(nextRound.registrationStart, nextRound.registrationEnd)}</dd>
+              </div>
+              <div>
+                <dt>{t.writtenLabel}</dt>
+                <dd>{nextRound.writtenDate}</dd>
+              </div>
+            </>
+          ) : null}
+        </dl>
+        {officialLinks.length ? (
+          <ul className="exam-facts-links">
+            {officialLinks.map((link) => (
+              <li key={link.label}>
+                <a href={link.href} rel="noopener noreferrer nofollow" target="_blank">{link.label}</a>
+              </li>
+            ))}
+          </ul>
+        ) : null}
+        <p className="exam-facts-note">{t.factsNote}</p>
+      </section>
 
       <section className="exam-cta">
         <h2>{t.ctaTitle(exam.titleZh)}</h2>

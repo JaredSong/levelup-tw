@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { AlertTriangle, ArrowRight, CheckCircle2, LoaderCircle, RotateCcw } from 'lucide-react'
 import { ActiveExamHeader } from './app/ActiveExamHeader'
 import { trackAppMilestone, trackEnterApp, trackInitialView, trackInstall, trackLanding } from './app/analytics'
@@ -7,11 +7,13 @@ import { ExamPage } from './app/ExamPage'
 import { GuidePage } from './app/GuidePage'
 import { enLanding } from './i18n/en'
 import { OnboardingGate } from './app/OnboardingGate'
-import { dismissInstallNudge, hasCompletedOnboarding, isInstallNudgeDismissed, PROFILE_NAME_KEY, shouldShowLanding } from './app/onboardingState'
+import { dismissInstallNudge, hasCompletedOnboarding, isInstallNudgeDismissed, PROFILE_NAME_KEY, ONBOARDING_DONE_KEY, shouldShowLanding } from './app/onboardingState'
 import { readSyncLink } from './app/syncCode'
 import { BottomNav, type Tab } from './components/BottomNav'
 import { InstallNudge } from './components/InstallNudge'
 import { PracticeView } from './components/PracticeView'
+import { SupportPanel } from './app/SupportPanel'
+import { canShowSupportPrompt, snoozeSupportPrompt } from './app/supportPrompt'
 import { HomePage } from './app/pages/HomePage'
 import { InsightsPage } from './app/pages/InsightsPage'
 import { MockExamPage } from './app/pages/MockExamPage'
@@ -166,13 +168,14 @@ const isGuidePath = (path: string) => path === '/guide' || path === '/guide/'
 export default function App() {
   const { installedExams, setActiveExamId } = useActiveExam()
   const [onboarded, setOnboarded] = useState(hasCompletedOnboarding)
+  const [startOnEntry, setStartOnEntry] = useState(false)
   const standalone = window.matchMedia('(display-mode: standalone)').matches
     || Boolean((navigator as Navigator & { standalone?: boolean }).standalone)
   const [landingOpen, setLandingOpen] = useState(() => shouldShowLanding({
     onboarded: hasCompletedOnboarding(),
     hasSyncLink: Boolean(readSyncLink(window.location.hash)),
     forceWelcome: forcesLanding(window.location.pathname),
-    forceApp: window.location.pathname === '/app',
+    forceApp: window.location.pathname.replace(/\/$/, '') === '/app',
     standalone,
   }))
   const [lang, setLang] = useState<'zh' | 'en'>(() => isEnPath(window.location.pathname) ? 'en' : 'zh')
@@ -181,10 +184,22 @@ export default function App() {
 
   const examOnPage = examSlug ? installedExams.find((exam) => exam.examId === examSlug) ?? null : null
 
-  // Report the surface actually rendered, not the URL: a returning visitor gets
-  // the app while the URL stays "/", so the URL alone cannot tell discovery from
-  // usage. Fires once per load; entering the app from the landing is a click, not
-  // a new page, and is covered by its own event below.
+  useLayoutEffect(() => { document.documentElement.classList.remove('app-starting') }, [])
+
+  useEffect(() => {
+    const path = examOnPage ? `/exam/${examOnPage.examId}` : isGuide ? '/guide' : landingOpen ? lang === 'en' ? '/en' : '/' : '/app'
+    const title = examOnPage ? `${examOnPage.titleZh}學科題庫｜免費線上練習 - 升級吧`
+      : isGuide ? '免費技能檢定題庫：線上刷題與模擬考完整指南 - 升級吧'
+      : !landingOpen ? '我的練習 · 升級吧'
+      : lang === 'en' ? 'Level Up｜Taiwan Skills-Certification Question Bank' : '升級吧 Level Up｜技術士技能檢定學科題庫・免費刷題與模擬考'
+    document.title = title
+    document.querySelector('link[rel="canonical"]')?.setAttribute('href', `https://levelup.tw${path}`)
+    document.querySelector('meta[property="og:url"]')?.setAttribute('content', `https://levelup.tw${path}`)
+    document.querySelector('meta[property="og:title"]')?.setAttribute('content', title)
+    document.querySelector('meta[name="robots"]')?.setAttribute('content', path === '/app' ? 'noindex, follow' : 'index, follow, max-image-preview:large')
+  }, [examOnPage, isGuide, landingOpen, lang])
+
+  // Report the actual surface, including legacy standalone installs at "/".
   useEffect(() => {
     if (examOnPage) trackInitialView('landing', undefined, `/exam/${examOnPage.examId}`)
     else if (isGuide) trackInitialView('landing', undefined, '/guide')
@@ -207,7 +222,14 @@ export default function App() {
   }
 
   const enterApp = (examId?: string, source = 'unknown') => {
-    if (examId) setActiveExamId(examId)
+    if (examId) {
+      setActiveExamId(examId)
+      // Choosing an exam is the only required setup. Names and sync remain in
+      // Settings; do not clear any existing profile or study data here.
+      localStorage.setItem(ONBOARDING_DONE_KEY, 'true')
+      setOnboarded(true)
+      setStartOnEntry(true)
+    } else setStartOnEntry(false)
     // pushState, not replaceState: entering the app is a step forward from the
     // landing, so the browser back button should return to it rather than leave
     // the site. Guard against stacking duplicate /app entries on repeat calls.
@@ -234,7 +256,7 @@ export default function App() {
         onboarded: hasCompletedOnboarding(),
         hasSyncLink: Boolean(readSyncLink(window.location.hash)),
         forceWelcome: forcesLanding(window.location.pathname),
-        forceApp: window.location.pathname === '/app',
+        forceApp: window.location.pathname.replace(/\/$/, '') === '/app',
         standalone,
       }))
     }
@@ -267,7 +289,6 @@ export default function App() {
       <LandingPage
         exams={installedExams}
         onEnter={(source) => enterApp(undefined, source)}
-        onSelectExam={(examId) => enterApp(examId, 'exam_card')}
         returning={onboarded}
         t={lang === 'en' ? enLanding : undefined}
         lang={lang}
@@ -275,7 +296,7 @@ export default function App() {
     )
   }
   if (!onboarded) return <OnboardingGate onComplete={() => setOnboarded(true)} />
-  return <StudyApp />
+  return <StudyApp startOnEntry={startOnEntry} />
 }
 
 // Chrome fires this before offering to install; we capture it so the summary's
@@ -285,7 +306,7 @@ interface BeforeInstallPromptEvent extends Event {
   userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>
 }
 
-function StudyApp() {
+function StudyApp({ startOnEntry = false }: { startOnEntry?: boolean }) {
   const { activeExam } = useActiveExam()
   const examId = activeExam.examId
   const { bank, error } = useQuestionBank()
@@ -297,6 +318,8 @@ function StudyApp() {
   const [practiceOpen, setPracticeOpen] = useState(false)
   const [summary, setSummary] = useState<StudySession | null>(null)
   const [settingsOpen, setSettingsOpen] = useState(false)
+  const [supportPromptSession, setSupportPromptSession] = useState<string | null>(null)
+  const entryStarted = useRef(false)
   const prefetchedCueSessionRef = useRef('')
 
   // Post-session install nudge (very quiet). Show it on the summary screen only
@@ -438,6 +461,26 @@ function StudyApp() {
     return () => { cancelled = true }
   }, [examId, progress, session, sessionQuestions])
 
+  useEffect(() => {
+    if (!startOnEntry || entryStarted.current || !bank || loading || error) return
+    entryStarted.current = true
+    // Existing paused sessions take precedence over a new 10-question set.
+    const savedSession = loadSession(examId)
+    if (savedSession) {
+      setSession(savedSession.mode === 'mock' && !savedSession.mockEndsAt
+        ? { ...savedSession, mockEndsAt: new Date(Date.now() + (savedSession.mockRemainingMs ?? mockDurationMilliseconds(activeExam.mockRules))).toISOString() }
+        : savedSession)
+    } else {
+      const saved = Number(localStorage.getItem(sequentialKey(examId)) ?? (examId === 'web-design-b' ? localStorage.getItem(SEQUENTIAL_KEY) : null) ?? 0)
+      const offset = Number.isFinite(saved) ? Math.max(0, Math.min(saved, bank.questions.length - 1)) : 0
+      const questions = bank.questions.slice(offset, offset + 10)
+      if (!questions.length) return
+      setSession(createSession(examId, 'sequential', questions))
+      trackAppMilestone('session_start', 'sequential')
+    }
+    setPracticeOpen(true)
+  }, [startOnEntry, bank, loading, error, examId, activeExam.mockRules])
+
   if (error) return <div className="fatal-state"><AlertTriangle /><h1>{zhTW.session.bankUnavailable}</h1><p>{error}</p></div>
   if (!bank || loading) return <div className="loading-state"><LoaderCircle className="spin" /><strong>{zhTW.session.loadingTitle}</strong><span>{zhTW.session.loadingBody}</span></div>
   const mockDurationMs = mockDurationMilliseconds(activeExam.mockRules)
@@ -485,7 +528,8 @@ function StudyApp() {
   const startSequential = () => {
     const legacy = examId === 'web-design-b' ? localStorage.getItem(SEQUENTIAL_KEY) : null
     const saved = Number(localStorage.getItem(sequentialKey(examId)) ?? legacy ?? 0)
-    begin('sequential', bank.questions.slice(Math.min(saved, bank.questions.length - 1), saved + 20))
+    const offset = Number.isFinite(saved) ? Math.max(0, Math.min(saved, bank.questions.length - 1)) : 0
+    begin('sequential', bank.questions.slice(offset, offset + 10))
   }
 
   const startWrong = () => {
@@ -695,6 +739,7 @@ function StudyApp() {
       })
     }
 
+    setSupportPromptSession(canShowSupportPrompt(stats.attempts, Object.keys(finalAnswers).length) ? session.id : null)
     setSummary({ ...session, answers: finalAnswers, completed: true })
     setSession(null)
     setPracticeOpen(false)
@@ -742,7 +787,7 @@ function StudyApp() {
       <main className="session-summary">
         <CheckCircle2 size={34} />
         <p className="eyebrow">{zhTW.session.recorded}</p>
-        <h1>{displaySessionTitle(summarySession)}</h1>
+        <h1>{isMock ? displaySessionTitle(summarySession) : `完成 ${answers.length} 題練習。`}</h1>
         <strong className="summary-score">{mockScore !== null ? `${Math.round(mockScore * 10) / 10}/${activeExam.mockRules.maxScore}` : `${correct}/${answers.length}`}</strong>
         <p>{mockScore !== null ? (mockScore >= activeExam.mockRules.passScore ? zhTW.session.mockPassNote : zhTW.session.mockFailNote) : zhTW.session.practiceNote}</p>
 
@@ -772,6 +817,12 @@ function StudyApp() {
           <button className="secondary-action" onClick={() => begin(summarySession.mode, summarySession.questionIds.map((id) => bank.byId.get(id)).filter((q): q is Question => !!q), displaySessionTitle(summarySession), { mockFeedback: summarySession.mockFeedback })} type="button"><RotateCcw size={17} /> {zhTW.session.repeatSession}</button>
         </div>
 
+        {supportPromptSession === summarySession.id && !showInstallNudge ? (
+          <SupportPanel key={summarySession.id} location="session" onShown={() => snoozeSupportPrompt()} onDismiss={() => {
+            snoozeSupportPrompt()
+            setSupportPromptSession(null)
+          }} />
+        ) : null}
         {showInstallNudge ? (
           <InstallNudge canPrompt={canInstall} isIos={isIos} onInstall={() => void acceptInstall()} onDismiss={dismissInstall} />
         ) : null}
@@ -782,7 +833,7 @@ function StudyApp() {
   return (
     <div className="app-frame">
       <ActiveExamHeader onSettingsOpenChange={setSettingsOpen} progress={progress} questions={bank.questions} settingsOpen={settingsOpen} />
-      {tab === 'home' ? <HomePage onOpenSettings={() => setSettingsOpen(true)} seen={seen} total={bank.questions.length} due={due} accuracy={accuracy} hasSession={!!session} sessionLabel={session ? displaySessionTitle(session) : undefined} streak={streak} mission={mission} onGoReview={() => setTab('review')} onWrongFix={startWrong} onContinue={resumePractice} onSequential={startSequential} /> : null}
+      {tab === 'home' ? <HomePage onOpenSettings={() => setSettingsOpen(true)} seen={seen} total={bank.questions.length} due={due} accuracy={accuracy} hasSession={!!session} remaining={session ? session.questionIds.length - Object.keys(session.answers).length : 0} sessionLabel={session ? displaySessionTitle(session) : undefined} streak={streak} mission={mission} onGoReview={() => setTab('review')} onWrongFix={startWrong} onContinue={resumePractice} onSequential={startSequential} /> : null}
       {tab === 'practice' ? <PracticePage questions={bank.questions} progress={progress} total={bank.questions.length} onSequential={startSequential} onRandom={() => begin('random', buildRandomQueue(bank.questions, 10))} onFresh={(limit) => begin('fresh', buildFreshQueue(bank.questions, progress, limit), zhTW.session.freshTitle(limit))} onHighYield={() => begin('highYield', buildHighYieldQueue(bank.questions, progress, 20))} onSubject={(subjectCode, title) => begin('random', buildRandomQueue(bank.questions.filter((question) => question.subjectCode === subjectCode), 10), title)} onOpenQuestion={(question) => begin('item', [question])} onSprint={() => begin('sprint', buildSprintQueue(bank.questions, progress, 20))} /> : null}
       {tab === 'review' ? <ReviewPage due={due} wrongCount={wrongCount} dueCards={dueCards} totalCards={reviewCards.length} wrongWithoutCards={wrongWithoutCards} onGradeCard={gradeReviewCard} onOpenCardSource={openCardSource} resolveCardQuestion={questionForCard} onCreateWrongCards={createWrongCards} onAdaptive={() => begin('adaptive', buildAdaptiveQueue(bank.questions, progress, 10))} onWrong={startWrong} onFlashcards={() => begin('flashcard', buildAdaptiveQueue(bank.questions, progress, 10), zhTW.session.titles.flashcard)} onCommuteNotes={startCommuteNotes} onPracticeSection={(section, title) => begin('adaptive', buildAdaptiveQueue(bank.questions.filter((question) => question.section === section), progress, 10), title)} /> : null}
       {tab === 'mock' ? <MockExamPage onMock={() => startMock(false)} onMockTraining={() => startMock(true)} /> : null}

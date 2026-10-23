@@ -30,23 +30,6 @@ export function PracticePage(props: Props) {
         <p>{zhTW.practice.description}</p>
       </header>
 
-      <section className="syllabus-section">
-        <div className="section-heading compact">
-          <div>
-            <p className="eyebrow">{zhTW.practice.latestSyllabus}</p>
-            <h2>{zhTW.practice.allBanksIncluded}</h2>
-          </div>
-          <strong>{props.total.toLocaleString()}</strong>
-        </div>
-        <div className="syllabus-list">
-          {syllabusItems.map(({ code, label, meta }) => (
-            <button key={code} onClick={() => props.onSubject(code, `${label} · 隨機 10 題`)} type="button">
-              <span>{code}</span><strong>{label}</strong><small>{meta}</small><ArrowRight size={16} />
-            </button>
-          ))}
-        </div>
-      </section>
-
       <section className="mode-section">
         <div className="section-heading compact">
           <div>
@@ -80,6 +63,23 @@ export function PracticePage(props: Props) {
             <span><strong>{zhTW.practice.sequential}</strong><small>{zhTW.practice.sequentialHint}</small></span>
             <ArrowRight size={18} />
           </button>
+        </div>
+      </section>
+
+      <section className="syllabus-section">
+        <div className="section-heading compact">
+          <div>
+            <p className="eyebrow">{zhTW.practice.latestSyllabus}</p>
+            <h2>{zhTW.practice.allBanksIncluded}</h2>
+          </div>
+          <strong>{props.total.toLocaleString()}</strong>
+        </div>
+        <div className="syllabus-list">
+          {syllabusItems.map(({ code, label, meta }) => (
+            <button key={code} onClick={() => props.onSubject(code, `${label} · 隨機 10 題`)} type="button">
+              <span>{code}</span><strong>{label}</strong><small>{meta}</small><ArrowRight size={16} />
+            </button>
+          ))}
         </div>
       </section>
 

@@ -1,6 +1,6 @@
 // GA4's automatic pageview fires on script load, before React decides whether to
-// render the landing or the app — and a returning visitor is rendered straight
-// into the app while the URL stays "/". So the automatic hit records "/" for both
+// render the landing or the app — and a legacy standalone install renders
+// the app while the URL stays "/". So the automatic hit records "/" for both
 // "a stranger read the landing" and "the owner opened the app again", which are
 // the two numbers worth telling apart.
 //
@@ -85,7 +85,15 @@ export function trackLanding(
   params: Record<string, unknown> = {},
   gtag: Gtag | undefined = windowGtag(),
 ): void {
-  gtag?.('event', 'landing_click', { action, ...params })
+  // GA reserves "source" for acquisition. Internal CTA labels must not replace
+  // google / organic with "hero" or "exam_page" in acquisition reports.
+  const { source, ...details } = params
+  gtag?.('event', 'landing_click', { action, ...details, ...(source ? { cta_location: source } : {}) })
+}
+
+/** Intent only. Copying a receiving code is never counted as a donation. */
+export function trackSupport(action: 'shown' | 'open' | 'copy_code' | 'save_qr' | 'dismiss', location: string, gtag: Gtag | undefined = windowGtag()): void {
+  gtag?.('event', 'support_interaction', { action, cta_location: location })
 }
 
 /**

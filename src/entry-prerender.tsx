@@ -54,13 +54,13 @@ export const EXAM_META = INSTALLED_EXAMS.map((exam) => ({
 
 export function renderLanding(): string {
   return renderToString(
-    <LandingPage exams={INSTALLED_EXAMS} onEnter={noop} onSelectExam={noop} returning={false} lang="zh" />,
+    <LandingPage exams={INSTALLED_EXAMS} onEnter={noop} returning={false} lang="zh" />,
   )
 }
 
 export function renderLandingEn(): string {
   return renderToString(
-    <LandingPage exams={INSTALLED_EXAMS} onEnter={noop} onSelectExam={noop} returning={false} t={enLanding} lang="en" />,
+    <LandingPage exams={INSTALLED_EXAMS} onEnter={noop} returning={false} t={enLanding} lang="en" />,
   )
 }
 

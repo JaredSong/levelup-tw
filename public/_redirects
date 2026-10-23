@@ -4,6 +4,10 @@
 # served the landing page (or a redirect it can't resolve) instead of the page
 # it asked for. Both the bare and trailing-slash forms are listed so the two
 # spellings resolve identically rather than bouncing between each other.
+/welcome       /                         301
+/welcome/      /                         301
+/app           /app/index.html           200
+/app/          /app/index.html           200
 /en            /en/index.html            200
 /en/           /en/index.html            200
 /guide         /guide/index.html         200

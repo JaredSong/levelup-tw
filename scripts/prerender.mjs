@@ -68,6 +68,17 @@ const base = readFileSync(INDEX, 'utf8')
 // --- Chinese page (canonical) ---
 writeFileSync(INDEX, inject(base, renderLanding()))
 
+// Preserve the PWA's existing /app URL. Its direct response has no marketing
+// content and is crawlable so search engines can see noindex.
+const appDir = new URL('../dist/app/', import.meta.url)
+mkdirSync(appDir, { recursive: true })
+let app = base.replace(/(<meta name="robots" content=")[^"]*(")/, '$1noindex, follow$2')
+app = app.replace(/<title>[^<]*<\/title>/, '<title>我的練習 · 升級吧</title>')
+app = app.replace(/(<link rel="canonical" href=")[^"]*(")/, '$1https://levelup.tw/app$2')
+app = app.replace(/\n\s*<link rel="alternate" hreflang="[^"]*" href="[^"]*" \/>/g, '')
+app = app.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, '')
+writeFileSync(new URL('index.html', appDir), app)
+
 // --- English page at /en ---
 let en = base
 en = replaceOnce(en, /<html lang="zh-Hant-TW">/, '<html lang="en">', '<html lang>')
@@ -100,7 +111,7 @@ function examHead(html, m) {
   const url = `https://levelup.tw/exam/${m.id}`
   const count = m.count.toLocaleString()
   const title = `${m.titleZh}學科題庫｜${count} 題免費線上練習 - 升級吧`
-  const desc = `線上練習${m.titleZh}（${m.subjectCode}）的官方公開學科題庫，共 ${count} 題。寫錯自動進錯題本、依遺忘曲線排進複習、考前計時模擬考；免費、免註冊、可離線。`
+  const desc = `${m.titleZh}（${m.subjectCode}）學科題庫，共 ${count} 題。查看官方題庫 PDF 與來源版本，免費線上練習、錯題複習與計時模擬考；免註冊，進度保存在裝置。`
   const ogTitle = `${m.titleZh}學科題庫 · 升級吧`
   let h = html
   h = replaceOnce(h, /<title>[^<]*<\/title>/, `<title>${title}</title>`, 'exam <title>')
@@ -161,13 +172,14 @@ mkdirSync(guideDir, { recursive: true })
 writeFileSync(new URL('index.html', guideDir), inject(guide, renderGuidePage(), 'guide-lead'))
 
 // --- Sitemap incl. every exam page, kept in sync with the published packs ---
-const today = new Date().toISOString().slice(0, 10)
+// Omit optional lastmod until we have per-page content revision dates.
+// A rebuild is not a significant update to every exam page.
 const pairAlt = '    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://levelup.tw/" />\n    <xhtml:link rel="alternate" hreflang="en" href="https://levelup.tw/en" />'
 const entries = [
-  `  <url>\n    <loc>https://levelup.tw/</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>1.0</priority>\n${pairAlt}\n  </url>`,
-  `  <url>\n    <loc>https://levelup.tw/en</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n${pairAlt}\n  </url>`,
-  `  <url>\n    <loc>https://levelup.tw/guide</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>`,
-  ...EXAM_META.map((m) => `  <url>\n    <loc>https://levelup.tw/exam/${m.id}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>`),
+  `  <url>\n    <loc>https://levelup.tw/</loc>\n    <changefreq>weekly</changefreq>\n    <priority>1.0</priority>\n${pairAlt}\n  </url>`,
+  `  <url>\n    <loc>https://levelup.tw/en</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n${pairAlt}\n  </url>`,
+  `  <url>\n    <loc>https://levelup.tw/guide</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>`,
+  ...EXAM_META.map((m) => `  <url>\n    <loc>https://levelup.tw/exam/${m.id}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>`),
 ]
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${entries.join('\n')}\n</urlset>\n`
 writeFileSync(new URL('../dist/sitemap.xml', import.meta.url), sitemap)

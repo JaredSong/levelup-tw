@@ -1,4 +1,6 @@
-import { ArrowRight, BadgeCheck, CheckCircle2, Database, ShieldCheck, WifiOff } from 'lucide-react'
+import { ArrowRight, BadgeCheck, CheckCircle2, Database, FileDown, ShieldCheck } from 'lucide-react'
+import { useState } from 'react'
+import { SupportPanel } from './SupportPanel'
 import type { ExamManifest } from '../core/exam'
 import { zhTW } from '../i18n/zh-TW'
 import { INSTALLED_EXAMS } from './activeExam'
@@ -19,6 +21,7 @@ interface Props {
 // server-side into /exam/<id>/ by scripts/prerender.mjs and hydrated by the SPA.
 export function ExamPage({ exam, onEnter, onHome }: Props) {
   const t = zhTW.examPage
+  const [sampleAnswers, setSampleAnswers] = useState<Record<string, number>>({})
   const data = GENERATED_EXAM_SAMPLES[exam.examId] ?? { sections: [], samples: [] }
   const subjectCode = exam.sections[0]?.subjectCode ?? exam.examId
 
@@ -83,20 +86,22 @@ export function ExamPage({ exam, onEnter, onHome }: Props) {
         <span className="exam-crumb-current">{exam.titleZh}</span>
       </nav>
 
-      <section className="exam-hero">
-        <p className="landing-eyebrow">{t.metaLabel(exam.category, exam.level)}</p>
-        <h1>{t.overviewTitle(exam.titleZh)}</h1>
-        <p className="exam-sub">{subjectCode} · {exam.titleEn}</p>
-        <div className="exam-proof">
-          <span><Database size={16} /> {t.count(exam.activeQuestionCount)}</span>
-          <span><CheckCircle2 size={16} /> {zhTW.landing.freeLabel}</span>
-          <span><WifiOff size={16} /> {zhTW.landing.offlineLabel}</span>
-          <span><ShieldCheck size={16} /> {zhTW.landing.localLabel}</span>
+      <section className="exam-hero exam-hero-split">
+        <div>
+          <p className="landing-eyebrow">{subjectCode} · {exam.category}</p>
+          <h1>{exam.titleZh}<br />學科題庫與線上測驗</h1>
+          <p className="exam-overview">官方公開題庫，依自己的步調練習。<br />先做一小組，寫錯的留給下一次複習。</p>
+          <div className="exam-proof"><span><Database size={16} />{t.count(exam.activeQuestionCount)}</span><span><CheckCircle2 size={16} />免費練習</span><span><ShieldCheck size={16} />不必註冊</span></div>
+          <div className="exam-entry-actions"><button className="landing-primary" onClick={() => enter('hero')} type="button">開始練習 10 題<ArrowRight size={18} /></button><a className="landing-secondary" href="#exam-downloads"><FileDown size={17} />官方題庫 PDF</a></div>
+          <p className="exam-entry-note">進度保存在這台裝置；有未完成的練習時，會先幫你接續。</p>
         </div>
-        <p className="exam-overview">{t.overviewBody(exam.titleZh, exam.activeQuestionCount)}</p>
-        <button className="landing-primary" onClick={() => enter('hero')} type="button">
-          {t.practice(exam.titleZh)}<ArrowRight size={18} />
-        </button>
+        <aside className="exam-source-summary"><h2>先確認你的考試範圍</h2><dl><div><dt>測驗範圍</dt><dd>學科</dd></div><div><dt>專業題庫版本</dt><dd>{exam.version}</dd></div><div><dt>資料來源</dt><dd>勞動部技能檢定中心</dd></div><div><dt>模擬考</dt><dd>{exam.mockRules.totalQuestions} 題／{exam.mockRules.durationMinutes} 分鐘</dd></div></dl><a href="#exam-downloads">查看來源與版本說明 ↗</a></aside>
+      </section>
+
+      <section className="exam-downloads" id="exam-downloads">
+        <h2>{exam.titleZh}官方題庫 PDF</h2>
+        <p>以下是本題庫採用的官方來源，包含專業科目與共同科目。版本以各份 PDF 為準；報考前請再確認官方最新公告。</p>
+        <ul>{exam.sources?.length ? exam.sources.map(source => <li key={source.officialUrl}><a href={source.officialUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackLanding('official_pdf', { exam_id: exam.examId, subject_code: source.subjectCode })}><FileDown size={17} /><span><strong>{source.subjectCode} · {source.subjectCode === subjectCode ? `${exam.titleZh}專業科目` : exam.sections.find(section => section.subjectCode === source.subjectCode)?.titleZh ?? '共同科目'}</strong><small>{source.version} · PDF</small></span><ArrowRight size={16} /></a></li>) : <li><a href={exam.sourceUrl ?? exam.officialLinks?.questionBank ?? 'https://techbank.wdasec.gov.tw/'} target="_blank" rel="noopener noreferrer">前往官方題庫來源<ArrowRight size={16} /></a></li>}</ul>
       </section>
 
       {data.sections.length ? (
@@ -120,14 +125,12 @@ export function ExamPage({ exam, onEnter, onHome }: Props) {
                 <p className="exam-sample-q"><b>Q{index + 1}.</b> {q.prompt}</p>
                 <ul>
                   {q.options.map((option, oi) => (
-                    <li key={oi} className={oi + 1 === q.answer ? 'is-answer' : undefined}>
-                      <span className="exam-opt-num">{oi + 1}</span>
-                      {option}
-                      {oi + 1 === q.answer ? <CheckCircle2 size={15} /> : null}
+                    <li key={oi} className={sampleAnswers[q.id] && oi + 1 === q.answer ? 'is-answer' : undefined}>
+                      <button type="button" aria-pressed={sampleAnswers[q.id] === oi + 1} onClick={() => setSampleAnswers(current => ({ ...current, [q.id]: oi + 1 }))}><span className="exam-opt-num">{oi + 1}</span>{option}{sampleAnswers[q.id] && oi + 1 === q.answer ? <CheckCircle2 size={15} /> : null}</button>
                     </li>
                   ))}
                 </ul>
-                <p className="exam-sample-answer">{t.answerLabel}：{q.answer}</p>
+                <p className="exam-sample-answer" aria-live="polite">{sampleAnswers[q.id] ? sampleAnswers[q.id] === q.answer ? '答對了。' : `再記一次：正確答案是 ${q.answer}。` : '先選一個答案，看看作答回饋。'}</p><details><summary>查看答案</summary><p>{t.answerLabel}：{q.answer}</p></details>
               </article>
             ))}
           </div>
@@ -189,6 +192,8 @@ export function ExamPage({ exam, onEnter, onHome }: Props) {
           </ul>
         </section>
       ) : null}
+
+      <div className="exam-support"><SupportPanel location="exam" /></div>
 
       <section className="exam-about">
         <h3>{t.aboutTitle}</h3>

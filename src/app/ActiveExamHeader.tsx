@@ -50,7 +50,7 @@ export function ActiveExamHeader({ questions, progress, settingsOpen, onSettings
         <ChevronDown size={16} />
       </button>
       <div className="active-exam-meta">
-        <span className="active-exam-status"><HardDrive size={14} /> {zhTW.shell.offline}</span>
+        <span className="active-exam-status"><HardDrive size={14} /> 本機進度</span>
         <button className="icon-button" onClick={() => setSettingsOpen(true)} title={zhTW.shell.settingsButton} aria-label={zhTW.shell.settingsButton} type="button">
           <Settings size={17} />
         </button>

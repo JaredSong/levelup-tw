@@ -1,11 +1,9 @@
-import { ArrowRight, CalendarClock, Check, Clock3, CloudOff, Flame, Layers3, ListRestart, Sparkles } from 'lucide-react'
+import { ArrowRight, CalendarClock, Check, CloudOff, Flame, Layers3, ListRestart, Sparkles } from 'lucide-react'
 import type { DailyMissionView, MissionItemView } from '../../domain/dailyMission'
 import { zhTW } from '../../i18n/zh-TW'
 import { isSyncEnabled } from '../../storage/sync'
-import { formatCurrentBankLabel, homeStudyCopyForExam } from '../activeExam'
-import { daysUntilExam, getEffectiveExamDate } from '../examCountdown'
+import { daysUntilExam, getExamDate } from '../examCountdown'
 import { getRegistrationNotice, NATIONAL_EXAM_SCHEDULE_SOURCE } from '../nationalExamSchedule'
-import { PROFILE_NAME_KEY } from '../onboardingState'
 import { useActiveExam } from '../useActiveExam'
 
 interface Props {
@@ -14,6 +12,7 @@ interface Props {
   due: number
   accuracy: number
   hasSession: boolean
+  remaining: number
   sessionLabel?: string
   streak: number
   mission: DailyMissionView
@@ -23,157 +22,42 @@ interface Props {
   onSequential: () => void
   onOpenSettings: () => void
 }
-
-/** Roughly two sessions: enough progress that losing it would actually sting. */
-const NUDGE_BACKUP_AFTER_SEEN = 20
-
 const MISSION_META = {
   'due-review': { label: () => zhTW.home.missionDueReview, icon: Layers3 },
   'wrong-fix': { label: () => zhTW.home.missionWrongFix, icon: ListRestart },
   'fresh-questions': { label: () => zhTW.home.missionFresh, icon: Sparkles },
 } as const
-
 function MissionRow({ item, onGo }: { item: MissionItemView; onGo: () => void }) {
   const meta = MISSION_META[item.type as keyof typeof MISSION_META]
   if (!meta || item.target === 0) return null
   const Icon = meta.icon
-  return (
-    <button className={item.done ? 'mission-row done' : 'mission-row'} disabled={item.done} onClick={onGo} type="button">
-      <span className="mission-icon"><Icon size={17} /></span>
-      <span className="mission-label">{meta.label()}</span>
-      <span className="mission-count">{item.done ? <Check size={16} /> : zhTW.home.missionProgress(item.completed, item.target)}</span>
-    </button>
-  )
+  return <button className={item.done ? 'mission-row done' : 'mission-row'} disabled={item.done} onClick={onGo} type="button"><span className="mission-icon"><Icon size={17} /></span><span className="mission-label">{meta.label()}</span><span className="mission-count">{item.done ? <Check size={16} /> : zhTW.home.missionProgress(item.completed, item.target)}</span></button>
 }
 
 export function HomePage(props: Props) {
   const { activeExam } = useActiveExam()
-  const studyCopy = homeStudyCopyForExam(activeExam)
-  const completion = props.total ? Math.round((props.seen / props.total) * 100) : 0
-  const primaryLabel = props.hasSession ? props.sessionLabel : studyCopy.continueFrom
-  const profileName = localStorage.getItem(PROFILE_NAME_KEY)?.trim()
-  const welcome = zhTW.home.welcomeParts(profileName)
-  // Null when no date is set or it has already passed — the countdown hides
-  // itself rather than showing a stale/negative number in either case.
-  const examDays = daysUntilExam(getEffectiveExamDate(new Date()), new Date())
-  // Null outside the actionable window, so this stays a deadline warning rather
-  // than permanent furniture on the one screen meant to show a single next action.
+  const completion = props.total ? Math.round(props.seen / props.total * 100) : 0
+  const examDays = daysUntilExam(getExamDate(), new Date())
   const registration = getRegistrationNotice(new Date())
-  const showBackupNudge = !isSyncEnabled() && props.seen >= NUDGE_BACKUP_AFTER_SEEN
-  const registrationHref = activeExam.officialLinks?.registration ?? NATIONAL_EXAM_SCHEDULE_SOURCE
-
-  return (
-    <main className="page dashboard-page">
-      <header className="app-header">
-        <div>
-          <p className="eyebrow">{zhTW.home.currentBank}：{formatCurrentBankLabel(activeExam)}</p>
-          <h1 aria-label={zhTW.home.welcomeTitle(profileName)}>
-            {welcome.before}
-            <span className="brand-mark">{zhTW.home.welcomeBrand}</span>
-            {welcome.comma}
-            {welcome.nameOnOwnLine ? <br /> : null}
-            {welcome.after}
-          </h1>
-          <p className="header-subtitle">{studyCopy.subtitle}</p>
-        </div>
-        {examDays !== null ? (
-          <div className="exam-countdown" aria-label={examDays === 0 ? zhTW.home.examTodayAria : zhTW.home.examDaysAria(examDays)}>
-            <strong>{examDays === 0 ? zhTW.home.examTodayBig : examDays}</strong>
-            <span>{examDays === 0 ? zhTW.home.examTodaySmall : zhTW.home.examDaysUnit}</span>
-          </div>
-        ) : null}
-      </header>
-
-      {registration ? (
-        <p className={registration.urgent ? 'reg-nudge urgent' : 'reg-nudge'}>
-          <CalendarClock size={16} />
-          <span>
-            {registration.phase === 'upcoming'
-              ? zhTW.home.regUpcoming(registration.entry.label, registration.daysRemaining, registration.entry.registrationStart)
-              : registration.daysRemaining === 0
-                ? zhTW.home.regOpenToday(registration.entry.label)
-                : zhTW.home.regOpen(registration.entry.label, registration.daysRemaining)}
-          </span>
-          <a href={registrationHref} rel="noreferrer" target="_blank">{zhTW.home.regAction}</a>
-        </p>
-      ) : null}
-
-      {/* Earned, not permanent: nobody needs a backup prompt on question three,
-          and a banner that is always there is furniture the eye learns to skip.
-          It appears once there is progress worth losing, and goes away for good
-          the moment a code exists. */}
-      {showBackupNudge ? (
-        <p className="sync-nudge">
-          <CloudOff size={16} />
-          <span>{zhTW.home.syncOff(props.seen)}</span>
-          <button onClick={props.onOpenSettings} type="button">{zhTW.home.syncOffAction}</button>
-        </p>
-      ) : null}
-
-      <section className="mission-card" aria-label={zhTW.home.missionTitle}>
-        <div className="mission-head">
-          <p className="eyebrow">{zhTW.home.missionTitle}</p>
-          {props.streak > 0 ? (
-            <span className="streak-chip"><Flame size={14} /> {zhTW.home.streak(props.streak)}</span>
-          ) : null}
-        </div>
-        {props.mission.allDone ? (
-          <p className="mission-all-done"><Sparkles size={17} /> {zhTW.home.missionAllDone}</p>
-        ) : null}
-        <div className="mission-rows">
-          {props.mission.items.map((item) => (
-            <MissionRow
-              item={item}
-              key={item.type}
-              onGo={item.type === 'due-review' ? props.onGoReview : item.type === 'wrong-fix' ? props.onWrongFix : props.onSequential}
-            />
-          ))}
-        </div>
-      </section>
-
-      <section className="readiness-strip" aria-label="學習概況">
-        <div>
-          <span>{zhTW.home.seen}</span>
-          <strong>{props.seen}</strong>
-        </div>
-        <div>
-          <span>{zhTW.home.dueNow}</span>
-          <strong>{props.due}</strong>
-        </div>
-        <div>
-          <span>{zhTW.home.accuracy}</span>
-          <strong>{props.accuracy}%</strong>
-        </div>
-      </section>
-
-      <button className="continue-panel" onClick={props.hasSession ? props.onContinue : props.onSequential} type="button">
-        <span className="continue-icon"><ArrowRight size={23} strokeWidth={2} /></span>
-        <span className="continue-copy">
-          <span className="action-kicker">{zhTW.home.nextStep}</span>
-          <strong>{primaryLabel}</strong>
-          <span>{props.hasSession ? zhTW.home.exactPositionSaved : studyCopy.startSmallFreshSet}</span>
-        </span>
-        <ArrowRight className="continue-arrow" size={22} strokeWidth={1.8} />
-      </button>
-
-      <section className="coverage-block">
-        <div className="section-heading">
-          <div>
-            <p className="eyebrow">{zhTW.home.coverage}</p>
-            <h2>{zhTW.home.recorded(props.seen, props.total)}</h2>
-          </div>
-          <span>{completion}%</span>
-        </div>
-        <div className="progress-track" aria-label={`${completion}% complete`}>
-          <span style={{ width: `${completion}%` }} />
-        </div>
-      </section>
-
-      <aside className="today-note">
-        <Clock3 size={18} />
-        <p><strong>{studyCopy.shortSessionTitle}</strong> {studyCopy.shortSessionBody}</p>
-        <Flame size={18} />
-      </aside>
-    </main>
-  )
+  const showBackupNudge = !isSyncEnabled() && props.seen >= 20
+  return <main className="page dashboard-page study-home">
+    <header className="app-header">
+      <div><p className="eyebrow">今天，也往前一點。</p><h1>{props.hasSession ? '接著上次，繼續練。' : props.seen ? '每一小步，都算數。' : '今天，先從十題開始。'}</h1><p className="header-subtitle">{props.hasSession ? '不用一次讀完，今天先把這組完成。' : '寫錯沒關係，我們會幫你記下來。'}</p></div>
+    </header>
+    <section className="study-next" aria-label="今日練習">
+      <div className="study-next-meta"><span>今日練習</span>{props.streak > 0 ? <span><Flame size={14} />{zhTW.home.streak(props.streak)}</span> : <span>一次 10 題</span>}</div>
+      <h2>{props.hasSession ? props.remaining > 0 ? `這一組，還有 ${props.remaining} 題。` : '這一組，可以收尾了。' : props.seen ? '今天，再練一組。' : '你的第一組 10 題。'}</h2>
+      <p>{props.hasSession ? `${props.sessionLabel ?? '練習'} · 已完成的都幫你記著。` : '依題庫順序練習，照自己的步調前進。'}</p>
+      <button onClick={props.hasSession ? props.onContinue : props.onSequential} type="button">{props.hasSession ? '繼續練習' : '開始今天的 10 題'}<ArrowRight size={19} /></button>
+    </section>
+    {props.seen > 0 ? <>
+      <section className="readiness-strip" aria-label="學習概況"><div><span>已練題目</span><strong>{props.seen}</strong></div><div><span>本考科正確率</span><strong>{props.accuracy}%</strong></div><div><span>待複習</span><strong>{props.due} 題</strong></div></section>
+      <section className="coverage-block"><div className="section-heading"><h2>每一小步，都算數。</h2><span>{completion}%</span></div><div className="progress-track" role="progressbar" aria-label="題庫練習進度" aria-valuenow={completion} aria-valuemin={0} aria-valuemax={100}><span style={{ width: `${completion}%` }} /></div><p className="study-local-note">已練 {props.seen} / {props.total} 題，不必急著把進度條填滿。</p></section>
+      <details className="study-missions"><summary>{props.mission.allDone ? '今天的練習目標已完成' : '今天還可以練什麼？'}</summary><div className="mission-rows">{props.mission.items.map(item => <MissionRow item={item} key={item.type} onGo={item.type === 'due-review' ? props.onGoReview : item.type === 'wrong-fix' ? props.onWrongFix : props.onSequential} />)}</div></details>
+    </> : null}
+    <div className="study-date"><div><strong>{examDays === null ? '考試日期，由你決定' : examDays === 0 ? '今天是你設定的考試日' : `距離你的考試還有 ${examDays} 天`}</strong><p>{examDays === null ? '設定後，首頁會顯示你的倒數。' : `目標日期：${getExamDate()}`}</p></div><button type="button" onClick={props.onOpenSettings}>{examDays === null ? '設定' : '修改'}</button></div>
+    {registration ? <p className={registration.urgent ? 'reg-nudge urgent' : 'reg-nudge'}><CalendarClock size={16} /><span>{registration.phase === 'upcoming' ? zhTW.home.regUpcoming(registration.entry.label, registration.daysRemaining, registration.entry.registrationStart) : registration.daysRemaining === 0 ? zhTW.home.regOpenToday(registration.entry.label) : zhTW.home.regOpen(registration.entry.label, registration.daysRemaining)}</span><a href={activeExam.officialLinks?.registration ?? NATIONAL_EXAM_SCHEDULE_SOURCE} rel="noreferrer" target="_blank">{zhTW.home.regAction}</a></p> : null}
+    {showBackupNudge ? <p className="sync-nudge"><CloudOff size={16} /><span>{zhTW.home.syncOff(props.seen)}</span><button onClick={props.onOpenSettings} type="button">{zhTW.home.syncOffAction}</button></p> : null}
+    <p className="study-local-note">進度保存在這台裝置。</p>
+  </main>
 }

@@ -25,7 +25,7 @@
 
 body {
   margin: 0;
-  min-width: 320px;
+  min-width: min(320px, 100%);
   min-height: 100dvh;
   background: var(--paper);
 }
@@ -37,12 +37,12 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
   outline-offset: 2px;
 }
 
-/* Public entry. Returning learners skip this page unless they open /welcome. */
+/* Public homepage; installed launches remain in the study app. */
 /* ---------- Landing (public marketing page at / and /welcome) ---------- */
 /* Extra tokens the landing needs on top of the app palette. Everything else
    reuses --ink/--muted/--line/--paper/--surface/--accent so the landing follows
    the same theme switch as the app. */
-.landing-page {
+.landing-page, .exam-page {
   --ink2: #3c453e;
   --ink3: #4b544d;
   --faint: #8b938c;
@@ -61,7 +61,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
   background: var(--paper);
   font-family: "Avenir Next", "PingFang TC", "Noto Sans TC", system-ui, sans-serif;
 }
-[data-theme="dark"] .landing-page {
+[data-theme="dark"] .landing-page, [data-theme="dark"] .exam-page {
   --ink2: #c6cfc8;
   --ink3: #b3bdb5;
   --faint: #7d867f;
@@ -1183,3 +1183,126 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 
 /* Build version footer */
 .build-version { margin: 22px 0 0; text-align: center; color: var(--muted); font-size: .7rem; font-variant-numeric: tabular-nums; opacity: .7; }
+
+/* Approved public entry and study-home refresh. Uses the existing theme tokens. */
+.landing-hero { grid-template-columns: minmax(0,1fr) minmax(340px,.95fr); align-items: center; gap: clamp(28px,5vw,68px); background: var(--paper); padding-top: 56px; padding-bottom: 48px; }
+.landing-hero h1 { max-width: none; font-weight: 700; line-height: 1.3; }
+.landing-hero h1 em { display: block; }
+.landing-hero-badge { padding: 0; background: none; border-radius: 0; font-weight: 600; }
+.landing-hero-description { font-size: 1rem; max-width: 32em; }
+.landing-hero-copy > * { animation: none; }
+.subject-finder { min-width: 0; padding: 24px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.finder-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
+.subject-finder .finder-heading h2 { margin: 0; font: 600 1.25rem/1.5 "Avenir Next", "PingFang TC", system-ui, sans-serif; }
+.finder-heading > span { color: var(--muted); font-size: .78rem; white-space: nowrap; }
+.finder-search { display: flex; align-items: center; gap: 10px; padding: 12px; border: 1px solid var(--line); border-radius: 7px; background: var(--paper); color: var(--muted); }
+.finder-search input { width: 100%; min-width: 0; border: 0; background: transparent; color: var(--ink); font-size: 1rem; }
+.finder-filters { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0; }
+.finder-filters button { padding: 8px 11px; border: 0; border-radius: 5px; background: transparent; color: var(--muted); font-size: .8rem; cursor: pointer; }
+.finder-filters button[aria-pressed="true"] { background: var(--accent-pale); color: var(--accent-dark); }
+.finder-results { max-height: 360px; overflow-y: auto; }
+.finder-results a { display: flex; justify-content: space-between; gap: 12px; align-items: center; padding: 13px 2px; border-top: 1px solid var(--line); color: var(--ink); text-decoration: none; }
+.finder-results a:hover { color: var(--accent); }
+.finder-results strong { display: block; font-size: .92rem; font-weight: 600; }
+.finder-results small { display: block; margin-top: 4px; color: var(--muted); font-size: .76rem; }
+.finder-results svg { flex-shrink: 0; color: var(--accent); }
+.finder-all { display: flex; justify-content: center; align-items: center; gap: 8px; padding-top: 16px; font-size: .8rem; color: var(--accent-dark); }
+.landing-method { padding-top: 32px; padding-bottom: 36px; }
+.landing-method-copy { display: none; }
+.landing-method { display: block; }
+.landing-loop { margin: 0; }
+.landing-exams { padding-top: 38px; padding-bottom: 38px; }
+.landing-nav-links a { padding: 8px; font-weight: 500; }
+.support-panel { width: 100%; padding: 24px; border-top: 1px solid var(--line); text-align: left; }
+.support-panel .eyebrow { display: flex; align-items: center; gap: 8px; color: var(--accent); }
+.support-panel h2 { margin: 8px 0 12px; font-size: 1.3rem; line-height: 1.5; }
+.support-panel > p:not(.eyebrow) { max-width: 55ch; color: var(--muted); line-height: 1.85; font-size: .9rem; }
+.support-panel .secondary-action { margin-top: 8px; }
+.support-payment { margin-top: 20px; padding: 18px; background: var(--paper); border: 1px solid var(--line); border-radius: 8px; }
+.support-payment code { display: block; margin: 12px 0; font-size: 1.15rem; letter-spacing: .03em; overflow-wrap: anywhere; user-select: all; }
+.support-payment ol { padding-left: 20px; color: var(--muted); font-size: .85rem; line-height: 1.9; }
+.support-payment p { font-size: .8rem; color: var(--muted); line-height: 1.7; }
+.support-payment-grid { display: grid; grid-template-columns: minmax(0, 280px) minmax(0, 1fr); gap: 24px; margin-top: 18px; align-items: start; }
+.support-qr-block { min-width: 0; text-align: center; }
+.support-qr { display: block; width: 100%; max-width: 280px; height: auto; margin-inline: auto; background: #fff; border-radius: 6px; }
+.support-qr-block a { justify-content: center; text-decoration: none; color: var(--ink); }
+.support-transfer > p:first-child { margin-top: 0; }
+.support-account { margin: 18px 0; }
+.support-account > div + div { margin-top: 16px; }
+.support-account dt { font-size: .78rem; color: var(--muted); }
+.support-account dd { margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
+.support-account code { margin: 8px 0; }
+.support-account .secondary-action { margin: 0; padding: 8px 10px; font-size: .78rem; }
+@media (max-width: 640px) { .support-payment-grid { grid-template-columns: minmax(0, 1fr); } }
+.support-dismiss { display: block; border: 0; background: transparent; color: var(--muted); padding: 12px 0; cursor: pointer; }
+.settings-support > summary { padding: 16px 0; color: var(--muted); cursor: pointer; }
+.landing-donate .support-panel { padding: 30px 0; }
+.exam-hero-split { display: grid; grid-template-columns: minmax(0,1.35fr) minmax(240px,.8fr); align-items: start; gap: 42px; }
+.exam-hero-split h1 { font-weight: 700; font-family: "Songti TC", "Noto Serif TC", serif; }
+.exam-source-summary { border-left: 2px solid var(--accent); padding-left: 22px; margin-top: 18px; }
+.exam-source-summary h2 { margin: 0 0 20px; font-size: 1.05rem; }
+.exam-source-summary dl { margin: 0; display: grid; gap: 14px; font-size: .85rem; }
+.exam-source-summary dl div { display: flex; justify-content: space-between; gap: 16px; }
+.exam-source-summary dt { color: var(--muted); }
+.exam-source-summary dd { margin: 0; text-align: right; }
+.exam-source-summary > a { display: inline-block; margin-top: 22px; color: var(--accent-dark); font-size: .8rem; }
+.exam-entry-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 24px; }
+.exam-entry-actions .landing-primary { margin-top: 0; }
+.exam-entry-note { color: var(--muted); font-size: .8rem; line-height: 1.7; }
+.exam-downloads, .exam-support { padding: 28px var(--pad); }
+.exam-downloads h2 { font-size: 1.3rem; margin: 0 0 12px; }
+.exam-downloads > p { color: var(--muted); font-size: .9rem; line-height: 1.8; max-width: 65ch; }
+.exam-downloads ul { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 30px; }
+.exam-downloads li a { display: flex; gap: 12px; align-items: center; height: 100%; padding: 16px 0; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line); }
+.exam-downloads li a > span { flex: 1; }
+.exam-downloads li a > svg { flex-shrink: 0; color: var(--accent); }
+.exam-downloads strong { display: block; font-size: .85rem; font-weight: 500; }
+.exam-downloads small { color: var(--muted); font-size: .76rem; }
+.exam-sample li { padding: 0; }
+.exam-sample li button { display: flex; align-items: flex-start; gap: 9px; width: 100%; background: transparent; border: 1px solid transparent; padding: 10px; color: inherit; text-align: left; border-radius: 6px; cursor: pointer; line-height: 1.7; }
+.exam-sample li button[aria-pressed="true"] { border-color: var(--accent); }
+.exam-sample details { font-size: .82rem; color: var(--muted); }
+.study-home .app-header { border-bottom: 0; padding-bottom: 12px; }
+.study-home .app-header h1 { font-family: "Songti TC", "Noto Serif TC", serif; font-size: clamp(1.7rem,4vw,2.25rem); line-height: 1.4; }
+.study-next { padding: 24px; margin: 12px 0 26px; background: var(--accent-dark); color: #f7faf5; border-radius: 13px; }
+.study-next-meta { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: .78rem; opacity: .9; }
+.study-next-meta > span { display: inline-flex; align-items: center; gap: 5px; }
+.study-next h2 { font-size: 1.5rem; margin: 22px 0 8px; line-height: 1.4; font-weight: 600; }
+.study-next p { font-size: .85rem; line-height: 1.7; opacity: .9; }
+.study-next button { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; margin-top: 22px; padding: 14px 16px; background: var(--surface); color: var(--ink); border: 0; border-radius: 7px; cursor: pointer; font-weight: 600; }
+.study-home .readiness-strip { border: 0; border-bottom: 1px solid var(--line); background: transparent; padding: 0 0 24px; border-radius: 0; }
+.study-home .coverage-block { margin-top: 26px; }
+.study-home .coverage-block h2 { font-size: 1rem; margin: 0; }
+.study-missions { margin: 20px 0; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.study-missions summary { cursor: pointer; color: var(--muted); font-size: .85rem; }
+.study-date { display: flex; justify-content: space-between; align-items: center; gap: 16px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 18px 0; margin-top: 24px; }
+.study-date strong { font-size: .9rem; font-weight: 600; }
+.study-date p, .study-local-note { font-size: .78rem; color: var(--muted); line-height: 1.7; }
+.study-date p { margin: 5px 0 0; }
+.study-date button { background: none; border: 0; color: var(--accent); cursor: pointer; padding: 12px 4px; flex-shrink: 0; }
+.study-home > .study-local-note { text-align: center; margin-top: 24px; }
+.session-summary { max-width: 760px; margin-inline: auto; }
+.session-summary .support-panel { margin-top: 24px; }
+.onboarding-scan-card summary { font-size: .85rem; cursor: pointer; color: var(--muted); }
+.onboarding-scan-card:not([open]) { display: block; }
+.mode-list button:disabled { opacity: .5; cursor: default; }
+@media (max-width: 760px) {
+  .landing-hero { grid-template-columns: minmax(0,1fr); padding-top: 30px; gap: 28px; }
+  .landing-hero h1 { font-size: clamp(2rem,8vw,2.7rem); }
+  .subject-finder { padding: 18px; }
+  .landing-proof { gap: 10px 16px; font-size: .75rem; }
+  .exam-hero-split { grid-template-columns: minmax(0,1fr); gap: 20px; }
+  .exam-downloads ul { grid-template-columns: 1fr; }
+  .study-next { padding: 22px; }
+  .support-panel { padding: 20px 0; }
+  .session-summary { padding: 28px 22px; }
+}
+@media (max-width: 560px) {
+  .landing-nav { gap: 8px; padding-inline: 16px; }
+  .landing-nav-actions { gap: 6px; }
+  .landing-nav-action { display: inline-flex; padding: 9px 10px; font-size: .76rem; }
+  .landing-nav-actions .landing-lang-toggle { display: none; }
+  .landing-nav .landing-brand img { width: 32px; height: 32px; }
+  .landing-nav .landing-brand { gap: 7px; }
+}
+[data-theme="dark"] .study-next { background: #b3dfbc; color: #193522; }

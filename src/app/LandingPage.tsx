@@ -2,8 +2,7 @@ import {
   ArrowRight,
   ArrowUpRight,
   ArrowUp,
-  Ban,
-  BadgeCheck,
+  Search,
   BookOpenCheck,
   Car,
   CheckCircle2,
@@ -41,6 +40,7 @@ import { zhTW } from '../i18n/zh-TW'
 import { trackLanding } from './analytics'
 import { GENERATED_LANDING_CATALOG } from './generatedLandingCatalog'
 import { applyTheme, currentTheme, type Theme } from './theme'
+import { SupportPanel } from './SupportPanel'
 import { QrSvg } from '../components/QrCode'
 import { NATIONAL_EXAM_SCHEDULE_115, NATIONAL_EXAM_SCHEDULE_SOURCE, type NationalExamScheduleEntry } from './nationalExamSchedule'
 
@@ -131,7 +131,6 @@ interface Props {
   exams: ExamManifest[]
   returning: boolean
   onEnter: (source: string) => void
-  onSelectExam: (examId: string) => void
   /** Landing copy for the active locale. Defaults to Traditional Chinese. */
   t?: LandingStrings
   /** Active locale — drives the language toggle target and date formatting. */
@@ -139,10 +138,6 @@ interface Props {
 }
 
 const FEATURED_EXAM_IDS: readonly string[] = GENERATED_LANDING_CATALOG.featuredExamIds
-
-// Rotation inside the hero phone. 'home' must stay first: it is the LCP image
-// and the only one mounted before load.
-const HERO_SHOTS = ['home', 'practice', 'review', 'mock'] as const
 
 /** Theme lives on <html data-theme>; the toggle records an explicit choice. */
 function useTheme(): [Theme, () => void] {
@@ -156,15 +151,14 @@ function useTheme(): [Theme, () => void] {
   return [theme, toggle]
 }
 
-export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.landing, lang = 'zh' }: Props) {
+export function LandingPage({ exams, returning, onEnter, t = zhTW.landing, lang = 'zh' }: Props) {
   const [theme, toggleTheme] = useTheme()
   const [menuOpen, setMenuOpen] = useState(false)
   const [openFaq, setOpenFaq] = useState(0)
   const [showTop, setShowTop] = useState(false)
-  const [copied, setCopied] = useState(false)
   const [ctaVisible, setCtaVisible] = useState(false)
-  const [cycleShots, setCycleShots] = useState(false)
-  const [heroShot, setHeroShot] = useState(0)
+  const [query, setQuery] = useState('')
+  const [level, setLevel] = useState('全部')
 
   const navLinks = [
     { href: '#landing-exams', label: t.navExams },
@@ -180,20 +174,6 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
     { icon: RotateCcw, tone: 'coral', label: t.loopRepair, body: t.loopRepairBody },
     { icon: Clock, tone: 'blue', label: t.loopRemember, body: t.loopRememberBody },
     { icon: Timer, tone: 'gold', label: t.loopVerify, body: t.loopVerifyBody },
-  ]
-
-  // Each tile shows a screen the hero does not: repeating 首頁 here would just be
-  // the hero's screenshot a second time.
-  const screenShots = [
-    { name: 'practice', title: t.screensPractice, body: t.screensPracticeBody },
-    { name: 'review', title: t.screensReview, body: t.screensReviewBody },
-    { name: 'mock', title: t.screensMock, body: t.screensMockBody },
-  ]
-
-  const trustCards = [
-    { icon: BadgeCheck, title: t.trustFree, body: t.trustFreeBody },
-    { icon: WifiOff, title: t.trustOffline, body: t.trustOfflineBody },
-    { icon: Ban, title: t.trustNoAds, body: t.trustNoAdsBody },
   ]
 
   const faqItems = [
@@ -252,11 +232,6 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
   const todayIso = new Date().toLocaleDateString('sv-SE')
   const nextEntry = NATIONAL_EXAM_SCHEDULE_115.find((entry) => entry.writtenDate >= todayIso)
   const nextScheduleId = nextEntry?.id
-  const daysToWritten = nextEntry
-    ? Math.max(0, Math.round(
-        (new Date(`${nextEntry.writtenDate}T00:00:00`).getTime() - new Date(`${todayIso}T00:00:00`).getTime()) / 86_400_000,
-      ))
-    : null
 
   useEffect(() => {
     const onScroll = () => setShowTop(window.scrollY > 700)
@@ -278,7 +253,7 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
   useEffect(() => {
     const root = document.querySelector('.landing-page')
     if (!root || !('IntersectionObserver' in window)) return
-    const targets = root.querySelectorAll('section:not(.landing-hero)')
+    const targets = root.querySelectorAll('section:not(.landing-hero):not(.subject-finder)')
     const observer = new IntersectionObserver((entries) => {
       for (const entry of entries) {
         if (entry.isIntersecting) {
@@ -312,38 +287,10 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
     return () => observer.disconnect()
   }, [])
 
-  // Hero phone crossfade. The extra webps mount only after load, so first paint
-  // stays the single home shot (the LCP image) and nothing competes with it.
-  useEffect(() => {
-    const start = () => setCycleShots(true)
-    if (document.readyState === 'complete') {
-      start()
-      return
-    }
-    window.addEventListener('load', start, { once: true })
-    return () => window.removeEventListener('load', start)
-  }, [])
-
-  useEffect(() => {
-    if (!cycleShots) return
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-    const timer = window.setInterval(() => setHeroShot((i) => (i + 1) % HERO_SHOTS.length), 5000)
-    return () => window.clearInterval(timer)
-  }, [cycleShots])
-
-  const copyJkopay = async () => {
-    try {
-      await navigator.clipboard.writeText(t.donateCode)
-      setCopied(true)
-      trackLanding('donate_copy')
-      window.setTimeout(() => setCopied(false), 2000)
-    } catch {
-      setCopied(false)
-    }
-  }
-
   const navJump = (href: string) => trackLanding('nav', { target: href })
-  const shot = (name: string) => `/screens/${name}-${theme}.webp`
+  const matches = exams.filter(exam => (level === '全部' || exam.level === level) &&
+    [exam.titleZh, exam.titleEn, exam.category, ...exam.sections.map(section => section.subjectCode)].join(' ').toLowerCase().includes(query.trim().toLowerCase()))
+  const finderExams = query || level !== '全部' ? matches : featured.slice(0, 6)
 
   return (
     <main className={lang === 'en' ? 'landing-page landing-en' : 'landing-page'}>
@@ -411,22 +358,9 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
           <p className="landing-hero-badge">{t.eyebrow}</p>
           <h1>
             {displayText(t.titleLead)}
-            <em>{displayText(t.titleAccent)}</em>
-            {displayText(t.titleTail)}
+            <em>{displayText(t.titleAccent)}{displayText(t.titleTail)}</em>
           </h1>
           <p className="landing-hero-description">{t.description}</p>
-          <div className="landing-hero-actions">
-            <button className="landing-primary" onClick={() => onEnter('hero')} type="button">
-              {t.primaryAction}<ArrowRight size={18} />
-            </button>
-            <a className="landing-secondary" href="#landing-how" onClick={() => trackLanding('secondary_how')}>{t.secondaryAction}</a>
-          </div>
-          {nextEntry && daysToWritten !== null ? (
-            <a className="landing-countdown" href="#landing-schedule" onClick={() => trackLanding('countdown_chip')}>
-              <Timer size={15} />
-              {t.countdownChip(nextEntry.round, daysToWritten)}
-            </a>
-          ) : null}
           <div className="landing-proof">
             <span><CheckCircle2 size={16} /> {t.freeLabel}</span>
             <span><WifiOff size={16} /> {t.offlineLabel}</span>
@@ -435,36 +369,34 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
           <p className="landing-source-note">{t.sourceNote}</p>
         </div>
 
-        <div className="landing-hero-visual">
-          <span aria-hidden="true" className="landing-hero-glow" />
-          <div className="landing-phone">
-            <div className="landing-phone-screen">
-              {/* Stacked crossfade: only the active shot is opaque. 'home' is the
-                  LCP image (preloaded, fetchpriority=high); the rest mount after
-                  load so they never compete with first paint. */}
-              <img
-                alt=""
-                className={heroShot === 0 ? 'landing-active' : ''}
-                fetchPriority="high"
-                height={1560}
-                src={shot('home')}
-                width={780}
-              />
-              {cycleShots ? HERO_SHOTS.slice(1).map((name, index) => (
-                <img
-                  alt=""
-                  aria-hidden="true"
-                  className={heroShot === index + 1 ? 'landing-active' : ''}
-                  height={1560}
-                  key={name}
-                  loading="lazy"
-                  src={shot(name)}
-                  width={780}
-                />
-              )) : null}
-            </div>
+        <section className="subject-finder" aria-label={lang === 'en' ? 'Find your exam' : '選擇考科'}>
+          <div className="finder-heading"><h2>{lang === 'en' ? 'What are you studying?' : '你要考哪一科？'}</h2><span>{exams.length} {lang === 'en' ? 'exams' : '個考科'}</span></div>
+          <label className="finder-search"><Search size={18} /><input type="search" aria-label={lang === 'en' ? 'Search exams' : '搜尋考科'} placeholder={lang === 'en' ? 'Exam name or code' : '考科名稱或代碼，如 11700'} value={query} onChange={event => setQuery(event.target.value)} /></label>
+          <div className="finder-filters" aria-label={lang === 'en' ? 'Exam level' : '考科級別'}>{['全部', ...new Set(exams.map(exam => exam.level))].map(value => <button type="button" key={value} aria-pressed={level === value} onClick={() => setLevel(value)}>{lang === 'en' ? EN_LEVEL[value] ?? 'All' : value}</button>)}</div>
+          <div className="finder-results" aria-live="polite">
+            {finderExams.map(exam => <a key={exam.examId} href={`/exam/${exam.examId}`} onClick={() => trackLanding('exam_details', { exam_id: exam.examId, cta_location: 'finder' })}><span><strong>{examTitle(exam)}</strong><small>{exam.sections[0]?.subjectCode} · {t.examCount(exam.activeQuestionCount)}</small></span><ArrowUpRight size={18} /></a>)}
+            {!finderExams.length ? <p>{lang === 'en' ? 'No matching exam. Try another name or code.' : '找不到這個考科，試試其他名稱或代碼。'}</p> : null}
           </div>
+          <a className="finder-all" href="#landing-exams">{lang === 'en' ? 'Browse all exams' : '查看所有考科'} <ArrowRight size={15} /></a>
+        </section>
+      </section>
+
+      <section className="landing-method" id="landing-how">
+        <div className="landing-method-copy">
+          <p className="landing-eyebrow">{t.methodEyebrow}</p>
+          <h2>{displayText(t.methodTitle)}</h2>
+          <p>{t.methodDescription}</p>
         </div>
+        <ol className="landing-loop">
+          {learningLoop.map(({ icon: Icon, tone, label, body }, index) => (
+            <li key={label}>
+              <span className="landing-loop-index">{String(index + 1).padStart(2, '0')}</span>
+              <span className={`landing-loop-icon ${tone}`}><Icon size={19} /></span>
+              <strong>{label}</strong>
+              <p>{body}</p>
+            </li>
+          ))}
+        </ol>
       </section>
 
       <section className="landing-exams" id="landing-exams">
@@ -479,13 +411,12 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
           {featured.map((exam, index) => {
             const ExamIcon = CATEGORY_ICON[exam.category] ?? Database
             return (
-              // A real link to the exam's SEO page (crawlable, passes link equity),
-              // but a click keeps the fast path straight into practice.
+              // Both people and crawlers open the same public exam details.
               <a
                 className="landing-exam-card"
                 key={exam.examId}
                 href={`/exam/${exam.examId}`}
-                onClick={(event) => { event.preventDefault(); onSelectExam(exam.examId) }}
+                onClick={() => trackLanding('exam_details', { exam_id: exam.examId, cta_location: 'catalog' })}
                 style={{ '--landing-index': index } as CSSProperties}
               >
                 <span className="landing-exam-icon"><ExamIcon size={17} /></span>
@@ -517,7 +448,7 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
                       className="landing-exam-chip"
                       key={exam.examId}
                       href={`/exam/${exam.examId}`}
-                      onClick={(event) => { event.preventDefault(); onSelectExam(exam.examId) }}
+                      onClick={() => trackLanding('exam_details', { exam_id: exam.examId, cta_location: 'catalog' })}
                       title={t.examCount(exam.activeQuestionCount)}
                     >{examTitle(exam)}</a>
                   ))}
@@ -529,65 +460,6 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
             </button>
           </div>
         ) : null}
-      </section>
-
-      <section className="landing-method" id="landing-how">
-        <div className="landing-method-copy">
-          <p className="landing-eyebrow">{t.methodEyebrow}</p>
-          <h2>{displayText(t.methodTitle)}</h2>
-          <p>{t.methodDescription}</p>
-        </div>
-        <ol className="landing-loop">
-          {learningLoop.map(({ icon: Icon, tone, label, body }, index) => (
-            <li key={label}>
-              <span className="landing-loop-index">{String(index + 1).padStart(2, '0')}</span>
-              <span className={`landing-loop-icon ${tone}`}><Icon size={19} /></span>
-              <strong>{label}</strong>
-              <p>{body}</p>
-            </li>
-          ))}
-        </ol>
-      </section>
-
-      <section className="landing-screens">
-        <div className="landing-screens-head">
-          <p className="landing-eyebrow">{t.screensEyebrow}</p>
-          <h2>{displayText(t.screensTitle)}</h2>
-        </div>
-        <div className="landing-screens-grid">
-          {screenShots.map((item) => (
-            <figure key={item.name}>
-              {/* No bezel here on purpose: the hero already establishes the
-                  device, so these tiles spend their pixels on the UI. */}
-              <div className="landing-shot">
-                <img alt={item.title} loading="lazy" src={shot(item.name)} width={780} height={1560} />
-              </div>
-              <figcaption>
-                <strong>{item.title}</strong>
-                <p>{item.body}</p>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
-      </section>
-
-      <section className="landing-trust">
-        <div className="landing-trust-head">
-          <div>
-            <p className="landing-eyebrow">{t.trustEyebrow}</p>
-            <h2>{displayText(t.trustTitle)}</h2>
-          </div>
-          <p>{t.trustBody}</p>
-        </div>
-        <div className="landing-trust-grid">
-          {trustCards.map(({ icon: Icon, title, body }) => (
-            <div key={title}>
-              <span className="landing-trust-icon"><Icon size={18} /></span>
-              <strong>{title}</strong>
-              <p>{body}</p>
-            </div>
-          ))}
-        </div>
       </section>
 
       <section className="landing-schedule" id="landing-schedule">
@@ -678,20 +550,7 @@ export function LandingPage({ exams, returning, onEnter, onSelectExam, t = zhTW.
       </section>
 
       <section className="landing-donate" id="landing-donate">
-        <div className="landing-donate-card">
-          <div>
-            <p className="landing-eyebrow">{t.donateEyebrow}</p>
-            <h2>{displayText(t.donateTitle)}</h2>
-            <p>{t.donateBody}</p>
-          </div>
-          <div className="landing-donate-actions">
-            <button onClick={() => void copyJkopay()} type="button">
-              <span aria-hidden="true">街</span>
-              {copied ? t.donateCopied : t.donateAction}
-            </button>
-            <small>{t.donateCode}</small>
-          </div>
-        </div>
+        <SupportPanel location="landing" lang={lang} />
       </section>
 
       <footer className="landing-footer">

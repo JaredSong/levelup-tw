@@ -169,7 +169,8 @@ export function OnboardingGate({ onComplete }: Props) {
 
         {step === 1 ? (
           <div className="onboarding-subjects">
-            <section className="onboarding-scan-card">
+            <details className="onboarding-scan-card" open={restoring || scannerOpen}>
+              <summary>已有進度？用代碼或 QR Code 取回</summary>
               <div>
                 <p className="onboarding-restore-head"><Camera size={15} /> {zhTW.onboarding.scanTitle}</p>
                 <p className="onboarding-restore-hint">{zhTW.onboarding.scanHint}</p>
@@ -205,7 +206,7 @@ export function OnboardingGate({ onComplete }: Props) {
                 </div>
               ) : null}
               {scannerMsg ? <p className={scannerMsg === zhTW.onboarding.scanSuccess ? 'scan-msg ok' : 'scan-msg'}>{scannerMsg}</p> : null}
-            </section>
+            </details>
             <div className="onboarding-search-grid single">
               <label className="onboarding-subject-search">
                 <Search size={17} />
@@ -269,7 +270,7 @@ export function OnboardingGate({ onComplete }: Props) {
 
         <div className="onboarding-actions">
           {step === 1 ? (
-            <button className="primary-action" onClick={() => setStep(2)} type="button">{zhTW.onboarding.next}</button>
+            <><button className="primary-action" disabled={!!restoreError || !filteredExams.length} onClick={complete} type="button">開始練習</button><button className="secondary-action" onClick={() => setStep(2)} type="button">設定暱稱（選填）</button></>
           ) : (
             <>
               <button className="primary-action" disabled={!!restoreError} onClick={complete} type="button">{zhTW.onboarding.start}</button>

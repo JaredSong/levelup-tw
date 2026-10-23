@@ -72,7 +72,7 @@ export function ReviewPage(props: Props) {
             <span><strong>{zhTW.review.dueReview}</strong><small>{zhTW.review.dueReviewHint}</small></span>
             <span className="mode-meta">10</span>
           </button>
-          <button type="button" onClick={props.onWrong}>
+          <button type="button" disabled={!props.wrongCount} onClick={props.onWrong}>
             <span className="mode-icon coral"><ListRestart size={21} /></span>
             <span><strong>{zhTW.review.wrongAnswers}</strong><small>{zhTW.review.wrongAnswersHint}</small></span>
             <span className="mode-meta">{props.wrongCount || '—'}</span>
@@ -82,7 +82,7 @@ export function ReviewPage(props: Props) {
             <span><strong>{zhTW.review.recallCards}</strong><small>{zhTW.review.recallCardsHint}</small></span>
             <ArrowRight size={18} />
           </button>
-          <button type="button" onClick={props.onCommuteNotes}>
+          <button type="button" disabled={!props.wrongCount} onClick={props.onCommuteNotes}>
             <span className="mode-icon slate"><Headphones size={21} /></span>
             <span><strong>{zhTW.review.commuteNotes}</strong><small>{zhTW.review.commuteNotesHint}</small></span>
             <span className="mode-meta">{props.wrongCount || '—'}</span>

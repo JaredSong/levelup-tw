@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it } from 'vitest'
-import { type Gtag, resetInitialViewForTests, trackEnterApp, trackInitialView } from './analytics'
+import { type Gtag, resetInitialViewForTests, trackEnterApp, trackInitialView, trackLanding, trackSupport } from './analytics'
 
 /** Collects what would have been sent to GA4, with no DOM involved. */
 function sink() {
@@ -53,5 +53,17 @@ describe('analytics', () => {
   it('never throws when gtag is missing', () => {
     expect(() => trackInitialView('app', undefined)).not.toThrow()
     expect(() => trackEnterApp('web-design-b', undefined)).not.toThrow()
+  })
+
+  it('keeps internal CTA names out of acquisition source', () => {
+    const { hits, gtag } = sink()
+    trackLanding('enter_app', { source: 'exam_page', exam_id: 'digital-electronics-b' }, gtag)
+    expect(hits[0]?.[2]).toEqual({ action: 'enter_app', cta_location: 'exam_page', exam_id: 'digital-electronics-b' })
+  })
+
+  it('records copying a payment code as intent, not a completed donation', () => {
+    const { hits, gtag } = sink()
+    trackSupport('copy_code', 'session', gtag)
+    expect(hits).toEqual([['event', 'support_interaction', { action: 'copy_code', cta_location: 'session' }]])
   })
 })

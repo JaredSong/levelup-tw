@@ -12,6 +12,7 @@ import { exportBackup, importBackup } from '../storage/backup'
 import { getSyncPass, setSyncPass, syncNow, syncStatusLabel } from '../storage/sync'
 import { clearCurrentProfile } from '../storage/leaveProfile'
 import './LeaveProfile.css'
+import { SupportPanel } from '../app/SupportPanel'
 
 const OPTION_RANDOMIZE_KEY = 'level-b-randomize-options'
 // The sync code IS the account: functions/api/sync.js stores the cloud copy under
@@ -321,6 +322,11 @@ export function SettingsView({ questions, progress }: Props) {
           </label>
         </section>
       ) : null}
+
+      <details className="settings-support">
+        <summary>支持升級吧</summary>
+        <SupportPanel location="settings" />
+      </details>
 
       <section className="leave-profile">
         <div>

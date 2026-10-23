@@ -16,9 +16,7 @@ export function dismissInstallNudge(): void {
 }
 
 export function shouldShowLanding({
-  onboarded,
   hasSyncLink,
-  forceWelcome = false,
   forceApp = false,
   standalone = false,
 }: {
@@ -30,5 +28,7 @@ export function shouldShowLanding({
 }): boolean {
   if (hasSyncLink) return false
   if (forceApp || standalone) return false
-  return forceWelcome || !onboarded
+  // Keep legacy installs whose start URL is "/" in the study app. A normal
+  // browser visit gets the public homepage even after onboarding is complete.
+  return true
 }

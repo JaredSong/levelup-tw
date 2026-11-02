@@ -92,7 +92,7 @@ export function trackLanding(
 }
 
 /** Intent only. Copying a receiving code is never counted as a donation. */
-export function trackSupport(action: 'shown' | 'open' | 'copy_code' | 'save_qr' | 'dismiss', location: string, gtag: Gtag | undefined = windowGtag()): void {
+export function trackSupport(action: 'shown' | 'open' | 'open_bobame' | 'copy_code' | 'save_qr' | 'dismiss', location: string, gtag: Gtag | undefined = windowGtag()): void {
   gtag?.('event', 'support_interaction', { action, cta_location: location })
 }
 

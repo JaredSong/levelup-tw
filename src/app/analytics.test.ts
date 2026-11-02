@@ -66,4 +66,10 @@ describe('analytics', () => {
     trackSupport('copy_code', 'session', gtag)
     expect(hits).toEqual([['event', 'support_interaction', { action: 'copy_code', cta_location: 'session' }]])
   })
+
+  it('records opening BobaMe as intent, not a completed donation', () => {
+    const { hits, gtag } = sink()
+    trackSupport('open_bobame', 'landing', gtag)
+    expect(hits).toEqual([['event', 'support_interaction', { action: 'open_bobame', cta_location: 'landing' }]])
+  })
 })

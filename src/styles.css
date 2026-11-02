@@ -1217,7 +1217,8 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .support-panel .eyebrow { display: flex; align-items: center; gap: 8px; color: var(--accent); }
 .support-panel h2 { margin: 8px 0 12px; font-size: 1.3rem; line-height: 1.5; }
 .support-panel > p:not(.eyebrow) { max-width: 55ch; color: var(--muted); line-height: 1.85; font-size: .9rem; }
-.support-panel .secondary-action { margin-top: 8px; }
+.support-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.support-actions a { text-decoration: none; }
 .support-payment { margin-top: 20px; padding: 18px; background: var(--paper); border: 1px solid var(--line); border-radius: 8px; }
 .support-payment code { display: block; margin: 12px 0; font-size: 1.15rem; letter-spacing: .03em; overflow-wrap: anywhere; user-select: all; }
 .support-payment ol { padding-left: 20px; color: var(--muted); font-size: .85rem; line-height: 1.9; }

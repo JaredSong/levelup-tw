@@ -1,4 +1,4 @@
-import { Check, Copy, Download, Heart } from 'lucide-react'
+import { Check, Copy, Download, ExternalLink, Heart } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { zhTW } from '../i18n/zh-TW'
 import { trackSupport } from './analytics'
@@ -48,7 +48,10 @@ export function SupportPanel({ location, lang = 'zh', onDismiss, onShown }: {
     <p className="eyebrow"><Heart size={15} /> {en ? 'Independently maintained' : '一個人維護，讓更多人練習。'}</p>
     <h2>{en ? 'Has Level Up helped you study?' : location === 'session' ? '升級吧，有幫上忙嗎？' : '讓好用的免費題庫，一直留在這裡。'}</h2>
     <p>{en ? 'I’m Jared. I maintain this question bank independently. Your support helps with question checks, image corrections and website upkeep. All study features remain free.' : '我是 Jared，這個題庫由我獨立維護。你的支持會用在題庫校對、圖片修正與網站維護。完全自願，不影響任何練習功能。'}</p>
-    <button className="secondary-action" type="button" aria-expanded={open} onClick={() => { setOpen(!open); if (!open) trackSupport('open', location) }}><Heart size={17} />{en ? 'Support via QR / transfer' : '掃碼或轉帳支持'}</button>
+    <div className="support-actions">
+      <a className="primary-action" href="https://jaredsong.bobaboba.me/" target="_blank" rel="noopener noreferrer" onClick={() => trackSupport('open_bobame', location)}><ExternalLink size={17} />{en ? 'Support on BobaMe' : '到 BobaMe 支持'}</a>
+      <button className="secondary-action" type="button" aria-expanded={open} onClick={() => { setOpen(!open); if (!open) trackSupport('open', location) }}><Heart size={17} />{en ? 'QR / bank transfer' : '街口 QR／轉帳'}</button>
+    </div>
     {open ? <div className="support-payment">
       <strong>{en ? 'JKOPay receiving account · TWQR' : '街口收款帳戶 · TWQR'}</strong>
       <div className="support-payment-grid">

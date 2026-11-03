@@ -7,6 +7,7 @@ import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { analyzePngContent } from './pngPixelCheck.mjs'
 import { parseQuestionBank } from './questionParser.mjs'
+import { SURVEYING_FIGURE_IDS, SURVEYING_QUESTION_OVERRIDES } from './surveyingQuestionOverrides.mjs'
 
 const EXTRA_FIGURES = new Set([
   '12600-01-008',
@@ -172,6 +173,54 @@ const BANKS = [
         { x: 172, y: 369, width: 31, height: 57, padTo: { width: 78, height: 130 } },
         { x: 228, y: 369, width: 28, height: 57, padTo: { width: 72, height: 130 } },
         { x: 280, y: 369, width: 31, height: 57, padTo: { width: 78, height: 130 } },
+      ],
+    },
+  },
+  {
+    code: '04200',
+    source: '042003A11',
+    cropPrefix: '042003',
+    splitImageOptions: true,
+    outputDir: '../tmp/import-batch/042003A11/crops/',
+    extraFigures: SURVEYING_FIGURE_IDS,
+    excludedFigures: Object.keys(SURVEYING_QUESTION_OVERRIDES).filter((id) => !SURVEYING_FIGURE_IDS.includes(id)),
+    figureRects: {
+      '04200-05-011': { page: 37, x: 168, y: 122, width: 19.5, height: 13.5 },
+      '04200-03-149': { page: 23, x: 110, y: 636, width: 370, height: 72 },
+      '04200-03-150': { page: 24, x: 109, y: 81, width: 415, height: 64 },
+      '04200-03-151': { page: 24, x: 109, y: 81, width: 415, height: 64 },
+      '04200-03-152': { page: 24, x: 109, y: 301, width: 385, height: 75 },
+      '04200-03-153': { page: 24, x: 109, y: 525, width: 415, height: 69 },
+      '04200-03-154': { page: 24, x: 109, y: 525, width: 415, height: 69 },
+      '04200-04-132': { page: 33, x: 109, y: 79, width: 130, height: 55 },
+      '04200-04-142': { page: 33, x: 109, y: 608, width: 266, height: 121 },
+      '04200-04-143': { page: 34, x: 109, y: 77, width: 130, height: 55 },
+      '04200-04-147': { page: 34, x: 109, y: 304, width: 130, height: 56 },
+      '04200-05-069': { page: 40, x: 351, y: 364, width: 69, height: 49 },
+      '04200-05-070': { page: 40, x: 344, y: 446, width: 111, height: 27 },
+      '04200-05-071': { page: 40, x: 352, y: 505, width: 58, height: 45 },
+      '04200-05-036': { page: 38, x: 285, y: 279, width: 32, height: 23 },
+      '04200-05-063': { page: 39, x: 357, y: 702, width: 43, height: 29 },
+      '04200-05-065': { page: 40, x: 347, y: 107, width: 36, height: 28 },
+      '04200-05-068': { page: 40, x: 350, y: 289, width: 61, height: 54 },
+    },
+    optionRectOverrides: {
+      '04200-01-049': [
+        { x: 245, y: 510, width: 68, height: 60 },
+        { x: 328, y: 510, width: 68, height: 60 },
+        { x: 412, y: 510, width: 68, height: 60 },
+        { x: 110, y: 560, width: 68, height: 65 },
+      ],
+      '04200-02-023': [
+        null, null,
+        { x: 109, y: 677, width: 38, height: 18, scale: 2 },
+        null,
+      ],
+      '04200-02-050': [
+        { x: 123, y: 262, width: 162, height: 20 },
+        { x: 300, y: 262, width: 167, height: 20 },
+        { x: 123, y: 285, width: 92, height: 16, scale: 2 },
+        { x: 232, y: 285, width: 93, height: 16, scale: 2 },
       ],
     },
   },
@@ -686,12 +735,13 @@ function clampRect(rect, page) {
 }
 
 function cropImage(renderedPage, output, page, rect) {
-  const { padTo, trimThreshold, binarizeThreshold, ...rawRect } = rect
+  const { padTo, trimThreshold, binarizeThreshold, scale, ...rawRect } = rect
   const crop = clampRect(rawRect, page)
   if (crop.width <= 3 || crop.height <= 3) {
     throw new Error(`${output}: invalid crop ${JSON.stringify(crop)}`)
   }
   const filters = [`crop=${Math.floor(crop.width * SCALE)}:${Math.ceil(crop.height * SCALE)}:${Math.floor(crop.x * SCALE)}:${Math.floor(crop.y * SCALE)}`]
+  if (scale) filters.push(`scale=iw*${scale}:ih*${scale}:flags=lanczos`)
   if (binarizeThreshold !== undefined) {
     filters.push(`format=gray,lut=y='if(lt(val,${binarizeThreshold}),0,255)'`)
   }
@@ -1248,6 +1298,7 @@ async function buildBank({
   splitImageOptions = false,
   includeLeftFigures = false,
   optionRectOverrides = {},
+  outputDir = '../public/question-images/',
 }) {
   const pdfPath = fileURLToPath(new URL(`../source/${source}.pdf`, import.meta.url))
   const raw = await readFile(new URL(`../source/${source}-raw.txt`, import.meta.url), 'utf8')
@@ -1268,7 +1319,7 @@ async function buildBank({
   execFileSync('pdftotext', ['-bbox-layout', pdfPath, bboxPath])
   const pages = pagesFromBbox(await readFile(bboxPath, 'utf8'))
   const rendered = new Map()
-  const outputRoot = new URL('../public/question-images/', import.meta.url)
+  const outputRoot = new URL(outputDir, import.meta.url)
   await mkdir(outputRoot, { recursive: true })
 
   // Explicitly excluded or transcribed questions must not leave obsolete

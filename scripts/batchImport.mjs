@@ -5,6 +5,7 @@ import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { buildOcrReviewQueue } from './ocrAudit.mjs'
 import { parseQuestionBank } from './questionParser.mjs'
+import { applySurveyingQuestionOverride, SURVEYING_SOURCE_FILE } from './surveyingQuestionOverrides.mjs'
 
 const LEVELS = { '1': '甲級', '2': '乙級', '3': '丙級', '4': '單一級' }
 const SECTION_PATTERN = /工作項目\s*(\d{2})/
@@ -125,7 +126,7 @@ export function auditCandidate({ subjectCode, questions, officialKeys }) {
   }
 }
 
-export function buildCandidateConfig({ specifier, document, category, questionCount, sha256 }) {
+export function buildCandidateConfig({ specifier, document, category, questionCount, sha256, inactiveIds = [] }) {
   const isClassC = specifier.levelCode === '3' || specifier.levelCode === '4'
   const title = String(document.title ?? specifier.subjectCode).trim()
   return {
@@ -146,7 +147,7 @@ export function buildCandidateConfig({ specifier, document, category, questionCo
       sha256,
     },
     extraCommonCodes: null,
-    inactiveIds: [],
+    inactiveIds,
     figureIds: [],
     mockRules: {
       occupationQuota: 64,
@@ -227,11 +228,13 @@ async function stageCandidate(specifier, catalog, { force = false, offline = fal
   const sha256 = createHash('sha256').update(pdfBytes).digest('hex')
   execFileSync('pdftotext', ['-layout', pdfPath, rawPath])
   const raw = await readFile(rawPath, 'utf8')
-  const questions = parseQuestionBank(raw)
+  const questions = parseQuestionBank(raw).map((question) => (
+    `${stem}-raw.txt` === SURVEYING_SOURCE_FILE ? applySurveyingQuestionOverride(question) : question
+  ))
   const officialKeys = extractOfficialKeysFromText(raw)
   const audit = auditCandidate({ subjectCode: specifier.subjectCode, questions, officialKeys })
   const category = await readCategory(specifier)
-  const config = buildCandidateConfig({ specifier, document, category, questionCount: questions.length, sha256 })
+  const config = buildCandidateConfig({ specifier, document, category, questionCount: questions.length, sha256, inactiveIds: audit.deletionCandidates })
   const paths = {
     outputDir,
     pdfPath,

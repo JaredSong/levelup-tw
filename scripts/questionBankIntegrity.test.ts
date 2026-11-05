@@ -538,7 +538,7 @@ describe('published question bank', () => {
     // (2026-07-21). See INACTIVE_IDS in build-exam-packs.mjs.
     const cases = [
       { examId: 'childcare-single', occupationCode: '15400', published: 892, active: 892, total: 1292, activeTotal: 1287, sections: 10 },
-      { examId: 'care-service-single', occupationCode: '17800', published: 625, active: 620, total: 1025, activeTotal: 1015, sections: 10 },
+      { examId: 'care-service-single', occupationCode: '17800', published: 625, active: 619, total: 1025, activeTotal: 1014, sections: 10 },
       { examId: 'occupational-safety-health-management-b', occupationCode: '22200', published: 932, active: 922, total: 1332, activeTotal: 1317, sections: 7 },
       { examId: 'occupational-safety-management-a', occupationCode: '22000', published: 615, active: 614, total: 1015, activeTotal: 1009, sections: 7 },
       { examId: 'occupational-hygiene-management-a', occupationCode: '22100', published: 722, active: 722, total: 1122, activeTotal: 1117, sections: 7 },
@@ -560,6 +560,16 @@ describe('published question bank', () => {
       expect(questions.filter((question) => question.subjectCode === item.occupationCode)).toHaveLength(item.published)
       expect(questions.filter((question) => question.subjectCode === item.occupationCode && question.active !== false)).toHaveLength(item.active)
       expect(questions.every((question) => question.examId === item.examId)).toBe(true)
+    }
+  })
+
+  it('excludes the new WDA deletions without removing their stable question records', () => {
+    for (const [examId, ids] of [
+      ['care-service-single', ['17800-04-082']],
+      ['digital-electronics-b', ['11700-05-018', '11700-05-116']],
+    ] as const) {
+      const byId = new Map(loadExamBank(examId).map((question) => [question.id, question]))
+      for (const id of ids) expect(byId.get(id)?.active, id).toBe(false)
     }
   })
 

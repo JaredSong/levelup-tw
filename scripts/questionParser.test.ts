@@ -49,6 +49,14 @@ describe('parseQuestionBank', () => {
     ])
   })
 
+  it('keeps a work-item title that wraps onto the next PDF line', () => {
+    const wrapped = `90007 工作倫理與職業道德 ─共用工作項目 不分級 工作項目 01：工作倫理與職業
+                     道德
+1. (4) 第一題？ ①甲 ②乙 ③丙 ④丁 。`
+
+    expect(parseQuestionBank(wrapped)[0].sectionTitle).toBe('工作倫理與職業道德')
+  })
+
   it('parses class C occupation and beauty-hair common headings', () => {
     const hair = `06000 男子理髮 丙級 工作項目 01：毛髮與皮膚之認識
 1. (1) 頭髮題？ ①甲 ②乙 ③丙 ④丁 。

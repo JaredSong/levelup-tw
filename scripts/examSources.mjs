@@ -43,14 +43,23 @@ export const SOURCE_BANKS = {
   '14000': { version: 'A11', pdfFilename: '140003A11.pdf' },
   '18100': { version: 'A13', pdfFilename: '181003A13.pdf' },
   '18201': { version: 'A10', pdfFilename: '182012A10.pdf' },
+  '18500': { version: 'A10', pdfFilename: '185003A10.pdf' },
   '90001': { version: 'A10', pdfFilename: '900012A10.pdf' },
-  '90006': { version: 'A18', pdfFilename: '900060A18.pdf' },
-  '90007': { version: 'A17', pdfFilename: '900070A17.pdf' },
-  '90008': { version: 'A16', pdfFilename: '900080A16.pdf' },
-  '90009': { version: 'A11', pdfFilename: '900090A11.pdf', localFilename: '900090A11-latest.pdf' },
-  '90010': { version: 'A16', pdfFilename: '900100A16.pdf' },
-  '90011': { version: 'A10', pdfFilename: '900110A10.pdf' },
-  '90012': { version: 'A10', pdfFilename: '900120A10.pdf' },
+  '90006': { version: 'A11', pdfFilename: '900060A11.pdf' },
+  '90007': { version: 'A10', pdfFilename: '900070A10.pdf' },
+  '90008': { version: 'A17', pdfFilename: '900080A17.pdf' },
+  '90009': { version: 'A13', pdfFilename: '900090A13.pdf' },
+  '90010': { version: 'A17', pdfFilename: '900100A17.pdf' },
+  '90011': { version: 'A12', pdfFilename: '900110A12.pdf' },
+  '90012': { version: 'A11', pdfFilename: '900120A11.pdf' },
+}
+
+export function formatSourceRevision(sources) {
+  const filename = (source) => source.pdfFilename.replace(/\.pdf$/i, '')
+  const generalCodes = new Set(['90006', '90007', '90008', '90009'])
+  const specific = sources.filter((source) => !generalCodes.has(source.subjectCode))
+  const general = sources.filter((source) => generalCodes.has(source.subjectCode))
+  return [specific.map(filename).join(' + '), general.map(filename).join('/')].filter(Boolean).join(' + ')
 }
 
 export async function buildSourceProvenance(subjectCodes) {

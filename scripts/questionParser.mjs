@@ -52,6 +52,7 @@ export function parseQuestionBank(source) {
   let sourceGroup = null
   let section = null
   let sectionTitle = null
+  let readingSectionTitle = false
   let sourcePage = 1
   let current = null
 
@@ -108,12 +109,14 @@ export function parseQuestionBank(source) {
               : 'occupation'
       section = sectionMatch[3]
       sectionTitle = sectionMatch[4].trim()
+      readingSectionTitle = true
       continue
     }
 
     const questionMatch = line.match(QUESTION_PATTERN)
     if (questionMatch) {
       flush()
+      readingSectionTitle = false
       current = {
         number: Number(questionMatch[1]),
         answerKey: questionMatch[2],
@@ -123,6 +126,10 @@ export function parseQuestionBank(source) {
       continue
     }
 
+    if (readingSectionTitle) {
+      sectionTitle = joinWrappedLines([sectionTitle, line])
+      continue
+    }
     if (current) current.lines.push(line)
   }
 

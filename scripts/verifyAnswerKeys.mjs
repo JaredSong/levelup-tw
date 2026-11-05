@@ -34,6 +34,7 @@ const TARGETS = {
   'cnc-milling-b': { subjectCode: '18201', pdf: 'source/182012A10.pdf', bank: 'public/data/exams/cnc-milling-b/questions.json' },
   'industrial-electronics-c': { subjectCode: '02800', pdf: 'source/028003A11.pdf', bank: 'public/data/exams/industrial-electronics-c/questions.json' },
   'engineering-surveying-b': { subjectCode: '04202', pdf: 'source/042022A11.pdf', bank: 'public/data/exams/engineering-surveying-b/questions.json' },
+  'machining-c': { subjectCode: '18500', pdf: 'source/185003A10.pdf', bank: 'public/data/exams/machining-c/questions.json' },
   'heat-treatment-c': { subjectCode: '02100', pdf: 'source/021003A12.pdf', bank: 'public/data/exams/heat-treatment-c/questions.json' },
   'interior-decoration-management-b': { subjectCode: '12600', pdf: 'source/126002A12.pdf', bank: 'public/data/exams/interior-decoration-management-b/questions.json' },
   'accounting-c': { subjectCode: '14900', pdf: 'source/149003A15.pdf', bank: 'public/data/exams/accounting-c/questions.json' },
@@ -51,14 +52,14 @@ const TARGETS = {
   'occupational-safety-management-a': { subjectCode: '22000', pdf: 'source/220001A15.pdf', bank: 'public/data/exams/occupational-safety-management-a/questions.json' },
   'occupational-hygiene-management-a': { subjectCode: '22100', pdf: 'source/221001A14.pdf', bank: 'public/data/exams/occupational-hygiene-management-a/questions.json' },
   'occupational-safety-health-management-b': { subjectCode: '22200', pdf: 'source/222002A15.pdf', bank: 'public/data/exams/occupational-safety-health-management-b/questions.json' },
-  '90006': { subjectCode: '90006', pdf: 'source/900060A18.pdf', bank: 'public/data/exams/web-design-b/questions.json' },
+  '90006': { subjectCode: '90006', pdf: 'source/900060A11.pdf', bank: 'public/data/exams/web-design-b/questions.json' },
   '90001': { subjectCode: '90001', pdf: 'source/900012A10.pdf', bank: 'public/data/exams/cnc-milling-b/questions.json' },
-  '90007': { subjectCode: '90007', pdf: 'source/900070A17.pdf', bank: 'public/data/exams/web-design-b/questions.json' },
-  '90008': { subjectCode: '90008', pdf: 'source/900080A16.pdf', bank: 'public/data/exams/web-design-b/questions.json' },
-  '90009': { subjectCode: '90009', pdf: 'source/900090A11-latest.pdf', bank: 'public/data/exams/web-design-b/questions.json' },
-  '90010': { subjectCode: '90010', pdf: 'source/900100A16.pdf', bank: 'public/data/exams/chinese-cooking-meat-c/questions.json' },
-  '90011': { subjectCode: '90011', pdf: 'source/900110A10.pdf', bank: 'public/data/exams/web-design-b/questions.json' },
-  '90012': { subjectCode: '90012', pdf: 'source/900120A10.pdf', bank: 'public/data/exams/man-haircut-c/questions.json' },
+  '90007': { subjectCode: '90007', pdf: 'source/900070A10.pdf', bank: 'public/data/exams/web-design-b/questions.json' },
+  '90008': { subjectCode: '90008', pdf: 'source/900080A17.pdf', bank: 'public/data/exams/web-design-b/questions.json' },
+  '90009': { subjectCode: '90009', pdf: 'source/900090A13.pdf', bank: 'public/data/exams/web-design-b/questions.json' },
+  '90010': { subjectCode: '90010', pdf: 'source/900100A17.pdf', bank: 'public/data/exams/chinese-cooking-meat-c/questions.json' },
+  '90011': { subjectCode: '90011', pdf: 'source/900110A12.pdf', bank: 'public/data/exams/web-design-b/questions.json' },
+  '90012': { subjectCode: '90012', pdf: 'source/900120A11.pdf', bank: 'public/data/exams/man-haircut-c/questions.json' },
 }
 
 const sectionPattern = /工作項目\s*(\d{2})/
@@ -70,6 +71,7 @@ function extractOfficialKeys(pdf) {
     maxBuffer: 64 * 1024 * 1024,
   })
   const keys = new Map()
+  const deleted = new Set()
   let section = null
 
   for (const line of raw.split('\n')) {
@@ -83,8 +85,9 @@ function extractOfficialKeys(pdf) {
     const id = `${section}-${Number(key[1])}`
     const answers = [...key[2]].map(Number).sort((a, b) => a - b)
     if (!keys.has(id)) keys.set(id, answers)
+    if (line.includes('本題刪題')) deleted.add(id)
   }
-  return keys
+  return { keys, deleted }
 }
 
 function verifyTarget(target) {
@@ -95,9 +98,13 @@ function verifyTarget(target) {
   }
   const { subjectCode } = source
 
-  const fromPdf = extractOfficialKeys(source.pdf)
+  const { keys: fromPdf, deleted } = extractOfficialKeys(source.pdf)
   const bank = JSON.parse(readFileSync(source.bank, 'utf8'))
-  const published = bank.filter((question) => question.subjectCode === subjectCode && question.active !== false)
+  const subjectQuestions = bank.filter((question) => question.subjectCode === subjectCode)
+  const published = subjectQuestions.filter((question) => question.active !== false)
+  const deletedButActive = subjectQuestions.filter((question) => (
+    question.active !== false && deleted.has(`${question.section.split('-').at(-1)}-${question.number}`)
+  ))
   let checked = 0
   let agreed = 0
   const mismatches = []
@@ -123,6 +130,7 @@ function verifyTarget(target) {
   console.log(`  agree               : ${agreed}${checked ? ` (${((agreed / checked) * 100).toFixed(2)}%)` : ''}`)
   console.log(`  DISAGREE            : ${mismatches.length}`)
   console.log(`  no key matched      : ${unmatched.length}`)
+  console.log(`  deleted but active  : ${deletedButActive.length}`)
 
   if (mismatches.length) {
     console.log('\n  Disagreements — each needs the official PDF opened by hand:')
@@ -133,8 +141,11 @@ function verifyTarget(target) {
   if (unmatched.length) {
     console.log(`\n  Unmatched: ${unmatched.slice(0, 20).join(', ')}${unmatched.length > 20 ? ' …' : ''}`)
   }
+  if (deletedButActive.length) {
+    console.log(`\n  Officially deleted but active: ${deletedButActive.map((question) => question.id).join(', ')}`)
+  }
 
-  return published.length > 0 && mismatches.length === 0 && unmatched.length === 0
+  return published.length > 0 && mismatches.length === 0 && unmatched.length === 0 && deletedButActive.length === 0
 }
 
 const requested = process.argv[2] ?? '--all'

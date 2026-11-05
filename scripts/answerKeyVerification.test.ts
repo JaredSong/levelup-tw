@@ -75,6 +75,7 @@ describe.skipIf(!hasPdfToText)('published answer keys match the official PDFs', 
       const { ok, output } = verify(examId)
       expect(output, output).toMatch(/DISAGREE\s+: 0/)
       expect(output, output).toMatch(/no key matched\s+: 0/)
+      expect(output, output).toMatch(/deleted but active\s+: 0/)
       expect(ok, output).toBe(true)
     })
   }
@@ -84,6 +85,7 @@ describe.skipIf(!hasPdfToText)('published answer keys match the official PDFs', 
       const { ok, output } = verify(subjectCode)
       expect(output, output).toMatch(/DISAGREE\s+: 0/)
       expect(output, output).toMatch(/no key matched\s+: 0/)
+      expect(output, output).toMatch(/deleted but active\s+: 0/)
       expect(ok, output).toBe(true)
     })
   }

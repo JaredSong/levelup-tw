@@ -1,5 +1,5 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
-import { buildSourceProvenance } from './examSources.mjs'
+import { buildSourceProvenance, formatSourceRevision } from './examSources.mjs'
 import {
   INFORMATION_COMMON_CODE_BLOCK_OVERRIDES,
   INFORMATION_COMMON_IMAGE_OVERRIDES,
@@ -10,7 +10,7 @@ import { sanitizeText } from './textCorrections.mjs'
 const EXAM_ID = 'web-design-b'
 const EXAM_TITLE_ZH = '網頁設計乙級'
 
-// Questions the official 900080A16 (rev V115041316) marks 本題刪題 (deleted).
+// Questions the official 900080A17 marks 本題刪題 (deleted).
 // Kept as source records for provenance but flagged inactive so they are
 // excluded from queues, mocks, readiness, and active counts.
 const INACTIVE_IDS = new Set([
@@ -256,11 +256,11 @@ const OFFICIAL_LINKS = {
 }
 const banks = [
   { code: '17300', file: '173002A13-raw.txt', expected: 846 },
-  { code: '90011', file: '900110A10-raw.txt', expected: 119 },
-  { code: '90006', file: '900060A18-raw.txt', expected: 100 },
-  { code: '90007', file: '900070A17-raw.txt', expected: 100 },
-  { code: '90008', file: '900080A16-raw.txt', expected: 100 },
-  { code: '90009', file: '900090A11-latest-raw.txt', expected: 100 },
+  { code: '90011', file: '900110A12-raw.txt', expected: 119 },
+  { code: '90006', file: '900060A11-raw.txt', expected: 100 },
+  { code: '90007', file: '900070A10-raw.txt', expected: 100 },
+  { code: '90008', file: '900080A17-raw.txt', expected: 100 },
+  { code: '90009', file: '900090A13-raw.txt', expected: 100 },
 ]
 const sources = await buildSourceProvenance(banks.map((bank) => bank.code))
 
@@ -347,7 +347,7 @@ await writeFile(manifestPath, `${JSON.stringify({
   sourceUrl: sources[0].officialUrl,
   sources,
   officialLinks: OFFICIAL_LINKS,
-  sourceRevision: '173002A13 + 900060A18/900070A17/900080A16/900090A11/900110A10',
+  sourceRevision: formatSourceRevision(sources),
   questionCount: questions.length,
   activeQuestionCount: questions.filter((question) => question.active !== false).length,
   sections: Object.entries(

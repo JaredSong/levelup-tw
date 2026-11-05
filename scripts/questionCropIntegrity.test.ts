@@ -57,7 +57,7 @@ const PACKS = [
   // 11700-05-057 (7 images from 3 prompt figures + 4 options, needs a
   // composite-subset capability that doesn't exist) can't ship correctly yet.
   // See INACTIVE_IDS in build-exam-packs.mjs.
-  { examId: 'digital-electronics-b', occupationCode: '11700', sourceQuestions: 743, inactive: 2, figures: 183, cropPrefix: '117002', tightCrops: true },
+  { examId: 'digital-electronics-b', occupationCode: '11700', sourceQuestions: 743, inactive: 4, figures: 183, cropPrefix: '117002', tightCrops: true },
   { examId: 'western-cooking-c', occupationCode: '14000', sourceQuestions: 519, inactive: 4, figures: 0 },
   { examId: 'retail-service-c', occupationCode: '18100', sourceQuestions: 622, inactive: 0, figures: 25, cropPrefix: '181003', tightCrops: true },
   // 73 → 74: 18201-05-048, same vector-formula-option repair as above.

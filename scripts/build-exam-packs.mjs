@@ -1,5 +1,5 @@
 import { access, mkdir, readFile, writeFile } from 'node:fs/promises'
-import { buildSourceProvenance } from './examSources.mjs'
+import { buildSourceProvenance, formatSourceRevision } from './examSources.mjs'
 import {
   INFORMATION_COMMON_CODE_BLOCK_OVERRIDES,
   INFORMATION_COMMON_IMAGE_OVERRIDES,
@@ -22,6 +22,7 @@ const INACTIVE_IDS = new Set([
   '22200-01-032',
   '22200-01-035',
   '22200-01-043',
+  '17800-04-082',
   '22200-02-053',
   '22200-03-019',
   '22200-03-106',
@@ -82,6 +83,8 @@ const INACTIVE_IDS = new Set([
   // the options separate, then reorder" capability that doesn't exist yet.
   // Not building it for one question — reopen if this 3-prompt+4-option
   // shape recurs elsewhere in a future pack.
+  '11700-05-018',
+  '11700-05-116',
   '11700-05-057',
   // Blank-crop trio (Wen audit, 2026-07-21): the figure genuinely exists in
   // the source PDF but the crop produced a pure-white PNG (min=max=255 —
@@ -378,10 +381,10 @@ const QUESTION_OPTION_OVERRIDES = {
 const NO_SOURCE_PAGE_IMAGE = new Set(['07700-03-003'])
 
 const GENERAL_COMMON_BANKS = [
-  { code: '90006', file: '900060A18-raw.txt', expected: 100, version: 'A18' },
-  { code: '90007', file: '900070A17-raw.txt', expected: 100, version: 'A17' },
-  { code: '90008', file: '900080A16-raw.txt', expected: 100, version: 'A16' },
-  { code: '90009', file: '900090A11-latest-raw.txt', expected: 100, version: 'A11' },
+  { code: '90006', file: '900060A11-raw.txt', expected: 100, version: 'A11' },
+  { code: '90007', file: '900070A10-raw.txt', expected: 100, version: 'A10' },
+  { code: '90008', file: '900080A17-raw.txt', expected: 100, version: 'A17' },
+  { code: '90009', file: '900090A13-raw.txt', expected: 100, version: 'A13' },
 ]
 
 const MACHINERY_COMMON_BANK = {
@@ -403,7 +406,6 @@ const EXAMS = [
     occupationFile: '060003A12-raw.txt',
     occupationExpected: 439,
     version: 'A12',
-    sourceRevision: '060003A12 + 900060A18/900070A17/900080A16/900090A11/900120A10',
     extraCommonCodes: ['90012'],
     mockRules: {
       occupationQuota: 60,
@@ -424,7 +426,6 @@ const EXAMS = [
     occupationFile: '067003A13-raw.txt',
     occupationExpected: 608,
     version: 'A13',
-    sourceRevision: '067003A13 + 900060A18/900070A17/900080A16/900090A11/900120A10',
     extraCommonCodes: ['90012'],
     mockRules: {
       occupationQuota: 60,
@@ -445,7 +446,6 @@ const EXAMS = [
     occupationFile: '195002A17-raw.txt',
     occupationExpected: 1250,
     version: 'A17',
-    sourceRevision: '195002A17 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: [],
     mockRules: {
       occupationQuota: 64,
@@ -466,7 +466,6 @@ const EXAMS = [
     occupationFile: '118003A14-raw.txt',
     occupationExpected: 748,
     version: 'A14',
-    sourceRevision: '118003A14 + 900110A10 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: ['90011'],
     mockRules: {
       occupationQuota: 60,
@@ -488,7 +487,6 @@ const EXAMS = [
     occupationFile: '118002A15-raw.txt',
     occupationExpected: 776,
     version: 'A15',
-    sourceRevision: '118002A15 + 900110A10 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: ['90011'],
     cropPrefix: '118002',
     requireQuestionCrops: true,
@@ -511,7 +509,6 @@ const EXAMS = [
     occupationFile: '013003A13-raw.txt',
     occupationExpected: 600,
     version: 'A13',
-    sourceRevision: '013003A13 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: [],
     cropPrefix: '013003',
     requireQuestionCrops: true,
@@ -537,7 +534,6 @@ const EXAMS = [
     occupationFile: '007002A15-raw.txt',
     occupationExpected: 862,
     version: 'A15',
-    sourceRevision: '007002A15 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: [],
     cropPrefix: '007002',
     requireQuestionCrops: true,
@@ -575,7 +571,6 @@ const EXAMS = [
     occupationFile: '007003A13-raw.txt',
     occupationExpected: 618,
     version: 'A13',
-    sourceRevision: '007003A13 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: [],
     cropPrefix: '007003',
     requireQuestionCrops: true,
@@ -600,7 +595,6 @@ const EXAMS = [
     occupationFile: '076023A13-raw.txt',
     occupationExpected: 640,
     version: 'A13',
-    sourceRevision: '076023A13 + 900100A16 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: ['90010'],
     mockRules: {
       occupationQuota: 60,
@@ -621,7 +615,6 @@ const EXAMS = [
     occupationFile: '077003A12-raw.txt',
     occupationExpected: 513,
     version: 'A12',
-    sourceRevision: '077003A12 + 900100A16 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: ['90010'],
     mockRules: {
       occupationQuota: 60,
@@ -642,7 +635,6 @@ const EXAMS = [
     occupationFile: '020003A11-raw.txt',
     occupationExpected: 765,
     version: 'A11',
-    sourceRevision: '020003A11 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: [],
     mockRules: {
       occupationQuota: 64,
@@ -663,7 +655,6 @@ const EXAMS = [
     occupationFile: '145003A13-raw.txt',
     occupationExpected: 599,
     version: 'A13',
-    sourceRevision: '145003A13 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: [],
     cropPrefix: '145003',
     requireQuestionCrops: true,
@@ -686,7 +677,6 @@ const EXAMS = [
     occupationFile: '176003A12-raw.txt',
     occupationExpected: 643,
     version: 'A12',
-    sourceRevision: '176003A12 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: [],
     cropPrefix: '176003',
     requireQuestionCrops: true,
@@ -714,7 +704,6 @@ const EXAMS = [
     occupationFile: '100003A15-raw.txt',
     occupationExpected: 361,
     version: 'A15',
-    sourceRevision: '100003A15 + 900060A18/900070A17/900080A16/900090A11/900120A10',
     extraCommonCodes: ['90012'],
     mockRules: {
       occupationQuota: 60,
@@ -735,7 +724,6 @@ const EXAMS = [
     occupationFile: '149003A15-raw.txt',
     occupationExpected: 762,
     version: 'A15',
-    sourceRevision: '149003A15 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: [],
     mockRules: {
       occupationQuota: 64,
@@ -756,7 +744,6 @@ const EXAMS = [
     occupationFile: '154004A17-raw.txt',
     occupationExpected: 892,
     version: 'A17',
-    sourceRevision: '154004A17 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: [],
     mockRules: {
       occupationQuota: 64,
@@ -777,7 +764,6 @@ const EXAMS = [
     occupationFile: '166003A15-raw.txt',
     occupationExpected: 685,
     version: 'A15',
-    sourceRevision: '166003A15 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: [],
     cropPrefix: '166003',
     requireQuestionCrops: true,
@@ -802,7 +788,6 @@ const EXAMS = [
     occupationFile: '178004A13-raw.txt',
     occupationExpected: 625,
     version: 'A13',
-    sourceRevision: '178004A13 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: [],
     mockRules: {
       occupationQuota: 64,
@@ -823,7 +808,6 @@ const EXAMS = [
     occupationFile: '222002A15-raw.txt',
     occupationExpected: 932,
     version: 'A15',
-    sourceRevision: '222002A15 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: [],
     mockRules: {
       occupationQuota: 64,
@@ -844,7 +828,6 @@ const EXAMS = [
     occupationFile: '220001A15-raw.txt',
     occupationExpected: 615,
     version: 'A15',
-    sourceRevision: '220001A15 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: [],
     cropPrefix: '220001',
     requireQuestionCrops: true,
@@ -867,7 +850,6 @@ const EXAMS = [
     occupationFile: '221001A14-raw.txt',
     occupationExpected: 722,
     version: 'A14',
-    sourceRevision: '221001A14 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: [],
     cropPrefix: '221001',
     requireQuestionCrops: true,
@@ -891,7 +873,6 @@ const EXAMS = [
     occupationFile: '151004A14-raw.txt',
     occupationExpected: 600,
     version: 'A14',
-    sourceRevision: '151004A14 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: [],
     requireQuestionCrops: true,
     splitImageOptions: true,
@@ -914,7 +895,6 @@ const EXAMS = [
     occupationFile: '070044A12-raw.txt',
     occupationExpected: 676,
     version: 'A12',
-    sourceRevision: '070044A12 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: [],
     cropPrefix: '070044',
     requireQuestionCrops: true,
@@ -938,7 +918,6 @@ const EXAMS = [
     occupationFile: '126002A12-raw.txt',
     occupationExpected: 718,
     version: 'A12',
-    sourceRevision: '126002A12 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: [],
     requireQuestionCrops: true,
     splitImageOptions: true,
@@ -962,7 +941,6 @@ const EXAMS = [
     occupationFile: '042022A11-raw.txt',
     occupationExpected: 769,
     version: 'A11',
-    sourceRevision: '042022A11 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: [],
     cropPrefix: '042022',
     requireQuestionCrops: true,
@@ -1000,7 +978,6 @@ const EXAMS = [
     occupationFile: '206003A13-raw.txt',
     occupationExpected: 617,
     version: 'A13',
-    sourceRevision: '206003A13 + 900100A16 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: ['90010'],
     excludedFigureIds: ['20600-03-058'],
     requireQuestionCrops: true,
@@ -1024,7 +1001,6 @@ const EXAMS = [
     occupationFile: '215003A11-raw.txt',
     occupationExpected: 524,
     version: 'A11',
-    sourceRevision: '215003A11 + 900100A16 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: ['90010'],
     cropPrefix: '215003',
     requireQuestionCrops: true,
@@ -1049,7 +1025,6 @@ const EXAMS = [
     occupationFile: '028003A11-raw.txt',
     occupationExpected: 651,
     version: 'A11',
-    sourceRevision: '028003A11 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: [],
     cropPrefix: '028003',
     embeddedImageMapFile: '028003A11-image-map.json',
@@ -1073,7 +1048,6 @@ const EXAMS = [
     occupationFile: '021003A12-raw.txt',
     occupationExpected: 609,
     version: 'A12',
-    sourceRevision: '021003A12 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: [],
     cropPrefix: '021003',
     splitImageOptions: true,
@@ -1099,7 +1073,6 @@ const EXAMS = [
     occupationFile: '120002A12-raw.txt',
     occupationExpected: 773,
     version: 'A12',
-    sourceRevision: '120002A12 + 900110A10 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: ['90011'],
     cropPrefix: '120002',
     requireQuestionCrops: true,
@@ -1126,7 +1099,6 @@ const EXAMS = [
     occupationFile: '120003A12-raw.txt',
     occupationExpected: 707,
     version: 'A12',
-    sourceRevision: '120003A12 + 900110A10 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: ['90011'],
     cropPrefix: '120003',
     requireQuestionCrops: true,
@@ -1151,7 +1123,6 @@ const EXAMS = [
     occupationFile: '172003A14-raw.txt',
     occupationExpected: 486,
     version: 'A14',
-    sourceRevision: '172003A14 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: [],
     cropPrefix: '172003',
     requireQuestionCrops: true,
@@ -1175,7 +1146,6 @@ const EXAMS = [
     occupationFile: '016003A12-raw.txt',
     occupationExpected: 707,
     version: 'A12',
-    sourceRevision: '016003A12 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: [],
     cropPrefix: '016003',
     requireQuestionCrops: true,
@@ -1199,7 +1169,6 @@ const EXAMS = [
     occupationFile: '070024A10-raw.txt',
     occupationExpected: 668,
     version: 'A10',
-    sourceRevision: '070024A10 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: [],
     cropPrefix: '070024',
     embeddedImageMapFile: '070024A10-image-map.json',
@@ -1223,7 +1192,6 @@ const EXAMS = [
     occupationFile: '117002A13-raw.txt',
     occupationExpected: 743,
     version: 'A13',
-    sourceRevision: '117002A13 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: [],
     cropPrefix: '117002',
     embeddedImageMapFile: '117002A13-image-map.json',
@@ -1247,7 +1215,6 @@ const EXAMS = [
     occupationFile: '140003A11-raw.txt',
     occupationExpected: 519,
     version: 'A11',
-    sourceRevision: '140003A11 + 900100A16 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: ['90010'],
     excludedFigureIds: ['14000-03-060'],
     mockRules: {
@@ -1269,7 +1236,6 @@ const EXAMS = [
     occupationFile: '181003A13-raw.txt',
     occupationExpected: 622,
     version: 'A13',
-    sourceRevision: '181003A13 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: [],
     cropPrefix: '181003',
     embeddedImageMapFile: '181003A13-image-map.json',
@@ -1293,7 +1259,6 @@ const EXAMS = [
     occupationFile: '182012A10-raw.txt',
     occupationExpected: 775,
     version: 'A10',
-    sourceRevision: '182012A10 + 900012A10 + 900060A18/900070A17/900080A16/900090A11',
     extraCommonCodes: ['90001'],
     cropPrefix: '182012',
     embeddedImageMapFiles: ['182012A10-image-map.json', '900012A10-image-map.json'],
@@ -1311,25 +1276,25 @@ const EXAMS = [
 
 const BEAUTY_HAIR_COMMON_BANK = {
   code: '90012',
-  file: '900120A10-raw.txt',
+  file: '900120A11-raw.txt',
   expected: 300,
-  version: 'A10',
+  version: 'A12',
   quota: 4,
 }
 
 const FOOD_COMMON_BANK = {
   code: '90010',
-  file: '900100A16-raw.txt',
+  file: '900100A17-raw.txt',
   expected: 281,
-  version: 'A16',
+  version: 'A17',
   quota: 4,
 }
 
 const INFORMATION_COMMON_BANK = {
   code: '90011',
-  file: '900110A10-raw.txt',
+  file: '900110A12-raw.txt',
   expected: 119,
-  version: 'A10',
+  version: 'A11',
   quota: 4,
 }
 
@@ -1383,7 +1348,7 @@ function normalizeQuestion(question, exam) {
     || / {2,}/.test(`${question.prompt}${question.options.join('')}`)
   const mappedFigure = exam.embeddedImageMap ? Boolean(exam.embeddedImageMap[question.id]?.length) : undefined
   // A transcribed code block replaces the figure entirely — keep it text.
-  const hasFigure = codeOverride?.codeBlock
+  const hasFigure = codeOverride?.codeBlock || surveyingTextOnly
     ? false
     : mappedFigure ?? (!exam.excludedFigureIds?.includes(question.id) && (question.hasFigure || forceFigure))
   const repaired = {
@@ -1497,7 +1462,7 @@ async function writeExamPack(exam, commonQuestions, extraQuestionsByCode) {
     sourceUrl: sources[0].officialUrl,
     sources,
     officialLinks: OFFICIAL_LINKS,
-    sourceRevision: exam.sourceRevision,
+    sourceRevision: formatSourceRevision(sources),
     questionCount: questions.length,
     activeQuestionCount: active.length,
     sections: buildSections(questions),

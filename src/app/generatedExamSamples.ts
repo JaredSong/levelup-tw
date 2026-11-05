@@ -150,7 +150,8 @@ export const GENERATED_EXAM_SAMPLES: Record<string, ExamSampleSet> = {
       "烘品食品之包裝",
       "食品之貯存",
       "食品安全衛生",
-      "營養及健康飲",
+      "食品安全衛生相關法規",
+      "營養及健康飲食",
       "職業安全衛生",
       "工作倫理與職業道德",
       "環境保護",
@@ -214,7 +215,7 @@ export const GENERATED_EXAM_SAMPLES: Record<string, ExamSampleSet> = {
       "彩粧",
       "化粧設計",
       "化粧品認識",
-      "衛生及急救知識",
+      "衛生及急救知識之認識",
       "職業安全衛生",
       "工作倫理與職業道德",
       "環境保護",
@@ -280,7 +281,8 @@ export const GENERATED_EXAM_SAMPLES: Record<string, ExamSampleSet> = {
       "飲料調製服務特性",
       "飲料調製衛生事項",
       "食品安全衛生",
-      "營養及健康飲",
+      "食品安全衛生相關法規",
+      "營養及健康飲食",
       "職業安全衛生",
       "工作倫理與職業道德",
       "環境保護",
@@ -543,7 +545,8 @@ export const GENERATED_EXAM_SAMPLES: Record<string, ExamSampleSet> = {
       "衛生知識",
       "衛生法規",
       "食品安全衛生",
-      "營養及健康飲",
+      "食品安全衛生相關法規",
+      "營養及健康飲食",
       "職業安全衛生",
       "工作倫理與職業道德",
       "環境保護",
@@ -603,11 +606,11 @@ export const GENERATED_EXAM_SAMPLES: Record<string, ExamSampleSet> = {
   "cnc-milling-b": {
     "sections": [
       "工件度量",
-      "傳統銑床、ＣＮＣ銑床－基本操作及Ｃ",
-      "工件夾持及校正及傳統銑床、ＣＮＣ銑",
-      "銑削條件之判斷及處理及傳統銑床、Ｃ",
-      "傳統銑床、ＣＮＣ銑床－二又二分之一",
-      "傳統銑床、ＣＮＣ銑床－故障排除及機",
+      "傳統銑床、ＣＮＣ銑床－基本操作及ＣＮＣ銑床－程式製作、週邊設備操作",
+      "工件夾持及校正及傳統銑床、ＣＮＣ銑床－刀具選用及裝卸",
+      "銑削條件之判斷及處理及傳統銑床、ＣＮＣ銑床－銑削實習",
+      "傳統銑床、ＣＮＣ銑床－二又二分之一次圓弧及輪廓",
+      "傳統銑床、ＣＮＣ銑床－故障排除及機具維護",
       "機械製圖",
       "行業數學",
       "精密量測",
@@ -637,7 +640,7 @@ export const GENERATED_EXAM_SAMPLES: Record<string, ExamSampleSet> = {
       },
       {
         "id": "18201-02-001",
-        "sectionTitle": "傳統銑床、ＣＮＣ銑床－基本操作及Ｃ",
+        "sectionTitle": "傳統銑床、ＣＮＣ銑床－基本操作及ＣＮＣ銑床－程式製作、週邊設備操作",
         "prompt": "\"A\"型銑刀軸，桿端可直接套於支架的",
         "options": [
           "鋁",
@@ -649,7 +652,7 @@ export const GENERATED_EXAM_SAMPLES: Record<string, ExamSampleSet> = {
       },
       {
         "id": "18201-03-001",
-        "sectionTitle": "工件夾持及校正及傳統銑床、ＣＮＣ銑",
+        "sectionTitle": "工件夾持及校正及傳統銑床、ＣＮＣ銑床－刀具選用及裝卸",
         "prompt": "銑床虎鉗之規格，通常是以虎鉗",
         "options": [
           "鉗口最大開啟量",
@@ -661,7 +664,7 @@ export const GENERATED_EXAM_SAMPLES: Record<string, ExamSampleSet> = {
       },
       {
         "id": "18201-04-001",
-        "sectionTitle": "銑削條件之判斷及處理及傳統銑床、Ｃ",
+        "sectionTitle": "銑削條件之判斷及處理及傳統銑床、ＣＮＣ銑床－銑削實習",
         "prompt": "以直徑 16mm 之端銑刀銑削工件時，若銑削速度為 30m/min，則主轉迴轉數宜為每分鐘",
         "options": [
           "460",
@@ -1019,7 +1022,8 @@ export const GENERATED_EXAM_SAMPLES: Record<string, ExamSampleSet> = {
       "餐飲安全與環保衛生",
       "相關法規",
       "食品安全衛生",
-      "營養及健康飲",
+      "食品安全衛生相關法規",
+      "營養及健康飲食",
       "職業安全衛生",
       "工作倫理與職業道德",
       "環境保護",
@@ -1532,7 +1536,7 @@ export const GENERATED_EXAM_SAMPLES: Record<string, ExamSampleSet> = {
   },
   "indoor-wiring-c": {
     "sections": [
-      "電工符號之辨識與電氣工程圖",
+      "電工符號之辨識與電氣工程圖之瞭解",
       "工具使用",
       "電工儀表裝置及使用",
       "導線之連接處理",
@@ -1559,7 +1563,7 @@ export const GENERATED_EXAM_SAMPLES: Record<string, ExamSampleSet> = {
     "samples": [
       {
         "id": "00700-01-004",
-        "sectionTitle": "電工符號之辨識與電氣工程圖",
+        "sectionTitle": "電工符號之辨識與電氣工程圖之瞭解",
         "prompt": "設計圖上註明 1/100 是表示實物為圖上尺寸之多少倍？",
         "options": [
           "100",
@@ -1877,7 +1881,7 @@ export const GENERATED_EXAM_SAMPLES: Record<string, ExamSampleSet> = {
       "染髮操作",
       "髮型整理",
       "化粧品認識",
-      "衛生及急救知識",
+      "衛生及急救知識之認識",
       "職業安全衛生",
       "工作倫理與職業道德",
       "環境保護",
@@ -2455,7 +2459,8 @@ export const GENERATED_EXAM_SAMPLES: Record<string, ExamSampleSet> = {
       "衛生知識",
       "衛生法規",
       "食品安全衛生",
-      "營養及健康飲",
+      "食品安全衛生相關法規",
+      "營養及健康飲食",
       "職業安全衛生",
       "工作倫理與職業道德",
       "環境保護",
@@ -2524,7 +2529,7 @@ export const GENERATED_EXAM_SAMPLES: Record<string, ExamSampleSet> = {
       "染髮",
       "整髮",
       "化粧品認識",
-      "衛生及急救知識",
+      "衛生及急救知識之認識",
       "職業安全衛生",
       "工作倫理與職業道德",
       "環境保護",

@@ -497,6 +497,16 @@ describe('published question bank', () => {
         sections: 10,
         occupationQuota: 64,
       },
+      {
+        examId: 'international-trade-c',
+        occupationCode: '20000',
+        version: 'A13',
+        occupation: 770,
+        total: 1170,
+        active: 1165,
+        sections: 15,
+        occupationQuota: 64,
+      },
     ]
 
     for (const item of cases) {
@@ -552,6 +562,13 @@ describe('published question bank', () => {
     // Transcribed formulas stay text, not tiny images.
     expect(byId.get('04200-01-052')?.hasFigure).toBe(false)
     expect(byId.get('04200-01-052')?.options).toEqual(['P＝k/σ̂', 'P＝k/σ̂²', 'P＝k/σ̂³', 'P＝k/σ̂⁴'])
+  })
+
+  it('publishes 國貿業務丙級 as a text-only bank with every question active', () => {
+    const occupation = loadExamBank('international-trade-c').filter((question) => question.subjectCode === '20000')
+    expect(occupation).toHaveLength(770)
+    expect(occupation.every((question) => question.active !== false)).toBe(true)
+    expect(occupation.some((question) => question.hasFigure)).toBe(false)
   })
 
   it('ships each 三視圖 question with its 3D object and four option images', () => {

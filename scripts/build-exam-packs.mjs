@@ -1039,6 +1039,27 @@ const EXAMS = [
     },
   },
   {
+    // Text-only bank: 0 figure questions, 0 本題刪題, 770/770 keys agree.
+    examId: 'international-trade-c',
+    titleZh: '國貿業務丙級',
+    titleEn: 'International Trade (Class C)',
+    level: '丙級',
+    category: '商業服務',
+    occupationCode: '20000',
+    occupationFile: '200003A13-raw.txt',
+    occupationExpected: 770,
+    version: 'A13',
+    extraCommonCodes: [],
+    mockRules: {
+      occupationQuota: 64,
+      singleCount: 80,
+      multipleCount: 0,
+      weightSingle: 1.25,
+      weightMultiple: 0,
+      extraSubjectQuota: [],
+    },
+  },
+  {
     examId: 'beverage-preparation-c',
     titleZh: '飲料調製丙級',
     titleEn: 'Beverage Preparation (Class C)',

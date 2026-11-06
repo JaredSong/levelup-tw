@@ -5266,6 +5266,226 @@ export const GENERATED_EXAM_MANIFESTS = [
     }
   },
   {
+    "examId": "international-trade-c",
+    "level": "丙級",
+    "titleZh": "國貿業務丙級",
+    "titleEn": "International Trade (Class C)",
+    "category": "商業服務",
+    "version": "A13",
+    "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/200003A13.pdf",
+    "sources": [
+      {
+        "subjectCode": "20000",
+        "version": "A13",
+        "pdfFilename": "200003A13.pdf",
+        "localFilename": "200003A13.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/200003A13.pdf",
+        "sha256": "b8883b7686430634fdcfcddfec4c6662027324281d5d88019d08aa21cd6f9c30"
+      },
+      {
+        "subjectCode": "90006",
+        "version": "A11",
+        "pdfFilename": "900060A11.pdf",
+        "localFilename": "900060A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
+        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+      },
+      {
+        "subjectCode": "90007",
+        "version": "A10",
+        "pdfFilename": "900070A10.pdf",
+        "localFilename": "900070A10.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
+        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+      },
+      {
+        "subjectCode": "90008",
+        "version": "A17",
+        "pdfFilename": "900080A17.pdf",
+        "localFilename": "900080A17.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
+        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+      },
+      {
+        "subjectCode": "90009",
+        "version": "A13",
+        "pdfFilename": "900090A13.pdf",
+        "localFilename": "900090A13.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
+        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+      }
+    ],
+    "officialLinks": {
+      "registration": "https://skill.tcte.edu.tw/notice.php",
+      "scoreLookup": "https://eservice.wdasec.gov.tw/",
+      "handbook": "https://skill.tcte.edu.tw/download.php",
+      "questionBank": "https://techbank.wdasec.gov.tw/"
+    },
+    "sourceRevision": "200003A13 + 900060A11/900070A10/900080A17/900090A13",
+    "questionCount": 1170,
+    "activeQuestionCount": 1165,
+    "sections": [
+      {
+        "id": "20000-01",
+        "subjectCode": "20000",
+        "sourceGroup": "occupation",
+        "titleZh": "貿易概論及流程－商業道德、經貿常識",
+        "questionCount": 19,
+        "activeQuestionCount": 19
+      },
+      {
+        "id": "20000-02",
+        "subjectCode": "20000",
+        "sourceGroup": "occupation",
+        "titleZh": "貿易概論及流程－貿易概論、進出口流程",
+        "questionCount": 43,
+        "activeQuestionCount": 43
+      },
+      {
+        "id": "20000-03",
+        "subjectCode": "20000",
+        "sourceGroup": "occupation",
+        "titleZh": "貿易概論及流程－簽審、檢驗、報關",
+        "questionCount": 77,
+        "activeQuestionCount": 77
+      },
+      {
+        "id": "20000-04",
+        "subjectCode": "20000",
+        "sourceGroup": "occupation",
+        "titleZh": "基礎貿易英文－基本交易條件",
+        "questionCount": 78,
+        "activeQuestionCount": 78
+      },
+      {
+        "id": "20000-05",
+        "subjectCode": "20000",
+        "sourceGroup": "occupation",
+        "titleZh": "基礎貿易英文－常用貿易英文",
+        "questionCount": 110,
+        "activeQuestionCount": 110
+      },
+      {
+        "id": "20000-06",
+        "subjectCode": "20000",
+        "sourceGroup": "occupation",
+        "titleZh": "出口價格核算－要約、承諾、索賠",
+        "questionCount": 47,
+        "activeQuestionCount": 47
+      },
+      {
+        "id": "20000-07",
+        "subjectCode": "20000",
+        "sourceGroup": "occupation",
+        "titleZh": "出口價格核算－貿易條件及報價",
+        "questionCount": 81,
+        "activeQuestionCount": 81
+      },
+      {
+        "id": "20000-08",
+        "subjectCode": "20000",
+        "sourceGroup": "occupation",
+        "titleZh": "商業信用狀分析－信用狀",
+        "questionCount": 104,
+        "activeQuestionCount": 104
+      },
+      {
+        "id": "20000-09",
+        "subjectCode": "20000",
+        "sourceGroup": "occupation",
+        "titleZh": "商業信用狀分析－進出口結匯及融資",
+        "questionCount": 81,
+        "activeQuestionCount": 81
+      },
+      {
+        "id": "20000-10",
+        "subjectCode": "20000",
+        "sourceGroup": "occupation",
+        "titleZh": "貿易單據製作－貨物運輸保險、輸出保險",
+        "questionCount": 55,
+        "activeQuestionCount": 55
+      },
+      {
+        "id": "20000-11",
+        "subjectCode": "20000",
+        "sourceGroup": "occupation",
+        "titleZh": "貿易單據製作－國際貨物運輸",
+        "questionCount": 75,
+        "activeQuestionCount": 75
+      },
+      {
+        "id": "90006-01",
+        "subjectCode": "90006",
+        "sourceGroup": "general-common",
+        "titleZh": "職業安全衛生",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      },
+      {
+        "id": "90007-01",
+        "subjectCode": "90007",
+        "sourceGroup": "general-common",
+        "titleZh": "工作倫理與職業道德",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      },
+      {
+        "id": "90008-03",
+        "subjectCode": "90008",
+        "sourceGroup": "general-common",
+        "titleZh": "環境保護",
+        "questionCount": 100,
+        "activeQuestionCount": 95
+      },
+      {
+        "id": "90009-04",
+        "subjectCode": "90009",
+        "sourceGroup": "general-common",
+        "titleZh": "節能減碳",
+        "questionCount": 100,
+        "activeQuestionCount": 100
+      }
+    ],
+    "mockRules": {
+      "totalQuestions": 80,
+      "singleCount": 80,
+      "multipleCount": 0,
+      "durationMinutes": 100,
+      "passScore": 60,
+      "maxScore": 100,
+      "weightSingle": 1.25,
+      "weightMultiple": 0,
+      "subjectQuota": [
+        {
+          "subjectCode": "20000",
+          "count": 64
+        },
+        {
+          "subjectCode": "90006",
+          "count": 4
+        },
+        {
+          "subjectCode": "90007",
+          "count": 4
+        },
+        {
+          "subjectCode": "90008",
+          "count": 4
+        },
+        {
+          "subjectCode": "90009",
+          "count": 4
+        }
+      ]
+    },
+    "integrity": {
+      "status": "fully_verified",
+      "inactiveQuestionCount": 5,
+      "imageQuestionCount": 4,
+      "note": "Answer keys independently cross-checked against the official PDF during import."
+    }
+  },
+  {
     "examId": "beverage-preparation-c",
     "level": "丙級",
     "titleZh": "飲料調製丙級",

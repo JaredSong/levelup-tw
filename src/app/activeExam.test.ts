@@ -91,6 +91,7 @@ describe('active exam selection', () => {
       'engineering-surveying-b',
       'surveying-c',
       'visual-communication-design-c',
+      'international-trade-c',
       'machining-c',
       'beverage-preparation-c',
       'dining-service-c',

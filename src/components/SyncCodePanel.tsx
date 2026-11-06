@@ -3,7 +3,8 @@ import { useState } from 'react'
 import { buildSyncLink, formatSyncCode, generateSyncCode, isValidSyncCode } from '../app/syncCode'
 import { zhTW } from '../i18n/zh-TW'
 import { setSyncPass } from '../storage/sync'
-import { QrSvg, qrSvgMarkup } from './QrCode'
+import { QrSvg } from './QrCode'
+import { qrSvgMarkup } from './qrMarkup'
 
 interface Props {
   /** The sync secret this device currently uses. Owned by SettingsView. */

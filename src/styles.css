@@ -378,8 +378,8 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .exam-proof svg { color: var(--accent); }
 .exam-overview { max-width: 62ch; margin: 22px 0 0; color: var(--ink3); font-size: clamp(1rem, 1.4vw, 1.1rem); line-height: 1.8; }
 .exam-hero .landing-primary { margin-top: 28px; }
-.exam-sections, .exam-samples, .exam-cta, .exam-facts, .exam-related, .exam-about { padding: clamp(32px, 5vw, 60px) var(--pad); border-top: 1px solid var(--line2); }
-.exam-sections h2, .exam-samples h2, .exam-cta h2, .exam-facts h2, .exam-related h2 { margin: 0 0 22px; font-size: clamp(1.4rem, 2.8vw, 2rem); line-height: 1.25; }
+.exam-sections, .exam-samples, .exam-cta, .exam-facts, .exam-faq, .exam-related, .exam-about { padding: clamp(32px, 5vw, 60px) var(--pad); border-top: 1px solid var(--line2); }
+.exam-sections h2, .exam-samples h2, .exam-cta h2, .exam-facts h2, .exam-faq h2, .exam-related h2 { margin: 0 0 22px; font-size: clamp(1.4rem, 2.8vw, 2rem); line-height: 1.25; }
 .exam-sections ul { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px 22px; margin: 0; padding: 0; list-style: none; }
 .exam-sections li { display: flex; align-items: center; gap: 9px; color: var(--ink2); font-size: .92rem; font-weight: 700; }
 .exam-sections li svg { flex: 0 0 auto; color: var(--accent); }

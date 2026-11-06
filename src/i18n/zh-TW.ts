@@ -196,6 +196,31 @@ export const zhTW = {
     officialHandbook: '簡章下載',
     officialBank: '官方題庫下載',
     factsNote: '日期與及格標準整理自技能檢定中心公告，僅供參考；報名前請以官方最新簡章為準。',
+    // Per-exam FAQ. Every answer is built from the pack's manifest or the
+    // schedule module (src/app/examFaqs.ts), never typed per exam.
+    faqTitle: (title: string) => `${title}學科常見問題`,
+    faqCount: (title: string, n: string) => ({
+      q: `${title}學科題庫總共幾題？`,
+      a: `升級吧收錄的${title}學科題庫目前共 ${n} 題，包含專業科目和共同科目，官方標示刪除的題目已經排除。正式學科測驗的題目，就是從這份公開題庫裡抽出來的。`,
+    }),
+    faqFormat: (title: string, total: number, single: number, multiple: number, weightSingle: number, weightMultiple: number, pass: number, max: number) => ({
+      q: `${title}學科考幾題？幾分及格？`,
+      a: multiple
+        ? `學科共 ${total} 題：單選 ${single} 題、每題 ${weightSingle} 分，複選 ${multiple} 題、每題 ${weightMultiple} 分。滿分 ${max} 分，${pass} 分及格。實際規定請以官方簡章為準。`
+        : `學科共 ${total} 題，全部是單選題，每題 ${weightSingle} 分。滿分 ${max} 分，${pass} 分及格。實際規定請以官方簡章為準。`,
+    }),
+    faqCommon: (title: string, subjects: string) => ({
+      q: `${title}學科除了專業題目，還會考什麼？`,
+      a: `除了專業科目，還會考共同科目：${subjects}。共同科目的題目也是官方公開的，升級吧已經一起收錄，可以一起練。`,
+    }),
+    faqDownload: (title: string, pdfs: string) => ({
+      q: `${title}學科題庫 PDF 在哪裡下載？`,
+      a: `官方題庫 PDF 由勞動部勞動力發展署技能檢定中心公開，本頁「官方題庫 PDF 下載」區塊直接連到官方檔案（${pdfs}）。想邊練邊記錯題，可以直接在升級吧免費線上練習。`,
+    }),
+    faqSchedule: (title: string, label: string, start: string, end: string, written: string) => ({
+      q: `${title}什麼時候報名？學科什麼時候考？`,
+      a: `${label}報名期間是 ${start} 到 ${end}，學科測試日期為 ${written}。實際日期與報名方式請以技能檢定中心最新公告為準。`,
+    }),
     aboutTitle: '關於升級吧',
     aboutBody: '升級吧收錄技術士技能檢定官方公開的學科題庫，是免費的個人專案，不隸屬於勞動部勞動力發展署技能檢定中心。題目與答案整理自官方公開資料，僅供個人練習參考，一切請以官方最新公告為準。',
   },

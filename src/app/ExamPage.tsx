@@ -8,6 +8,7 @@ import { trackLanding } from './analytics'
 import { GENERATED_EXAM_SAMPLES } from './generatedExamSamples'
 import { getNextNationalExamEntry } from './nationalExamSchedule'
 import { examPath } from './seoUrls'
+import { examFaqs } from './examFaqs'
 
 interface Props {
   exam: ExamManifest
@@ -39,7 +40,9 @@ export function ExamPage({ exam, onEnter, onHome }: Props) {
   // manifest and the schedule module — never hand-typed here, so a stale date
   // can't outlive the data it came from. Computed at prerender time, which is
   // why it is the next *upcoming* round rather than a fixed one.
-  const nextRound = getNextNationalExamEntry(new Date())
+  const now = new Date()
+  const nextRound = getNextNationalExamEntry(now)
+  const faqs = examFaqs(exam, now)
   const links = exam.officialLinks ?? {}
   const linkCandidates: { href?: string; label: string }[] = [
     { href: links.registration, label: t.officialRegistration },
@@ -93,14 +96,14 @@ export function ExamPage({ exam, onEnter, onHome }: Props) {
           <h1>{exam.titleZh}<br />學科題庫與線上測驗</h1>
           <p className="exam-overview">官方公開題庫，依自己的步調練習。<br />先做一小組，寫錯的留給下一次複習。</p>
           <div className="exam-proof"><span><Database size={16} />{t.count(exam.activeQuestionCount)}</span><span><CheckCircle2 size={16} />免費練習</span><span><ShieldCheck size={16} />不必註冊</span></div>
-          <div className="exam-entry-actions"><button className="landing-primary" onClick={() => enter('hero')} type="button">開始練習 10 題<ArrowRight size={18} /></button><a className="landing-secondary" href="#exam-downloads"><FileDown size={17} />官方題庫 PDF</a></div>
+          <div className="exam-entry-actions"><button className="landing-primary" onClick={() => enter('hero')} type="button">開始練習 10 題<ArrowRight size={18} /></button><a className="landing-secondary" href="#exam-downloads"><FileDown size={17} />下載官方題庫 PDF</a></div>
           <p className="exam-entry-note">進度保存在這台裝置；有未完成的練習時，會先幫你接續。</p>
         </div>
         <aside className="exam-source-summary"><h2>先確認你的考試範圍</h2><dl><div><dt>測驗範圍</dt><dd>學科</dd></div><div><dt>專業題庫版本</dt><dd>{exam.version}</dd></div><div><dt>資料來源</dt><dd>勞動部技能檢定中心</dd></div><div><dt>模擬考</dt><dd>{exam.mockRules.totalQuestions} 題／{exam.mockRules.durationMinutes} 分鐘</dd></div></dl><a href="#exam-downloads">查看來源與版本說明 ↗</a></aside>
       </section>
 
       <section className="exam-downloads" id="exam-downloads">
-        <h2>{exam.titleZh}官方題庫 PDF</h2>
+        <h2>{exam.titleZh}官方題庫 PDF 下載</h2>
         <p>以下是本題庫採用的官方來源，包含專業科目與共同科目。版本以各份 PDF 為準；報考前請再確認官方最新公告。</p>
         <ul>{exam.sources?.length ? exam.sources.map(source => <li key={source.officialUrl}><a href={source.officialUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackLanding('official_pdf', { exam_id: exam.examId, subject_code: source.subjectCode })}><FileDown size={17} /><span><strong>{source.subjectCode} · {source.subjectCode === subjectCode ? `${exam.titleZh}專業科目` : exam.sections.find(section => section.subjectCode === source.subjectCode)?.titleZh ?? '共同科目'}</strong><small>{source.version} · PDF</small></span><ArrowRight size={16} /></a></li>) : <li><a href={exam.sourceUrl ?? exam.officialLinks?.questionBank ?? 'https://techbank.wdasec.gov.tw/'} target="_blank" rel="noopener noreferrer">前往官方題庫來源<ArrowRight size={16} /></a></li>}</ul>
       </section>
@@ -168,6 +171,20 @@ export function ExamPage({ exam, onEnter, onHome }: Props) {
           </ul>
         ) : null}
         <p className="exam-facts-note">{t.factsNote}</p>
+      </section>
+
+      <section className="exam-faq" id="exam-faq">
+        <h2>{t.faqTitle(exam.titleZh)}</h2>
+        {/* Open, not collapsed: the same Q&As are the page's FAQPage JSON-LD,
+            and answers hidden behind a toggle read as thinner content. */}
+        <div className="guide-faq-list">
+          {faqs.map((item) => (
+            <div key={item.q}>
+              <h3>{item.q}</h3>
+              <p>{item.a}</p>
+            </div>
+          ))}
+        </div>
       </section>
 
       <section className="exam-cta">

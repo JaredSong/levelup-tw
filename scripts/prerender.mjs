@@ -129,7 +129,8 @@ function examHead(html, m) {
   // Exam pages are Chinese-only — drop the zh/en hreflang alternates.
   h = h.replace(/\n\s*<link rel="alternate" hreflang="[^"]*" href="[^"]*" \/>/g, '')
   // The generic FAQ schema doesn't match an exam page; swap in a breadcrumb that
-  // mirrors the on-page trail (首頁 › 考科題庫 › <exam>).
+  // mirrors the on-page trail (首頁 › 考科題庫 › <exam>) plus this exam's own
+  // FAQPage, built by the same function as the visible Q&As (src/app/examFaqs.ts).
   const breadcrumb = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -142,8 +143,8 @@ function examHead(html, m) {
   h = replaceOnce(
     h,
     /<!-- faq-jsonld:start -->[\s\S]*?<!-- faq-jsonld:end -->/,
-    `<!-- faq-jsonld:start -->\n    <script type="application/ld+json">\n${breadcrumb}\n    </script>\n    <!-- faq-jsonld:end -->`,
-    'exam FAQ→breadcrumb',
+    `<!-- faq-jsonld:start -->\n    <script type="application/ld+json">\n${breadcrumb}\n    </script>\n    <script type="application/ld+json">\n${m.faqJsonLd}\n    </script>\n    <!-- faq-jsonld:end -->`,
+    'exam FAQ→breadcrumb + exam FAQ',
   )
   return h
 }

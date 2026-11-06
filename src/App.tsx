@@ -46,6 +46,7 @@ import { db } from './storage/db'
 import { requestPersistence, shouldRequestPersistence } from './storage/persistence'
 import { isSyncEnabled, setSyncPass, syncNow } from './storage/sync'
 import type { SessionMode, StudySession } from './types'
+import { EN_PATH, EN_TITLE, GUIDE_PATH, SITE_ORIGIN, examPageTitle, examPath } from './app/seoUrls'
 
 const LEGACY_SESSION_KEY = 'level-b-active-session'
 const SEQUENTIAL_KEY = 'level-b-sequential-index'
@@ -187,14 +188,16 @@ export default function App() {
   useLayoutEffect(() => { document.documentElement.classList.remove('app-starting') }, [])
 
   useEffect(() => {
-    const path = examOnPage ? `/exam/${examOnPage.examId}` : isGuide ? '/guide' : landingOpen ? lang === 'en' ? '/en' : '/' : '/app'
-    const title = examOnPage ? `${examOnPage.titleZh}學科題庫｜免費線上練習 - 升級吧`
+    // Same URL and title shapes the prerender wrote (src/app/seoUrls.ts), so the
+    // head doesn't flip after hydration.
+    const path = examOnPage ? examPath(examOnPage.examId) : isGuide ? GUIDE_PATH : landingOpen ? lang === 'en' ? EN_PATH : '/' : '/app'
+    const title = examOnPage ? examPageTitle(examOnPage.titleZh, examOnPage.activeQuestionCount)
       : isGuide ? '免費技能檢定題庫：線上刷題與模擬考完整指南 - 升級吧'
       : !landingOpen ? '我的練習 · 升級吧'
-      : lang === 'en' ? 'Level Up｜Taiwan Skills-Certification Question Bank' : '升級吧 Level Up｜技術士技能檢定學科題庫・免費刷題與模擬考'
+      : lang === 'en' ? EN_TITLE : '升級吧 Level Up｜技術士技能檢定學科題庫・免費刷題與模擬考'
     document.title = title
-    document.querySelector('link[rel="canonical"]')?.setAttribute('href', `https://levelup.tw${path}`)
-    document.querySelector('meta[property="og:url"]')?.setAttribute('content', `https://levelup.tw${path}`)
+    document.querySelector('link[rel="canonical"]')?.setAttribute('href', `${SITE_ORIGIN}${path}`)
+    document.querySelector('meta[property="og:url"]')?.setAttribute('content', `${SITE_ORIGIN}${path}`)
     document.querySelector('meta[property="og:title"]')?.setAttribute('content', title)
     document.querySelector('meta[name="robots"]')?.setAttribute('content', path === '/app' ? 'noindex, follow' : 'index, follow, max-image-preview:large')
   }, [examOnPage, isGuide, landingOpen, lang])

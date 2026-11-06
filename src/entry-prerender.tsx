@@ -10,6 +10,7 @@ import { ExamPage } from './app/ExamPage'
 import { GuidePage } from './app/GuidePage'
 import { guideFaqs } from './app/guideFaqs'
 import { enLanding } from './i18n/en'
+import { examPageTitle, examPath } from './app/seoUrls'
 
 const noop = () => undefined
 
@@ -43,8 +44,12 @@ export function renderExamPage(examId: string): string {
   return renderToString(<ExamPage exam={exam} onEnter={noop} onHome={noop} />)
 }
 
+export { SITE_ORIGIN, EN_PATH, EN_TITLE, GUIDE_PATH } from './app/seoUrls'
+
 export const EXAM_META = INSTALLED_EXAMS.map((exam) => ({
   id: exam.examId,
+  path: examPath(exam.examId),
+  title: examPageTitle(exam.titleZh, exam.activeQuestionCount),
   titleZh: exam.titleZh,
   category: exam.category,
   level: exam.level,

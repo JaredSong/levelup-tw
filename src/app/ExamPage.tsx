@@ -7,6 +7,7 @@ import { INSTALLED_EXAMS } from './activeExam'
 import { trackLanding } from './analytics'
 import { GENERATED_EXAM_SAMPLES } from './generatedExamSamples'
 import { getNextNationalExamEntry } from './nationalExamSchedule'
+import { examPath } from './seoUrls'
 
 interface Props {
   exam: ExamManifest
@@ -186,7 +187,7 @@ export function ExamPage({ exam, onEnter, onHome }: Props) {
           <ul>
             {related.map((e) => (
               <li key={e.examId}>
-                <a href={`/exam/${e.examId}`}>{e.titleZh}</a>
+                <a href={examPath(e.examId)}>{e.titleZh}</a>
               </li>
             ))}
           </ul>

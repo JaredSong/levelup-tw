@@ -43,6 +43,7 @@ import { applyTheme, currentTheme, type Theme } from './theme'
 import { SupportPanel } from './SupportPanel'
 import { QrSvg } from '../components/QrCode'
 import { NATIONAL_EXAM_SCHEDULE_115, NATIONAL_EXAM_SCHEDULE_SOURCE, type NationalExamScheduleEntry } from './nationalExamSchedule'
+import { EN_PATH, GUIDE_PATH, SITE_ORIGIN, examPath } from './seoUrls'
 
 // zhTW.landing infers each value as its exact Chinese string *literal*, which an
 // English translation can't satisfy. Widen literal strings to `string` while
@@ -187,8 +188,8 @@ export function LandingPage({ exams, returning, onEnter, t = zhTW.landing, lang 
 
   // The QR opens the site on a phone; keep it on whichever locale the visitor is
   // viewing so an English reader lands back on the English page.
-  const siteUrl = lang === 'en' ? 'https://levelup.tw/en' : 'https://levelup.tw/'
-  const otherLangHref = lang === 'en' ? '/' : '/en'
+  const siteUrl = lang === 'en' ? `${SITE_ORIGIN}${EN_PATH}` : `${SITE_ORIGIN}/`
+  const otherLangHref = lang === 'en' ? '/' : EN_PATH
   const otherLangLabel = lang === 'en' ? '中文' : 'EN'
 
   // Exam titles/labels come from the manifest in Chinese; on /en show the English
@@ -374,7 +375,7 @@ export function LandingPage({ exams, returning, onEnter, t = zhTW.landing, lang 
           <label className="finder-search"><Search size={18} /><input type="search" aria-label={lang === 'en' ? 'Search exams' : '搜尋考科'} placeholder={lang === 'en' ? 'Exam name or code' : '考科名稱或代碼，如 11700'} value={query} onChange={event => setQuery(event.target.value)} /></label>
           <div className="finder-filters" aria-label={lang === 'en' ? 'Exam level' : '考科級別'}>{['全部', ...new Set(exams.map(exam => exam.level))].map(value => <button type="button" key={value} aria-pressed={level === value} onClick={() => setLevel(value)}>{lang === 'en' ? EN_LEVEL[value] ?? 'All' : value}</button>)}</div>
           <div className="finder-results" aria-live="polite">
-            {finderExams.map(exam => <a key={exam.examId} href={`/exam/${exam.examId}`} onClick={() => trackLanding('exam_details', { exam_id: exam.examId, cta_location: 'finder' })}><span><strong>{examTitle(exam)}</strong><small>{exam.sections[0]?.subjectCode} · {t.examCount(exam.activeQuestionCount)}</small></span><ArrowUpRight size={18} /></a>)}
+            {finderExams.map(exam => <a key={exam.examId} href={examPath(exam.examId)} onClick={() => trackLanding('exam_details', { exam_id: exam.examId, cta_location: 'finder' })}><span><strong>{examTitle(exam)}</strong><small>{exam.sections[0]?.subjectCode} · {t.examCount(exam.activeQuestionCount)}</small></span><ArrowUpRight size={18} /></a>)}
             {!finderExams.length ? <p>{lang === 'en' ? 'No matching exam. Try another name or code.' : '找不到這個考科，試試其他名稱或代碼。'}</p> : null}
           </div>
           <a className="finder-all" href="#landing-exams">{lang === 'en' ? 'Browse all exams' : '查看所有考科'} <ArrowRight size={15} /></a>
@@ -415,7 +416,7 @@ export function LandingPage({ exams, returning, onEnter, t = zhTW.landing, lang 
               <a
                 className="landing-exam-card"
                 key={exam.examId}
-                href={`/exam/${exam.examId}`}
+                href={examPath(exam.examId)}
                 onClick={() => trackLanding('exam_details', { exam_id: exam.examId, cta_location: 'catalog' })}
                 style={{ '--landing-index': index } as CSSProperties}
               >
@@ -447,7 +448,7 @@ export function LandingPage({ exams, returning, onEnter, t = zhTW.landing, lang 
                     <a
                       className="landing-exam-chip"
                       key={exam.examId}
-                      href={`/exam/${exam.examId}`}
+                      href={examPath(exam.examId)}
                       onClick={() => trackLanding('exam_details', { exam_id: exam.examId, cta_location: 'catalog' })}
                       title={t.examCount(exam.activeQuestionCount)}
                     >{examTitle(exam)}</a>
@@ -564,7 +565,7 @@ export function LandingPage({ exams, returning, onEnter, t = zhTW.landing, lang 
           </a>
           <div className="landing-footer-actions">
             {lang === 'en' ? null : (
-              <a href="/guide" onClick={() => trackLanding('guide_link')}>
+              <a href={GUIDE_PATH} onClick={() => trackLanding('guide_link')}>
                 {zhTW.landing.navGuide}<ArrowRight size={15} />
               </a>
             )}

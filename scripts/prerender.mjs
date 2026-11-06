@@ -20,7 +20,6 @@ const EN_DIR = new URL('../dist/en/', import.meta.url)
 const EN_INDEX = new URL('../dist/en/index.html', import.meta.url)
 const MARKER = '<div id="root"></div>'
 
-const EN_TITLE = 'Level Up｜Taiwan Skills-Certification Written-Exam Question Bank · Free Offline Practice'
 const EN_DESC = 'Free, offline-first question bank for Taiwan\'s national skills-certification (技術士技能檢定) written exams. Practise official questions with an automatic mistake book, spaced review and timed mock exams. No sign-up, progress stays on your device.'
 const EN_OG_TITLE = 'Level Up · Taiwan skills-certification question bank'
 const EN_OG_DESC = 'Drill the official questions until they stick. Free, offline-first, progress stays yours.'
@@ -40,7 +39,12 @@ globalThis.window = {
   scrollY: 0,
 }
 
-const { renderLanding, renderLandingEn, renderExamPage, renderGuidePage, EXAM_META, EN_FAQ_JSONLD, EN_APP_DESCRIPTION, GUIDE_FAQ_JSONLD } = await import(new URL('entry-prerender.js', SSR_OUT))
+const { renderLanding, renderLandingEn, renderExamPage, renderGuidePage, EXAM_META, EN_FAQ_JSONLD, EN_APP_DESCRIPTION, GUIDE_FAQ_JSONLD, SITE_ORIGIN, EN_PATH, EN_TITLE, GUIDE_PATH } = await import(new URL('entry-prerender.js', SSR_OUT))
+
+// Every public URL below uses the trailing-slash form from src/app/seoUrls.ts —
+// the spelling Cloudflare Pages serves without a 308 (see that file).
+const EN_URL = `${SITE_ORIGIN}${EN_PATH}`
+const GUIDE_URL = `${SITE_ORIGIN}${GUIDE_PATH}`
 
 const GUIDE_TITLE = '免費技能檢定題庫：線上刷題與模擬考完整指南 - 升級吧'
 const GUIDE_DESC = '技術士技能檢定學科題庫是官方公開的，可以免費線上練習。本指南說明題庫哪裡找、怎麼免費刷題、學科怎麼準備，並比較官方 PDF、線上刷題與付費題庫。'
@@ -84,8 +88,8 @@ let en = base
 en = replaceOnce(en, /<html lang="zh-Hant-TW">/, '<html lang="en">', '<html lang>')
 en = replaceOnce(en, /<title>[^<]*<\/title>/, `<title>${EN_TITLE}</title>`, '<title>')
 en = replaceOnce(en, /(<meta name="description" content=")[^"]*(")/, `$1${EN_DESC}$2`, 'meta description')
-en = replaceOnce(en, /(<link rel="canonical" href=")[^"]*(")/, '$1https://levelup.tw/en$2', 'canonical')
-en = replaceOnce(en, /(<meta property="og:url" content=")[^"]*(")/, '$1https://levelup.tw/en$2', 'og:url')
+en = replaceOnce(en, /(<link rel="canonical" href=")[^"]*(")/, `$1${EN_URL}$2`, 'canonical')
+en = replaceOnce(en, /(<meta property="og:url" content=")[^"]*(")/, `$1${EN_URL}$2`, 'og:url')
 en = replaceOnce(en, /(<meta property="og:locale" content=")[^"]*(")/, '$1en$2', 'og:locale')
 en = replaceOnce(en, /(<meta property="og:title" content=")[^"]*(")/, `$1${EN_OG_TITLE}$2`, 'og:title')
 en = replaceOnce(en, /(<meta property="og:description" content=")[^"]*(")/, `$1${EN_OG_DESC}$2`, 'og:description')
@@ -108,9 +112,9 @@ writeFileSync(EN_INDEX, en)
 
 // --- Per-exam pages at /exam/<id> (Traditional Chinese, SEO landings) ---
 function examHead(html, m) {
-  const url = `https://levelup.tw/exam/${m.id}`
-  const count = m.count.toLocaleString()
-  const title = `${m.titleZh}學科題庫｜${count} 題免費線上練習 - 升級吧`
+  const url = `${SITE_ORIGIN}${m.path}`
+  const count = m.count.toLocaleString('en-US')
+  const title = m.title
   const desc = `${m.titleZh}（${m.subjectCode}）學科題庫，共 ${count} 題。查看官方題庫 PDF 與來源版本，免費線上練習、錯題複習與計時模擬考；免註冊，進度保存在裝置。`
   const ogTitle = `${m.titleZh}學科題庫 · 升級吧`
   let h = html
@@ -154,8 +158,8 @@ for (const m of EXAM_META) {
 let guide = base
 guide = replaceOnce(guide, /<title>[^<]*<\/title>/, `<title>${GUIDE_TITLE}</title>`, 'guide <title>')
 guide = replaceOnce(guide, /(<meta name="description" content=")[^"]*(")/, `$1${GUIDE_DESC}$2`, 'guide description')
-guide = replaceOnce(guide, /(<link rel="canonical" href=")[^"]*(")/, '$1https://levelup.tw/guide$2', 'guide canonical')
-guide = replaceOnce(guide, /(<meta property="og:url" content=")[^"]*(")/, '$1https://levelup.tw/guide$2', 'guide og:url')
+guide = replaceOnce(guide, /(<link rel="canonical" href=")[^"]*(")/, `$1${GUIDE_URL}$2`, 'guide canonical')
+guide = replaceOnce(guide, /(<meta property="og:url" content=")[^"]*(")/, `$1${GUIDE_URL}$2`, 'guide og:url')
 guide = replaceOnce(guide, /(<meta property="og:title" content=")[^"]*(")/, `$1${GUIDE_OG_TITLE}$2`, 'guide og:title')
 guide = replaceOnce(guide, /(<meta property="og:description" content=")[^"]*(")/, `$1${GUIDE_DESC}$2`, 'guide og:description')
 guide = replaceOnce(guide, /(<meta name="twitter:title" content=")[^"]*(")/, `$1${GUIDE_OG_TITLE}$2`, 'guide twitter:title')
@@ -174,12 +178,12 @@ writeFileSync(new URL('index.html', guideDir), inject(guide, renderGuidePage(), 
 // --- Sitemap incl. every exam page, kept in sync with the published packs ---
 // Omit optional lastmod until we have per-page content revision dates.
 // A rebuild is not a significant update to every exam page.
-const pairAlt = '    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://levelup.tw/" />\n    <xhtml:link rel="alternate" hreflang="en" href="https://levelup.tw/en" />'
+const pairAlt = `    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://levelup.tw/" />\n    <xhtml:link rel="alternate" hreflang="en" href="${EN_URL}" />`
 const entries = [
   `  <url>\n    <loc>https://levelup.tw/</loc>\n    <changefreq>weekly</changefreq>\n    <priority>1.0</priority>\n${pairAlt}\n  </url>`,
-  `  <url>\n    <loc>https://levelup.tw/en</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n${pairAlt}\n  </url>`,
-  `  <url>\n    <loc>https://levelup.tw/guide</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>`,
-  ...EXAM_META.map((m) => `  <url>\n    <loc>https://levelup.tw/exam/${m.id}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>`),
+  `  <url>\n    <loc>${EN_URL}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n${pairAlt}\n  </url>`,
+  `  <url>\n    <loc>${GUIDE_URL}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>`,
+  ...EXAM_META.map((m) => `  <url>\n    <loc>${SITE_ORIGIN}${m.path}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>`),
 ]
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${entries.join('\n')}\n</urlset>\n`
 writeFileSync(new URL('../dist/sitemap.xml', import.meta.url), sitemap)
@@ -187,19 +191,46 @@ writeFileSync(new URL('../dist/sitemap.xml', import.meta.url), sitemap)
 // --- llms.txt: a Markdown map of the site for AI agents (llmstxt.org). Built
 // from the same EXAM_META as the sitemap, so it can never drift from the packs. ---
 const llmsExamLines = EXAM_META
-  .map((m) => `- [${m.titleZh}學科題庫](https://levelup.tw/exam/${m.id}): 官方公開學科題庫（${m.subjectCode}），共 ${m.count.toLocaleString()} 題，可免費線上練習。`)
+  .map((m) => `- [${m.titleZh}學科題庫](${SITE_ORIGIN}${m.path}): 官方公開學科題庫（${m.subjectCode}），共 ${m.count.toLocaleString('en-US')} 題，可免費線上練習。`)
   .join('\n')
 const llms = `# 升級吧 Level Up
 
 > 免費、免註冊、可離線的技術士技能檢定學科題庫。題目整理自勞動部勞動力發展署技能檢定中心公開的學科題庫；練習時寫錯的自動進錯題本、快忘的依遺忘曲線排進複習、考前用計時模擬考驗收。個人專案，不隸屬於官方機構，一切以官方最新公告為準。
 
 ## 指南
-- [免費技能檢定題庫：線上刷題與模擬考完整指南](https://levelup.tw/guide): 技能檢定學科題庫哪裡找、怎麼免費刷題、學科怎麼準備，以及官方 PDF、線上刷題與付費題庫的比較。
+- [免費技能檢定題庫：線上刷題與模擬考完整指南](${GUIDE_URL}): 技能檢定學科題庫哪裡找、怎麼免費刷題、學科怎麼準備，以及官方 PDF、線上刷題與付費題庫的比較。
 
 ## 考科題庫
 ${llmsExamLines}
 `
 writeFileSync(new URL('../dist/llms.txt', import.meta.url), llms)
+
+// Self-check: each indexable page's canonical must be exactly its own sitemap
+// <loc>, and in the trailing-slash form Pages serves without a redirect. A
+// mismatch splits indexing across two URLs, so fail the build instead.
+const sitemapLocs = new Set([...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]))
+const indexable = [
+  ['dist/index.html', `${SITE_ORIGIN}/`],
+  ['dist/en/index.html', EN_URL],
+  ['dist/guide/index.html', GUIDE_URL],
+  ...EXAM_META.map((m) => [`dist${m.path}index.html`, `${SITE_ORIGIN}${m.path}`]),
+]
+for (const [file, expected] of indexable) {
+  const html = readFileSync(new URL(`../${file}`, import.meta.url), 'utf8')
+  const canonical = html.match(/<link rel="canonical" href="([^"]*)"/)?.[1]
+  if (canonical !== expected) throw new Error(`prerender: ${file} canonical is ${canonical}, expected ${expected}`)
+  if (!expected.endsWith('/')) throw new Error(`prerender: ${expected} must use the trailing-slash form`)
+  if (!sitemapLocs.has(expected)) throw new Error(`prerender: ${expected} is missing from sitemap.xml`)
+}
+if (sitemapLocs.size !== indexable.length) {
+  throw new Error(`prerender: sitemap has ${sitemapLocs.size} URLs but ${indexable.length} indexable pages were written`)
+}
+// functions/_middleware.js tells a real exam page from the SPA fallback by the
+// "exam-hero" marker. If the landing ever carried it, unknown /exam/ URLs would
+// silently go back to 200 soft-404s.
+if (readFileSync(INDEX, 'utf8').includes('exam-hero')) {
+  throw new Error('prerender: dist/index.html contains "exam-hero" — the unknown-exam 404 in functions/_middleware.js would stop working')
+}
 
 rmSync(SSR_OUT, { recursive: true, force: true })
 console.log(`prerender: wrote zh + en landings, ${EXAM_META.length} exam pages, sitemap, and llms.txt`)

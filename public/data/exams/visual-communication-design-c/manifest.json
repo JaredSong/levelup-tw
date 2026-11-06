@@ -1,0 +1,180 @@
+{
+  "examId": "visual-communication-design-c",
+  "level": "丙級",
+  "titleZh": "視覺傳達設計丙級",
+  "titleEn": "Visual Communication Design (Class C)",
+  "category": "商業服務",
+  "version": "A12",
+  "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/201003A12.pdf",
+  "sources": [
+    {
+      "subjectCode": "20100",
+      "version": "A12",
+      "pdfFilename": "201003A12.pdf",
+      "localFilename": "201003A12.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/201003A12.pdf",
+      "sha256": "d227ccdb8ae9d1b737be69e4ed15f6f84cbef695fb21a55066afe6506872ddb6"
+    },
+    {
+      "subjectCode": "90006",
+      "version": "A11",
+      "pdfFilename": "900060A11.pdf",
+      "localFilename": "900060A11.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
+      "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+    },
+    {
+      "subjectCode": "90007",
+      "version": "A10",
+      "pdfFilename": "900070A10.pdf",
+      "localFilename": "900070A10.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
+      "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+    },
+    {
+      "subjectCode": "90008",
+      "version": "A17",
+      "pdfFilename": "900080A17.pdf",
+      "localFilename": "900080A17.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
+      "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+    },
+    {
+      "subjectCode": "90009",
+      "version": "A13",
+      "pdfFilename": "900090A13.pdf",
+      "localFilename": "900090A13.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
+      "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+    }
+  ],
+  "officialLinks": {
+    "registration": "https://skill.tcte.edu.tw/notice.php",
+    "scoreLookup": "https://eservice.wdasec.gov.tw/",
+    "handbook": "https://skill.tcte.edu.tw/download.php",
+    "questionBank": "https://techbank.wdasec.gov.tw/"
+  },
+  "sourceRevision": "201003A12 + 900060A11/900070A10/900080A17/900090A13",
+  "questionCount": 1008,
+  "activeQuestionCount": 997,
+  "sections": [
+    {
+      "id": "20100-01",
+      "subjectCode": "20100",
+      "sourceGroup": "occupation",
+      "titleZh": "色彩學",
+      "questionCount": 116,
+      "activeQuestionCount": 116
+    },
+    {
+      "id": "20100-02",
+      "subjectCode": "20100",
+      "sourceGroup": "occupation",
+      "titleZh": "攝影",
+      "questionCount": 92,
+      "activeQuestionCount": 91
+    },
+    {
+      "id": "20100-03",
+      "subjectCode": "20100",
+      "sourceGroup": "occupation",
+      "titleZh": "印刷概要",
+      "questionCount": 105,
+      "activeQuestionCount": 104
+    },
+    {
+      "id": "20100-04",
+      "subjectCode": "20100",
+      "sourceGroup": "occupation",
+      "titleZh": "廣告媒體",
+      "questionCount": 93,
+      "activeQuestionCount": 90
+    },
+    {
+      "id": "20100-05",
+      "subjectCode": "20100",
+      "sourceGroup": "occupation",
+      "titleZh": "圖學",
+      "questionCount": 101,
+      "activeQuestionCount": 100
+    },
+    {
+      "id": "20100-06",
+      "subjectCode": "20100",
+      "sourceGroup": "occupation",
+      "titleZh": "設計基礎",
+      "questionCount": 101,
+      "activeQuestionCount": 101
+    },
+    {
+      "id": "90006-01",
+      "subjectCode": "90006",
+      "sourceGroup": "general-common",
+      "titleZh": "職業安全衛生",
+      "questionCount": 100,
+      "activeQuestionCount": 100
+    },
+    {
+      "id": "90007-01",
+      "subjectCode": "90007",
+      "sourceGroup": "general-common",
+      "titleZh": "工作倫理與職業道德",
+      "questionCount": 100,
+      "activeQuestionCount": 100
+    },
+    {
+      "id": "90008-03",
+      "subjectCode": "90008",
+      "sourceGroup": "general-common",
+      "titleZh": "環境保護",
+      "questionCount": 100,
+      "activeQuestionCount": 95
+    },
+    {
+      "id": "90009-04",
+      "subjectCode": "90009",
+      "sourceGroup": "general-common",
+      "titleZh": "節能減碳",
+      "questionCount": 100,
+      "activeQuestionCount": 100
+    }
+  ],
+  "mockRules": {
+    "totalQuestions": 80,
+    "singleCount": 80,
+    "multipleCount": 0,
+    "durationMinutes": 100,
+    "passScore": 60,
+    "maxScore": 100,
+    "weightSingle": 1.25,
+    "weightMultiple": 0,
+    "subjectQuota": [
+      {
+        "subjectCode": "20100",
+        "count": 64
+      },
+      {
+        "subjectCode": "90006",
+        "count": 4
+      },
+      {
+        "subjectCode": "90007",
+        "count": 4
+      },
+      {
+        "subjectCode": "90008",
+        "count": 4
+      },
+      {
+        "subjectCode": "90009",
+        "count": 4
+      }
+    ]
+  },
+  "integrity": {
+    "status": "fully_verified",
+    "inactiveQuestionCount": 11,
+    "imageQuestionCount": 24,
+    "note": "Answer keys independently cross-checked against the official PDF during import."
+  }
+}

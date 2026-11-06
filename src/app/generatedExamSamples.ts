@@ -2445,6 +2445,70 @@ export const GENERATED_EXAM_SAMPLES: Record<string, ExamSampleSet> = {
       }
     ]
   },
+  "visual-communication-design-c": {
+    "sections": [
+      "色彩學",
+      "攝影",
+      "印刷概要",
+      "廣告媒體",
+      "圖學",
+      "設計基礎",
+      "職業安全衛生",
+      "工作倫理與職業道德",
+      "環境保護",
+      "節能減碳"
+    ],
+    "samples": [
+      {
+        "id": "20100-01-001",
+        "sectionTitle": "色彩學",
+        "prompt": "色光的三原色係指",
+        "options": [
+          "紅、黃、綠",
+          "紅、綠、藍",
+          "紅、黃、紫",
+          "黃、青、紫"
+        ],
+        "answer": 2
+      },
+      {
+        "id": "20100-02-001",
+        "sectionTitle": "攝影",
+        "prompt": "下列何者與閃光燈曝光量決定無關",
+        "options": [
+          "色溫",
+          "快門",
+          "照射距離",
+          "光圈"
+        ],
+        "answer": 1
+      },
+      {
+        "id": "20100-03-001",
+        "sectionTitle": "印刷概要",
+        "prompt": "下列何種紙張之吸墨性最差",
+        "options": [
+          "模造紙",
+          "道林紙",
+          "銅版紙",
+          "描圖紙"
+        ],
+        "answer": 4
+      },
+      {
+        "id": "20100-04-001",
+        "sectionTitle": "廣告媒體",
+        "prompt": "平面廣告不包括",
+        "options": [
+          "海報",
+          "影片",
+          "傳單",
+          "月曆"
+        ],
+        "answer": 2
+      }
+    ]
+  },
   "water-pipe-fitting-c": {
     "sections": [
       "施工圖說",

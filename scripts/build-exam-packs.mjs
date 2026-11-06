@@ -1006,6 +1006,39 @@ const EXAMS = [
     },
   },
   {
+    // Crops signed off by Jared (docs/staged-image-qa-201003A12.md). The six
+    // inactive ids carry 「(本題刪題)」 in the official PDF.
+    examId: 'visual-communication-design-c',
+    titleZh: '視覺傳達設計丙級',
+    titleEn: 'Visual Communication Design (Class C)',
+    level: '丙級',
+    category: '商業服務',
+    occupationCode: '20100',
+    occupationFile: '201003A12-raw.txt',
+    occupationExpected: 608,
+    version: 'A12',
+    extraCommonCodes: [],
+    cropPrefix: '201003',
+    requireQuestionCrops: true,
+    splitImageOptions: true,
+    // 三視圖: a 3D-object prompt figure plus four option images each.
+    mixedFigureOptionIds: Array.from({ length: 20 }, (_, index) => `20100-05-${String(index + 1).padStart(3, '0')}`),
+    // Flagged by the parser for a gap before 「。」; it is plain text.
+    excludedFigureIds: ['20100-03-040'],
+    inactiveIds: [
+      '20100-02-069', '20100-03-045', '20100-04-029',
+      '20100-04-036', '20100-04-085', '20100-05-053',
+    ],
+    mockRules: {
+      occupationQuota: 64,
+      singleCount: 80,
+      multipleCount: 0,
+      weightSingle: 1.25,
+      weightMultiple: 0,
+      extraSubjectQuota: [],
+    },
+  },
+  {
     examId: 'beverage-preparation-c',
     titleZh: '飲料調製丙級',
     titleEn: 'Beverage Preparation (Class C)',

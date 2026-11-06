@@ -487,6 +487,16 @@ describe('published question bank', () => {
         sections: 12,
         occupationQuota: 64,
       },
+      {
+        examId: 'visual-communication-design-c',
+        occupationCode: '20100',
+        version: 'A12',
+        occupation: 608,
+        total: 1008,
+        active: 997,
+        sections: 10,
+        occupationQuota: 64,
+      },
     ]
 
     for (const item of cases) {
@@ -542,6 +552,26 @@ describe('published question bank', () => {
     // Transcribed formulas stay text, not tiny images.
     expect(byId.get('04200-01-052')?.hasFigure).toBe(false)
     expect(byId.get('04200-01-052')?.options).toEqual(['P＝k/σ̂', 'P＝k/σ̂²', 'P＝k/σ̂³', 'P＝k/σ̂⁴'])
+  })
+
+  it('ships each 三視圖 question with its 3D object and four option images', () => {
+    const byId = new Map(loadExamBank('visual-communication-design-c').map((question) => [question.id, question]))
+    for (let number = 1; number <= 20; number += 1) {
+      const id = `20100-05-${String(number).padStart(3, '0')}`
+      const question = byId.get(id)
+      expect(question?.hasFigure, id).toBe(true)
+      expect(question?.sourceImages, id).toEqual([
+        `/question-images/201003-${id}.png`,
+        ...[1, 2, 3, 4].map((option) => `/question-images/201003-${id}-${option}.png`),
+      ])
+      for (const image of question?.sourceImages ?? []) {
+        expect(existsSync(new URL(`../public${image}`, import.meta.url)), image).toBe(true)
+      }
+    }
+    for (const id of ['20100-02-069', '20100-03-045', '20100-04-029', '20100-04-036', '20100-04-085', '20100-05-053']) {
+      expect(byId.get(id)?.active, id).toBe(false)
+    }
+    expect(byId.get('20100-03-040')?.hasFigure).toBe(false)
   })
 
   it('publishes the official aircraft maintenance class C pack', () => {

@@ -33,6 +33,7 @@ export const SOURCE_BANKS = {
   '17300': { version: 'A13', pdfFilename: '173002A13.pdf' },
   '17800': { version: 'A13', pdfFilename: '178004A13.pdf' },
   '19500': { version: 'A17', pdfFilename: '195002A17.pdf' },
+  '20100': { version: 'A12', pdfFilename: '201003A12.pdf' },
   '20600': { version: 'A13', pdfFilename: '206003A13.pdf' },
   '21500': { version: 'A11', pdfFilename: '215003A11.pdf' },
   '22200': { version: 'A15', pdfFilename: '222002A15.pdf' },

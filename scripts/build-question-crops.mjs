@@ -178,14 +178,17 @@ const BANKS = [
     },
   },
   {
-    // Staged only (視覺傳達設計丙級). Crops land in tmp/ for review; move the
-    // outputDir to public only after sign-off. 05-001..020 are 三視圖
-    // questions: a left 3D object plus four three-view option blocks.
+    // 視覺傳達設計丙級. Crops signed off by Jared 2026-11-06 (reviewed set kept
+    // in tmp/import-batch/201003A12/crops). 05-001..020 are 三視圖 questions:
+    // a left 3D object plus four three-view option blocks.
     code: '20100',
     source: '201003A12',
     cropPrefix: '201003',
     splitImageOptions: true,
-    outputDir: '../tmp/import-batch/201003A12/crops/',
+    // At 144 dpi poppler drops hairlines that sit on a pixel boundary — e.g.
+    // the right border of 05-001 ①'s side view (189.5pt) vanished. Render at
+    // 288 dpi and area-average down instead.
+    oversample: 2,
     // 03-040 is plain text; the parser flags it only for the gap before 「。」.
     excludedFigures: ['20100-03-040'],
     mixedFigureOptions: Array.from({ length: 20 }, (_, index) => `20100-05-${String(index + 1).padStart(3, '0')}`),
@@ -193,149 +196,152 @@ const BANKS = [
     // each option is its top view plus the front/side views beneath it, and
     // each had to come out with exactly three views and nothing left over.
     // Options that wrap to the next line (e.g. 05-002 ③) are placed by the
-    // drawing that opens that line, not by the marker.
+    // drawing that opens that line, not by the marker. A marker or prompt word
+    // beside a drawing pulls that edge in to the word box rather than being
+    // painted out — painting clipped lines that touch the word box (05-001's
+    // 3D object lost its right edge that way).
     figureRects: {
-      '20100-05-001': { page: 21, x: 108.0, y: 70.5, width: 50.5, height: 54.0, blank: [{ x: 155.3, y: 72.4, width: 181.8, height: 13.0 }] },
-      '20100-05-002': { page: 21, x: 108.0, y: 183.5, width: 50.5, height: 53.0, blank: [{ x: 155.3, y: 185.9, width: 129.9, height: 13.0 }] },
-      '20100-05-003': { page: 21, x: 108.0, y: 300.0, width: 73.0, height: 86.5, blank: [{ x: 177.7, y: 302.2, width: 129.9, height: 13.0 }] },
-      '20100-05-004': { page: 21, x: 108.0, y: 471.5, width: 46.0, height: 56.0, blank: [{ x: 150.7, y: 474.0, width: 129.9, height: 13.0 }] },
-      '20100-05-005': { page: 21, x: 108.0, y: 588.0, width: 77.5, height: 90.5, blank: [{ x: 182.3, y: 590.3, width: 129.9, height: 13.0 }] },
-      '20100-05-006': { page: 22, x: 108.0, y: 42.5, width: 50.0, height: 59.5, blank: [{ x: 155.3, y: 44.8, width: 129.9, height: 13.0 }] },
-      '20100-05-007': { page: 22, x: 108.0, y: 160.5, width: 50.5, height: 53.5, blank: [{ x: 155.3, y: 162.6, width: 129.9, height: 13.0 }] },
-      '20100-05-008': { page: 22, x: 108.0, y: 272.0, width: 77.5, height: 83.0, blank: [{ x: 182.3, y: 274.5, width: 129.9, height: 13.0 }] },
-      '20100-05-009': { page: 22, x: 108.0, y: 442.5, width: 77.5, height: 92.0, blank: [{ x: 182.3, y: 444.8, width: 129.9, height: 13.0 }] },
-      '20100-05-010': { page: 22, x: 108.0, y: 623.5, width: 50.5, height: 59.5, blank: [{ x: 155.3, y: 625.6, width: 129.9, height: 13.0 }] },
-      '20100-05-011': { page: 23, x: 108.0, y: 42.5, width: 50.5, height: 53.5, blank: [{ x: 155.3, y: 44.8, width: 207.7, height: 13.0 }] },
-      '20100-05-012': { page: 23, x: 108.0, y: 159.0, width: 77.5, height: 85.5, blank: [{ x: 182.3, y: 161.1, width: 129.9, height: 13.0 }] },
-      '20100-05-013': { page: 23, x: 108.0, y: 330.5, width: 50.5, height: 59.5, blank: [{ x: 155.3, y: 333.0, width: 129.9, height: 13.0 }] },
-      '20100-05-014': { page: 23, x: 108.0, y: 448.5, width: 50.5, height: 59.5, blank: [{ x: 155.3, y: 450.8, width: 129.9, height: 13.0 }] },
-      '20100-05-015': { page: 24, x: 108.0, y: 42.5, width: 72.0, height: 81.5, blank: [{ x: 177.7, y: 44.8, width: 181.8, height: 13.0 }] },
-      '20100-05-016': { page: 24, x: 108.0, y: 299.5, width: 50.5, height: 59.5, blank: [{ x: 155.3, y: 301.8, width: 129.9, height: 13.0 }] },
-      '20100-05-017': { page: 24, x: 108.0, y: 417.5, width: 50.5, height: 52.0, blank: [{ x: 155.3, y: 419.7, width: 181.8, height: 13.0 }] },
-      '20100-05-018': { page: 24, x: 108.5, y: 527.5, width: 77.5, height: 92.5, blank: [{ x: 183.7, y: 530.0, width: 129.9, height: 13.0 }] },
-      '20100-05-019': { page: 25, x: 108.0, y: 42.5, width: 50.5, height: 59.5, blank: [{ x: 155.3, y: 44.8, width: 129.9, height: 13.0 }] },
-      '20100-05-020': { page: 25, x: 108.0, y: 160.5, width: 50.5, height: 59.5, blank: [{ x: 155.3, y: 162.6, width: 129.9, height: 13.0 }] },
+      '20100-05-001': { page: 21, x: 108.2, y: 70.5, width: 47.9, height: 54.0 },
+      '20100-05-002': { page: 21, x: 108.2, y: 183.8, width: 47.9, height: 52.5 },
+      '20100-05-003': { page: 21, x: 108.2, y: 300.0, width: 70.4, height: 86.2 },
+      '20100-05-004': { page: 21, x: 108.2, y: 471.8, width: 43.4, height: 55.5 },
+      '20100-05-005': { page: 21, x: 108.2, y: 588.2, width: 74.9, height: 90.0 },
+      '20100-05-006': { page: 22, x: 108.2, y: 42.8, width: 47.9, height: 59.2 },
+      '20100-05-007': { page: 22, x: 108.2, y: 160.5, width: 47.9, height: 53.2 },
+      '20100-05-008': { page: 22, x: 108.2, y: 272.2, width: 74.9, height: 82.5 },
+      '20100-05-009': { page: 22, x: 108.2, y: 442.8, width: 74.9, height: 91.5 },
+      '20100-05-010': { page: 22, x: 108.2, y: 623.5, width: 47.9, height: 59.2 },
+      '20100-05-011': { page: 23, x: 108.2, y: 42.8, width: 47.9, height: 53.2 },
+      '20100-05-012': { page: 23, x: 108.2, y: 159.0, width: 74.9, height: 85.5 },
+      '20100-05-013': { page: 23, x: 108.2, y: 330.8, width: 47.9, height: 59.2 },
+      '20100-05-014': { page: 23, x: 108.2, y: 448.8, width: 47.9, height: 59.2 },
+      '20100-05-015': { page: 24, x: 108.2, y: 42.8, width: 70.0, height: 81.0 },
+      '20100-05-016': { page: 24, x: 108.2, y: 299.8, width: 47.9, height: 59.2 },
+      '20100-05-017': { page: 24, x: 108.2, y: 417.5, width: 47.9, height: 51.8 },
+      '20100-05-018': { page: 24, x: 108.2, y: 527.8, width: 76.0, height: 92.2 },
+      '20100-05-019': { page: 25, x: 108.2, y: 42.8, width: 47.9, height: 59.2 },
+      '20100-05-020': { page: 25, x: 108.2, y: 160.5, width: 47.9, height: 59.2 },
     },
     optionRectOverrides: {
       '20100-05-001': [
-        { page: 21, x: 121.0, y: 124.0, width: 71.5, height: 57.0, blank: [{ x: 110.3, y: 126.1, width: 13.0, height: 13.0 }] },
-        { page: 21, x: 204.0, y: 124.0, width: 71.5, height: 57.0, blank: [{ x: 193.3, y: 126.1, width: 13.0, height: 13.0 }] },
-        { page: 21, x: 287.5, y: 124.0, width: 71.0, height: 57.0, blank: [{ x: 276.5, y: 126.1, width: 13.0, height: 13.0 }] },
-        { page: 21, x: 370.5, y: 124.0, width: 71.0, height: 57.0, blank: [{ x: 359.7, y: 126.1, width: 13.0, height: 13.0 }] },
+        { page: 21, x: 122.8, y: 124.0, width: 69.5, height: 57.0 },
+        { page: 21, x: 205.8, y: 124.0, width: 69.7, height: 57.0 },
+        { page: 21, x: 289.0, y: 124.0, width: 69.5, height: 57.0 },
+        { page: 21, x: 372.2, y: 124.0, width: 69.6, height: 57.0 },
       ],
       '20100-05-002': [
-        { page: 21, x: 300.0, y: 183.5, width: 71.5, height: 57.5, blank: [{ x: 289.4, y: 185.9, width: 13.0, height: 13.0 }] },
-        { page: 21, x: 383.5, y: 183.5, width: 71.0, height: 57.5, blank: [{ x: 372.5, y: 185.9, width: 13.0, height: 13.0 }] },
-        { page: 21, x: 108.0, y: 240.0, width: 71.5, height: 57.5 },
-        { page: 21, x: 191.0, y: 240.0, width: 71.5, height: 57.5, blank: [{ x: 180.4, y: 242.5, width: 13.0, height: 13.0 }] },
+        { page: 21, x: 301.9, y: 183.8, width: 69.6, height: 57.0 },
+        { page: 21, x: 385.0, y: 183.8, width: 69.5, height: 57.0 },
+        { page: 21, x: 108.2, y: 240.2, width: 71.0, height: 57.0 },
+        { page: 21, x: 192.9, y: 240.2, width: 69.6, height: 57.0 },
       ],
       '20100-05-003': [
-        { page: 21, x: 322.5, y: 300.0, width: 106.5, height: 84.0, blank: [{ x: 311.8, y: 302.2, width: 13.0, height: 13.0 }] },
-        { page: 21, x: 108.0, y: 385.0, width: 106.5, height: 84.5 },
-        { page: 21, x: 227.0, y: 385.0, width: 106.5, height: 84.5, blank: [{ x: 216.4, y: 387.4, width: 13.0, height: 13.0 }] },
-        { page: 21, x: 346.5, y: 385.0, width: 106.5, height: 84.5, blank: [{ x: 335.6, y: 387.4, width: 13.0, height: 13.0 }] },
+        { page: 21, x: 324.3, y: 300.0, width: 104.9, height: 84.0 },
+        { page: 21, x: 108.2, y: 385.2, width: 106.2, height: 84.0 },
+        { page: 21, x: 228.9, y: 385.2, width: 104.9, height: 84.0 },
+        { page: 21, x: 348.1, y: 385.2, width: 104.7, height: 84.0 },
       ],
       '20100-05-004': [
-        { page: 21, x: 295.5, y: 471.5, width: 71.5, height: 57.5, blank: [{ x: 284.8, y: 474.0, width: 13.0, height: 13.0 }] },
-        { page: 21, x: 379.0, y: 471.5, width: 71.0, height: 57.5, blank: [{ x: 368.0, y: 474.0, width: 13.0, height: 13.0 }] },
-        { page: 21, x: 462.0, y: 471.5, width: 71.0, height: 57.5, blank: [{ x: 451.2, y: 474.0, width: 13.0, height: 13.0 }] },
-        { page: 21, x: 121.0, y: 528.5, width: 71.5, height: 57.0, blank: [{ x: 110.3, y: 530.7, width: 13.0, height: 13.0 }] },
+        { page: 21, x: 297.3, y: 471.8, width: 69.7, height: 57.0 },
+        { page: 21, x: 380.5, y: 471.8, width: 69.5, height: 57.0 },
+        { page: 21, x: 463.7, y: 471.8, width: 69.3, height: 57.0 },
+        { page: 21, x: 122.8, y: 528.5, width: 69.5, height: 57.0 },
       ],
       '20100-05-005': [
-        { page: 21, x: 327.0, y: 588.0, width: 112.0, height: 88.0, blank: [{ x: 316.4, y: 590.3, width: 13.0, height: 13.0 }] },
-        { page: 21, x: 108.0, y: 677.5, width: 112.0, height: 88.0 },
-        { page: 21, x: 231.5, y: 677.5, width: 112.0, height: 88.0, blank: [{ x: 220.8, y: 680.0, width: 13.0, height: 13.0 }] },
-        { page: 21, x: 355.5, y: 677.5, width: 111.5, height: 88.0, blank: [{ x: 344.4, y: 680.0, width: 13.0, height: 13.0 }] },
+        { page: 21, x: 328.9, y: 588.2, width: 110.1, height: 87.8 },
+        { page: 21, x: 108.2, y: 677.8, width: 111.5, height: 87.8 },
+        { page: 21, x: 233.3, y: 677.8, width: 110.2, height: 87.8 },
+        { page: 21, x: 356.9, y: 677.8, width: 110.1, height: 87.8 },
       ],
       '20100-05-006': [
-        { page: 22, x: 300.0, y: 42.5, width: 71.5, height: 57.5, blank: [{ x: 289.4, y: 44.8, width: 13.0, height: 13.0 }] },
-        { page: 22, x: 383.5, y: 42.5, width: 71.0, height: 57.5, blank: [{ x: 372.5, y: 44.8, width: 13.0, height: 13.0 }] },
-        { page: 22, x: 108.0, y: 100.5, width: 71.5, height: 57.5 },
-        { page: 22, x: 191.0, y: 100.5, width: 71.5, height: 57.5, blank: [{ x: 180.4, y: 102.9, width: 13.0, height: 13.0 }] },
+        { page: 22, x: 301.9, y: 42.8, width: 69.6, height: 57.0 },
+        { page: 22, x: 385.0, y: 42.8, width: 69.5, height: 57.0 },
+        { page: 22, x: 108.2, y: 100.8, width: 71.0, height: 57.0 },
+        { page: 22, x: 192.9, y: 100.8, width: 69.6, height: 57.0 },
       ],
       '20100-05-007': [
-        { page: 22, x: 121.0, y: 212.5, width: 71.5, height: 57.5, blank: [{ x: 110.3, y: 214.8, width: 13.0, height: 13.0 }] },
-        { page: 22, x: 204.0, y: 212.5, width: 71.5, height: 57.5, blank: [{ x: 193.3, y: 214.8, width: 13.0, height: 13.0 }] },
-        { page: 22, x: 287.5, y: 212.5, width: 71.0, height: 57.5, blank: [{ x: 276.5, y: 214.8, width: 13.0, height: 13.0 }] },
-        { page: 22, x: 370.5, y: 212.5, width: 71.0, height: 57.5, blank: [{ x: 359.7, y: 214.8, width: 13.0, height: 13.0 }] },
+        { page: 22, x: 122.8, y: 212.8, width: 69.5, height: 57.0 },
+        { page: 22, x: 205.8, y: 212.8, width: 69.7, height: 57.0 },
+        { page: 22, x: 289.0, y: 212.8, width: 69.5, height: 57.0 },
+        { page: 22, x: 372.2, y: 212.8, width: 69.3, height: 57.0 },
       ],
       '20100-05-008': [
-        { page: 22, x: 327.0, y: 272.0, width: 106.5, height: 84.5, blank: [{ x: 316.4, y: 274.5, width: 13.0, height: 13.0 }] },
-        { page: 22, x: 108.0, y: 356.0, width: 106.5, height: 84.0 },
-        { page: 22, x: 227.0, y: 356.0, width: 106.5, height: 84.0, blank: [{ x: 216.4, y: 358.1, width: 13.0, height: 13.0 }] },
-        { page: 22, x: 346.5, y: 356.0, width: 106.5, height: 84.0, blank: [{ x: 335.6, y: 358.1, width: 13.0, height: 13.0 }] },
+        { page: 22, x: 328.9, y: 272.2, width: 104.9, height: 84.0 },
+        { page: 22, x: 108.2, y: 356.0, width: 106.2, height: 84.0 },
+        { page: 22, x: 228.9, y: 356.0, width: 104.9, height: 84.0 },
+        { page: 22, x: 348.1, y: 356.0, width: 104.7, height: 84.0 },
       ],
       '20100-05-009': [
-        { page: 22, x: 327.0, y: 442.5, width: 112.0, height: 88.0, blank: [{ x: 316.4, y: 444.8, width: 13.0, height: 13.0 }] },
-        { page: 22, x: 108.0, y: 533.5, width: 112.0, height: 88.0 },
-        { page: 22, x: 231.5, y: 533.5, width: 112.0, height: 88.0, blank: [{ x: 220.8, y: 536.0, width: 13.0, height: 13.0 }] },
-        { page: 22, x: 355.5, y: 533.5, width: 111.5, height: 88.0, blank: [{ x: 344.4, y: 536.0, width: 13.0, height: 13.0 }] },
+        { page: 22, x: 328.9, y: 442.8, width: 110.1, height: 87.8 },
+        { page: 22, x: 108.2, y: 533.8, width: 111.5, height: 87.8 },
+        { page: 22, x: 233.3, y: 533.8, width: 110.2, height: 87.8 },
+        { page: 22, x: 356.9, y: 533.8, width: 110.1, height: 87.8 },
       ],
       '20100-05-010': [
-        { page: 22, x: 300.0, y: 623.5, width: 71.5, height: 57.0, blank: [{ x: 289.4, y: 625.6, width: 13.0, height: 13.0 }] },
-        { page: 22, x: 383.5, y: 623.5, width: 71.0, height: 57.0, blank: [{ x: 372.5, y: 625.6, width: 13.0, height: 13.0 }] },
-        { page: 22, x: 108.0, y: 681.5, width: 71.5, height: 57.0 },
-        { page: 22, x: 191.0, y: 681.5, width: 71.5, height: 57.0, blank: [{ x: 180.4, y: 683.8, width: 13.0, height: 13.0 }] },
+        { page: 22, x: 301.9, y: 623.5, width: 69.6, height: 57.0 },
+        { page: 22, x: 385.0, y: 623.5, width: 69.5, height: 57.0 },
+        { page: 22, x: 108.2, y: 681.5, width: 71.0, height: 57.0 },
+        { page: 22, x: 192.9, y: 681.5, width: 69.6, height: 57.0 },
       ],
       '20100-05-011': [
-        { page: 23, x: 378.0, y: 42.5, width: 71.5, height: 57.5, blank: [{ x: 367.4, y: 44.8, width: 13.0, height: 13.0 }] },
-        { page: 23, x: 461.5, y: 42.5, width: 71.0, height: 57.5, blank: [{ x: 450.6, y: 44.8, width: 13.0, height: 13.0 }] },
-        { page: 23, x: 121.0, y: 99.0, width: 71.5, height: 57.5, blank: [{ x: 110.3, y: 101.5, width: 13.0, height: 13.0 }] },
-        { page: 23, x: 204.0, y: 99.0, width: 71.5, height: 57.5, blank: [{ x: 193.3, y: 101.5, width: 13.0, height: 13.0 }] },
+        { page: 23, x: 379.9, y: 42.8, width: 69.6, height: 57.0 },
+        { page: 23, x: 463.1, y: 42.8, width: 69.4, height: 57.0 },
+        { page: 23, x: 122.8, y: 99.2, width: 69.5, height: 57.0 },
+        { page: 23, x: 205.8, y: 99.2, width: 69.7, height: 57.0 },
       ],
       '20100-05-012': [
-        { page: 23, x: 327.0, y: 159.0, width: 106.5, height: 84.0, blank: [{ x: 316.4, y: 161.1, width: 13.0, height: 13.0 }] },
-        { page: 23, x: 108.0, y: 244.0, width: 106.5, height: 84.5 },
-        { page: 23, x: 227.0, y: 244.0, width: 106.5, height: 84.5, blank: [{ x: 216.4, y: 246.2, width: 13.0, height: 13.0 }] },
-        { page: 23, x: 346.5, y: 244.0, width: 106.5, height: 84.5, blank: [{ x: 335.6, y: 246.2, width: 13.0, height: 13.0 }] },
+        { page: 23, x: 328.9, y: 159.0, width: 104.9, height: 84.0 },
+        { page: 23, x: 108.2, y: 244.2, width: 106.2, height: 84.0 },
+        { page: 23, x: 228.9, y: 244.2, width: 104.9, height: 84.0 },
+        { page: 23, x: 348.1, y: 244.2, width: 104.7, height: 84.0 },
       ],
       '20100-05-013': [
-        { page: 23, x: 300.0, y: 330.5, width: 72.0, height: 57.5, blank: [{ x: 289.4, y: 333.0, width: 13.0, height: 13.0 }] },
-        { page: 23, x: 385.0, y: 330.5, width: 72.0, height: 57.5, blank: [{ x: 374.0, y: 333.0, width: 13.0, height: 13.0 }] },
-        { page: 23, x: 108.0, y: 389.0, width: 72.0, height: 57.0 },
-        { page: 23, x: 192.5, y: 389.0, width: 72.0, height: 57.0, blank: [{ x: 181.8, y: 391.1, width: 13.0, height: 13.0 }] },
+        { page: 23, x: 301.9, y: 330.8, width: 70.4, height: 57.0 },
+        { page: 23, x: 386.5, y: 330.8, width: 70.3, height: 57.0 },
+        { page: 23, x: 108.2, y: 389.0, width: 71.8, height: 57.0 },
+        { page: 23, x: 194.3, y: 389.0, width: 70.4, height: 57.0 },
       ],
       '20100-05-014': [
-        { page: 23, x: 300.0, y: 448.5, width: 71.5, height: 57.5, blank: [{ x: 289.4, y: 450.8, width: 13.0, height: 13.0 }] },
-        { page: 23, x: 383.5, y: 448.5, width: 71.0, height: 57.5, blank: [{ x: 372.5, y: 450.8, width: 13.0, height: 13.0 }] },
-        { page: 23, x: 108.0, y: 506.5, width: 71.5, height: 57.5 },
-        { page: 23, x: 191.0, y: 506.5, width: 71.5, height: 57.5, blank: [{ x: 180.4, y: 509.0, width: 13.0, height: 13.0 }] },
+        { page: 23, x: 301.9, y: 448.8, width: 69.6, height: 57.0 },
+        { page: 23, x: 385.0, y: 448.8, width: 69.5, height: 57.0 },
+        { page: 23, x: 108.2, y: 506.8, width: 71.0, height: 57.0 },
+        { page: 23, x: 192.9, y: 506.8, width: 69.6, height: 57.0 },
       ],
       '20100-05-015': [
-        { page: 24, x: 121.0, y: 123.0, width: 112.0, height: 88.0, blank: [{ x: 110.3, y: 125.5, width: 13.0, height: 13.0 }] },
-        { page: 24, x: 244.5, y: 123.0, width: 112.0, height: 88.0, blank: [{ x: 233.8, y: 125.5, width: 13.0, height: 13.0 }] },
-        { page: 24, x: 368.5, y: 123.0, width: 111.5, height: 88.0, blank: [{ x: 357.4, y: 125.5, width: 13.0, height: 13.0 }] },
-        { page: 24, x: 108.0, y: 210.0, width: 112.0, height: 88.0 },
+        { page: 24, x: 122.8, y: 123.2, width: 110.0, height: 87.8 },
+        { page: 24, x: 246.3, y: 123.2, width: 110.2, height: 87.8 },
+        { page: 24, x: 369.9, y: 123.2, width: 110.1, height: 87.8 },
+        { page: 24, x: 108.2, y: 210.0, width: 111.5, height: 87.8 },
       ],
       '20100-05-016': [
-        { page: 24, x: 300.0, y: 299.5, width: 71.5, height: 57.5, blank: [{ x: 289.4, y: 301.8, width: 13.0, height: 13.0 }] },
-        { page: 24, x: 383.5, y: 299.5, width: 71.0, height: 57.5, blank: [{ x: 372.5, y: 301.8, width: 13.0, height: 13.0 }] },
-        { page: 24, x: 108.0, y: 357.5, width: 71.5, height: 57.5 },
-        { page: 24, x: 191.0, y: 357.5, width: 71.5, height: 57.5, blank: [{ x: 180.4, y: 360.0, width: 13.0, height: 13.0 }] },
+        { page: 24, x: 301.9, y: 299.8, width: 69.6, height: 57.0 },
+        { page: 24, x: 385.0, y: 299.8, width: 69.5, height: 57.0 },
+        { page: 24, x: 108.2, y: 357.8, width: 71.0, height: 57.0 },
+        { page: 24, x: 192.9, y: 357.8, width: 69.6, height: 57.0 },
       ],
       '20100-05-017': [
-        { page: 24, x: 121.0, y: 468.0, width: 71.5, height: 57.5, blank: [{ x: 110.3, y: 470.3, width: 13.0, height: 13.0 }] },
-        { page: 24, x: 204.0, y: 468.0, width: 71.5, height: 57.5, blank: [{ x: 193.3, y: 470.3, width: 13.0, height: 13.0 }] },
-        { page: 24, x: 287.5, y: 468.0, width: 71.0, height: 57.5, blank: [{ x: 276.5, y: 470.3, width: 13.0, height: 13.0 }] },
-        { page: 24, x: 370.5, y: 468.0, width: 71.0, height: 57.5, blank: [{ x: 359.7, y: 470.3, width: 13.0, height: 13.0 }] },
+        { page: 24, x: 122.8, y: 468.2, width: 69.5, height: 57.0 },
+        { page: 24, x: 205.8, y: 468.2, width: 69.7, height: 57.0 },
+        { page: 24, x: 289.0, y: 468.2, width: 69.5, height: 57.0 },
+        { page: 24, x: 372.2, y: 468.2, width: 69.3, height: 57.0 },
       ],
       '20100-05-018': [
-        { page: 24, x: 328.5, y: 527.5, width: 106.5, height: 84.5, blank: [{ x: 317.8, y: 530.0, width: 13.0, height: 13.0 }] },
-        { page: 24, x: 108.0, y: 619.0, width: 106.5, height: 84.0 },
-        { page: 24, x: 227.0, y: 619.0, width: 106.5, height: 84.0, blank: [{ x: 216.4, y: 621.2, width: 13.0, height: 13.0 }] },
-        { page: 24, x: 346.5, y: 619.0, width: 106.5, height: 84.0, blank: [{ x: 335.6, y: 621.2, width: 13.0, height: 13.0 }] },
+        { page: 24, x: 330.3, y: 527.8, width: 104.9, height: 84.0 },
+        { page: 24, x: 108.2, y: 619.0, width: 106.2, height: 84.0 },
+        { page: 24, x: 228.9, y: 619.0, width: 104.9, height: 84.0 },
+        { page: 24, x: 348.1, y: 619.0, width: 104.7, height: 84.0 },
       ],
       '20100-05-019': [
-        { page: 25, x: 300.0, y: 42.5, width: 71.5, height: 57.5, blank: [{ x: 289.4, y: 44.8, width: 13.0, height: 13.0 }] },
-        { page: 25, x: 383.5, y: 42.5, width: 71.0, height: 57.5, blank: [{ x: 372.5, y: 44.8, width: 13.0, height: 13.0 }] },
-        { page: 25, x: 108.0, y: 100.5, width: 71.5, height: 57.5 },
-        { page: 25, x: 191.0, y: 100.5, width: 71.5, height: 57.5, blank: [{ x: 180.4, y: 102.9, width: 13.0, height: 13.0 }] },
+        { page: 25, x: 301.9, y: 42.8, width: 69.6, height: 57.0 },
+        { page: 25, x: 385.0, y: 42.8, width: 69.5, height: 57.0 },
+        { page: 25, x: 108.2, y: 100.8, width: 71.0, height: 57.0 },
+        { page: 25, x: 192.9, y: 100.8, width: 69.6, height: 57.0 },
       ],
       '20100-05-020': [
-        { page: 25, x: 300.0, y: 160.5, width: 71.5, height: 57.0, blank: [{ x: 289.4, y: 162.6, width: 13.0, height: 13.0 }] },
-        { page: 25, x: 383.5, y: 160.5, width: 71.0, height: 57.0, blank: [{ x: 372.5, y: 162.6, width: 13.0, height: 13.0 }] },
-        { page: 25, x: 108.0, y: 218.5, width: 71.5, height: 57.5 },
-        { page: 25, x: 191.0, y: 218.5, width: 71.5, height: 57.5, blank: [{ x: 180.4, y: 220.8, width: 13.0, height: 13.0 }] },
+        { page: 25, x: 301.9, y: 160.5, width: 69.6, height: 57.0 },
+        { page: 25, x: 385.0, y: 160.5, width: 69.5, height: 57.0 },
+        { page: 25, x: 108.2, y: 218.8, width: 71.0, height: 57.0 },
+        { page: 25, x: 192.9, y: 218.8, width: 69.6, height: 57.0 },
       ],
     },
   },
@@ -897,21 +903,25 @@ function clampRect(rect, page) {
   return { x, y, width: right - x, height: bottom - y }
 }
 
-function cropImage(renderedPage, output, page, rect) {
+function cropImage(renderedPage, output, page, rect, oversample = 1) {
   const { padTo, trimThreshold, binarizeThreshold, scale, blank = [], ...rawRect } = rect
   const crop = clampRect(rawRect, page)
   if (crop.width <= 3 || crop.height <= 3) {
     throw new Error(`${output}: invalid crop ${JSON.stringify(crop)}`)
   }
-  const filters = [`crop=${Math.floor(crop.width * SCALE)}:${Math.ceil(crop.height * SCALE)}:${Math.floor(crop.x * SCALE)}:${Math.floor(crop.y * SCALE)}`]
+  const px = SCALE * oversample
+  const filters = [`crop=${Math.floor(crop.width * px)}:${Math.ceil(crop.height * px)}:${Math.floor(crop.x * px)}:${Math.floor(crop.y * px)}`]
   // `blank`: page-point boxes painted white inside the crop — for a prompt
   // glyph or option marker that sits inside an otherwise correct rectangle.
   // The white margin is then trimmed like any other.
   for (const box of blank) {
-    const x = Math.floor((box.x - crop.x) * SCALE)
-    const y = Math.floor((box.y - crop.y) * SCALE)
-    filters.push(`drawbox=x=${x}:y=${y}:w=${Math.ceil(box.width * SCALE)}:h=${Math.ceil(box.height * SCALE)}:color=white:t=fill`)
+    const x = Math.floor((box.x - crop.x) * px)
+    const y = Math.floor((box.y - crop.y) * px)
+    filters.push(`drawbox=x=${x}:y=${y}:w=${Math.ceil(box.width * px)}:h=${Math.ceil(box.height * px)}:color=white:t=fill`)
   }
+  // Oversampled banks render at a higher DPI and area-average back down, so a
+  // hairline that lands between 144-dpi pixels survives as a grey line.
+  if (oversample !== 1) filters.push(`scale=iw/${oversample}:ih/${oversample}:flags=area`)
   if (scale) filters.push(`scale=iw*${scale}:ih*${scale}:flags=lanczos`)
   if (binarizeThreshold !== undefined) {
     filters.push(`format=gray,lut=y='if(lt(val,${binarizeThreshold}),0,255)'`)
@@ -924,7 +934,9 @@ function cropImage(renderedPage, output, page, rect) {
     '-vf', filters.join(','),
     '-frames:v', '1', output,
   ], { stdio: 'ignore' })
-  trimWhitePadding(output, { whiteThreshold: trimThreshold ?? 180 })
+  // Area-averaged hairlines come out light grey; the default 180 cut-off would
+  // trim them away as background.
+  trimWhitePadding(output, { whiteThreshold: trimThreshold ?? (oversample !== 1 ? 245 : 180) })
 }
 
 function trimWhitePadding(output, { whiteThreshold = 180 } = {}) {
@@ -951,17 +963,18 @@ function popplerEnv() {
   }
 }
 
-function renderPage({ rendered, work, pdfPath, sourcePage }) {
-  let renderedPage = rendered.get(sourcePage)
+function renderPage({ rendered, work, pdfPath, sourcePage, oversample = 1 }) {
+  const key = `${sourcePage}@${oversample}`
+  let renderedPage = rendered.get(key)
   if (!renderedPage) {
-    const prefix = join(work, `page-${sourcePage}`)
+    const prefix = join(work, `page-${sourcePage}-x${oversample}`)
     execFileSync('pdftoppm', [
       '-f', String(sourcePage), '-l', String(sourcePage),
-      '-r', '144', '-png', '-singlefile',
+      '-r', String(72 * SCALE * oversample), '-png', '-singlefile',
       pdfPath, prefix,
     ], { env: popplerEnv(), stdio: 'ignore' })
     renderedPage = `${prefix}.png`
-    rendered.set(sourcePage, renderedPage)
+    rendered.set(key, renderedPage)
   }
   return renderedPage
 }
@@ -1483,6 +1496,7 @@ async function buildBank({
   includeLeftFigures = false,
   optionRectOverrides = {},
   outputDir = '../public/question-images/',
+  oversample = 1,
 }) {
   const pdfPath = fileURLToPath(new URL(`../source/${source}.pdf`, import.meta.url))
   const raw = await readFile(new URL(`../source/${source}-raw.txt`, import.meta.url), 'utf8')
@@ -1576,7 +1590,7 @@ async function buildBank({
     const cropPageNumber = rectOverride?.page ?? question.sourcePage
     const cropPage = pages[cropPageNumber - 1]
     if (!cropPage) throw new Error(`${question.id}: crop page ${cropPageNumber} missing`)
-    const renderedPage = renderPage({ rendered, work, pdfPath, sourcePage: cropPageNumber })
+    const renderedPage = renderPage({ rendered, work, pdfPath, sourcePage: cropPageNumber, oversample })
 
     if (imageOptions && !optionRects) {
       throw new Error(`${question.id}: expected four graphical option markers on page ${question.sourcePage}`)
@@ -1584,20 +1598,20 @@ async function buildBank({
     if (optionRects) {
       if (hasQuestionFigure) {
         cropImage(renderedPage, output, cropPage, rectOverride
-          ?? figureCropRect(question, page, top, bottom, { ignoreInlineGap: true }))
+          ?? figureCropRect(question, page, top, bottom, { ignoreInlineGap: true }), oversample)
       }
       if (!figuresOnly) {
         optionRects.forEach((rect, index) => {
           const optionPageNumber = rect.page ?? question.sourcePage
           const optionPage = pages[optionPageNumber - 1]
           if (!optionPage) throw new Error(`${question.id}: option crop page ${optionPageNumber} missing`)
-          const renderedOptionPage = renderPage({ rendered, work, pdfPath, sourcePage: optionPageNumber })
-          cropImage(renderedOptionPage, optionOutputs[index], optionPage, rect)
+          const renderedOptionPage = renderPage({ rendered, work, pdfPath, sourcePage: optionPageNumber, oversample })
+          cropImage(renderedOptionPage, optionOutputs[index], optionPage, rect, oversample)
         })
       }
     } else {
       cropImage(renderedPage, output, cropPage, rectOverride
-        ?? figureCropRect(question, page, top, bottom))
+        ?? figureCropRect(question, page, top, bottom), oversample)
     }
   }
   return figures.length

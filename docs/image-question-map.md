@@ -1,6 +1,6 @@
 # Image Question Map
 
-Generated: 2026-11-06T05:21:13.765Z
+Generated: 2026-11-06T08:38:38.104Z
 
 These are the questions that currently need a figure, graph, code screenshot, or image-option reference.
 
@@ -12,7 +12,7 @@ Replacement workflow:
 
 Do not include the official answer-key column in replacement images.
 
-Total active image questions: 1140
+Total active image questions: 1160
 
 ## indoor-wiring-b:00700-01-001
 
@@ -17650,6 +17650,406 @@ Total active image questions: 1140
   - 2. 下刀深度
   - 3. 刀長補正號
   - 4. 刀徑補正量
+
+## visual-communication-design-c:20100-05-001
+
+- Replacement PNG: `public/question-images/201003-20100-05-001.png`
+- App path: `/question-images/201003-20100-05-001.png`
+- Linked uploaded images:
+  - `/question-images/201003-20100-05-001.png`
+  - `/question-images/201003-20100-05-001-1.png`
+  - `/question-images/201003-20100-05-001-2.png`
+  - `/question-images/201003-20100-05-001-3.png`
+  - `/question-images/201003-20100-05-001-4.png`
+- Current fallback page: `/question-pages/20100-page-21.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如左圖，以下三視圖何者正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## visual-communication-design-c:20100-05-002
+
+- Replacement PNG: `public/question-images/201003-20100-05-002.png`
+- App path: `/question-images/201003-20100-05-002.png`
+- Linked uploaded images:
+  - `/question-images/201003-20100-05-002.png`
+  - `/question-images/201003-20100-05-002-1.png`
+  - `/question-images/201003-20100-05-002-2.png`
+  - `/question-images/201003-20100-05-002-3.png`
+  - `/question-images/201003-20100-05-002-4.png`
+- Current fallback page: `/question-pages/20100-page-21.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 以下三視圖何者正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## visual-communication-design-c:20100-05-003
+
+- Replacement PNG: `public/question-images/201003-20100-05-003.png`
+- App path: `/question-images/201003-20100-05-003.png`
+- Linked uploaded images:
+  - `/question-images/201003-20100-05-003.png`
+  - `/question-images/201003-20100-05-003-1.png`
+  - `/question-images/201003-20100-05-003-2.png`
+  - `/question-images/201003-20100-05-003-3.png`
+  - `/question-images/201003-20100-05-003-4.png`
+- Current fallback page: `/question-pages/20100-page-21.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 以下三視圖何者正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## visual-communication-design-c:20100-05-004
+
+- Replacement PNG: `public/question-images/201003-20100-05-004.png`
+- App path: `/question-images/201003-20100-05-004.png`
+- Linked uploaded images:
+  - `/question-images/201003-20100-05-004.png`
+  - `/question-images/201003-20100-05-004-1.png`
+  - `/question-images/201003-20100-05-004-2.png`
+  - `/question-images/201003-20100-05-004-3.png`
+  - `/question-images/201003-20100-05-004-4.png`
+- Current fallback page: `/question-pages/20100-page-21.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 以下三視圖何者正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## visual-communication-design-c:20100-05-005
+
+- Replacement PNG: `public/question-images/201003-20100-05-005.png`
+- App path: `/question-images/201003-20100-05-005.png`
+- Linked uploaded images:
+  - `/question-images/201003-20100-05-005.png`
+  - `/question-images/201003-20100-05-005-1.png`
+  - `/question-images/201003-20100-05-005-2.png`
+  - `/question-images/201003-20100-05-005-3.png`
+  - `/question-images/201003-20100-05-005-4.png`
+- Current fallback page: `/question-pages/20100-page-21.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 以下三視圖何者正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## visual-communication-design-c:20100-05-006
+
+- Replacement PNG: `public/question-images/201003-20100-05-006.png`
+- App path: `/question-images/201003-20100-05-006.png`
+- Linked uploaded images:
+  - `/question-images/201003-20100-05-006.png`
+  - `/question-images/201003-20100-05-006-1.png`
+  - `/question-images/201003-20100-05-006-2.png`
+  - `/question-images/201003-20100-05-006-3.png`
+  - `/question-images/201003-20100-05-006-4.png`
+- Current fallback page: `/question-pages/20100-page-22.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 以下三視圖何者正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## visual-communication-design-c:20100-05-007
+
+- Replacement PNG: `public/question-images/201003-20100-05-007.png`
+- App path: `/question-images/201003-20100-05-007.png`
+- Linked uploaded images:
+  - `/question-images/201003-20100-05-007.png`
+  - `/question-images/201003-20100-05-007-1.png`
+  - `/question-images/201003-20100-05-007-2.png`
+  - `/question-images/201003-20100-05-007-3.png`
+  - `/question-images/201003-20100-05-007-4.png`
+- Current fallback page: `/question-pages/20100-page-22.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 以下三視圖何者正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## visual-communication-design-c:20100-05-008
+
+- Replacement PNG: `public/question-images/201003-20100-05-008.png`
+- App path: `/question-images/201003-20100-05-008.png`
+- Linked uploaded images:
+  - `/question-images/201003-20100-05-008.png`
+  - `/question-images/201003-20100-05-008-1.png`
+  - `/question-images/201003-20100-05-008-2.png`
+  - `/question-images/201003-20100-05-008-3.png`
+  - `/question-images/201003-20100-05-008-4.png`
+- Current fallback page: `/question-pages/20100-page-22.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 以下三視圖何者正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## visual-communication-design-c:20100-05-009
+
+- Replacement PNG: `public/question-images/201003-20100-05-009.png`
+- App path: `/question-images/201003-20100-05-009.png`
+- Linked uploaded images:
+  - `/question-images/201003-20100-05-009.png`
+  - `/question-images/201003-20100-05-009-1.png`
+  - `/question-images/201003-20100-05-009-2.png`
+  - `/question-images/201003-20100-05-009-3.png`
+  - `/question-images/201003-20100-05-009-4.png`
+- Current fallback page: `/question-pages/20100-page-22.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 以下三視圖何者正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## visual-communication-design-c:20100-05-010
+
+- Replacement PNG: `public/question-images/201003-20100-05-010.png`
+- App path: `/question-images/201003-20100-05-010.png`
+- Linked uploaded images:
+  - `/question-images/201003-20100-05-010.png`
+  - `/question-images/201003-20100-05-010-1.png`
+  - `/question-images/201003-20100-05-010-2.png`
+  - `/question-images/201003-20100-05-010-3.png`
+  - `/question-images/201003-20100-05-010-4.png`
+- Current fallback page: `/question-pages/20100-page-22.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 以下三視圖何者正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## visual-communication-design-c:20100-05-011
+
+- Replacement PNG: `public/question-images/201003-20100-05-011.png`
+- App path: `/question-images/201003-20100-05-011.png`
+- Linked uploaded images:
+  - `/question-images/201003-20100-05-011.png`
+  - `/question-images/201003-20100-05-011-1.png`
+  - `/question-images/201003-20100-05-011-2.png`
+  - `/question-images/201003-20100-05-011-3.png`
+  - `/question-images/201003-20100-05-011-4.png`
+- Current fallback page: `/question-pages/20100-page-23.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 左立體圖形之三視圖下列何者正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## visual-communication-design-c:20100-05-012
+
+- Replacement PNG: `public/question-images/201003-20100-05-012.png`
+- App path: `/question-images/201003-20100-05-012.png`
+- Linked uploaded images:
+  - `/question-images/201003-20100-05-012.png`
+  - `/question-images/201003-20100-05-012-1.png`
+  - `/question-images/201003-20100-05-012-2.png`
+  - `/question-images/201003-20100-05-012-3.png`
+  - `/question-images/201003-20100-05-012-4.png`
+- Current fallback page: `/question-pages/20100-page-23.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 以下三視圖何者正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## visual-communication-design-c:20100-05-013
+
+- Replacement PNG: `public/question-images/201003-20100-05-013.png`
+- App path: `/question-images/201003-20100-05-013.png`
+- Linked uploaded images:
+  - `/question-images/201003-20100-05-013.png`
+  - `/question-images/201003-20100-05-013-1.png`
+  - `/question-images/201003-20100-05-013-2.png`
+  - `/question-images/201003-20100-05-013-3.png`
+  - `/question-images/201003-20100-05-013-4.png`
+- Current fallback page: `/question-pages/20100-page-23.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 以下三視圖何者正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## visual-communication-design-c:20100-05-014
+
+- Replacement PNG: `public/question-images/201003-20100-05-014.png`
+- App path: `/question-images/201003-20100-05-014.png`
+- Linked uploaded images:
+  - `/question-images/201003-20100-05-014.png`
+  - `/question-images/201003-20100-05-014-1.png`
+  - `/question-images/201003-20100-05-014-2.png`
+  - `/question-images/201003-20100-05-014-3.png`
+  - `/question-images/201003-20100-05-014-4.png`
+- Current fallback page: `/question-pages/20100-page-23.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 以下三視圖何者正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## visual-communication-design-c:20100-05-015
+
+- Replacement PNG: `public/question-images/201003-20100-05-015.png`
+- App path: `/question-images/201003-20100-05-015.png`
+- Linked uploaded images:
+  - `/question-images/201003-20100-05-015.png`
+  - `/question-images/201003-20100-05-015-1.png`
+  - `/question-images/201003-20100-05-015-2.png`
+  - `/question-images/201003-20100-05-015-3.png`
+  - `/question-images/201003-20100-05-015-4.png`
+- Current fallback page: `/question-pages/20100-page-24.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如左圖，下列三視圖何者正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## visual-communication-design-c:20100-05-016
+
+- Replacement PNG: `public/question-images/201003-20100-05-016.png`
+- App path: `/question-images/201003-20100-05-016.png`
+- Linked uploaded images:
+  - `/question-images/201003-20100-05-016.png`
+  - `/question-images/201003-20100-05-016-1.png`
+  - `/question-images/201003-20100-05-016-2.png`
+  - `/question-images/201003-20100-05-016-3.png`
+  - `/question-images/201003-20100-05-016-4.png`
+- Current fallback page: `/question-pages/20100-page-24.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 以下三視圖何者正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## visual-communication-design-c:20100-05-017
+
+- Replacement PNG: `public/question-images/201003-20100-05-017.png`
+- App path: `/question-images/201003-20100-05-017.png`
+- Linked uploaded images:
+  - `/question-images/201003-20100-05-017.png`
+  - `/question-images/201003-20100-05-017-1.png`
+  - `/question-images/201003-20100-05-017-2.png`
+  - `/question-images/201003-20100-05-017-3.png`
+  - `/question-images/201003-20100-05-017-4.png`
+- Current fallback page: `/question-pages/20100-page-24.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 如左圖，以下三視圖何者正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## visual-communication-design-c:20100-05-018
+
+- Replacement PNG: `public/question-images/201003-20100-05-018.png`
+- App path: `/question-images/201003-20100-05-018.png`
+- Linked uploaded images:
+  - `/question-images/201003-20100-05-018.png`
+  - `/question-images/201003-20100-05-018-1.png`
+  - `/question-images/201003-20100-05-018-2.png`
+  - `/question-images/201003-20100-05-018-3.png`
+  - `/question-images/201003-20100-05-018-4.png`
+- Current fallback page: `/question-pages/20100-page-24.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 以下三視圖何者正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## visual-communication-design-c:20100-05-019
+
+- Replacement PNG: `public/question-images/201003-20100-05-019.png`
+- App path: `/question-images/201003-20100-05-019.png`
+- Linked uploaded images:
+  - `/question-images/201003-20100-05-019.png`
+  - `/question-images/201003-20100-05-019-1.png`
+  - `/question-images/201003-20100-05-019-2.png`
+  - `/question-images/201003-20100-05-019-3.png`
+  - `/question-images/201003-20100-05-019-4.png`
+- Current fallback page: `/question-pages/20100-page-25.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 以下三視圖何者正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## visual-communication-design-c:20100-05-020
+
+- Replacement PNG: `public/question-images/201003-20100-05-020.png`
+- App path: `/question-images/201003-20100-05-020.png`
+- Linked uploaded images:
+  - `/question-images/201003-20100-05-020.png`
+  - `/question-images/201003-20100-05-020-1.png`
+  - `/question-images/201003-20100-05-020-2.png`
+  - `/question-images/201003-20100-05-020-3.png`
+  - `/question-images/201003-20100-05-020-4.png`
+- Current fallback page: `/question-pages/20100-page-25.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 以下三視圖何者正確？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
 
 ## beverage-preparation-c:20600-02-016
 

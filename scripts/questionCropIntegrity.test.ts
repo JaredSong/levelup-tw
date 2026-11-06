@@ -42,6 +42,9 @@ const PACKS = [
   { examId: 'engineering-surveying-b', occupationCode: '04202', sourceQuestions: 769, inactive: 11, figures: 52, cropPrefix: '042022', tightCrops: true },
   // 26 figure questions, crops byte-identical to the ones Jared reviewed in
   // tmp/import-batch/042003A11/image-review.html. 04200-01-033 is 本題刪題.
+  // 三視圖 crops (05-001..020): 3D object + four options each, signed off by
+  // Jared. Six 本題刪題 questions inactive.
+  { examId: 'visual-communication-design-c', occupationCode: '20100', sourceQuestions: 608, inactive: 6, figures: 20, cropPrefix: '201003', tightCrops: true },
   { examId: 'surveying-c', occupationCode: '04200', sourceQuestions: 704, inactive: 1, figures: 26, cropPrefix: '042003', tightCrops: true },
   // inactive 4 → 5: 21500-03-073's crop is a pure-white PNG even though the
   // figure exists in source/215003A11.pdf p.20. Same page-boundary crop

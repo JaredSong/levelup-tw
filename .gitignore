@@ -12,6 +12,11 @@ dist
 # Local tooling — the agent team and its brief stay local, not published.
 .claude
 CLAUDE.md
+
+# Growth notes. Marketing strategy, competitor observations and engagement
+# analysis are working documents, not part of the published project.
+marketing-calendar.md
+threads-playbook.md
 tmp/
 .venv-paddle/
 __pycache__/

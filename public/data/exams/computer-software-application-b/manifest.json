@@ -183,11 +183,11 @@
     "subjectQuota": [
       {
         "subjectCode": "11800",
-        "count": 60
+        "count": 55
       },
       {
         "subjectCode": "90011",
-        "count": 4
+        "count": 9
       },
       {
         "subjectCode": "90006",

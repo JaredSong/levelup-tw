@@ -1,6 +1,7 @@
 import { readFile, readdir } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 import { checkPngFlatness } from './pngPixelCheck.mjs'
+import { auditSharedSubjects } from './officialSharedSubjects.mjs'
 import { auditQuestionImages } from './questionImageQualityAudit.mjs'
 import { buildDriftReport } from './wdaCatalog.mjs'
 
@@ -153,7 +154,7 @@ export async function auditInstalledPacks(root) {
       return { examId, manifest: null, failures: [`manifest.json unreadable: ${error.message}`] }
     }
     const imageFailures = await auditPackImages(examId, root)
-    return { examId, manifest, failures: [...auditManifest(manifest), ...imageFailures] }
+    return { examId, manifest, failures: [...auditManifest(manifest), ...auditSharedSubjects(manifest), ...imageFailures] }
   }))
 }
 

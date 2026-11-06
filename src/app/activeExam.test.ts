@@ -187,7 +187,7 @@ describe('active exam selection', () => {
     const womenHair = INSTALLED_EXAMS.find((exam) => exam.examId === 'women-hairdressing-c')!
 
     expect(formatMockFormatHint(employment)).toBe('60 題單選 · 20 題複選 · 19500 專業科目 64 題 · 共同科目各 4 題')
-    expect(formatMockFormatHint(womenHair)).toBe('80 題單選 · 06700 專業科目 60 題 · 共同科目各 4 題')
+    expect(formatMockFormatHint(womenHair)).toBe('80 題單選 · 06700 專業科目 48 題 · 90012 共用科目 16 題 · 共同科目各 4 題')
   })
 
   it('uses a law-heavy full-study-tool home copy for employment service', () => {

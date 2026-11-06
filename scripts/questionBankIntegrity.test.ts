@@ -342,8 +342,9 @@ describe('published question bank', () => {
         expect(mock).toHaveLength(80)
         expect(mock.filter((question) => question.kind === 'single')).toHaveLength(80)
         expect(mock.filter((question) => question.kind === 'multiple')).toHaveLength(0)
-        expect(mock.filter((question) => question.subjectCode === item.occupationCode)).toHaveLength(60)
-        expect(mock.filter((question) => question.subjectCode === '90012')).toHaveLength(4)
+        // 115 簡章 重點提示 21(3): 90012 is 20% (16 of 80), occupation 48.
+        expect(mock.filter((question) => question.subjectCode === item.occupationCode)).toHaveLength(48)
+        expect(mock.filter((question) => question.subjectCode === '90012')).toHaveLength(16)
         for (const code of ['90006', '90007', '90008', '90009']) {
           expect(mock.filter((question) => question.subjectCode === code)).toHaveLength(4)
         }
@@ -434,8 +435,9 @@ describe('published question bank', () => {
         total: 1226,
         active: 1221,
         sections: 15,
-        occupationQuota: 60,
+        occupationQuota: 52,
         extraCommonCode: '90011',
+        extraCommonQuota: 12,
       },
       {
         examId: 'water-pipe-fitting-c',
@@ -452,10 +454,12 @@ describe('published question bank', () => {
         occupationCode: '17200',
         version: 'A14',
         occupation: 486,
-        total: 886,
-        active: 881,
-        sections: 8,
-        occupationQuota: 64,
+        total: 1005,
+        active: 1000,
+        sections: 13,
+        occupationQuota: 52,
+        extraCommonCode: '90011',
+        extraCommonQuota: 12,
       },
       {
         examId: 'engineering-surveying-b',
@@ -531,7 +535,7 @@ describe('published question bank', () => {
       const mock = buildMockQueue(questions.filter((question) => question.active !== false), manifest.mockRules, () => 0.37)
       expect(mock.filter((question) => question.subjectCode === item.occupationCode)).toHaveLength(item.occupationQuota)
       if (item.extraCommonCode) {
-        expect(mock.filter((question) => question.subjectCode === item.extraCommonCode)).toHaveLength(4)
+        expect(mock.filter((question) => question.subjectCode === item.extraCommonCode)).toHaveLength(item.extraCommonQuota)
       }
     }
   })
@@ -698,6 +702,7 @@ describe('published question bank', () => {
         occupationPublished: 748,
         occupationActive: 748,
         extraCommonCode: '90011',
+        extraCommonQuota: 12,
         extraCommonActive: 119,
       },
       {
@@ -708,6 +713,7 @@ describe('published question bank', () => {
         occupationPublished: 640,
         occupationActive: 637,
         extraCommonCode: '90010',
+        extraCommonQuota: 16,
         extraCommonActive: 280,
       },
       {
@@ -718,6 +724,7 @@ describe('published question bank', () => {
         occupationPublished: 513,
         occupationActive: 512,
         extraCommonCode: '90010',
+        extraCommonQuota: 16,
         extraCommonActive: 280,
       },
     ]
@@ -751,8 +758,8 @@ describe('published question bank', () => {
       const active = generated.filter((question) => question.active !== false)
       const mock = buildMockQueue(active, manifest.mockRules, () => 0.41)
       expect(mock).toHaveLength(80)
-      expect(mock.filter((question) => question.subjectCode === item.occupationCode)).toHaveLength(60)
-      expect(mock.filter((question) => question.subjectCode === item.extraCommonCode)).toHaveLength(4)
+      expect(mock.filter((question) => question.subjectCode === item.occupationCode)).toHaveLength(64 - item.extraCommonQuota)
+      expect(mock.filter((question) => question.subjectCode === item.extraCommonCode)).toHaveLength(item.extraCommonQuota)
       for (const code of ['90006', '90007', '90008', '90009']) {
         expect(mock.filter((question) => question.subjectCode === code)).toHaveLength(4)
       }

@@ -175,11 +175,11 @@
     "subjectQuota": [
       {
         "subjectCode": "21500",
-        "count": 60
+        "count": 48
       },
       {
         "subjectCode": "90010",
-        "count": 4
+        "count": 16
       },
       {
         "subjectCode": "90006",

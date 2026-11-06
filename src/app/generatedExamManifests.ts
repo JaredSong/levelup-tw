@@ -210,11 +210,11 @@ export const GENERATED_EXAM_MANIFESTS = [
       "subjectQuota": [
         {
           "subjectCode": "06000",
-          "count": 60
+          "count": 48
         },
         {
           "subjectCode": "90012",
-          "count": 4
+          "count": 16
         },
         {
           "subjectCode": "90006",
@@ -442,11 +442,11 @@ export const GENERATED_EXAM_MANIFESTS = [
       "subjectQuota": [
         {
           "subjectCode": "06700",
-          "count": 60
+          "count": 48
         },
         {
           "subjectCode": "90012",
-          "count": 4
+          "count": 16
         },
         {
           "subjectCode": "90006",
@@ -814,11 +814,11 @@ export const GENERATED_EXAM_MANIFESTS = [
       "subjectQuota": [
         {
           "subjectCode": "11800",
-          "count": 60
+          "count": 52
         },
         {
           "subjectCode": "90011",
-          "count": 4
+          "count": 12
         },
         {
           "subjectCode": "90006",
@@ -1030,11 +1030,11 @@ export const GENERATED_EXAM_MANIFESTS = [
       "subjectQuota": [
         {
           "subjectCode": "11800",
-          "count": 60
+          "count": 55
         },
         {
           "subjectCode": "90011",
-          "count": 4
+          "count": 9
         },
         {
           "subjectCode": "90006",
@@ -2026,11 +2026,11 @@ export const GENERATED_EXAM_MANIFESTS = [
       "subjectQuota": [
         {
           "subjectCode": "07602",
-          "count": 60
+          "count": 48
         },
         {
           "subjectCode": "90010",
-          "count": 4
+          "count": 16
         },
         {
           "subjectCode": "90006",
@@ -2242,11 +2242,11 @@ export const GENERATED_EXAM_MANIFESTS = [
       "subjectQuota": [
         {
           "subjectCode": "07700",
-          "count": 60
+          "count": 48
         },
         {
           "subjectCode": "90010",
-          "count": 4
+          "count": 16
         },
         {
           "subjectCode": "90006",
@@ -3006,11 +3006,11 @@ export const GENERATED_EXAM_MANIFESTS = [
       "subjectQuota": [
         {
           "subjectCode": "10000",
-          "count": 60
+          "count": 48
         },
         {
           "subjectCode": "90012",
-          "count": 4
+          "count": 16
         },
         {
           "subjectCode": "90006",
@@ -5670,11 +5670,11 @@ export const GENERATED_EXAM_MANIFESTS = [
       "subjectQuota": [
         {
           "subjectCode": "20600",
-          "count": 60
+          "count": 48
         },
         {
           "subjectCode": "90010",
-          "count": 4
+          "count": 16
         },
         {
           "subjectCode": "90006",
@@ -5878,11 +5878,11 @@ export const GENERATED_EXAM_MANIFESTS = [
       "subjectQuota": [
         {
           "subjectCode": "21500",
-          "count": 60
+          "count": 48
         },
         {
           "subjectCode": "90010",
-          "count": 4
+          "count": 16
         },
         {
           "subjectCode": "90006",
@@ -6714,11 +6714,11 @@ export const GENERATED_EXAM_MANIFESTS = [
       "subjectQuota": [
         {
           "subjectCode": "12000",
-          "count": 60
+          "count": 55
         },
         {
           "subjectCode": "90011",
-          "count": 4
+          "count": 9
         },
         {
           "subjectCode": "90006",
@@ -6946,11 +6946,11 @@ export const GENERATED_EXAM_MANIFESTS = [
       "subjectQuota": [
         {
           "subjectCode": "12000",
-          "count": 60
+          "count": 52
         },
         {
           "subjectCode": "90011",
-          "count": 4
+          "count": 12
         },
         {
           "subjectCode": "90006",
@@ -6995,6 +6995,14 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sha256": "fc84a4f64fc985bdffb575193468d3189cb228f38ca85468b5e68647224a129b"
       },
       {
+        "subjectCode": "90011",
+        "version": "A12",
+        "pdfFilename": "900110A12.pdf",
+        "localFilename": "900110A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900110A12.pdf",
+        "sha256": "6b76e319e47cefd658551d2096521933bced6b4c99023874015863655b8dcd3a"
+      },
+      {
         "subjectCode": "90006",
         "version": "A11",
         "pdfFilename": "900060A11.pdf",
@@ -7033,9 +7041,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "172003A14 + 900060A11/900070A10/900080A17/900090A13",
-    "questionCount": 886,
-    "activeQuestionCount": 881,
+    "sourceRevision": "172003A14 + 900110A12 + 900060A11/900070A10/900080A17/900090A13",
+    "questionCount": 1005,
+    "activeQuestionCount": 1000,
     "sections": [
       {
         "id": "17200-01",
@@ -7068,6 +7076,46 @@ export const GENERATED_EXAM_MANIFESTS = [
         "titleZh": "網路元件及軟體安裝與應用",
         "questionCount": 229,
         "activeQuestionCount": 229
+      },
+      {
+        "id": "90011-01",
+        "subjectCode": "90011",
+        "sourceGroup": "information-common",
+        "titleZh": "電腦硬體架構",
+        "questionCount": 20,
+        "activeQuestionCount": 20
+      },
+      {
+        "id": "90011-02",
+        "subjectCode": "90011",
+        "sourceGroup": "information-common",
+        "titleZh": "網路概論與應用",
+        "questionCount": 29,
+        "activeQuestionCount": 29
+      },
+      {
+        "id": "90011-03",
+        "subjectCode": "90011",
+        "sourceGroup": "information-common",
+        "titleZh": "作業系統",
+        "questionCount": 10,
+        "activeQuestionCount": 10
+      },
+      {
+        "id": "90011-04",
+        "subjectCode": "90011",
+        "sourceGroup": "information-common",
+        "titleZh": "資訊運算思維",
+        "questionCount": 20,
+        "activeQuestionCount": 20
+      },
+      {
+        "id": "90011-05",
+        "subjectCode": "90011",
+        "sourceGroup": "information-common",
+        "titleZh": "資訊安全",
+        "questionCount": 40,
+        "activeQuestionCount": 40
       },
       {
         "id": "90006-01",
@@ -7114,7 +7162,11 @@ export const GENERATED_EXAM_MANIFESTS = [
       "subjectQuota": [
         {
           "subjectCode": "17200",
-          "count": 64
+          "count": 52
+        },
+        {
+          "subjectCode": "90011",
+          "count": 12
         },
         {
           "subjectCode": "90006",
@@ -7137,7 +7189,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     "integrity": {
       "status": "fully_verified",
       "inactiveQuestionCount": 5,
-      "imageQuestionCount": 30,
+      "imageQuestionCount": 34,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
   },
@@ -7930,11 +7982,11 @@ export const GENERATED_EXAM_MANIFESTS = [
       "subjectQuota": [
         {
           "subjectCode": "14000",
-          "count": 60
+          "count": 48
         },
         {
           "subjectCode": "90010",
-          "count": 4
+          "count": 16
         },
         {
           "subjectCode": "90006",

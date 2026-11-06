@@ -122,6 +122,8 @@ export function formatSyllabusItems(exam: ExamManifest): SyllabusItem[] {
   })
 }
 
+const SHARED_SUBJECT_CODES = new Set(['90010', '90011', '90012'])
+
 export function formatMockFormatHint(exam: ExamManifest): string {
   const parts = []
   if (exam.mockRules.singleCount) parts.push(`${exam.mockRules.singleCount} 題單選`)
@@ -135,7 +137,12 @@ export function formatMockFormatHint(exam: ExamManifest): string {
   const occupationQuota = exam.mockRules.subjectQuota.find((quota) => occupationCodes.has(quota.subjectCode))
   if (occupationQuota) parts.push(`${occupationQuota.subjectCode} 專業科目 ${occupationQuota.count} 題`)
 
-  const commonQuotas = exam.mockRules.subjectQuota.filter((quota) => !occupationCodes.has(quota.subjectCode))
+  // 90010–90012 are shared only by related 職類 and draw more questions than
+  // the four general subjects (90006–90009), so name them before the general line.
+  const otherQuotas = exam.mockRules.subjectQuota.filter((quota) => !occupationCodes.has(quota.subjectCode))
+  const sharedQuotas = otherQuotas.filter((quota) => SHARED_SUBJECT_CODES.has(quota.subjectCode))
+  for (const quota of sharedQuotas) parts.push(`${quota.subjectCode} 共用科目 ${quota.count} 題`)
+  const commonQuotas = otherQuotas.filter((quota) => !SHARED_SUBJECT_CODES.has(quota.subjectCode))
   const commonCounts = new Set(commonQuotas.map((quota) => quota.count))
   if (commonQuotas.length && commonCounts.size === 1) parts.push(`共同科目各 ${commonQuotas[0].count} 題`)
   else {

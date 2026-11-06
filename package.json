@@ -12,7 +12,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "lint": "eslint .",
-    "import:questions": "node scripts/import-questions.mjs && node scripts/build-question-crops.mjs && node scripts/build-exam-packs.mjs && node scripts/build-glossary.mjs && node scripts/build-image-question-map.mjs && node scripts/landingCatalog.mjs && npm run verify:answers",
+    "import:questions": "node scripts/import-questions.mjs && node scripts/build-question-crops.mjs --missing && node scripts/build-exam-packs.mjs && node scripts/build-glossary.mjs && node scripts/build-image-question-map.mjs && node scripts/landingCatalog.mjs && npm run verify:answers",
     "verify:answers": "node scripts/verifyAnswerKeys.mjs --all",
     "refresh:catalog": "node scripts/examCatalog.mjs",
     "refresh:official-catalog": "node scripts/wdaCatalog.mjs --write --hash",

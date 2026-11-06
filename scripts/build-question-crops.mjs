@@ -128,7 +128,8 @@ const BANKS = [
       '12600-01-060': [null, null, null, { x: 110, y: 258, width: 62, height: 40 }],
     },
   },
-  { code: '20600', source: '206003A13', splitImageOptions: true },
+  // 20600-03-058 ships as text (excludedFigureIds in build-exam-packs.mjs).
+  { code: '20600', source: '206003A13', splitImageOptions: true, excludedFigures: ['20600-03-058'] },
   { code: '02000', source: '020003A11', splitImageOptions: true },
   { code: '07700', source: '077003A12', splitImageOptions: true },
   {
@@ -641,7 +642,8 @@ const BANKS = [
     source: '120002A12',
     cropPrefix: '120002',
     splitImageOptions: true,
-    excludedFigures: ['12000-01-025'],
+    // 12000-03-094 ships as a transcribed code block (informationCommonOverrides.mjs).
+    excludedFigures: ['12000-01-025', '12000-03-094'],
     mixedFigureOptions: ['12000-01-022', '12000-01-023'],
     figureRects: {
       '12000-01-022': { x: 118, y: 310, width: 96, height: 58 },
@@ -925,6 +927,19 @@ async function buildEmbeddedBank({
   vectorOptionQuestions = {},
   imageReferenceFile,
 }) {
+  // This path clears every `${cropPrefix}-*.png` and re-extracts, so it can't
+  // honour --missing file by file. Committed crops are the reviewed artefacts
+  // and do not reproduce byte-for-byte on a different machine (re-running it
+  // renamed 19 028003 crops), so --missing leaves an existing bank untouched.
+  // Regenerate one deliberately by naming its source: `… build-question-crops.mjs 028003A11`.
+  if (missingOnly) {
+    const existing = (await readdir(new URL('../public/question-images/', import.meta.url)))
+      .filter((file) => file.startsWith(`${cropPrefix}-`) && file.endsWith('.png'))
+    if (existing.length) {
+      console.log(`${source}: --missing, keeping ${existing.length} committed crops (embedded bank)`)
+      return existing.length
+    }
+  }
   const pdfPath = fileURLToPath(new URL(`../source/${source}.pdf`, import.meta.url))
   const raw = await readFile(new URL(`../source/${source}-raw.txt`, import.meta.url), 'utf8')
   const questions = parseQuestionBank(raw)

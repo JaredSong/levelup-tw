@@ -1,6 +1,6 @@
 # Image Question Map
 
-Generated: 2026-08-05T10:19:28.297Z
+Generated: 2026-11-06T05:21:13.765Z
 
 These are the questions that currently need a figure, graph, code screenshot, or image-option reference.
 
@@ -12,7 +12,7 @@ Replacement workflow:
 
 Do not include the official answer-key column in replacement images.
 
-Total active image questions: 1115
+Total active image questions: 1140
 
 ## indoor-wiring-b:00700-01-001
 
@@ -7323,6 +7323,431 @@ Total active image questions: 1115
   - 3. 電壓放大電路用
   - 4. 消除開關的彈跳現象用
 
+## surveying-c:04200-01-049
+
+- Replacement PNG: `public/question-images/042003-04200-01-049-1.png`
+- App path: `/question-images/042003-04200-01-049-1.png`
+- Linked uploaded images:
+  - `/question-images/042003-04200-01-049-1.png`
+  - `/question-images/042003-04200-01-049-2.png`
+  - `/question-images/042003-04200-01-049-3.png`
+  - `/question-images/042003-04200-01-049-4.png`
+- Current fallback page: `/question-pages/04200-page-4.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下列圖形為打靶時彈著點位置，其中各同心圓之圓心為靶心，何者為高精密度但卻低準確度？
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## surveying-c:04200-02-023
+
+- Replacement PNG: `public/question-images/042003-04200-02-023-1.png`
+- App path: `/question-images/042003-04200-02-023-1.png`
+- Linked uploaded images:
+  - `/question-images/042003-04200-02-023-1.png`
+  - `/question-images/042003-04200-02-023-2.png`
+  - `/question-images/042003-04200-02-023-3.png`
+  - `/question-images/042003-04200-02-023-4.png`
+- Current fallback page: `/question-pages/04200-page-7.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 設標尺之夾距為 L，K 為乘常數，C 為加常數，當望遠鏡視準線呈水平時，則平坦地視距測量之距離公式為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## surveying-c:04200-02-050
+
+- Replacement PNG: `public/question-images/042003-04200-02-050-1.png`
+- App path: `/question-images/042003-04200-02-050-1.png`
+- Linked uploaded images:
+  - `/question-images/042003-04200-02-050-1.png`
+  - `/question-images/042003-04200-02-050-2.png`
+  - `/question-images/042003-04200-02-050-3.png`
+  - `/question-images/042003-04200-02-050-4.png`
+- Current fallback page: `/question-pages/04200-page-9.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: A、B、C 三點在斜坡同一直線上，AB、BC 之斜距 S_AB、S_BC，及傾斜角 α_AB、α_BC，則 AC 之水平距離為
+- Options:
+  - 1. 圖示選項 1
+  - 2. 圖示選項 2
+  - 3. 圖示選項 3
+  - 4. 圖示選項 4
+
+## surveying-c:04200-03-049
+
+- Replacement PNG: `public/question-images/042003-04200-03-049.png`
+- App path: `/question-images/042003-04200-03-049.png`
+- Linked uploaded image:
+  - `/question-images/042003-04200-03-049.png`
+- Current fallback page: `/question-pages/04200-page-17.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 地圖上之"BM     "記號表示
+- Options:
+  - 1. 三角點
+  - 2. 水準點
+  - 3. 導線點
+  - 4. 圖根點
+
+## surveying-c:04200-03-149
+
+- Replacement PNG: `public/question-images/042003-04200-03-149.png`
+- App path: `/question-images/042003-04200-03-149.png`
+- Linked uploaded image:
+  - `/question-images/042003-04200-03-149.png`
+- Current fallback page: `/question-pages/04200-page-23.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 水準測量記錄表如下，單位為公尺，則高程差 ΔH_AB 為
+- Options:
+  - 1. 1.056m
+  - 2. 1.058m
+  - 3. 1.065m
+  - 4. 1.085m
+
+## surveying-c:04200-03-150
+
+- Replacement PNG: `public/question-images/042003-04200-03-150.png`
+- App path: `/question-images/042003-04200-03-150.png`
+- Linked uploaded image:
+  - `/question-images/042003-04200-03-150.png`
+- Current fallback page: `/question-pages/04200-page-24.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 水準測量記錄表如下，單位為公尺，則高程差 ΔH_AC 為
+- Options:
+  - 1. 1.770m
+  - 2. 1.774m
+  - 3. 1.778m
+  - 4. 1.782m
+
+## surveying-c:04200-03-151
+
+- Replacement PNG: `public/question-images/042003-04200-03-151.png`
+- App path: `/question-images/042003-04200-03-151.png`
+- Linked uploaded image:
+  - `/question-images/042003-04200-03-151.png`
+- Current fallback page: `/question-pages/04200-page-24.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 水準測量記錄表如下，單位為公尺，則 C 點高程 H_C 為
+- Options:
+  - 1. 53.235m
+  - 2. 53.237m
+  - 3. 53.239m
+  - 4. 53.241m
+
+## surveying-c:04200-03-152
+
+- Replacement PNG: `public/question-images/042003-04200-03-152.png`
+- App path: `/question-images/042003-04200-03-152.png`
+- Linked uploaded image:
+  - `/question-images/042003-04200-03-152.png`
+- Current fallback page: `/question-pages/04200-page-24.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 水準測量記錄表如下，單位為公尺，則高程差 ΔH_BA 為
+- Options:
+  - 1. -1.056m
+  - 2. -1.058m
+  - 3. -1.065m
+  - 4. -1.085m
+
+## surveying-c:04200-03-153
+
+- Replacement PNG: `public/question-images/042003-04200-03-153.png`
+- App path: `/question-images/042003-04200-03-153.png`
+- Linked uploaded image:
+  - `/question-images/042003-04200-03-153.png`
+- Current fallback page: `/question-pages/04200-page-24.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 水準測量記錄表如下，單位為公尺，則高程差 ΔH_CA 為
+- Options:
+  - 1. -1.770m
+  - 2. -1.774m
+  - 3. -1.778m
+  - 4. -1.782m
+
+## surveying-c:04200-03-154
+
+- Replacement PNG: `public/question-images/042003-04200-03-154.png`
+- App path: `/question-images/042003-04200-03-154.png`
+- Linked uploaded image:
+  - `/question-images/042003-04200-03-154.png`
+- Current fallback page: `/question-pages/04200-page-24.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 水準測量記錄表如下，單位為公尺，則 C 點高程 H_C 為
+- Options:
+  - 1. 53.235m
+  - 2. 53.237m
+  - 3. 53.239m
+  - 4. 53.241m
+
+## surveying-c:04200-04-132
+
+- Replacement PNG: `public/question-images/042003-04200-04-132.png`
+- App path: `/question-images/042003-04200-04-132.png`
+- Linked uploaded image:
+  - `/question-images/042003-04200-04-132.png`
+- Current fallback page: `/question-pages/04200-page-33.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 下表為測站 B 對測點 A、C 做水平角之紀錄，則∠ABC 為
+- Options:
+  - 1. 125°10'10"
+  - 2. 125°10'15"
+  - 3. 125°10'20"
+  - 4. 125°10'25"
+
+## surveying-c:04200-04-142
+
+- Replacement PNG: `public/question-images/042003-04200-04-142.png`
+- App path: `/question-images/042003-04200-04-142.png`
+- Linked uploaded image:
+  - `/question-images/042003-04200-04-142.png`
+- Current fallback page: `/question-pages/04200-page-33.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 經緯儀觀測之結果如下，則水平角∠ EDF 之角度為
+- Options:
+  - 1. 61°32'15.5"
+  - 2. 61°32'20"
+  - 3. 61°32'17.5"
+  - 4. 61°32'10"
+
+## surveying-c:04200-04-143
+
+- Replacement PNG: `public/question-images/042003-04200-04-143.png`
+- App path: `/question-images/042003-04200-04-143.png`
+- Linked uploaded image:
+  - `/question-images/042003-04200-04-143.png`
+- Current fallback page: `/question-pages/04200-page-34.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 經緯儀觀測之結果如下，則水平角∠ ABC 之角度為
+- Options:
+  - 1. 61°31'20"
+  - 2. 61°32'20"
+  - 3. 61°31'30"
+  - 4. 61°32'30"
+
+## surveying-c:04200-04-147
+
+- Replacement PNG: `public/question-images/042003-04200-04-147.png`
+- App path: `/question-images/042003-04200-04-147.png`
+- Linked uploaded image:
+  - `/question-images/042003-04200-04-147.png`
+- Current fallback page: `/question-pages/04200-page-34.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 經緯儀觀測水平角之結果如下表，則水平角∠ APB 為
+- Options:
+  - 1. 70°53'20"
+  - 2. 70°53'16"
+  - 3. 70°52'14"
+  - 4. 70°52'12"
+
+## surveying-c:04200-05-011
+
+- Replacement PNG: `public/question-images/042003-04200-05-011.png`
+- App path: `/question-images/042003-04200-05-011.png`
+- Linked uploaded image:
+  - `/question-images/042003-04200-05-011.png`
+- Current fallback page: `/question-pages/04200-page-37.jpg`
+- Kind: single
+- Official answer: 1
+- Prompt: 地圖上之"   "記號，表示
+- Options:
+  - 1. 郵局
+  - 2. 醫院
+  - 3. 電力桿
+  - 4. 電信桿
+
+## surveying-c:04200-05-012
+
+- Replacement PNG: `public/question-images/042003-04200-05-012.png`
+- App path: `/question-images/042003-04200-05-012.png`
+- Linked uploaded image:
+  - `/question-images/042003-04200-05-012.png`
+- Current fallback page: `/question-pages/04200-page-37.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 地圖上之"   "記號，表示
+- Options:
+  - 1. 公園
+  - 2. 學校
+  - 3. 寺廟
+  - 4. 停車場
+
+## surveying-c:04200-05-036
+
+- Replacement PNG: `public/question-images/042003-04200-05-036.png`
+- App path: `/question-images/042003-04200-05-036.png`
+- Linked uploaded image:
+  - `/question-images/042003-04200-05-036.png`
+- Current fallback page: `/question-pages/04200-page-38.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 內政部一千分之一地形圖上之“           ”記號表示
+- Options:
+  - 1. 水田
+  - 2. 沼澤
+  - 3. 旱田
+  - 4. 砂地
+
+## surveying-c:04200-05-063
+
+- Replacement PNG: `public/question-images/042003-04200-05-063.png`
+- App path: `/question-images/042003-04200-05-063.png`
+- Linked uploaded image:
+  - `/question-images/042003-04200-05-063.png`
+- Current fallback page: `/question-pages/04200-page-39.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 在內政部一千分之一地形圖圖式規格表中，             為下列何者之圖式尺寸？
+- Options:
+  - 1. 三角點
+  - 2. 衛星控制點
+  - 3. 一等水準點
+  - 4. 水準點
+
+## surveying-c:04200-05-064
+
+- Replacement PNG: `public/question-images/042003-04200-05-064.png`
+- App path: `/question-images/042003-04200-05-064.png`
+- Linked uploaded image:
+  - `/question-images/042003-04200-05-064.png`
+- Current fallback page: `/question-pages/04200-page-40.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 內政部一千分之一地形圖圖式規格表中，             為何者之圖式？
+- Options:
+  - 1. 三角點
+  - 2. 衛星控制點
+  - 3. 一等水準點
+  - 4. 水準點
+
+## surveying-c:04200-05-065
+
+- Replacement PNG: `public/question-images/042003-04200-05-065.png`
+- App path: `/question-images/042003-04200-05-065.png`
+- Linked uploaded image:
+  - `/question-images/042003-04200-05-065.png`
+- Current fallback page: `/question-pages/04200-page-40.jpg`
+- Kind: single
+- Official answer: 2
+- Prompt: 內政部一千分之一地形圖圖式規格表中，             為何者之圖式？
+- Options:
+  - 1. 三角點
+  - 2. 衛星定位點
+  - 3. 一等水準點
+  - 4. 水準點
+
+## surveying-c:04200-05-066
+
+- Replacement PNG: `public/question-images/042003-04200-05-066.png`
+- App path: `/question-images/042003-04200-05-066.png`
+- Linked uploaded image:
+  - `/question-images/042003-04200-05-066.png`
+- Current fallback page: `/question-pages/04200-page-40.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 內政部一千分之一地形圖圖式規格表中，                 為何者之圖式？
+- Options:
+  - 1. 省、直轄市等界
+  - 2. 縣、省轄市、直轄市區等界
+  - 3. 鄉、鎮、縣轄市、省轄市區等界
+  - 4. 村里界
+
+## surveying-c:04200-05-067
+
+- Replacement PNG: `public/question-images/042003-04200-05-067.png`
+- App path: `/question-images/042003-04200-05-067.png`
+- Linked uploaded image:
+  - `/question-images/042003-04200-05-067.png`
+- Current fallback page: `/question-pages/04200-page-40.jpg`
+- Kind: single
+- Official answer: 4
+- Prompt: 內政部一千分之一地形圖圖式規格表中，                為何者之圖式？
+- Options:
+  - 1. 省、直轄市等界
+  - 2. 縣、省轄市、直轄市區等界
+  - 3. 鄉、鎮、縣轄市、省轄市區等界
+  - 4. 村里界
+
+## surveying-c:04200-05-068
+
+- Replacement PNG: `public/question-images/042003-04200-05-068.png`
+- App path: `/question-images/042003-04200-05-068.png`
+- Linked uploaded image:
+  - `/question-images/042003-04200-05-068.png`
+- Current fallback page: `/question-pages/04200-page-40.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 內政部一千分之一地形圖圖式規格表中，               表示下列何種房屋？
+- Options:
+  - 1. 永久性房屋
+  - 2. 建築中房屋
+  - 3. 臨時性房屋
+  - 4. 旅社
+
+## surveying-c:04200-05-069
+
+- Replacement PNG: `public/question-images/042003-04200-05-069.png`
+- App path: `/question-images/042003-04200-05-069.png`
+- Linked uploaded image:
+  - `/question-images/042003-04200-05-069.png`
+- Current fallback page: `/question-pages/04200-page-40.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 內政部一千分之一地形圖圖式規格表中，                為下列何者之圖式尺寸？
+- Options:
+  - 1. 水準點
+  - 2. 導線點
+  - 3. 塔
+  - 4. 獨立墓
+
+## surveying-c:04200-05-070
+
+- Replacement PNG: `public/question-images/042003-04200-05-070.png`
+- App path: `/question-images/042003-04200-05-070.png`
+- Linked uploaded image:
+  - `/question-images/042003-04200-05-070.png`
+- Current fallback page: `/question-pages/04200-page-40.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 內政部一千分之一地形圖圖式規格表中，                   為下列何者之圖式尺寸？
+- Options:
+  - 1. 一般鐵路
+  - 2. 輕便鐵路
+  - 3. 高速鐵路
+  - 4. 高架鐵路
+
+## surveying-c:04200-05-071
+
+- Replacement PNG: `public/question-images/042003-04200-05-071.png`
+- App path: `/question-images/042003-04200-05-071.png`
+- Linked uploaded image:
+  - `/question-images/042003-04200-05-071.png`
+- Current fallback page: `/question-pages/04200-page-40.jpg`
+- Kind: single
+- Official answer: 3
+- Prompt: 內政部一千分之一地形圖圖式規格表中，               為下列何者之圖式尺寸？
+- Options:
+  - 1. 磚石橋
+  - 2. 木橋
+  - 3. 鋼筋混凝土橋
+  - 4. 車行吊橋
+
 ## engineering-surveying-b:04202-01-013
 
 - Replacement PNG: `public/question-images/042022-04202-01-013-1.png`
@@ -10137,7 +10562,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-05-108.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-05-108.png`
-- Current fallback page: `/question-pages/11700-page-35.jpg`
+- Current fallback page: `/question-pages/11700-page-34.jpg`
 - Kind: multiple
 - Official answer: 2,3
 - Prompt: 下圖之 CE 放大器中，VC C =20V，β=120，VB E =0.7V，下列何者正確？
@@ -10166,29 +10591,13 @@ Total active image questions: 1115
   - 3. 圖示選項 3
   - 4. 圖示選項 4
 
-## digital-electronics-b:11700-05-116
-
-- Replacement PNG: `public/question-images/117002-11700-05-116.png`
-- App path: `/question-images/117002-11700-05-116.png`
-- Linked uploaded image:
-  - `/question-images/117002-11700-05-116.png`
-- Current fallback page: `/question-pages/11700-page-36.jpg`
-- Kind: multiple
-- Official answer: 1,4
-- Prompt: 下圖之電路中，下列何者正確？
-- Options:
-  - 1. Vab=0V
-  - 2. Vb=68V
-  - 3. Vdb=10V
-  - 4. Vc=68V
-
 ## digital-electronics-b:11700-05-117
 
 - Replacement PNG: `public/question-images/117002-11700-05-117.png`
 - App path: `/question-images/117002-11700-05-117.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-05-117.png`
-- Current fallback page: `/question-pages/11700-page-36.jpg`
+- Current fallback page: `/question-pages/11700-page-35.jpg`
 - Kind: multiple
 - Official answer: 2,3,4
 - Prompt: 下圖之電路中，下列何者正確？
@@ -10220,7 +10629,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-013.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-013.png`
-- Current fallback page: `/question-pages/11700-page-38.jpg`
+- Current fallback page: `/question-pages/11700-page-37.jpg`
 - Kind: single
 - Official answer: 2
 - Prompt: 下圖之電路可做何使用？
@@ -10236,7 +10645,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-014.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-014.png`
-- Current fallback page: `/question-pages/11700-page-38.jpg`
+- Current fallback page: `/question-pages/11700-page-37.jpg`
 - Kind: single
 - Official answer: 3
 - Prompt: 下圖中，當 G=0，且 A=1、B=0 時，則其輸出 Y 3 Y 2 Y 1 Y 0 應為
@@ -10268,7 +10677,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-019.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-019.png`
-- Current fallback page: `/question-pages/11700-page-39.jpg`
+- Current fallback page: `/question-pages/11700-page-38.jpg`
 - Kind: single
 - Official answer: 1
 - Prompt: 下圖中，QB QA 之輸出狀態依序為
@@ -10284,7 +10693,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-020.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-020.png`
-- Current fallback page: `/question-pages/11700-page-39.jpg`
+- Current fallback page: `/question-pages/11700-page-38.jpg`
 - Kind: single
 - Official answer: 1
 - Prompt: 下圖之電路，其邏輯關係式為
@@ -10300,7 +10709,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-021.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-021.png`
-- Current fallback page: `/question-pages/11700-page-39.jpg`
+- Current fallback page: `/question-pages/11700-page-38.jpg`
 - Kind: single
 - Official answer: 1
 - Prompt: 若開關的開路視為邏輯 0，通路視為邏輯 1，則下圖之電路 X 至 Y 電路的邏輯式為
@@ -10316,7 +10725,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-022.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-022.png`
-- Current fallback page: `/question-pages/11700-page-39.jpg`
+- Current fallback page: `/question-pages/11700-page-38.jpg`
 - Kind: single
 - Official answer: 2
 - Prompt: 如下所示之卡諾圖，下列何者為化簡後的結果？
@@ -10335,7 +10744,7 @@ Total active image questions: 1115
   - `/question-images/117002-11700-06-024-option-2.png`
   - `/question-images/117002-11700-06-024-option-3.png`
   - `/question-images/117002-11700-06-024-option-4.png`
-- Current fallback page: `/question-pages/11700-page-40.jpg`
+- Current fallback page: `/question-pages/11700-page-39.jpg`
 - Kind: single
 - Official answer: 3
 - Prompt: 下列何者為 TTL 之圖騰柱（totem-pole）輸出級電路？
@@ -10351,7 +10760,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-027.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-027.png`
-- Current fallback page: `/question-pages/11700-page-40.jpg`
+- Current fallback page: `/question-pages/11700-page-39.jpg`
 - Kind: single
 - Official answer: 1
 - Prompt: 下圖之電路，其邏輯關係式為何？
@@ -10367,7 +10776,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-028.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-028.png`
-- Current fallback page: `/question-pages/11700-page-40.jpg`
+- Current fallback page: `/question-pages/11700-page-39.jpg`
 - Kind: single
 - Official answer: 1
 - Prompt: 如下所示之卡諾圖，下列何者為化簡後的結果？
@@ -10387,7 +10796,7 @@ Total active image questions: 1115
   - `/question-images/117002-11700-06-029-option-3.png`
   - `/question-images/117002-11700-06-029-option-4.png`
   - `/question-images/117002-11700-06-029-5.png`
-- Current fallback page: `/question-pages/11700-page-41.jpg`
+- Current fallback page: `/question-pages/11700-page-40.jpg`
 - Kind: single
 - Official answer: 2
 - Prompt: 下圖之電路的開關為常開（normally open），若開關在 t1 時按下，而後在 t2 時放開，則其輸出波形為何？
@@ -10403,7 +10812,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-033.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-033.png`
-- Current fallback page: `/question-pages/11700-page-41.jpg`
+- Current fallback page: `/question-pages/11700-page-40.jpg`
 - Kind: single
 - Official answer: 3
 - Prompt: 某數位電路之輸入為 A 與 B 端，輸出為 X 與 Y 端，其真值表如下表所示，則此邏輯電路為
@@ -10419,7 +10828,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-036.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-036.png`
-- Current fallback page: `/question-pages/11700-page-42.jpg`
+- Current fallback page: `/question-pages/11700-page-41.jpg`
 - Kind: single
 - Official answer: 3
 - Prompt: 下圖為半減器結構時，A 與 B 分別為
@@ -10435,7 +10844,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-038.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-038.png`
-- Current fallback page: `/question-pages/11700-page-42.jpg`
+- Current fallback page: `/question-pages/11700-page-41.jpg`
 - Kind: single
 - Official answer: 1
 - Prompt: 下圖之邏輯電路，輸出 F 為
@@ -10451,7 +10860,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-042.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-042.png`
-- Current fallback page: `/question-pages/11700-page-42.jpg`
+- Current fallback page: `/question-pages/11700-page-41.jpg`
 - Kind: single
 - Official answer: 4
 - Prompt: 下圖所示，當 Fin 為 1KHz 方波時，Fout 應為
@@ -10467,7 +10876,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-043.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-043.png`
-- Current fallback page: `/question-pages/11700-page-42.jpg`
+- Current fallback page: `/question-pages/11700-page-41.jpg`
 - Kind: single
 - Official answer: 4
 - Prompt: 下圖所示，晶體振盪電路所使用的反或閘是 CMOS 元件 CD4001，圖中之回授電阻 R 至少應為何值，方能正常振盪？
@@ -10483,7 +10892,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-044.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-044.png`
-- Current fallback page: `/question-pages/11700-page-43.jpg`
+- Current fallback page: `/question-pages/11700-page-42.jpg`
 - Kind: single
 - Official answer: 2
 - Prompt: 下圖所示，此一由 TTL 元件所組成的振盪電路，其輸出頻率（OUTPUT）應為
@@ -10499,7 +10908,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-046.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-046.png`
-- Current fallback page: `/question-pages/11700-page-43.jpg`
+- Current fallback page: `/question-pages/11700-page-42.jpg`
 - Kind: single
 - Official answer: 3
 - Prompt: 下圖所示，其應屬於下列何種編碼轉換電路？
@@ -10515,7 +10924,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-049.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-049.png`
-- Current fallback page: `/question-pages/11700-page-43.jpg`
+- Current fallback page: `/question-pages/11700-page-42.jpg`
 - Kind: single
 - Official answer: 1
 - Prompt: 下圖中，Y 為 0 的情況有幾種？
@@ -10531,7 +10940,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-050.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-050.png`
-- Current fallback page: `/question-pages/11700-page-44.jpg`
+- Current fallback page: `/question-pages/11700-page-42.jpg`
 - Kind: single
 - Official answer: 4
 - Prompt: 下圖之電路，若 A=B=C=1，則輸出為
@@ -10547,7 +10956,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-051.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-051.png`
-- Current fallback page: `/question-pages/11700-page-44.jpg`
+- Current fallback page: `/question-pages/11700-page-43.jpg`
 - Kind: single
 - Official answer: 1
 - Prompt: 下圖中，初始輸出狀態 Q1Q2Q3=100，且電路中，時鐘 CK 的頻率F=150KHz，則輸出頻率 FO 2 為
@@ -10563,7 +10972,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-052.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-052.png`
-- Current fallback page: `/question-pages/11700-page-44.jpg`
+- Current fallback page: `/question-pages/11700-page-43.jpg`
 - Kind: single
 - Official answer: 2
 - Prompt: 下圖為一四位元的移位型暫存器，其輸出與輸入特徵為
@@ -10579,7 +10988,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-053.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-053.png`
-- Current fallback page: `/question-pages/11700-page-44.jpg`
+- Current fallback page: `/question-pages/11700-page-43.jpg`
 - Kind: single
 - Official answer: 3
 - Prompt: 下圖為一 RC 充電波形，若輸入電壓為 E，求第一個 RC 時間常數的 A 點到第二個 RC 時間常數的 B 點間，電壓共增加
@@ -10595,7 +11004,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-054.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-054.png`
-- Current fallback page: `/question-pages/11700-page-45.jpg`
+- Current fallback page: `/question-pages/11700-page-43.jpg`
 - Kind: single
 - Official answer: 3
 - Prompt: 下圖之元件為
@@ -10611,7 +11020,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-057.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-057.png`
-- Current fallback page: `/question-pages/11700-page-45.jpg`
+- Current fallback page: `/question-pages/11700-page-44.jpg`
 - Kind: single
 - Official answer: 4
 - Prompt: 下圖的卡諾圖，經化簡後 Y(A,B,C,D)應為
@@ -10627,7 +11036,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-058.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-058.png`
-- Current fallback page: `/question-pages/11700-page-45.jpg`
+- Current fallback page: `/question-pages/11700-page-44.jpg`
 - Kind: single
 - Official answer: 3
 - Prompt: 下圖中，若 5RC＜＜Tw（脈寬），則電路應為
@@ -10643,7 +11052,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-060.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-060.png`
-- Current fallback page: `/question-pages/11700-page-45.jpg`
+- Current fallback page: `/question-pages/11700-page-44.jpg`
 - Kind: single
 - Official answer: 3
 - Prompt: 下圖的計數器，其輸出 f o 為
@@ -10659,7 +11068,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-074.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-074.png`
-- Current fallback page: `/question-pages/11700-page-46.jpg`
+- Current fallback page: `/question-pages/11700-page-45.jpg`
 - Kind: single
 - Official answer: 1
 - Prompt: 下圖之 CD4510 BCD 計數器，下列敘述何者正確？
@@ -10675,7 +11084,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-078.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-078.png`
-- Current fallback page: `/question-pages/11700-page-47.jpg`
+- Current fallback page: `/question-pages/11700-page-46.jpg`
 - Kind: single
 - Official answer: 2
 - Prompt: 下圖所示，下列敘述何者正確？
@@ -10691,7 +11100,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-079.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-079.png`
-- Current fallback page: `/question-pages/11700-page-47.jpg`
+- Current fallback page: `/question-pages/11700-page-46.jpg`
 - Kind: single
 - Official answer: 3
 - Prompt: 下圖為已知邏輯電路，下列輸出函數何者正確？
@@ -10707,7 +11116,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-080.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-080.png`
-- Current fallback page: `/question-pages/11700-page-48.jpg`
+- Current fallback page: `/question-pages/11700-page-46.jpg`
 - Kind: single
 - Official answer: 2
 - Prompt: 下圖所示，其功能之敘述下列何者正確？
@@ -10723,7 +11132,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-086.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-086.png`
-- Current fallback page: `/question-pages/11700-page-48.jpg`
+- Current fallback page: `/question-pages/11700-page-47.jpg`
 - Kind: single
 - Official answer: 3
 - Prompt: 對於下圖之組合邏輯（A） A ＞ B 時， f 1 =1（其餘為 0）、（B） A = B 時，f 2 =1（其餘為 0）、（C） A ＜ B 時， f 3 =1（其餘為 0）；則其邏輯方程式f 1 =
@@ -10739,7 +11148,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-087.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-087.png`
-- Current fallback page: `/question-pages/11700-page-49.jpg`
+- Current fallback page: `/question-pages/11700-page-47.jpg`
 - Kind: single
 - Official answer: 1
 - Prompt: 下圖所示，小林想應用 CPLD 電路板來控制一顆 LED 的明滅，若供給電壓 Vcc 為 3.3V，LED 工作電壓為 1.8V，若小林想要限制流經 LED 的電流在 5mA～15mA 之間，則小林應該選用的電阻 R 應該為何者較為適當？
@@ -10755,7 +11164,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-090.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-090.png`
-- Current fallback page: `/question-pages/11700-page-49.jpg`
+- Current fallback page: `/question-pages/11700-page-48.jpg`
 - Kind: single
 - Official answer: 1
 - Prompt: 下圖所示，IC 74138 的輸出端設定為高電位作動（active high），並將F a F b F c F d F e F f F g 經由限流電阻連接到共陰極七段顯示器的 abcdefg 上，若輸入端 CBA=111，則七段顯示器應顯示下列何字？
@@ -10771,7 +11180,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-091.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-091.png`
-- Current fallback page: `/question-pages/11700-page-50.jpg`
+- Current fallback page: `/question-pages/11700-page-48.jpg`
 - Kind: single
 - Official answer: 1
 - Prompt: 下圖所示，IC 74292 為可程式化之除頻器，若輸入端 GCLK 輸入4.096MHZ 之時脈，則輸出端 OUT 脈波之頻率為何？
@@ -10787,10 +11196,10 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-092.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-092.png`
-- Current fallback page: `/question-pages/11700-page-50.jpg`
+- Current fallback page: `/question-pages/11700-page-48.jpg`
 - Kind: single
 - Official answer: 1
-- Prompt: 下圖所示，F 與 A、B 之邏輯關悉為何？
+- Prompt: 下圖所示，F 與 A、B 之邏輯關係為何？
 - Options:
   - 1. XOR
   - 2. OR
@@ -10803,7 +11212,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-094.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-094.png`
-- Current fallback page: `/question-pages/11700-page-50.jpg`
+- Current fallback page: `/question-pages/11700-page-49.jpg`
 - Kind: multiple
 - Official answer: 2,4
 - Prompt: 下圖之電路的輸入、輸出組合中，下列敘述何者正確？
@@ -10819,7 +11228,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-096.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-096.png`
-- Current fallback page: `/question-pages/11700-page-51.jpg`
+- Current fallback page: `/question-pages/11700-page-49.jpg`
 - Kind: multiple
 - Official answer: 1,4
 - Prompt: 下圖之計數電路，何者敘述正確？
@@ -10835,7 +11244,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-097.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-097.png`
-- Current fallback page: `/question-pages/11700-page-51.jpg`
+- Current fallback page: `/question-pages/11700-page-49.jpg`
 - Kind: multiple
 - Official answer: 2,4
 - Prompt: 下圖係以 4×1 多工器來完成布林函數式 Y(A,B,C)=(0,2,3,4,6,7)，則各輸入接腳之接法何者正確？
@@ -10851,7 +11260,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-100.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-100.png`
-- Current fallback page: `/question-pages/11700-page-51.jpg`
+- Current fallback page: `/question-pages/11700-page-49.jpg`
 - Kind: multiple
 - Official answer: 1,3
 - Prompt: 下圖所示，具有下列哪些特性？
@@ -10867,7 +11276,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-108.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-108.png`
-- Current fallback page: `/question-pages/11700-page-53.jpg`
+- Current fallback page: `/question-pages/11700-page-51.jpg`
 - Kind: multiple
 - Official answer: 2,3
 - Prompt: 下圖所示，下列敘述何者正確？
@@ -10883,7 +11292,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-109.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-109.png`
-- Current fallback page: `/question-pages/11700-page-53.jpg`
+- Current fallback page: `/question-pages/11700-page-51.jpg`
 - Kind: multiple
 - Official answer: 1,4
 - Prompt: 下圖所示，下列敘述何者正確？
@@ -10899,7 +11308,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-111.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-111.png`
-- Current fallback page: `/question-pages/11700-page-53.jpg`
+- Current fallback page: `/question-pages/11700-page-51.jpg`
 - Kind: multiple
 - Official answer: 3,4
 - Prompt: 下圖之計數器，下列敘述何者正確？
@@ -10915,7 +11324,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-112.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-112.png`
-- Current fallback page: `/question-pages/11700-page-54.jpg`
+- Current fallback page: `/question-pages/11700-page-52.jpg`
 - Kind: multiple
 - Official answer: 1,2,3
 - Prompt: 有一卡諾圖，下列何者為化簡後的輸出函數？
@@ -10931,7 +11340,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-113.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-113.png`
-- Current fallback page: `/question-pages/11700-page-54.jpg`
+- Current fallback page: `/question-pages/11700-page-52.jpg`
 - Kind: multiple
 - Official answer: 2,3
 - Prompt: 下圖為已知邏輯電路，下列輸出函數何者正確？
@@ -10947,7 +11356,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-114.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-114.png`
-- Current fallback page: `/question-pages/11700-page-54.jpg`
+- Current fallback page: `/question-pages/11700-page-52.jpg`
 - Kind: multiple
 - Official answer: 1,2,3
 - Prompt: 下圖為已知全加器邏輯電路，下列敘述何者正確？
@@ -10963,7 +11372,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-115.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-115.png`
-- Current fallback page: `/question-pages/11700-page-54.jpg`
+- Current fallback page: `/question-pages/11700-page-52.jpg`
 - Kind: multiple
 - Official answer: 1,4
 - Prompt: 如下為 1 對 4 解多工器真值表，下列輸出信號之布林函數何者正確？
@@ -10979,7 +11388,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-116.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-116.png`
-- Current fallback page: `/question-pages/11700-page-55.jpg`
+- Current fallback page: `/question-pages/11700-page-53.jpg`
 - Kind: multiple
 - Official answer: 2,3
 - Prompt: 如下列真值表所示，下列輸出函數何者正確？
@@ -10998,7 +11407,7 @@ Total active image questions: 1115
   - `/question-images/117002-11700-06-117-option-2.png`
   - `/question-images/117002-11700-06-117-option-3.png`
   - `/question-images/117002-11700-06-117-option-4.png`
-- Current fallback page: `/question-pages/11700-page-55.jpg`
+- Current fallback page: `/question-pages/11700-page-53.jpg`
 - Kind: multiple
 - Official answer: 2,3
 - Prompt: 下列哪些正反器的激勵表正確？
@@ -11014,7 +11423,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-119.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-119.png`
-- Current fallback page: `/question-pages/11700-page-55.jpg`
+- Current fallback page: `/question-pages/11700-page-53.jpg`
 - Kind: multiple
 - Official answer: 2,3,4
 - Prompt: 如下列真值表所示，其輸入和輸出關係為
@@ -11030,7 +11439,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-122.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-122.png`
-- Current fallback page: `/question-pages/11700-page-56.jpg`
+- Current fallback page: `/question-pages/11700-page-54.jpg`
 - Kind: multiple
 - Official answer: 2,4
 - Prompt: 下圖之電路的輸入、輸出組合中，下列敘述何者正確？
@@ -11046,7 +11455,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-127.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-127.png`
-- Current fallback page: `/question-pages/11700-page-56.jpg`
+- Current fallback page: `/question-pages/11700-page-54.jpg`
 - Kind: multiple
 - Official answer: 1,2
 - Prompt: 下圖所示，其功能之敘述下列何者正確？
@@ -11062,7 +11471,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-128.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-128.png`
-- Current fallback page: `/question-pages/11700-page-57.jpg`
+- Current fallback page: `/question-pages/11700-page-55.jpg`
 - Kind: multiple
 - Official answer: 1,2
 - Prompt: 下圖所示，其功能之敘述下列何者正確？
@@ -11078,7 +11487,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-129.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-129.png`
-- Current fallback page: `/question-pages/11700-page-57.jpg`
+- Current fallback page: `/question-pages/11700-page-55.jpg`
 - Kind: multiple
 - Official answer: 1,3
 - Prompt: 化簡如下列之卡諾圖，其邏輯函數應為何？
@@ -11094,7 +11503,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-136.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-136.png`
-- Current fallback page: `/question-pages/11700-page-58.jpg`
+- Current fallback page: `/question-pages/11700-page-56.jpg`
 - Kind: multiple
 - Official answer: 1,2
 - Prompt: 下圖之電路的功能為何？
@@ -11110,7 +11519,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-06-138.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-06-138.png`
-- Current fallback page: `/question-pages/11700-page-58.jpg`
+- Current fallback page: `/question-pages/11700-page-56.jpg`
 - Kind: multiple
 - Official answer: 3,4
 - Prompt: 下圖所示，下列敘述何者正確？
@@ -11129,7 +11538,7 @@ Total active image questions: 1115
   - `/question-images/117002-11700-06-140-option-2.png`
   - `/question-images/117002-11700-06-140-option-3.png`
   - `/question-images/117002-11700-06-140-option-4.png`
-- Current fallback page: `/question-pages/11700-page-58.jpg`
+- Current fallback page: `/question-pages/11700-page-56.jpg`
 - Kind: multiple
 - Official answer: 1,2
 - Prompt: 下列何者等同 XNOR 電路？
@@ -11145,7 +11554,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-07-081.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-07-081.png`
-- Current fallback page: `/question-pages/11700-page-64.jpg`
+- Current fallback page: `/question-pages/11700-page-62.jpg`
 - Kind: single
 - Official answer: 4
 - Prompt: 下圖之符號為
@@ -11161,7 +11570,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-08-007.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-08-007.png`
-- Current fallback page: `/question-pages/11700-page-68.jpg`
+- Current fallback page: `/question-pages/11700-page-66.jpg`
 - Kind: single
 - Official answer: 3
 - Prompt: 執行下列 C 語言程式，其輸出結果為何？
@@ -11177,7 +11586,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-08-011.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-08-011.png`
-- Current fallback page: `/question-pages/11700-page-68.jpg`
+- Current fallback page: `/question-pages/11700-page-66.jpg`
 - Kind: single
 - Official answer: 3
 - Prompt: 執行下列 C 語言程式，其中 do…while 迴圈會執行幾次？
@@ -11193,7 +11602,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-08-014.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-08-014.png`
-- Current fallback page: `/question-pages/11700-page-69.jpg`
+- Current fallback page: `/question-pages/11700-page-67.jpg`
 - Kind: single
 - Official answer: 3
 - Prompt: 下列 C 語言程式中，for 迴圈的執行次數，何者正確？
@@ -11209,7 +11618,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-08-015.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-08-015.png`
-- Current fallback page: `/question-pages/11700-page-69.jpg`
+- Current fallback page: `/question-pages/11700-page-67.jpg`
 - Kind: single
 - Official answer: 3
 - Prompt: 執行下列 C 語言程式，其輸出結果為何？
@@ -11225,7 +11634,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-08-016.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-08-016.png`
-- Current fallback page: `/question-pages/11700-page-69.jpg`
+- Current fallback page: `/question-pages/11700-page-67.jpg`
 - Kind: single
 - Official answer: 4
 - Prompt: 執行下列 for 巢狀迴圈的程式，其中 printf("\n")共執行幾次？
@@ -11241,7 +11650,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-08-017.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-08-017.png`
-- Current fallback page: `/question-pages/11700-page-70.jpg`
+- Current fallback page: `/question-pages/11700-page-68.jpg`
 - Kind: single
 - Official answer: 1
 - Prompt: 執行下列 C 語言程式，其輸出結果為何？
@@ -11257,7 +11666,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-08-018.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-08-018.png`
-- Current fallback page: `/question-pages/11700-page-70.jpg`
+- Current fallback page: `/question-pages/11700-page-68.jpg`
 - Kind: single
 - Official answer: 3
 - Prompt: 執行下列 C 語言程式，其輸出結果為何？
@@ -11273,7 +11682,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-08-021.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-08-021.png`
-- Current fallback page: `/question-pages/11700-page-70.jpg`
+- Current fallback page: `/question-pages/11700-page-68.jpg`
 - Kind: single
 - Official answer: 1
 - Prompt: 執行下列 C 語言程式，其輸出結果為
@@ -11289,7 +11698,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-08-022.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-08-022.png`
-- Current fallback page: `/question-pages/11700-page-71.jpg`
+- Current fallback page: `/question-pages/11700-page-69.jpg`
 - Kind: single
 - Official answer: 3
 - Prompt: 執行下列 C 語言程式，其輸出結果為
@@ -11305,7 +11714,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-08-024.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-08-024.png`
-- Current fallback page: `/question-pages/11700-page-71.jpg`
+- Current fallback page: `/question-pages/11700-page-69.jpg`
 - Kind: single
 - Official answer: 2
 - Prompt: 執行下列 C 語言程式，其輸出結果為
@@ -11321,7 +11730,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-08-029.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-08-029.png`
-- Current fallback page: `/question-pages/11700-page-72.jpg`
+- Current fallback page: `/question-pages/11700-page-70.jpg`
 - Kind: single
 - Official answer: 2
 - Prompt: 執行下列 C 語言程式，其輸出結果為
@@ -11337,7 +11746,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-08-031.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-08-031.png`
-- Current fallback page: `/question-pages/11700-page-72.jpg`
+- Current fallback page: `/question-pages/11700-page-70.jpg`
 - Kind: single
 - Official answer: 1
 - Prompt: 執行下列 C 語言程式，其輸出結果為
@@ -11353,7 +11762,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-08-035.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-08-035.png`
-- Current fallback page: `/question-pages/11700-page-73.jpg`
+- Current fallback page: `/question-pages/11700-page-71.jpg`
 - Kind: single
 - Official answer: 2
 - Prompt: 執行下列 C 語言程式，其輸出為何？
@@ -11369,7 +11778,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-08-036.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-08-036.png`
-- Current fallback page: `/question-pages/11700-page-73.jpg`
+- Current fallback page: `/question-pages/11700-page-71.jpg`
 - Kind: single
 - Official answer: 1
 - Prompt: 執行下列 C 語言程式，其輸出為何？
@@ -11385,7 +11794,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-08-043.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-08-043.png`
-- Current fallback page: `/question-pages/11700-page-74.jpg`
+- Current fallback page: `/question-pages/11700-page-72.jpg`
 - Kind: single
 - Official answer: 4
 - Prompt: 將 C 語言程式中的 Port 以 P1 取代，是在哪一個編譯過程？
@@ -11401,7 +11810,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-08-057.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-08-057.png`
-- Current fallback page: `/question-pages/11700-page-75.jpg`
+- Current fallback page: `/question-pages/11700-page-73.jpg`
 - Kind: single
 - Official answer: 4
 - Prompt: 下列標準 C 語言指令後加入下列哪一個指令，可將存放於 x[]字串陣列中的資料複製到 y 所指到的記憶體空間？
@@ -11417,7 +11826,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-08-058.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-08-058.png`
-- Current fallback page: `/question-pages/11700-page-75.jpg`
+- Current fallback page: `/question-pages/11700-page-73.jpg`
 - Kind: single
 - Official answer: 1
 - Prompt: 執行下列標準 C 語言程式，輸出為何？
@@ -11433,7 +11842,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-08-059.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-08-059.png`
-- Current fallback page: `/question-pages/11700-page-75.jpg`
+- Current fallback page: `/question-pages/11700-page-73.jpg`
 - Kind: single
 - Official answer: 4
 - Prompt: 執行下列標準 C 語言程式，輸出為何？
@@ -11449,7 +11858,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-08-060.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-08-060.png`
-- Current fallback page: `/question-pages/11700-page-76.jpg`
+- Current fallback page: `/question-pages/11700-page-74.jpg`
 - Kind: single
 - Official answer: 4
 - Prompt: 執行下列標準 C 語言程式，輸出為何？
@@ -11465,7 +11874,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-08-061.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-08-061.png`
-- Current fallback page: `/question-pages/11700-page-76.jpg`
+- Current fallback page: `/question-pages/11700-page-74.jpg`
 - Kind: single
 - Official answer: 1
 - Prompt: 執行下列標準 C 語言程式，輸出為何？
@@ -11481,7 +11890,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-08-062.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-08-062.png`
-- Current fallback page: `/question-pages/11700-page-76.jpg`
+- Current fallback page: `/question-pages/11700-page-74.jpg`
 - Kind: single
 - Official answer: 1
 - Prompt: 執行下列標準 C 語言程式，輸出為何？
@@ -11497,7 +11906,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-08-063.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-08-063.png`
-- Current fallback page: `/question-pages/11700-page-77.jpg`
+- Current fallback page: `/question-pages/11700-page-75.jpg`
 - Kind: single
 - Official answer: 1
 - Prompt: 執行下列標準 C 語言程式，輸出為何？
@@ -11513,7 +11922,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-08-064.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-08-064.png`
-- Current fallback page: `/question-pages/11700-page-77.jpg`
+- Current fallback page: `/question-pages/11700-page-75.jpg`
 - Kind: single
 - Official answer: 1
 - Prompt: 執行下列標準 C 語言程式，輸出為何？
@@ -11529,7 +11938,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-08-065.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-08-065.png`
-- Current fallback page: `/question-pages/11700-page-77.jpg`
+- Current fallback page: `/question-pages/11700-page-75.jpg`
 - Kind: single
 - Official answer: 1
 - Prompt: 執行下列標準 C 語言程式，輸出為何？
@@ -11545,7 +11954,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-08-071.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-08-071.png`
-- Current fallback page: `/question-pages/11700-page-77.jpg`
+- Current fallback page: `/question-pages/11700-page-75.jpg`
 - Kind: multiple
 - Official answer: 1,4
 - Prompt: 下列 C 語言程式，何者正確？
@@ -11561,7 +11970,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-08-074.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-08-074.png`
-- Current fallback page: `/question-pages/11700-page-78.jpg`
+- Current fallback page: `/question-pages/11700-page-76.jpg`
 - Kind: multiple
 - Official answer: 1,2
 - Prompt: 已知 ASCII Code a=97, A=65，若下列程式執行結果為 King 或 KING，程式中之 n[4]陣列初值要如何設定？
@@ -11577,7 +11986,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-08-075.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-08-075.png`
-- Current fallback page: `/question-pages/11700-page-79.jpg`
+- Current fallback page: `/question-pages/11700-page-77.jpg`
 - Kind: multiple
 - Official answer: 1,2
 - Prompt: 有關標準 C 語言中，union 執行下列程式後，請選出正確結果
@@ -11593,7 +12002,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-08-076.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-08-076.png`
-- Current fallback page: `/question-pages/11700-page-79.jpg`
+- Current fallback page: `/question-pages/11700-page-77.jpg`
 - Kind: multiple
 - Official answer: 1,2
 - Prompt: 有關標準 C 語言中，結構（struct）定義的記憶體安排，下列程式中，sizeof(A)與 sizeof(B)分別為
@@ -11609,7 +12018,7 @@ Total active image questions: 1115
 - App path: `/question-images/117002-11700-10-023.png`
 - Linked uploaded image:
   - `/question-images/117002-11700-10-023.png`
-- Current fallback page: `/question-pages/11700-page-84.jpg`
+- Current fallback page: `/question-pages/11700-page-82.jpg`
 - Kind: single
 - Official answer: 1
 - Prompt: 下圖為一軟體掃描方式的鍵盤電路，圖中的電阻器作用為
@@ -18177,7 +18586,7 @@ Total active image questions: 1115
 - App path: `/question-images/900012-90001-02-044.png`
 - Linked uploaded image:
   - `/question-images/900012-90001-02-044.png`
-- Current fallback page: `/question-pages/90001-page-6.jpg`
+- Current fallback page: `/question-pages/90001-page-7.jpg`
 - Kind: multiple
 - Official answer: 1,4
 - Prompt: 如下圖所示有一直徑 Xmm 之圓棒，欲切削成對邊為 12mm 之正六邊形，則下列何者比較節省材料？
@@ -18313,7 +18722,7 @@ Total active image questions: 1115
 - App path: `/question-images/900012-90001-08-005.png`
 - Linked uploaded image:
   - `/question-images/900012-90001-08-005.png`
-- Current fallback page: `/question-pages/90001-page-24.jpg`
+- Current fallback page: `/question-pages/90001-page-25.jpg`
 - Kind: single
 - Official answer: 4
 - Prompt: 油壓元件符號，係指
@@ -18329,7 +18738,7 @@ Total active image questions: 1115
 - App path: `/question-images/900012-90001-08-006.png`
 - Linked uploaded image:
   - `/question-images/900012-90001-08-006.png`
-- Current fallback page: `/question-pages/90001-page-24.jpg`
+- Current fallback page: `/question-pages/90001-page-25.jpg`
 - Kind: single
 - Official answer: 3
 - Prompt: 元件符號，係指
@@ -18409,7 +18818,7 @@ Total active image questions: 1115
 - App path: `/question-images/900012-90001-08-016.png`
 - Linked uploaded image:
   - `/question-images/900012-90001-08-016.png`
-- Current fallback page: `/question-pages/90001-page-25.jpg`
+- Current fallback page: `/question-pages/90001-page-26.jpg`
 - Kind: single
 - Official answer: 2
 - Prompt: 如下圖所示之系統裝置是一種
@@ -18473,7 +18882,7 @@ Total active image questions: 1115
 - App path: `/question-images/900012-90001-08-022.png`
 - Linked uploaded image:
   - `/question-images/900012-90001-08-022.png`
-- Current fallback page: `/question-pages/90001-page-26.jpg`
+- Current fallback page: `/question-pages/90001-page-27.jpg`
 - Kind: single
 - Official answer: 2
 - Prompt: 如下圖所示之油壓系統裝置，其中之壓力控制閥係一種
@@ -18521,7 +18930,7 @@ Total active image questions: 1115
 - App path: `/question-images/900012-90001-08-042.png`
 - Linked uploaded image:
   - `/question-images/900012-90001-08-042.png`
-- Current fallback page: `/question-pages/90001-page-27.jpg`
+- Current fallback page: `/question-pages/90001-page-28.jpg`
 - Kind: single
 - Official answer: 1
 - Prompt: 氣壓元件符號"         "，係指
@@ -18537,7 +18946,7 @@ Total active image questions: 1115
 - App path: `/question-images/900012-90001-08-043.png`
 - Linked uploaded image:
   - `/question-images/900012-90001-08-043.png`
-- Current fallback page: `/question-pages/90001-page-27.jpg`
+- Current fallback page: `/question-pages/90001-page-28.jpg`
 - Kind: single
 - Official answer: 2
 - Prompt: 液壓元件符號"          "，係指

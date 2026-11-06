@@ -89,6 +89,7 @@ describe('active exam selection', () => {
       'loader-operation-single',
       'interior-decoration-management-b',
       'engineering-surveying-b',
+      'surveying-c',
       'machining-c',
       'beverage-preparation-c',
       'dining-service-c',
@@ -154,6 +155,7 @@ describe('active exam selection', () => {
     expect(groups.find((group) => group.category === '營造工程')?.exams.map((exam) => exam.examId)).toEqual([
       'interior-decoration-management-b',
       'engineering-surveying-b',
+      'surveying-c',
     ])
   })
 

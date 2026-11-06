@@ -35,6 +35,7 @@ const TARGETS = {
   'industrial-electronics-c': { subjectCode: '02800', pdf: 'source/028003A11.pdf', bank: 'public/data/exams/industrial-electronics-c/questions.json' },
   'engineering-surveying-b': { subjectCode: '04202', pdf: 'source/042022A11.pdf', bank: 'public/data/exams/engineering-surveying-b/questions.json' },
   'machining-c': { subjectCode: '18500', pdf: 'source/185003A10.pdf', bank: 'public/data/exams/machining-c/questions.json' },
+  'surveying-c': { subjectCode: '04200', pdf: 'source/042003A11.pdf', bank: 'public/data/exams/surveying-c/questions.json' },
   'heat-treatment-c': { subjectCode: '02100', pdf: 'source/021003A12.pdf', bank: 'public/data/exams/heat-treatment-c/questions.json' },
   'interior-decoration-management-b': { subjectCode: '12600', pdf: 'source/126002A12.pdf', bank: 'public/data/exams/interior-decoration-management-b/questions.json' },
   'accounting-c': { subjectCode: '14900', pdf: 'source/149003A15.pdf', bank: 'public/data/exams/accounting-c/questions.json' },

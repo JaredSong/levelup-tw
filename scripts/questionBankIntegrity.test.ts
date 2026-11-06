@@ -2,6 +2,7 @@ import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
 import { buildMockQueue, type Question } from '../src/domain/studyEngine'
 import { parseQuestionBank } from './questionParser.mjs'
+import { SURVEYING_FIGURE_IDS } from './surveyingQuestionOverrides.mjs'
 
 function loadBank(): Question[] {
   return JSON.parse(readFileSync(new URL('../source/questions.json', import.meta.url), 'utf8')) as Question[]
@@ -476,6 +477,16 @@ describe('published question bank', () => {
         sections: 12,
         occupationQuota: 64,
       },
+      {
+        examId: 'surveying-c',
+        occupationCode: '04200',
+        version: 'A11',
+        occupation: 704,
+        total: 1104,
+        active: 1098,
+        sections: 12,
+        occupationQuota: 64,
+      },
     ]
 
     for (const item of cases) {
@@ -513,6 +524,24 @@ describe('published question bank', () => {
     expect(byId.get('18500-06-016')?.prompt).toContain('上偏差 +0.03、下偏差 +0')
     expect(byId.get('18500-06-015')?.hasFigure).toBe(false)
     expect(byId.get('18500-06-016')?.hasFigure).toBe(false)
+  })
+
+  it('ships every reviewed surveying figure as an image and keeps 本題刪題 inactive', () => {
+    const byId = new Map(loadExamBank('surveying-c').map((question) => [question.id, question]))
+    expect(byId.get('04200-01-033')?.active).toBe(false)
+    // Table questions (下表／如下) have no parser-visible figure marker; a
+    // missing hasFigure here means the learner sees a prompt with no table.
+    for (const id of SURVEYING_FIGURE_IDS) {
+      const question = byId.get(id)
+      expect(question?.hasFigure, id).toBe(true)
+      for (const image of question?.sourceImages ?? [question?.sourceImage]) {
+        expect(image, id).toMatch(/^\/question-images\/042003-/)
+        expect(existsSync(new URL(`../public${image}`, import.meta.url)), `${id} ${image}`).toBe(true)
+      }
+    }
+    // Transcribed formulas stay text, not tiny images.
+    expect(byId.get('04200-01-052')?.hasFigure).toBe(false)
+    expect(byId.get('04200-01-052')?.options).toEqual(['P＝k/σ̂', 'P＝k/σ̂²', 'P＝k/σ̂³', 'P＝k/σ̂⁴'])
   })
 
   it('publishes the official aircraft maintenance class C pack', () => {

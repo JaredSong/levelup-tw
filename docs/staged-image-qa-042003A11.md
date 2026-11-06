@@ -1,6 +1,12 @@
 # 測量丙級 (042003A11) source QA
 
-Status: **staged only; do not publish**. The answer markers match the staged official PDF. Identified formula and image defects have been repaired locally, but this is not a full visual proofread of all 704 questions. The separate WDA source-drift gate remains unresolved.
+Status: **promoted 2026-11-06 to the publishable pack `surveying-c`.** Jared signed off the 26 cropped question panels (35 PNGs); the shipped files in `public/question-images/042003-*` are byte-identical (SHA-256) to the reviewed crops in `tmp/import-batch/042003A11/crops/`. Answer keys: 703/703 active occupation questions agree with `042003A11.pdf` (`node scripts/verifyAnswerKeys.mjs surveying-c`). The WDA source-drift gate passes. A pattern scan of all 704 questions for lost glyphs (private-use/replacement characters, empty or duplicate options, dangling operators, unexplained blank gaps) found no defects beyond those already repaired: the remaining hits are genuine ± signs and the blank gaps that the map-symbol figures fill. This is still not a word-by-word human proofread of every question.
+
+Promotion caught one build bug before release: the five table questions (`03-152`, `04-132/142/143/147`) were built as text-only because nothing forced `SURVEYING_FIGURE_IDS` to be figures, so learners would have seen 「下表…」 with no table. `build-exam-packs.mjs` now forces them, and `questionBankIntegrity.test.ts` asserts every reviewed figure ships with existing images.
+
+Original staging notes follow.
+
+Previous status: staged only; do not publish. The answer markers match the staged official PDF. Identified formula and image defects have been repaired locally, but this is not a full visual proofread of all 704 questions. The separate WDA source-drift gate remains unresolved.
 
 The official deletion marker on `04200-01-033` is preserved for provenance and is included in the staged `inactiveIds` list. The intended active total is therefore 703, pending promotion.
 

@@ -1,0 +1,196 @@
+{
+  "examId": "surveying-c",
+  "level": "丙級",
+  "titleZh": "測量丙級",
+  "titleEn": "Surveying (Class C)",
+  "category": "營造工程",
+  "version": "A11",
+  "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/042003A11.pdf",
+  "sources": [
+    {
+      "subjectCode": "04200",
+      "version": "A11",
+      "pdfFilename": "042003A11.pdf",
+      "localFilename": "042003A11.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/042003A11.pdf",
+      "sha256": "f9398964b624e85781ba67fb8b4c5b77ff618278427cdd6343bb7e65c2e88e58"
+    },
+    {
+      "subjectCode": "90006",
+      "version": "A11",
+      "pdfFilename": "900060A11.pdf",
+      "localFilename": "900060A11.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
+      "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+    },
+    {
+      "subjectCode": "90007",
+      "version": "A10",
+      "pdfFilename": "900070A10.pdf",
+      "localFilename": "900070A10.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
+      "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+    },
+    {
+      "subjectCode": "90008",
+      "version": "A17",
+      "pdfFilename": "900080A17.pdf",
+      "localFilename": "900080A17.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
+      "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+    },
+    {
+      "subjectCode": "90009",
+      "version": "A13",
+      "pdfFilename": "900090A13.pdf",
+      "localFilename": "900090A13.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
+      "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+    }
+  ],
+  "officialLinks": {
+    "registration": "https://skill.tcte.edu.tw/notice.php",
+    "scoreLookup": "https://eservice.wdasec.gov.tw/",
+    "handbook": "https://skill.tcte.edu.tw/download.php",
+    "questionBank": "https://techbank.wdasec.gov.tw/"
+  },
+  "sourceRevision": "042003A11 + 900060A11/900070A10/900080A17/900090A13",
+  "questionCount": 1104,
+  "activeQuestionCount": 1098,
+  "sections": [
+    {
+      "id": "04200-01",
+      "subjectCode": "04200",
+      "sourceGroup": "occupation",
+      "titleZh": "基本學能",
+      "questionCount": 78,
+      "activeQuestionCount": 77
+    },
+    {
+      "id": "04200-02",
+      "subjectCode": "04200",
+      "sourceGroup": "occupation",
+      "titleZh": "距離測量",
+      "questionCount": 128,
+      "activeQuestionCount": 128
+    },
+    {
+      "id": "04200-03",
+      "subjectCode": "04200",
+      "sourceGroup": "occupation",
+      "titleZh": "高程測量",
+      "questionCount": 162,
+      "activeQuestionCount": 162
+    },
+    {
+      "id": "04200-04",
+      "subjectCode": "04200",
+      "sourceGroup": "occupation",
+      "titleZh": "角度測量(含光學式、電子式經緯儀 )",
+      "questionCount": 178,
+      "activeQuestionCount": 178
+    },
+    {
+      "id": "04200-05",
+      "subjectCode": "04200",
+      "sourceGroup": "occupation",
+      "titleZh": "基本繪圖",
+      "questionCount": 71,
+      "activeQuestionCount": 71
+    },
+    {
+      "id": "04200-06",
+      "subjectCode": "04200",
+      "sourceGroup": "occupation",
+      "titleZh": "埋石設標",
+      "questionCount": 20,
+      "activeQuestionCount": 20
+    },
+    {
+      "id": "04200-07",
+      "subjectCode": "04200",
+      "sourceGroup": "occupation",
+      "titleZh": "儀器之一般保養與維護",
+      "questionCount": 36,
+      "activeQuestionCount": 36
+    },
+    {
+      "id": "04200-08",
+      "subjectCode": "04200",
+      "sourceGroup": "occupation",
+      "titleZh": "測量基本準則",
+      "questionCount": 31,
+      "activeQuestionCount": 31
+    },
+    {
+      "id": "90006-01",
+      "subjectCode": "90006",
+      "sourceGroup": "general-common",
+      "titleZh": "職業安全衛生",
+      "questionCount": 100,
+      "activeQuestionCount": 100
+    },
+    {
+      "id": "90007-01",
+      "subjectCode": "90007",
+      "sourceGroup": "general-common",
+      "titleZh": "工作倫理與職業道德",
+      "questionCount": 100,
+      "activeQuestionCount": 100
+    },
+    {
+      "id": "90008-03",
+      "subjectCode": "90008",
+      "sourceGroup": "general-common",
+      "titleZh": "環境保護",
+      "questionCount": 100,
+      "activeQuestionCount": 95
+    },
+    {
+      "id": "90009-04",
+      "subjectCode": "90009",
+      "sourceGroup": "general-common",
+      "titleZh": "節能減碳",
+      "questionCount": 100,
+      "activeQuestionCount": 100
+    }
+  ],
+  "mockRules": {
+    "totalQuestions": 80,
+    "singleCount": 80,
+    "multipleCount": 0,
+    "durationMinutes": 100,
+    "passScore": 60,
+    "maxScore": 100,
+    "weightSingle": 1.25,
+    "weightMultiple": 0,
+    "subjectQuota": [
+      {
+        "subjectCode": "04200",
+        "count": 64
+      },
+      {
+        "subjectCode": "90006",
+        "count": 4
+      },
+      {
+        "subjectCode": "90007",
+        "count": 4
+      },
+      {
+        "subjectCode": "90008",
+        "count": 4
+      },
+      {
+        "subjectCode": "90009",
+        "count": 4
+      }
+    ]
+  },
+  "integrity": {
+    "status": "fully_verified",
+    "inactiveQuestionCount": 6,
+    "imageQuestionCount": 30,
+    "note": "Answer keys independently cross-checked against the official PDF during import."
+  }
+}

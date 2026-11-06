@@ -40,6 +40,9 @@ const PACKS = [
   { examId: 'aircraft-maintenance-c', occupationCode: '17600', sourceQuestions: 643, inactive: 0, figures: 21, cropPrefix: '176003', tightCrops: true },
   { examId: 'network-installation-c', occupationCode: '17200', sourceQuestions: 486, inactive: 0, figures: 26, cropPrefix: '172003', tightCrops: true },
   { examId: 'engineering-surveying-b', occupationCode: '04202', sourceQuestions: 769, inactive: 11, figures: 52, cropPrefix: '042022', tightCrops: true },
+  // 26 figure questions, crops byte-identical to the ones Jared reviewed in
+  // tmp/import-batch/042003A11/image-review.html. 04200-01-033 is 本題刪題.
+  { examId: 'surveying-c', occupationCode: '04200', sourceQuestions: 704, inactive: 1, figures: 26, cropPrefix: '042003', tightCrops: true },
   // inactive 4 → 5: 21500-03-073's crop is a pure-white PNG even though the
   // figure exists in source/215003A11.pdf p.20. Same page-boundary crop
   // fault as 14500-03-195 above. Pulled by Wen (2026-07-21).

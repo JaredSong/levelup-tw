@@ -181,7 +181,6 @@ const BANKS = [
     source: '042003A11',
     cropPrefix: '042003',
     splitImageOptions: true,
-    outputDir: '../tmp/import-batch/042003A11/crops/',
     extraFigures: SURVEYING_FIGURE_IDS,
     excludedFigures: Object.keys(SURVEYING_QUESTION_OVERRIDES).filter((id) => !SURVEYING_FIGURE_IDS.includes(id)),
     figureRects: {

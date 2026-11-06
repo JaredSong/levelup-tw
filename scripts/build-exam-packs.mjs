@@ -978,6 +978,34 @@ const EXAMS = [
     },
   },
   {
+    // 042003A11 crops reviewed by Jared against the official PDF pages
+    // (docs/staged-image-qa-042003A11.md). Formula glyphs pdftotext drops are
+    // transcribed in surveyingQuestionOverrides.mjs; answer keys untouched.
+    examId: 'surveying-c',
+    titleZh: '測量丙級',
+    titleEn: 'Surveying (Class C)',
+    level: '丙級',
+    category: '營造工程',
+    occupationCode: '04200',
+    occupationFile: '042003A11-raw.txt',
+    occupationExpected: 704,
+    version: 'A11',
+    extraCommonCodes: [],
+    cropPrefix: '042003',
+    requireQuestionCrops: true,
+    splitImageOptions: true,
+    // 本題刪題 in the official PDF; kept for provenance, never practised.
+    inactiveIds: ['04200-01-033'],
+    mockRules: {
+      occupationQuota: 64,
+      singleCount: 80,
+      multipleCount: 0,
+      weightSingle: 1.25,
+      weightMultiple: 0,
+      extraSubjectQuota: [],
+    },
+  },
+  {
     examId: 'beverage-preparation-c',
     titleZh: '飲料調製丙級',
     titleEn: 'Beverage Preparation (Class C)',
@@ -1379,6 +1407,10 @@ function normalizeQuestion(question, exam) {
     && !SURVEYING_FIGURE_IDS.includes(question.id)
   const forceFigure = FIGURE_QUESTION_IDS.has(question.id)
     || exam.figureIds?.includes(question.id)
+    // Reviewed 042003A11 crops: tables like 04200-04-132 ("下表為…") carry no
+    // figure marker the parser can see and no double-space gap, so without
+    // this they would render as text with the table missing.
+    || (surveyingSource && SURVEYING_FIGURE_IDS.includes(question.id))
     || (exam.includeLeftFigures && question.prompt.includes('左圖'))
     || / {2,}/.test(`${question.prompt}${question.options.join('')}`)
   const mappedFigure = exam.embeddedImageMap ? Boolean(exam.embeddedImageMap[question.id]?.length) : undefined

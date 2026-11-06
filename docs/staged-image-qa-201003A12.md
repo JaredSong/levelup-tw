@@ -1,11 +1,11 @@
 # 視覺傳達設計丙級 (201003A12) source QA
 
-Status: **staged only; do not publish**. The staged 608 answer markers agree with the source PDF, but 21 figure questions still lack approved question-specific image crops.
+Status: **staged; crops ready for Jared's sign-off; do not publish yet.** The staged 608 answer markers agree with the source PDF, and `source/201003A12.pdf` matches the SHA-256 in the staging report (`d227ccdb…`).
 
-Run `node scripts/build-staged-image-review.mjs 201003A12` and open `tmp/import-batch/201003A12/image-review.html` locally. The gallery shows 27 flagged questions beside their official PDF pages. It does **not** present source pages as finished question images.
+Run `node scripts/build-question-crops.mjs 201003A12 && node scripts/build-staged-image-review.mjs 201003A12`, then open `tmp/import-batch/201003A12/image-review.html`. Each card shows the question's crops beside its official PDF page.
 
-- `20100-05-001` through `020` each need the base three-dimensional object and four complete sets of orthographic projections. A page screenshot or a single narrow crop would hide or mix options.
-- `20100-03-040` is another figure question requiring its own crop review.
-- Six deletion candidates (`20100-02-069`, `20100-03-045`, `20100-04-029/036/085`, `20100-05-053`) need confirmation from the printed source before being marked inactive.
+- **`20100-05-001` through `020` (三視圖):** 100 crops, one 3D object plus four option blocks per question. The rects in `scripts/build-question-crops.mjs` were derived from the PDF itself. Text was masked out, the remaining ink was grouped into views, and each option was taken as its top view plus the front and side views beneath it. Every option had to come out with exactly three views and no drawing left unassigned, or the question was flagged; all 20 passed. Option markers and prompt glyphs that fall inside a rectangle are painted out (`blank`) and trimmed. Options that wrap to the next line (for example `05-002` ③ and `05-015` ④) are placed by the drawing that opens that line. An agent check of the contact sheets found no stray glyphs, clipped edges or mixed options, and `05-012`'s per-option differences match the source. **Sign-off on option order (①–④) and completeness is still Jared's.** The faint WDA watermark is part of the source page and shows through in a few crops.
+- **`20100-03-040` is not a figure question.** The crop showed only the question text: 「下列何者與彩色打樣印效不佳無關 ①製版的疏忽 ②完稿人員的錯誤 ③所附圖片影響 ④頁數太多」. The parser flagged it because of the gap before 「。」, and the parsed prompt and options already match it. It is excluded from cropping, and the pack config must list it in `excludedFigureIds`.
+- **Deletions confirmed.** The official PDF text marks exactly six questions 「(本題刪題)」: `20100-02-069`, `20100-03-045`, `20100-04-029`, `20100-04-036`, `20100-04-085`, `20100-05-053`. All six go in `inactiveIds`. There are no other deletion markers in the file.
 
-Keep `publishable: false` until every image is cropped, visually checked against its corresponding source question, the deletion markers are resolved, and the separate WDA source-drift gate passes. Matching answer keys alone is insufficient for publication.
+Before promotion: Jared signs off the 20 三視圖 cards, then move this bank's crop `outputDir` to `public/question-images` and add the exam to `build-exam-packs.mjs`, `examSources.mjs` and `verifyAnswerKeys.mjs` (the same steps as `surveying-c`). Do not run the full re-crop. `import:questions` uses `--missing`.

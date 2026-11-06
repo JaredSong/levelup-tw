@@ -466,6 +466,16 @@ describe('published question bank', () => {
         sections: 10,
         occupationQuota: 64,
       },
+      {
+        examId: 'machining-c',
+        occupationCode: '18500',
+        version: 'A10',
+        occupation: 500,
+        total: 900,
+        active: 893,
+        sections: 12,
+        occupationQuota: 64,
+      },
     ]
 
     for (const item of cases) {
@@ -493,6 +503,16 @@ describe('published question bank', () => {
         expect(mock.filter((question) => question.subjectCode === item.extraCommonCode)).toHaveLength(4)
       }
     }
+  })
+
+  it('keeps the official machining deletions inactive and restores dimension tolerances as text', () => {
+    const byId = new Map(loadExamBank('machining-c').map((question) => [question.id, question]))
+    expect(byId.get('18500-02-020')?.active).toBe(false)
+    expect(byId.get('18500-04-261')?.active).toBe(false)
+    expect(byId.get('18500-06-015')?.prompt).toContain('上偏差 +0.08、下偏差 +0.02')
+    expect(byId.get('18500-06-016')?.prompt).toContain('上偏差 +0.03、下偏差 +0')
+    expect(byId.get('18500-06-015')?.hasFigure).toBe(false)
+    expect(byId.get('18500-06-016')?.hasFigure).toBe(false)
   })
 
   it('publishes the official aircraft maintenance class C pack', () => {

@@ -69,10 +69,16 @@ export function buildDemandRanking(catalogEntries, statistics, installedKeys = n
     .map((entry, index) => ({ ...entry, demandRank: index + 1 }))
 }
 
-function statsDownloadUrl(html) {
-  const match = html.match(/href="(https:\/\/ws\.wda\.gov\.tw\/Download\.ashx\?[^"#]+)"[^>]*title="技能檢定當年度報檢、到檢及合格數\.zip"/)
-  if (!match) throw new Error('Official statistics ZIP link was not found')
-  return match[1].replaceAll('&amp;', '&')
+export function statsDownloadUrl(html) {
+  const anchors = html.match(/<a\b[^>]*>/gi) ?? []
+  for (const anchor of anchors) {
+    const href = anchor.match(/\bhref="([^"]+)"/i)?.[1]
+    const title = anchor.match(/\btitle="([^"]+)"/i)?.[1]
+    if (href?.startsWith('https://ws.wda.gov.tw/Download.ashx?')
+      && title?.startsWith('技能檢定當年度報檢、到檢及合格數')
+      && title.endsWith('.zip')) return href.replaceAll('&amp;', '&')
+  }
+  throw new Error('Official statistics ZIP link was not found')
 }
 
 function statsPeriod(html) {

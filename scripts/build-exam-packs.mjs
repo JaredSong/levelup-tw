@@ -6,6 +6,13 @@ import {
   INFORMATION_COMMON_SOURCE_PAGE_OVERRIDES,
 } from './informationCommonOverrides.mjs'
 import { parseQuestionBank } from './questionParser.mjs'
+import {
+  SURVEYING_FIGURE_IDS,
+  SURVEYING_OPTION_OVERRIDES,
+  SURVEYING_PROMPT_OVERRIDES,
+  SURVEYING_QUESTION_OVERRIDES,
+  SURVEYING_SOURCE_FILE,
+} from './surveyingQuestionOverrides.mjs'
 import { sanitizeText } from './textCorrections.mjs'
 
 const INACTIVE_IDS = new Set([
@@ -15,6 +22,7 @@ const INACTIVE_IDS = new Set([
   '07700-02-071',
   '17800-02-102',
   '17800-04-063',
+  '17800-04-082',
   '17800-05-102',
   '17800-06-007',
   '17800-06-069',
@@ -22,7 +30,6 @@ const INACTIVE_IDS = new Set([
   '22200-01-032',
   '22200-01-035',
   '22200-01-043',
-  '17800-04-082',
   '22200-02-053',
   '22200-03-019',
   '22200-03-106',
@@ -76,6 +83,8 @@ const INACTIVE_IDS = new Set([
   // Reopen if that contract lands; until then leave it out rather than ship
   // a half-visible option.
   '11700-06-102',
+  '11700-05-018',
+  '11700-05-116',
   // 11700-05-057: three prompt-role reference images (two curve diagrams
   // referenced inline, one circuit box that landed last in PDF order) plus
   // four option crops — 7 images total, which is neither a plain figure nor
@@ -83,8 +92,6 @@ const INACTIVE_IDS = new Set([
   // the options separate, then reorder" capability that doesn't exist yet.
   // Not building it for one question — reopen if this 3-prompt+4-option
   // shape recurs elsewhere in a future pack.
-  '11700-05-018',
-  '11700-05-116',
   '11700-05-057',
   // Blank-crop trio (Wen audit, 2026-07-21): the figure genuinely exists in
   // the source PDF but the crop produced a pure-white PNG (min=max=255 —
@@ -210,6 +217,8 @@ const SECTION_TITLE_OVERRIDES = {
 }
 
 const QUESTION_PROMPT_OVERRIDES = {
+  '18500-06-015': '工件公稱尺寸為 52 公厘（上偏差 +0.08、下偏差 +0.02），其公差為',
+  '18500-06-016': '工件公稱尺寸為 20（上偏差 +0.03、下偏差 +0），則此公差為',
   '04202-02-048': '三角高程測量公式 H_B−H_A＝i_A＋V−z_B＋S²/(2R)−KS²/(2R)，公式中 K 為大氣折光係數，R 為地球曲率半徑，而 −KS²/(2R) 稱為何者？',
   '04202-06-028': '設 A、B、C 三點位依序在同一直線上，先以經檢定的鋼捲尺測得平距 AB＝20.000m 及 BC＝30.000m，再以電子測距儀測得平距 AB＝20.020m 及 AC＝50.050m，請依上述結果判斷電子測距儀可能有下列那一項系統誤差？',
   '90001-02-010': '若 (3/2)x＋1＝5/4，則 1－2x 之值等於',
@@ -1039,6 +1048,28 @@ const EXAMS = [
     },
   },
   {
+    examId: 'machining-c',
+    titleZh: '機械加工丙級',
+    titleEn: 'Machining (Class C)',
+    level: '丙級',
+    category: '金屬及機械加工',
+    occupationCode: '18500',
+    occupationFile: '185003A10-raw.txt',
+    occupationExpected: 500,
+    version: 'A10',
+    extraCommonCodes: [],
+    inactiveIds: ['18500-02-020', '18500-04-261'],
+    excludedFigureIds: ['18500-06-015', '18500-06-016'],
+    mockRules: {
+      occupationQuota: 64,
+      singleCount: 80,
+      multipleCount: 0,
+      weightSingle: 1.25,
+      weightMultiple: 0,
+      extraSubjectQuota: [],
+    },
+  },
+  {
     examId: 'heat-treatment-c',
     titleZh: '熱處理丙級',
     titleEn: 'Heat Treatment (Class C)',
@@ -1278,7 +1309,7 @@ const BEAUTY_HAIR_COMMON_BANK = {
   code: '90012',
   file: '900120A11-raw.txt',
   expected: 300,
-  version: 'A12',
+  version: 'A11',
   quota: 4,
 }
 
@@ -1294,7 +1325,7 @@ const INFORMATION_COMMON_BANK = {
   code: '90011',
   file: '900110A12-raw.txt',
   expected: 119,
-  version: 'A11',
+  version: 'A12',
   quota: 4,
 }
 
@@ -1342,6 +1373,10 @@ function normalizeQuestion(question, exam) {
   const sourcePage = SOURCE_PAGE_OVERRIDES[question.id] ?? question.sourcePage
   const imageOverrides = IMAGE_OVERRIDES[question.id]
   const codeOverride = CODE_BLOCK_OVERRIDES[question.id]
+  const surveyingSource = exam.occupationFile === SURVEYING_SOURCE_FILE
+  const surveyingTextOnly = surveyingSource
+    && Boolean(SURVEYING_QUESTION_OVERRIDES[question.id])
+    && !SURVEYING_FIGURE_IDS.includes(question.id)
   const forceFigure = FIGURE_QUESTION_IDS.has(question.id)
     || exam.figureIds?.includes(question.id)
     || (exam.includeLeftFigures && question.prompt.includes('左圖'))
@@ -1358,8 +1393,8 @@ function normalizeQuestion(question, exam) {
     ...(codeOverride?.optionCodeBlocks ? { optionCodeBlocks: codeOverride.optionCodeBlocks } : {}),
     sourcePage,
     sectionTitle: SECTION_TITLE_OVERRIDES[question.section] ?? question.sectionTitle,
-    prompt: QUESTION_PROMPT_OVERRIDES[question.id] ?? sanitizeText(question.prompt),
-    options: QUESTION_OPTION_OVERRIDES[question.id] ?? question.options.map(sanitizeText),
+    prompt: (surveyingSource ? SURVEYING_PROMPT_OVERRIDES[question.id] : undefined) ?? QUESTION_PROMPT_OVERRIDES[question.id] ?? sanitizeText(question.prompt),
+    options: (surveyingSource ? SURVEYING_OPTION_OVERRIDES[question.id] : undefined) ?? QUESTION_OPTION_OVERRIDES[question.id] ?? question.options.map(sanitizeText),
     ...(INACTIVE_IDS.has(question.id) || exam.inactiveIds?.includes(question.id) ? { active: false } : {}),
     hasFigure,
   }

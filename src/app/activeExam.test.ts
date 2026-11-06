@@ -89,6 +89,7 @@ describe('active exam selection', () => {
       'loader-operation-single',
       'interior-decoration-management-b',
       'engineering-surveying-b',
+      'machining-c',
       'beverage-preparation-c',
       'dining-service-c',
       'computer-software-application-b',

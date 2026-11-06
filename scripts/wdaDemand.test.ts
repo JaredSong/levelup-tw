@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { buildDemandRanking, parseApplicantCsv } from './wdaDemand.mjs'
+import { buildDemandRanking, parseApplicantCsv, statsDownloadUrl } from './wdaDemand.mjs'
 
 const csv = `\uFEFF職類名稱,細項職類名稱,級別,職類群,報檢人次,到檢人次,合格人次
 007室內配線（屋內線路裝修）,00700室內配線（屋內線路裝修）,乙級,電機類群,3111,2871,1344
@@ -7,6 +7,11 @@ const csv = `\uFEFF職類名稱,細項職類名稱,級別,職類群,報檢人次
 151堆高機操作,15100堆高機操作,單一級,職業安全衛生操作類群,12000,11000,9000`
 
 describe('WDA applicant statistics', () => {
+  it('accepts the official ZIP title with its announcement suffix', () => {
+    const html = '<a href="https://ws.wda.gov.tw/Download.ashx?u=abc&amp;n=def" title="技能檢定當年度報檢、到檢及合格數-公告.zip">zip</a>'
+    expect(statsDownloadUrl(html)).toBe('https://ws.wda.gov.tw/Download.ashx?u=abc&n=def')
+  })
+
   it('parses exact occupation codes and levels from the official CSV', () => {
     expect(parseApplicantCsv(csv)).toEqual([
       {

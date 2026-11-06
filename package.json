@@ -14,6 +14,7 @@
     "lint": "eslint .",
     "import:questions": "node scripts/import-questions.mjs && node scripts/build-question-crops.mjs --missing && node scripts/build-exam-packs.mjs && node scripts/build-glossary.mjs && node scripts/build-image-question-map.mjs && node scripts/landingCatalog.mjs && npm run verify:answers",
     "verify:answers": "node scripts/verifyAnswerKeys.mjs --all",
+    "indexnow": "node scripts/indexnow.mjs",
     "refresh:catalog": "node scripts/examCatalog.mjs",
     "refresh:official-catalog": "node scripts/wdaCatalog.mjs --write --hash",
     "verify:official-drift": "node scripts/wdaCatalog.mjs --hash",

@@ -5,6 +5,7 @@ import { trackAppMilestone, trackEnterApp, trackInitialView, trackInstall, track
 import { LandingPage } from './app/LandingPage'
 import { ExamPage } from './app/ExamPage'
 import { GuidePage } from './app/GuidePage'
+import { CatalogPage } from './app/CatalogPage'
 import { enLanding } from './i18n/en'
 import { OnboardingGate } from './app/OnboardingGate'
 import { dismissInstallNudge, hasCompletedOnboarding, isInstallNudgeDismissed, PROFILE_NAME_KEY, ONBOARDING_DONE_KEY, shouldShowLanding } from './app/onboardingState'
@@ -46,7 +47,7 @@ import { db } from './storage/db'
 import { requestPersistence, shouldRequestPersistence } from './storage/persistence'
 import { isSyncEnabled, setSyncPass, syncNow } from './storage/sync'
 import type { SessionMode, StudySession } from './types'
-import { EN_PATH, EN_TITLE, GUIDE_PATH, SITE_ORIGIN, examPageTitle, examPath } from './app/seoUrls'
+import { CATALOG_PATH, EN_PATH, EN_TITLE, GUIDE_PATH, SITE_ORIGIN, catalogTitle, examPageTitle, examPath } from './app/seoUrls'
 
 const LEGACY_SESSION_KEY = 'level-b-active-session'
 const SEQUENTIAL_KEY = 'level-b-sequential-index'
@@ -166,6 +167,9 @@ const examIdFromPath = (path: string): string | null => {
 // AEO guide page: /guide.
 const isGuidePath = (path: string) => path === '/guide' || path === '/guide/'
 
+// Exam catalog: /exams.
+const isCatalogPath = (path: string) => path === '/exams' || path === '/exams/'
+
 export default function App() {
   const { installedExams, setActiveExamId } = useActiveExam()
   const [onboarded, setOnboarded] = useState(hasCompletedOnboarding)
@@ -182,6 +186,7 @@ export default function App() {
   const [lang, setLang] = useState<'zh' | 'en'>(() => isEnPath(window.location.pathname) ? 'en' : 'zh')
   const [examSlug, setExamSlug] = useState<string | null>(() => examIdFromPath(window.location.pathname))
   const [isGuide, setIsGuide] = useState(() => isGuidePath(window.location.pathname))
+  const [isCatalog, setIsCatalog] = useState(() => isCatalogPath(window.location.pathname))
 
   const examOnPage = examSlug ? installedExams.find((exam) => exam.examId === examSlug) ?? null : null
 
@@ -190,9 +195,10 @@ export default function App() {
   useEffect(() => {
     // Same URL and title shapes the prerender wrote (src/app/seoUrls.ts), so the
     // head doesn't flip after hydration.
-    const path = examOnPage ? examPath(examOnPage.examId) : isGuide ? GUIDE_PATH : landingOpen ? lang === 'en' ? EN_PATH : '/' : '/app'
+    const path = examOnPage ? examPath(examOnPage.examId) : isGuide ? GUIDE_PATH : isCatalog ? CATALOG_PATH : landingOpen ? lang === 'en' ? EN_PATH : '/' : '/app'
     const title = examOnPage ? examPageTitle(examOnPage.titleZh, examOnPage.activeQuestionCount)
       : isGuide ? '免費技能檢定題庫：線上刷題與模擬考完整指南 - 升級吧'
+      : isCatalog ? catalogTitle(installedExams.length)
       : !landingOpen ? '我的練習 · 升級吧'
       : lang === 'en' ? EN_TITLE : '升級吧 Level Up｜技術士技能檢定學科題庫・免費刷題與模擬考'
     document.title = title
@@ -200,12 +206,13 @@ export default function App() {
     document.querySelector('meta[property="og:url"]')?.setAttribute('content', `${SITE_ORIGIN}${path}`)
     document.querySelector('meta[property="og:title"]')?.setAttribute('content', title)
     document.querySelector('meta[name="robots"]')?.setAttribute('content', path === '/app' ? 'noindex, follow' : 'index, follow, max-image-preview:large')
-  }, [examOnPage, isGuide, landingOpen, lang])
+  }, [examOnPage, isGuide, isCatalog, installedExams.length, landingOpen, lang])
 
   // Report the actual surface, including legacy standalone installs at "/".
   useEffect(() => {
     if (examOnPage) trackInitialView('landing', undefined, `/exam/${examOnPage.examId}`)
     else if (isGuide) trackInitialView('landing', undefined, '/guide')
+    else if (isCatalog) trackInitialView('landing', undefined, '/exams')
     else trackInitialView(landingOpen ? 'landing' : 'app')
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -214,6 +221,7 @@ export default function App() {
     if (window.location.pathname !== '/') history.pushState(null, '', '/')
     setExamSlug(null)
     setIsGuide(false)
+    setIsCatalog(false)
     setLang('zh')
     setLandingOpen(shouldShowLanding({
       onboarded: hasCompletedOnboarding(),
@@ -239,6 +247,7 @@ export default function App() {
     if (window.location.pathname !== '/app') history.pushState(null, '', '/app')
     setExamSlug(null)
     setIsGuide(false)
+    setIsCatalog(false)
     setLandingOpen(false)
     // The landing's one job: this is the conversion, and it has no pageview of
     // its own because the document never navigates. The parallel landing_click
@@ -255,6 +264,7 @@ export default function App() {
       setLang(isEnPath(window.location.pathname) ? 'en' : 'zh')
       setExamSlug(examIdFromPath(window.location.pathname))
       setIsGuide(isGuidePath(window.location.pathname))
+      setIsCatalog(isCatalogPath(window.location.pathname))
       setLandingOpen(shouldShowLanding({
         onboarded: hasCompletedOnboarding(),
         hasSyncLink: Boolean(readSyncLink(window.location.hash)),
@@ -282,6 +292,16 @@ export default function App() {
       <GuidePage
         exams={installedExams}
         onEnter={() => enterApp(undefined, 'guide')}
+        onHome={goHome}
+      />
+    )
+  }
+
+  if (isCatalog) {
+    return (
+      <CatalogPage
+        exams={installedExams}
+        onEnter={() => enterApp(undefined, 'catalog')}
         onHome={goHome}
       />
     )

@@ -12,6 +12,8 @@
 /en/           /en/index.html            200
 /guide         /guide/index.html         200
 /guide/        /guide/index.html         200
+/exams         /exams/index.html         200
+/exams/        /exams/index.html         200
 /exam/:id/     /exam/:id/index.html      200
 /exam/:id      /exam/:id/index.html      200
 /*             /index.html               200

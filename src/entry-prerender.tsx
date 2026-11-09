@@ -8,9 +8,10 @@ import { INSTALLED_EXAMS } from './app/activeExam'
 import { LandingPage } from './app/LandingPage'
 import { ExamPage } from './app/ExamPage'
 import { GuidePage } from './app/GuidePage'
+import { CatalogPage } from './app/CatalogPage'
 import { guideFaqs } from './app/guideFaqs'
 import { enLanding } from './i18n/en'
-import { examPageTitle, examPath } from './app/seoUrls'
+import { CATALOG_PATH, SITE_ORIGIN, catalogTitle, examPageTitle, examPath } from './app/seoUrls'
 import { examFaqJsonLd } from './app/examFaqs'
 
 const noop = () => undefined
@@ -45,7 +46,35 @@ export function renderExamPage(examId: string): string {
   return renderToString(<ExamPage exam={exam} onEnter={noop} onHome={noop} />)
 }
 
-export { SITE_ORIGIN, EN_PATH, EN_TITLE, GUIDE_PATH } from './app/seoUrls'
+export { SITE_ORIGIN, EN_PATH, EN_TITLE, GUIDE_PATH, CATALOG_PATH } from './app/seoUrls'
+
+// Exam catalog at /exams/: every published exam, all cards visible (filters only
+// apply after hydration), so it is the crawl hub linking each /exam/<id>/ page.
+export function renderCatalogPage(): string {
+  return renderToString(<CatalogPage exams={INSTALLED_EXAMS} onEnter={noop} onHome={noop} />)
+}
+
+export const CATALOG_TITLE = catalogTitle(INSTALLED_EXAMS.length)
+export const CATALOG_DESC = `${INSTALLED_EXAMS.length} 個技術士技能檢定考科的官方公開學科題庫，依職類與級別分類，可用名稱或代碼搜尋。每一科都能免費線上練習、整理錯題、計時模擬考；免註冊，可離線。`
+
+// ItemList of every exam page, in the order the catalog shows them.
+export const CATALOG_ITEMLIST_JSONLD: string = JSON.stringify(
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: '技能檢定學科題庫總覽',
+    url: `${SITE_ORIGIN}${CATALOG_PATH}`,
+    numberOfItems: INSTALLED_EXAMS.length,
+    itemListElement: INSTALLED_EXAMS.map((exam, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: `${exam.titleZh}學科題庫`,
+      url: `${SITE_ORIGIN}${examPath(exam.examId)}`,
+    })),
+  },
+  null,
+  2,
+)
 
 export const EXAM_META = INSTALLED_EXAMS.map((exam) => ({
   id: exam.examId,

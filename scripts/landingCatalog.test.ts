@@ -9,6 +9,7 @@ const manifests = [
 
 const demand = {
   period: '115年截至6月底止',
+  source: 'https://www.wdasec.gov.tw/stats',
   ranking: [
     { code: '15100', level: '單一級', applicantCount: 12000 },
     { code: '20600', level: '丙級', applicantCount: 4000 },
@@ -24,6 +25,7 @@ describe('generated landing catalog', () => {
     expect(catalog.examCount).toBe(3)
     expect(catalog.activeQuestionCount).toBe(600)
     expect(catalog.demandPeriod).toBe('115年截至6月底止')
+    expect(catalog.demandSource).toBe('https://www.wdasec.gov.tw/stats')
   })
 
   it('generates current search metadata from manifests', () => {

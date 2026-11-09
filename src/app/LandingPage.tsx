@@ -1,49 +1,40 @@
 import {
+  ArrowLeft,
   ArrowRight,
   ArrowUpRight,
   ArrowUp,
-  Search,
   BookOpenCheck,
-  Car,
   CheckCircle2,
-  CircuitBoard,
   Clock,
-  Cog,
-  Database,
-  Flame,
   Github,
-  Hammer,
-  HardHat,
-  HeartHandshake,
   Languages,
   Menu,
-  Monitor,
   Moon,
   Plus,
   RotateCcw,
-  Scissors,
+  Search,
   Share,
   ShieldCheck,
-  Store,
   Sun,
   Timer,
-  UtensilsCrossed,
   WifiOff,
   X,
-  Zap,
 } from 'lucide-react'
-import type { LucideIcon } from 'lucide-react'
-import { useEffect, useMemo, useState } from 'react'
-import type { CSSProperties } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import type { FormEvent } from 'react'
 import type { ExamManifest } from '../core/exam'
 import { zhTW } from '../i18n/zh-TW'
 import { trackLanding } from './analytics'
-import { GENERATED_LANDING_CATALOG } from './generatedLandingCatalog'
+import { categoryIcon } from './categoryIcons'
+import { ExamCard } from './ExamCard'
+import { DEMAND_PERIOD, DEMAND_SOURCE, EN_CATEGORY, examCode, groupByCategory, matchesFilter, rankByDemand } from './examCatalog'
+import { GENERATED_EXAM_SAMPLES } from './generatedExamSamples'
+import { prefersReducedMotion, useAutoDrift, useCountUp } from './landingMotion'
 import { applyTheme, currentTheme, type Theme } from './theme'
 import { SupportPanel } from './SupportPanel'
 import { QrSvg } from '../components/QrCode'
 import { NATIONAL_EXAM_SCHEDULE_115, NATIONAL_EXAM_SCHEDULE_SOURCE, type NationalExamScheduleEntry } from './nationalExamSchedule'
-import { EN_PATH, GUIDE_PATH, SITE_ORIGIN, examPath } from './seoUrls'
+import { CATALOG_PATH, EN_PATH, GUIDE_PATH, SITE_ORIGIN, examPath } from './seoUrls'
 
 // zhTW.landing infers each value as its exact Chinese string *literal*, which an
 // English translation can't satisfy. Widen literal strings to `string` while
@@ -54,47 +45,8 @@ export type LandingLang = 'zh' | 'en'
 
 const EN_MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
-// Manifests carry a Chinese category/level; map them for the English page so the
-// exam cards don't read half-translated. Exam titles use the manifest's titleEn.
-const EN_CATEGORY: Record<string, string> = {
-  商業服務: 'Business Services',
-  餐飲食品: 'Food & Beverage',
-  美容美髮: 'Beauty & Hair',
-  車輛修護: 'Vehicle Repair',
-  照護服務: 'Care Services',
-  資訊: 'Information',
-  機械操作: 'Machinery Operation',
-  電機工程: 'Electrical Engineering',
-  電子儀表: 'Electronics & Instrumentation',
-  營造工程: 'Construction',
-  職業安全衛生: 'Occupational Safety & Health',
-  銲接配管: 'Welding & Piping',
-  金屬及機械加工: 'Metal & Machinery Processing',
-}
-const EN_LEVEL: Record<string, string> = {
-  丙級: 'Class C',
-  乙級: 'Class B',
-  甲級: 'Class A',
-  單一級: 'Single Level',
-}
-
-// Each exam card gets a category glyph instead of repeating the same generic
-// database icon four times. Keyed on the manifest's Chinese category.
-const CATEGORY_ICON: Record<string, LucideIcon> = {
-  商業服務: Store,
-  餐飲食品: UtensilsCrossed,
-  美容美髮: Scissors,
-  車輛修護: Car,
-  照護服務: HeartHandshake,
-  資訊: Monitor,
-  機械操作: Cog,
-  電機工程: Zap,
-  電子儀表: CircuitBoard,
-  營造工程: HardHat,
-  職業安全衛生: ShieldCheck,
-  銲接配管: Flame,
-  金屬及機械加工: Hammer,
-}
+/** How many exams the popular row shows, ranked by official 報檢人次. */
+const POPULAR_COUNT = 8
 
 const CJK_PUNCT = new Set(['，', '。', '！', '？', '；', '：', '、'])
 /** Full-width CJK punctuation at display size leaves awkward gaps; wrap it so
@@ -125,6 +77,10 @@ function scheduleLabel(entry: NationalExamScheduleEntry, lang: LandingLang) {
 function writtenDate(iso: string, lang: LandingLang) {
   return lang === 'en' ? engDate(iso) : rocDate(iso)
 }
+/** "58,693" → "58,000+": a floor that stays true as banks grow between releases. */
+function questionFloor(total: number) {
+  return total >= 1000 ? `${Math.floor(total / 1000).toLocaleString('en-US')},000+` : String(total)
+}
 
 const REPO_URL = 'https://github.com/JaredSong/levelup-tw'
 
@@ -137,8 +93,6 @@ interface Props {
   /** Active locale — drives the language toggle target and date formatting. */
   lang?: LandingLang
 }
-
-const FEATURED_EXAM_IDS: readonly string[] = GENERATED_LANDING_CATALOG.featuredExamIds
 
 /** Theme lives on <html data-theme>; the toggle records an explicit choice. */
 function useTheme(): [Theme, () => void] {
@@ -159,10 +113,25 @@ export function LandingPage({ exams, returning, onEnter, t = zhTW.landing, lang 
   const [showTop, setShowTop] = useState(false)
   const [ctaVisible, setCtaVisible] = useState(false)
   const [query, setQuery] = useState('')
-  const [level, setLevel] = useState('全部')
+  const [tryPick, setTryPick] = useState<number | null>(null)
+  const [step, setStep] = useState(0)
+  const popularRef = useRef<HTMLDivElement>(null)
+  const statsRef = useRef<HTMLDListElement>(null)
+  // Motion that only makes sense with JS and full motion: the popular row's
+  // looping drift (needs its clone set) and the showcase autoplay.
+  const [motionOk, setMotionOk] = useState(false)
+  const [autoplay, setAutoplay] = useState(false)
+  const [showcaseInView, setShowcaseInView] = useState(false)
+  const showcaseRef = useRef<HTMLElement>(null)
+  useEffect(() => {
+    if (prefersReducedMotion()) return
+    setMotionOk(true)
+    setAutoplay(true)
+  }, [])
+  const wrapPopular = useAutoDrift(popularRef, motionOk)
 
   const navLinks = [
-    { href: '#landing-exams', label: t.navExams },
+    { href: CATALOG_PATH, label: t.navCatalog },
     { href: '#landing-how', label: t.navHow },
     { href: '#landing-schedule', label: t.navSchedule },
     { href: '#landing-install', label: t.navInstall },
@@ -170,11 +139,13 @@ export function LandingPage({ exams, returning, onEnter, t = zhTW.landing, lang 
     { href: '#landing-donate', label: t.navDonate },
   ]
 
-  const learningLoop = [
-    { icon: BookOpenCheck, tone: 'accent', label: t.loopPractice, body: t.loopPracticeBody },
-    { icon: RotateCcw, tone: 'coral', label: t.loopRepair, body: t.loopRepairBody },
-    { icon: Clock, tone: 'blue', label: t.loopRemember, body: t.loopRememberBody },
-    { icon: Timer, tone: 'gold', label: t.loopVerify, body: t.loopVerifyBody },
+  // The loop, told with real app screens (public/screens, captured from the
+  // current build in both themes).
+  const steps = [
+    { icon: BookOpenCheck, label: t.loopPractice, body: t.loopPracticeBody, shot: 'practice' },
+    { icon: RotateCcw, label: t.loopRepair, body: t.loopRepairBody, shot: 'review' },
+    { icon: Clock, label: t.loopRemember, body: t.loopRememberBody, shot: 'card' },
+    { icon: Timer, label: t.loopVerify, body: t.loopVerifyBody, shot: 'mock' },
   ]
 
   const faqItems = [
@@ -192,47 +163,39 @@ export function LandingPage({ exams, returning, onEnter, t = zhTW.landing, lang 
   const otherLangHref = lang === 'en' ? '/' : EN_PATH
   const otherLangLabel = lang === 'en' ? '中文' : 'EN'
 
-  // Exam titles/labels come from the manifest in Chinese; on /en show the English
-  // title and mapped category/level so no card reads half-translated.
   const examTitle = (exam: ExamManifest) => (lang === 'en' ? exam.titleEn : exam.titleZh)
-  const examCategory = (exam: ExamManifest) => (lang === 'en' ? EN_CATEGORY[exam.category] ?? exam.category : exam.category)
-  const examLevel = (exam: ExamManifest) => (lang === 'en' ? EN_LEVEL[exam.level] ?? exam.level : exam.level)
+  const categoryName = (category: string) => (lang === 'en' ? EN_CATEGORY[category] ?? category : category)
 
-  // Counts and lists all derive from the manifests, so a new pack needs no copy
-  // edit: it either matches FEATURED_EXAM_IDS or falls into 其他考科 by itself.
-  const totalQuestions = useMemo(
-    () => exams.reduce((sum, exam) => sum + exam.activeQuestionCount, 0),
-    [exams],
-  )
-  const featured = useMemo(
-    () => FEATURED_EXAM_IDS
-      .map((id) => exams.find((exam) => exam.examId === id))
-      .filter((exam): exam is ExamManifest => Boolean(exam)),
-    [exams],
-  )
-  const rest = useMemo(
-    () => exams.filter((exam) => !FEATURED_EXAM_IDS.includes(exam.examId)),
-    [exams],
-  )
-  // 30+ chips pass the scannability limit; cluster them under category labels.
-  // Order follows first appearance in the manifest list, links stay untouched.
-  const restByCategory = useMemo(() => {
-    const groups: { category: string; exams: ExamManifest[] }[] = []
-    for (const exam of rest) {
-      const group = groups.find((g) => g.category === exam.category)
-      if (group) group.exams.push(exam)
-      else groups.push({ category: exam.category, exams: [exam] })
-    }
-    return groups
-  }, [rest])
+  // Counts and lists all derive from the manifests, so a new pack needs no copy edit.
+  const totalQuestions = useMemo(() => exams.reduce((sum, exam) => sum + exam.activeQuestionCount, 0), [exams])
+  const popular = useMemo(() => rankByDemand(exams).slice(0, POPULAR_COUNT), [exams])
+  const categories = useMemo(() => groupByCategory(exams), [exams])
 
-  // The nearest upcoming round drives both the schedule highlight and the hero
-  // countdown chip — derived from the same schedule data, so it never drifts.
-  // sv-SE gives local YYYY-MM-DD. Once every listed round has passed (and no
-  // next-year data exists yet) both disappear instead of counting negative days.
+  const statExams = useCountUp(exams.length, statsRef)
+  const statThousands = useCountUp(Math.floor(totalQuestions / 1000), statsRef)
+
+  // Showcase autoplay (step-progress): advance every few seconds while the
+  // section is on screen; the first click on a step hands control to the visitor.
+  useEffect(() => {
+    const el = showcaseRef.current
+    if (!el || !autoplay || !('IntersectionObserver' in window)) return
+    const observer = new IntersectionObserver((entries) => setShowcaseInView(entries.some((entry) => entry.isIntersecting)), { threshold: 0.35 })
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [autoplay])
+
+  // Hero "try one": the first sample of the most-registered exam that has one.
+  const tryExam = popular.find((exam) => GENERATED_EXAM_SAMPLES[exam.examId]?.samples.length)
+  const trySample = tryExam ? GENERATED_EXAM_SAMPLES[tryExam.examId].samples[0] : null
+
+  const searchResults = query.trim()
+    ? exams.filter((exam) => matchesFilter(exam, { query, level: '', category: '' })).slice(0, 6)
+    : []
+
+  // The nearest upcoming round drives the schedule highlight. sv-SE gives local
+  // YYYY-MM-DD. Once every listed round has passed, nothing is highlighted.
   const todayIso = new Date().toLocaleDateString('sv-SE')
-  const nextEntry = NATIONAL_EXAM_SCHEDULE_115.find((entry) => entry.writtenDate >= todayIso)
-  const nextScheduleId = nextEntry?.id
+  const nextScheduleId = NATIONAL_EXAM_SCHEDULE_115.find((entry) => entry.writtenDate >= todayIso)?.id
 
   useEffect(() => {
     const onScroll = () => setShowTop(window.scrollY > 700)
@@ -254,7 +217,7 @@ export function LandingPage({ exams, returning, onEnter, t = zhTW.landing, lang 
   useEffect(() => {
     const root = document.querySelector('.landing-page')
     if (!root || !('IntersectionObserver' in window)) return
-    const targets = root.querySelectorAll('section:not(.landing-hero):not(.subject-finder)')
+    const targets = root.querySelectorAll(':scope > section:not(.landing-hero)')
     const observer = new IntersectionObserver((entries) => {
       for (const entry of entries) {
         if (entry.isIntersecting) {
@@ -268,30 +231,43 @@ export function LandingPage({ exams, returning, onEnter, t = zhTW.landing, lang 
   }, [])
 
   // Sticky mobile CTA: show once the hero has scrolled away, hide again at the
-  // footer (which has its own primary button — two CTAs stacked reads desperate).
+  // final CTA band and footer (each has its own primary button).
   useEffect(() => {
     const hero = document.querySelector('.landing-hero')
-    const footer = document.querySelector('.landing-footer')
-    if (!hero || !footer || !('IntersectionObserver' in window)) return
+    const end = document.querySelector('.landing-final')
+    if (!hero || !end || !('IntersectionObserver' in window)) return
     let heroGone = false
-    let footerHere = false
-    const update = () => setCtaVisible(heroGone && !footerHere)
+    let endHere = false
+    const update = () => setCtaVisible(heroGone && !endHere)
     const observer = new IntersectionObserver((entries) => {
       for (const entry of entries) {
         if (entry.target === hero) heroGone = !entry.isIntersecting
-        if (entry.target === footer) footerHere = entry.isIntersecting
+        if (entry.target === end) endHere = entry.isIntersecting || entry.boundingClientRect.top < 0
       }
       update()
     })
     observer.observe(hero)
-    observer.observe(footer)
+    observer.observe(end)
     return () => observer.disconnect()
   }, [])
 
   const navJump = (href: string) => trackLanding('nav', { target: href })
-  const matches = exams.filter(exam => (level === '全部' || exam.level === level) &&
-    [exam.titleZh, exam.titleEn, exam.category, ...exam.sections.map(section => section.subjectCode)].join(' ').toLowerCase().includes(query.trim().toLowerCase()))
-  const finderExams = query || level !== '全部' ? matches : featured.slice(0, 6)
+  const scrollPopular = (direction: 1 | -1) => {
+    const row = popularRef.current
+    if (!row) return
+    wrapPopular(direction)
+    row.scrollBy({ left: direction * row.clientWidth * 0.85, behavior: 'smooth' })
+    trackLanding('popular_scroll', { direction })
+  }
+  // Without JS the form is a plain GET to /exams/?q=…, which the catalog reads.
+  const submitSearch = (event: FormEvent<HTMLFormElement>) => {
+    trackLanding('hero_search', { query: query.trim().slice(0, 40) })
+    if (!query.trim()) {
+      event.preventDefault()
+      window.location.href = CATALOG_PATH
+    }
+  }
+  const cardStrings = { examCount: t.examCount, mockSpec: t.mockSpec, applicants: t.applicants, cardAction: t.examCardAction }
 
   return (
     <main className={lang === 'en' ? 'landing-page landing-en' : 'landing-page'}>
@@ -359,9 +335,45 @@ export function LandingPage({ exams, returning, onEnter, t = zhTW.landing, lang 
           <p className="landing-hero-badge">{t.eyebrow}</p>
           <h1>
             {displayText(t.titleLead)}
-            <em>{displayText(t.titleAccent)}{displayText(t.titleTail)}</em>
+            <em><span className="hero-mark">{displayText(t.titleAccent)}</span>{displayText(t.titleTail)}</em>
           </h1>
           <p className="landing-hero-description">{t.description}</p>
+
+          <form className="hero-search" action={CATALOG_PATH} method="get" role="search" onSubmit={submitSearch}>
+            <label>
+              <Search size={20} aria-hidden="true" />
+              <input
+                type="search"
+                name="q"
+                autoComplete="off"
+                aria-label={t.heroSearchLabel}
+                placeholder={t.heroSearchPlaceholder}
+                value={query}
+                onChange={(event) => setQuery(event.target.value)}
+              />
+            </label>
+            <button className="landing-primary" type="submit">{t.heroSearchAction}<ArrowRight size={17} /></button>
+            {query.trim() ? (
+              <div className="hero-search-results" aria-live="polite">
+                {searchResults.map((exam) => (
+                  <a
+                    key={exam.examId}
+                    href={examPath(exam.examId)}
+                    onClick={() => trackLanding('exam_details', { exam_id: exam.examId, cta_location: 'hero_search' })}
+                  >
+                    <span><strong>{examTitle(exam)}</strong><small>{examCode(exam)} · {t.examCount(exam.activeQuestionCount)}</small></span>
+                    <ArrowUpRight size={17} aria-hidden="true" />
+                  </a>
+                ))}
+                {!searchResults.length ? <p>{t.heroSearchEmpty}</p> : null}
+              </div>
+            ) : null}
+          </form>
+
+          <a className="hero-browse" href={CATALOG_PATH} onClick={() => trackLanding('catalog_link', { cta_location: 'hero' })}>
+            {t.heroBrowse(exams.length)}<ArrowRight size={15} />
+          </a>
+
           <div className="landing-proof">
             <span><CheckCircle2 size={16} /> {t.freeLabel}</span>
             <span><WifiOff size={16} /> {t.offlineLabel}</span>
@@ -370,97 +382,151 @@ export function LandingPage({ exams, returning, onEnter, t = zhTW.landing, lang 
           <p className="landing-source-note">{t.sourceNote}</p>
         </div>
 
-        <section className="subject-finder" aria-label={lang === 'en' ? 'Find your exam' : '選擇考科'}>
-          <div className="finder-heading"><h2>{lang === 'en' ? 'What are you studying?' : '你要考哪一科？'}</h2><span>{exams.length} {lang === 'en' ? 'exams' : '個考科'}</span></div>
-          <label className="finder-search"><Search size={18} /><input type="search" aria-label={lang === 'en' ? 'Search exams' : '搜尋考科'} placeholder={lang === 'en' ? 'Exam name or code' : '考科名稱或代碼，如 11700'} value={query} onChange={event => setQuery(event.target.value)} /></label>
-          <div className="finder-filters" aria-label={lang === 'en' ? 'Exam level' : '考科級別'}>{['全部', ...new Set(exams.map(exam => exam.level))].map(value => <button type="button" key={value} aria-pressed={level === value} onClick={() => setLevel(value)}>{lang === 'en' ? EN_LEVEL[value] ?? 'All' : value}</button>)}</div>
-          <div className="finder-results" aria-live="polite">
-            {finderExams.map(exam => <a key={exam.examId} href={examPath(exam.examId)} onClick={() => trackLanding('exam_details', { exam_id: exam.examId, cta_location: 'finder' })}><span><strong>{examTitle(exam)}</strong><small>{exam.sections[0]?.subjectCode} · {t.examCount(exam.activeQuestionCount)}</small></span><ArrowUpRight size={18} /></a>)}
-            {!finderExams.length ? <p>{lang === 'en' ? 'No matching exam. Try another name or code.' : '找不到這個考科，試試其他名稱或代碼。'}</p> : null}
-          </div>
-          <a className="finder-all" href="#landing-exams">{lang === 'en' ? 'Browse all exams' : '查看所有考科'} <ArrowRight size={15} /></a>
-        </section>
+        {tryExam && trySample ? (
+          <aside className="try-card" aria-label={t.tryEyebrow}>
+            <p className="try-eyebrow">{t.tryEyebrow}</p>
+            <p className="try-from">{t.tryFrom(examTitle(tryExam))} · {trySample.id}</p>
+            <p className="try-prompt" lang="zh-Hant-TW">{trySample.prompt}</p>
+            <ol className="try-options" lang="zh-Hant-TW">
+              {trySample.options.map((option, index) => {
+                const n = index + 1
+                const picked = tryPick === n
+                const state = tryPick === null ? '' : n === trySample.answer ? ` is-answer${picked ? ' is-picked' : ''}` : picked ? ' is-wrong' : ''
+                return (
+                  <li key={n}>
+                    <button
+                      type="button"
+                      className={`try-option${state}`}
+                      aria-pressed={picked}
+                      disabled={tryPick !== null}
+                      onClick={() => { setTryPick(n); trackLanding('try_question', { exam_id: tryExam.examId, correct: n === trySample.answer }) }}
+                    >
+                      <span className="try-num">{n}</span>
+                      <span>{option}</span>
+                      {tryPick !== null && n === trySample.answer ? <CheckCircle2 size={17} aria-hidden="true" /> : null}
+                    </button>
+                  </li>
+                )
+              })}
+            </ol>
+            <p className="try-feedback" aria-live="polite">
+              {tryPick === null ? t.tryHint : tryPick === trySample.answer ? t.tryRight : t.tryWrong(trySample.answer)}
+            </p>
+            <a className="try-link" href={examPath(tryExam.examId)} onClick={() => trackLanding('exam_details', { exam_id: tryExam.examId, cta_location: 'try_card' })}>
+              {t.tryCta(examTitle(tryExam))}<ArrowRight size={15} />
+            </a>
+          </aside>
+        ) : null}
       </section>
 
-      <section className="landing-method" id="landing-how">
-        <div className="landing-method-copy">
-          <p className="landing-eyebrow">{t.methodEyebrow}</p>
-          <h2>{displayText(t.methodTitle)}</h2>
-          <p>{t.methodDescription}</p>
-        </div>
-        <ol className="landing-loop">
-          {learningLoop.map(({ icon: Icon, tone, label, body }, index) => (
-            <li key={label}>
-              <span className="landing-loop-index">{String(index + 1).padStart(2, '0')}</span>
-              <span className={`landing-loop-icon ${tone}`}><Icon size={19} /></span>
-              <strong>{label}</strong>
-              <p>{body}</p>
-            </li>
-          ))}
-        </ol>
+      <section className="landing-stats" aria-label={t.brand}>
+        <dl ref={statsRef}>
+          <div><dt>{t.statsExams}</dt><dd>{statExams}</dd></div>
+          <div><dt>{t.statsQuestions}</dt><dd>{totalQuestions >= 1000 ? `${statThousands.toLocaleString('en-US')},000+` : questionFloor(totalQuestions)}</dd></div>
+          <div><dt>{t.statsFree}</dt><dd>{t.statsFreeValue}</dd></div>
+          <div><dt>{t.statsSignup}</dt><dd>{t.statsSignupValue}</dd></div>
+        </dl>
       </section>
 
-      <section className="landing-exams" id="landing-exams">
+      <section className="landing-popular" id="landing-exams">
         <header className="landing-section-head">
           <div>
-            <p className="landing-eyebrow">{t.examSectionEyebrow(totalQuestions)}</p>
-            <h2>{displayText(t.examSectionTitle)}</h2>
+            <p className="landing-eyebrow">{t.popularEyebrow}</p>
+            <h2>{displayText(t.popularTitle)}</h2>
           </div>
-          <p>{t.examSectionDescription}</p>
+          <div className="landing-section-aside">
+            <p>{t.popularBody}</p>
+            <div className="popular-controls">
+              <button type="button" className="landing-icon-button" aria-label={t.popularPrev} onClick={() => scrollPopular(-1)}><ArrowLeft size={18} /></button>
+              <button type="button" className="landing-icon-button" aria-label={t.popularNext} onClick={() => scrollPopular(1)}><ArrowRight size={18} /></button>
+            </div>
+          </div>
         </header>
-        <div className="landing-exam-grid">
-          {featured.map((exam, index) => {
-            const ExamIcon = CATEGORY_ICON[exam.category] ?? Database
+        <div className={motionOk ? 'popular-row is-drifting' : 'popular-row'} ref={popularRef}>
+          {popular.map((exam, index) => (
+            <ExamCard exam={exam} key={exam.examId} t={cardStrings} lang={lang} location="popular" index={index} />
+          ))}
+          {/* Clone set for a seamless loop; client-only so crawlers see each exam once. */}
+          {motionOk ? popular.map((exam, index) => (
+            <ExamCard exam={exam} key={`clone-${exam.examId}`} t={cardStrings} lang={lang} location="popular" index={index} cloned />
+          )) : null}
+        </div>
+        <div className="popular-foot">
+          <a className="landing-secondary" href={CATALOG_PATH} onClick={() => trackLanding('catalog_link', { cta_location: 'popular' })}>
+            {t.popularAll(exams.length)}<ArrowRight size={16} />
+          </a>
+          {DEMAND_PERIOD ? (
+            <p className="landing-demand-note">
+              {t.demandNote(DEMAND_PERIOD.year, DEMAND_PERIOD.month)}{' '}
+              <a href={DEMAND_SOURCE} rel="noopener noreferrer" target="_blank">{t.demandSource}<ArrowUpRight size={13} /></a>
+            </p>
+          ) : null}
+        </div>
+      </section>
+
+      <section className="landing-categories" id="landing-categories">
+        <header className="landing-categories-head">
+          <p className="landing-eyebrow">{t.categoriesEyebrow}</p>
+          <h2>{displayText(t.categoriesTitle)}</h2>
+        </header>
+        <ul className="category-grid">
+          {categories.map((group) => {
+            const Icon = categoryIcon(group.category)
             return (
-              // Both people and crawlers open the same public exam details.
-              <a
-                className="landing-exam-card"
-                key={exam.examId}
-                href={examPath(exam.examId)}
-                onClick={() => trackLanding('exam_details', { exam_id: exam.examId, cta_location: 'catalog' })}
-                style={{ '--landing-index': index } as CSSProperties}
-              >
-                <span className="landing-exam-icon"><ExamIcon size={17} /></span>
-                <span className="landing-exam-copy">
-                  <strong>{examTitle(exam)}</strong>
-                  <small>{exam.sections[0]?.subjectCode ?? exam.examId} · {examCategory(exam)} · {examLevel(exam)}</small>
-                </span>
-                <small className="landing-exam-count">{t.examCount(exam.activeQuestionCount)}</small>
-                <span className="landing-exam-arrow" aria-label={t.examAction(examTitle(exam))}>
-                  <ArrowRight size={16} />
-                </span>
-              </a>
+              <li key={group.slug}>
+                <a href={`${CATALOG_PATH}#${group.slug}`} onClick={() => trackLanding('category', { category: group.category })}>
+                  <span className="category-icon" aria-hidden="true"><Icon size={20} /></span>
+                  <span className="category-copy">
+                    <strong>{categoryName(group.category)}</strong>
+                    <small>{t.categoryCount(group.exams.length)} · {t.examCount(group.questionCount)}</small>
+                  </span>
+                  <ArrowRight className="category-arrow" size={16} aria-hidden="true" />
+                </a>
+              </li>
             )
           })}
-        </div>
+        </ul>
+      </section>
 
-        {rest.length ? (
-          // Names stay as plain crawlable links (someone searching 「會計事務丙級
-          // 題庫」 should still find this page) but read as scannable chips rather
-          // than a punctuated wall of text.
-          <div className="landing-exam-rest">
-            <p className="landing-exam-rest-label">{t.examRestLabel}</p>
-            <div className="landing-exam-chips">
-              {restByCategory.map((group) => (
-                <div className="landing-exam-chip-group" key={group.category}>
-                  <span className="landing-exam-chip-cat">{examCategory(group.exams[0])}</span>
-                  {group.exams.map((exam) => (
-                    <a
-                      className="landing-exam-chip"
-                      key={exam.examId}
-                      href={examPath(exam.examId)}
-                      onClick={() => trackLanding('exam_details', { exam_id: exam.examId, cta_location: 'catalog' })}
-                      title={t.examCount(exam.activeQuestionCount)}
-                    >{examTitle(exam)}</a>
-                  ))}
-                </div>
-              ))}
-            </div>
-            <button className="landing-secondary" onClick={() => onEnter('exam_see_all')} type="button">
-              {t.examSeeAll}<ArrowRight size={16} />
-            </button>
-          </div>
-        ) : null}
+      <section className="landing-showcase" id="landing-how" ref={showcaseRef}>
+        <div className="showcase-copy">
+          <p className="landing-eyebrow">{t.showcaseEyebrow}</p>
+          <h2>{displayText(t.showcaseTitle)}</h2>
+          <p>{t.showcaseBody}</p>
+          <ol className="showcase-steps">
+            {steps.map(({ icon: Icon, label, body }, index) => (
+              <li key={label}>
+                <button
+                  type="button"
+                  aria-pressed={step === index}
+                  onClick={() => { setStep(index); setAutoplay(false); trackLanding('showcase_step', { step: index + 1 }) }}
+                >
+                  {autoplay && step === index ? (
+                    <span
+                      aria-hidden="true"
+                      className={showcaseInView ? 'showcase-progress' : 'showcase-progress is-paused'}
+                      onAnimationEnd={() => setStep((current) => (current + 1) % steps.length)}
+                    />
+                  ) : null}
+                  <span className="showcase-index">{String(index + 1).padStart(2, '0')}</span>
+                  <span className="showcase-icon" aria-hidden="true"><Icon size={18} /></span>
+                  <span className="showcase-text">
+                    <strong>{label}</strong>
+                    <span>{body}</span>
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ol>
+        </div>
+        <div className="showcase-stage">
+          {steps.map(({ label, shot }, index) => (
+            <figure className={step === index ? 'showcase-shot is-active' : 'showcase-shot'} key={shot} aria-hidden={step !== index}>
+              <img className="shot-light" src={`/screens/${shot}-light.webp`} alt={t.showcaseAlt(label)} width={390} height={844} loading={index ? 'lazy' : 'eager'} decoding="async" />
+              <img className="shot-dark" src={`/screens/${shot}-dark.webp`} alt="" width={390} height={844} loading="lazy" decoding="async" />
+            </figure>
+          ))}
+        </div>
       </section>
 
       <section className="landing-schedule" id="landing-schedule">
@@ -550,6 +616,19 @@ export function LandingPage({ exams, returning, onEnter, t = zhTW.landing, lang 
         </div>
       </section>
 
+      <section className="landing-final">
+        <h2>{displayText(t.finalTitle)}</h2>
+        <p>{t.finalBody}</p>
+        <div className="landing-final-actions">
+          <button className="landing-primary landing-primary-light" onClick={() => onEnter('final')} type="button">
+            {t.primaryAction}<ArrowRight size={18} />
+          </button>
+          <a className="landing-final-link" href={CATALOG_PATH} onClick={() => trackLanding('catalog_link', { cta_location: 'final' })}>
+            {t.finalSecondary}<ArrowRight size={16} />
+          </a>
+        </div>
+      </section>
+
       <section className="landing-donate" id="landing-donate">
         <SupportPanel location="landing" lang={lang} />
       </section>
@@ -563,21 +642,22 @@ export function LandingPage({ exams, returning, onEnter, t = zhTW.landing, lang 
               <small>{t.navTagline}</small>
             </span>
           </a>
-          <div className="landing-footer-actions">
-            {lang === 'en' ? null : (
-              <a href={GUIDE_PATH} onClick={() => trackLanding('guide_link')}>
-                {zhTW.landing.navGuide}<ArrowRight size={15} />
+          <div className="landing-footer-cols">
+            <div>
+              <p>{t.footerExplore}</p>
+              <a href={CATALOG_PATH}>{t.navCatalog}</a>
+              {lang === 'en' ? null : <a href={GUIDE_PATH} onClick={() => trackLanding('guide_link')}>{zhTW.landing.navGuide}</a>}
+              <a href={otherLangHref} hrefLang={lang === 'en' ? 'zh-Hant-TW' : 'en'}>{lang === 'en' ? '中文版' : 'English'}</a>
+            </div>
+            <div>
+              <p>{t.footerAbout}</p>
+              <a href="https://techbank.wdasec.gov.tw/" rel="noreferrer" target="_blank" onClick={() => trackLanding('official_source')}>
+                {t.officialSource}<ArrowUpRight size={14} />
               </a>
-            )}
-            <a href="https://techbank.wdasec.gov.tw/" rel="noreferrer" target="_blank" onClick={() => trackLanding('official_source')}>
-              {t.officialSource}<ArrowUpRight size={15} />
-            </a>
-            <a href={REPO_URL} rel="noreferrer" target="_blank" onClick={() => trackLanding('source_code')}>
-              <Github size={15} />{t.sourceCode}<ArrowUpRight size={15} />
-            </a>
-            <button className="landing-primary" onClick={() => onEnter('footer')} type="button">
-              {t.primaryAction}<ArrowRight size={16} />
-            </button>
+              <a href={REPO_URL} rel="noreferrer" target="_blank" onClick={() => trackLanding('source_code')}>
+                <Github size={14} />{t.sourceCode}<ArrowUpRight size={14} />
+              </a>
+            </div>
           </div>
         </div>
         <p>{t.footerNote}</p>
@@ -590,7 +670,7 @@ export function LandingPage({ exams, returning, onEnter, t = zhTW.landing, lang 
       ) : null}
 
       {/* Sticky mobile CTA: CSS confines it to small viewports; JS shows it only
-          between the hero and the footer. */}
+          between the hero and the final CTA band. */}
       <div className={ctaVisible ? 'landing-mobile-cta landing-in' : 'landing-mobile-cta'}>
         <button className="landing-primary" onClick={() => onEnter('mobile_cta')} type="button">
           {t.primaryAction}<ArrowRight size={16} />

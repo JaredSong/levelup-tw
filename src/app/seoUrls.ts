@@ -11,6 +11,11 @@
 export const SITE_ORIGIN = 'https://levelup.tw'
 export const EN_PATH = '/en/'
 export const GUIDE_PATH = '/guide/'
+export const CATALOG_PATH = '/exams/'
+
+/** The /exams/ <title>. Prerender writes it; App.tsx sets the same after hydration. */
+export const catalogTitle = (examCount: number): string =>
+  `技能檢定學科題庫總覽｜${examCount} 個考科免費線上練習 - 升級吧`
 
 /** The /en <title>. Prerender writes it; App.tsx must set the same string after hydration. */
 export const EN_TITLE = 'Level Up｜Taiwan Skills-Certification Written-Exam Question Bank · Free Offline Practice'

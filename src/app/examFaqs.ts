@@ -14,6 +14,16 @@ export interface ExamFaq {
  * read from the pack manifest or the schedule module — nothing is typed per
  * exam, so a regenerated pack or a passed deadline can't leave a stale answer.
  */
+// Shared subjects span several 工作項目; naming one by its first 工作項目 (as the
+// four general subjects are, one 工作項目 each) would mislabel it. Names follow
+// the official papers and 115 簡章 重點提示 21.
+const SHARED_SUBJECT_NAMES: Record<string, string> = {
+  '90001': '機工類共同科目',
+  '90010': '食品安全衛生及營養',
+  '90011': '資訊相關職類',
+  '90012': '美容美髮相關職類安全衛生',
+}
+
 export function examFaqs(exam: ExamManifest, now: Date): ExamFaq[] {
   const t = zhTW.examPage
   const title = exam.titleZh
@@ -28,7 +38,7 @@ export function examFaqs(exam: ExamManifest, now: Date): ExamFaq[] {
   const commonSubjects = [...new Map(
     exam.sections
       .filter((section) => section.sourceGroup !== 'occupation' && section.subjectCode !== occupationCode)
-      .map((section) => [section.subjectCode, section.titleZh]),
+      .map((section) => [section.subjectCode, SHARED_SUBJECT_NAMES[section.subjectCode] ?? section.titleZh]),
   ).values()]
   if (commonSubjects.length) faqs.push(t.faqCommon(title, commonSubjects.join('、')))
 

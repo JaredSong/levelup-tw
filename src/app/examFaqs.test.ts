@@ -35,6 +35,15 @@ describe('exam page FAQ', () => {
     expect(new Set(listed).size).toBe(listed.length)
   })
 
+  it('names shared subjects by subject, not by their first 工作項目', () => {
+    const common = (id: string) => examFaqs(exam(id), new Date('2026-12-01T00:00:00')).find((item) => item.q.includes('還會考什麼'))!.a
+    expect(common('baking-food-c')).toContain('食品安全衛生及營養、職業安全衛生')
+    expect(common('baking-food-c')).not.toContain('營養及健康飲食')
+    expect(common('network-installation-c')).toContain('資訊相關職類、職業安全衛生')
+    expect(common('network-installation-c')).not.toContain('資訊安全')
+    expect(common('beauty-c')).toContain('美容美髮相關職類安全衛生')
+  })
+
   it('only includes the schedule while a round is upcoming', () => {
     const baking = exam('baking-food-c')
     expect(examFaqs(baking, new Date('2026-10-01T00:00:00')).some((item) => item.q.includes('什麼時候報名'))).toBe(true)

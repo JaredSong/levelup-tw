@@ -28,6 +28,8 @@ export function buildLandingCatalog(manifests, demand, featuredCount = 4) {
     examCount: manifests.length,
     activeQuestionCount: manifests.reduce((total, manifest) => total + manifest.activeQuestionCount, 0),
     demandPeriod: demand.period,
+    // Where the 報檢人次 figures come from, so any page quoting them can cite it.
+    demandSource: demand.source,
     featuredExamIds: featured.map((entry) => entry.examId),
     exams: ranked,
     metaDescription: `升級吧收錄 ${manifests.length} 種技術士技能檢定學科題庫，包括${featuredNames}。練官方公告題目、錯題複習與計時模擬考；免費、免註冊、可離線。`,

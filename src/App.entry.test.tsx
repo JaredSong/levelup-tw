@@ -62,6 +62,13 @@ describe('existing installed app entry compatibility', () => {
     expect(html).toContain('繼續練習')
     expect(storage.setItem).not.toHaveBeenCalled()
   })
+  it.each(['/exams', '/exams/'])('serves the exam catalog at %s without touching the saved profile', (path) => {
+    const html = open(path)
+    expect(html).toContain('class="catalog-hero"')
+    expect(html).toContain('href="/exam/web-design-b/"')
+    expect(html).not.toContain('class="landing-hero"')
+    expect(storage.setItem).not.toHaveBeenCalled()
+  })
   it('still requires subject selection for a fresh /app install', () => {
     values.delete(ONBOARDING_DONE_KEY)
     expect(open('/app', true)).toContain('class="onboarding-screen"')

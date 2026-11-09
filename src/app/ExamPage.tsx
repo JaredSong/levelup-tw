@@ -7,7 +7,7 @@ import { INSTALLED_EXAMS } from './activeExam'
 import { trackLanding } from './analytics'
 import { GENERATED_EXAM_SAMPLES } from './generatedExamSamples'
 import { getNextNationalExamEntry } from './nationalExamSchedule'
-import { examPath } from './seoUrls'
+import { CATALOG_PATH, examPath } from './seoUrls'
 import { examFaqs } from './examFaqs'
 
 interface Props {
@@ -85,7 +85,7 @@ export function ExamPage({ exam, onEnter, onHome }: Props) {
       <nav className="exam-crumb" aria-label="breadcrumb">
         <a href="/" onClick={homeClick}>{t.home}</a>
         <span aria-hidden="true">/</span>
-        <span>{t.crumbExams}</span>
+        <a href={CATALOG_PATH}>{t.crumbExams}</a>
         <span aria-hidden="true">/</span>
         <span className="exam-crumb-current">{exam.titleZh}</span>
       </nav>
@@ -194,7 +194,7 @@ export function ExamPage({ exam, onEnter, onHome }: Props) {
           <button className="landing-primary" onClick={() => enter('cta')} type="button">
             {t.practice(exam.titleZh)}<ArrowRight size={18} />
           </button>
-          <a className="landing-secondary" href="/" onClick={homeClick}>{t.seeAll}<ArrowRight size={16} /></a>
+          <a className="landing-secondary" href={CATALOG_PATH}>{t.seeAll}<ArrowRight size={16} /></a>
         </div>
       </section>
 

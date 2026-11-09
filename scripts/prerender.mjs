@@ -39,12 +39,13 @@ globalThis.window = {
   scrollY: 0,
 }
 
-const { renderLanding, renderLandingEn, renderExamPage, renderGuidePage, EXAM_META, EN_FAQ_JSONLD, EN_APP_DESCRIPTION, GUIDE_FAQ_JSONLD, SITE_ORIGIN, EN_PATH, EN_TITLE, GUIDE_PATH } = await import(new URL('entry-prerender.js', SSR_OUT))
+const { renderLanding, renderLandingEn, renderExamPage, renderGuidePage, renderCatalogPage, EXAM_META, EN_FAQ_JSONLD, EN_APP_DESCRIPTION, GUIDE_FAQ_JSONLD, CATALOG_TITLE, CATALOG_DESC, CATALOG_ITEMLIST_JSONLD, SITE_ORIGIN, EN_PATH, EN_TITLE, GUIDE_PATH, CATALOG_PATH } = await import(new URL('entry-prerender.js', SSR_OUT))
 
 // Every public URL below uses the trailing-slash form from src/app/seoUrls.ts —
 // the spelling Cloudflare Pages serves without a 308 (see that file).
 const EN_URL = `${SITE_ORIGIN}${EN_PATH}`
 const GUIDE_URL = `${SITE_ORIGIN}${GUIDE_PATH}`
+const CATALOG_URL = `${SITE_ORIGIN}${CATALOG_PATH}`
 
 const GUIDE_TITLE = '免費技能檢定題庫：線上刷題與模擬考完整指南 - 升級吧'
 const GUIDE_DESC = '技術士技能檢定學科題庫是官方公開的，可以免費線上練習。本指南說明題庫哪裡找、怎麼免費刷題、學科怎麼準備，並比較官方 PDF、線上刷題與付費題庫。'
@@ -136,7 +137,7 @@ function examHead(html, m) {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: '首頁', item: 'https://levelup.tw/' },
-      { '@type': 'ListItem', position: 2, name: '考科題庫', item: 'https://levelup.tw/' },
+      { '@type': 'ListItem', position: 2, name: '考科題庫', item: CATALOG_URL },
       { '@type': 'ListItem', position: 3, name: `${m.titleZh}學科題庫` },
     ],
   }, null, 2)
@@ -176,6 +177,35 @@ const guideDir = new URL('../dist/guide/', import.meta.url)
 mkdirSync(guideDir, { recursive: true })
 writeFileSync(new URL('index.html', guideDir), inject(guide, renderGuidePage(), 'guide-lead'))
 
+// --- Exam catalog at /exams/ (the hub linking every exam page) ---
+let catalog = base
+catalog = replaceOnce(catalog, /<title>[^<]*<\/title>/, `<title>${CATALOG_TITLE}</title>`, 'catalog <title>')
+catalog = replaceOnce(catalog, /(<meta name="description" content=")[^"]*(")/, `$1${CATALOG_DESC}$2`, 'catalog description')
+catalog = replaceOnce(catalog, /(<link rel="canonical" href=")[^"]*(")/, `$1${CATALOG_URL}$2`, 'catalog canonical')
+catalog = replaceOnce(catalog, /(<meta property="og:url" content=")[^"]*(")/, `$1${CATALOG_URL}$2`, 'catalog og:url')
+catalog = replaceOnce(catalog, /(<meta property="og:title" content=")[^"]*(")/, `$1${CATALOG_TITLE}$2`, 'catalog og:title')
+catalog = replaceOnce(catalog, /(<meta property="og:description" content=")[^"]*(")/, `$1${CATALOG_DESC}$2`, 'catalog og:description')
+catalog = replaceOnce(catalog, /(<meta name="twitter:title" content=")[^"]*(")/, `$1${CATALOG_TITLE}$2`, 'catalog twitter:title')
+catalog = replaceOnce(catalog, /(<meta name="twitter:description" content=")[^"]*(")/, `$1${CATALOG_DESC}$2`, 'catalog twitter:description')
+catalog = catalog.replace(/\n\s*<link rel="alternate" hreflang="[^"]*" href="[^"]*" \/>/g, '')
+const catalogBreadcrumb = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: '首頁', item: `${SITE_ORIGIN}/` },
+    { '@type': 'ListItem', position: 2, name: '考科題庫' },
+  ],
+}, null, 2)
+catalog = replaceOnce(
+  catalog,
+  /<!-- faq-jsonld:start -->[\s\S]*?<!-- faq-jsonld:end -->/,
+  `<!-- faq-jsonld:start -->\n    <script type="application/ld+json">\n${catalogBreadcrumb}\n    </script>\n    <script type="application/ld+json">\n${CATALOG_ITEMLIST_JSONLD}\n    </script>\n    <!-- faq-jsonld:end -->`,
+  'catalog breadcrumb + ItemList',
+)
+const catalogDir = new URL('../dist/exams/', import.meta.url)
+mkdirSync(catalogDir, { recursive: true })
+writeFileSync(new URL('index.html', catalogDir), inject(catalog, renderCatalogPage(), 'catalog-hero'))
+
 // --- Sitemap incl. every exam page, kept in sync with the published packs ---
 // Omit optional lastmod until we have per-page content revision dates.
 // A rebuild is not a significant update to every exam page.
@@ -183,6 +213,7 @@ const pairAlt = `    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="htt
 const entries = [
   `  <url>\n    <loc>https://levelup.tw/</loc>\n    <changefreq>weekly</changefreq>\n    <priority>1.0</priority>\n${pairAlt}\n  </url>`,
   `  <url>\n    <loc>${EN_URL}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n${pairAlt}\n  </url>`,
+  `  <url>\n    <loc>${CATALOG_URL}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.9</priority>\n  </url>`,
   `  <url>\n    <loc>${GUIDE_URL}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>`,
   ...EXAM_META.map((m) => `  <url>\n    <loc>${SITE_ORIGIN}${m.path}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>`),
 ]
@@ -202,6 +233,7 @@ const llms = `# 升級吧 Level Up
 - [免費技能檢定題庫：線上刷題與模擬考完整指南](${GUIDE_URL}): 技能檢定學科題庫哪裡找、怎麼免費刷題、學科怎麼準備，以及官方 PDF、線上刷題與付費題庫的比較。
 
 ## 考科題庫
+- [技能檢定學科題庫總覽](${CATALOG_URL}): 全部考科依職類與級別分類，可用名稱或代碼搜尋。
 ${llmsExamLines}
 `
 writeFileSync(new URL('../dist/llms.txt', import.meta.url), llms)
@@ -214,6 +246,7 @@ const indexable = [
   ['dist/index.html', `${SITE_ORIGIN}/`],
   ['dist/en/index.html', EN_URL],
   ['dist/guide/index.html', GUIDE_URL],
+  ['dist/exams/index.html', CATALOG_URL],
   ...EXAM_META.map((m) => [`dist${m.path}index.html`, `${SITE_ORIGIN}${m.path}`]),
 ]
 for (const [file, expected] of indexable) {
@@ -234,4 +267,4 @@ if (readFileSync(INDEX, 'utf8').includes('exam-hero')) {
 }
 
 rmSync(SSR_OUT, { recursive: true, force: true })
-console.log(`prerender: wrote zh + en landings, ${EXAM_META.length} exam pages, sitemap, and llms.txt`)
+console.log(`prerender: wrote zh + en landings, the exam catalog, ${EXAM_META.length} exam pages, sitemap, and llms.txt`)

@@ -575,12 +575,56 @@ describe('published question bank', () => {
     expect(occupation.some((question) => question.hasFigure)).toBe(false)
   })
 
+  it('publishes the first text-only batch with official mock splits', () => {
+    const cases = [
+      { examId: 'chinese-cooking-vegetarian-c', code: '07601', published: 507, active: 505, shared: '90010', b: false },
+      { examId: 'chinese-cooking-meat-b', code: '07602', published: 676, active: 670, shared: '90010', b: true },
+      { examId: 'beauty-b', code: '10000', published: 682, active: 682, shared: '90012', b: true },
+      { examId: 'pressure-vessel-operation-single', code: '09900', published: 649, active: 645, b: false },
+      { examId: 'horticulture-c', code: '13300', published: 687, active: 687, b: false },
+      { examId: 'funeral-service-c', code: '20300', published: 610, active: 607, b: false },
+      { examId: 'funeral-service-b', code: '20300', published: 599, active: 599, b: true },
+      { examId: 'folk-massage-single', code: '22600', published: 643, active: 643, b: false },
+    ]
+    for (const item of cases) {
+      const bank = loadExamBank(item.examId)
+      const occupation = bank.filter((question) => question.subjectCode === item.code)
+      expect(occupation).toHaveLength(item.published)
+      expect(occupation.filter((question) => question.active !== false)).toHaveLength(item.active)
+      expect(occupation.some((question) => question.hasFigure)).toBe(false)
+      expect(occupation.every((question) => question.prompt.trim() && question.options.length === 4)).toBe(true)
+      const manifest = JSON.parse(
+        readFileSync(new URL(`../public/data/exams/${item.examId}/manifest.json`, import.meta.url), 'utf8'),
+      ) as { mockRules: Parameters<typeof buildMockQueue>[1] }
+      const active = bank.filter((question) => question.active !== false)
+      for (let i = 0; i < 10; i += 1) {
+        const mock = buildMockQueue(active, manifest.mockRules, () => (i + 1) / 11)
+        expect(mock).toHaveLength(80)
+        expect(mock.filter((question) => question.kind === 'multiple')).toHaveLength(item.b ? 20 : 0)
+        expect(mock.filter((question) => question.subjectCode === item.code)).toHaveLength(item.shared ? 48 : 64)
+        if (item.shared) expect(mock.filter((question) => question.subjectCode === item.shared)).toHaveLength(16)
+      }
+    }
+  })
+
+  it('restores sub/superscripts the PDF text layer drops', () => {
+    const text = (examId: string, id: string) => {
+      const question = loadExamBank(examId).find((item) => item.id === id)!
+      return `${question.prompt} ${question.options.join(' ')}`
+    }
+    expect(text('beauty-b', '10000-02-102')).toContain('維生素 B12')
+    expect(text('horticulture-c', '13300-02-112')).toContain('P₂O₅')
+    expect(text('pressure-vessel-operation-single', '09900-12-014')).toContain('（kgf/cm²）數值與內容積（m³）')
+  })
+
   // Ids repeat across levels of one occupation (11800 丙/乙). Overrides written
   // for one PDF must not land on the other level's question with the same id.
   it('keeps 丙級 option overrides off same-numbered 乙級 questions', () => {
     const question = loadExamBank('computer-software-application-b').find((item) => item.id === '11800-03-056')!
     expect(question.prompt).toBe('下列何者不是作業系統的功能？')
     expect(question.options).toEqual(['輸出/入裝置的管理', '處理的管理', '輸入法的管理', '記憶體的管理'])
+    const meatB = loadExamBank('chinese-cooking-meat-b')
+    expect(meatB.find((item) => item.id === '07602-01-067')?.active).not.toBe(false)
   })
 
   it('ships each 三視圖 question with its 3D object and four option images', () => {

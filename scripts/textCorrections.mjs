@@ -174,6 +174,31 @@ const PATTERNS = Object.entries(CORRECTIONS).map(([broken, fixed]) => [
   fixed,
 ])
 
+// pdftotext drops sub/superscript positioning, so "cm²" arrives as "cm 2" and
+// "CO₂" as "CO 2". Only packs that opt in (restoreScripts: true) get these, and
+// each opted-in pack's scripted tokens were checked against the PDF's word
+// boxes (pdftotext -bbox: shorter glyph, shifted baseline) before enabling.
+// Longest forms first, and no letter may precede a formula, so "O 2" can
+// never eat the tail of "CO 2".
+const SCRIPT_FIXES = [
+  [/維生素\s*B\s*1\s+2(?!\d)/g, '維生素 B12'],
+  [/(?<![A-Za-z])B\s+1\s+2(?!\d)/g, 'B12'],
+  [/(?<![A-Za-z])([BD])\s+([1-6])(?![\d.])/g, '$1$2'],
+  [/(?<![A-Za-z])F\s+1(?![\d.])/g, 'F1'],
+  [/(?<![A-Za-z])P\s*2\s*O\s*5(?!\d)/g, 'P₂O₅'],
+  [/(?<![A-Za-z])C\s*2\s*H\s*4(?!\d)/g, 'C₂H₄'],
+  [/(?<![A-Za-z])(CO|SO|NO|PO|NH|O|N|H)\s*([2-5])(?![\d.])/g, (_, formula, digit) => `${formula}${'₀₁₂₃₄₅'[digit]}`],
+  [/(?<=[Kk]g|kgf|g|N)\/(cm|mm|m)\s+2(?![\d.])/g, '/$1²'],
+  [/（m\s+3）/g, '（m³）'],
+]
+
+export function restoreScripts(text) {
+  if (typeof text !== 'string') return text
+  let out = text
+  for (const [re, fixed] of SCRIPT_FIXES) out = out.replace(re, fixed)
+  return out
+}
+
 export function sanitizeText(text) {
   if (typeof text !== 'string') return text
   let out = text

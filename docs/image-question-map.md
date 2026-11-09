@@ -1,6 +1,6 @@
 # Image Question Map
 
-Generated: 2026-11-06T09:51:01.885Z
+Generated: 2026-11-09T05:15:49.169Z
 
 These are the questions that currently need a figure, graph, code screenshot, or image-option reference.
 

@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-06T09:53:15.761Z",
-  "examCount": 43,
-  "activeQuestionCount": 49635,
+  "generatedAt": "2026-11-09T05:16:33.583Z",
+  "examCount": 51,
+  "activeQuestionCount": 58693,
   "demandPeriod": "115年截至9月底止通過技能檢定學術科測試",
   "featuredExamIds": [
     "forklift-operation-single",
@@ -214,6 +214,13 @@
       "applicantCount": 2016
     },
     {
+      "examId": "folk-massage-single",
+      "titleZh": "民俗調理業傳統整復推拿單一級",
+      "code": "22600",
+      "level": "單一級",
+      "applicantCount": 1796
+    },
+    {
       "examId": "digital-electronics-b",
       "titleZh": "數位電子乙級",
       "code": "11700",
@@ -242,11 +249,32 @@
       "applicantCount": 1680
     },
     {
+      "examId": "horticulture-c",
+      "titleZh": "園藝丙級",
+      "code": "13300",
+      "level": "丙級",
+      "applicantCount": 1638
+    },
+    {
       "examId": "aircraft-maintenance-c",
       "titleZh": "飛機修護丙級",
       "code": "17600",
       "level": "丙級",
       "applicantCount": 1375
+    },
+    {
+      "examId": "beauty-b",
+      "titleZh": "美容乙級",
+      "code": "10000",
+      "level": "乙級",
+      "applicantCount": 1341
+    },
+    {
+      "examId": "pressure-vessel-operation-single",
+      "titleZh": "第一種壓力容器操作單一級",
+      "code": "09900",
+      "level": "單一級",
+      "applicantCount": 1281
     },
     {
       "examId": "engineering-surveying-b",
@@ -291,6 +319,34 @@
       "applicantCount": 977
     },
     {
+      "examId": "funeral-service-c",
+      "titleZh": "喪禮服務丙級",
+      "code": "20300",
+      "level": "丙級",
+      "applicantCount": 966
+    },
+    {
+      "examId": "funeral-service-b",
+      "titleZh": "喪禮服務乙級",
+      "code": "20300",
+      "level": "乙級",
+      "applicantCount": 900
+    },
+    {
+      "examId": "chinese-cooking-vegetarian-c",
+      "titleZh": "中餐烹調－素食丙級",
+      "code": "07601",
+      "level": "丙級",
+      "applicantCount": 829
+    },
+    {
+      "examId": "chinese-cooking-meat-b",
+      "titleZh": "中餐烹調－葷食乙級",
+      "code": "07602",
+      "level": "乙級",
+      "applicantCount": 697
+    },
+    {
       "examId": "web-design-b",
       "titleZh": "網頁設計乙級",
       "code": "17300",
@@ -312,5 +368,5 @@
       "applicantCount": null
     }
   ],
-  "metaDescription": "升級吧收錄 43 種技術士技能檢定學科題庫，包括堆高機操作單一級、職業安全衛生管理乙級、中餐烹調－葷食丙級、電腦軟體應用丙級。練官方公告題目、錯題複習與計時模擬考；免費、免註冊、可離線。"
+  "metaDescription": "升級吧收錄 51 種技術士技能檢定學科題庫，包括堆高機操作單一級、職業安全衛生管理乙級、中餐烹調－葷食丙級、電腦軟體應用丙級。練官方公告題目、錯題複習與計時模擬考；免費、免註冊、可離線。"
 }

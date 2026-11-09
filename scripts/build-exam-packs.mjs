@@ -13,7 +13,7 @@ import {
   SURVEYING_QUESTION_OVERRIDES,
   SURVEYING_SOURCE_FILE,
 } from './surveyingQuestionOverrides.mjs'
-import { sanitizeText } from './textCorrections.mjs'
+import { restoreScripts, sanitizeText } from './textCorrections.mjs'
 
 const INACTIVE_IDS = new Set([
   '07602-01-067',
@@ -1388,6 +1388,202 @@ const EXAMS = [
       extraSubjectQuota: [{ subjectCode: '90001', count: 4 }],
     },
   },
+  {
+    examId: 'chinese-cooking-vegetarian-c',
+    titleZh: '中餐烹調－素食丙級',
+    titleEn: 'Chinese Cooking: Vegetarian (Class C)',
+    level: '丙級',
+    category: '餐飲食品',
+    occupationCode: '07601',
+    occupationFile: '076013A11-raw.txt',
+    occupationExpected: 507,
+    version: 'A11',
+    extraCommonCodes: ['90010'],
+    inactiveIds: ['07601-03-046', '07601-11-056'],
+    // Text-only bank: sub/superscripts verified against the PDF's word boxes.
+    restoreScripts: true,
+    mockRules: {
+      occupationQuota: 48,
+      singleCount: 80,
+      multipleCount: 0,
+      weightSingle: 1.25,
+      weightMultiple: 0,
+      extraSubjectQuota: [{ subjectCode: '90010', count: 16 }],
+    },
+  },
+  {
+    examId: 'chinese-cooking-meat-b',
+    titleZh: '中餐烹調－葷食乙級',
+    titleEn: 'Chinese Cooking: Meat (Class B)',
+    level: '乙級',
+    category: '餐飲食品',
+    occupationCode: '07602',
+    occupationSourceKey: '07602-2',
+    isolatedOccupation: true,
+    // Official stem follows the options (「①…④ X 不但…」); the parser left the
+    // prompt empty and glued the stem onto option 4. Blank marks where it sits.
+    promptOverrides: { '07602-06-003': '＿＿＿＿容易生銹，使用後須清洗乾淨並晾乾。' },
+    optionOverrides: { '07602-06-003': ['鐵炒鍋', '鋁炒鍋', '琺瑯鍋', '不銹鋼炒鍋'] },
+    occupationFile: '076022A11-raw.txt',
+    occupationExpected: 676,
+    version: 'A11',
+    extraCommonCodes: ['90010'],
+    inactiveIds: ['07602-07-074', '07602-10-038', '07602-10-039', '07602-10-045', '07602-10-062', '07602-10-070'],
+    // Text-only bank: sub/superscripts verified against the PDF's word boxes.
+    restoreScripts: true,
+    mockRules: {
+      occupationQuota: 48,
+      singleCount: 60,
+      multipleCount: 20,
+      weightSingle: 1,
+      weightMultiple: 2,
+      extraSubjectQuota: [{ subjectCode: '90010', count: 16 }],
+    },
+  },
+  {
+    examId: 'beauty-b',
+    titleZh: '美容乙級',
+    titleEn: 'Beauty Care (Class B)',
+    level: '乙級',
+    category: '美容美髮',
+    occupationCode: '10000',
+    occupationSourceKey: '10000-2',
+    isolatedOccupation: true,
+    // Official stem follows the options (「①…④ X 不但…」); the parser left the
+    // prompt empty and glued the stem onto option 4. Blank marks where it sits.
+    promptOverrides: { '10000-03-003': '＿＿＿＿不但會破壞細胞膜，並且具有使蛋白質及酵素產生變化的特性，可說是皮膚老化的一大元凶。' },
+    optionOverrides: { '10000-03-003': ['玻璃醣醛酸', '保濕因子', '過氧化脂質', '磷脂質'] },
+    occupationFile: '100002A12-raw.txt',
+    occupationExpected: 682,
+    version: 'A12',
+    extraCommonCodes: ['90012'],
+    // Text-only bank: sub/superscripts verified against the PDF's word boxes.
+    restoreScripts: true,
+    mockRules: {
+      occupationQuota: 48,
+      singleCount: 60,
+      multipleCount: 20,
+      weightSingle: 1,
+      weightMultiple: 2,
+      extraSubjectQuota: [{ subjectCode: '90012', count: 16 }],
+    },
+  },
+  {
+    examId: 'pressure-vessel-operation-single',
+    titleZh: '第一種壓力容器操作單一級',
+    titleEn: 'Class 1 Pressure Vessel Operation (Single Level)',
+    level: '單一級',
+    category: '機械操作',
+    occupationCode: '09900',
+    occupationFile: '099004A14-raw.txt',
+    occupationExpected: 649,
+    version: 'A14',
+    extraCommonCodes: [],
+    inactiveIds: ['09900-12-010', '09900-12-011', '09900-12-012', '09900-12-035'],
+    // Text-only bank: sub/superscripts verified against the PDF's word boxes.
+    restoreScripts: true,
+    mockRules: {
+      occupationQuota: 64,
+      singleCount: 80,
+      multipleCount: 0,
+      weightSingle: 1.25,
+      weightMultiple: 0,
+      extraSubjectQuota: [],
+    },
+  },
+  {
+    examId: 'horticulture-c',
+    titleZh: '園藝丙級',
+    titleEn: 'Horticulture (Class C)',
+    level: '丙級',
+    category: '農業園藝',
+    occupationCode: '13300',
+    occupationFile: '133003A13-raw.txt',
+    occupationExpected: 687,
+    version: 'A13',
+    extraCommonCodes: [],
+    // Text-only bank: sub/superscripts verified against the PDF's word boxes.
+    restoreScripts: true,
+    mockRules: {
+      occupationQuota: 64,
+      singleCount: 80,
+      multipleCount: 0,
+      weightSingle: 1.25,
+      weightMultiple: 0,
+      extraSubjectQuota: [],
+    },
+  },
+  {
+    examId: 'funeral-service-c',
+    titleZh: '喪禮服務丙級',
+    titleEn: 'Funeral Service (Class C)',
+    level: '丙級',
+    category: '生活服務',
+    occupationCode: '20300',
+    occupationSourceKey: '20300-3',
+    isolatedOccupation: true,
+    occupationFile: '203003A12-raw.txt',
+    occupationExpected: 610,
+    version: 'A12',
+    extraCommonCodes: [],
+    inactiveIds: ['20300-01-012', '20300-02-161', '20300-02-169'],
+    // Text-only bank: sub/superscripts verified against the PDF's word boxes.
+    restoreScripts: true,
+    mockRules: {
+      occupationQuota: 64,
+      singleCount: 80,
+      multipleCount: 0,
+      weightSingle: 1.25,
+      weightMultiple: 0,
+      extraSubjectQuota: [],
+    },
+  },
+  {
+    examId: 'funeral-service-b',
+    titleZh: '喪禮服務乙級',
+    titleEn: 'Funeral Service (Class B)',
+    level: '乙級',
+    category: '生活服務',
+    occupationCode: '20300',
+    occupationSourceKey: '20300-2',
+    isolatedOccupation: true,
+    occupationFile: '203002A14-raw.txt',
+    occupationExpected: 599,
+    version: 'A14',
+    extraCommonCodes: [],
+    // Text-only bank: sub/superscripts verified against the PDF's word boxes.
+    restoreScripts: true,
+    mockRules: {
+      occupationQuota: 64,
+      singleCount: 60,
+      multipleCount: 20,
+      weightSingle: 1,
+      weightMultiple: 2,
+      extraSubjectQuota: [],
+    },
+  },
+  {
+    examId: 'folk-massage-single',
+    titleZh: '民俗調理業傳統整復推拿單一級',
+    titleEn: 'Traditional Folk Massage (Single Level)',
+    level: '單一級',
+    category: '生活服務',
+    occupationCode: '22600',
+    occupationFile: '226004A13-raw.txt',
+    occupationExpected: 643,
+    version: 'A13',
+    extraCommonCodes: [],
+    // Text-only bank: sub/superscripts verified against the PDF's word boxes.
+    restoreScripts: true,
+    mockRules: {
+      occupationQuota: 64,
+      singleCount: 80,
+      multipleCount: 0,
+      weightSingle: 1.25,
+      weightMultiple: 0,
+      extraSubjectQuota: [],
+    },
+  },
 ]
 
 const BEAUTY_HAIR_COMMON_BANK = {
@@ -1481,6 +1677,7 @@ function normalizeQuestion(question, exam) {
   const hasFigure = codeOverride?.codeBlock || surveyingTextOnly
     ? false
     : mappedFigure ?? (!exam.excludedFigureIds?.includes(question.id) && (question.hasFigure || forceFigure))
+  const clean = exam.restoreScripts ? (text) => restoreScripts(sanitizeText(text)) : sanitizeText
   const repaired = {
     ...question,
     examId: exam.examId,
@@ -1488,8 +1685,8 @@ function normalizeQuestion(question, exam) {
     ...(codeOverride?.optionCodeBlocks ? { optionCodeBlocks: codeOverride.optionCodeBlocks } : {}),
     sourcePage,
     sectionTitle: (isolated ? undefined : SECTION_TITLE_OVERRIDES[question.section]) ?? question.sectionTitle,
-    prompt: (surveyingSource ? SURVEYING_PROMPT_OVERRIDES[question.id] : undefined) ?? exam.promptOverrides?.[question.id] ?? globalFor(QUESTION_PROMPT_OVERRIDES) ?? sanitizeText(question.prompt),
-    options: (surveyingSource ? SURVEYING_OPTION_OVERRIDES[question.id] : undefined) ?? exam.optionOverrides?.[question.id] ?? globalFor(QUESTION_OPTION_OVERRIDES) ?? question.options.map(sanitizeText),
+    prompt: (surveyingSource ? SURVEYING_PROMPT_OVERRIDES[question.id] : undefined) ?? exam.promptOverrides?.[question.id] ?? globalFor(QUESTION_PROMPT_OVERRIDES) ?? clean(question.prompt),
+    options: (surveyingSource ? SURVEYING_OPTION_OVERRIDES[question.id] : undefined) ?? exam.optionOverrides?.[question.id] ?? globalFor(QUESTION_OPTION_OVERRIDES) ?? question.options.map(clean),
     ...((!isolated && INACTIVE_IDS.has(question.id)) || exam.inactiveIds?.includes(question.id) ? { active: false } : {}),
     hasFigure,
   }

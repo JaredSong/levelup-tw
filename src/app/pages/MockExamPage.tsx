@@ -1,6 +1,6 @@
 import { ArrowRight, CheckCircle2, Clock3, Timer } from 'lucide-react'
 import { zhTW } from '../../i18n/zh-TW'
-import { formatMockFormatHint } from '../activeExam'
+import { formatMockFormatHint, sharedQuotaNotice } from '../activeExam'
 import { useActiveExam } from '../useActiveExam'
 
 interface Props {
@@ -15,6 +15,7 @@ export function MockExamPage(props: Props) {
     rules.singleCount ? `${rules.singleCount} 題單選` : null,
     rules.multipleCount ? `${rules.multipleCount} 題複選` : null,
   ].filter(Boolean).join(' · ')
+  const quotaNotice = sharedQuotaNotice(activeExam, new Date())
 
   return (
     <main className="page dashboard-page">
@@ -31,6 +32,7 @@ export function MockExamPage(props: Props) {
             <p className="eyebrow">{zhTW.mock.officialFormat}</p>
             <h2>{zhTW.mock.mock80}</h2>
             <p>{formatMockFormatHint(activeExam)}</p>
+            {quotaNotice ? <p className="mock-quota-notice">{zhTW.mock.sharedQuotaUpdated(quotaNotice.code, quotaNotice.count)}</p> : null}
           </div>
         </div>
 

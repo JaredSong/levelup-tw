@@ -124,6 +124,17 @@ export function formatSyllabusItems(exam: ExamManifest): SyllabusItem[] {
 
 const SHARED_SUBJECT_CODES = new Set(['90010', '90011', '90012'])
 
+// 2026-11-07 the 90010–90012 mock quotas moved to the official 簡章 counts.
+// Tell returning learners why their mock scores may shift, for long enough to
+// cover the next 梯次's registration window, then drop the note.
+const SHARED_QUOTA_NOTICE_UNTIL = new Date('2027-01-31T23:59:59+08:00')
+
+export function sharedQuotaNotice(exam: ExamManifest, now: Date): { code: string; count: number } | null {
+  if (now > SHARED_QUOTA_NOTICE_UNTIL) return null
+  const quota = exam.mockRules.subjectQuota.find((item) => SHARED_SUBJECT_CODES.has(item.subjectCode))
+  return quota ? { code: quota.subjectCode, count: quota.count } : null
+}
+
 export function formatMockFormatHint(exam: ExamManifest): string {
   const parts = []
   if (exam.mockRules.singleCount) parts.push(`${exam.mockRules.singleCount} 題單選`)

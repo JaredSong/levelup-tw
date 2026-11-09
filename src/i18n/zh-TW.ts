@@ -397,6 +397,8 @@ export const zhTW = {
     training: '訓練',
     officialHint: '答案藏到交卷後，最接近正式考。',
     trainingHint: '每題可看回饋，用來修正速度與觀念。',
+    sharedQuotaUpdated: (code: string, count: number) =>
+      `模擬考已照官方簡章調整：${code} 共用科目改抽 ${count} 題，所以分數可能和之前不太一樣。`,
   },
   stats: {
     eyebrow: '成效紀錄',

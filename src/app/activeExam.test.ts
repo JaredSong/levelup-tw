@@ -10,6 +10,7 @@ import {
   groupExamsByCategory,
   homeStudyCopyForExam,
   INSTALLED_EXAMS,
+  sharedQuotaNotice,
 } from './activeExam'
 
 describe('active exam selection', () => {
@@ -188,6 +189,15 @@ describe('active exam selection', () => {
 
     expect(formatMockFormatHint(employment)).toBe('60 題單選 · 20 題複選 · 19500 專業科目 64 題 · 共同科目各 4 題')
     expect(formatMockFormatHint(womenHair)).toBe('80 題單選 · 06700 專業科目 48 題 · 90012 共用科目 16 題 · 共同科目各 4 題')
+  })
+
+  it('explains the shared-subject quota change only where it applied, and only for a while', () => {
+    const baking = INSTALLED_EXAMS.find((exam) => exam.examId === 'baking-food-c')!
+    const employment = INSTALLED_EXAMS.find((exam) => exam.examId === 'employment-service-b')!
+    const now = new Date('2026-12-01T00:00:00+08:00')
+    expect(sharedQuotaNotice(baking, now)).toEqual({ code: '90010', count: 16 })
+    expect(sharedQuotaNotice(employment, now)).toBeNull()
+    expect(sharedQuotaNotice(baking, new Date('2027-02-01T00:00:00+08:00'))).toBeNull()
   })
 
   it('uses a law-heavy full-study-tool home copy for employment service', () => {

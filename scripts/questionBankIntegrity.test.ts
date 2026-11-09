@@ -575,6 +575,14 @@ describe('published question bank', () => {
     expect(occupation.some((question) => question.hasFigure)).toBe(false)
   })
 
+  // Ids repeat across levels of one occupation (11800 丙/乙). Overrides written
+  // for one PDF must not land on the other level's question with the same id.
+  it('keeps 丙級 option overrides off same-numbered 乙級 questions', () => {
+    const question = loadExamBank('computer-software-application-b').find((item) => item.id === '11800-03-056')!
+    expect(question.prompt).toBe('下列何者不是作業系統的功能？')
+    expect(question.options).toEqual(['輸出/入裝置的管理', '處理的管理', '輸入法的管理', '記憶體的管理'])
+  })
+
   it('ships each 三視圖 question with its 3D object and four option images', () => {
     const byId = new Map(loadExamBank('visual-communication-design-c').map((question) => [question.id, question]))
     for (let number = 1; number <= 20; number += 1) {

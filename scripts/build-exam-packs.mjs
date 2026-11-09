@@ -493,6 +493,9 @@ const EXAMS = [
     category: '資訊',
     occupationCode: '11800',
     occupationSourceKey: '11800-2',
+    // 11800-03-054/056/071/078 option overrides belong to the 丙級 PDF; without
+    // isolation they replaced four unrelated 乙級 questions' options.
+    isolatedOccupation: true,
     occupationFile: '118002A15-raw.txt',
     occupationExpected: 776,
     version: 'A15',
@@ -1452,14 +1455,20 @@ function generatedImageSources(exam, question) {
 }
 
 function normalizeQuestion(question, exam) {
-  const sourcePage = SOURCE_PAGE_OVERRIDES[question.id] ?? question.sourcePage
-  const imageOverrides = IMAGE_OVERRIDES[question.id]
-  const codeOverride = CODE_BLOCK_OVERRIDES[question.id]
+  // Question ids are subject + section + number, so a second level of the same
+  // occupation (07602 丙/乙, 10000 丙/乙) reuses ids. The global id-keyed
+  // overrides below were written for one specific PDF; an isolated pack takes
+  // only its own exam-level overrides for its occupation questions.
+  const isolated = Boolean(exam.isolatedOccupation) && question.subjectCode === exam.occupationCode
+  const globalFor = (map) => (isolated ? undefined : map[question.id])
+  const sourcePage = globalFor(SOURCE_PAGE_OVERRIDES) ?? question.sourcePage
+  const imageOverrides = globalFor(IMAGE_OVERRIDES)
+  const codeOverride = globalFor(CODE_BLOCK_OVERRIDES)
   const surveyingSource = exam.occupationFile === SURVEYING_SOURCE_FILE
   const surveyingTextOnly = surveyingSource
     && Boolean(SURVEYING_QUESTION_OVERRIDES[question.id])
     && !SURVEYING_FIGURE_IDS.includes(question.id)
-  const forceFigure = FIGURE_QUESTION_IDS.has(question.id)
+  const forceFigure = (!isolated && FIGURE_QUESTION_IDS.has(question.id))
     || exam.figureIds?.includes(question.id)
     // Reviewed 042003A11 crops: tables like 04200-04-132 ("下表為…") carry no
     // figure marker the parser can see and no double-space gap, so without
@@ -1478,10 +1487,10 @@ function normalizeQuestion(question, exam) {
     ...(codeOverride?.codeBlock ? { codeBlock: codeOverride.codeBlock } : {}),
     ...(codeOverride?.optionCodeBlocks ? { optionCodeBlocks: codeOverride.optionCodeBlocks } : {}),
     sourcePage,
-    sectionTitle: SECTION_TITLE_OVERRIDES[question.section] ?? question.sectionTitle,
-    prompt: (surveyingSource ? SURVEYING_PROMPT_OVERRIDES[question.id] : undefined) ?? QUESTION_PROMPT_OVERRIDES[question.id] ?? sanitizeText(question.prompt),
-    options: (surveyingSource ? SURVEYING_OPTION_OVERRIDES[question.id] : undefined) ?? QUESTION_OPTION_OVERRIDES[question.id] ?? question.options.map(sanitizeText),
-    ...(INACTIVE_IDS.has(question.id) || exam.inactiveIds?.includes(question.id) ? { active: false } : {}),
+    sectionTitle: (isolated ? undefined : SECTION_TITLE_OVERRIDES[question.section]) ?? question.sectionTitle,
+    prompt: (surveyingSource ? SURVEYING_PROMPT_OVERRIDES[question.id] : undefined) ?? exam.promptOverrides?.[question.id] ?? globalFor(QUESTION_PROMPT_OVERRIDES) ?? sanitizeText(question.prompt),
+    options: (surveyingSource ? SURVEYING_OPTION_OVERRIDES[question.id] : undefined) ?? exam.optionOverrides?.[question.id] ?? globalFor(QUESTION_OPTION_OVERRIDES) ?? question.options.map(sanitizeText),
+    ...((!isolated && INACTIVE_IDS.has(question.id)) || exam.inactiveIds?.includes(question.id) ? { active: false } : {}),
     hasFigure,
   }
   if (!repaired.hasFigure && (!imageOverrides || codeOverride?.codeBlock)) {

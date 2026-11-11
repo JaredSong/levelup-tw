@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <!-- Mark the home-screen app before first paint; styles.css sizes it with
+         100vh because iOS reports 100dvh short on a cold launch (see .standalone). -->
+    <script>if (navigator.standalone || matchMedia('(display-mode: standalone)').matches) document.documentElement.classList.add('standalone')</script>
     <!-- Browser chrome follows the page theme, which now follows the OS. -->
     <meta name="theme-color" content="#f8f9f5" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#111713" media="(prefers-color-scheme: dark)" />

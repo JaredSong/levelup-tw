@@ -441,6 +441,16 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .guide-about-tag svg { color: var(--accent); }
 
 .app-frame { min-height: 100dvh; padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
+/* iOS home-screen app, cold launch: innerHeight and 100dvh come back short by
+   the status-bar height, so the fixed tab bar sits that far above the glass.
+   iOS re-measures ("docks") only once the page overflows its viewport; a short
+   page like 首頁 never does, which is why switching to a long tab fixed it.
+   There is no URL bar in standalone, so 100vh is the true screen height: sizing
+   the shell with it makes even a short page overflow the short viewport, and
+   iOS docks on launch. The html background matches the page for the frame or
+   two before that happens. */
+html.standalone .app-frame { min-height: 100vh; }
+html.standalone, html.standalone body { background: var(--paper); }
 .page { width: min(100%, 980px); margin: 0 auto; padding: max(52px, calc(env(safe-area-inset-top) + 20px)) 20px 56px; }
 .eyebrow { margin: 0 0 5px; color: var(--accent); font-size: 0.72rem; font-weight: 800; text-transform: uppercase; }
 

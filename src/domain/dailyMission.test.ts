@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { buildDailyMission, localDayKey, studyStreak, type MissionInputs } from './dailyMission'
+import { activeDaysInLastWeek, buildDailyMission, localDayKey, studyStreak, type MissionInputs } from './dailyMission'
 
 const NOW = new Date('2026-07-10T20:00:00')
 
@@ -34,6 +34,19 @@ describe('studyStreak', () => {
     // 23:50 yesterday and 00:10 today are 20 minutes apart but two distinct days.
     expect(studyStreak(['2026-07-09T23:50:00', '2026-07-10T00:10:00'], NOW)).toBe(2)
     expect(localDayKey('2026-07-09T23:50:00')).toBe('2026-07-09')
+  })
+})
+
+describe('activeDaysInLastWeek', () => {
+  it('counts distinct local days in the last seven, today included', () => {
+    const days = activeDaysInLastWeek([
+      '2026-07-10T08:00:00', '2026-07-10T09:00:00', // today, twice
+      '2026-07-08T21:00:00',
+      '2026-07-04T10:00:00', // seventh day back
+      '2026-07-03T10:00:00', // eighth day back: outside
+    ], NOW)
+    expect(days).toBe(3)
+    expect(activeDaysInLastWeek([], NOW)).toBe(0)
   })
 })
 

@@ -48,7 +48,7 @@ describe('existing installed app entry compatibility', () => {
     const before = new Map(values)
     const html = open(path, standalone, ios)
     expect(html).toContain('數位電子乙級')
-    expect(html).toContain('接著上次，繼續練。')
+    expect(html).toContain('繼續練習')
     expect(html).toContain('這一組，還有 1 題。')
     expect(html).not.toContain('class="landing-hero"')
     expect(html).not.toContain('class="onboarding-screen"')

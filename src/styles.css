@@ -1318,3 +1318,41 @@ html.standalone, html.standalone body { background: var(--paper); }
   .landing-nav .landing-brand { gap: 7px; }
 }
 [data-theme="dark"] .study-next { background: #b3dfbc; color: #193522; }
+
+/* Home (A · 進度優先): coverage ring + countdown, one primary action, four tiles. */
+.home-head { padding: 6px 0 16px; }
+.home-head h1 { margin: 0; font-family: "Songti TC", "Noto Serif TC", serif; font-size: clamp(1.6rem, 4vw, 2.2rem); line-height: 1.35; }
+.home-hero { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 16px; align-items: center; margin-bottom: 16px; }
+.home-ring { position: relative; width: 116px; height: 116px; }
+.home-ring svg { display: block; transform: rotate(-90deg); }
+.home-ring-track { stroke: var(--line); }
+.home-ring-fill { stroke: var(--accent); transition: stroke-dashoffset 600ms cubic-bezier(.16, 1, .3, 1); }
+.home-ring-value { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; }
+.home-ring-value strong { font-size: 1.55rem; line-height: 1; font-variant-numeric: tabular-nums; }
+.home-ring-value small { margin-top: 4px; color: var(--muted); font-size: .66rem; font-variant-numeric: tabular-nums; }
+.home-countdown { display: grid; gap: 4px; padding: 14px; border: 0; border-radius: 14px; background: var(--accent-pale); color: var(--ink); text-align: left; cursor: pointer; }
+.home-countdown strong { color: var(--accent-dark); font-size: 1.8rem; line-height: 1; font-variant-numeric: tabular-nums; }
+.home-countdown span { color: var(--muted); font-size: .74rem; }
+.home-countdown.empty strong { font-size: 1.05rem; line-height: 1.3; }
+.home-countdown.empty span { color: var(--accent-dark); font-weight: 750; }
+[data-theme="dark"] .home-countdown strong, [data-theme="dark"] .home-countdown.empty span { color: var(--accent); }
+.home-primary { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 16px 18px; border: 0; border-radius: 13px; background: var(--accent-dark); color: #f7faf5; font-size: 1rem; font-weight: 800; text-align: left; cursor: pointer; transition: transform 120ms ease, background 160ms ease; }
+.home-primary small { display: block; margin-top: 3px; opacity: .8; font-size: .74rem; font-weight: 600; }
+.home-primary:active { transform: scale(.98); }
+.home-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+.home-tile { display: grid; gap: 3px; padding: 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--ink); text-align: left; }
+button.home-tile { cursor: pointer; transition: transform 120ms ease; }
+button.home-tile:active:not(:disabled) { transform: scale(.98); }
+button.home-tile:disabled { cursor: default; }
+.home-tile strong { font-size: 1.35rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.home-tile span { color: var(--muted); font-size: .74rem; }
+.home-tile em { display: inline-flex; align-items: center; gap: 2px; margin-left: 6px; color: var(--coral); font-style: normal; font-weight: 750; }
+.home-tile.coral strong { color: var(--coral); }
+.home-tile.gold strong { color: var(--gold); }
+.home-tile:disabled strong { color: var(--muted); }
+.home-intro { margin: 16px 2px 0; color: var(--muted); font-size: .86rem; line-height: 1.6; }
+@media (hover: hover) and (pointer: fine) {
+  .home-primary:hover { background: var(--accent); }
+  button.home-tile:hover:not(:disabled) { border-color: var(--accent); }
+}
+@media (prefers-reduced-motion: reduce) { .home-ring-fill { transition: none; } }

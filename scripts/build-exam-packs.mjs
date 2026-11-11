@@ -1677,7 +1677,11 @@ function normalizeQuestion(question, exam) {
   const hasFigure = codeOverride?.codeBlock || surveyingTextOnly
     ? false
     : mappedFigure ?? (!exam.excludedFigureIds?.includes(question.id) && (question.hasFigure || forceFigure))
-  const clean = exam.restoreScripts ? (text) => restoreScripts(sanitizeText(text)) : sanitizeText
+  // Only the pack's own occupation PDF was checked for scripted tokens; shared
+  // subjects stay byte-identical to every other pack that ships them.
+  const clean = exam.restoreScripts && question.subjectCode === exam.occupationCode
+    ? (text) => restoreScripts(sanitizeText(text))
+    : sanitizeText
   const repaired = {
     ...question,
     examId: exam.examId,

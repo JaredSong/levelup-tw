@@ -615,6 +615,8 @@ describe('published question bank', () => {
     expect(text('beauty-b', '10000-02-102')).toContain('維生素 B12')
     expect(text('horticulture-c', '13300-02-112')).toContain('P₂O₅')
     expect(text('pressure-vessel-operation-single', '09900-12-014')).toContain('（kgf/cm²）數值與內容積（m³）')
+    // Shared subjects are untouched, so they match every other pack.
+    expect(text('horticulture-c', '90009-04-050')).toBe(text('baking-food-c', '90009-04-050'))
   })
 
   // Ids repeat across levels of one occupation (11800 丙/乙). Overrides written

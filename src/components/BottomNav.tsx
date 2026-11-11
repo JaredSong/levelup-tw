@@ -1,4 +1,6 @@
 import { BarChart3, Dumbbell, Home, Layers3, Timer } from 'lucide-react'
+import { useEffect } from 'react'
+import { installStandaloneViewportFix } from '../app/standaloneViewport'
 import { zhTW } from '../i18n/zh-TW'
 
 export type Tab = 'home' | 'practice' | 'review' | 'mock' | 'insights'
@@ -17,6 +19,8 @@ const items = [
 ]
 
 export function BottomNav({ active, onChange }: Props) {
+  // The bar is the fixed element iOS misplaces; it owns the workaround.
+  useEffect(() => installStandaloneViewportFix(window as unknown as Parameters<typeof installStandaloneViewportFix>[0]), [])
   return (
     <nav className="bottom-nav" aria-label="主要導覽">
       {items.map(({ id, label, Icon }) => (

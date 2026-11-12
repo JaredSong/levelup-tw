@@ -55,6 +55,9 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
   --bezel: #111713;
   --screen-bg: #eef0e9;
   --bezel-shadow: 0 30px 60px rgba(24, 32, 27, .28);
+  /* Soft lift for raised cards (replaces the old offset "3D" shadows). */
+  --lift: 0 12px 28px rgba(24, 32, 27, .10), 0 2px 6px rgba(24, 32, 27, .06);
+  --lift-sm: 0 4px 12px rgba(24, 32, 27, .08);
   --pad: max(24px, calc((100% - 1180px) / 2));
   min-height: 100dvh;
   /* clip, not hidden: hidden makes this a scroll container and breaks every
@@ -76,6 +79,8 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
   --bezel: #39443c;
   --screen-bg: #0f1512;
   --bezel-shadow: 0 26px 54px rgba(0, 0, 0, .55);
+  --lift: 0 14px 32px rgba(0, 0, 0, .45), 0 2px 6px rgba(0, 0, 0, .30);
+  --lift-sm: 0 4px 12px rgba(0, 0, 0, .35);
 }
 /* Display type: serif for the big headlines, falling back to the system CJK
    serif so we ship no webfont on an offline-first app. */
@@ -1371,8 +1376,8 @@ button.home-task:disabled { cursor: default; }
 
 /* Exam cards (popular row + catalog grid). */
 .exam-card { --card-index: 0; min-width: 0; display: flex; flex-direction: column; gap: 6px; padding: 20px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); color: var(--ink); text-decoration: none; transition: border-color 220ms ease, box-shadow 300ms cubic-bezier(.22, 1, .36, 1), transform 300ms cubic-bezier(.22, 1, .36, 1); }
-.exam-card:hover { border-color: var(--ink); box-shadow: 5px 5px 0 var(--accent); transform: translate(-2px, -2px); }
-.exam-card:active { box-shadow: 2px 2px 0 var(--accent); transform: translate(0, 0); }
+.exam-card:hover { border-color: var(--accent); box-shadow: var(--lift); transform: translateY(-2px); }
+.exam-card:active { box-shadow: var(--lift-sm); transform: translateY(0); }
 .exam-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
 .exam-card-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
 .exam-card-icon { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 10px; background: var(--accent-pale); color: var(--accent-ink); }
@@ -1387,7 +1392,7 @@ button.home-task:disabled { cursor: default; }
 .exam-card:hover .exam-card-action svg { transform: translateX(4px); }
 
 /* Popular: horizontal scroll-snap row (Sololearn "Trending"). */
-.popular-row { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(260px, calc((100% - 3 * 16px) / 4)); gap: 16px; margin: 28px calc(-1 * var(--pad)) 0; padding: 6px var(--pad) 14px; overflow-x: auto; scroll-snap-type: x proximity; scroll-padding-inline: var(--pad); scrollbar-width: none; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 min(6vw, 64px), #000 calc(100% - min(6vw, 64px)), transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 min(6vw, 64px), #000 calc(100% - min(6vw, 64px)), transparent 100%); }
+.popular-row { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(260px, calc((100% - 3 * 16px) / 4)); gap: 16px; margin: 28px calc(-1 * var(--pad)) -20px; padding: 6px var(--pad) 34px; overflow-x: auto; /* room for the hover shadow inside the scroller */ scroll-snap-type: x proximity; scroll-padding-inline: var(--pad); scrollbar-width: none; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 min(6vw, 64px), #000 calc(100% - min(6vw, 64px)), transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 min(6vw, 64px), #000 calc(100% - min(6vw, 64px)), transparent 100%); }
 .popular-row::-webkit-scrollbar { display: none; }
 .popular-row > .exam-card { scroll-snap-align: start; }
 /* While it drifts, snapping would fight the per-frame scroll. */
@@ -1415,7 +1420,7 @@ button.home-task:disabled { cursor: default; }
 .showcase-steps { display: grid; gap: 8px; margin: 30px 0 0; padding: 0; list-style: none; }
 .showcase-steps button { width: 100%; display: grid; grid-template-columns: auto auto minmax(0, 1fr); align-items: start; gap: 14px; padding: 16px 18px; border: 1px solid transparent; border-radius: 14px; background: transparent; color: var(--ink); text-align: left; cursor: pointer; transition: background 220ms ease, border-color 220ms ease; }
 .showcase-steps button:hover { background: var(--panel); }
-.showcase-steps button[aria-pressed="true"] { border-color: var(--ink); background: var(--surface); box-shadow: 4px 4px 0 var(--accent); }
+.showcase-steps button[aria-pressed="true"] { border-color: var(--accent); background: var(--surface); box-shadow: var(--lift); }
 .showcase-index { padding-top: 9px; color: var(--accent); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .8rem; font-weight: 800; }
 .showcase-icon { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 10px; background: var(--accent-pale); color: var(--accent-ink); }
 .showcase-text { display: grid; gap: 4px; }
@@ -1559,7 +1564,7 @@ button.home-task:disabled { cursor: default; }
 .guide-page .guide-hero { max-width: none; }
 .guide-hero > * { max-width: 820px; }
 .guide-hero h1 { margin: 10px 0 0; font-family: "Noto Serif TC", "Songti TC", "Source Han Serif TC", serif; font-size: clamp(2rem, 4.6vw, 3.4rem); font-weight: 700; line-height: 1.2; text-wrap: balance; }
-.guide-answer { margin-top: 26px; padding: 20px 22px; border: 1.5px solid var(--ink); border-radius: 16px; background: var(--surface); box-shadow: 6px 6px 0 var(--accent); }
+.guide-answer { margin-top: 26px; padding: 20px 22px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); box-shadow: var(--lift); }
 .guide-answer-label { margin: 0 0 8px; color: var(--accent-ink); font-size: .78rem; font-weight: 800; letter-spacing: .04em; }
 .guide-answer .guide-lead { max-width: none; margin: 0; color: var(--ink2); font-size: 1.02rem; line-height: 1.85; }
 .guide-facts { display: flex; flex-wrap: wrap; gap: 12px 36px; margin: 26px 0 0; }
@@ -1588,7 +1593,7 @@ button.home-task:disabled { cursor: default; }
 .guide-article .guide-section > p { max-width: none; }
 .guide-article .guide-ways { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 20px 0; }
 .guide-way { position: relative; align-content: start; background: var(--surface); border-radius: 14px; padding: 20px; }
-.guide-way.is-ours { border: 1.5px solid var(--ink); box-shadow: 5px 5px 0 var(--accent); }
+.guide-way.is-ours { border: 1.5px solid var(--accent); box-shadow: var(--lift); }
 .guide-way-tag { justify-self: start; padding: 3px 9px; border-radius: 999px; background: var(--accent-pale); color: var(--accent-ink); font-size: .72rem; font-weight: 800; }
 .guide-article .guide-conclusion { border: 1px solid var(--line); border-radius: 12px; background: var(--panel); color: var(--ink2); padding: 16px 18px; }
 
@@ -1618,7 +1623,7 @@ button.home-task:disabled { cursor: default; }
 }
 @media (max-width: 560px) {
   .guide-nav-catalog { display: none !important; }
-  .guide-answer { box-shadow: 4px 4px 0 var(--accent); padding: 16px; }
+  .guide-answer { padding: 16px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .guide-toc-pill { transition: none; }

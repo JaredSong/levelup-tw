@@ -19,10 +19,16 @@ window.matchMedia(DARK_QUERY).addEventListener('change', () => {
   document.documentElement.dataset.theme = systemTheme()
 })
 
+// Reload only when a new service worker REPLACES the one that served this page
+// (an app update), so the open tab picks up the new build. On a first visit
+// there is no controller yet: clientsClaim still fires controllerchange as the
+// first worker takes over, but the page already came from the network and is
+// current, so reloading would only throw away what the visitor just typed.
 let reloadingForUpdate = false
 if ('serviceWorker' in navigator) {
+  const hadController = Boolean(navigator.serviceWorker.controller)
   navigator.serviceWorker.addEventListener('controllerchange', () => {
-    if (reloadingForUpdate) return
+    if (!hadController || reloadingForUpdate) return
     reloadingForUpdate = true
     window.location.reload()
   })

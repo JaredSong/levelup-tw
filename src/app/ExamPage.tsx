@@ -8,7 +8,7 @@ import { trackLanding } from './analytics'
 import { GENERATED_EXAM_SAMPLES } from './generatedExamSamples'
 import { getNextNationalExamEntry } from './nationalExamSchedule'
 import { CATALOG_PATH, examPath } from './seoUrls'
-import { examFaqs } from './examFaqs'
+import { examAliasCopy, examFaqs } from './examFaqs'
 
 interface Props {
   exam: ExamManifest
@@ -43,6 +43,7 @@ export function ExamPage({ exam, onEnter, onHome }: Props) {
   const now = new Date()
   const nextRound = getNextNationalExamEntry(now)
   const faqs = examFaqs(exam, now)
+  const aliases = examAliasCopy(exam.examId)
   const links = exam.officialLinks ?? {}
   const linkCandidates: { href?: string; label: string }[] = [
     { href: links.registration, label: t.officialRegistration },
@@ -95,6 +96,8 @@ export function ExamPage({ exam, onEnter, onHome }: Props) {
           <p className="landing-eyebrow">{subjectCode} · {exam.category}</p>
           <h1>{exam.titleZh}<br />學科題庫與線上測驗</h1>
           <p className="exam-overview">官方公開題庫，依自己的步調練習。<br />先做一小組，寫錯的留給下一次複習。</p>
+          {aliases.plain.length ? <p className="exam-aliases">{t.aliasLine(aliases.plain.join('、'))}</p> : null}
+          {aliases.families.map((family) => <p className="exam-aliases" key={family.name}>{t.familyLine(family.name, family.titles)}</p>)}
           <div className="exam-proof"><span><Database size={16} />{t.count(exam.activeQuestionCount)}</span><span><CheckCircle2 size={16} />免費練習</span><span><ShieldCheck size={16} />不必註冊</span></div>
           <div className="exam-entry-actions"><button className="landing-primary" onClick={() => enter('hero')} type="button">開始練習 10 題<ArrowRight size={18} /></button><a className="landing-secondary" href="#exam-downloads"><FileDown size={17} />下載官方題庫 PDF</a></div>
           <p className="exam-entry-note">進度保存在這台裝置；有未完成的練習時，會先幫你接續。</p>

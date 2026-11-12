@@ -246,8 +246,8 @@ export const zhTW = {
     officialHandbook: '簡章下載',
     officialBank: '官方題庫下載',
     factsNote: '日期與及格標準整理自技能檢定中心公告，僅供參考；報名前請以官方最新簡章為準。',
-    // Per-exam FAQ. Every answer is built from the pack's manifest or the
-    // schedule module (src/app/examFaqs.ts), never typed per exam.
+    // Per-exam FAQ. Every answer is built from the pack's manifest, the
+    // schedule module or the alias list (src/app/examFaqs.ts) — no per-exam prose.
     faqTitle: (title: string) => `${title}學科常見問題`,
     faqCount: (title: string, n: string) => ({
       q: `${title}學科題庫總共幾題？`,
@@ -266,6 +266,17 @@ export const zhTW = {
     faqDownload: (title: string, pdfs: string) => ({
       q: `${title}學科題庫 PDF 在哪裡下載？`,
       a: `官方題庫 PDF 由勞動部勞動力發展署技能檢定中心公開，本頁「官方題庫 PDF 下載」區塊直接連到官方檔案（${pdfs}）。想邊練邊記錯題，可以直接在升級吧免費線上練習。`,
+    }),
+    // Short names from real search queries (src/app/examAliases.ts).
+    aliasLine: (names: string) => `常見簡稱：${names}`,
+    familyLine: (name: string, titles: string) => `常說的「${name}」分成${titles}，各有自己的學科題庫。`,
+    faqAlias: (names: string, title: string, code: string) => ({
+      q: `${names}是哪一科？`,
+      a: `${names}是考生對${title}的常見簡稱，學科題庫代號 ${code}。這頁就是${title}的學科題庫，可以直接免費線上練習。`,
+    }),
+    faqFamily: (name: string, titles: string, title: string, code: string) => ({
+      q: `「${name}」學科要練哪一份題庫？`,
+      a: `「${name}」分成${titles}，各有自己的學科題庫。這頁是${title}（代號 ${code}）；報考其他類別的話，請練對應考科的題庫。`,
     }),
     faqSchedule: (title: string, label: string, start: string, end: string, written: string) => ({
       q: `${title}什麼時候報名？學科什麼時候考？`,

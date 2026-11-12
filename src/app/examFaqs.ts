@@ -1,5 +1,7 @@
 import type { ExamManifest } from '../core/exam'
 import { zhTW } from '../i18n/zh-TW'
+import { examAliases } from './examAliases'
+import { GENERATED_LANDING_CATALOG } from './generatedLandingCatalog'
 import { getNextNationalExamEntry } from './nationalExamSchedule'
 import { formatQuestionCount } from './seoUrls'
 
@@ -42,6 +44,12 @@ export function examFaqs(exam: ExamManifest, now: Date): ExamFaq[] {
   ).values()]
   if (commonSubjects.length) faqs.push(t.faqCommon(title, commonSubjects.join('、')))
 
+  const aliases = examAliasCopy(exam.examId)
+  if (aliases.plain.length && occupationCode) faqs.push(t.faqAlias(aliases.plain.map((name) => `「${name}」`).join('、'), title, occupationCode))
+  for (const family of aliases.families) {
+    if (occupationCode) faqs.push(t.faqFamily(family.name, family.titles, title, occupationCode))
+  }
+
   const pdfs = (exam.sources ?? []).map((source) => source.pdfFilename)
   if (pdfs.length) faqs.push(t.faqDownload(title, pdfs.join('、')))
 
@@ -49,6 +57,24 @@ export function examFaqs(exam: ExamManifest, now: Date): ExamFaq[] {
   if (next) faqs.push(t.faqSchedule(title, next.label, next.registrationStart, next.registrationEnd, next.writtenDate))
 
   return faqs
+}
+
+/**
+ * Alias copy for an exam page: plain short names, and family names that span
+ * several exams (with every member's title, this exam included).
+ */
+export function examAliasCopy(examId: string) {
+  const titleOf = (id: string) => GENERATED_LANDING_CATALOG.exams.find((item) => item.examId === id)?.titleZh
+  const aliases = examAliases(examId)
+  return {
+    plain: aliases.filter((alias) => !alias.siblings.length).map((alias) => alias.name),
+    families: aliases
+      .filter((alias) => alias.siblings.length)
+      .map((alias) => ({
+        name: alias.name,
+        titles: [examId, ...alias.siblings].map(titleOf).filter(Boolean).join('、'),
+      })),
+  }
 }
 
 export function examFaqJsonLd(exam: ExamManifest, now: Date): string {

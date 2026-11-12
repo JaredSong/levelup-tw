@@ -1291,15 +1291,14 @@ button.home-task:disabled { cursor: default; }
    Codecademy / CodeChef. Appended last so it settles the older landing overrides
    above; everything still resolves through the theme tokens. */
 .landing-page .landing-hero { position: relative; padding-top: clamp(40px, 6vw, 80px); padding-bottom: clamp(40px, 6vw, 72px); background: var(--paper); }
-.landing-page .landing-hero::before { content: ""; position: absolute; inset: 0 0 0 52%; background-image: radial-gradient(var(--line) 1.2px, transparent 1.2px); background-size: 18px 18px; opacity: .7; pointer-events: none; }
 .landing-page .landing-hero > * { position: relative; }
 .landing-page .landing-hero h1 { font-size: clamp(2.4rem, 5vw, 4.2rem); line-height: 1.18; }
 .landing-hero-badge { color: var(--accent-ink); font-size: .8rem; letter-spacing: .04em; }
 .landing-page .landing-hero-description { margin-top: 20px; font-size: 1.05rem; }
 
 /* Hero search: the primary action is "find your exam". */
-.hero-search { position: relative; display: flex; gap: 8px; max-width: 560px; margin-top: 30px; padding: 6px; border: 1.5px solid var(--ink); border-radius: 14px; background: var(--surface); box-shadow: 4px 4px 0 var(--ink); }
-.hero-search:focus-within { box-shadow: 4px 4px 0 var(--accent); border-color: var(--accent); }
+.hero-search { position: relative; display: flex; gap: 8px; max-width: 560px; margin-top: 30px; padding: 6px; border: 1.5px solid var(--line); border-radius: 14px; background: var(--surface); transition: border-color 160ms ease, box-shadow 160ms ease; }
+.hero-search:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-pale); }
 .hero-search label { flex: 1; min-width: 0; display: flex; align-items: center; gap: 10px; padding: 0 10px; color: var(--muted); }
 .hero-search input { width: 100%; min-width: 0; height: 44px; border: 0; outline: 0; background: transparent; color: var(--ink); font-size: 1rem; }
 .hero-search input::-webkit-search-cancel-button { cursor: pointer; }
@@ -1318,7 +1317,7 @@ button.home-task:disabled { cursor: default; }
 .landing-page .landing-proof { margin-top: 26px; }
 
 /* Try-one card: a real question, offset shadow like a printed flash card. */
-.try-card { min-width: 0; padding: 26px; border: 1.5px solid var(--ink); border-radius: 18px; background: var(--surface); box-shadow: 8px 8px 0 var(--accent); }
+.try-card { min-width: 0; padding: 26px; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); }
 .try-eyebrow { margin: 0; color: var(--accent-ink); font-size: .78rem; font-weight: 800; letter-spacing: .04em; }
 .try-from { margin: 6px 0 0; color: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .72rem; }
 .try-prompt { margin: 18px 0 16px; font-size: 1.12rem; font-weight: 700; line-height: 1.6; }
@@ -1336,6 +1335,20 @@ button.home-task:disabled { cursor: default; }
 .try-feedback { min-height: 1.6em; margin: 16px 0 0; color: var(--ink2); font-size: .88rem; line-height: 1.6; }
 .try-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; color: var(--accent-ink); font-size: .86rem; font-weight: 800; text-decoration: none; }
 .try-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+.try-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-top: 14px; }
+.try-foot .try-link { margin-top: 0; }
+.try-next { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: var(--ink2); font: inherit; font-size: .8rem; font-weight: 700; cursor: pointer; transition: border-color 160ms ease, color 160ms ease, transform 140ms cubic-bezier(.23, 1, .32, 1); }
+.try-next:hover { border-color: var(--accent); color: var(--accent-ink); }
+.try-next:active { transform: scale(.97); }
+/* Hero: one-tap chips for the most-registered exams, under the search. */
+.hero-popular { margin-top: 20px; }
+.hero-popular > p { margin: 0 0 10px; color: var(--muted); font-size: .8rem; font-weight: 600; }
+.hero-popular ul { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.hero-popular a { display: inline-block; padding: 8px 13px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink); font-size: .85rem; font-weight: 650; text-decoration: none; transition: border-color 160ms ease, background 160ms ease, color 160ms ease; }
+.hero-popular a:hover, .hero-popular a:focus-visible { border-color: var(--accent); background: var(--accent-pale); color: var(--accent-ink); }
+/* zh: the old promise is now the subtitle under a plain-spoken headline. */
+.landing-page:not(.landing-en) .landing-hero h1 { font-size: clamp(1.9rem, 3.7vw, 3.05rem); }
+.landing-page:not(.landing-en) .landing-hero-description { margin-top: 14px; color: var(--ink2); font-family: "Noto Serif TC", "Songti TC", "Source Han Serif TC", serif; font-size: clamp(1.1rem, 1.8vw, 1.3rem); }
 
 /* Stats band: four big numbers on solid green. */
 .landing-stats { padding: 0 var(--pad); background: var(--accent-dark); color: #f4f7f2; }
@@ -1490,9 +1503,9 @@ button.home-task:disabled { cursor: default; }
   .landing-stats dl > div { padding: 20px 0 20px 18px; }
   .landing-stats dl > div:nth-child(odd) { border-left: 0; padding-left: 0; }
   .landing-stats dl > div:nth-child(n+3) { border-top: 1px solid rgba(244, 247, 242, .18); }
-  .hero-search { flex-direction: column; box-shadow: 3px 3px 0 var(--ink); }
+  .hero-search { flex-direction: column; }
   .hero-search .landing-primary { width: 100%; }
-  .try-card { padding: 20px; box-shadow: 5px 5px 0 var(--accent); }
+  .try-card { padding: 20px; }
   .popular-row { grid-auto-columns: 78%; }
   .landing-final-actions .landing-primary { width: auto; }
   /* Keep the sticky toolbar short on phones: one search row, one swipeable level row. */

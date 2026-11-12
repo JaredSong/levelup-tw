@@ -56,18 +56,20 @@ export const zhTW = {
     backToTop: '回到頂端',
     returnAction: '繼續練習',
     restoreAction: '我有進度代碼',
-    eyebrow: '免費 · 離線可練 · 不用註冊',
+    eyebrow: '技術士技能檢定 · 學科題庫',
     // Split so the payoff can carry the accent colour without a dangerouslySet.
-    titleLead: '練到考場上，',
-    titleAccent: '真的想得起來',
+    // The headline says what this is; the old promise becomes the subtitle.
+    titleLead: (exams: number) => `${exams} 個考科的官方題庫，`,
+    titleAccent: '免費練到會',
     titleTail: '。',
-    description: '從今天的十題開始。錯題幫你整理，該複習的幫你記著，一步一步準備好。',
+    description: '練到考場上，真的想得起來。',
     primaryAction: '開始選考科',
     secondaryAction: '先看怎麼練',
     freeLabel: '核心永久免費',
     offlineLabel: '下載後離線可練',
     localLabel: '進度存在你的裝置',
-    sourceNote: '題目來自公開的技能檢定題庫，每個考科清楚標示校對狀態。本站為免費個人專案，不隸屬勞動部或技能檢定中心。',
+    // Every published pack passes scripts/verifyAnswerKeys.mjs against the official PDF.
+    verifiedLabel: '答案逐題對過官方題庫',
     // A floor, never an exact count: the bank only grows, so this stays true
     // between releases instead of going stale the next time a pack lands.
     examSectionEyebrow: (questions: number) => {
@@ -162,11 +164,13 @@ export const zhTW = {
     heroSearchAction: '找考科',
     heroSearchEmpty: '找不到這個考科，試試其他名稱或代碼。',
     heroBrowse: (exams: number) => `瀏覽全部 ${exams} 個考科`,
+    heroPopular: '大家最常報考',
     // "Try one" card: a real question from the most-registered exam, with the
     // official answer. Same verified sample data as the exam pages.
     tryEyebrow: '先試一題 · 官方題目',
     tryFrom: (title: string) => `出自 ${title} 學科題庫`,
     tryHint: '點一個答案，馬上看對錯。',
+    tryNext: '換一題',
     tryRight: '答對了。在 App 裡，答對的題目也會排進之後的複習。',
     tryWrong: (answer: number) => `正確答案是 ${answer}。在 App 裡，寫錯的會自動進錯題本。`,
     tryCta: (title: string) => `看${title}題庫`,

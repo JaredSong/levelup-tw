@@ -11,6 +11,7 @@ import {
   Menu,
   Moon,
   Plus,
+  RefreshCw,
   RotateCcw,
   Search,
   Share,
@@ -185,8 +186,16 @@ export function LandingPage({ exams, returning, onEnter, t = zhTW.landing, lang 
   }, [autoplay])
 
   // Hero "try one": the first sample of the most-registered exam that has one.
-  const tryExam = popular.find((exam) => GENERATED_EXAM_SAMPLES[exam.examId]?.samples.length)
+  // "換一題" steps through the popular exams that have verified samples.
+  const tryExams = useMemo(() => popular.filter((exam) => GENERATED_EXAM_SAMPLES[exam.examId]?.samples.length), [popular])
+  const [tryIndex, setTryIndex] = useState(0)
+  const tryExam = tryExams.length ? tryExams[tryIndex % tryExams.length] : undefined
   const trySample = tryExam ? GENERATED_EXAM_SAMPLES[tryExam.examId].samples[0] : null
+  const nextTry = () => {
+    setTryIndex((index) => index + 1)
+    setTryPick(null)
+    trackLanding('try_next', { exam_id: tryExam?.examId ?? '' })
+  }
 
   const searchResults = query.trim()
     ? exams.filter((exam) => matchesFilter(exam, { query, level: '', category: '' })).slice(0, 6)
@@ -334,7 +343,7 @@ export function LandingPage({ exams, returning, onEnter, t = zhTW.landing, lang 
         <div className="landing-hero-copy">
           <p className="landing-hero-badge">{t.eyebrow}</p>
           <h1>
-            {displayText(t.titleLead)}
+            {displayText(t.titleLead(exams.length))}
             <em><span className="hero-mark">{displayText(t.titleAccent)}</span>{displayText(t.titleTail)}</em>
           </h1>
           <p className="landing-hero-description">{t.description}</p>
@@ -370,16 +379,27 @@ export function LandingPage({ exams, returning, onEnter, t = zhTW.landing, lang 
             ) : null}
           </form>
 
+          <div className="hero-popular">
+            <p>{t.heroPopular}</p>
+            <ul>
+              {popular.map((exam) => (
+                <li key={exam.examId}>
+                  <a href={examPath(exam.examId)} onClick={() => trackLanding('exam_details', { exam_id: exam.examId, cta_location: 'hero_chip' })}>{examTitle(exam)}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           <a className="hero-browse" href={CATALOG_PATH} onClick={() => trackLanding('catalog_link', { cta_location: 'hero' })}>
             {t.heroBrowse(exams.length)}<ArrowRight size={15} />
           </a>
 
+          {/* One trust line; the full disclaimer lives in the footer on every page. */}
           <div className="landing-proof">
             <span><CheckCircle2 size={16} /> {t.freeLabel}</span>
             <span><WifiOff size={16} /> {t.offlineLabel}</span>
-            <span><ShieldCheck size={16} /> {t.localLabel}</span>
+            <span><ShieldCheck size={16} /> {t.verifiedLabel}</span>
           </div>
-          <p className="landing-source-note">{t.sourceNote}</p>
         </div>
 
         {tryExam && trySample ? (
@@ -412,9 +432,12 @@ export function LandingPage({ exams, returning, onEnter, t = zhTW.landing, lang 
             <p className="try-feedback" aria-live="polite">
               {tryPick === null ? t.tryHint : tryPick === trySample.answer ? t.tryRight : t.tryWrong(trySample.answer)}
             </p>
-            <a className="try-link" href={examPath(tryExam.examId)} onClick={() => trackLanding('exam_details', { exam_id: tryExam.examId, cta_location: 'try_card' })}>
-              {t.tryCta(examTitle(tryExam))}<ArrowRight size={15} />
-            </a>
+            <div className="try-foot">
+              <a className="try-link" href={examPath(tryExam.examId)} onClick={() => trackLanding('exam_details', { exam_id: tryExam.examId, cta_location: 'try_card' })}>
+                {t.tryCta(examTitle(tryExam))}<ArrowRight size={15} />
+              </a>
+              {tryExams.length > 1 ? <button type="button" className="try-next" onClick={nextTry}><RefreshCw size={14} aria-hidden="true" />{t.tryNext}</button> : null}
+            </div>
           </aside>
         ) : null}
       </section>

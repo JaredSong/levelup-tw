@@ -21,9 +21,9 @@ export const enLanding: LandingStrings = {
   backToTop: 'Back to top',
   returnAction: 'Back to the bank',
   restoreAction: 'I have a progress code',
-  eyebrow: 'Free · Works offline · No sign-up',
-  titleLead: 'Drill the official questions until they ',
-  titleAccent: 'actually stick',
+  eyebrow: 'Taiwan skills certification · Written exam banks',
+  titleLead: (exams: number) => `Official question banks for ${exams} exams, `,
+  titleAccent: 'free until they stick',
   titleTail: '.',
   description: 'Level Up brings together the official public question banks for Taiwan’s skills certification (技術士技能檢定). Get one wrong and it drops into your mistake book; the ones you’re forgetting come back on schedule; and a timed mock exam tells you if you’re ready. Just open it and practise — it keeps track of the rest.',
   primaryAction: 'Choose an exam',
@@ -31,7 +31,7 @@ export const enLanding: LandingStrings = {
   freeLabel: 'Core features free forever',
   offlineLabel: 'Practise offline once downloaded',
   localLabel: 'Progress stays on your device',
-  sourceNote: 'Questions come from the public skills-certification banks; each exam clearly shows its proofreading status. This is a free personal project, not affiliated with the Ministry of Labor or the certification center.',
+  verifiedLabel: 'Every answer checked against the official bank',
   examSectionEyebrow: (questions: number) => {
     const thousands = Math.floor(questions / 1000)
     const label = thousands >= 1 ? `${thousands.toLocaleString()},000+ questions` : `${questions} questions`
@@ -116,9 +116,11 @@ export const enLanding: LandingStrings = {
   heroSearchAction: 'Find exam',
   heroSearchEmpty: 'No matching exam. Try another name or code.',
   heroBrowse: (exams: number) => `Browse all ${exams} exams`,
+  heroPopular: 'Most-registered exams',
   tryEyebrow: 'Try one · official question',
   tryFrom: (title: string) => `From the ${title} written bank`,
   tryHint: 'Tap an answer to check it. Questions are in Chinese, as on the real exam.',
+  tryNext: 'Another question',
   tryRight: 'Correct. In the app, right answers are also scheduled for later review.',
   tryWrong: (answer: number) => `The answer is ${answer}. In the app, wrong answers go straight to your mistake book.`,
   tryCta: (title: string) => `See the ${title} bank`,

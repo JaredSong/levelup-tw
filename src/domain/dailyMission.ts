@@ -14,18 +14,6 @@ export function localDayKey(iso: string | Date): string {
   return `${date.getFullYear()}-${month}-${day}`
 }
 
-/** Distinct study days in the last seven, today included. */
-export function activeDaysInLastWeek(activityTimestamps: string[], now: Date): number {
-  const days = new Set(activityTimestamps.map((at) => localDayKey(at)))
-  const cursor = new Date(now)
-  let count = 0
-  for (let i = 0; i < 7; i += 1) {
-    if (days.has(localDayKey(cursor))) count += 1
-    cursor.setDate(cursor.getDate() - 1)
-  }
-  return count
-}
-
 /**
  * Consecutive study days ending today — or yesterday, so an unbroken chain
  * still shows before the first session of the day.

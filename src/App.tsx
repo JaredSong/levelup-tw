@@ -35,7 +35,7 @@ import {
 import { useActiveExam } from './app/useActiveExam'
 import type { ReviewCard, ReviewRating } from './core/contracts'
 import { mockDurationMilliseconds, parseQuestionKey, questionKey } from './core/exam'
-import { activeDaysInLastWeek, studyStreak } from './domain/dailyMission'
+import { buildDailyMission, studyStreak } from './domain/dailyMission'
 import { buildDueCardQueue, createQuestionCard, gradeCard, questionCardId } from './domain/reviewScheduler'
 import { useQuestionBank } from './hooks/useQuestionBank'
 import { useReviewCards } from './hooks/useReviewCards'
@@ -429,7 +429,6 @@ function StudyApp({ startOnEntry = false }: { startOnEntry?: boolean }) {
   }, { attempts: 0, correct: 0, seen: 0, due: 0, wrong: 0 })
   const seen = stats.seen
   const attempts = stats.attempts
-  const accuracy = attempts ? Math.round((stats.correct / attempts) * 100) : 0
   const due = stats.due
   const wrongCount = stats.wrong
 
@@ -622,9 +621,23 @@ function StudyApp({ startOnEntry = false }: { startOnEntry?: boolean }) {
   const wrongQuestions = () => bank.questions.filter((question) => progress[question.id]?.wrong > 0 && progress[question.id].streak < 2)
   const wrongWithoutCards = wrongQuestions().filter((question) => !cardQuestionIds.has(question.id)).length
 
-  // --- Streak and weekly activity (Home tiles) ---
+  // --- Daily mission + streak (Home: today's tasks and week row) ---
+
+  const attemptTotals: Record<string, number> = {}
+  const wrongTotals: Record<string, number> = {}
+  for (const [questionId, item] of Object.entries(progress)) {
+    attemptTotals[questionId] = item.attempts
+    wrongTotals[questionId] = item.wrong
+  }
+  const mission = buildDailyMission({
+    dueCardCount: dueCards.length,
+    reviewsDoneToday: activity.reviewsDoneToday,
+    wrongBookSize: wrongCount,
+    todayAttempts: activity.todayAttempts,
+    attemptTotals,
+    wrongTotals,
+  })
   const streak = studyStreak(activity.activityTimestamps, new Date())
-  const activeDays = activeDaysInLastWeek(activity.activityTimestamps, new Date())
 
   const addReviewCard = async (question: Question) => {
     if (await db.reviewCards.get(questionCardId(examId, question.id))) return
@@ -822,7 +835,7 @@ function StudyApp({ startOnEntry = false }: { startOnEntry?: boolean }) {
   return (
     <div className="app-frame">
       <ActiveExamHeader onSettingsOpenChange={setSettingsOpen} progress={progress} questions={bank.questions} settingsOpen={settingsOpen} />
-      {tab === 'home' ? <HomePage onOpenSettings={() => setSettingsOpen(true)} seen={seen} total={bank.questions.length} due={due} accuracy={accuracy} wrong={wrongCount} activeDays={activeDays} hasSession={!!session} remaining={session ? session.questionIds.length - Object.keys(session.answers).length : 0} sessionLabel={session ? displaySessionTitle(session) : undefined} streak={streak} onGoReview={() => setTab('review')} onWrongFix={startWrong} onContinue={resumePractice} onSequential={startSequential} /> : null}
+      {tab === 'home' ? <HomePage onOpenSettings={() => setSettingsOpen(true)} seen={seen} total={bank.questions.length} hasSession={!!session} remaining={session ? session.questionIds.length - Object.keys(session.answers).length : 0} sessionLabel={session ? displaySessionTitle(session) : undefined} mission={mission} activityTimestamps={activity.activityTimestamps} onGoMock={() => setTab('mock')} onGoReview={() => setTab('review')} onWrongFix={startWrong} onContinue={resumePractice} onSequential={startSequential} /> : null}
       {tab === 'practice' ? <PracticePage questions={bank.questions} progress={progress} total={bank.questions.length} onSequential={startSequential} onRandom={() => begin('random', buildRandomQueue(bank.questions, 10))} onFresh={(limit) => begin('fresh', buildFreshQueue(bank.questions, progress, limit), zhTW.session.freshTitle(limit))} onHighYield={() => begin('highYield', buildHighYieldQueue(bank.questions, progress, 20))} onSubject={(subjectCode, title) => begin('random', buildRandomQueue(bank.questions.filter((question) => question.subjectCode === subjectCode), 10), title)} onOpenQuestion={(question) => begin('item', [question])} onSprint={() => begin('sprint', buildSprintQueue(bank.questions, progress, 20))} /> : null}
       {tab === 'review' ? <ReviewPage due={due} wrongCount={wrongCount} dueCards={dueCards} totalCards={reviewCards.length} wrongWithoutCards={wrongWithoutCards} onGradeCard={gradeReviewCard} onOpenCardSource={openCardSource} resolveCardQuestion={questionForCard} onCreateWrongCards={createWrongCards} onAdaptive={() => begin('adaptive', buildAdaptiveQueue(bank.questions, progress, 10))} onWrong={startWrong} onFlashcards={() => begin('flashcard', buildAdaptiveQueue(bank.questions, progress, 10), zhTW.session.titles.flashcard)} onCommuteNotes={startCommuteNotes} onPracticeSection={(section, title) => begin('adaptive', buildAdaptiveQueue(bank.questions.filter((question) => question.section === section), progress, 10), title)} /> : null}
       {tab === 'mock' ? <MockExamPage onMock={() => startMock(false)} onMockTraining={() => startMock(true)} /> : null}

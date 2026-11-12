@@ -629,6 +629,11 @@ describe('published question bank', () => {
     expect(question('chemistry-c', '03000-01-006').options).toEqual(['Na⁺', 'H₃O⁺', 'SO₄²⁻', 'OH⁻'])
     expect(question('food-analysis-c', '09200-04-013').options).toEqual(['1 lb/in²', '15 lb/in²', '30 lb/in²', '50 lb/in²'])
     expect(question('food-analysis-c', '09200-02-046').active).toBe(false)
+    // Glyphs the PDF draws as graphics, restored by hand.
+    expect(question('chemistry-c', '03000-04-022').prompt).toBe('²³⁸₉₂U 原子核的中子數為')
+    expect(question('food-analysis-c', '09200-01-111').options[0]).toBe('酚酞')
+    expect(question('food-analysis-c', '09200-08-012').options[1]).toBe('核苷酸')
+    expect(question('food-analysis-c', '09200-05-001').prompt).toContain('(o-Tolidine)')
     for (const examId of ['chemistry-c', 'food-analysis-c']) {
       const own = loadExamBank(examId).filter((item) => !item.subjectCode.startsWith('900'))
       const flattened = own.filter((item) => /10\s+[-−]\s*\d|×10\s+\d|[A-Z][a-z]?\s+\d\s+[A-Z]/.test([item.prompt, ...item.options].join(' ')))

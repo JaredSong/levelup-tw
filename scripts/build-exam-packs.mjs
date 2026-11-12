@@ -1608,6 +1608,8 @@ const EXAMS = [
       // The parser joins spaced capitals ("O NH" → "ONH"); keep the PDF's gap.
       // The official PDF prints no equilibrium arrow between H₂O and NH₄⁺.
       '03000-02-175': '若反應 NH₃+ H₂O NH₄⁺ + OH⁻ 已達成平衡，再加入 NH₃ 則反應會向哪一方向移動',
+      // The PDF draws the stacked mass/atomic numbers as graphics; the text layer has only Ｕ.
+      '03000-04-022': '²³⁸₉₂U 原子核的中子數為',
     },
     mockRules: {
       occupationQuota: 64,
@@ -1633,9 +1635,18 @@ const EXAMS = [
     inactiveIds: ['09200-02-046'],
     // Text question: the gap the dropped ℓ left would otherwise force a figure.
     excludedFigureIds: ['09200-04-013'],
+    // Glyphs the PDF draws as graphics never reach its text layer (found by
+    // rendering each page and listing ink no word box covers): 酞, 苷, the
+    // italic o of o-Tolidine and the script ℓ. Wording otherwise as printed.
+    promptOverrides: {
+      '09200-01-122': '實驗室使用之酚酞指示劑，配製之溶劑為',
+      '09200-05-001': '測定水質之餘氯時，所加之試劑鄰妥立定(o-Tolidine)是',
+      '09200-05-017': '殘氯測定方法中 o-tolidine 與水中殘氯分子反應所呈現之顏色應為',
+    },
     optionOverrides: {
-      // The PDF's script ℓ (in ℓb/in²) has no text glyph; pdftotext drops it.
+      '09200-01-111': ['酚酞', '甲基紅', '甲基橙', '溴鉀酚綠(bromocresol green)'],
       '09200-04-013': ['1 lb/in²', '15 lb/in²', '30 lb/in²', '50 lb/in²'],
+      '09200-08-012': ['胺基酸', '核苷酸', '麩胺酸鈉', '三甲基胺'],
     },
     mockRules: {
       occupationQuota: 48,

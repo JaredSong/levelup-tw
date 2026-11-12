@@ -3,6 +3,7 @@ import {
   CircuitBoard,
   Cog,
   Database,
+  FlaskConical,
   Flame,
   Hammer,
   HardHat,
@@ -38,6 +39,7 @@ const CATEGORY_ICON: Record<string, LucideIcon> = {
   銲接配管: Flame,
   金屬及機械加工: Hammer,
   農業園藝: Sprout,
+  化學工業: FlaskConical,
 }
 
 export function categoryIcon(category: string): LucideIcon {

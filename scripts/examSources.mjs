@@ -55,6 +55,8 @@ export const SOURCE_BANKS = {
   '20300-3': { subjectCode: '20300', version: 'A12', pdfFilename: '203003A12.pdf' },
   '20300-2': { subjectCode: '20300', version: 'A14', pdfFilename: '203002A14.pdf' },
   '22600': { version: 'A13', pdfFilename: '226004A13.pdf' },
+  '03000': { version: 'A12', pdfFilename: '030003A12.pdf' },
+  '09200': { version: 'A11', pdfFilename: '092003A11.pdf' },
   '90001': { version: 'A10', pdfFilename: '900012A10.pdf' },
   '90006': { version: 'A11', pdfFilename: '900060A11.pdf' },
   '90007': { version: 'A10', pdfFilename: '900070A10.pdf' },

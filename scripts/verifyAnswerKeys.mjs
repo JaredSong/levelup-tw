@@ -41,6 +41,8 @@ const TARGETS = {
   'beauty-b': { subjectCode: '10000', pdf: 'source/100002A12.pdf', bank: 'public/data/exams/beauty-b/questions.json' },
   'pressure-vessel-operation-single': { subjectCode: '09900', pdf: 'source/099004A14.pdf', bank: 'public/data/exams/pressure-vessel-operation-single/questions.json' },
   'horticulture-c': { subjectCode: '13300', pdf: 'source/133003A13.pdf', bank: 'public/data/exams/horticulture-c/questions.json' },
+  'chemistry-c': { subjectCode: '03000', pdf: 'source/030003A12.pdf', bank: 'public/data/exams/chemistry-c/questions.json' },
+  'food-analysis-c': { subjectCode: '09200', pdf: 'source/092003A11.pdf', bank: 'public/data/exams/food-analysis-c/questions.json' },
   'funeral-service-c': { subjectCode: '20300', pdf: 'source/203003A12.pdf', bank: 'public/data/exams/funeral-service-c/questions.json' },
   'funeral-service-b': { subjectCode: '20300', pdf: 'source/203002A14.pdf', bank: 'public/data/exams/funeral-service-b/questions.json' },
   'folk-massage-single': { subjectCode: '22600', pdf: 'source/226004A13.pdf', bank: 'public/data/exams/folk-massage-single/questions.json' },

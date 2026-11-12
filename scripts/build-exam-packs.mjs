@@ -1584,6 +1584,68 @@ const EXAMS = [
       extraSubjectQuota: [],
     },
   },
+  {
+    examId: 'chemistry-c',
+    titleZh: '化學丙級',
+    titleEn: 'Chemistry (Class C)',
+    level: '丙級',
+    category: '化學工業',
+    occupationCode: '03000',
+    // Formula-heavy bank: sub/superscripts come from the PDF's word boxes
+    // (scripts/scriptedText.mjs), not from the regex repair other packs use.
+    occupationFile: '030003A12-scripted-raw.txt',
+    occupationExpected: 628,
+    version: 'A12',
+    extraCommonCodes: [],
+    // Text questions: the run of spaces a line wrap left would force a figure.
+    excludedFigureIds: ['03000-01-194'],
+    promptOverrides: {
+      // No Unicode subscript y: keep the unknowns inline so x and y match.
+      '03000-01-014': '氣體（NxOy）0.896 克，在 730mmHg 及 28℃時，體積為 524mL，則',
+      '03000-04-182': 'CxHy 的燃燒反應式如下：CxHy+2O₂ → CO₂+2H₂O，其名稱為',
+      // A line wrap left a run of spaces after the exponent.
+      '03000-01-194': '將容器壓力降至大氣壓以下的裝置稱為真空泵，若真空範圍在 1~10⁻⁵ Torr，下列名稱何者正確',
+      // The parser joins spaced capitals ("O NH" → "ONH"); keep the PDF's gap.
+      // The official PDF prints no equilibrium arrow between H₂O and NH₄⁺.
+      '03000-02-175': '若反應 NH₃+ H₂O NH₄⁺ + OH⁻ 已達成平衡，再加入 NH₃ 則反應會向哪一方向移動',
+    },
+    mockRules: {
+      occupationQuota: 64,
+      singleCount: 80,
+      multipleCount: 0,
+      weightSingle: 1.25,
+      weightMultiple: 0,
+      extraSubjectQuota: [],
+    },
+  },
+  {
+    examId: 'food-analysis-c',
+    titleZh: '食品檢驗分析丙級',
+    titleEn: 'Food Testing and Analysis (Class C)',
+    level: '丙級',
+    category: '餐飲食品',
+    occupationCode: '09200',
+    // Sub/superscripts come from the PDF's word boxes (scripts/scriptedText.mjs).
+    occupationFile: '092003A11-scripted-raw.txt',
+    occupationExpected: 535,
+    version: 'A11',
+    extraCommonCodes: ['90010'],
+    inactiveIds: ['09200-02-046'],
+    // Text question: the gap the dropped ℓ left would otherwise force a figure.
+    excludedFigureIds: ['09200-04-013'],
+    optionOverrides: {
+      // The PDF's script ℓ (in ℓb/in²) has no text glyph; pdftotext drops it.
+      '09200-04-013': ['1 lb/in²', '15 lb/in²', '30 lb/in²', '50 lb/in²'],
+    },
+    mockRules: {
+      occupationQuota: 48,
+      singleCount: 80,
+      multipleCount: 0,
+      weightSingle: 1.25,
+      weightMultiple: 0,
+      extraSubjectQuota: [{ subjectCode: '90010', count: 16 }],
+    },
+  },
 ]
 
 const BEAUTY_HAIR_COMMON_BANK = {

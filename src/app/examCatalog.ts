@@ -23,6 +23,7 @@ export const EN_CATEGORY: Record<string, string> = {
   銲接配管: 'Welding & Piping',
   金屬及機械加工: 'Metal & Machinery Processing',
   農業園藝: 'Agriculture & Horticulture',
+  化學工業: 'Chemical Industry',
 }
 
 export const EN_LEVEL: Record<string, string> = {

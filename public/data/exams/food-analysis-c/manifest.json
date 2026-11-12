@@ -1,0 +1,232 @@
+{
+  "examId": "food-analysis-c",
+  "level": "丙級",
+  "titleZh": "食品檢驗分析丙級",
+  "titleEn": "Food Testing and Analysis (Class C)",
+  "category": "餐飲食品",
+  "version": "A11",
+  "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/092003A11.pdf",
+  "sources": [
+    {
+      "subjectCode": "09200",
+      "version": "A11",
+      "pdfFilename": "092003A11.pdf",
+      "localFilename": "092003A11.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/092003A11.pdf",
+      "sha256": "c2075ec4fd2ec0620d15123c3f426351921aeaa1f595cf1aaa0bb27cbd0b606c"
+    },
+    {
+      "subjectCode": "90010",
+      "version": "A17",
+      "pdfFilename": "900100A17.pdf",
+      "localFilename": "900100A17.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900100A17.pdf",
+      "sha256": "5f052196e4ae984ee2508602d8395af42f1c4b3425aae64baa751f81bd2dc65d"
+    },
+    {
+      "subjectCode": "90006",
+      "version": "A11",
+      "pdfFilename": "900060A11.pdf",
+      "localFilename": "900060A11.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
+      "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+    },
+    {
+      "subjectCode": "90007",
+      "version": "A10",
+      "pdfFilename": "900070A10.pdf",
+      "localFilename": "900070A10.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
+      "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+    },
+    {
+      "subjectCode": "90008",
+      "version": "A17",
+      "pdfFilename": "900080A17.pdf",
+      "localFilename": "900080A17.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
+      "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+    },
+    {
+      "subjectCode": "90009",
+      "version": "A13",
+      "pdfFilename": "900090A13.pdf",
+      "localFilename": "900090A13.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
+      "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+    }
+  ],
+  "officialLinks": {
+    "registration": "https://skill.tcte.edu.tw/notice.php",
+    "scoreLookup": "https://eservice.wdasec.gov.tw/",
+    "handbook": "https://skill.tcte.edu.tw/download.php",
+    "questionBank": "https://techbank.wdasec.gov.tw/"
+  },
+  "sourceRevision": "092003A11 + 900100A17 + 900060A11/900070A10/900080A17/900090A13",
+  "questionCount": 1216,
+  "activeQuestionCount": 1209,
+  "sections": [
+    {
+      "id": "09200-01",
+      "subjectCode": "09200",
+      "sourceGroup": "occupation",
+      "titleZh": "食品分析",
+      "questionCount": 143,
+      "activeQuestionCount": 143
+    },
+    {
+      "id": "09200-02",
+      "subjectCode": "09200",
+      "sourceGroup": "occupation",
+      "titleZh": "食品一般成份分析",
+      "questionCount": 114,
+      "activeQuestionCount": 113
+    },
+    {
+      "id": "09200-03",
+      "subjectCode": "09200",
+      "sourceGroup": "occupation",
+      "titleZh": "用具餐具殘留物之檢驗",
+      "questionCount": 31,
+      "activeQuestionCount": 31
+    },
+    {
+      "id": "09200-04",
+      "subjectCode": "09200",
+      "sourceGroup": "occupation",
+      "titleZh": "食品微生物之檢查",
+      "questionCount": 115,
+      "activeQuestionCount": 115
+    },
+    {
+      "id": "09200-05",
+      "subjectCode": "09200",
+      "sourceGroup": "occupation",
+      "titleZh": "水質檢定",
+      "questionCount": 28,
+      "activeQuestionCount": 28
+    },
+    {
+      "id": "09200-06",
+      "subjectCode": "09200",
+      "sourceGroup": "occupation",
+      "titleZh": "食品原料新鮮度鑑別",
+      "questionCount": 36,
+      "activeQuestionCount": 36
+    },
+    {
+      "id": "09200-07",
+      "subjectCode": "09200",
+      "sourceGroup": "occupation",
+      "titleZh": "罐頭食品之檢驗",
+      "questionCount": 31,
+      "activeQuestionCount": 31
+    },
+    {
+      "id": "09200-08",
+      "subjectCode": "09200",
+      "sourceGroup": "occupation",
+      "titleZh": "食品官能簡易檢查",
+      "questionCount": 37,
+      "activeQuestionCount": 37
+    },
+    {
+      "id": "90010-01",
+      "subjectCode": "90010",
+      "sourceGroup": "general-common",
+      "titleZh": "食品安全衛生",
+      "questionCount": 172,
+      "activeQuestionCount": 171
+    },
+    {
+      "id": "90010-02",
+      "subjectCode": "90010",
+      "sourceGroup": "general-common",
+      "titleZh": "食品安全衛生相關法規",
+      "questionCount": 40,
+      "activeQuestionCount": 40
+    },
+    {
+      "id": "90010-03",
+      "subjectCode": "90010",
+      "sourceGroup": "general-common",
+      "titleZh": "營養及健康飲食",
+      "questionCount": 69,
+      "activeQuestionCount": 69
+    },
+    {
+      "id": "90006-01",
+      "subjectCode": "90006",
+      "sourceGroup": "general-common",
+      "titleZh": "職業安全衛生",
+      "questionCount": 100,
+      "activeQuestionCount": 100
+    },
+    {
+      "id": "90007-01",
+      "subjectCode": "90007",
+      "sourceGroup": "general-common",
+      "titleZh": "工作倫理與職業道德",
+      "questionCount": 100,
+      "activeQuestionCount": 100
+    },
+    {
+      "id": "90008-03",
+      "subjectCode": "90008",
+      "sourceGroup": "general-common",
+      "titleZh": "環境保護",
+      "questionCount": 100,
+      "activeQuestionCount": 95
+    },
+    {
+      "id": "90009-04",
+      "subjectCode": "90009",
+      "sourceGroup": "general-common",
+      "titleZh": "節能減碳",
+      "questionCount": 100,
+      "activeQuestionCount": 100
+    }
+  ],
+  "mockRules": {
+    "totalQuestions": 80,
+    "singleCount": 80,
+    "multipleCount": 0,
+    "durationMinutes": 100,
+    "passScore": 60,
+    "maxScore": 100,
+    "weightSingle": 1.25,
+    "weightMultiple": 0,
+    "subjectQuota": [
+      {
+        "subjectCode": "09200",
+        "count": 48
+      },
+      {
+        "subjectCode": "90010",
+        "count": 16
+      },
+      {
+        "subjectCode": "90006",
+        "count": 4
+      },
+      {
+        "subjectCode": "90007",
+        "count": 4
+      },
+      {
+        "subjectCode": "90008",
+        "count": 4
+      },
+      {
+        "subjectCode": "90009",
+        "count": 4
+      }
+    ]
+  },
+  "integrity": {
+    "status": "fully_verified",
+    "inactiveQuestionCount": 7,
+    "imageQuestionCount": 4,
+    "note": "Answer keys independently cross-checked against the official PDF during import."
+  }
+}

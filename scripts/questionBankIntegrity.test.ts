@@ -585,6 +585,8 @@ describe('published question bank', () => {
       { examId: 'funeral-service-c', code: '20300', published: 610, active: 607, b: false },
       { examId: 'funeral-service-b', code: '20300', published: 599, active: 599, b: true },
       { examId: 'folk-massage-single', code: '22600', published: 643, active: 643, b: false },
+      { examId: 'chemistry-c', code: '03000', published: 628, active: 628, b: false },
+      { examId: 'food-analysis-c', code: '09200', published: 535, active: 534, shared: '90010', b: false },
     ]
     for (const item of cases) {
       const bank = loadExamBank(item.examId)
@@ -617,6 +619,22 @@ describe('published question bank', () => {
     expect(text('pressure-vessel-operation-single', '09900-12-014')).toContain('（kgf/cm²）數值與內容積（m³）')
     // Shared subjects are untouched, so they match every other pack.
     expect(text('horticulture-c', '90009-04-050')).toBe(text('baking-food-c', '90009-04-050'))
+  })
+
+  // 化學 and 食品檢驗分析 take their scripts from the PDF's word boxes
+  // (scripts/scriptedText.mjs): exponents must not read as subtraction.
+  it('keeps exponents, charges and formulas from the PDF in the formula-heavy banks', () => {
+    const question = (examId: string, id: string) => loadExamBank(examId).find((item) => item.id === id)!
+    expect(question('chemistry-c', '03000-01-004').options).toEqual(['CuS(Kₛₚ=8×10⁻³⁷)', 'Ag₂S(Kₛₚ=6×10⁻⁵¹)', 'Bi₂S₃(Kₛₚ=1×10⁻⁷⁰)', 'MnS(Kₛₚ=7×10⁻¹⁶)'])
+    expect(question('chemistry-c', '03000-01-006').options).toEqual(['Na⁺', 'H₃O⁺', 'SO₄²⁻', 'OH⁻'])
+    expect(question('food-analysis-c', '09200-04-013').options).toEqual(['1 lb/in²', '15 lb/in²', '30 lb/in²', '50 lb/in²'])
+    expect(question('food-analysis-c', '09200-02-046').active).toBe(false)
+    for (const examId of ['chemistry-c', 'food-analysis-c']) {
+      const own = loadExamBank(examId).filter((item) => !item.subjectCode.startsWith('900'))
+      const flattened = own.filter((item) => /10\s+[-−]\s*\d|×10\s+\d|[A-Z][a-z]?\s+\d\s+[A-Z]/.test([item.prompt, ...item.options].join(' ')))
+      expect(flattened.map((item) => item.id)).toEqual([])
+    }
+    expect(question('chemistry-c', '90009-04-050').prompt).toBe(question('baking-food-c', '90009-04-050').prompt)
   })
 
   // Ids repeat across levels of one occupation (11800 丙/乙). Overrides written

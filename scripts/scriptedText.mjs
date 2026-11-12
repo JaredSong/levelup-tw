@@ -18,6 +18,8 @@
 
 import { execFileSync } from 'node:child_process'
 import { readFile, writeFile } from 'node:fs/promises'
+import { resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 const SUPERSCRIPT = {
   0: '⁰', 1: '¹', 2: '²', 3: '³', 4: '⁴', 5: '⁵', 6: '⁶', 7: '⁷', 8: '⁸', 9: '⁹',
@@ -210,9 +212,9 @@ export function restoreScriptedText(raw, bboxXml) {
 async function main() {
   const stem = process.argv[2]
   if (!stem) throw new Error('usage: node scripts/scriptedText.mjs <stem>')
-  const pdf = new URL(`../source/${stem}.pdf`, import.meta.url)
+  const pdf = fileURLToPath(new URL(`../source/${stem}.pdf`, import.meta.url))
   const raw = await readFile(new URL(`../source/${stem}-raw.txt`, import.meta.url), 'utf8')
-  const bbox = execFileSync('pdftotext', ['-bbox', pdf.pathname, '-'], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 })
+  const bbox = execFileSync('pdftotext', ['-bbox', pdf, '-'], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 })
   const result = restoreScriptedText(raw, bbox)
   if (scriptInvariant(result.text) !== scriptInvariant(raw)) throw new Error(`${stem}: scripted text changed more than scripts and spacing`)
   await writeFile(new URL(`../source/${stem}-scripted-raw.txt`, import.meta.url), result.text)
@@ -220,4 +222,5 @@ async function main() {
   for (const problem of result.problems) console.log('  ', JSON.stringify(problem))
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) await main()
+// Compare paths, not URLs: a repo path with a space ("level b") is %20 in the URL.
+if (process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1])) await main()

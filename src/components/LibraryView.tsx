@@ -2,6 +2,8 @@ import { Bookmark, ChevronDown, ChevronRight, Search, SlidersHorizontal } from '
 import { useMemo, useState } from 'react'
 import type { Progress, Question } from '../domain/studyEngine'
 import { zhTW } from '../i18n/zh-TW'
+import { MathText } from './MathText'
+import { mathToPlain } from '../domain/mathText'
 
 type Filter = 'all' | 'wrong' | 'due' | 'bookmarked' | 'unseen'
 
@@ -46,7 +48,7 @@ export function LibraryView({ questions, progress, onOpen }: Props) {
       (filter === 'unseen' && !item?.attempts)
     return statusMatch &&
       (section === 'all' || question.section === section) &&
-      (!query || `${question.id} ${question.prompt}`.toLowerCase().includes(query.toLowerCase()))
+      (!query || `${question.id} ${mathToPlain(question.prompt)}`.toLowerCase().includes(query.toLowerCase()))
   }), [filter, now, progress, query, questions, section])
 
   return (
@@ -101,7 +103,7 @@ export function LibraryView({ questions, progress, onOpen }: Props) {
                 <button key={question.id} onClick={() => onOpen(question)} type="button">
                   <span className="item-id">{question.id}</span>
                   <span className="item-copy">
-                    <strong>{question.prompt}</strong>
+                    <strong><MathText text={question.prompt} /></strong>
                     <small>{item?.attempts && accuracy !== null ? zhTW.practice.attempts(item.attempts, accuracy) : zhTW.practice.notAttempted}</small>
                   </span>
                   {item?.bookmarked ? <Bookmark className="bookmark-mark" size={16} fill="currentColor" /> : null}

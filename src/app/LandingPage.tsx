@@ -36,6 +36,7 @@ import { SupportPanel } from './SupportPanel'
 import { QrSvg } from '../components/QrCode'
 import { NATIONAL_EXAM_SCHEDULE_115, NATIONAL_EXAM_SCHEDULE_SOURCE, type NationalExamScheduleEntry } from './nationalExamSchedule'
 import { CATALOG_PATH, EN_PATH, GUIDE_PATH, SITE_ORIGIN, examPath } from './seoUrls'
+import { MathText } from '../components/MathText'
 
 // zhTW.landing infers each value as its exact Chinese string *literal*, which an
 // English translation can't satisfy. Widen literal strings to `string` while
@@ -406,7 +407,7 @@ export function LandingPage({ exams, returning, onEnter, t = zhTW.landing, lang 
           <aside className="try-card" aria-label={t.tryEyebrow}>
             <p className="try-eyebrow">{t.tryEyebrow}</p>
             <p className="try-from">{t.tryFrom(examTitle(tryExam))} · {trySample.id}</p>
-            <p className="try-prompt" lang="zh-Hant-TW">{trySample.prompt}</p>
+            <p className="try-prompt" lang="zh-Hant-TW"><MathText text={trySample.prompt} /></p>
             <ol className="try-options" lang="zh-Hant-TW">
               {trySample.options.map((option, index) => {
                 const n = index + 1
@@ -422,7 +423,7 @@ export function LandingPage({ exams, returning, onEnter, t = zhTW.landing, lang 
                       onClick={() => { setTryPick(n); trackLanding('try_question', { exam_id: tryExam.examId, correct: n === trySample.answer }) }}
                     >
                       <span className="try-num">{n}</span>
-                      <span>{option}</span>
+                      <span><MathText text={option} /></span>
                       {tryPick !== null && n === trySample.answer ? <CheckCircle2 size={17} aria-hidden="true" /> : null}
                     </button>
                   </li>

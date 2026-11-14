@@ -304,6 +304,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-v
 .exam-proof { display: flex; flex-wrap: wrap; gap: 10px 20px; margin: 22px 0 0; }
 .exam-proof span { display: inline-flex; align-items: center; gap: 7px; color: var(--ink2); font-size: .84rem; font-weight: 700; }
 .exam-proof svg { color: var(--accent); }
+math.inline-math { font-size: 1.12em; math-style: normal; }
 .exam-aliases { margin: 10px 0 0; color: var(--muted); font-size: .9rem; line-height: 1.7; }
 .exam-overview { max-width: 62ch; margin: 22px 0 0; color: var(--ink3); font-size: clamp(1rem, 1.4vw, 1.1rem); line-height: 1.8; }
 .exam-hero .landing-primary { margin-top: 28px; }

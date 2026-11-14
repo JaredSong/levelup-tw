@@ -119,6 +119,15 @@ async function auditPackImages(examId, examsRoot) {
   const failures = []
   for (const question of questions) {
     if (question.active === false) continue
+    // ⟦…⟧ inline math (src/domain/mathText.ts): the full parse runs in
+    // scripts/mathTextBanks.test.ts; here, catch unbalanced markup at build time.
+    for (const text of [question.prompt, ...(question.options ?? [])]) {
+      if (!text?.includes('⟦') && !text?.includes('⟧')) continue
+      const opens = text.split('⟦').length - 1
+      const closes = text.split('⟧').length - 1
+      const braces = [...text].reduce((depth, ch) => (depth < 0 ? depth : depth + (ch === '{') - (ch === '}')), 0)
+      if (opens !== closes || braces !== 0) failures.push(`${question.id}: unbalanced inline math in "${text}"`)
+    }
     const images = question.sourceImages?.length
       ? question.sourceImages
       : question.sourceImage ? [question.sourceImage] : []

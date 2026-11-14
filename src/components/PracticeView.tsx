@@ -24,6 +24,8 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { Progress, Question } from '../domain/studyEngine'
 import { zhTW } from '../i18n/zh-TW'
 import type { StudySession } from '../types'
+import { MathText } from './MathText'
+import { mathToPlain } from '../domain/mathText'
 
 interface Props {
   session: StudySession
@@ -110,12 +112,12 @@ function formatClock(totalSeconds: number) {
 
 function buildBasicCommuteNote(question: Question) {
   const correctChoices = question.answers
-    .map((value) => `option ${value} (${question.options[value - 1]})`)
+    .map((value) => `option ${value} (${mathToPlain(question.options[value - 1])})`)
     .join(', ')
   const kind = question.kind === 'multiple' ? 'a multiple-answer question' : 'a single-answer question'
 
   return [
-    `Quick review. This is ${kind}. The question asks: ${question.prompt}`,
+    `Quick review. This is ${kind}. The question asks: ${mathToPlain(question.prompt)}`,
     `The correct answer is ${correctChoices}.`,
     `This is the basic voice note — it reads the question and the official answer. For the reason and a memory hook, tap "Upgrade with AI".`,
   ].join('\n')
@@ -520,7 +522,7 @@ export function PracticeView({
           </button>
         </div>
 
-        <h1>{question.prompt}</h1>
+        <h1><MathText text={question.prompt} /></h1>
 
         {question.codeBlock ? <CodeBlock code={question.codeBlock} /> : null}
 
@@ -548,7 +550,7 @@ export function PracticeView({
                 // source order even though normal practice shuffles options.
                 return (
                 <span className={correctChoices.has(officialValue) ? 'correct-ref' : ''} key={officialValue}>
-                  {officialValue}. {option}
+                  {officialValue}. <MathText text={option} />
                 </span>
                 )
               })}
@@ -584,7 +586,7 @@ export function PracticeView({
               <>
                 <p className="answer-label">{zhTW.practiceView.correctAnswerLabel}</p>
                 <div className="revealed-options">
-                  {question.answers.map((value) => <span key={value}>{formatDisplayChoices([value])}. {question.options[value - 1]}</span>)}
+                  {question.answers.map((value) => <span key={value}>{formatDisplayChoices([value])}. <MathText text={question.options[value - 1]} /></span>)}
                 </div>
                 {aiEnabled ? (
                   <button className="explain-button flashcard-cue" disabled={explaining} onClick={() => void requestExplanation('cue')} type="button">
@@ -627,7 +629,7 @@ export function PracticeView({
                       <CodeBlock code={optionCode} compact />
                     ) : optionImage ? (
                       <img className="option-image" src={optionImage} alt={`圖示選項 ${displayValue}`} />
-                    ) : option}
+                    ) : <MathText text={option} />}
                   </span>
                   {isCorrectChoice ? <Check size={18} /> : isWrongChoice ? <X size={18} /> : null}
                 </button>

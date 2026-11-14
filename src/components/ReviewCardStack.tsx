@@ -3,6 +3,7 @@ import { useState } from 'react'
 import type { ReviewCard, ReviewRating } from '../core/contracts'
 import { type CardQuestion, previewInterval, resolveCardFace } from '../domain/reviewScheduler'
 import { zhTW } from '../i18n/zh-TW'
+import { MathText } from './MathText'
 
 interface Props {
   dueCards: ReviewCard[]
@@ -61,11 +62,11 @@ export function ReviewCardStack({ dueCards, totalCards, onGrade, onOpenSource, r
       </div>
 
       <div className="review-card-body">
-        <p className="review-card-front">{face!.prompt}</p>
+        <p className="review-card-front"><MathText text={face!.prompt} /></p>
         {revealed ? (
           <div className="review-card-back">
             <p className="answer-label">{zhTW.review.officialAnswer}</p>
-            {face!.answer.split('\n').map((line) => <span key={line}>{line}</span>)}
+            {face!.answer.split('\n').map((line) => <span key={line}><MathText text={line} /></span>)}
             {face!.corrected ? (
               // Say it out loud: they may have rehearsed the old answer, and a
               // silent swap reads as "I misremembered" rather than "it changed".

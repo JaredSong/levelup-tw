@@ -9,6 +9,7 @@ import { GENERATED_EXAM_SAMPLES } from './generatedExamSamples'
 import { getNextNationalExamEntry } from './nationalExamSchedule'
 import { CATALOG_PATH, examPath } from './seoUrls'
 import { examAliasCopy, examFaqs } from './examFaqs'
+import { MathText } from '../components/MathText'
 
 interface Props {
   exam: ExamManifest
@@ -129,11 +130,11 @@ export function ExamPage({ exam, onEnter, onHome }: Props) {
             {data.samples.map((q, index) => (
               <article className="exam-sample" key={q.id}>
                 <p className="exam-sample-section">{t.sampleSection(q.sectionTitle)}</p>
-                <p className="exam-sample-q"><b>Q{index + 1}.</b> {q.prompt}</p>
+                <p className="exam-sample-q"><b>Q{index + 1}.</b> <MathText text={q.prompt} /></p>
                 <ul>
                   {q.options.map((option, oi) => (
                     <li key={oi} className={sampleAnswers[q.id] && oi + 1 === q.answer ? 'is-answer' : undefined}>
-                      <button type="button" aria-pressed={sampleAnswers[q.id] === oi + 1} onClick={() => setSampleAnswers(current => ({ ...current, [q.id]: oi + 1 }))}><span className="exam-opt-num">{oi + 1}</span>{option}{sampleAnswers[q.id] && oi + 1 === q.answer ? <CheckCircle2 size={15} /> : null}</button>
+                      <button type="button" aria-pressed={sampleAnswers[q.id] === oi + 1} onClick={() => setSampleAnswers(current => ({ ...current, [q.id]: oi + 1 }))}><span className="exam-opt-num">{oi + 1}</span><MathText text={option} />{sampleAnswers[q.id] && oi + 1 === q.answer ? <CheckCircle2 size={15} /> : null}</button>
                     </li>
                   ))}
                 </ul>

@@ -13,6 +13,7 @@ import { getSyncPass, setSyncPass, syncNow, syncStatusLabel } from '../storage/s
 import { clearCurrentProfile } from '../storage/leaveProfile'
 import './LeaveProfile.css'
 import { SupportPanel } from '../app/SupportPanel'
+import { mathToPlain } from '../domain/mathText'
 
 const OPTION_RANDOMIZE_KEY = 'level-b-randomize-options'
 // The sync code IS the account: functions/api/sync.js stores the cloud copy under
@@ -133,9 +134,9 @@ export function SettingsView({ questions, progress }: Props) {
       const item = progress[question.id]
       const mastered = (item?.streak ?? 0) >= 2 ? ' [已熟練]' : ''
       const options = question.options
-        .map((option, optionIndex) => `   ${question.answers.includes(optionIndex + 1) ? '✓' : ' '} ${optionIndex + 1}. ${option}`)
+        .map((option, optionIndex) => `   ${question.answers.includes(optionIndex + 1) ? '✓' : ' '} ${optionIndex + 1}. ${mathToPlain(option)}`)
         .join('\n')
-      return `${index + 1}. [${question.id}] ${question.sectionTitle ?? ''} · 錯 ${item?.wrong ?? 0} 次${mastered}\n${question.prompt}\n${options}`
+      return `${index + 1}. [${question.id}] ${question.sectionTitle ?? ''} · 錯 ${item?.wrong ?? 0} 次${mastered}\n${mathToPlain(question.prompt)}\n${options}`
     })
     const header = `升級吧 — 錯題匯出（${wrong.length} 題）\n匯出時間：${new Date().toLocaleString()}\n✓ 為官方正確答案。\n`
     download(`${header}\n${blocks.join('\n\n')}\n`, `level-up-wrong-${new Date().toISOString().slice(0, 10)}.txt`, 'text/plain;charset=utf-8')

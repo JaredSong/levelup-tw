@@ -267,6 +267,15 @@ export const zhTW = {
       q: `${title}學科題庫 PDF 在哪裡下載？`,
       a: `官方題庫 PDF 由勞動部勞動力發展署技能檢定中心公開，本頁「官方題庫 PDF 下載」區塊直接連到官方檔案（${pdfs}）。想邊練邊記錯題，可以直接在升級吧免費線上練習。`,
     }),
+    // 「最新版」 only with the date the pack's PDFs last matched the official
+    // current versions (scripts/landingCatalog.mjs → officialCheckedDate).
+    latestChip: (year: number) => `${year}年最新版題庫`,
+    latestLabel: '版本核對',
+    latestValue: (date: string) => `${date} 對照官方公告，為最新版`,
+    faqLatest: (title: string, year: number, versions: string, date: string) => ({
+      q: `${title}學科題庫是${year}年最新版嗎？`,
+      a: `是。升級吧用的是技能檢定中心目前公告的版本（${versions}），${date} 已逐份和官方公告的 PDF 核對，版本與檔案內容都相同。官方改版時，請以技能檢定中心最新公告為準。`,
+    }),
     // Short names from real search queries (src/app/examAliases.ts).
     aliasLine: (names: string) => `常見簡稱：${names}`,
     familyLine: (name: string, titles: string) => `常說的「${name}」分成${titles}，各有自己的學科題庫。`,

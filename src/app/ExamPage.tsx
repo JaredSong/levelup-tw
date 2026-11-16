@@ -8,7 +8,7 @@ import { trackLanding } from './analytics'
 import { GENERATED_EXAM_SAMPLES } from './generatedExamSamples'
 import { getNextNationalExamEntry } from './nationalExamSchedule'
 import { CATALOG_PATH, examPath } from './seoUrls'
-import { examAliasCopy, examFaqs } from './examFaqs'
+import { examAliasCopy, examFaqs, officialCheck } from './examFaqs'
 import { MathText } from '../components/MathText'
 
 interface Props {
@@ -45,6 +45,7 @@ export function ExamPage({ exam, onEnter, onHome }: Props) {
   const nextRound = getNextNationalExamEntry(now)
   const faqs = examFaqs(exam, now)
   const aliases = examAliasCopy(exam.examId)
+  const latest = officialCheck()
   const links = exam.officialLinks ?? {}
   const linkCandidates: { href?: string; label: string }[] = [
     { href: links.registration, label: t.officialRegistration },
@@ -99,11 +100,11 @@ export function ExamPage({ exam, onEnter, onHome }: Props) {
           <p className="exam-overview">官方公開題庫，依自己的步調練習。<br />先做一小組，寫錯的留給下一次複習。</p>
           {aliases.plain.length ? <p className="exam-aliases">{t.aliasLine(aliases.plain.join('、'))}</p> : null}
           {aliases.families.map((family) => <p className="exam-aliases" key={family.name}>{t.familyLine(family.name, family.titles)}</p>)}
-          <div className="exam-proof"><span><Database size={16} />{t.count(exam.activeQuestionCount)}</span><span><CheckCircle2 size={16} />免費練習</span><span><ShieldCheck size={16} />不必註冊</span></div>
+          <div className="exam-proof">{latest ? <span><BadgeCheck size={16} />{t.latestChip(latest.year)}</span> : null}<span><Database size={16} />{t.count(exam.activeQuestionCount)}</span><span><CheckCircle2 size={16} />免費練習</span><span><ShieldCheck size={16} />不必註冊</span></div>
           <div className="exam-entry-actions"><button className="landing-primary" onClick={() => enter('hero')} type="button">開始練習 10 題<ArrowRight size={18} /></button><a className="landing-secondary" href="#exam-downloads"><FileDown size={17} />下載官方題庫 PDF</a></div>
           <p className="exam-entry-note">進度保存在這台裝置；有未完成的練習時，會先幫你接續。</p>
         </div>
-        <aside className="exam-source-summary"><h2>先確認你的考試範圍</h2><dl><div><dt>測驗範圍</dt><dd>學科</dd></div><div><dt>專業題庫版本</dt><dd>{exam.version}</dd></div><div><dt>資料來源</dt><dd>勞動部技能檢定中心</dd></div><div><dt>模擬考</dt><dd>{exam.mockRules.totalQuestions} 題／{exam.mockRules.durationMinutes} 分鐘</dd></div></dl><a href="#exam-downloads">查看來源與版本說明 ↗</a></aside>
+        <aside className="exam-source-summary"><h2>先確認你的考試範圍</h2><dl><div><dt>測驗範圍</dt><dd>學科</dd></div><div><dt>專業題庫版本</dt><dd>{exam.version}</dd></div>{latest ? <div><dt>{t.latestLabel}</dt><dd>{t.latestValue(latest.date)}</dd></div> : null}<div><dt>資料來源</dt><dd>勞動部技能檢定中心</dd></div><div><dt>模擬考</dt><dd>{exam.mockRules.totalQuestions} 題／{exam.mockRules.durationMinutes} 分鐘</dd></div></dl><a href="#exam-downloads">查看來源與版本說明 ↗</a></aside>
       </section>
 
       <section className="exam-downloads" id="exam-downloads">

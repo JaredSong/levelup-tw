@@ -37,6 +37,11 @@ export function examFaqs(exam: ExamManifest, now: Date): ExamFaq[] {
     t.faqFormat(title, rules.totalQuestions, rules.singleCount, rules.multipleCount, rules.weightSingle, rules.weightMultiple, rules.passScore, rules.maxScore),
   ]
 
+  const latest = officialCheck()
+  if (latest && exam.sources?.length) {
+    faqs.push(t.faqLatest(title, latest.year, exam.sources.map((source) => `${source.subjectCode} ${source.version}`).join('、'), latest.date))
+  }
+
   const commonSubjects = [...new Map(
     exam.sections
       .filter((section) => section.sourceGroup !== 'occupation' && section.subjectCode !== occupationCode)
@@ -57,6 +62,12 @@ export function examFaqs(exam: ExamManifest, now: Date): ExamFaq[] {
   if (next) faqs.push(t.faqSchedule(title, next.label, next.registrationStart, next.registrationEnd, next.writtenDate))
 
   return faqs
+}
+
+/** Date and ROC year of the last official-version check, or null if missing or stale. */
+export function officialCheck(): { date: string; year: number } | null {
+  const date: string | null = GENERATED_LANDING_CATALOG.officialCheckedDate
+  return date ? { date, year: Number(date.slice(0, 4)) - 1911 } : null
 }
 
 /**

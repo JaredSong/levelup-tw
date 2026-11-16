@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-30T06:41:46.400Z",
+  "generatedAt": "2026-11-16T00:39:17.112Z",
   "source": "https://owinform.wdasec.gov.tw/",
   "authority": "official-primary",
-  "effectiveRocDate": "1151030",
-  "effectiveDate": "2026-10-30",
+  "effectiveRocDate": "1151116",
+  "effectiveDate": "2026-11-16",
   "entryCount": 269,
   "documentCount": 276,
   "errors": [],
@@ -5421,7 +5421,8 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/030003A12.pdf",
       "effectiveFrom": "2024-01-01",
       "effectiveFromRoc": "1130101",
-      "remark": null
+      "remark": null,
+      "sha256": "92251c938074f7de86ada1d78408dc706e7af81fc77b49dc51c72d2c5537efa4"
     },
     {
       "subjectCode": "03001",
@@ -5613,7 +5614,8 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/042003A11.pdf",
       "effectiveFrom": "2021-07-01",
       "effectiveFromRoc": "1100701",
-      "remark": null
+      "remark": null,
+      "sha256": "f9398964b624e85781ba67fb8b4c5b77ff618278427cdd6343bb7e65c2e88e58"
     },
     {
       "subjectCode": "04202",
@@ -6038,7 +6040,8 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/076013A11.pdf",
       "effectiveFrom": "2017-01-01",
       "effectiveFromRoc": "1060101",
-      "remark": null
+      "remark": null,
+      "sha256": "3a71f31948dd48914de23e11161d888fca1ded0bbc3ca919799e3dfc1ac248d9"
     },
     {
       "subjectCode": "07602",
@@ -6050,7 +6053,8 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/076022A11.pdf",
       "effectiveFrom": "2017-01-01",
       "effectiveFromRoc": "1060101",
-      "remark": null
+      "remark": null,
+      "sha256": "af5f689516f65199299a2566fc3297705c01fc3d93d4f3817151642d287806db"
     },
     {
       "subjectCode": "07602",
@@ -6268,7 +6272,8 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/092003A11.pdf",
       "effectiveFrom": "2015-01-01",
       "effectiveFromRoc": "1040101",
-      "remark": null
+      "remark": null,
+      "sha256": "c2075ec4fd2ec0620d15123c3f426351921aeaa1f595cf1aaa0bb27cbd0b606c"
     },
     {
       "subjectCode": "09400",
@@ -6364,7 +6369,8 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/099004A14.pdf",
       "effectiveFrom": "2025-01-01",
       "effectiveFromRoc": "1140101",
-      "remark": null
+      "remark": null,
+      "sha256": "dc3d451b928e3458c2b9a4d7ff680994b8d67a74399bf2cc11bbf293435da417"
     },
     {
       "subjectCode": "10000",
@@ -6376,7 +6382,8 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/100002A12.pdf",
       "effectiveFrom": "2025-01-01",
       "effectiveFromRoc": "1140101",
-      "remark": null
+      "remark": null,
+      "sha256": "95e037b2cd6fc3bbfec1b8b9b65dbe76ae06abbe9bf312550dc443b4768980ba"
     },
     {
       "subjectCode": "10000",
@@ -6731,7 +6738,8 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/133003A13.pdf",
       "effectiveFrom": "2024-07-01",
       "effectiveFromRoc": "1130701",
-      "remark": null
+      "remark": null,
+      "sha256": "97c1732a57c729f677e06fbe6e884b894fde20a2e7f7599afa4e89518684c562"
     },
     {
       "subjectCode": "13400",
@@ -7547,7 +7555,8 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/185003A10.pdf",
       "effectiveFrom": "2009-01-01",
       "effectiveFromRoc": "0980101",
-      "remark": null
+      "remark": null,
+      "sha256": "7ef5b4d13509caef6ef5f42a11e2b1f96f34326f4dce8b5184a4d7a377a2bb7c"
     },
     {
       "subjectCode": "19000",
@@ -7668,7 +7677,8 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/200003A13.pdf",
       "effectiveFrom": "2025-01-01",
       "effectiveFromRoc": "1140101",
-      "remark": null
+      "remark": null,
+      "sha256": "b8883b7686430634fdcfcddfec4c6662027324281d5d88019d08aa21cd6f9c30"
     },
     {
       "subjectCode": "20100",
@@ -7680,7 +7690,8 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/201003A12.pdf",
       "effectiveFrom": "2022-01-01",
       "effectiveFromRoc": "1110101",
-      "remark": null
+      "remark": null,
+      "sha256": "d227ccdb8ae9d1b737be69e4ed15f6f84cbef695fb21a55066afe6506872ddb6"
     },
     {
       "subjectCode": "20101",
@@ -7752,7 +7763,8 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/203002A14.pdf",
       "effectiveFrom": "2024-07-01",
       "effectiveFromRoc": "1130701",
-      "remark": null
+      "remark": null,
+      "sha256": "c54f7b90076e9dd6293a34a339fb0f57dafc49e5061aba09492fe41d0646cc71"
     },
     {
       "subjectCode": "20300",
@@ -7764,7 +7776,8 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/203003A12.pdf",
       "effectiveFrom": "2023-07-01",
       "effectiveFromRoc": "1120701",
-      "remark": null
+      "remark": null,
+      "sha256": "1e41183df519ac8469fb9616dc04d9e168ca061ba032f187d806864197f715da"
     },
     {
       "subjectCode": "20400",
@@ -8105,7 +8118,8 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/226004A13.pdf",
       "effectiveFrom": "2025-01-01",
       "effectiveFromRoc": "1140101",
-      "remark": null
+      "remark": null,
+      "sha256": "49004aae9620387e8e026ea10969b4cc5bee8af6539864c693b093440255f62c"
     },
     {
       "subjectCode": "22700",
@@ -8129,7 +8143,8 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
       "effectiveFrom": "2026-01-01",
       "effectiveFromRoc": "1150101",
-      "remark": null
+      "remark": null,
+      "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
     },
     {
       "subjectCode": "90007",
@@ -8141,7 +8156,8 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
       "effectiveFrom": "2025-01-01",
       "effectiveFromRoc": "1140101",
-      "remark": null
+      "remark": null,
+      "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
     },
     {
       "subjectCode": "90008",
@@ -8153,7 +8169,8 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
       "effectiveFrom": "2025-01-01",
       "effectiveFromRoc": "1140101",
-      "remark": null
+      "remark": null,
+      "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
     },
     {
       "subjectCode": "90009",
@@ -8165,7 +8182,8 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
       "effectiveFrom": "2026-01-01",
       "effectiveFromRoc": "1150101",
-      "remark": null
+      "remark": null,
+      "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
     },
     {
       "subjectCode": "90010",
@@ -8177,7 +8195,8 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900100A17.pdf",
       "effectiveFrom": "2019-01-01",
       "effectiveFromRoc": "1080101",
-      "remark": null
+      "remark": null,
+      "sha256": "5f052196e4ae984ee2508602d8395af42f1c4b3425aae64baa751f81bd2dc65d"
     },
     {
       "subjectCode": "90011",
@@ -8189,7 +8208,8 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900110A12.pdf",
       "effectiveFrom": "2020-01-01",
       "effectiveFromRoc": "1090101",
-      "remark": null
+      "remark": null,
+      "sha256": "6b76e319e47cefd658551d2096521933bced6b4c99023874015863655b8dcd3a"
     },
     {
       "subjectCode": "90012",
@@ -8201,7 +8221,8 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900120A11.pdf",
       "effectiveFrom": "2024-05-13",
       "effectiveFromRoc": "1130513",
-      "remark": null
+      "remark": null,
+      "sha256": "716fc0ebaf1ab7987e3c3b5549571719e5603bfc0bfeda3563fc3ffa656c36f0"
     },
     {
       "subjectCode": "90001",
@@ -8218,1391 +8239,8 @@
     }
   ],
   "installedDrift": {
-    "ok": false,
-    "mismatches": [
-      {
-        "examId": "accounting-c",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "accounting-c",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "accounting-c",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "accounting-c",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "aircraft-maintenance-c",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "aircraft-maintenance-c",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "aircraft-maintenance-c",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "aircraft-maintenance-c",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "baking-food-c",
-        "subjectCode": "90010",
-        "installed": "900100A16.pdf",
-        "official": "900100A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900100A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "baking-food-c",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "baking-food-c",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "baking-food-c",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "baking-food-c",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "beauty-c",
-        "subjectCode": "90012",
-        "installed": "900120A10.pdf",
-        "official": "900120A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900120A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "beauty-c",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "beauty-c",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "beauty-c",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "beauty-c",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "beverage-preparation-c",
-        "subjectCode": "90010",
-        "installed": "900100A16.pdf",
-        "official": "900100A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900100A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "beverage-preparation-c",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "beverage-preparation-c",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "beverage-preparation-c",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "beverage-preparation-c",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "car-repair-c",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "car-repair-c",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "car-repair-c",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "car-repair-c",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "care-service-single",
-        "subjectCode": "17800",
-        "installed": "178004A13.pdf",
-        "official": "178004A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/178004A13.pdf",
-        "reason": "sha256",
-        "installedSha256": "5bea075d34cd7556046040445ba9ad140376c85bf0e39928ea26a47196339631",
-        "officialSha256": "3daea486553cf730a2b6711b87c8cae39c5e85e615126d7ff3b384f46bae7f54"
-      },
-      {
-        "examId": "care-service-single",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "care-service-single",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "care-service-single",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "care-service-single",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "childcare-single",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "childcare-single",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "childcare-single",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "childcare-single",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "chinese-cooking-meat-c",
-        "subjectCode": "90010",
-        "installed": "900100A16.pdf",
-        "official": "900100A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900100A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "chinese-cooking-meat-c",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "chinese-cooking-meat-c",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "chinese-cooking-meat-c",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "chinese-cooking-meat-c",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "cnc-milling-b",
-        "subjectCode": "90001",
-        "installed": "900012A10.pdf",
-        "official": "900012A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900012A10.pdf",
-        "reason": "sha256",
-        "installedSha256": "5ff6d7b920a6025d7ce342ff5f247a64bfbad996e480497de36db98047ce6542",
-        "officialSha256": "8322e9297d909fb57e99714e1bf1a6377519d14c17d6daa1f74264a1a522e33c"
-      },
-      {
-        "examId": "cnc-milling-b",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "cnc-milling-b",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "cnc-milling-b",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "cnc-milling-b",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "computer-hardware-repair-b",
-        "subjectCode": "90011",
-        "installed": "900110A10.pdf",
-        "official": "900110A12.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900110A12.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "computer-hardware-repair-b",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "computer-hardware-repair-b",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "computer-hardware-repair-b",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "computer-hardware-repair-b",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "computer-hardware-repair-c",
-        "subjectCode": "90011",
-        "installed": "900110A10.pdf",
-        "official": "900110A12.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900110A12.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "computer-hardware-repair-c",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "computer-hardware-repair-c",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "computer-hardware-repair-c",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "computer-hardware-repair-c",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "computer-software-application-b",
-        "subjectCode": "90011",
-        "installed": "900110A10.pdf",
-        "official": "900110A12.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900110A12.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "computer-software-application-b",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "computer-software-application-b",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "computer-software-application-b",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "computer-software-application-b",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "computer-software-application-c",
-        "subjectCode": "90011",
-        "installed": "900110A10.pdf",
-        "official": "900110A12.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900110A12.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "computer-software-application-c",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "computer-software-application-c",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "computer-software-application-c",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "computer-software-application-c",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "digital-electronics-b",
-        "subjectCode": "11700",
-        "installed": "117002A13.pdf",
-        "official": "117002A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/117002A13.pdf",
-        "reason": "sha256",
-        "installedSha256": "5bf0217bc1783738c546421187fe81055ea9f298870b5c3b0b117afae8c4c28a",
-        "officialSha256": "1bfe6034da6a2d4cc88b4b0577411c8a61bb9a38c5fff49e59477f0c297659c0"
-      },
-      {
-        "examId": "digital-electronics-b",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "digital-electronics-b",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "digital-electronics-b",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "digital-electronics-b",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "dining-service-c",
-        "subjectCode": "90010",
-        "installed": "900100A16.pdf",
-        "official": "900100A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900100A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "dining-service-c",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "dining-service-c",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "dining-service-c",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "dining-service-c",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "electrical-equipment-inspection-c",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "electrical-equipment-inspection-c",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "electrical-equipment-inspection-c",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "electrical-equipment-inspection-c",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "employment-service-b",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "employment-service-b",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "employment-service-b",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "employment-service-b",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "engineering-surveying-b",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "engineering-surveying-b",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "engineering-surveying-b",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "engineering-surveying-b",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "excavator-operation-single",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "excavator-operation-single",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "excavator-operation-single",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "excavator-operation-single",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "forklift-operation-single",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "forklift-operation-single",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "forklift-operation-single",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "forklift-operation-single",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "heat-treatment-c",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "heat-treatment-c",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "heat-treatment-c",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "heat-treatment-c",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "indoor-wiring-b",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "indoor-wiring-b",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "indoor-wiring-b",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "indoor-wiring-b",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "indoor-wiring-c",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "indoor-wiring-c",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "indoor-wiring-c",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "indoor-wiring-c",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "industrial-electronics-c",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "industrial-electronics-c",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "industrial-electronics-c",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "industrial-electronics-c",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "industrial-wiring-c",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "industrial-wiring-c",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "industrial-wiring-c",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "industrial-wiring-c",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "interior-decoration-management-b",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "interior-decoration-management-b",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "interior-decoration-management-b",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "interior-decoration-management-b",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "loader-operation-single",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "loader-operation-single",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "loader-operation-single",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "loader-operation-single",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "man-haircut-c",
-        "subjectCode": "90012",
-        "installed": "900120A10.pdf",
-        "official": "900120A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900120A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "man-haircut-c",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "man-haircut-c",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "man-haircut-c",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "man-haircut-c",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "motorcycle-repair-c",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "motorcycle-repair-c",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "motorcycle-repair-c",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "motorcycle-repair-c",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "network-installation-c",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "network-installation-c",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "network-installation-c",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "network-installation-c",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "occupational-hygiene-management-a",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "occupational-hygiene-management-a",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "occupational-hygiene-management-a",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "occupational-hygiene-management-a",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "occupational-safety-health-management-b",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "occupational-safety-health-management-b",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "occupational-safety-health-management-b",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "occupational-safety-health-management-b",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "occupational-safety-management-a",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "occupational-safety-management-a",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "occupational-safety-management-a",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "occupational-safety-management-a",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "retail-service-c",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "retail-service-c",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "retail-service-c",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "retail-service-c",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "water-pipe-fitting-c",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "water-pipe-fitting-c",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "water-pipe-fitting-c",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "water-pipe-fitting-c",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "web-design-b",
-        "subjectCode": "90011",
-        "installed": "900110A10.pdf",
-        "official": "900110A12.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900110A12.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "web-design-b",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "web-design-b",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "web-design-b",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "web-design-b",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "western-cooking-c",
-        "subjectCode": "90010",
-        "installed": "900100A16.pdf",
-        "official": "900100A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900100A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "western-cooking-c",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "western-cooking-c",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "western-cooking-c",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "western-cooking-c",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "women-hairdressing-c",
-        "subjectCode": "90012",
-        "installed": "900120A10.pdf",
-        "official": "900120A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900120A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "women-hairdressing-c",
-        "subjectCode": "90006",
-        "installed": "900060A18.pdf",
-        "official": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "women-hairdressing-c",
-        "subjectCode": "90007",
-        "installed": "900070A17.pdf",
-        "official": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "women-hairdressing-c",
-        "subjectCode": "90008",
-        "installed": "900080A16.pdf",
-        "official": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "reason": "filename"
-      },
-      {
-        "examId": "women-hairdressing-c",
-        "subjectCode": "90009",
-        "installed": "900090A11.pdf",
-        "official": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "reason": "filename"
-      }
-    ],
+    "ok": true,
+    "mismatches": [],
     "missing": []
   }
 }

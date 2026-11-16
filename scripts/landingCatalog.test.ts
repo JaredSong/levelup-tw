@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { buildLandingCatalog } from './landingCatalog.mjs'
+import { buildLandingCatalog, officialCheckedDate } from './landingCatalog.mjs'
 
 const manifests = [
   { examId: 'web-design-b', titleZh: '網頁設計乙級', level: '乙級', activeQuestionCount: 100, sections: [{ subjectCode: '17300', sourceGroup: 'occupation' }] },
@@ -34,5 +34,21 @@ describe('generated landing catalog', () => {
     expect(catalog.metaDescription).toContain('3 種技術士技能檢定學科題庫')
     expect(catalog.metaDescription).toContain('堆高機操作單一級')
     expect(catalog.metaDescription).toContain('飲料調製丙級')
+  })
+})
+
+describe('officialCheckedDate', () => {
+  const now = new Date('2026-11-20T00:00:00Z')
+  const ok = { generatedAt: '2026-11-16T00:39:17Z', installedDrift: { ok: true } }
+
+  it('gives the Taiwan calendar date of a passing check', () => {
+    expect(officialCheckedDate(ok, now)).toBe('2026-11-16')
+    expect(officialCheckedDate({ ...ok, generatedAt: '2026-11-15T17:00:00Z' }, now)).toBe('2026-11-16')
+  })
+
+  it('makes no 最新版 claim when the check failed, is missing or is stale', () => {
+    expect(officialCheckedDate({ ...ok, installedDrift: { ok: false } }, now)).toBeNull()
+    expect(officialCheckedDate(null, now)).toBeNull()
+    expect(officialCheckedDate(ok, new Date('2027-01-15T00:00:00Z'))).toBeNull()
   })
 })

@@ -52,7 +52,7 @@ describe('published question bank', () => {
       titleZh: '網頁設計乙級',
       level: '乙級',
       questionCount: 1365,
-      activeQuestionCount: 1360,
+      activeQuestionCount: 1365,
       mockRules: { totalQuestions: 80, singleCount: 60, multipleCount: 20 },
     })
     expect(Object.fromEntries(manifest.sections.map((section) => [section.id, section.questionCount]))).toEqual({
@@ -61,7 +61,7 @@ describe('published question bank', () => {
       '17300-03': 124,
       '17300-04': 75,
       '90006-01': 100,
-      '90007-01': 100,
+      '90007-02': 100,
       '90008-03': 100,
       '90009-04': 100,
       '90011-01': 20,
@@ -263,12 +263,13 @@ describe('published question bank', () => {
     expect(byId.get('90011-04-020')?.codeBlock).toContain('cout<<a<<"x+"<<-b<<"y+"<<c<<"=0";')
   })
 
-  it('flags exactly the five officially deleted 90008 questions inactive', () => {
+  it('keeps every 116 common-subject question active (900080A18 deletes none)', () => {
+    // 900080A17 marked five questions 本題刪題; the 116 bank has none, so a
+    // leftover deletion list would hide live questions.
     const generated = loadBank()
-    const inactive = generated.filter((question) => question.active === false).map((question) => question.id).sort()
-    expect(inactive).toEqual(['90008-03-030', '90008-03-047', '90008-03-058', '90008-03-072', '90008-03-092'])
-    expect(generated.filter((question) => question.active !== false)).toHaveLength(1360)
-    expect(generated.filter((question) => question.subjectCode === '90008' && question.active !== false)).toHaveLength(95)
+    expect(generated.filter((question) => question.active === false)).toEqual([])
+    expect(generated.filter((question) => question.active !== false)).toHaveLength(1365)
+    expect(generated.filter((question) => question.subjectCode === '90008' && question.active !== false)).toHaveLength(100)
   })
 
   it('builds official-composition mocks from the real bank across many seeds', () => {
@@ -290,8 +291,8 @@ describe('published question bank', () => {
 
   it('publishes hairdressing class C exam packs without occupation-bank figures', () => {
     const cases = [
-      { examId: 'man-haircut-c', titleZh: '男子理髮丙級', occupationCode: '06000', total: 1139, active: 1134, sections: 16 },
-      { examId: 'women-hairdressing-c', titleZh: '女子美髮丙級', occupationCode: '06700', total: 1308, active: 1303, sections: 15 },
+      { examId: 'man-haircut-c', titleZh: '男子理髮丙級', occupationCode: '06000', total: 1139, active: 1139, sections: 16 },
+      { examId: 'women-hairdressing-c', titleZh: '女子美髮丙級', occupationCode: '06700', total: 1308, active: 1308, sections: 15 },
     ]
 
     for (const item of cases) {
@@ -321,7 +322,7 @@ describe('published question bank', () => {
       expect(generated.filter((question) => question.subjectCode === item.occupationCode && question.hasFigure)).toEqual([])
       expect(generated.filter((question) => question.subjectCode === '90012' && question.hasFigure)).toEqual([])
       expect(generated.filter((question) => question.active !== false && question.hasFigure)).toHaveLength(4)
-      expect(generated.filter((question) => question.subjectCode === '90008' && question.active !== false)).toHaveLength(95)
+      expect(generated.filter((question) => question.subjectCode === '90008' && question.active !== false)).toHaveLength(100)
     }
   })
 
@@ -353,7 +354,7 @@ describe('published question bank', () => {
     }
   })
 
-  it('publishes employment service class B from the official 195002A17 bank', () => {
+  it('publishes employment service class B from the official 195002A18 bank', () => {
     const generated = loadExamBank('employment-service-b')
     const manifest = JSON.parse(
       readFileSync(new URL('../public/data/exams/employment-service-b/manifest.json', import.meta.url), 'utf8'),
@@ -372,7 +373,7 @@ describe('published question bank', () => {
       titleZh: '就業服務乙級',
       level: '乙級',
       questionCount: 1650,
-      activeQuestionCount: 1645,
+      activeQuestionCount: 1650,
       mockRules: { totalQuestions: 80, singleCount: 60, multipleCount: 20 },
     })
     expect(Object.fromEntries(manifest.sections.map((section) => [section.id, section.questionCount]))).toEqual({
@@ -380,18 +381,18 @@ describe('published question bank', () => {
       '19500-02': 209,
       '19500-03': 193,
       '90006-01': 100,
-      '90007-01': 100,
+      '90007-02': 100,
       '90008-03': 100,
       '90009-04': 100,
     })
     expect(manifest.sections.find((section) => section.id === '19500-01')?.titleZh)
       .toBe('職業介紹、人力仲介及外國人引進、聘僱、管理事項')
     expect(generated).toHaveLength(1650)
-    expect(generated.filter((question) => question.active !== false)).toHaveLength(1645)
+    expect(generated.filter((question) => question.active !== false)).toHaveLength(1650)
     expect(generated.filter((question) => question.subjectCode === '19500')).toHaveLength(1250)
     expect(generated.filter((question) => question.subjectCode === '19500' && question.hasFigure)).toEqual([])
     expect(generated.filter((question) => question.active !== false && question.hasFigure)).toHaveLength(4)
-    expect(generated.filter((question) => question.subjectCode === '90008' && question.active !== false)).toHaveLength(95)
+    expect(generated.filter((question) => question.subjectCode === '90008' && question.active !== false)).toHaveLength(100)
     expect(generated.every((question) => question.examId === 'employment-service-b')).toBe(true)
   })
 
@@ -423,7 +424,7 @@ describe('published question bank', () => {
         version: 'A11',
         occupation: 651,
         total: 1051,
-        active: 1046,
+        active: 1051,
         sections: 13,
         occupationQuota: 64,
       },
@@ -433,7 +434,7 @@ describe('published question bank', () => {
         version: 'A12',
         occupation: 707,
         total: 1226,
-        active: 1221,
+        active: 1226,
         sections: 15,
         occupationQuota: 52,
         extraCommonCode: '90011',
@@ -445,7 +446,7 @@ describe('published question bank', () => {
         version: 'A12',
         occupation: 707,
         total: 1107,
-        active: 1102,
+        active: 1107,
         sections: 13,
         occupationQuota: 64,
       },
@@ -455,7 +456,7 @@ describe('published question bank', () => {
         version: 'A14',
         occupation: 486,
         total: 1005,
-        active: 1000,
+        active: 1005,
         sections: 13,
         occupationQuota: 52,
         extraCommonCode: '90011',
@@ -467,7 +468,7 @@ describe('published question bank', () => {
         version: 'A11',
         occupation: 769,
         total: 1169,
-        active: 1153,
+        active: 1158,
         sections: 10,
         occupationQuota: 64,
       },
@@ -477,7 +478,7 @@ describe('published question bank', () => {
         version: 'A10',
         occupation: 500,
         total: 900,
-        active: 893,
+        active: 898,
         sections: 12,
         occupationQuota: 64,
       },
@@ -487,7 +488,7 @@ describe('published question bank', () => {
         version: 'A11',
         occupation: 704,
         total: 1104,
-        active: 1098,
+        active: 1103,
         sections: 12,
         occupationQuota: 64,
       },
@@ -497,7 +498,7 @@ describe('published question bank', () => {
         version: 'A12',
         occupation: 608,
         total: 1008,
-        active: 997,
+        active: 1002,
         sections: 10,
         occupationQuota: 64,
       },
@@ -507,7 +508,7 @@ describe('published question bank', () => {
         version: 'A13',
         occupation: 770,
         total: 1170,
-        active: 1165,
+        active: 1170,
         sections: 15,
         occupationQuota: 64,
       },
@@ -580,11 +581,11 @@ describe('published question bank', () => {
       { examId: 'chinese-cooking-vegetarian-c', code: '07601', published: 507, active: 505, shared: '90010', b: false },
       { examId: 'chinese-cooking-meat-b', code: '07602', published: 676, active: 670, shared: '90010', b: true },
       { examId: 'beauty-b', code: '10000', published: 682, active: 682, shared: '90012', b: true },
-      { examId: 'pressure-vessel-operation-single', code: '09900', published: 649, active: 645, b: false },
+      { examId: 'pressure-vessel-operation-single', code: '09900', published: 670, active: 670, b: false },
       { examId: 'horticulture-c', code: '13300', published: 687, active: 687, b: false },
       { examId: 'funeral-service-c', code: '20300', published: 610, active: 607, b: false },
       { examId: 'funeral-service-b', code: '20300', published: 599, active: 599, b: true },
-      { examId: 'folk-massage-single', code: '22600', published: 643, active: 643, b: false },
+      { examId: 'folk-massage-single', code: '22600', published: 642, active: 642, b: false },
       { examId: 'chemistry-c', code: '03000', published: 628, active: 628, b: false },
       { examId: 'food-analysis-c', code: '09200', published: 535, active: 534, shared: '90010', b: false },
     ]
@@ -609,6 +610,26 @@ describe('published question bank', () => {
     }
   })
 
+  it('keeps the sub/superscripts the 116 common-subject PDFs draw, identically in every pack', () => {
+    // 900080A18 / 900090A14 draw these as script glyphs; the text layer gives "CO2", "PM2.5".
+    const expected: Record<string, string> = {
+      '90008-03-028': '（PM₂.₅）',
+      '90008-03-039': '二氧化碳(CO₂)',
+      '90008-03-072': '12μg/m³',
+      '90009-04-006': '氧化亞氮（N₂O）',
+      '90009-04-050': 'SF₆',
+      '90009-04-099': '（Lux/m²）',
+    }
+    const packs = readdirSync(new URL('../public/data/exams/', import.meta.url))
+    const text = (examId: string, id: string) => {
+      const question = loadExamBank(examId).find((item) => item.id === id)!
+      return `${question.prompt} ${question.options.join(' ')}`
+    }
+    for (const [id, fragment] of Object.entries(expected)) {
+      for (const examId of packs) expect(text(examId, id), `${examId} ${id}`).toContain(fragment)
+    }
+  })
+
   it('restores sub/superscripts the PDF text layer drops', () => {
     const text = (examId: string, id: string) => {
       const question = loadExamBank(examId).find((item) => item.id === id)!
@@ -616,7 +637,8 @@ describe('published question bank', () => {
     }
     expect(text('beauty-b', '10000-02-102')).toContain('維生素 B12')
     expect(text('horticulture-c', '13300-02-112')).toContain('P₂O₅')
-    expect(text('pressure-vessel-operation-single', '09900-12-014')).toContain('（kgf/cm²）數值與內容積（m³）')
+    // A15 renumbered this question (A14 09900-12-014).
+    expect(text('pressure-vessel-operation-single', '09900-09-058')).toContain('（kgf/cm²）數值與內容積（m³）')
     // Shared subjects are untouched, so they match every other pack.
     expect(text('horticulture-c', '90009-04-050')).toBe(text('baking-food-c', '90009-04-050'))
   })
@@ -686,7 +708,7 @@ describe('published question bank', () => {
 
     expect(manifest.version).toBe('A12')
     expect(manifest.questionCount).toBe(1043)
-    expect(manifest.activeQuestionCount).toBe(1038)
+    expect(manifest.activeQuestionCount).toBe(1043)
     expect(manifest.sections).toHaveLength(12)
     expect(questions.filter((question) => question.subjectCode === '17600')).toHaveLength(643)
     expect(questions.filter((question) => question.subjectCode === '17600' && question.hasFigure)).toHaveLength(21)
@@ -714,15 +736,15 @@ describe('published question bank', () => {
     // pure-white PNGs at a source page boundary) was pulled by Wen
     // (2026-07-21). See INACTIVE_IDS in build-exam-packs.mjs.
     const cases = [
-      { examId: 'childcare-single', occupationCode: '15400', published: 892, active: 892, total: 1292, activeTotal: 1287, sections: 10 },
-      { examId: 'care-service-single', occupationCode: '17800', published: 625, active: 619, total: 1025, activeTotal: 1014, sections: 10 },
-      { examId: 'occupational-safety-health-management-b', occupationCode: '22200', published: 932, active: 922, total: 1332, activeTotal: 1317, sections: 7 },
-      { examId: 'occupational-safety-management-a', occupationCode: '22000', published: 615, active: 614, total: 1015, activeTotal: 1009, sections: 7 },
-      { examId: 'occupational-hygiene-management-a', occupationCode: '22100', published: 722, active: 722, total: 1122, activeTotal: 1117, sections: 7 },
-      { examId: 'loader-operation-single', occupationCode: '07004', published: 676, active: 676, total: 1076, activeTotal: 1071, sections: 7 },
-      { examId: 'motorcycle-repair-c', occupationCode: '14500', published: 599, active: 598, total: 999, activeTotal: 993, sections: 11 },
-      { examId: 'electrical-equipment-inspection-c', occupationCode: '16600', published: 685, active: 685, total: 1085, activeTotal: 1080, sections: 9 },
-      { examId: 'dining-service-c', occupationCode: '21500', published: 524, active: 519, total: 1205, activeTotal: 1194, sections: 12 },
+      { examId: 'childcare-single', occupationCode: '15400', published: 892, active: 892, total: 1292, activeTotal: 1292, sections: 10 },
+      { examId: 'care-service-single', occupationCode: '17800', published: 625, active: 619, total: 1025, activeTotal: 1019, sections: 10 },
+      { examId: 'occupational-safety-health-management-b', occupationCode: '22200', published: 954, active: 954, total: 1354, activeTotal: 1354, sections: 7 },
+      { examId: 'occupational-safety-management-a', occupationCode: '22000', published: 615, active: 614, total: 1015, activeTotal: 1014, sections: 7 },
+      { examId: 'occupational-hygiene-management-a', occupationCode: '22100', published: 722, active: 722, total: 1122, activeTotal: 1122, sections: 7 },
+      { examId: 'loader-operation-single', occupationCode: '07004', published: 676, active: 676, total: 1076, activeTotal: 1076, sections: 7 },
+      { examId: 'motorcycle-repair-c', occupationCode: '14500', published: 599, active: 598, total: 999, activeTotal: 998, sections: 11 },
+      { examId: 'electrical-equipment-inspection-c', occupationCode: '16600', published: 685, active: 685, total: 1085, activeTotal: 1085, sections: 9 },
+      { examId: 'dining-service-c', occupationCode: '21500', published: 524, active: 519, total: 1205, activeTotal: 1199, sections: 12 },
     ]
 
     for (const item of cases) {

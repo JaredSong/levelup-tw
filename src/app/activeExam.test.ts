@@ -48,7 +48,7 @@ describe('active exam selection', () => {
       examId: 'web-design-b',
       title: '網頁設計乙級',
       meta: '資訊 · 乙級 · A13',
-      countLabel: '1,360 題可練習',
+      countLabel: '1,365 題可練習',
       statusLabel: '目前使用 · 離線',
     })
   })
@@ -173,7 +173,7 @@ describe('active exam selection', () => {
     const employment = INSTALLED_EXAMS.find((exam) => exam.examId === 'employment-service-b')!
 
     expect(formatCurrentBankLabel(womenHair)).toBe('女子美髮丙級 A13')
-    expect(formatCurrentBankLabel(employment)).toBe('就業服務乙級 A17')
+    expect(formatCurrentBankLabel(employment)).toBe('就業服務乙級 A18')
   })
 
   it('formats syllabus items from the active exam manifest', () => {
@@ -186,7 +186,7 @@ describe('active exam selection', () => {
       label: '就業服務專業科目',
       meta: '1,250 題 · 3 個工作項目',
     })
-    expect(items.find((item) => item.code === '90008')?.meta).toBe('95 題 · 環境保護')
+    expect(items.find((item) => item.code === '90008')?.meta).toBe('100 題 · 環境保護')
   })
 
   it('formats mock rules from each exam manifest', () => {

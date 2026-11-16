@@ -4,48 +4,48 @@
   "titleZh": "第一種壓力容器操作單一級",
   "titleEn": "Class 1 Pressure Vessel Operation (Single Level)",
   "category": "機械操作",
-  "version": "A14",
-  "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/099004A14.pdf",
+  "version": "A15",
+  "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/099004A15.pdf",
   "sources": [
     {
       "subjectCode": "09900",
-      "version": "A14",
-      "pdfFilename": "099004A14.pdf",
-      "localFilename": "099004A14.pdf",
-      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/099004A14.pdf",
-      "sha256": "dc3d451b928e3458c2b9a4d7ff680994b8d67a74399bf2cc11bbf293435da417"
+      "version": "A15",
+      "pdfFilename": "099004A15.pdf",
+      "localFilename": "099004A15.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/099004A15.pdf",
+      "sha256": "3842e3f269894c1315a1e62bc059f9d9545160b1ba5a2bc27848ade6db5b1cc7"
     },
     {
       "subjectCode": "90006",
-      "version": "A11",
-      "pdfFilename": "900060A11.pdf",
-      "localFilename": "900060A11.pdf",
-      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-      "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+      "version": "A12",
+      "pdfFilename": "900060A12.pdf",
+      "localFilename": "900060A12.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+      "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
     },
     {
       "subjectCode": "90007",
-      "version": "A10",
-      "pdfFilename": "900070A10.pdf",
-      "localFilename": "900070A10.pdf",
-      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-      "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+      "version": "A11",
+      "pdfFilename": "900070A11.pdf",
+      "localFilename": "900070A11.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+      "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
     },
     {
       "subjectCode": "90008",
-      "version": "A17",
-      "pdfFilename": "900080A17.pdf",
-      "localFilename": "900080A17.pdf",
-      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-      "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+      "version": "A18",
+      "pdfFilename": "900080A18.pdf",
+      "localFilename": "900080A18.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+      "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
     },
     {
       "subjectCode": "90009",
-      "version": "A13",
-      "pdfFilename": "900090A13.pdf",
-      "localFilename": "900090A13.pdf",
-      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-      "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+      "version": "A14",
+      "pdfFilename": "900090A14.pdf",
+      "localFilename": "900090A14.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+      "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
     }
   ],
   "officialLinks": {
@@ -54,105 +54,97 @@
     "handbook": "https://skill.tcte.edu.tw/download.php",
     "questionBank": "https://techbank.wdasec.gov.tw/"
   },
-  "sourceRevision": "099004A14 + 900060A11/900070A10/900080A17/900090A13",
-  "questionCount": 1049,
-  "activeQuestionCount": 1040,
+  "sourceRevision": "099004A15 + 900060A12/900070A11/900080A18/900090A14",
+  "questionCount": 1070,
+  "activeQuestionCount": 1070,
   "sections": [
     {
       "id": "09900-01",
       "subjectCode": "09900",
       "sourceGroup": "occupation",
-      "titleZh": "本體操作前預備工作",
-      "questionCount": 96,
-      "activeQuestionCount": 96
+      "titleZh": "操作前準備",
+      "questionCount": 170,
+      "activeQuestionCount": 170
     },
     {
       "id": "09900-02",
       "subjectCode": "09900",
       "sourceGroup": "occupation",
-      "titleZh": "附屬品及附屬裝置檢點",
-      "questionCount": 61,
-      "activeQuestionCount": 61
+      "titleZh": "設備啟用",
+      "questionCount": 80,
+      "activeQuestionCount": 80
     },
     {
       "id": "09900-03",
       "subjectCode": "09900",
       "sourceGroup": "occupation",
-      "titleZh": "啟用措施",
-      "questionCount": 80,
-      "activeQuestionCount": 80
+      "titleZh": "設備運轉",
+      "questionCount": 35,
+      "activeQuestionCount": 35
     },
     {
       "id": "09900-04",
       "subjectCode": "09900",
       "sourceGroup": "occupation",
-      "titleZh": "運轉操作",
-      "questionCount": 35,
-      "activeQuestionCount": 35
+      "titleZh": "設備停止",
+      "questionCount": 11,
+      "activeQuestionCount": 11
     },
     {
       "id": "09900-05",
       "subjectCode": "09900",
       "sourceGroup": "occupation",
-      "titleZh": "停止運轉",
-      "questionCount": 30,
-      "activeQuestionCount": 30
+      "titleZh": "停止後處理",
+      "questionCount": 13,
+      "activeQuestionCount": 13
     },
     {
       "id": "09900-06",
       "subjectCode": "09900",
       "sourceGroup": "occupation",
       "titleZh": "故障排除",
-      "questionCount": 42,
-      "activeQuestionCount": 42
+      "questionCount": 41,
+      "activeQuestionCount": 41
     },
     {
       "id": "09900-07",
       "subjectCode": "09900",
       "sourceGroup": "occupation",
-      "titleZh": "腐蝕防止",
-      "questionCount": 45,
-      "activeQuestionCount": 45
+      "titleZh": "事故處理",
+      "questionCount": 35,
+      "activeQuestionCount": 35
     },
     {
       "id": "09900-08",
       "subjectCode": "09900",
       "sourceGroup": "occupation",
-      "titleZh": "洩漏處理",
-      "questionCount": 41,
-      "activeQuestionCount": 41
+      "titleZh": "腐蝕及洩漏處理",
+      "questionCount": 86,
+      "activeQuestionCount": 86
     },
     {
       "id": "09900-09",
       "subjectCode": "09900",
       "sourceGroup": "occupation",
-      "titleZh": "設備檢查準備",
-      "questionCount": 52,
-      "activeQuestionCount": 52
+      "titleZh": "設備檢查",
+      "questionCount": 82,
+      "activeQuestionCount": 82
     },
     {
       "id": "09900-10",
       "subjectCode": "09900",
       "sourceGroup": "occupation",
-      "titleZh": "維護保養",
-      "questionCount": 61,
-      "activeQuestionCount": 61
+      "titleZh": "設備保養及維護",
+      "questionCount": 63,
+      "activeQuestionCount": 63
     },
     {
       "id": "09900-11",
       "subjectCode": "09900",
       "sourceGroup": "occupation",
-      "titleZh": "危險物及有害物災害防範",
-      "questionCount": 49,
-      "activeQuestionCount": 49
-    },
-    {
-      "id": "09900-12",
-      "subjectCode": "09900",
-      "sourceGroup": "occupation",
-      "titleZh": "勞工安全衛生相關法規",
-      "questionCount": 57,
-      "activeQuestionCount": 53
+      "titleZh": "危險物及有害物災害防止",
+      "questionCount": 54,
+      "activeQuestionCount": 54
     },
     {
       "id": "90006-01",
@@ -163,7 +155,7 @@
       "activeQuestionCount": 100
     },
     {
-      "id": "90007-01",
+      "id": "90007-02",
       "subjectCode": "90007",
       "sourceGroup": "general-common",
       "titleZh": "工作倫理與職業道德",
@@ -176,7 +168,7 @@
       "sourceGroup": "general-common",
       "titleZh": "環境保護",
       "questionCount": 100,
-      "activeQuestionCount": 95
+      "activeQuestionCount": 100
     },
     {
       "id": "90009-04",
@@ -221,7 +213,7 @@
   },
   "integrity": {
     "status": "fully_verified",
-    "inactiveQuestionCount": 9,
+    "inactiveQuestionCount": 0,
     "imageQuestionCount": 4,
     "note": "Answer keys independently cross-checked against the official PDF during import."
   }

@@ -28,35 +28,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -65,9 +65,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "060003A12 + 900120A11 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "060003A12 + 900120A11 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1139,
-    "activeQuestionCount": 1134,
+    "activeQuestionCount": 1139,
     "sections": [
       {
         "id": "06000-01",
@@ -174,7 +174,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -187,7 +187,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -236,7 +236,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 5,
+      "inactiveQuestionCount": 0,
       "imageQuestionCount": 4,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -268,35 +268,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -305,9 +305,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "067003A13 + 900120A11 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "067003A13 + 900120A11 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1308,
-    "activeQuestionCount": 1303,
+    "activeQuestionCount": 1308,
     "sections": [
       {
         "id": "06700-01",
@@ -406,7 +406,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -419,7 +419,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -468,7 +468,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 5,
+      "inactiveQuestionCount": 0,
       "imageQuestionCount": 4,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -479,48 +479,48 @@ export const GENERATED_EXAM_MANIFESTS = [
     "titleZh": "就業服務乙級",
     "titleEn": "Employment Service (Class B)",
     "category": "商業服務",
-    "version": "A17",
-    "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/195002A17.pdf",
+    "version": "A18",
+    "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/195002A18.pdf",
     "sources": [
       {
         "subjectCode": "19500",
-        "version": "A17",
-        "pdfFilename": "195002A17.pdf",
-        "localFilename": "195002A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/195002A17.pdf",
-        "sha256": "06dc4cf915c80bcd92e2fae28ce1005f2e3f74f92d2823910c3300f4036c0c61"
+        "version": "A18",
+        "pdfFilename": "195002A18.pdf",
+        "localFilename": "195002A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/195002A18.pdf",
+        "sha256": "71a5f1b9344e41e2fa7bf494a3d67a98c7f5607f98d3c15340f00d0a6b65c565"
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -529,9 +529,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "195002A17 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "195002A18 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1650,
-    "activeQuestionCount": 1645,
+    "activeQuestionCount": 1650,
     "sections": [
       {
         "id": "19500-01",
@@ -566,7 +566,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -579,7 +579,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -624,7 +624,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 5,
+      "inactiveQuestionCount": 0,
       "imageQuestionCount": 4,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -656,35 +656,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -693,9 +693,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "118003A14 + 900110A12 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "118003A14 + 900110A12 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1267,
-    "activeQuestionCount": 1262,
+    "activeQuestionCount": 1267,
     "sections": [
       {
         "id": "11800-01",
@@ -778,7 +778,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -791,7 +791,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -840,7 +840,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 5,
+      "inactiveQuestionCount": 0,
       "imageQuestionCount": 8,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -872,35 +872,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -909,9 +909,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "118002A15 + 900110A12 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "118002A15 + 900110A12 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1295,
-    "activeQuestionCount": 1290,
+    "activeQuestionCount": 1295,
     "sections": [
       {
         "id": "11800-01",
@@ -994,7 +994,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -1007,7 +1007,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -1056,7 +1056,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 5,
+      "inactiveQuestionCount": 0,
       "imageQuestionCount": 14,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -1080,35 +1080,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -1117,9 +1117,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "013003A13 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "013003A13 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1000,
-    "activeQuestionCount": 995,
+    "activeQuestionCount": 1000,
     "sections": [
       {
         "id": "01300-01",
@@ -1178,7 +1178,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -1191,7 +1191,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -1236,7 +1236,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 5,
+      "inactiveQuestionCount": 0,
       "imageQuestionCount": 100,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -1260,35 +1260,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -1297,9 +1297,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "007002A15 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "007002A15 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1262,
-    "activeQuestionCount": 1250,
+    "activeQuestionCount": 1255,
     "sections": [
       {
         "id": "00700-01",
@@ -1462,7 +1462,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -1475,7 +1475,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -1520,7 +1520,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 12,
+      "inactiveQuestionCount": 7,
       "imageQuestionCount": 68,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -1544,35 +1544,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -1581,9 +1581,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "007003A13 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "007003A13 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1018,
-    "activeQuestionCount": 1013,
+    "activeQuestionCount": 1018,
     "sections": [
       {
         "id": "00700-01",
@@ -1746,7 +1746,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -1759,7 +1759,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -1804,7 +1804,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 5,
+      "inactiveQuestionCount": 0,
       "imageQuestionCount": 66,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -1836,35 +1836,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -1873,9 +1873,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "076023A13 + 900100A17 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "076023A13 + 900100A17 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1321,
-    "activeQuestionCount": 1312,
+    "activeQuestionCount": 1317,
     "sections": [
       {
         "id": "07602-01",
@@ -1990,7 +1990,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -2003,7 +2003,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -2052,7 +2052,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 9,
+      "inactiveQuestionCount": 4,
       "imageQuestionCount": 4,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -2084,35 +2084,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -2121,9 +2121,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "077003A12 + 900100A17 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "077003A12 + 900100A17 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1194,
-    "activeQuestionCount": 1187,
+    "activeQuestionCount": 1192,
     "sections": [
       {
         "id": "07700-01",
@@ -2206,7 +2206,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -2219,7 +2219,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -2268,7 +2268,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 7,
+      "inactiveQuestionCount": 2,
       "imageQuestionCount": 5,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -2292,35 +2292,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -2329,9 +2329,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "020003A11 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "020003A11 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1165,
-    "activeQuestionCount": 1160,
+    "activeQuestionCount": 1165,
     "sections": [
       {
         "id": "02000-01",
@@ -2398,7 +2398,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -2411,7 +2411,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -2456,7 +2456,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 5,
+      "inactiveQuestionCount": 0,
       "imageQuestionCount": 52,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -2480,35 +2480,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -2517,9 +2517,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "145003A13 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "145003A13 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 999,
-    "activeQuestionCount": 993,
+    "activeQuestionCount": 998,
     "sections": [
       {
         "id": "14500-01",
@@ -2586,7 +2586,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -2599,7 +2599,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -2644,7 +2644,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 6,
+      "inactiveQuestionCount": 1,
       "imageQuestionCount": 17,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -2668,35 +2668,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -2705,9 +2705,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "176003A12 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "176003A12 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1043,
-    "activeQuestionCount": 1038,
+    "activeQuestionCount": 1043,
     "sections": [
       {
         "id": "17600-01",
@@ -2782,7 +2782,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -2795,7 +2795,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -2840,7 +2840,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 5,
+      "inactiveQuestionCount": 0,
       "imageQuestionCount": 25,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -2872,35 +2872,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -2909,9 +2909,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "100003A15 + 900120A11 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "100003A15 + 900120A11 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1061,
-    "activeQuestionCount": 1056,
+    "activeQuestionCount": 1061,
     "sections": [
       {
         "id": "10000-01",
@@ -2970,7 +2970,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -2983,7 +2983,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -3032,7 +3032,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 5,
+      "inactiveQuestionCount": 0,
       "imageQuestionCount": 4,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -3056,35 +3056,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -3093,9 +3093,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "149003A15 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "149003A15 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1162,
-    "activeQuestionCount": 1157,
+    "activeQuestionCount": 1162,
     "sections": [
       {
         "id": "14900-01",
@@ -3146,7 +3146,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -3159,7 +3159,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -3204,7 +3204,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 5,
+      "inactiveQuestionCount": 0,
       "imageQuestionCount": 4,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -3228,35 +3228,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -3265,9 +3265,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "154004A17 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "154004A17 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1292,
-    "activeQuestionCount": 1287,
+    "activeQuestionCount": 1292,
     "sections": [
       {
         "id": "15400-01",
@@ -3326,7 +3326,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -3339,7 +3339,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -3384,7 +3384,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 5,
+      "inactiveQuestionCount": 0,
       "imageQuestionCount": 4,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -3408,35 +3408,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -3445,9 +3445,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "166003A15 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "166003A15 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1085,
-    "activeQuestionCount": 1080,
+    "activeQuestionCount": 1085,
     "sections": [
       {
         "id": "16600-01",
@@ -3498,7 +3498,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -3511,7 +3511,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -3556,7 +3556,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 5,
+      "inactiveQuestionCount": 0,
       "imageQuestionCount": 9,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -3580,35 +3580,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -3617,9 +3617,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "178004A13 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "178004A13 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1025,
-    "activeQuestionCount": 1014,
+    "activeQuestionCount": 1019,
     "sections": [
       {
         "id": "17800-01",
@@ -3678,7 +3678,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -3691,7 +3691,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -3736,7 +3736,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 11,
+      "inactiveQuestionCount": 6,
       "imageQuestionCount": 4,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -3747,48 +3747,48 @@ export const GENERATED_EXAM_MANIFESTS = [
     "titleZh": "職業安全衛生管理乙級",
     "titleEn": "Occupational Safety and Health Management (Class B)",
     "category": "職業安全衛生",
-    "version": "A15",
-    "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/222002A15.pdf",
+    "version": "A16",
+    "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/222002A16.pdf",
     "sources": [
       {
         "subjectCode": "22200",
-        "version": "A15",
-        "pdfFilename": "222002A15.pdf",
-        "localFilename": "222002A15.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/222002A15.pdf",
-        "sha256": "912b6c0b09d059fbfcd9b863a23b6ccf8663f14f4f7ba533b02674e20390c7f7"
+        "version": "A16",
+        "pdfFilename": "222002A16.pdf",
+        "localFilename": "222002A16.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/222002A16.pdf",
+        "sha256": "cb8c7e87cf491185aea659dff8f2daee82c5e88575b9512dd4eb0762bc502c91"
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -3797,33 +3797,33 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "222002A15 + 900060A11/900070A10/900080A17/900090A13",
-    "questionCount": 1332,
-    "activeQuestionCount": 1317,
+    "sourceRevision": "222002A16 + 900060A12/900070A11/900080A18/900090A14",
+    "questionCount": 1354,
+    "activeQuestionCount": 1354,
     "sections": [
       {
         "id": "22200-01",
         "subjectCode": "22200",
         "sourceGroup": "occupation",
         "titleZh": "職業安全衛生相關法規",
-        "questionCount": 375,
-        "activeQuestionCount": 371
+        "questionCount": 404,
+        "activeQuestionCount": 404
       },
       {
         "id": "22200-02",
         "subjectCode": "22200",
         "sourceGroup": "occupation",
         "titleZh": "職業安全衛生計畫及管理",
-        "questionCount": 96,
-        "activeQuestionCount": 95
+        "questionCount": 93,
+        "activeQuestionCount": 93
       },
       {
         "id": "22200-03",
         "subjectCode": "22200",
         "sourceGroup": "occupation",
         "titleZh": "專業課程",
-        "questionCount": 461,
-        "activeQuestionCount": 456
+        "questionCount": 457,
+        "activeQuestionCount": 457
       },
       {
         "id": "90006-01",
@@ -3834,7 +3834,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -3847,7 +3847,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -3892,7 +3892,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 15,
+      "inactiveQuestionCount": 0,
       "imageQuestionCount": 4,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -3916,35 +3916,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -3953,9 +3953,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "220001A15 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "220001A15 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1015,
-    "activeQuestionCount": 1009,
+    "activeQuestionCount": 1014,
     "sections": [
       {
         "id": "22000-01",
@@ -3990,7 +3990,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -4003,7 +4003,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -4048,7 +4048,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 6,
+      "inactiveQuestionCount": 1,
       "imageQuestionCount": 6,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -4072,35 +4072,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -4109,9 +4109,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "221001A14 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "221001A14 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1122,
-    "activeQuestionCount": 1117,
+    "activeQuestionCount": 1122,
     "sections": [
       {
         "id": "22100-01",
@@ -4146,7 +4146,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -4159,7 +4159,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -4204,7 +4204,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 5,
+      "inactiveQuestionCount": 0,
       "imageQuestionCount": 16,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -4228,35 +4228,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -4265,9 +4265,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "151004A14 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "151004A14 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1000,
-    "activeQuestionCount": 976,
+    "activeQuestionCount": 981,
     "sections": [
       {
         "id": "15100-01",
@@ -4302,7 +4302,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -4315,7 +4315,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -4360,7 +4360,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 24,
+      "inactiveQuestionCount": 19,
       "imageQuestionCount": 41,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -4384,35 +4384,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -4421,9 +4421,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "070044A12 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "070044A12 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1076,
-    "activeQuestionCount": 1071,
+    "activeQuestionCount": 1076,
     "sections": [
       {
         "id": "07004-01",
@@ -4458,7 +4458,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -4471,7 +4471,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -4516,7 +4516,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 5,
+      "inactiveQuestionCount": 0,
       "imageQuestionCount": 15,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -4540,35 +4540,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -4577,9 +4577,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "126002A12 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "126002A12 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1118,
-    "activeQuestionCount": 1113,
+    "activeQuestionCount": 1118,
     "sections": [
       {
         "id": "12600-01",
@@ -4646,7 +4646,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -4659,7 +4659,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -4704,7 +4704,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 5,
+      "inactiveQuestionCount": 0,
       "imageQuestionCount": 42,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -4728,35 +4728,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -4765,9 +4765,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "042022A11 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "042022A11 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1169,
-    "activeQuestionCount": 1153,
+    "activeQuestionCount": 1158,
     "sections": [
       {
         "id": "04202-01",
@@ -4826,7 +4826,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -4839,7 +4839,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -4884,7 +4884,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 16,
+      "inactiveQuestionCount": 11,
       "imageQuestionCount": 56,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -4908,35 +4908,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -4945,9 +4945,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "042003A11 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "042003A11 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1104,
-    "activeQuestionCount": 1098,
+    "activeQuestionCount": 1103,
     "sections": [
       {
         "id": "04200-01",
@@ -5022,7 +5022,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -5035,7 +5035,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -5080,7 +5080,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 6,
+      "inactiveQuestionCount": 1,
       "imageQuestionCount": 30,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -5104,35 +5104,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -5141,9 +5141,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "201003A12 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "201003A12 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1008,
-    "activeQuestionCount": 997,
+    "activeQuestionCount": 1002,
     "sections": [
       {
         "id": "20100-01",
@@ -5202,7 +5202,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -5215,7 +5215,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -5260,7 +5260,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 11,
+      "inactiveQuestionCount": 6,
       "imageQuestionCount": 24,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -5284,35 +5284,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -5321,9 +5321,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "200003A13 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "200003A13 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1170,
-    "activeQuestionCount": 1165,
+    "activeQuestionCount": 1170,
     "sections": [
       {
         "id": "20000-01",
@@ -5422,7 +5422,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -5435,7 +5435,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -5480,7 +5480,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 5,
+      "inactiveQuestionCount": 0,
       "imageQuestionCount": 4,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -5512,35 +5512,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -5549,9 +5549,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "206003A13 + 900100A17 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "206003A13 + 900100A17 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1298,
-    "activeQuestionCount": 1292,
+    "activeQuestionCount": 1297,
     "sections": [
       {
         "id": "20600-01",
@@ -5634,7 +5634,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -5647,7 +5647,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -5696,7 +5696,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 6,
+      "inactiveQuestionCount": 1,
       "imageQuestionCount": 8,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -5728,35 +5728,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -5765,9 +5765,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "215003A11 + 900100A17 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "215003A11 + 900100A17 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1205,
-    "activeQuestionCount": 1194,
+    "activeQuestionCount": 1199,
     "sections": [
       {
         "id": "21500-01",
@@ -5842,7 +5842,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -5855,7 +5855,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -5904,7 +5904,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 11,
+      "inactiveQuestionCount": 6,
       "imageQuestionCount": 12,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -5928,35 +5928,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -5965,9 +5965,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "028003A11 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "028003A11 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1051,
-    "activeQuestionCount": 1046,
+    "activeQuestionCount": 1051,
     "sections": [
       {
         "id": "02800-02",
@@ -6050,7 +6050,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -6063,7 +6063,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -6108,7 +6108,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 5,
+      "inactiveQuestionCount": 0,
       "imageQuestionCount": 132,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -6132,35 +6132,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -6169,9 +6169,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "185003A10 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "185003A10 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 900,
-    "activeQuestionCount": 893,
+    "activeQuestionCount": 898,
     "sections": [
       {
         "id": "18500-01",
@@ -6246,7 +6246,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -6259,7 +6259,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -6304,7 +6304,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 7,
+      "inactiveQuestionCount": 2,
       "imageQuestionCount": 4,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -6328,35 +6328,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -6365,9 +6365,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "021003A12 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "021003A12 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1009,
-    "activeQuestionCount": 1004,
+    "activeQuestionCount": 1009,
     "sections": [
       {
         "id": "02100-01",
@@ -6450,7 +6450,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -6463,7 +6463,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -6508,7 +6508,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 5,
+      "inactiveQuestionCount": 0,
       "imageQuestionCount": 8,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -6540,35 +6540,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -6577,9 +6577,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "120002A12 + 900110A12 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "120002A12 + 900110A12 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1292,
-    "activeQuestionCount": 1284,
+    "activeQuestionCount": 1289,
     "sections": [
       {
         "id": "12000-01",
@@ -6678,7 +6678,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -6691,7 +6691,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -6740,7 +6740,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 8,
+      "inactiveQuestionCount": 3,
       "imageQuestionCount": 83,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -6772,35 +6772,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -6809,9 +6809,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "120003A12 + 900110A12 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "120003A12 + 900110A12 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1226,
-    "activeQuestionCount": 1221,
+    "activeQuestionCount": 1226,
     "sections": [
       {
         "id": "12000-01",
@@ -6910,7 +6910,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -6923,7 +6923,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -6972,7 +6972,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 5,
+      "inactiveQuestionCount": 0,
       "imageQuestionCount": 25,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -7004,35 +7004,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -7041,9 +7041,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "172003A14 + 900110A12 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "172003A14 + 900110A12 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1005,
-    "activeQuestionCount": 1000,
+    "activeQuestionCount": 1005,
     "sections": [
       {
         "id": "17200-01",
@@ -7126,7 +7126,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -7139,7 +7139,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -7188,7 +7188,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 5,
+      "inactiveQuestionCount": 0,
       "imageQuestionCount": 34,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -7212,35 +7212,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -7249,9 +7249,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "016003A12 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "016003A12 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1107,
-    "activeQuestionCount": 1102,
+    "activeQuestionCount": 1107,
     "sections": [
       {
         "id": "01600-01",
@@ -7334,7 +7334,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -7347,7 +7347,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -7392,7 +7392,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 5,
+      "inactiveQuestionCount": 0,
       "imageQuestionCount": 38,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -7416,35 +7416,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -7453,9 +7453,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "070024A10 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "070024A10 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1068,
-    "activeQuestionCount": 1063,
+    "activeQuestionCount": 1068,
     "sections": [
       {
         "id": "07002-01",
@@ -7490,7 +7490,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -7503,7 +7503,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -7548,7 +7548,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 5,
+      "inactiveQuestionCount": 0,
       "imageQuestionCount": 16,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -7572,35 +7572,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -7609,9 +7609,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "117002A13 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "117002A13 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1143,
-    "activeQuestionCount": 1134,
+    "activeQuestionCount": 1139,
     "sections": [
       {
         "id": "11700-01",
@@ -7702,7 +7702,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -7715,7 +7715,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -7760,7 +7760,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 9,
+      "inactiveQuestionCount": 4,
       "imageQuestionCount": 184,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -7792,35 +7792,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -7829,9 +7829,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "140003A11 + 900100A17 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "140003A11 + 900100A17 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1200,
-    "activeQuestionCount": 1190,
+    "activeQuestionCount": 1195,
     "sections": [
       {
         "id": "14000-02",
@@ -7946,7 +7946,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -7959,7 +7959,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -8008,7 +8008,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 10,
+      "inactiveQuestionCount": 5,
       "imageQuestionCount": 4,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -8032,35 +8032,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -8069,9 +8069,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "181003A13 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "181003A13 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1022,
-    "activeQuestionCount": 1017,
+    "activeQuestionCount": 1022,
     "sections": [
       {
         "id": "18100-01",
@@ -8138,7 +8138,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -8151,7 +8151,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -8196,7 +8196,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 5,
+      "inactiveQuestionCount": 0,
       "imageQuestionCount": 29,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -8228,35 +8228,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -8265,9 +8265,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "182012A10 + 900012A10 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "182012A10 + 900012A10 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1654,
-    "activeQuestionCount": 1643,
+    "activeQuestionCount": 1648,
     "sections": [
       {
         "id": "18201-01",
@@ -8398,7 +8398,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -8411,7 +8411,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -8460,7 +8460,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 11,
+      "inactiveQuestionCount": 6,
       "imageQuestionCount": 129,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -8492,35 +8492,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -8529,9 +8529,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "076013A11 + 900100A17 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "076013A11 + 900100A17 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1188,
-    "activeQuestionCount": 1180,
+    "activeQuestionCount": 1185,
     "sections": [
       {
         "id": "07601-02",
@@ -8638,7 +8638,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -8651,7 +8651,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -8700,7 +8700,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 8,
+      "inactiveQuestionCount": 3,
       "imageQuestionCount": 4,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -8732,35 +8732,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -8769,9 +8769,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "076022A11 + 900100A17 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "076022A11 + 900100A17 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1357,
-    "activeQuestionCount": 1345,
+    "activeQuestionCount": 1350,
     "sections": [
       {
         "id": "07602-01",
@@ -8886,7 +8886,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -8899,7 +8899,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -8948,7 +8948,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 12,
+      "inactiveQuestionCount": 7,
       "imageQuestionCount": 4,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -8980,35 +8980,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -9017,9 +9017,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "100002A12 + 900120A11 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "100002A12 + 900120A11 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1382,
-    "activeQuestionCount": 1377,
+    "activeQuestionCount": 1382,
     "sections": [
       {
         "id": "10000-01",
@@ -9078,7 +9078,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -9091,7 +9091,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -9140,7 +9140,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 5,
+      "inactiveQuestionCount": 0,
       "imageQuestionCount": 4,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -9151,48 +9151,48 @@ export const GENERATED_EXAM_MANIFESTS = [
     "titleZh": "第一種壓力容器操作單一級",
     "titleEn": "Class 1 Pressure Vessel Operation (Single Level)",
     "category": "機械操作",
-    "version": "A14",
-    "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/099004A14.pdf",
+    "version": "A15",
+    "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/099004A15.pdf",
     "sources": [
       {
         "subjectCode": "09900",
-        "version": "A14",
-        "pdfFilename": "099004A14.pdf",
-        "localFilename": "099004A14.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/099004A14.pdf",
-        "sha256": "dc3d451b928e3458c2b9a4d7ff680994b8d67a74399bf2cc11bbf293435da417"
+        "version": "A15",
+        "pdfFilename": "099004A15.pdf",
+        "localFilename": "099004A15.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/099004A15.pdf",
+        "sha256": "3842e3f269894c1315a1e62bc059f9d9545160b1ba5a2bc27848ade6db5b1cc7"
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -9201,105 +9201,97 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "099004A14 + 900060A11/900070A10/900080A17/900090A13",
-    "questionCount": 1049,
-    "activeQuestionCount": 1040,
+    "sourceRevision": "099004A15 + 900060A12/900070A11/900080A18/900090A14",
+    "questionCount": 1070,
+    "activeQuestionCount": 1070,
     "sections": [
       {
         "id": "09900-01",
         "subjectCode": "09900",
         "sourceGroup": "occupation",
-        "titleZh": "本體操作前預備工作",
-        "questionCount": 96,
-        "activeQuestionCount": 96
+        "titleZh": "操作前準備",
+        "questionCount": 170,
+        "activeQuestionCount": 170
       },
       {
         "id": "09900-02",
         "subjectCode": "09900",
         "sourceGroup": "occupation",
-        "titleZh": "附屬品及附屬裝置檢點",
-        "questionCount": 61,
-        "activeQuestionCount": 61
+        "titleZh": "設備啟用",
+        "questionCount": 80,
+        "activeQuestionCount": 80
       },
       {
         "id": "09900-03",
         "subjectCode": "09900",
         "sourceGroup": "occupation",
-        "titleZh": "啟用措施",
-        "questionCount": 80,
-        "activeQuestionCount": 80
+        "titleZh": "設備運轉",
+        "questionCount": 35,
+        "activeQuestionCount": 35
       },
       {
         "id": "09900-04",
         "subjectCode": "09900",
         "sourceGroup": "occupation",
-        "titleZh": "運轉操作",
-        "questionCount": 35,
-        "activeQuestionCount": 35
+        "titleZh": "設備停止",
+        "questionCount": 11,
+        "activeQuestionCount": 11
       },
       {
         "id": "09900-05",
         "subjectCode": "09900",
         "sourceGroup": "occupation",
-        "titleZh": "停止運轉",
-        "questionCount": 30,
-        "activeQuestionCount": 30
+        "titleZh": "停止後處理",
+        "questionCount": 13,
+        "activeQuestionCount": 13
       },
       {
         "id": "09900-06",
         "subjectCode": "09900",
         "sourceGroup": "occupation",
         "titleZh": "故障排除",
-        "questionCount": 42,
-        "activeQuestionCount": 42
+        "questionCount": 41,
+        "activeQuestionCount": 41
       },
       {
         "id": "09900-07",
         "subjectCode": "09900",
         "sourceGroup": "occupation",
-        "titleZh": "腐蝕防止",
-        "questionCount": 45,
-        "activeQuestionCount": 45
+        "titleZh": "事故處理",
+        "questionCount": 35,
+        "activeQuestionCount": 35
       },
       {
         "id": "09900-08",
         "subjectCode": "09900",
         "sourceGroup": "occupation",
-        "titleZh": "洩漏處理",
-        "questionCount": 41,
-        "activeQuestionCount": 41
+        "titleZh": "腐蝕及洩漏處理",
+        "questionCount": 86,
+        "activeQuestionCount": 86
       },
       {
         "id": "09900-09",
         "subjectCode": "09900",
         "sourceGroup": "occupation",
-        "titleZh": "設備檢查準備",
-        "questionCount": 52,
-        "activeQuestionCount": 52
+        "titleZh": "設備檢查",
+        "questionCount": 82,
+        "activeQuestionCount": 82
       },
       {
         "id": "09900-10",
         "subjectCode": "09900",
         "sourceGroup": "occupation",
-        "titleZh": "維護保養",
-        "questionCount": 61,
-        "activeQuestionCount": 61
+        "titleZh": "設備保養及維護",
+        "questionCount": 63,
+        "activeQuestionCount": 63
       },
       {
         "id": "09900-11",
         "subjectCode": "09900",
         "sourceGroup": "occupation",
-        "titleZh": "危險物及有害物災害防範",
-        "questionCount": 49,
-        "activeQuestionCount": 49
-      },
-      {
-        "id": "09900-12",
-        "subjectCode": "09900",
-        "sourceGroup": "occupation",
-        "titleZh": "勞工安全衛生相關法規",
-        "questionCount": 57,
-        "activeQuestionCount": 53
+        "titleZh": "危險物及有害物災害防止",
+        "questionCount": 54,
+        "activeQuestionCount": 54
       },
       {
         "id": "90006-01",
@@ -9310,7 +9302,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -9323,7 +9315,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -9368,7 +9360,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 9,
+      "inactiveQuestionCount": 0,
       "imageQuestionCount": 4,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -9392,35 +9384,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -9429,9 +9421,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "133003A13 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "133003A13 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1087,
-    "activeQuestionCount": 1082,
+    "activeQuestionCount": 1087,
     "sections": [
       {
         "id": "13300-01",
@@ -9482,7 +9474,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -9495,7 +9487,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -9540,7 +9532,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 5,
+      "inactiveQuestionCount": 0,
       "imageQuestionCount": 4,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -9564,35 +9556,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -9601,9 +9593,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "203003A12 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "203003A12 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1010,
-    "activeQuestionCount": 1002,
+    "activeQuestionCount": 1007,
     "sections": [
       {
         "id": "20300-01",
@@ -9638,7 +9630,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -9651,7 +9643,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -9696,7 +9688,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 8,
+      "inactiveQuestionCount": 3,
       "imageQuestionCount": 4,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -9720,35 +9712,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -9757,9 +9749,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "203002A14 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "203002A14 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 999,
-    "activeQuestionCount": 994,
+    "activeQuestionCount": 999,
     "sections": [
       {
         "id": "20300-01",
@@ -9810,7 +9802,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -9823,7 +9815,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -9868,7 +9860,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 5,
+      "inactiveQuestionCount": 0,
       "imageQuestionCount": 4,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -9879,48 +9871,48 @@ export const GENERATED_EXAM_MANIFESTS = [
     "titleZh": "民俗調理業傳統整復推拿單一級",
     "titleEn": "Traditional Folk Massage (Single Level)",
     "category": "生活服務",
-    "version": "A13",
-    "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/226004A13.pdf",
+    "version": "A14",
+    "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/226004A14.pdf",
     "sources": [
       {
         "subjectCode": "22600",
-        "version": "A13",
-        "pdfFilename": "226004A13.pdf",
-        "localFilename": "226004A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/226004A13.pdf",
-        "sha256": "49004aae9620387e8e026ea10969b4cc5bee8af6539864c693b093440255f62c"
+        "version": "A14",
+        "pdfFilename": "226004A14.pdf",
+        "localFilename": "226004A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/226004A14.pdf",
+        "sha256": "f5655a196418d5d1173b8334a9c76416ef1952d9af08fa5ac1d1eb5e2852c57b"
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -9929,17 +9921,17 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "226004A13 + 900060A11/900070A10/900080A17/900090A13",
-    "questionCount": 1043,
-    "activeQuestionCount": 1038,
+    "sourceRevision": "226004A14 + 900060A12/900070A11/900080A18/900090A14",
+    "questionCount": 1042,
+    "activeQuestionCount": 1042,
     "sections": [
       {
         "id": "22600-01",
         "subjectCode": "22600",
         "sourceGroup": "occupation",
         "titleZh": "傳統整復推拿基本調理",
-        "questionCount": 248,
-        "activeQuestionCount": 248
+        "questionCount": 247,
+        "activeQuestionCount": 247
       },
       {
         "id": "22600-02",
@@ -9974,7 +9966,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -9987,7 +9979,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -10032,7 +10024,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 5,
+      "inactiveQuestionCount": 0,
       "imageQuestionCount": 4,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -10056,35 +10048,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -10093,9 +10085,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "030003A12 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "030003A12 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1028,
-    "activeQuestionCount": 1023,
+    "activeQuestionCount": 1028,
     "sections": [
       {
         "id": "03000-01",
@@ -10138,7 +10130,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -10151,7 +10143,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -10196,7 +10188,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 5,
+      "inactiveQuestionCount": 0,
       "imageQuestionCount": 4,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
@@ -10228,35 +10220,35 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90006",
-        "version": "A11",
-        "pdfFilename": "900060A11.pdf",
-        "localFilename": "900060A11.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-        "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+        "version": "A12",
+        "pdfFilename": "900060A12.pdf",
+        "localFilename": "900060A12.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+        "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
       },
       {
         "subjectCode": "90007",
-        "version": "A10",
-        "pdfFilename": "900070A10.pdf",
-        "localFilename": "900070A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-        "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+        "version": "A11",
+        "pdfFilename": "900070A11.pdf",
+        "localFilename": "900070A11.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+        "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
       },
       {
         "subjectCode": "90008",
-        "version": "A17",
-        "pdfFilename": "900080A17.pdf",
-        "localFilename": "900080A17.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-        "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+        "version": "A18",
+        "pdfFilename": "900080A18.pdf",
+        "localFilename": "900080A18.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+        "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
       },
       {
         "subjectCode": "90009",
-        "version": "A13",
-        "pdfFilename": "900090A13.pdf",
-        "localFilename": "900090A13.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-        "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+        "version": "A14",
+        "pdfFilename": "900090A14.pdf",
+        "localFilename": "900090A14.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+        "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
       }
     ],
     "officialLinks": {
@@ -10265,9 +10257,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "092003A11 + 900100A17 + 900060A11/900070A10/900080A17/900090A13",
+    "sourceRevision": "092003A11 + 900100A17 + 900060A12/900070A11/900080A18/900090A14",
     "questionCount": 1216,
-    "activeQuestionCount": 1209,
+    "activeQuestionCount": 1214,
     "sections": [
       {
         "id": "09200-01",
@@ -10366,7 +10358,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 100
       },
       {
-        "id": "90007-01",
+        "id": "90007-02",
         "subjectCode": "90007",
         "sourceGroup": "general-common",
         "titleZh": "工作倫理與職業道德",
@@ -10379,7 +10371,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sourceGroup": "general-common",
         "titleZh": "環境保護",
         "questionCount": 100,
-        "activeQuestionCount": 95
+        "activeQuestionCount": 100
       },
       {
         "id": "90009-04",
@@ -10428,7 +10420,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 7,
+      "inactiveQuestionCount": 2,
       "imageQuestionCount": 4,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }

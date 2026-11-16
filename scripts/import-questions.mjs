@@ -1,3 +1,4 @@
+import { COMMON_SCRIPT_OPTIONS, COMMON_SCRIPT_PROMPTS } from './commonScriptOverrides.mjs'
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { buildSourceProvenance, formatSourceRevision } from './examSources.mjs'
 import {
@@ -10,16 +11,10 @@ import { sanitizeText } from './textCorrections.mjs'
 const EXAM_ID = 'web-design-b'
 const EXAM_TITLE_ZH = '網頁設計乙級'
 
-// Questions the official 900080A17 marks 本題刪題 (deleted).
-// Kept as source records for provenance but flagged inactive so they are
-// excluded from queues, mocks, readiness, and active counts.
-const INACTIVE_IDS = new Set([
-  '90008-03-030',
-  '90008-03-047',
-  '90008-03-058',
-  '90008-03-072',
-  '90008-03-092',
-])
+// Questions the official bank marks 本題刪題 (deleted) are flagged inactive so
+// they are excluded from queues, mocks, readiness, and active counts.
+// 900080A18 (116) has none; 900080A17's five deletions no longer apply.
+const INACTIVE_IDS = new Set([])
 
 // A few official PDF questions contain angle-bracket/code fragments that are
 // dropped by text extraction. Keep these repairs at import time so generated
@@ -257,10 +252,10 @@ const OFFICIAL_LINKS = {
 const banks = [
   { code: '17300', file: '173002A13-raw.txt', expected: 846 },
   { code: '90011', file: '900110A12-raw.txt', expected: 119 },
-  { code: '90006', file: '900060A11-raw.txt', expected: 100 },
-  { code: '90007', file: '900070A10-raw.txt', expected: 100 },
-  { code: '90008', file: '900080A17-raw.txt', expected: 100 },
-  { code: '90009', file: '900090A13-raw.txt', expected: 100 },
+  { code: '90006', file: '900060A12-raw.txt', expected: 100 },
+  { code: '90007', file: '900070A11-raw.txt', expected: 100 },
+  { code: '90008', file: '900080A18-raw.txt', expected: 100 },
+  { code: '90009', file: '900090A14-raw.txt', expected: 100 },
 ]
 const sources = await buildSourceProvenance(banks.map((bank) => bank.code))
 
@@ -284,7 +279,10 @@ for (const bank of banks) {
   }
   bankCounts[bank.code] = parsed.length
   questions.push(...parsed.map((question) => {
-    const override = QUESTION_OVERRIDES[question.id]
+    const scripted = COMMON_SCRIPT_PROMPTS[question.id] || COMMON_SCRIPT_OPTIONS[question.id]
+      ? { prompt: COMMON_SCRIPT_PROMPTS[question.id], options: COMMON_SCRIPT_OPTIONS[question.id] }
+      : undefined
+    const override = QUESTION_OVERRIDES[question.id] ?? scripted
     const codeOverride = CODE_BLOCK_OVERRIDES[question.id]
     const hasCodeBlock = !!codeOverride?.codeBlock
     const hasFigure = override?.hasFigure ?? (hasCodeBlock ? false : question.hasFigure)

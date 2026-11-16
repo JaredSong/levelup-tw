@@ -1,3 +1,4 @@
+import { COMMON_SCRIPT_OPTIONS, COMMON_SCRIPT_PROMPTS } from './commonScriptOverrides.mjs'
 import { access, mkdir, readFile, writeFile } from 'node:fs/promises'
 import { buildSourceProvenance, formatSourceRevision } from './examSources.mjs'
 import {
@@ -26,21 +27,6 @@ const INACTIVE_IDS = new Set([
   '17800-05-102',
   '17800-06-007',
   '17800-06-069',
-  '22200-01-027',
-  '22200-01-032',
-  '22200-01-035',
-  '22200-01-043',
-  '22200-02-053',
-  '22200-03-019',
-  '22200-03-106',
-  '22200-03-137',
-  '22200-03-166',
-  '22200-03-174',
-  '90008-03-030',
-  '90008-03-047',
-  '90008-03-058',
-  '90008-03-072',
-  '90008-03-092',
   '90010-01-100',
   '15100-02-187',
   '15100-03-011',
@@ -217,6 +203,7 @@ const SECTION_TITLE_OVERRIDES = {
 }
 
 const QUESTION_PROMPT_OVERRIDES = {
+  ...COMMON_SCRIPT_PROMPTS,
   '18500-06-015': '工件公稱尺寸為 52 公厘（上偏差 +0.08、下偏差 +0.02），其公差為',
   '18500-06-016': '工件公稱尺寸為 20（上偏差 +0.03、下偏差 +0），則此公差為',
   '04202-02-048': '三角高程測量公式 H_B−H_A＝i_A＋V−z_B＋S²/(2R)−KS²/(2R)，公式中 K 為大氣折光係數，R 為地球曲率半徑，而 −KS²/(2R) 稱為何者？',
@@ -254,6 +241,7 @@ const QUESTION_PROMPT_OVERRIDES = {
 }
 
 const QUESTION_OPTION_OVERRIDES = {
+  ...COMMON_SCRIPT_OPTIONS,
   '04202-01-103': [
     '地圖比例尺為實地距離與圖面距離的比值',
     '一座邊長 1m 的正方形花圃可以在 1/25000 的地圖上顯示其輪廓形狀',
@@ -390,10 +378,10 @@ const QUESTION_OPTION_OVERRIDES = {
 const NO_SOURCE_PAGE_IMAGE = new Set(['07700-03-003'])
 
 const GENERAL_COMMON_BANKS = [
-  { code: '90006', file: '900060A11-raw.txt', expected: 100, version: 'A11' },
-  { code: '90007', file: '900070A10-raw.txt', expected: 100, version: 'A10' },
-  { code: '90008', file: '900080A17-raw.txt', expected: 100, version: 'A17' },
-  { code: '90009', file: '900090A13-raw.txt', expected: 100, version: 'A13' },
+  { code: '90006', file: '900060A12-raw.txt', expected: 100, version: 'A12' },
+  { code: '90007', file: '900070A11-raw.txt', expected: 100, version: 'A11' },
+  { code: '90008', file: '900080A18-raw.txt', expected: 100, version: 'A18' },
+  { code: '90009', file: '900090A14-raw.txt', expected: 100, version: 'A14' },
 ]
 
 const MACHINERY_COMMON_BANK = {
@@ -452,9 +440,9 @@ const EXAMS = [
     level: '乙級',
     category: '商業服務',
     occupationCode: '19500',
-    occupationFile: '195002A17-raw.txt',
+    occupationFile: '195002A18-raw.txt',
     occupationExpected: 1250,
-    version: 'A17',
+    version: 'A18',
     extraCommonCodes: [],
     mockRules: {
       occupationQuota: 64,
@@ -817,9 +805,9 @@ const EXAMS = [
     level: '乙級',
     category: '職業安全衛生',
     occupationCode: '22200',
-    occupationFile: '222002A15-raw.txt',
-    occupationExpected: 932,
-    version: 'A15',
+    occupationFile: '222002A16-raw.txt',
+    occupationExpected: 954,
+    version: 'A16',
     extraCommonCodes: [],
     mockRules: {
       occupationQuota: 64,
@@ -1475,11 +1463,10 @@ const EXAMS = [
     level: '單一級',
     category: '機械操作',
     occupationCode: '09900',
-    occupationFile: '099004A14-raw.txt',
-    occupationExpected: 649,
-    version: 'A14',
+    occupationFile: '099004A15-raw.txt',
+    occupationExpected: 670,
+    version: 'A15',
     extraCommonCodes: [],
-    inactiveIds: ['09900-12-010', '09900-12-011', '09900-12-012', '09900-12-035'],
     // Text-only bank: sub/superscripts verified against the PDF's word boxes.
     restoreScripts: true,
     mockRules: {
@@ -1569,9 +1556,9 @@ const EXAMS = [
     level: '單一級',
     category: '生活服務',
     occupationCode: '22600',
-    occupationFile: '226004A13-raw.txt',
-    occupationExpected: 643,
-    version: 'A13',
+    occupationFile: '226004A14-raw.txt',
+    occupationExpected: 642,
+    version: 'A14',
     extraCommonCodes: [],
     // Text-only bank: sub/superscripts verified against the PDF's word boxes.
     restoreScripts: true,

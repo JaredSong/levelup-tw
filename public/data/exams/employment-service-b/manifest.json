@@ -4,48 +4,48 @@
   "titleZh": "就業服務乙級",
   "titleEn": "Employment Service (Class B)",
   "category": "商業服務",
-  "version": "A17",
-  "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/195002A17.pdf",
+  "version": "A18",
+  "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/195002A18.pdf",
   "sources": [
     {
       "subjectCode": "19500",
-      "version": "A17",
-      "pdfFilename": "195002A17.pdf",
-      "localFilename": "195002A17.pdf",
-      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/195002A17.pdf",
-      "sha256": "06dc4cf915c80bcd92e2fae28ce1005f2e3f74f92d2823910c3300f4036c0c61"
+      "version": "A18",
+      "pdfFilename": "195002A18.pdf",
+      "localFilename": "195002A18.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/195002A18.pdf",
+      "sha256": "71a5f1b9344e41e2fa7bf494a3d67a98c7f5607f98d3c15340f00d0a6b65c565"
     },
     {
       "subjectCode": "90006",
-      "version": "A11",
-      "pdfFilename": "900060A11.pdf",
-      "localFilename": "900060A11.pdf",
-      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A11.pdf",
-      "sha256": "1f15c02ed0a0b5bc20d66eab5066dc330321ccae41d7613a3e4cdd56ced9b157"
+      "version": "A12",
+      "pdfFilename": "900060A12.pdf",
+      "localFilename": "900060A12.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+      "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
     },
     {
       "subjectCode": "90007",
-      "version": "A10",
-      "pdfFilename": "900070A10.pdf",
-      "localFilename": "900070A10.pdf",
-      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A10.pdf",
-      "sha256": "7a197fb83757a592830bcaa2c12009fee734c629f8bb8e0e3889a61fdf932ab9"
+      "version": "A11",
+      "pdfFilename": "900070A11.pdf",
+      "localFilename": "900070A11.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+      "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
     },
     {
       "subjectCode": "90008",
-      "version": "A17",
-      "pdfFilename": "900080A17.pdf",
-      "localFilename": "900080A17.pdf",
-      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A17.pdf",
-      "sha256": "59e992f8e35a1c7d5d9cd1c6b74a16388e8f40eca903f5519a74735a8d293cb8"
+      "version": "A18",
+      "pdfFilename": "900080A18.pdf",
+      "localFilename": "900080A18.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+      "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
     },
     {
       "subjectCode": "90009",
-      "version": "A13",
-      "pdfFilename": "900090A13.pdf",
-      "localFilename": "900090A13.pdf",
-      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A13.pdf",
-      "sha256": "78eea560c4ae7527383c44c2aba0fa492e337db55b6f186bbd34aaa8b2959927"
+      "version": "A14",
+      "pdfFilename": "900090A14.pdf",
+      "localFilename": "900090A14.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+      "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
     }
   ],
   "officialLinks": {
@@ -54,9 +54,9 @@
     "handbook": "https://skill.tcte.edu.tw/download.php",
     "questionBank": "https://techbank.wdasec.gov.tw/"
   },
-  "sourceRevision": "195002A17 + 900060A11/900070A10/900080A17/900090A13",
+  "sourceRevision": "195002A18 + 900060A12/900070A11/900080A18/900090A14",
   "questionCount": 1650,
-  "activeQuestionCount": 1645,
+  "activeQuestionCount": 1650,
   "sections": [
     {
       "id": "19500-01",
@@ -91,7 +91,7 @@
       "activeQuestionCount": 100
     },
     {
-      "id": "90007-01",
+      "id": "90007-02",
       "subjectCode": "90007",
       "sourceGroup": "general-common",
       "titleZh": "工作倫理與職業道德",
@@ -104,7 +104,7 @@
       "sourceGroup": "general-common",
       "titleZh": "環境保護",
       "questionCount": 100,
-      "activeQuestionCount": 95
+      "activeQuestionCount": 100
     },
     {
       "id": "90009-04",
@@ -149,7 +149,7 @@
   },
   "integrity": {
     "status": "fully_verified",
-    "inactiveQuestionCount": 5,
+    "inactiveQuestionCount": 0,
     "imageQuestionCount": 4,
     "note": "Answer keys independently cross-checked against the official PDF during import."
   }

@@ -1460,9 +1460,9 @@ export const GENERATED_EXAM_SAMPLES: Record<string, ExamSampleSet> = {
       {
         "id": "90006-01-001",
         "sectionTitle": "職業安全衛生",
-        "prompt": "對於核計勞工所得有無低於基本（最低）工資，下列何者錯誤？",
+        "prompt": "依勞動基準法施行細則規定，對於核計勞工所得有無低於最低工資，下列何者錯誤？",
         "options": [
-          "僅計入在正常工時內之報酬",
+          "僅計入在正常工作時間內所得之報酬",
           "應計入加班費",
           "不計入休假日出勤加給之工資",
           "不計入競賽獎金"
@@ -1585,9 +1585,9 @@ export const GENERATED_EXAM_SAMPLES: Record<string, ExamSampleSet> = {
       {
         "id": "90006-01-001",
         "sectionTitle": "職業安全衛生",
-        "prompt": "對於核計勞工所得有無低於基本（最低）工資，下列何者錯誤？",
+        "prompt": "依勞動基準法施行細則規定，對於核計勞工所得有無低於最低工資，下列何者錯誤？",
         "options": [
-          "僅計入在正常工時內之報酬",
+          "僅計入在正常工作時間內所得之報酬",
           "應計入加班費",
           "不計入休假日出勤加給之工資",
           "不計入競賽獎金"
@@ -1777,9 +1777,9 @@ export const GENERATED_EXAM_SAMPLES: Record<string, ExamSampleSet> = {
       {
         "id": "90006-01-001",
         "sectionTitle": "職業安全衛生",
-        "prompt": "對於核計勞工所得有無低於基本（最低）工資，下列何者錯誤？",
+        "prompt": "依勞動基準法施行細則規定，對於核計勞工所得有無低於最低工資，下列何者錯誤？",
         "options": [
-          "僅計入在正常工時內之報酬",
+          "僅計入在正常工作時間內所得之報酬",
           "應計入加班費",
           "不計入休假日出勤加給之工資",
           "不計入競賽獎金"
@@ -1901,9 +1901,9 @@ export const GENERATED_EXAM_SAMPLES: Record<string, ExamSampleSet> = {
       {
         "id": "90006-01-001",
         "sectionTitle": "職業安全衛生",
-        "prompt": "對於核計勞工所得有無低於基本（最低）工資，下列何者錯誤？",
+        "prompt": "依勞動基準法施行細則規定，對於核計勞工所得有無低於最低工資，下列何者錯誤？",
         "options": [
-          "僅計入在正常工時內之報酬",
+          "僅計入在正常工作時間內所得之報酬",
           "應計入加班費",
           "不計入休假日出勤加給之工資",
           "不計入競賽獎金"
@@ -2511,9 +2511,9 @@ export const GENERATED_EXAM_SAMPLES: Record<string, ExamSampleSet> = {
       {
         "id": "90006-01-001",
         "sectionTitle": "職業安全衛生",
-        "prompt": "對於核計勞工所得有無低於基本（最低）工資，下列何者錯誤？",
+        "prompt": "依勞動基準法施行細則規定，對於核計勞工所得有無低於最低工資，下列何者錯誤？",
         "options": [
-          "僅計入在正常工時內之報酬",
+          "僅計入在正常工作時間內所得之報酬",
           "應計入加班費",
           "不計入休假日出勤加給之工資",
           "不計入競賽獎金"
@@ -2840,9 +2840,9 @@ export const GENERATED_EXAM_SAMPLES: Record<string, ExamSampleSet> = {
       {
         "id": "90006-01-001",
         "sectionTitle": "職業安全衛生",
-        "prompt": "對於核計勞工所得有無低於基本（最低）工資，下列何者錯誤？",
+        "prompt": "依勞動基準法施行細則規定，對於核計勞工所得有無低於最低工資，下列何者錯誤？",
         "options": [
-          "僅計入在正常工時內之報酬",
+          "僅計入在正常工作時間內所得之報酬",
           "應計入加班費",
           "不計入休假日出勤加給之工資",
           "不計入競賽獎金"
@@ -2901,9 +2901,9 @@ export const GENERATED_EXAM_SAMPLES: Record<string, ExamSampleSet> = {
       {
         "id": "90006-01-001",
         "sectionTitle": "職業安全衛生",
-        "prompt": "對於核計勞工所得有無低於基本（最低）工資，下列何者錯誤？",
+        "prompt": "依勞動基準法施行細則規定，對於核計勞工所得有無低於最低工資，下列何者錯誤？",
         "options": [
-          "僅計入在正常工時內之報酬",
+          "僅計入在正常工作時間內所得之報酬",
           "應計入加班費",
           "不計入休假日出勤加給之工資",
           "不計入競賽獎金"
@@ -2962,9 +2962,9 @@ export const GENERATED_EXAM_SAMPLES: Record<string, ExamSampleSet> = {
       {
         "id": "90006-01-001",
         "sectionTitle": "職業安全衛生",
-        "prompt": "對於核計勞工所得有無低於基本（最低）工資，下列何者錯誤？",
+        "prompt": "依勞動基準法施行細則規定，對於核計勞工所得有無低於最低工資，下列何者錯誤？",
         "options": [
-          "僅計入在正常工時內之報酬",
+          "僅計入在正常工作時間內所得之報酬",
           "應計入加班費",
           "不計入休假日出勤加給之工資",
           "不計入競賽獎金"
@@ -2975,18 +2975,17 @@ export const GENERATED_EXAM_SAMPLES: Record<string, ExamSampleSet> = {
   },
   "pressure-vessel-operation-single": {
     "sections": [
-      "本體操作前預備工作",
-      "附屬品及附屬裝置檢點",
-      "啟用措施",
-      "運轉操作",
-      "停止運轉",
+      "操作前準備",
+      "設備啟用",
+      "設備運轉",
+      "設備停止",
+      "停止後處理",
       "故障排除",
-      "腐蝕防止",
-      "洩漏處理",
-      "設備檢查準備",
-      "維護保養",
-      "危險物及有害物災害防範",
-      "勞工安全衛生相關法規",
+      "事故處理",
+      "腐蝕及洩漏處理",
+      "設備檢查",
+      "設備保養及維護",
+      "危險物及有害物災害防止",
       "職業安全衛生",
       "工作倫理與職業道德",
       "環境保護",
@@ -2995,7 +2994,7 @@ export const GENERATED_EXAM_SAMPLES: Record<string, ExamSampleSet> = {
     "samples": [
       {
         "id": "09900-01-001",
-        "sectionTitle": "本體操作前預備工作",
+        "sectionTitle": "操作前準備",
         "prompt": "標準大氣壓力下純水結冰時之溫度為",
         "options": [
           "攝氏 0 度",
@@ -3007,19 +3006,7 @@ export const GENERATED_EXAM_SAMPLES: Record<string, ExamSampleSet> = {
       },
       {
         "id": "09900-02-001",
-        "sectionTitle": "附屬品及附屬裝置檢點",
-        "prompt": "壓力表一般採用",
-        "options": [
-          "博登管式",
-          "伸縮管式",
-          "伸縮囊式",
-          "膜片式"
-        ],
-        "answer": 1
-      },
-      {
-        "id": "09900-03-001",
-        "sectionTitle": "啟用措施",
+        "sectionTitle": "設備啟用",
         "prompt": "加外力於試桿時，以試桿原斷面積除外力（荷重）所得之值，稱為",
         "options": [
           "應力",
@@ -3030,8 +3017,8 @@ export const GENERATED_EXAM_SAMPLES: Record<string, ExamSampleSet> = {
         "answer": 1
       },
       {
-        "id": "09900-04-001",
-        "sectionTitle": "運轉操作",
+        "id": "09900-03-001",
+        "sectionTitle": "設備運轉",
         "prompt": "第一種壓力容器一般運轉狀態之監視，不包括",
         "options": [
           "壓力",
@@ -3040,6 +3027,18 @@ export const GENERATED_EXAM_SAMPLES: Record<string, ExamSampleSet> = {
           "蒸汽量"
         ],
         "answer": 4
+      },
+      {
+        "id": "09900-04-001",
+        "sectionTitle": "設備停止",
+        "prompt": "內容物為高凝固點白臘油之容器，施行排液時可使用",
+        "options": [
+          "自然排液",
+          "蒸氣噴向閥使其融解",
+          "冷凝水排放閥緩緩排放",
+          "通氣閥徐徐排放"
+        ],
+        "answer": 2
       }
     ]
   },

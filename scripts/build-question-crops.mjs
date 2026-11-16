@@ -773,6 +773,24 @@ const BANKS = [
     },
   },
   {
+    // 機工相關職類共用 丙級, effective 116-01-01 (技發字第1151301425號).
+    // Staged for Jared's review; ids repeat across versions, hence the
+    // version in the prefix so these never collide with the live A10 crops.
+    code: '90001',
+    source: '900013A13',
+    cropPrefix: '900013A13',
+    embeddedImages: true,
+    stagingDir: 'tmp/import-batch/900013A13',
+  },
+  {
+    // 機工相關職類共用 乙級, effective 116-01-01. Staged; see 900013A13.
+    code: '90001',
+    source: '900012A13',
+    cropPrefix: '900012A13',
+    embeddedImages: true,
+    stagingDir: 'tmp/import-batch/900012A13',
+  },
+  {
     code: '90001',
     source: '900012A10',
     cropPrefix: '900012',
@@ -1109,13 +1127,16 @@ async function buildEmbeddedBank({
   embeddedImageOrder = {},
   vectorOptionQuestions = {},
   imageReferenceFile,
+  // Staged banks write crops and their image map/audit under this repo-relative
+  // folder instead of public/ and source/, so nothing live changes before review.
+  stagingDir,
 }) {
   // This path clears every `${cropPrefix}-*.png` and re-extracts, so it can't
   // honour --missing file by file. Committed crops are the reviewed artefacts
   // and do not reproduce byte-for-byte on a different machine (re-running it
   // renamed 19 028003 crops), so --missing leaves an existing bank untouched.
   // Regenerate one deliberately by naming its source: `… build-question-crops.mjs 028003A11`.
-  if (missingOnly) {
+  if (missingOnly && !stagingDir) {
     const existing = (await readdir(new URL('../public/question-images/', import.meta.url)))
       .filter((file) => file.startsWith(`${cropPrefix}-`) && file.endsWith('.png'))
     if (existing.length) {
@@ -1137,7 +1158,8 @@ async function buildEmbeddedBank({
   const xmlPath = join(work, 'embedded.xml')
   execFileSync('pdftohtml', ['-xml', '-hidden', '-nodrm', pdfPath, xmlPath], { stdio: 'ignore' })
   const pages = embeddedPages(await readFile(xmlPath, 'utf8'))
-  const outputRoot = new URL('../public/question-images/', import.meta.url)
+  const outputRoot = new URL(stagingDir ? `../${stagingDir}/crops/` : '../public/question-images/', import.meta.url)
+  const mapRoot = new URL(stagingDir ? `../${stagingDir}/` : '../source/', import.meta.url)
   await mkdir(outputRoot, { recursive: true })
   let bboxPages
   const renderedPages = new Map()
@@ -1208,6 +1230,7 @@ async function buildEmbeddedBank({
 
   const imageMap = {}
   const imageAudit = {}
+  const stagingProblems = []
   for (const question of questions) {
     if (excluded.has(question.id)) continue
 
@@ -1342,7 +1365,28 @@ async function buildEmbeddedBank({
       && referenceAssets.every((asset) => asset.role.startsWith('option-'))
       || (!reference && !lastOnly.has(question.id) && hasImageOptions)
     if (imageOptions && images.length !== 4 && images.length !== 5) {
-      throw new Error(`${question.id}: expected four graphical options plus at most one prompt image, received ${images.length}`)
+      const problem = `${question.id}: expected four graphical options plus at most one prompt image, received ${images.length}`
+      if (!stagingDir) throw new Error(problem)
+      // Staging only: repair what can be repaired mechanically and list every
+      // such question in crop-problems.json for the reviewer.
+      if (images.length > 5) {
+        // Several prompt formulas (a＝…, b＝…) before four embedded options:
+        // stack the prompt images into one figure and keep the options as-is.
+        const promptImages = images.slice(0, images.length - 4)
+        const output = join(work, `${question.id}-prompt.png`)
+        stackEmbeddedImages(promptImages, output)
+        images = [{ ...promptImages[0], source: output }, ...images.slice(-4)]
+        stagingProblems.push({ id: question.id, page: question.sourcePage, problem, resolution: `stacked ${promptImages.length} prompt images into one; kept the 4 embedded options` })
+      } else {
+        // Some options are drawn as vectors, not embedded: crop all four from the page.
+        try {
+          images = await vectorFallback(question, [1, 2, 3, 4].map((index) => ({ role: `option-${index}` })))
+          stagingProblems.push({ id: question.id, page: question.sourcePage, problem, resolution: 'cropped the 4 options from the page' })
+        } catch (error) {
+          stagingProblems.push({ id: question.id, page: question.sourcePage, problem, resolution: `UNRESOLVED: ${error instanceof Error ? error.message : error}` })
+          continue
+        }
+      }
     }
     const roleTotals = new Map()
     for (const asset of referenceAssets ?? []) {
@@ -1372,12 +1416,15 @@ async function buildEmbeddedBank({
     })))
   }
 
+  if (stagingDir) {
+    await writeFile(new URL('crop-problems.json', mapRoot), `${JSON.stringify(stagingProblems, null, 2)}\n`)
+  }
   await writeFile(
-    new URL(`../source/${source}-image-map.json`, import.meta.url),
+    new URL(`${source}-image-map.json`, mapRoot),
     `${JSON.stringify({ source: `${source}.pdf`, questions: imageMap }, null, 2)}\n`,
   )
   await writeFile(
-    new URL(`../source/${source}-image-audit.json`, import.meta.url),
+    new URL(`${source}-image-audit.json`, mapRoot),
     `${JSON.stringify({
       officialSource: `source/${source}.pdf`,
       referenceCatalog: reference?.referenceCatalog ?? null,

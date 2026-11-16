@@ -263,6 +263,24 @@ describe('published question bank', () => {
     expect(byId.get('90011-04-020')?.codeBlock).toContain('cout<<a<<"x+"<<-b<<"y+"<<c<<"=0";')
   })
 
+  it('draws 90001 by the official 116 rule in real mocks (乙 10 single + 6 multiple, 丙 16)', () => {
+    for (const [examId, occupation, expected] of [
+      ['cnc-milling-b', '18201', { single: 10, multiple: 6, occupation: 48 }],
+      ['machining-c', '18500', { single: 16, multiple: 0, occupation: 48 }],
+    ] as const) {
+      const bank = loadExamBank(examId).filter((question) => question.active !== false)
+      const manifest = JSON.parse(readFileSync(new URL(`../public/data/exams/${examId}/manifest.json`, import.meta.url), 'utf8')) as { mockRules: Parameters<typeof buildMockQueue>[1] }
+      for (let seed = 0; seed < 25; seed += 1) {
+        const mock = buildMockQueue(bank, manifest.mockRules, () => (seed + 0.5) / 25)
+        const shared = mock.filter((question) => question.subjectCode === '90001')
+        expect(mock).toHaveLength(80)
+        expect(shared.filter((question) => question.kind === 'single')).toHaveLength(expected.single)
+        expect(shared.filter((question) => question.kind === 'multiple')).toHaveLength(expected.multiple)
+        expect(mock.filter((question) => question.subjectCode === occupation)).toHaveLength(expected.occupation)
+      }
+    }
+  })
+
   it('keeps every 116 common-subject question active (900080A18 deletes none)', () => {
     // 900080A17 marked five questions 本題刪題; the 116 bank has none, so a
     // leftover deletion list would hide live questions.
@@ -477,10 +495,11 @@ describe('published question bank', () => {
         occupationCode: '18500',
         version: 'A10',
         occupation: 500,
-        total: 900,
-        active: 898,
-        sections: 12,
-        occupationQuota: 64,
+        // + 90001 A13 丙 (597, from 116-01-01), mock 48 + 16.
+        total: 1497,
+        active: 1495,
+        sections: 22,
+        occupationQuota: 48,
       },
       {
         examId: 'surveying-c',

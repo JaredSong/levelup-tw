@@ -1,5 +1,6 @@
 import { readFile, readdir, writeFile } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
+import { ANNOUNCED_OUTSIDE_CATALOG } from './wdaCatalog.mjs'
 
 function occupationCode(manifest) {
   return manifest.sections.find((section) => section.sourceGroup === 'occupation')?.subjectCode
@@ -17,21 +18,14 @@ export function officialCheckedDate(official, now = new Date()) {
   return new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Taipei' }).format(checked)
 }
 
-// Official changes the WDA catalog query doesn't enumerate, so the drift check
-// can't see them. A listed pack stays out of the announced-year claim until it
-// carries that source version.
-//   技檢中心 115-10-15 技發字第1151301425號: 90001 A13 joins 銑床/車床/模具/
-//   機械加工 from 116-01-01.
-export const ANNOUNCED_OUTSIDE_CATALOG = [
-  { examIds: ['cnc-milling-b', 'machining-c'], subjectCode: '90001', version: 'A13', effectiveFrom: '2027-01-01' },
-]
-
+// Packs listed in ANNOUNCED_OUTSIDE_CATALOG (wdaCatalog.mjs) that don't carry
+// the announced file yet stay out of the announced-year claim.
 function missingAnnouncedSources(manifests) {
   const byId = new Map(manifests.map((manifest) => [manifest.examId, manifest]))
-  return new Set(ANNOUNCED_OUTSIDE_CATALOG.flatMap((change) => change.examIds.filter((examId) => {
-    const manifest = byId.get(examId)
-    return manifest && !(manifest.sources ?? []).some((source) => source.subjectCode === change.subjectCode && source.version === change.version)
-  })))
+  return new Set(ANNOUNCED_OUTSIDE_CATALOG.filter((change) => {
+    const manifest = byId.get(change.examId)
+    return manifest && !(manifest.sources ?? []).some((source) => source.subjectCode === change.subjectCode && source.pdfFilename === change.pdfFilename)
+  }).map((change) => change.examId))
 }
 
 /**

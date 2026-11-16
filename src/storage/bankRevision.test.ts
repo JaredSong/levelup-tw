@@ -138,7 +138,8 @@ describe('Dexie upgrade to v7', () => {
     const archive = archivedExamId('web-design-b', '116-1')
     expect(keys).toEqual([`${archive}:${retired}`, 'web-design-b:17300-01-001', `web-design-b:${to}`].sort())
     expect((await db.reviewCards.toArray())[0].examId).toBe(archive)
-    expect((await db.meta.get(BANK_REVISION_KEY))?.value).toBe('116-1')
+    // Every revision applies in order; the marker ends on the newest.
+    expect((await db.meta.get(BANK_REVISION_KEY))?.value).toBe(BANK_REVISIONS[BANK_REVISIONS.length - 1].id)
     expect(JSON.parse(localStorage.getItem('level-up-bank-notice')!)).toEqual([
       { revision: '116-1', effectiveFrom: '2027-01-01', exams: { 'web-design-b': { archived: 1, moved: 1, added: revision.exams['web-design-b'].added } } },
     ])

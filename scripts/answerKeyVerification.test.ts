@@ -80,7 +80,9 @@ describe.skipIf(!hasPdfToText)('published answer keys match the official PDFs', 
     })
   }
 
-  for (const subjectCode of commonSubjectCodes) {
+  // 90001 ships as two level-specific banks under one subject code.
+  const commonTargets = commonSubjectCodes.flatMap((code) => (code === '90001' ? ['90001-2', '90001-3'] : [code]))
+  for (const subjectCode of commonTargets) {
     it(`${subjectCode}: every common-subject key agrees with the source paper`, () => {
       const { ok, output } = verify(subjectCode)
       expect(output, output).toMatch(/DISAGREE\s+: 0/)

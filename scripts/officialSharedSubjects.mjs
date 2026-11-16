@@ -6,6 +6,8 @@
 //   - 90010 食品安全衛生及營養: 20% → 16 questions (技檢中心 106.11.30 技發字第 1061301406 號).
 //   - 90011 資訊相關: 丙級 12 questions, 乙級 9 (技檢中心 108.9.27 技發字第 1081301000 號).
 //   - 90012 美容美髮安全衛生: 20% → 16 questions (技檢中心 112.9.27 技發字第 1121301956 號).
+//   - 90001 機工相關職類 (銑床, 車床, 模具, 機械加工), from 116-01-01: 16 questions;
+//     丙級 16 single, 乙級 10 single + 6 multiple (技檢中心 115.10.15 技發字第1151301425號).
 // The publication gate checks every pack against this, so a mock exam can't
 // silently draw a shared subject in the wrong proportion again.
 
@@ -28,6 +30,13 @@ export const SHARED_SUBJECT_RULES = [
     occupations: ['男子理髮', '女子美髮', '美容'],
     count: () => 16,
   },
+  {
+    code: '90001',
+    occupations: ['銑床', '車床', '模具', '機械加工'],
+    count: () => 16,
+    // The 乙級 multiple-choice part draws from this bank too.
+    kinds: (level) => (level === '乙級' ? { single: 10, multiple: 6 } : { single: 16, multiple: 0 }),
+  },
 ]
 
 const occupationOf = (titleZh) => titleZh.replace(/(甲級|乙級|丙級|單一級)$/, '')
@@ -37,13 +46,14 @@ export function requiredSharedQuota(titleZh, level) {
   const occupation = occupationOf(titleZh)
   return SHARED_SUBJECT_RULES
     .filter((rule) => rule.occupations.some((name) => occupation === name || occupation.startsWith(`${name}－`) || occupation.startsWith(`${name}─`) || occupation.startsWith(`${name}-`)))
-    .map((rule) => ({ subjectCode: rule.code, count: rule.count(level) }))
+    .map((rule) => ({ subjectCode: rule.code, count: rule.count(level), ...(rule.kinds ? { kinds: rule.kinds(level) } : {}) }))
 }
 
 /** Failures for a manifest whose mock quota disagrees with the official rules. */
 export function auditSharedSubjects(manifest) {
   const failures = []
-  const quota = new Map((manifest.mockRules?.subjectQuota ?? []).map((item) => [item.subjectCode, item.count]))
+  const items = new Map((manifest.mockRules?.subjectQuota ?? []).map((item) => [item.subjectCode, item]))
+  const quota = new Map([...items].map(([code, item]) => [code, item.count]))
   for (const code of GENERAL_COMMON_CODES) {
     if (quota.get(code) !== GENERAL_COMMON_COUNT) {
       failures.push(`mock draws ${quota.get(code) ?? 0} from ${code}; the official rule is ${GENERAL_COMMON_COUNT}`)
@@ -51,11 +61,15 @@ export function auditSharedSubjects(manifest) {
   }
   const required = requiredSharedQuota(manifest.titleZh ?? '', manifest.level ?? '')
   const requiredCodes = new Set(required.map((item) => item.subjectCode))
-  for (const { subjectCode, count } of required) {
+  for (const { subjectCode, count, kinds } of required) {
     if (count === null) {
       failures.push(`no official ${subjectCode} count for level ${manifest.level}`)
     } else if (quota.get(subjectCode) !== count) {
       failures.push(`mock draws ${quota.get(subjectCode) ?? 0} from ${subjectCode}; the official rule is ${count}`)
+    }
+    const item = items.get(subjectCode)
+    if (kinds && item && ((item.single ?? null) !== kinds.single || (item.multiple ?? null) !== kinds.multiple)) {
+      failures.push(`mock draws ${item.single ?? '?'} single + ${item.multiple ?? '?'} multiple from ${subjectCode}; the official rule is ${kinds.single} + ${kinds.multiple}`)
     }
     if (!(manifest.sections ?? []).some((section) => section.subjectCode === subjectCode)) {
       failures.push(`pack does not include the ${subjectCode} question bank it is tested on`)

@@ -6131,6 +6131,14 @@ export const GENERATED_EXAM_MANIFESTS = [
         "sha256": "7ef5b4d13509caef6ef5f42a11e2b1f96f34326f4dce8b5184a4d7a377a2bb7c"
       },
       {
+        "subjectCode": "90001",
+        "version": "A13",
+        "pdfFilename": "900013A13.pdf",
+        "localFilename": "900013A13.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900013A13.pdf",
+        "sha256": "64ffe146fa1d12ce8dd46fd0d119e7829b095888c2139f9e91c4e6d4c9cdff7d"
+      },
+      {
         "subjectCode": "90006",
         "version": "A12",
         "pdfFilename": "900060A12.pdf",
@@ -6169,9 +6177,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "185003A10 + 900060A12/900070A11/900080A18/900090A14",
-    "questionCount": 900,
-    "activeQuestionCount": 898,
+    "sourceRevision": "185003A10 + 900013A13 + 900060A12/900070A11/900080A18/900090A14",
+    "questionCount": 1497,
+    "activeQuestionCount": 1495,
     "sections": [
       {
         "id": "18500-01",
@@ -6238,6 +6246,86 @@ export const GENERATED_EXAM_MANIFESTS = [
         "activeQuestionCount": 14
       },
       {
+        "id": "90001-01",
+        "subjectCode": "90001",
+        "sourceGroup": "general-common",
+        "titleZh": "工作圖辨別及製作",
+        "questionCount": 54,
+        "activeQuestionCount": 54
+      },
+      {
+        "id": "90001-02",
+        "subjectCode": "90001",
+        "sourceGroup": "general-common",
+        "titleZh": "數學運算",
+        "questionCount": 37,
+        "activeQuestionCount": 37
+      },
+      {
+        "id": "90001-03",
+        "subjectCode": "90001",
+        "sourceGroup": "general-common",
+        "titleZh": "精密量測",
+        "questionCount": 75,
+        "activeQuestionCount": 75
+      },
+      {
+        "id": "90001-04",
+        "subjectCode": "90001",
+        "sourceGroup": "general-common",
+        "titleZh": "金屬材料辨別",
+        "questionCount": 63,
+        "activeQuestionCount": 63
+      },
+      {
+        "id": "90001-05",
+        "subjectCode": "90001",
+        "sourceGroup": "general-common",
+        "titleZh": "機械加工",
+        "questionCount": 80,
+        "activeQuestionCount": 80
+      },
+      {
+        "id": "90001-06",
+        "subjectCode": "90001",
+        "sourceGroup": "general-common",
+        "titleZh": "機件原理辨別",
+        "questionCount": 76,
+        "activeQuestionCount": 76
+      },
+      {
+        "id": "90001-07",
+        "subjectCode": "90001",
+        "sourceGroup": "general-common",
+        "titleZh": "初階電腦辨別",
+        "questionCount": 47,
+        "activeQuestionCount": 47
+      },
+      {
+        "id": "90001-08",
+        "subjectCode": "90001",
+        "sourceGroup": "general-common",
+        "titleZh": "氣壓辨別",
+        "questionCount": 50,
+        "activeQuestionCount": 50
+      },
+      {
+        "id": "90001-09",
+        "subjectCode": "90001",
+        "sourceGroup": "general-common",
+        "titleZh": "品質管制",
+        "questionCount": 58,
+        "activeQuestionCount": 58
+      },
+      {
+        "id": "90001-10",
+        "subjectCode": "90001",
+        "sourceGroup": "general-common",
+        "titleZh": "智慧製造",
+        "questionCount": 57,
+        "activeQuestionCount": 57
+      },
+      {
         "id": "90006-01",
         "subjectCode": "90006",
         "sourceGroup": "general-common",
@@ -6282,7 +6370,13 @@ export const GENERATED_EXAM_MANIFESTS = [
       "subjectQuota": [
         {
           "subjectCode": "18500",
-          "count": 64
+          "count": 48
+        },
+        {
+          "subjectCode": "90001",
+          "count": 16,
+          "single": 16,
+          "multiple": 0
         },
         {
           "subjectCode": "90006",
@@ -6305,7 +6399,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     "integrity": {
       "status": "fully_verified",
       "inactiveQuestionCount": 2,
-      "imageQuestionCount": 4,
+      "imageQuestionCount": 45,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
   },
@@ -8220,11 +8314,11 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90001",
-        "version": "A10",
-        "pdfFilename": "900012A10.pdf",
-        "localFilename": "900012A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900012A10.pdf",
-        "sha256": "8322e9297d909fb57e99714e1bf1a6377519d14c17d6daa1f74264a1a522e33c"
+        "version": "A13",
+        "pdfFilename": "900012A13.pdf",
+        "localFilename": "900012A13.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900012A13.pdf",
+        "sha256": "6bbb67dbf424792ba7830af6c76471835bde2d30416c0f8bab368cdfd9fb01e4"
       },
       {
         "subjectCode": "90006",
@@ -8265,9 +8359,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "182012A10 + 900012A10 + 900060A12/900070A11/900080A18/900090A14",
-    "questionCount": 1654,
-    "activeQuestionCount": 1648,
+    "sourceRevision": "182012A10 + 900012A13 + 900060A12/900070A11/900080A18/900090A14",
+    "questionCount": 1784,
+    "activeQuestionCount": 1782,
     "sections": [
       {
         "id": "18201-01",
@@ -8322,72 +8416,80 @@ export const GENERATED_EXAM_MANIFESTS = [
         "subjectCode": "90001",
         "sourceGroup": "general-common",
         "titleZh": "機械製圖",
-        "questionCount": 40,
-        "activeQuestionCount": 40
+        "questionCount": 46,
+        "activeQuestionCount": 46
       },
       {
         "id": "90001-02",
         "subjectCode": "90001",
         "sourceGroup": "general-common",
-        "titleZh": "行業數學",
-        "questionCount": 50,
-        "activeQuestionCount": 50
+        "titleZh": "數學運算",
+        "questionCount": 52,
+        "activeQuestionCount": 52
       },
       {
         "id": "90001-03",
         "subjectCode": "90001",
         "sourceGroup": "general-common",
         "titleZh": "精密量測",
-        "questionCount": 74,
-        "activeQuestionCount": 74
+        "questionCount": 87,
+        "activeQuestionCount": 87
       },
       {
         "id": "90001-04",
         "subjectCode": "90001",
         "sourceGroup": "general-common",
-        "titleZh": "金屬材料",
-        "questionCount": 52,
-        "activeQuestionCount": 52
+        "titleZh": "金屬材料辨識",
+        "questionCount": 66,
+        "activeQuestionCount": 66
       },
       {
         "id": "90001-05",
         "subjectCode": "90001",
         "sourceGroup": "general-common",
-        "titleZh": "機械工作法",
-        "questionCount": 72,
-        "activeQuestionCount": 72
+        "titleZh": "機械工作操控",
+        "questionCount": 77,
+        "activeQuestionCount": 77
       },
       {
         "id": "90001-06",
         "subjectCode": "90001",
         "sourceGroup": "general-common",
-        "titleZh": "機件原理",
-        "questionCount": 52,
-        "activeQuestionCount": 52
+        "titleZh": "機件原理辨識",
+        "questionCount": 66,
+        "activeQuestionCount": 66
       },
       {
         "id": "90001-07",
         "subjectCode": "90001",
         "sourceGroup": "general-common",
-        "titleZh": "電腦概論",
+        "titleZh": "電腦操控",
         "questionCount": 44,
-        "activeQuestionCount": 42
+        "activeQuestionCount": 44
       },
       {
         "id": "90001-08",
         "subjectCode": "90001",
         "sourceGroup": "general-common",
-        "titleZh": "氣油壓概論",
-        "questionCount": 55,
-        "activeQuestionCount": 55
+        "titleZh": "氣油壓操控",
+        "questionCount": 65,
+        "activeQuestionCount": 65
       },
       {
         "id": "90001-09",
         "subjectCode": "90001",
         "sourceGroup": "general-common",
         "titleZh": "品質管制",
-        "questionCount": 40,
-        "activeQuestionCount": 38
+        "questionCount": 45,
+        "activeQuestionCount": 45
+      },
+      {
+        "id": "90001-10",
+        "subjectCode": "90001",
+        "sourceGroup": "general-common",
+        "titleZh": "智慧製造施行",
+        "questionCount": 61,
+        "activeQuestionCount": 61
       },
       {
         "id": "90006-01",
@@ -8434,11 +8536,13 @@ export const GENERATED_EXAM_MANIFESTS = [
       "subjectQuota": [
         {
           "subjectCode": "18201",
-          "count": 60
+          "count": 48
         },
         {
           "subjectCode": "90001",
-          "count": 4
+          "count": 16,
+          "single": 10,
+          "multiple": 6
         },
         {
           "subjectCode": "90006",
@@ -8460,8 +8564,8 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 6,
-      "imageQuestionCount": 129,
+      "inactiveQuestionCount": 2,
+      "imageQuestionCount": 122,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
   },

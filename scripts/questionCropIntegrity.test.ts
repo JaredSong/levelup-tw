@@ -453,32 +453,23 @@ describe('new high-demand exam packs', () => {
     }
   })
 
-  it('keeps 90001 formula text and removes PDF glyph artifacts', () => {
-    const questions = JSON.parse(readFileSync(
-      new URL('../public/data/exams/cnc-milling-b/questions.json', import.meta.url),
+  it('ships the reviewed 90001 A13 banks with their own images in both levels', () => {
+    const bank = (examId: string) => new Map((JSON.parse(readFileSync(
+      new URL(`../public/data/exams/${examId}/questions.json`, import.meta.url),
       'utf8',
-    )) as Question[]
-    const byId = new Map(questions.map((question) => [question.id, question]))
-
-    expect(byId.get('90001-01-004')?.sourceImages).toEqual([
-      '/question-images/900012-90001-01-004.png',
-    ])
-    expect(byId.get('90001-08-002')).toMatchObject({
-      prompt: '液壓油以流量 25 L/min 通過內徑 11 mm 的油壓管，則其流速約為',
-      hasFigure: false,
-    })
-    expect(byId.get('90001-09-032')).toMatchObject({
-      prompt: '平均值與全距（x̄－R）管制圖，每組樣本大小（n）最好是抽',
-      hasFigure: false,
-    })
-    expect(byId.get('90001-09-033')).toMatchObject({
-      prompt: '在製程管制中，將平均值（x̄）管制圖與下列何種管制圖配合使用較為有效？',
-      hasFigure: false,
-    })
-    expect(byId.get('90001-09-036')?.options[0]).toBe('平均值（x̄）管制圖')
-    expect(byId.get('90001-09-037')).toMatchObject({
-      prompt: '平均值與全距（x̄－R）管制圖是一種',
-      hasFigure: false,
-    })
+    )) as Question[]).filter((question) => question.subjectCode === '90001').map((question) => [question.id, question]))
+    const b = bank('cnc-milling-b')
+    const c = bank('machining-c')
+    expect([b.size, c.size]).toEqual([609, 597])
+    // The PDF draws the litre sign as a script ℓ image; it ships as text.
+    expect(b.get('90001-08-002')).toMatchObject({ prompt: '液壓油以流量 25 ℓ/min 通過內徑 11mm 之油壓管，其流速約為', hasFigure: false })
+    // Stacked tolerances: typed stem, official images kept.
+    expect(b.get('90001-01-004')?.prompt).toBe('工件圖面尺寸 ⌀36 (+0.050/+0.025)，經加工後檢查合格者為')
+    expect(b.get('90001-01-004')?.sourceImages?.[0]).toBe('/question-images/900012A13-90001-01-004.png')
+    // Symbols that exist only as images keep them, from their own level's crops.
+    expect(b.get('90001-08-001')?.sourceImages).toEqual(['/question-images/900012A13-90001-08-001.png'])
+    expect(c.get('90001-08-003')?.sourceImages).toEqual(['/question-images/900013A13-90001-08-003.png'])
+    // Same id, different question per level: never cross-wired.
+    expect(b.get('90001-01-001')?.prompt).not.toBe(c.get('90001-01-001')?.prompt)
   })
 })

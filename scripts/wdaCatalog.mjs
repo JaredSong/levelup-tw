@@ -78,6 +78,16 @@ export function selectCurrentTheoryPdf(rows, subjectCode, levelCode, effectiveRo
   }
 }
 
+// Official changes the WDA catalog query doesn't list, so the drift check can't
+// see them. A pack carrying exactly this file (name and SHA-256 of the official
+// download) is on the announced version; a listed pack without it is behind.
+//   技檢中心 115-10-15 技發字第1151301425號: 90001 A13 (丙 900013 / 乙 900012)
+//   joins 銑床/車床/模具/機械加工 from 116-01-01; the catalog still lists A10.
+export const ANNOUNCED_OUTSIDE_CATALOG = [
+  { examId: 'cnc-milling-b', subjectCode: '90001', version: 'A13', pdfFilename: '900012A13.pdf', sha256: '6bbb67dbf424792ba7830af6c76471835bde2d30416c0f8bab368cdfd9fb01e4', effectiveFrom: '2027-01-01' },
+  { examId: 'machining-c', subjectCode: '90001', version: 'A13', pdfFilename: '900013A13.pdf', sha256: '64ffe146fa1d12ce8dd46fd0d119e7829b095888c2139f9e91c4e6d4c9cdff7d', effectiveFrom: '2027-01-01' },
+]
+
 /**
  * A source is in step if it matches the official version current today, or —
  * when `upcomingDocuments` is given — the version the site has announced for a
@@ -85,7 +95,7 @@ export function selectCurrentTheoryPdf(rows, subjectCode, levelCode, effectiveRo
  * the announced version are listed in `upcoming`, so pages can say which year
  * and from which day their bank applies.
  */
-export function buildDriftReport(manifests, officialDocuments, examLevelCodes, upcomingDocuments = null, upcomingDate = null) {
+export function buildDriftReport(manifests, officialDocuments, examLevelCodes, upcomingDocuments = null, upcomingDate = null, outsideCatalog = ANNOUNCED_OUTSIDE_CATALOG) {
   const mismatches = []
   const missing = []
   const upcoming = []
@@ -100,6 +110,11 @@ export function buildDriftReport(manifests, officialDocuments, examLevelCodes, u
     for (const source of manifest.sources ?? []) {
       const levelCode = source.subjectCode.startsWith('900') ? '0' : occupationLevel
       const official = officialDocuments.get(`${source.subjectCode}:${levelCode}`)
+      const outside = outsideCatalog.find((entry) => entry.examId === manifest.examId && entry.subjectCode === source.subjectCode)
+      if (outside && source.pdfFilename === outside.pdfFilename && source.sha256 === outside.sha256) {
+        upcoming.push({ examId: manifest.examId, subjectCode: source.subjectCode, installed: source.pdfFilename, effectiveFrom: outside.effectiveFrom })
+        continue
+      }
       const announced = upcomingDocuments?.get(`${source.subjectCode}:${levelCode}`)
       if (upcomingDocuments && !matches(source, announced)) behindAnnounced.push({ examId: manifest.examId, subjectCode: source.subjectCode, installed: source.pdfFilename, announced: announced?.pdfFilename ?? null })
       if (!matches(source, official) && matches(source, announced)) {

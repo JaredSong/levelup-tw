@@ -66,7 +66,7 @@ describe('officialUpcoming', () => {
   it('holds back a pack missing an announced source the catalog does not list', () => {
     const official = check({ upcoming: [upcoming('machining-c')], behindAnnounced: [] })
     const without = [{ examId: 'machining-c', sources: [{ subjectCode: '18500', version: 'A10' }] }]
-    const withA13 = [{ examId: 'machining-c', sources: [{ subjectCode: '90001', version: 'A13' }] }]
+    const withA13 = [{ examId: 'machining-c', sources: [{ subjectCode: '90001', version: 'A13', pdfFilename: '900013A13.pdf' }] }]
     expect(officialUpcoming(official, now, without)).toEqual({ 'machining-c': null })
     expect(officialUpcoming(official, now, withA13)).toEqual({ 'machining-c': '2027-01-01' })
   })

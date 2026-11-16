@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-16T01:55:51.606Z",
+  "generatedAt": "2026-11-16T05:09:39.227Z",
   "source": "https://owinform.wdasec.gov.tw/",
   "authority": "official-primary",
   "effectiveRocDate": "1151116",
@@ -8222,13 +8222,13 @@
       "title": "職類共同科目",
       "levelCode": "0",
       "level": "共同科目",
-      "version": "A10",
-      "pdfFilename": "900012A10.pdf",
-      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900012A10.pdf",
+      "version": "A13",
+      "pdfFilename": "900012A13.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900012A13.pdf",
       "effectiveFrom": null,
       "effectiveFromRoc": null,
       "remark": "WDA occupation catalog does not enumerate this common bank; verified from its official WDA file URL.",
-      "sha256": "8322e9297d909fb57e99714e1bf1a6377519d14c17d6daa1f74264a1a522e33c"
+      "sha256": "6bbb67dbf424792ba7830af6c76471835bde2d30416c0f8bab368cdfd9fb01e4"
     }
   ],
   "upcoming": {
@@ -11608,13 +11608,13 @@
         "title": "職類共同科目",
         "levelCode": "0",
         "level": "共同科目",
-        "version": "A10",
-        "pdfFilename": "900012A10.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900012A10.pdf",
+        "version": "A13",
+        "pdfFilename": "900012A13.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900012A13.pdf",
         "effectiveFrom": null,
         "effectiveFromRoc": null,
         "remark": "WDA occupation catalog does not enumerate this common bank; verified from its official WDA file URL.",
-        "sha256": "8322e9297d909fb57e99714e1bf1a6377519d14c17d6daa1f74264a1a522e33c"
+        "sha256": "6bbb67dbf424792ba7830af6c76471835bde2d30416c0f8bab368cdfd9fb01e4"
       }
     ]
   },
@@ -11933,6 +11933,12 @@
         "examId": "chinese-cooking-vegetarian-c",
         "subjectCode": "90009",
         "installed": "900090A14.pdf",
+        "effectiveFrom": "2027-01-01"
+      },
+      {
+        "examId": "cnc-milling-b",
+        "subjectCode": "90001",
+        "installed": "900012A13.pdf",
         "effectiveFrom": "2027-01-01"
       },
       {
@@ -12545,6 +12551,12 @@
         "examId": "loader-operation-single",
         "subjectCode": "90009",
         "installed": "900090A14.pdf",
+        "effectiveFrom": "2027-01-01"
+      },
+      {
+        "examId": "machining-c",
+        "subjectCode": "90001",
+        "installed": "900013A13.pdf",
         "effectiveFrom": "2027-01-01"
       },
       {

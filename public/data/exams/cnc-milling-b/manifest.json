@@ -17,11 +17,11 @@
     },
     {
       "subjectCode": "90001",
-      "version": "A10",
-      "pdfFilename": "900012A10.pdf",
-      "localFilename": "900012A10.pdf",
-      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900012A10.pdf",
-      "sha256": "8322e9297d909fb57e99714e1bf1a6377519d14c17d6daa1f74264a1a522e33c"
+      "version": "A13",
+      "pdfFilename": "900012A13.pdf",
+      "localFilename": "900012A13.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900012A13.pdf",
+      "sha256": "6bbb67dbf424792ba7830af6c76471835bde2d30416c0f8bab368cdfd9fb01e4"
     },
     {
       "subjectCode": "90006",
@@ -62,9 +62,9 @@
     "handbook": "https://skill.tcte.edu.tw/download.php",
     "questionBank": "https://techbank.wdasec.gov.tw/"
   },
-  "sourceRevision": "182012A10 + 900012A10 + 900060A12/900070A11/900080A18/900090A14",
-  "questionCount": 1654,
-  "activeQuestionCount": 1648,
+  "sourceRevision": "182012A10 + 900012A13 + 900060A12/900070A11/900080A18/900090A14",
+  "questionCount": 1784,
+  "activeQuestionCount": 1782,
   "sections": [
     {
       "id": "18201-01",
@@ -119,72 +119,80 @@
       "subjectCode": "90001",
       "sourceGroup": "general-common",
       "titleZh": "機械製圖",
-      "questionCount": 40,
-      "activeQuestionCount": 40
+      "questionCount": 46,
+      "activeQuestionCount": 46
     },
     {
       "id": "90001-02",
       "subjectCode": "90001",
       "sourceGroup": "general-common",
-      "titleZh": "行業數學",
-      "questionCount": 50,
-      "activeQuestionCount": 50
+      "titleZh": "數學運算",
+      "questionCount": 52,
+      "activeQuestionCount": 52
     },
     {
       "id": "90001-03",
       "subjectCode": "90001",
       "sourceGroup": "general-common",
       "titleZh": "精密量測",
-      "questionCount": 74,
-      "activeQuestionCount": 74
+      "questionCount": 87,
+      "activeQuestionCount": 87
     },
     {
       "id": "90001-04",
       "subjectCode": "90001",
       "sourceGroup": "general-common",
-      "titleZh": "金屬材料",
-      "questionCount": 52,
-      "activeQuestionCount": 52
+      "titleZh": "金屬材料辨識",
+      "questionCount": 66,
+      "activeQuestionCount": 66
     },
     {
       "id": "90001-05",
       "subjectCode": "90001",
       "sourceGroup": "general-common",
-      "titleZh": "機械工作法",
-      "questionCount": 72,
-      "activeQuestionCount": 72
+      "titleZh": "機械工作操控",
+      "questionCount": 77,
+      "activeQuestionCount": 77
     },
     {
       "id": "90001-06",
       "subjectCode": "90001",
       "sourceGroup": "general-common",
-      "titleZh": "機件原理",
-      "questionCount": 52,
-      "activeQuestionCount": 52
+      "titleZh": "機件原理辨識",
+      "questionCount": 66,
+      "activeQuestionCount": 66
     },
     {
       "id": "90001-07",
       "subjectCode": "90001",
       "sourceGroup": "general-common",
-      "titleZh": "電腦概論",
+      "titleZh": "電腦操控",
       "questionCount": 44,
-      "activeQuestionCount": 42
+      "activeQuestionCount": 44
     },
     {
       "id": "90001-08",
       "subjectCode": "90001",
       "sourceGroup": "general-common",
-      "titleZh": "氣油壓概論",
-      "questionCount": 55,
-      "activeQuestionCount": 55
+      "titleZh": "氣油壓操控",
+      "questionCount": 65,
+      "activeQuestionCount": 65
     },
     {
       "id": "90001-09",
       "subjectCode": "90001",
       "sourceGroup": "general-common",
       "titleZh": "品質管制",
-      "questionCount": 40,
-      "activeQuestionCount": 38
+      "questionCount": 45,
+      "activeQuestionCount": 45
+    },
+    {
+      "id": "90001-10",
+      "subjectCode": "90001",
+      "sourceGroup": "general-common",
+      "titleZh": "智慧製造施行",
+      "questionCount": 61,
+      "activeQuestionCount": 61
     },
     {
       "id": "90006-01",
@@ -231,11 +239,13 @@
     "subjectQuota": [
       {
         "subjectCode": "18201",
-        "count": 60
+        "count": 48
       },
       {
         "subjectCode": "90001",
-        "count": 4
+        "count": 16,
+        "single": 10,
+        "multiple": 6
       },
       {
         "subjectCode": "90006",
@@ -257,8 +267,8 @@
   },
   "integrity": {
     "status": "fully_verified",
-    "inactiveQuestionCount": 6,
-    "imageQuestionCount": 129,
+    "inactiveQuestionCount": 2,
+    "imageQuestionCount": 122,
     "note": "Answer keys independently cross-checked against the official PDF during import."
   }
 }

@@ -49,10 +49,6 @@ const INACTIVE_IDS = new Set([
   '15100-03-190',
   '18201-02-140',
   '18201-04-240',
-  '90001-07-012',
-  '90001-07-019',
-  '90001-09-003',
-  '90001-09-029',
   '14000-02-065',
   '14000-02-101',
   '14000-10-083',
@@ -208,25 +204,6 @@ const QUESTION_PROMPT_OVERRIDES = {
   '18500-06-016': '工件公稱尺寸為 20（上偏差 +0.03、下偏差 +0），則此公差為',
   '04202-02-048': '三角高程測量公式 H_B−H_A＝i_A＋V−z_B＋S²/(2R)−KS²/(2R)，公式中 K 為大氣折光係數，R 為地球曲率半徑，而 −KS²/(2R) 稱為何者？',
   '04202-06-028': '設 A、B、C 三點位依序在同一直線上，先以經檢定的鋼捲尺測得平距 AB＝20.000m 及 BC＝30.000m，再以電子測距儀測得平距 AB＝20.020m 及 AC＝50.050m，請依上述結果判斷電子測距儀可能有下列那一項系統誤差？',
-  '90001-02-010': '若 (3/2)x＋1＝5/4，則 1－2x 之值等於',
-  '90001-02-017': '已知 △ABC 為一個直角三角形，其中 ∠C＝90°，∠A 為較大的銳角，兩股長分別為 5、12，則 sin A＝',
-  '90001-02-018': 'sin 30° × cos 30° × tan 30° × cot 30° × sec 30° 的值等於',
-  '90001-02-019': '直角三角形 ABC 中，∠C＝90°、∠A＝30°，求 (sin B)²＋(cos B)² 的值等於',
-  '90001-02-020': '直角三角形 ABC 中，∠C＝90°、tan A＝3/4，求 sin A ÷ (1－cot A) 的值等於',
-  '90001-02-021': 'sin 30° cos 60°＋cos 30° sin 60°＝',
-  '90001-02-022': '(2/√3) cos 30°－sin 30°＋cos 60°－tan 45°＋(√3/2) cot 60°＝',
-  '90001-02-023': '直角三角形 ABC 中，∠A 為銳角且 sec A＝2/√3，求 cos A ÷ (1－sin A) 的值等於',
-  '90001-02-024': '直角三角形 ABC 中，∠C＝90°、∠A＝45°，求 sin A＋cos B＝',
-  '90001-02-025': '設 θ 為任一角，則下列有關三角函數的關係，何者有誤？',
-  '90001-02-026': '利用正弦定律，若 △ABC 中，∠C＝120°、∠B＝30°、AC＝5，求 AB＝',
-  '90001-02-027': '利用餘弦定律，若 △ABC 中，a、b、c 分別代表對邊之邊長，且 a＝2、b＝3、c＝4，則 cos A＝',
-  '90001-02-031': '若 sin θ＝3/5，則 5－5cos²θ＝',
-  '90001-02-033': '已知 tan θ＝2，利用三角恆等式，則 (3sin θ－2cos θ) ÷ cos θ＝',
-  '90001-02-048': '若 180°＜θ＜270° 且 sin θ＝−5/13，下列何者正確？',
-  '90001-08-002': '液壓油以流量 25 L/min 通過內徑 11 mm 的油壓管，則其流速約為',
-  '90001-09-032': '平均值與全距（x̄－R）管制圖，每組樣本大小（n）最好是抽',
-  '90001-09-033': '在製程管制中，將平均值（x̄）管制圖與下列何種管制圖配合使用較為有效？',
-  '90001-09-037': '平均值與全距（x̄－R）管制圖是一種',
   '00700-11-086': '感應電動機之運轉公式 n = (2f / p) rps 中',
   '02800-08-021': '將極座標 6√2∠135° 換為直角座標得',
   '02800-09-052': '在電晶體參數中 h₁₁ = (ΔV₁ / ΔI₁)｜V₂=0，其 h₁₁ 代表意義為',
@@ -311,23 +288,6 @@ const QUESTION_OPTION_OVERRIDES = {
   ],
   '04202-05-026': ['RL＝A', 'RL＝1/A', 'RL＝A²', 'RL＝1/A²'],
   '02100-08-011': ['～', '▽▽▽', '▽▽', '▽'],
-  '90001-02-010': ['2', '2/3', '1/2', '3/4'],
-  '90001-02-016': ['−π', '3π/4', 'π/2', 'π/3'],
-  '90001-02-017': ['5/12', '12/13', '5/13', '12/5'],
-  '90001-02-018': ['1/2', '√2/2', '√3/2', '1'],
-  '90001-02-019': ['1/2', '√2/2', '√3/2', '1'],
-  '90001-02-020': ['−9/5', '7/3', '−12/5', '9/4'],
-  '90001-02-021': ['0', '−1', '1', '2'],
-  '90001-02-022': ['0', '1/2', '√3/2', '1'],
-  '90001-02-023': ['1/2', '√2/2', '4/√3', '√3'],
-  '90001-02-024': ['1', '√2', '2', '2√2'],
-  '90001-02-025': ['sin(−θ)＝−sin θ', 'cos(−θ)＝cos θ', 'sin(π−θ)＝−sin θ', 'cos(π−θ)＝−cos θ'],
-  '90001-02-026': ['5√3', '20/√3', '10√3', '10'],
-  '90001-02-027': ['11/12', '9/13', '5/12', '21/24'],
-  '90001-02-031': ['9/5', '5/4', '3/5', '12/5'],
-  '90001-02-033': ['1/2', '1', '2', '4'],
-  '90001-02-048': ['cos θ＝−12/13', 'cos(180°＋θ)＝12/13', 'tan(180°−θ)＝5/12', 'sin θ ÷ (1−cos θ)＝−1/5'],
-  '90001-09-036': ['平均值（x̄）管制圖', '全距（R）管制圖', '缺點數（c）管制圖', '標準差（s）管制圖'],
   '11800-03-054': ['Windows 鍵+Ctrl+右方向鍵', 'Windows 鍵+Ctrl+下方向鍵', 'Windows 鍵+Ctrl+L', 'Windows 鍵+Ctrl+R'],
   '11800-03-056': ['Windows 鍵+Ctrl+D', 'Windows 鍵+Ctrl+A', 'Windows 鍵+Ctrl+C', 'Windows 鍵+Ctrl+L'],
   '11800-03-071': ['Windows 鍵+Ctrl+F1', 'Windows 鍵+Ctrl+F4', 'Windows 鍵+Ctrl+F8', 'Windows 鍵+Ctrl+F9'],
@@ -384,13 +344,28 @@ const GENERAL_COMMON_BANKS = [
   { code: '90009', file: '900090A14-raw.txt', expected: 100, version: 'A14' },
 ]
 
-const MACHINERY_COMMON_BANK = {
-  code: '90001',
-  file: '900012A10-raw.txt',
-  expected: 479,
-  version: 'A10',
-  quota: 4,
-}
+// 機工相關職類共用 (90001), 116-01-01 起: separate 丙/乙 banks under one subject
+// code. Loaded from the reviewed staged banks (official PDF parse + script
+// glyphs + formula transcriptions, each checked against the PDF image; the
+// before/after list is source/<stem>-fixes.json). Their image maps belong to the
+// bank, not the pack, so a pack's own figure questions keep their own images.
+const MACHINERY_COMMON_BANKS = [
+  {
+    key: '90001-2',
+    code: '90001',
+    parsedFile: '900012A13-questions.json',
+    imageMapFile: '900012A13-image-map.json',
+    expected: 609,
+    version: 'A13',
+    // The PDF draws the litre sign as a script ℓ image; type it instead.
+    promptOverrides: { '90001-08-002': '液壓油以流量 25 ℓ/min 通過內徑 11mm 之油壓管，其流速約為' },
+    // The embedded option images are damaged (②: a stroke the PDF clips away;
+    // ④: the 2 cut at the bottom), so type the fractions (sin 30° = ①).
+    optionOverrides: { '90001-02-048': ['⟦\\frac{1}{2}⟧', '⟦\\frac{1}{\\sqrt{3}}⟧', '⟦\\frac{1}{\\sqrt{2}}⟧', '⟦\\frac{\\sqrt{3}}{2}⟧'] },
+    textOnlyIds: ['90001-08-002', '90001-02-048'],
+  },
+  { key: '90001-3', code: '90001', parsedFile: '900013A13-questions.json', imageMapFile: '900013A13-image-map.json', expected: 597, version: 'A13' },
+]
 
 const EXAMS = [
   {
@@ -1130,16 +1105,16 @@ const EXAMS = [
     occupationFile: '185003A10-raw.txt',
     occupationExpected: 500,
     version: 'A10',
-    extraCommonCodes: [],
+    extraCommonCodes: ['90001-3'],
     inactiveIds: ['18500-02-020', '18500-04-261'],
     excludedFigureIds: ['18500-06-015', '18500-06-016'],
     mockRules: {
-      occupationQuota: 64,
+      occupationQuota: 48,
       singleCount: 80,
       multipleCount: 0,
       weightSingle: 1.25,
       weightMultiple: 0,
-      extraSubjectQuota: [],
+      extraSubjectQuota: [{ subjectCode: '90001', count: 16, single: 16, multiple: 0 }],
     },
   },
   {
@@ -1363,17 +1338,18 @@ const EXAMS = [
     occupationFile: '182012A10-raw.txt',
     occupationExpected: 775,
     version: 'A10',
-    extraCommonCodes: ['90001'],
+    extraCommonCodes: ['90001-2'],
     cropPrefix: '182012',
-    embeddedImageMapFiles: ['182012A10-image-map.json', '900012A10-image-map.json'],
+    embeddedImageMapFiles: ['182012A10-image-map.json'],
     requireQuestionCrops: true,
     mockRules: {
-      occupationQuota: 60,
+      // 90001 乙級: 10 single + 6 multiple (技檢中心 115.10.15 技發字第1151301425號).
+      occupationQuota: 48,
       singleCount: 60,
       multipleCount: 20,
       weightSingle: 1,
       weightMultiple: 2,
-      extraSubjectQuota: [{ subjectCode: '90001', count: 4 }],
+      extraSubjectQuota: [{ subjectCode: '90001', count: 16, single: 10, multiple: 6 }],
     },
   },
   {
@@ -1687,6 +1663,7 @@ function sourcePageImageFor(question) {
 }
 
 async function loadParsed(bank) {
+  if (bank.parsedFile) return loadReviewedBank(bank)
   const source = await readFile(new URL(`../source/${bank.file}`, import.meta.url), 'utf8')
   const parsed = parseQuestionBank(source)
   if (parsed.length !== bank.expected) {
@@ -1695,11 +1672,38 @@ async function loadParsed(bank) {
   return parsed
 }
 
+// A staged bank whose text was reviewed question by question: no re-parse.
+// Each question carries its own images (`bankImages`, [] = text only).
+async function loadReviewedBank(bank) {
+  const questions = JSON.parse(await readFile(new URL(`../source/${bank.parsedFile}`, import.meta.url), 'utf8'))
+  if (questions.length !== bank.expected) {
+    throw new Error(`${bank.key}: expected ${bank.expected} questions, received ${questions.length}`)
+  }
+  const imageMap = JSON.parse(await readFile(new URL(`../source/${bank.imageMapFile}`, import.meta.url), 'utf8')).questions
+  return Promise.all(questions.map(async (question) => {
+    const bankImages = bank.textOnlyIds?.includes(question.id) ? [] : imageMap[question.id] ?? []
+    for (const file of bankImages) {
+      try {
+        await readFile(new URL(`../public/question-images/${file}`, import.meta.url))
+      } catch {
+        throw new Error(`${bank.key}: ${question.id} is missing image ${file}`)
+      }
+    }
+    return {
+      ...question,
+      prompt: bank.promptOverrides?.[question.id] ?? question.prompt,
+      options: bank.optionOverrides?.[question.id] ?? question.options,
+      bankImages,
+    }
+  }))
+}
+
 function cropFileName(exam, question) {
   return `${exam.cropPrefix ? `${exam.cropPrefix}-` : ''}${question.id}.png`
 }
 
-function generatedImageSources(exam, question) {
+function generatedImageSources(exam, question, bankImages) {
+  if (bankImages) return bankImages.length ? bankImages.map(questionImagePath) : undefined
   const embedded = exam.embeddedImageMap?.[question.id]
   if (embedded?.length) return embedded.map(questionImagePath)
   if (!exam.splitImageOptions || !question.options.some((option) => option.includes('圖示選項'))) return undefined
@@ -1732,7 +1736,9 @@ function normalizeQuestion(question, exam) {
     || (surveyingSource && SURVEYING_FIGURE_IDS.includes(question.id))
     || (exam.includeLeftFigures && question.prompt.includes('左圖'))
     || / {2,}/.test(`${question.prompt}${question.options.join('')}`)
-  const mappedFigure = exam.embeddedImageMap ? Boolean(exam.embeddedImageMap[question.id]?.length) : undefined
+  const mappedFigure = question.bankImages
+    ? question.bankImages.length > 0
+    : exam.embeddedImageMap ? Boolean(exam.embeddedImageMap[question.id]?.length) : undefined
   // A transcribed code block replaces the figure entirely — keep it text.
   const hasFigure = codeOverride?.codeBlock || surveyingTextOnly
     ? false
@@ -1744,6 +1750,7 @@ function normalizeQuestion(question, exam) {
     : sanitizeText
   const repaired = {
     ...question,
+    bankImages: undefined,
     examId: exam.examId,
     ...(codeOverride?.codeBlock ? { codeBlock: codeOverride.codeBlock } : {}),
     ...(codeOverride?.optionCodeBlocks ? { optionCodeBlocks: codeOverride.optionCodeBlocks } : {}),
@@ -1757,7 +1764,7 @@ function normalizeQuestion(question, exam) {
   if (!repaired.hasFigure && (!imageOverrides || codeOverride?.codeBlock)) {
     return { ...repaired, sourceImage: undefined, sourceImages: undefined, sourcePageImage: undefined }
   }
-  const generatedImages = generatedImageSources(exam, repaired)
+  const generatedImages = generatedImageSources(exam, repaired, question.bankImages)
   // When the four options are transcribed code, only the prompt figure is kept;
   // the remaining override entries are the option crops the code replaces.
   const overrideImages = codeOverride?.optionCodeBlocks
@@ -1876,7 +1883,7 @@ async function writeExamPack(exam, commonQuestions, extraQuestionsByCode) {
 async function main() {
   const commonQuestions = (await Promise.all(GENERAL_COMMON_BANKS.map(loadParsed))).flat()
   const extraQuestionsByCode = new Map([
-    [MACHINERY_COMMON_BANK.code, await loadParsed(MACHINERY_COMMON_BANK)],
+    ...await Promise.all(MACHINERY_COMMON_BANKS.map(async (bank) => [bank.key, await loadParsed(bank)])),
     [BEAUTY_HAIR_COMMON_BANK.code, await loadParsed(BEAUTY_HAIR_COMMON_BANK)],
     [FOOD_COMMON_BANK.code, await loadParsed(FOOD_COMMON_BANK)],
     [INFORMATION_COMMON_BANK.code, await loadParsed(INFORMATION_COMMON_BANK)],

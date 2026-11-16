@@ -312,3 +312,36 @@ describe('buildSprintQueue weighting', () => {
     expect(ids).toEqual(new Set(['wrong', 'guessed', 'due']))
   })
 })
+
+describe('buildMockQueue per-kind shared-subject quota', () => {
+  const make = (subjectCode: string, kind: 'single' | 'multiple', n: number, sourceGroup: string): Question[] =>
+    Array.from({ length: n }, (_, index) => ({
+      id: `${subjectCode}-${kind}-${index}`, subjectCode, sourceGroup, section: `${subjectCode}-01`, number: index + 1,
+      kind, prompt: 'p', options: ['a', 'b', 'c', 'd'], answers: kind === 'single' ? [1] : [1, 2],
+    }) as Question)
+  // 90001 乙級: 10 single + 6 multiple; the occupation fills the rest (34 + 14).
+  const bank = [
+    ...make('18201', 'single', 200, 'occupation'), ...make('18201', 'multiple', 60, 'occupation'),
+    ...make('90001', 'single', 80, 'general-common'), ...make('90001', 'multiple', 30, 'general-common'),
+    ...['90006', '90007', '90008', '90009'].flatMap((code) => make(code, 'single', 20, 'general-common')),
+  ]
+  const rules = {
+    totalQuestions: 80, singleCount: 60, multipleCount: 20, durationMinutes: 100, passScore: 60,
+    weightSingle: 1, weightMultiple: 2,
+    subjectQuota: [
+      { subjectCode: '18201', count: 48 },
+      { subjectCode: '90001', count: 16, single: 10, multiple: 6 },
+      ...['90006', '90007', '90008', '90009'].map((subjectCode) => ({ subjectCode, count: 4 })),
+    ],
+  }
+
+  it('draws the shared subject by kind, and the occupation makes up the rest', () => {
+    for (let seed = 0; seed < 20; seed += 1) {
+      const mock = buildMockQueue(bank, rules, () => (seed + 0.5) / 20)
+      const of = (code: string, kind: string) => mock.filter((q) => q.subjectCode === code && q.kind === kind).length
+      expect(mock).toHaveLength(80)
+      expect([of('90001', 'single'), of('90001', 'multiple')]).toEqual([10, 6])
+      expect([of('18201', 'single'), of('18201', 'multiple')]).toEqual([34, 14])
+    }
+  })
+})

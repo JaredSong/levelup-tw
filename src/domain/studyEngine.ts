@@ -201,7 +201,7 @@ interface MockRules {
   totalQuestions: number
   singleCount: number
   multipleCount: number
-  subjectQuota: { subjectCode: string; count: number }[]
+  subjectQuota: { subjectCode: string; count: number; single?: number; multiple?: number }[]
 }
 
 const WEB_DESIGN_MOCK_RULES: MockRules = {
@@ -242,7 +242,12 @@ export function buildMockQueue(
   const byQuota = new Map(rules.subjectQuota.map((item) => [item.subjectCode, item.count]))
   const nonOccupation = rules.subjectQuota
     .filter((quota) => !occupationSubjectCodes.has(quota.subjectCode))
-    .flatMap((quota) => shuffled(bySubject(quota.subjectCode), random).slice(0, quota.count))
+    .flatMap((quota) => (quota.single !== undefined || quota.multiple !== undefined
+      ? [
+          ...shuffled(kindOf(bySubject(quota.subjectCode), 'single'), random).slice(0, quota.single ?? 0),
+          ...shuffled(kindOf(bySubject(quota.subjectCode), 'multiple'), random).slice(0, quota.multiple ?? 0),
+        ]
+      : shuffled(bySubject(quota.subjectCode), random).slice(0, quota.count)))
   const occupationQuota = rules.subjectQuota.find((quota) => occupationSubjectCodes.has(quota.subjectCode))
   const occupation = occupationQuota ? bySubject(occupationQuota.subjectCode) : []
 

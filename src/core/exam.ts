@@ -27,7 +27,11 @@ export interface MockRules {
   weightSingle: number
   weightMultiple: number
   /** How the 80 items are drawn across subjects. */
-  subjectQuota: { subjectCode: string; count: number }[]
+  /**
+   * Questions drawn per subject. `single`/`multiple` split a shared subject's
+   * count by kind when the official rule does (90001 乙級: 10 + 6).
+   */
+  subjectQuota: { subjectCode: string; count: number; single?: number; multiple?: number }[]
 }
 
 export interface ExamManifest {

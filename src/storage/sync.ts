@@ -1,5 +1,6 @@
 import { collectData, mergeData, writeData, type BackupData } from './backup'
 import { SYNC_LOCAL_KEYS } from './merge'
+import { applyPendingBankRevisions } from './bankRevisionRunner'
 import { normalizeBackupData } from './migrate'
 
 const PASS_KEY = 'level-b-sync-pass'
@@ -75,7 +76,11 @@ export async function syncNow(name: string): Promise<{ hadRemote: boolean }> {
     // Sanitize BOTH sides so a stale session in either copy can never be restored,
     // and normalize both to namespaced question keys so a cloud copy written by an
     // un-migrated device merges (and dedupes) with migrated local data.
-    const merged = mergeData(normalizeBackupData(forSync(await collectData())), remote ? normalizeBackupData(forSync(remote)) : null)
+    // A cloud copy written before a bank revision is renumbered first.
+    const merged = mergeData(
+      normalizeBackupData(forSync(await collectData())),
+      remote ? await applyPendingBankRevisions(normalizeBackupData(forSync(remote))) : null,
+    )
     await writeData(merged)
 
     const push = await fetch('/api/sync', {

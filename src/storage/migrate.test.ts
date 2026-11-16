@@ -256,7 +256,7 @@ describe('backup round trip', () => {
     expect((await db.attempts.toArray()).map((row) => row.questionId)).toEqual(['web-design-b:17300-01-001'])
 
     const exported = JSON.parse(await exportBackup()) as { version: number; data: BackupData }
-    expect(exported.version).toBe(6)
+    expect(exported.version).toBe(7)
     expect(exported.data.progress[0].questionId).toBe('web-design-b:17300-01-001')
   })
 })

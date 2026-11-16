@@ -1,3 +1,5 @@
+import { BANK_REVISION_KEY } from './bankRevision'
+import { applyPendingBankRevisions } from './bankRevisionRunner'
 import { db } from './db'
 import type { BackupData } from './merge'
 import { normalizeBackupData } from './migrate'
@@ -24,15 +26,18 @@ function withoutId<T extends { id?: number }>(record: T): Omit<T, 'id'> {
 
 // Snapshot everything currently in this browser.
 export async function collectData(): Promise<BackupData> {
-  const [progress, attempts, results, explanations, reviewCards, reviewLogs] = await Promise.all([
+  const [progress, attempts, results, explanations, reviewCards, reviewLogs, bankRevision] = await Promise.all([
     db.progress.toArray(),
     db.attempts.toArray(),
     db.results.toArray(),
     db.explanations.toArray(),
     db.reviewCards.toArray(),
     db.reviewLogs.toArray(),
+    db.meta.get(BANK_REVISION_KEY),
   ])
   const local: Record<string, string> = {}
+  // Which bank revision these question ids are numbered by (see bankRevision.ts).
+  if (bankRevision) local[BANK_REVISION_KEY] = bankRevision.value
   for (const key of LOCAL_KEYS) {
     const value = localStorage.getItem(key)
     if (value != null) local[key] = value
@@ -71,7 +76,8 @@ export async function exportBackup(): Promise<string> {
     // v3: namespaced question keys. v4: adds reviewCards/reviewLogs.
     // v5: completed mock/session results are scoped by examId.
     // v6: archives progress from the superseded employment-service source.
-    version: 6,
+    // v7: carries the bank-revision marker; unmarked files predate it.
+    version: 7,
     exportedAt: new Date().toISOString(),
     data: await collectData(),
   }
@@ -84,6 +90,7 @@ export async function importBackup(json: string): Promise<void> {
     throw new Error('這不是升級吧的備份檔。')
   }
   // Old (version <= 2) backups carry bare question ids; normalizing is idempotent,
-  // so it is safe to apply to every import.
-  await writeData(normalizeBackupData(parsed.data as BackupData))
+  // so it is safe to apply to every import. Then renumber for any bank revision
+  // the file predates, so old ids never land on the new questions.
+  await writeData(await applyPendingBankRevisions(normalizeBackupData(parsed.data as BackupData)))
 }

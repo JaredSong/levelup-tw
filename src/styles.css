@@ -901,6 +901,25 @@ html.standalone, html.standalone body { background: var(--paper); }
 .sync-nudge button:hover { background: var(--danger); }
 /* Registration deadline: gold while the window is open, escalating to danger in
    the last few days. Only rendered while the window is actionable. */
+.bank-notice { margin: 0 0 14px; padding: 16px; border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); border-radius: 16px; background: var(--accent-pale); color: var(--ink); }
+.bank-notice-top { display: flex; align-items: center; gap: 10px; }
+.bank-notice-badge { flex: 0 0 auto; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; background: var(--accent); color: #fff; font-size: 1rem; font-weight: 800; letter-spacing: -.02em; }
+.bank-notice-top b { display: block; font-size: 1.08rem; line-height: 1.35; }
+.bank-notice-top small { color: var(--muted); font-size: .8rem; }
+.bank-notice-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 14px 0 10px; }
+.bank-notice-stats div { padding: 10px 12px; border-radius: 12px; background: var(--surface); }
+.bank-notice-stats strong { display: block; color: var(--accent-dark); font-size: 1.6rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.bank-notice-stats span { color: var(--muted); font-size: .78rem; }
+.bank-notice p { margin: 0 0 12px; font-size: .84rem; line-height: 1.6; }
+.bank-notice .bank-notice-foot { color: var(--muted); font-size: .76rem; }
+.bank-notice button { width: 100%; padding: 11px; border: 0; border-radius: 10px; background: var(--accent); color: #fff; font-size: .9rem; font-weight: 800; cursor: pointer; }
+.bank-notice button:active { transform: scale(.98); }
+[data-theme="dark"] .bank-notice-badge, [data-theme="dark"] .bank-notice button { color: #0e1a13; }
+[data-theme="dark"] .bank-notice-stats strong { color: var(--accent); }
+@media (min-width: 720px) {
+  .bank-notice-stats { grid-template-columns: repeat(2, 200px); }
+  .bank-notice button { width: auto; padding: 9px 22px; }
+}
 .reg-nudge { display: flex; align-items: center; gap: 8px; margin: 14px 0 0; padding: 9px 12px; border: 1px solid #ecd9a8; border-radius: 7px; background: #fdf6e3; color: #8a6410; font-size: .82rem; font-weight: 700; }
 .reg-nudge > span { flex: 1; min-width: 0; }
 .reg-nudge svg { flex: 0 0 auto; }

@@ -425,6 +425,15 @@ export const zhTW = {
     regOpen: (round: string, days: number) => `${round}報名中，剩 ${days} 天（截止後就要等下一梯次）。`,
     regUpcoming: (round: string, days: number, date: string) => `${round}報名 ${days} 天後開始（${date}）。`,
     regAction: '前往報名',
+    // Shown once per exam after an official bank revision renumbers questions.
+    bankNoticeTitle: (year: string) => `題庫已換成 ${year} 年新版`,
+    bankNoticeSource: (exam: string) => `${exam} · 依技能檢定中心公告`,
+    bankNoticeAddedLabel: '題新增或改寫',
+    bankNoticeArchivedLabel: '題你的紀錄已移出',
+    bankNoticeArchived: (count: number) => `那 ${count.toLocaleString()} 題改版後內容不同，錯題和複習紀錄不會算到新題上；其他進度都還在。`,
+    bankNoticeKept: '你的練習進度都還在。',
+    bankNoticeOldBank: (date: string) => `${date}前參加即測即評，考的仍是舊版題庫。`,
+    bankNoticeDismiss: '知道了',
   },
   practice: {
     eyebrow: '練習',

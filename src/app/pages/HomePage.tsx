@@ -4,6 +4,8 @@ import type { DailyMissionView } from '../../domain/dailyMission'
 import { localDayKey } from '../../domain/dailyMission'
 import { homeTasks, lastOfficialMock, recentWeek, ringLabel, type HomeTask } from '../../domain/homePlan'
 import { zhTW } from '../../i18n/zh-TW'
+import { BANK_REVISION_KEY } from '../../storage/bankRevision'
+import { bankNoticeFor, dismissBankNotice } from '../../storage/bankRevisionRunner'
 import { db, type SessionResult } from '../../storage/db'
 import { isSyncEnabled } from '../../storage/sync'
 import { daysUntilExam, getExamDate } from '../examCountdown'
@@ -72,6 +74,44 @@ function formatShortDate(iso: string | null): string {
 
 interface TaskCopy { title: string; detail: string; action: string; go: () => void }
 
+/** "2027-01-01" → "116 年 1 月 1 日" (民國). */
+function rocDate(iso: string): string {
+  const [year, month, day] = iso.split('-').map(Number)
+  return `${year - 1911} 年 ${month} 月 ${day} 日`
+}
+
+/**
+ * Once per exam, after an official bank revision rewrote this learner's saved
+ * progress (storage/bankRevision.ts). Read after a DB query resolves: Dexie
+ * holds queries until the migration in db.ts has finished and recorded it.
+ */
+function BankNotice({ examId, examTitle }: { examId: string; examTitle: string }) {
+  const [notice, setNotice] = useState<ReturnType<typeof bankNoticeFor>>(null)
+  useEffect(() => {
+    let live = true
+    void db.meta.get(BANK_REVISION_KEY).then(() => { if (live) setNotice(bankNoticeFor(examId)) })
+    return () => { live = false }
+  }, [examId])
+  if (!notice) return null
+  const copy = zhTW.home
+  const year = notice.revision.split('-')[0]
+  const beforeEffective = localDayKey(new Date()) < notice.effectiveFrom
+  const { archived, added } = notice.impact
+  return <section className="bank-notice" aria-label={copy.bankNoticeTitle(year)}>
+    <div className="bank-notice-top">
+      <span className="bank-notice-badge" aria-hidden="true">{year}</span>
+      <div><b>{copy.bankNoticeTitle(year)}</b><small>{copy.bankNoticeSource(examTitle)}</small></div>
+    </div>
+    <div className="bank-notice-stats">
+      <div><strong>{added.toLocaleString()}</strong><span>{copy.bankNoticeAddedLabel}</span></div>
+      {archived ? <div><strong>{archived.toLocaleString()}</strong><span>{copy.bankNoticeArchivedLabel}</span></div> : null}
+    </div>
+    <p>{archived ? copy.bankNoticeArchived(archived) : copy.bankNoticeKept}</p>
+    {beforeEffective ? <p className="bank-notice-foot">{copy.bankNoticeOldBank(rocDate(notice.effectiveFrom))}</p> : null}
+    <button onClick={() => { dismissBankNotice(examId); setNotice(null) }} type="button">{copy.bankNoticeDismiss}</button>
+  </section>
+}
+
 export function HomePage(props: Props) {
   const { activeExam } = useActiveExam()
   const now = new Date()
@@ -98,6 +138,7 @@ export function HomePage(props: Props) {
 
   return <main className="page dashboard-page study-home">
     <h1 className="home-title">{headline(props, examDays)}</h1>
+    <BankNotice examId={activeExam.examId} examTitle={activeExam.titleZh} />
 
     <button className={examDays === null ? 'home-banner ask' : 'home-banner'} onClick={props.onOpenSettings} type="button">
       <span className="home-banner-text">

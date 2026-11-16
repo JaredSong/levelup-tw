@@ -649,6 +649,19 @@ describe('published question bank', () => {
     }
   })
 
+  it('restores symbols the PDF draws as graphics (ink scan): ⅄, √3, ⌀', () => {
+    const question = (examId: string, id: string) => loadExamBank(examId).find((item) => item.id === id)!
+    expect(question('industrial-wiring-c', '01300-04-059').prompt).toContain('一次接成 ⅄，二次接成△')
+    expect(question('industrial-wiring-c', '01300-04-083').prompt).toBe('可使用 ⅄－△起動器之電動機為')
+    expect(question('industrial-wiring-c', '01300-04-086').prompt).toContain('採用 ⅄－△起動時')
+    expect(question('industrial-wiring-c', '01300-04-086').options[2]).toBe('1/⟦\\sqrt{3}⟧ 倍')
+    // The correct answer (③) read 「線電壓為相電壓之倍」 before.
+    const wye = question('electrical-equipment-inspection-c', '16600-02-058')
+    expect(wye.answers).toEqual([3])
+    expect(wye.options[2]).toBe('線電壓為相電壓之 ⟦\\sqrt{3}⟧ 倍')
+    expect(question('cnc-milling-b', '18201-03-100').options[2]).toBe('中心鑽、⌀18 ㎜鑽頭、⌀20 ㎜之 4 刃端銑刀')
+  })
+
   it('restores sub/superscripts the PDF text layer drops', () => {
     const text = (examId: string, id: string) => {
       const question = loadExamBank(examId).find((item) => item.id === id)!

@@ -489,6 +489,16 @@ const EXAMS = [
     requireQuestionCrops: true,
     splitImageOptions: true,
     excludedFigureIds: ['01300-04-085', '01300-05-061', '01300-05-063'],
+    // The PDF draws the wye symbol ⅄ (Y－△) and √3 as graphics; the text
+    // layer drops them (ink scan). Text otherwise as built.
+    promptOverrides: {
+      '01300-04-059': '三只單相 220V/110V 之變壓器，一次接成 ⅄，二次接成△，一次側線電壓為 220V 時，其二次側電壓應為',
+      '01300-04-083': '可使用 ⅄－△起動器之電動機為',
+      '01300-04-086': '感應電動機採用 ⅄－△起動時，其起動電流為△接之',
+    },
+    optionOverrides: {
+      '01300-04-086': ['3 倍', '1/3 倍', '1/⟦\\sqrt{3}⟧ 倍', '相等'],
+    },
     mockRules: {
       occupationQuota: 64,
       singleCount: 80,
@@ -744,6 +754,10 @@ const EXAMS = [
     requireQuestionCrops: true,
     splitImageOptions: true,
     figureIds: ['16600-04-008'],
+    // The PDF draws √3 as a graphic; the text layer drops it (ink scan).
+    optionOverrides: {
+      '16600-02-058': ['線電壓為相電壓之 3 倍', '線電壓為相電壓之 1/⟦\\sqrt{3}⟧ 倍', '線電壓為相電壓之 ⟦\\sqrt{3}⟧ 倍', '線電壓與相電壓相同'],
+    },
     mockRules: {
       occupationQuota: 64,
       singleCount: 80,
@@ -1342,6 +1356,13 @@ const EXAMS = [
     cropPrefix: '182012',
     embeddedImageMapFiles: ['182012A10-image-map.json'],
     requireQuestionCrops: true,
+    // The PDF draws the diameter sign ⌀ as a graphic; the text layer drops it (ink scan).
+    promptOverrides: {
+      '18201-03-100': '在平面上擬銑切直徑 ⌀21.6±0.1 ㎜、深 20 ㎜之貫通孔，一般宜使用',
+    },
+    optionOverrides: {
+      '18201-03-100': ['⌀21.6 ㎜之 4 刃端銑刀', '中心鑽、⌀21.6 ㎜之 2 刃端銑刀', '中心鑽、⌀18 ㎜鑽頭、⌀20 ㎜之 4 刃端銑刀', '⌀18 ㎜鑽頭、⌀21.6 ㎜之 2 刃端銑刀'],
+    },
     mockRules: {
       // 90001 乙級: 10 single + 6 multiple (技檢中心 115.10.15 技發字第1151301425號).
       occupationQuota: 48,

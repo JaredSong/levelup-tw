@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { buildLandingCatalog, officialCheckedDate } from './landingCatalog.mjs'
+import { buildLandingCatalog, officialCheckedDate, officialUpcoming } from './landingCatalog.mjs'
 
 const manifests = [
   { examId: 'web-design-b', titleZh: '網頁設計乙級', level: '乙級', activeQuestionCount: 100, sections: [{ subjectCode: '17300', sourceGroup: 'occupation' }] },
@@ -50,5 +50,28 @@ describe('officialCheckedDate', () => {
     expect(officialCheckedDate({ ...ok, installedDrift: { ok: false } }, now)).toBeNull()
     expect(officialCheckedDate(null, now)).toBeNull()
     expect(officialCheckedDate(ok, new Date('2027-01-15T00:00:00Z'))).toBeNull()
+  })
+})
+
+describe('officialUpcoming', () => {
+  const now = new Date('2026-11-20T00:00:00Z')
+  const check = (installedDrift: object) => ({ generatedAt: '2026-11-16T00:00:00Z', installedDrift: { ok: true, mismatches: [], missing: [], ...installedDrift } })
+  const upcoming = (examId: string) => ({ examId, subjectCode: '90006', installed: '900060A12.pdf', effectiveFrom: '2027-01-01' })
+
+  it('claims the announced year only for packs entirely on announced banks', () => {
+    const official = check({ upcoming: [upcoming('a'), upcoming('b')], behindAnnounced: [{ examId: 'b', subjectCode: '12000' }] })
+    expect(officialUpcoming(official, now)).toEqual({ a: '2027-01-01', b: null })
+  })
+
+  it('holds back a pack missing an announced source the catalog does not list', () => {
+    const official = check({ upcoming: [upcoming('machining-c')], behindAnnounced: [] })
+    const without = [{ examId: 'machining-c', sources: [{ subjectCode: '18500', version: 'A10' }] }]
+    const withA13 = [{ examId: 'machining-c', sources: [{ subjectCode: '90001', version: 'A13' }] }]
+    expect(officialUpcoming(official, now, without)).toEqual({ 'machining-c': null })
+    expect(officialUpcoming(official, now, withA13)).toEqual({ 'machining-c': '2027-01-01' })
+  })
+
+  it('claims nothing when the check is stale', () => {
+    expect(officialUpcoming(check({ upcoming: [upcoming('a')] }), new Date('2027-02-01T00:00:00Z'))).toEqual({})
   })
 })

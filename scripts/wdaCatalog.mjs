@@ -78,14 +78,34 @@ export function selectCurrentTheoryPdf(rows, subjectCode, levelCode, effectiveRo
   }
 }
 
-export function buildDriftReport(manifests, officialDocuments, examLevelCodes) {
+/**
+ * A source is in step if it matches the official version current today, or —
+ * when `upcomingDocuments` is given — the version the site has announced for a
+ * later exam day (e.g. the 116 banks during late 115). Sources matching only
+ * the announced version are listed in `upcoming`, so pages can say which year
+ * and from which day their bank applies.
+ */
+export function buildDriftReport(manifests, officialDocuments, examLevelCodes, upcomingDocuments = null, upcomingDate = null) {
   const mismatches = []
   const missing = []
+  const upcoming = []
+  // Sources not (yet) on the announced version; a pack with any of these is
+  // not entirely on the announced banks.
+  const behindAnnounced = []
+  const matches = (source, official) => official
+    && source.pdfFilename === official.pdfFilename
+    && (!official.sha256 || source.sha256 === official.sha256)
   for (const manifest of manifests) {
     const occupationLevel = examLevelCodes.get(manifest.examId)
     for (const source of manifest.sources ?? []) {
       const levelCode = source.subjectCode.startsWith('900') ? '0' : occupationLevel
       const official = officialDocuments.get(`${source.subjectCode}:${levelCode}`)
+      const announced = upcomingDocuments?.get(`${source.subjectCode}:${levelCode}`)
+      if (upcomingDocuments && !matches(source, announced)) behindAnnounced.push({ examId: manifest.examId, subjectCode: source.subjectCode, installed: source.pdfFilename, announced: announced?.pdfFilename ?? null })
+      if (!matches(source, official) && matches(source, announced)) {
+        upcoming.push({ examId: manifest.examId, subjectCode: source.subjectCode, installed: source.pdfFilename, effectiveFrom: upcomingDate })
+        continue
+      }
       if (!official) {
         missing.push({ examId: manifest.examId, subjectCode: source.subjectCode, levelCode })
       } else if (source.pdfFilename !== official.pdfFilename || (official.sha256 && source.sha256 !== official.sha256)) {
@@ -101,7 +121,12 @@ export function buildDriftReport(manifests, officialDocuments, examLevelCodes) {
       }
     }
   }
-  return { ok: mismatches.length === 0 && missing.length === 0, mismatches, missing }
+  return { ok: mismatches.length === 0 && missing.length === 0, mismatches, missing, upcoming, ...(upcomingDocuments ? { behindAnnounced } : {}) }
+}
+
+/** Map form of a catalog's document list, keyed like buildDriftReport expects. */
+export function documentMap(documents) {
+  return new Map((documents ?? []).map((document) => [`${document.subjectCode}:${document.levelCode}`, document]))
 }
 
 export async function hashInstalledOfficialDocuments(documents, manifests, fetchFn = fetch, concurrency = 4) {
@@ -165,11 +190,28 @@ async function fetchRows(fetchFn, effectiveRocDate, entry) {
   return payload.Jsondt
 }
 
-export async function collectWdaCatalog({ fetchFn = fetch, concurrency = 4 } = {}) {
+/** "2027-01-01" → "1160101", the WDA query format. */
+export function toRocDate(iso) {
+  const match = String(iso ?? '').match(/^(\d{4})-(\d{2})-(\d{2})$/)
+  if (!match) return null
+  return `${String(Number(match[1]) - 1911).padStart(3, '0')}${match[2]}${match[3]}`
+}
+
+/**
+ * `asOfRocDate` asks which versions apply on a later exam day — used when the
+ * packs already carry banks the official site has announced but not yet made
+ * current (e.g. the 116 banks during late 115). Without it, today's versions.
+ */
+export async function collectWdaCatalog({ fetchFn = fetch, concurrency = 4, asOfRocDate = null } = {}) {
   const indexResponse = await fetchFn(WDA_INDEX_URL)
   if (!indexResponse.ok) throw new Error(`WDA catalog returned HTTP ${indexResponse.status}`)
   const parsed = parseWdaCatalogIndex(await indexResponse.text())
   if (!parsed.effectiveRocDate) throw new Error('WDA catalog did not expose an effective date')
+  const officialTodayRocDate = parsed.effectiveRocDate
+  if (asOfRocDate) {
+    if (asOfRocDate < officialTodayRocDate) throw new Error(`--as-of ${asOfRocDate} is before the official date ${officialTodayRocDate}`)
+    parsed.effectiveRocDate = asOfRocDate
+  }
 
   const errors = []
   const collected = await mapConcurrent(parsed.entries, concurrency, async (entry) => {
@@ -200,6 +242,7 @@ export async function collectWdaCatalog({ fetchFn = fetch, concurrency = 4 } = {
     authority: 'official-primary',
     effectiveRocDate: parsed.effectiveRocDate,
     effectiveDate: parseRocDate(parsed.effectiveRocDate),
+    officialTodayDate: parseRocDate(officialTodayRocDate),
     entryCount: entries.length,
     documentCount: documents.size,
     errors,
@@ -220,20 +263,31 @@ function examLevelCodes(manifests) {
 }
 
 async function main() {
-  const args = new Set(process.argv.slice(2))
+  const argv = process.argv.slice(2)
+  const args = new Set(argv)
+  const asOf = argv.includes('--as-of') ? argv[argv.indexOf('--as-of') + 1] : null
+  const asOfRocDate = asOf ? toRocDate(asOf) : null
+  if (asOf && !asOfRocDate) throw new Error('--as-of expects YYYY-MM-DD')
   const catalog = await collectWdaCatalog()
   const manifests = await loadInstalledManifests()
+  // --as-of: also record the versions announced for that exam day.
+  const announced = asOfRocDate ? await collectWdaCatalog({ asOfRocDate }) : null
   if (args.has('--hash')) {
     catalog.documents = await hashInstalledOfficialDocuments(catalog.documents, manifests)
+    if (announced) announced.documents = await hashInstalledOfficialDocuments(announced.documents, manifests)
   }
-  const documentMap = new Map(catalog.documents.map((document) => [`${document.subjectCode}:${document.levelCode}`, document]))
-  const drift = buildDriftReport(manifests, documentMap, examLevelCodes(manifests))
-  const output = { ...catalog, installedDrift: drift }
+  const drift = buildDriftReport(manifests, documentMap(catalog.documents), examLevelCodes(manifests), announced ? documentMap(announced.documents) : null, announced?.effectiveDate ?? null)
+  const output = {
+    ...catalog,
+    ...(announced ? { upcoming: { effectiveRocDate: announced.effectiveRocDate, effectiveDate: announced.effectiveDate, documents: announced.documents } } : {}),
+    installedDrift: drift,
+  }
 
   if (args.has('--write')) {
     await writeFile(new URL('../source/wda-catalog.json', import.meta.url), `${JSON.stringify(output, null, 2)}\n`)
   }
   console.log(`WDA: ${catalog.entryCount} exam levels; ${catalog.documentCount} current PDFs; ${catalog.errors.length} errors`)
+  if (announced) console.log(`Announced for ${announced.effectiveDate}: ${drift.upcoming.length} installed sources already on that version`)
   for (const mismatch of drift.mismatches) {
     console.error(`STALE ${mismatch.examId}/${mismatch.subjectCode}: ${mismatch.installed} -> ${mismatch.official}`)
   }

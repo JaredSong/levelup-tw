@@ -1,3 +1,9 @@
+/** "2027-01-01" → "116 年 1 月 1 日" (民國). */
+const rocDay = (iso: string) => {
+  const [year, month, day] = iso.split('-').map(Number)
+  return `${year - 1911} 年 ${month} 月 ${day} 日`
+}
+
 export const zhTW = {
   common: {
     expand: '展開',
@@ -271,10 +277,15 @@ export const zhTW = {
     // current versions (scripts/landingCatalog.mjs → officialCheckedDate).
     latestChip: (year: number) => `${year}年最新版題庫`,
     latestLabel: '版本核對',
-    latestValue: (date: string) => `${date} 對照官方公告，為最新版`,
-    faqLatest: (title: string, year: number, versions: string, date: string) => ({
+    // effectiveFrom: the packs carry announced banks that apply from that day.
+    latestValue: (date: string, effectiveFrom: string | null = null) => effectiveFrom
+      ? `${date} 對照官方公告，為 ${rocDay(effectiveFrom)}起適用的最新版`
+      : `${date} 對照官方公告，為最新版`,
+    faqLatest: (title: string, year: number, versions: string, date: string, effectiveFrom: string | null = null) => ({
       q: `${title}學科題庫是${year}年最新版嗎？`,
-      a: `是。升級吧用的是技能檢定中心目前公告的版本（${versions}），${date} 已逐份和官方公告的 PDF 核對，版本與檔案內容都相同。官方改版時，請以技能檢定中心最新公告為準。`,
+      a: effectiveFrom
+        ? `是。升級吧用的是技能檢定中心已公告、${rocDay(effectiveFrom)}起適用的版本（${versions}），${date} 已逐份和官方公告的 PDF 核對，版本與檔案內容都相同。${rocDay(effectiveFrom)}前參加即測即評的考生，考的仍是前一版題庫。官方改版時，請以技能檢定中心最新公告為準。`
+        : `是。升級吧用的是技能檢定中心目前公告的版本（${versions}），${date} 已逐份和官方公告的 PDF 核對，版本與檔案內容都相同。官方改版時，請以技能檢定中心最新公告為準。`,
     }),
     // Short names from real search queries (src/app/examAliases.ts).
     aliasLine: (names: string) => `常見簡稱：${names}`,

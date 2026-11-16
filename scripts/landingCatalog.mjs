@@ -17,6 +17,39 @@ export function officialCheckedDate(official, now = new Date()) {
   return new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Taipei' }).format(checked)
 }
 
+// Official changes the WDA catalog query doesn't enumerate, so the drift check
+// can't see them. A listed pack stays out of the announced-year claim until it
+// carries that source version.
+//   技檢中心 115-10-15 技發字第1151301425號: 90001 A13 joins 銑床/車床/模具/
+//   機械加工 from 116-01-01.
+export const ANNOUNCED_OUTSIDE_CATALOG = [
+  { examIds: ['cnc-milling-b', 'machining-c'], subjectCode: '90001', version: 'A13', effectiveFrom: '2027-01-01' },
+]
+
+function missingAnnouncedSources(manifests) {
+  const byId = new Map(manifests.map((manifest) => [manifest.examId, manifest]))
+  return new Set(ANNOUNCED_OUTSIDE_CATALOG.flatMap((change) => change.examIds.filter((examId) => {
+    const manifest = byId.get(examId)
+    return manifest && !(manifest.sources ?? []).some((source) => source.subjectCode === change.subjectCode && source.version === change.version)
+  })))
+}
+
+/**
+ * Per pack, when the check found it on banks announced for a later exam day:
+ * examId → that day, if every source is on the announced version; examId →
+ * null if only some are (half old, half new — no 「最新版」 claim either way).
+ * Packs absent from the map are entirely on today's versions.
+ */
+export function officialUpcoming(official, now = new Date(), manifests = []) {
+  if (!officialCheckedDate(official, now)) return {}
+  const behind = new Set([...(official.installedDrift.behindAnnounced ?? []).map((entry) => entry.examId), ...missingAnnouncedSources(manifests)])
+  const byExam = {}
+  for (const entry of official.installedDrift.upcoming ?? []) {
+    byExam[entry.examId] = behind.has(entry.examId) ? null : entry.effectiveFrom
+  }
+  return Object.fromEntries(Object.entries(byExam).sort())
+}
+
 export function buildLandingCatalog(manifests, demand, featuredCount = 4, official = null) {
   const demandByKey = new Map(demand.ranking.map((entry) => [`${entry.code}:${entry.level}`, entry]))
   const ranked = manifests.map((manifest) => {
@@ -48,6 +81,9 @@ export function buildLandingCatalog(manifests, demand, featuredCount = 4, offici
     // byte for byte (source/wda-catalog.json; publicationGate fails the build on
     // drift). Pages say 「最新版」 only with this date, and only while it's fresh.
     officialCheckedDate: officialCheckedDate(official),
+    // Packs already on banks the official site announced for a later exam day
+    // (e.g. 116 banks during late 115): examId → the day they apply from.
+    officialUpcoming: officialUpcoming(official, new Date(), manifests),
     metaDescription: `升級吧收錄 ${manifests.length} 種技術士技能檢定學科題庫，包括${featuredNames}。練官方公告題目、錯題複習與計時模擬考；免費、免註冊、可離線。`,
   }
 }

@@ -60,6 +60,28 @@ describe('WDA catalog parsing', () => {
 })
 
 describe('official drift report', () => {
+  it('passes a source on the version announced for a later exam day, and lists packs still behind it', () => {
+    const manifests = [
+      { examId: 'a', sources: [{ subjectCode: '90006', pdfFilename: '900060A12.pdf' }] },
+      { examId: 'b', sources: [{ subjectCode: '90006', pdfFilename: '900060A12.pdf' }, { subjectCode: '12000', pdfFilename: '120002A12.pdf' }] },
+    ]
+    const today = new Map([
+      ['90006:0', { subjectCode: '90006', levelCode: '0', pdfFilename: '900060A11.pdf' }],
+      ['12000:2', { subjectCode: '12000', levelCode: '2', pdfFilename: '120002A12.pdf' }],
+    ])
+    const announced = new Map([
+      ['90006:0', { subjectCode: '90006', levelCode: '0', pdfFilename: '900060A12.pdf' }],
+      ['12000:2', { subjectCode: '12000', levelCode: '2', pdfFilename: '120002A13.pdf' }],
+    ])
+    const levels = new Map([['a', '2'], ['b', '2']])
+
+    expect(buildDriftReport(manifests, today, levels).ok).toBe(false)
+    const report = buildDriftReport(manifests, today, levels, announced, '2027-01-01')
+    expect(report.ok).toBe(true)
+    expect(report.upcoming.map((entry) => entry.examId)).toEqual(['a', 'b'])
+    expect(report.behindAnnounced).toEqual([{ examId: 'b', subjectCode: '12000', installed: '120002A12.pdf', announced: '120002A13.pdf' }])
+  })
+
   it('fails a pack when any occupation or shared source is stale', () => {
     const report = buildDriftReport(
       [{

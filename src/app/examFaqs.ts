@@ -37,9 +37,9 @@ export function examFaqs(exam: ExamManifest, now: Date): ExamFaq[] {
     t.faqFormat(title, rules.totalQuestions, rules.singleCount, rules.multipleCount, rules.weightSingle, rules.weightMultiple, rules.passScore, rules.maxScore),
   ]
 
-  const latest = officialCheck()
+  const latest = officialCheck(exam.examId)
   if (latest && exam.sources?.length) {
-    faqs.push(t.faqLatest(title, latest.year, exam.sources.map((source) => `${source.subjectCode} ${source.version}`).join('、'), latest.date))
+    faqs.push(t.faqLatest(title, latest.year, exam.sources.map((source) => `${source.subjectCode} ${source.version}`).join('、'), latest.date, latest.effectiveFrom))
   }
 
   const commonSubjects = [...new Map(
@@ -64,10 +64,19 @@ export function examFaqs(exam: ExamManifest, now: Date): ExamFaq[] {
   return faqs
 }
 
-/** Date and ROC year of the last official-version check, or null if missing or stale. */
-export function officialCheck(): { date: string; year: number } | null {
+/**
+ * The last official-version check, or null if missing or stale: its date, the
+ * ROC year of the versions it matched, and — when those versions only apply
+ * from a later exam day than the check — that day.
+ */
+export function officialCheck(examId: string): { date: string; year: number; effectiveFrom: string | null } | null {
   const date: string | null = GENERATED_LANDING_CATALOG.officialCheckedDate
-  return date ? { date, year: Number(date.slice(0, 4)) - 1911 } : null
+  if (!date) return null
+  const upcoming = GENERATED_LANDING_CATALOG.officialUpcoming as Record<string, string | null>
+  // Some banks new, some not yet: neither year's 「最新版」 is true.
+  if (examId in upcoming && upcoming[examId] === null) return null
+  const effectiveFrom = upcoming[examId] ?? null
+  return { date, year: Number((effectiveFrom ?? date).slice(0, 4)) - 1911, effectiveFrom }
 }
 
 /**

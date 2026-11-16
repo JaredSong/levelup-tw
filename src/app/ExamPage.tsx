@@ -45,7 +45,7 @@ export function ExamPage({ exam, onEnter, onHome }: Props) {
   const nextRound = getNextNationalExamEntry(now)
   const faqs = examFaqs(exam, now)
   const aliases = examAliasCopy(exam.examId)
-  const latest = officialCheck()
+  const latest = officialCheck(exam.examId)
   const links = exam.officialLinks ?? {}
   const linkCandidates: { href?: string; label: string }[] = [
     { href: links.registration, label: t.officialRegistration },
@@ -104,7 +104,7 @@ export function ExamPage({ exam, onEnter, onHome }: Props) {
           <div className="exam-entry-actions"><button className="landing-primary" onClick={() => enter('hero')} type="button">開始練習 10 題<ArrowRight size={18} /></button><a className="landing-secondary" href="#exam-downloads"><FileDown size={17} />下載官方題庫 PDF</a></div>
           <p className="exam-entry-note">進度保存在這台裝置；有未完成的練習時，會先幫你接續。</p>
         </div>
-        <aside className="exam-source-summary"><h2>先確認你的考試範圍</h2><dl><div><dt>測驗範圍</dt><dd>學科</dd></div><div><dt>專業題庫版本</dt><dd>{exam.version}</dd></div>{latest ? <div><dt>{t.latestLabel}</dt><dd>{t.latestValue(latest.date)}</dd></div> : null}<div><dt>資料來源</dt><dd>勞動部技能檢定中心</dd></div><div><dt>模擬考</dt><dd>{exam.mockRules.totalQuestions} 題／{exam.mockRules.durationMinutes} 分鐘</dd></div></dl><a href="#exam-downloads">查看來源與版本說明 ↗</a></aside>
+        <aside className="exam-source-summary"><h2>先確認你的考試範圍</h2><dl><div><dt>測驗範圍</dt><dd>學科</dd></div><div><dt>專業題庫版本</dt><dd>{exam.version}</dd></div>{latest ? <div><dt>{t.latestLabel}</dt><dd>{t.latestValue(latest.date, latest.effectiveFrom)}</dd></div> : null}<div><dt>資料來源</dt><dd>勞動部技能檢定中心</dd></div><div><dt>模擬考</dt><dd>{exam.mockRules.totalQuestions} 題／{exam.mockRules.durationMinutes} 分鐘</dd></div></dl><a href="#exam-downloads">查看來源與版本說明 ↗</a></aside>
       </section>
 
       <section className="exam-downloads" id="exam-downloads">

@@ -3,7 +3,7 @@ import { fileURLToPath } from 'node:url'
 import { checkPngFlatness } from './pngPixelCheck.mjs'
 import { auditSharedSubjects } from './officialSharedSubjects.mjs'
 import { auditQuestionImages } from './questionImageQualityAudit.mjs'
-import { buildDriftReport } from './wdaCatalog.mjs'
+import { buildDriftReport, documentMap } from './wdaCatalog.mjs'
 
 // Publication gate. `npm run build` runs this via the npm `prebuild` hook, and
 // Cloudflare Pages builds with `npm run build` — so an unverified or malformed
@@ -179,11 +179,13 @@ async function main() {
     }
   }
   const catalog = JSON.parse(await readFile(new URL('../source/wda-catalog.json', import.meta.url), 'utf8'))
-  const documents = new Map(catalog.documents.map((document) => [`${document.subjectCode}:${document.levelCode}`, document]))
+  const documents = documentMap(catalog.documents)
+  // Banks the official site has announced for a later exam day also pass.
+  const announced = catalog.upcoming ? documentMap(catalog.upcoming.documents) : null
   const levelCodes = new Map([['甲級', '1'], ['乙級', '2'], ['丙級', '3'], ['單一級', '4']])
   const manifests = results.flatMap((result) => result.manifest ? [result.manifest] : [])
   const examLevels = new Map(manifests.map((manifest) => [manifest.examId, levelCodes.get(manifest.level)]))
-  const drift = buildDriftReport(manifests, documents, examLevels)
+  const drift = buildDriftReport(manifests, documents, examLevels, announced, catalog.upcoming?.effectiveDate ?? null)
   for (const mismatch of drift.mismatches) {
     console.error(`BLOCKED ${mismatch.examId}: ${mismatch.subjectCode} ${mismatch.reason} differs from committed WDA catalog`)
   }

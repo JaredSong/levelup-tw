@@ -18,9 +18,11 @@ export function MathText({ text }: { text: string }) {
   )
 }
 
-// ‾ draws a full-width bar in every math font; ¯ (macron) vanished over x in testing.
-// ⏜ is the stretchy top arc; ⌒ came out as a small hat.
-const ACCENT_MARK = { overline: '‾', arc: '⏜', bar: '‾' } as const
+// overline/arc stretch across a whole segment (A̅B̅, arc AC): ‾ and ⏜, stretchy.
+// x̄ is a short accent: a non-stretchy macron, centred, lifted 0.14em so it
+// clears the top of the x as on the printed paper (at rest it touched the x).
+const ACCENT_MARK = { overline: '‾', arc: '⏜', bar: '¯' } as const
+const BAR_LIFT = { position: 'relative', top: '-0.14em' } as const
 
 function mathNode(node: MathNode, key?: number): ReactNode {
   switch (node.kind) {
@@ -44,6 +46,6 @@ function mathNode(node: MathNode, key?: number): ReactNode {
     case 'sub':
       return createElement('msub', { key }, mathNode(node.base), mathNode(node.script))
     case 'over':
-      return createElement('mover', { key, accent: 'true' }, mathNode(node.body), createElement('mo', { stretchy: 'true' }, ACCENT_MARK[node.accent]))
+      return createElement('mover', { key, accent: 'true' }, mathNode(node.body), createElement('mo', node.accent === 'bar' ? { stretchy: 'false', style: BAR_LIFT } : { stretchy: 'true' }, ACCENT_MARK[node.accent]))
   }
 }

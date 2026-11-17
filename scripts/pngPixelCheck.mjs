@@ -195,7 +195,7 @@ export function checkPngFlatness(buffer) {
  * comparison engine; it catches crop-shape failures that are easy to miss with
  * dimensions alone, especially tiny symbols cut flush against an image edge.
  */
-export function analyzePngContent(buffer, { whiteThreshold = 245 } = {}) {
+export function analyzePngContent(buffer, { whiteThreshold = 245, connectedFaintThreshold } = {}) {
   if (buffer.length < 8 || !buffer.subarray(0, 8).equals(PNG_SIGNATURE)) {
     return { supported: false, reason: 'not a PNG file' }
   }
@@ -258,6 +258,10 @@ export function analyzePngContent(buffer, { whiteThreshold = 245 } = {}) {
   let maxX = -1
   let maxY = -1
   let contentPixels = 0
+  // With connectedFaintThreshold, faint pixels (below that threshold) also
+  // count as content when they touch content — hairlines drawn in light grey
+  // that continue a figure — while a faint watermark elsewhere stays out.
+  const grays = connectedFaintThreshold ? new Uint8Array(width * height).fill(255) : null
 
   for (let y = 0; y < height; y += 1) {
     const row = pixels.subarray(y * bytesPerRow, (y + 1) * bytesPerRow)
@@ -284,12 +288,39 @@ export function analyzePngContent(buffer, { whiteThreshold = 245 } = {}) {
 
       if (gray < min) min = gray
       if (gray > max) max = gray
+      if (grays && alpha > 0) grays[y * width + x] = gray
       if (alpha > 0 && gray < whiteThreshold) {
         contentPixels += 1
         if (x < minX) minX = x
         if (x > maxX) maxX = x
         if (y < minY) minY = y
         if (y > maxY) maxY = y
+      }
+    }
+  }
+
+  if (grays && contentPixels > 0) {
+    const seen = new Uint8Array(width * height)
+    const stack = []
+    for (let index = 0; index < grays.length; index += 1) {
+      if (grays[index] < whiteThreshold) { seen[index] = 1; stack.push(index) }
+    }
+    while (stack.length) {
+      const index = stack.pop()
+      const x = index % width
+      const y = (index - x) / width
+      if (x < minX) minX = x
+      if (x > maxX) maxX = x
+      if (y < minY) minY = y
+      if (y > maxY) maxY = y
+      for (let dy = -1; dy <= 1; dy += 1) {
+        for (let dx = -1; dx <= 1; dx += 1) {
+          const nx = x + dx
+          const ny = y + dy
+          if (nx < 0 || ny < 0 || nx >= width || ny >= height) continue
+          const next = ny * width + nx
+          if (!seen[next] && grays[next] < connectedFaintThreshold) { seen[next] = 1; stack.push(next) }
+        }
       }
     }
   }

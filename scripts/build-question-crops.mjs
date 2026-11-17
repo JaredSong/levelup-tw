@@ -1,6 +1,6 @@
 import { execFileSync } from 'node:child_process'
 import { createHash } from 'node:crypto'
-import { readFileSync, renameSync } from 'node:fs'
+import { appendFileSync, readFileSync, renameSync } from 'node:fs'
 import { access, copyFile, mkdir, readFile, readdir, unlink, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -96,6 +96,77 @@ const BANKS = [
     },
   },
   { code: '15100', source: '151004A14', splitImageOptions: true },
+  // 116 banks (116-01-01 起); crops signed off 2026-11-16.
+  // The A12/A14 hand rects above are keyed to the old numbering and pages, so
+  // none are carried over; per-question repairs get added here after review.
+  { code: '15100', source: '151004A15', cropPrefix: '151004A15', splitImageOptions: true, keepFaintLines: true,
+    // Symbols taller than the default 40pt option box, measured from the page
+    // render (box grown until the drawing ends; clip audit of the 116 crops).
+    optionRectOverrides: {
+      '15100-02-015': [{ x: 153.8, y: 556.0, width: 60.6, height: 55.5 }, { x: 229.4, y: 556.0, width: 56.2, height: 47.5 }, { x: 300.6, y: 556.0, width: 75.6, height: 45.5 }, { x: 391.2, y: 556.0, width: 74.1, height: 67.0 }],
+    },
+  },
+  { code: '12000', source: '120002A13', cropPrefix: '120002A13', splitImageOptions: true, keepFaintLines: true,
+    // The PDF draws these circuits, truth tables and K-maps as graphics with no figure marker in the
+    // text, so the parser misses them (uncovered-ink scan of 120002A13).
+    extraFigures: ['12000-01-027', '12000-01-036', '12000-02-058', '12000-02-059', '12000-02-060', '12000-02-063', '12000-02-064'],
+    // Symbols taller than the default 40pt option box, measured from the page
+    // render (box grown until the drawing ends; clip audit of the 116 crops).
+    mixedFigureOptions: ['12000-01-020', '12000-01-021'],
+    figureRects: {
+      '12000-01-020': { x: 118, y: 172.5, width: 70, height: 39.5 },
+      '12000-01-021': { x: 320, y: 266.5, width: 70, height: 67.5 },
+      // These two run past the foot of their page; the figure is at the top of
+      // the next one (the default crop took the blank page foot).
+      '12000-01-058': { page: 8, x: 114, y: 58.5, width: 65, height: 67 },
+      // Timing diagram sits beside the prompt's last line; the default crop
+      // started below it and stopped short on the right. Blank the 「。」.
+      '12000-01-059': { x: 266, y: 204, width: 146, height: 57, blank: [{ x: 254, y: 204, width: 14.5, height: 13 }] },
+      // 「R1 10K」 sits level with the prompt's last line, above the default crop.
+      '12000-05-059': { x: 190, y: 64, width: 200, height: 107 },
+      '12000-01-063': { page: 9, x: 112.5, y: 57.5, width: 97, height: 37.5 },
+    },
+    optionRectOverrides: {
+      // Measured from page 3: ① ends the prompt line, ②–④ wrap below, the
+      // isometric reference drawing sits under them (mixedFigureOptions).
+      '12000-01-020': [{ x: 460, y: 104.5, width: 67, height: 45.5 }, { x: 131, y: 155.5, width: 67, height: 13.5 }, { x: 218.5, y: 155, width: 55, height: 13.5 }, { x: 292.5, y: 155.5, width: 67, height: 13.5 }],
+      '12000-01-021': [{ x: 448, y: 221.5, width: 52.5, height: 41.5 }, { x: 117, y: 267, width: 51.5, height: 42 }, { x: 188.5, y: 267, width: 51, height: 42 }, { x: 258.5, y: 267, width: 40.5, height: 42 }],
+      // Page 10: ①'s marker ends the prompt line, its icon wraps to the next.
+      '12000-02-019': [{ x: 122, y: 302, width: 32, height: 38 }, null, { x: 240.1, y: 293.7, width: 47, height: 44 }, { x: 302.1, y: 293.7, width: 47.2, height: 43.5 }],
+    },
+  },
+  { code: '12000', source: '120003A13', cropPrefix: '120003A13', splitImageOptions: true, keepFaintLines: true,
+    // The PDF draws these C++ / Visual Basic code as graphics with no figure marker in the
+    // text, so the parser misses them (uncovered-ink scan of 120003A13).
+    extraFigures: ['12000-03-034', '12000-03-035', '12000-03-036', '12000-03-038', '12000-03-039', '12000-05-095', '12000-05-096', '12000-05-097'],
+    // Symbols taller than the default 40pt option box, measured from the page
+    // render (box grown until the drawing ends; clip audit of the 116 crops).
+    mixedFigureOptions: ['12000-01-003'],
+    figureRects: {
+      '12000-01-003': { x: 111, y: 421, width: 104.5, height: 72.5 },
+    },
+    optionRectOverrides: {
+      // Page 2: ①–③ on the prompt line, ④ wraps below; the isometric
+      // reference drawing sits under ④ (mixedFigureOptions).
+      '12000-01-003': [{ x: 231.5, y: 327.5, width: 83.5, height: 37.5 }, { x: 330.5, y: 327.5, width: 83.5, height: 38.5 }, { x: 431, y: 326.5, width: 82.5, height: 41.5 }, { x: 111, y: 372.5, width: 83, height: 41.5 }],
+    },
+  },
+  { code: '90011', source: '900110A13', cropPrefix: '900110A13', splitImageOptions: true, keepFaintLines: true,
+    // The PDF draws these Python code as graphics with no figure marker in the
+    // text, so the parser misses them (uncovered-ink scan of 900110A13).
+    extraFigures: ['90011-04-014'],
+    // 04-004's options are code (typed in informationCommonOverrides.mjs); its
+    // figure is the flowchart under them, not the first code block.
+    mixedFigureOptions: ['90011-04-004'],
+    // ③'s switch block runs six lines and ④ wraps below it; the default
+    // 40pt boxes cut ③ and missed ④.
+    optionRectOverrides: {
+      '90011-04-004': [null, null, { x: 343, y: 346, width: 150, height: 78 }, { x: 114, y: 425, width: 156, height: 52 }],
+    },
+    figureRects: {
+      '90011-04-004': { x: 114, y: 483, width: 122, height: 122 },
+    },
+  },
   {
     code: '12600',
     source: '126002A12',
@@ -913,6 +984,20 @@ function pagesFromBbox(html) {
   })
 }
 
+// Numbering restarts in every 工作項目, so a page that holds the end of one
+// section and the start of the next has two 「1.」 markers. Match by number
+// *and* position: the question's rank among same-numbered questions on its
+// page (in bank order) picks the same-ranked marker, top to bottom.
+function questionMarkerIndex(page, question, questions) {
+  const sameNumber = questions.filter((candidate) => candidate.sourcePage === question.sourcePage && candidate.number === question.number)
+  const rank = sameNumber.findIndex((candidate) => candidate.id === question.id)
+  const matches = page.markers.flatMap((marker, index) => (marker.number === question.number ? [index] : []))
+  if (matches.length > 1 && matches.length !== sameNumber.length) {
+    throw new Error(`${question.id}: ${matches.length} 「${question.number}.」 markers on page ${question.sourcePage} but ${sameNumber.length} questions numbered ${question.number}`)
+  }
+  return matches[Math.max(0, rank)] ?? -1
+}
+
 function clampRect(rect, page) {
   const x = Math.max(0, rect.x)
   const y = Math.max(0, rect.y)
@@ -921,11 +1006,16 @@ function clampRect(rect, page) {
   return { x, y, width: right - x, height: bottom - y }
 }
 
-function cropImage(renderedPage, output, page, rect, oversample = 1) {
+function cropImage(renderedPage, output, page, rect, oversample = 1, { keepFaintLines = false } = {}) {
   const { padTo, trimThreshold, binarizeThreshold, scale, blank = [], ...rawRect } = rect
   const crop = clampRect(rawRect, page)
   if (crop.width <= 3 || crop.height <= 3) {
     throw new Error(`${output}: invalid crop ${JSON.stringify(crop)}`)
+  }
+  // Opt-in audit trail: which page box each crop came from, so a check can
+  // look for drawing that continues past the box edge (clipped figures).
+  if (process.env.CROP_RECT_LOG) {
+    appendFileSync(process.env.CROP_RECT_LOG, `${JSON.stringify({ output, renderedPage, oversample, crop })}\n`)
   }
   const px = SCALE * oversample
   const filters = [`crop=${Math.floor(crop.width * px)}:${Math.ceil(crop.height * px)}:${Math.floor(crop.x * px)}:${Math.floor(crop.y * px)}`]
@@ -954,11 +1044,14 @@ function cropImage(renderedPage, output, page, rect, oversample = 1) {
   ], { stdio: 'ignore' })
   // Area-averaged hairlines come out light grey; the default 180 cut-off would
   // trim them away as background.
-  trimWhitePadding(output, { whiteThreshold: trimThreshold ?? (oversample !== 1 ? 245 : 180) })
+  trimWhitePadding(output, {
+    whiteThreshold: trimThreshold ?? (oversample !== 1 ? 245 : 180),
+    connectedFaintThreshold: keepFaintLines ? 245 : undefined,
+  })
 }
 
-function trimWhitePadding(output, { whiteThreshold = 180 } = {}) {
-  const analysis = analyzePngContent(readFileSync(output), { whiteThreshold })
+function trimWhitePadding(output, { whiteThreshold = 180, connectedFaintThreshold } = {}) {
+  const analysis = analyzePngContent(readFileSync(output), { whiteThreshold, connectedFaintThreshold })
   if (!analysis.supported || !analysis.bbox) return
   const pad = 8
   const { bbox } = analysis
@@ -1544,7 +1637,11 @@ async function buildBank({
   optionRectOverrides = {},
   outputDir = '../public/question-images/',
   oversample = 1,
+  // Keep light-grey hairlines that continue a figure (pins, lead lines,
+  // arrow tails) instead of trimming them as margin; see trimWhitePadding.
+  keepFaintLines = false,
 }) {
+  const cropOptions = { keepFaintLines }
   const pdfPath = fileURLToPath(new URL(`../source/${source}.pdf`, import.meta.url))
   const raw = await readFile(new URL(`../source/${source}-raw.txt`, import.meta.url), 'utf8')
   const questions = parseQuestionBank(raw)
@@ -1582,7 +1679,7 @@ async function buildBank({
     const pageIndex = question.sourcePage - 1
     const page = pages[pageIndex]
     if (!page) throw new Error(`${question.id}: source page ${question.sourcePage} missing`)
-    const markerIndex = page.markers.findIndex((marker) => marker.number === question.number)
+    const markerIndex = questionMarkerIndex(page, question, questions)
     if (markerIndex < 0) throw new Error(`${question.id}: question marker missing on page ${question.sourcePage}`)
     const marker = page.markers[markerIndex]
     const next = page.markers[markerIndex + 1]
@@ -1645,7 +1742,7 @@ async function buildBank({
     if (optionRects) {
       if (hasQuestionFigure) {
         cropImage(renderedPage, output, cropPage, rectOverride
-          ?? figureCropRect(question, page, top, bottom, { ignoreInlineGap: true }), oversample)
+          ?? figureCropRect(question, page, top, bottom, { ignoreInlineGap: true }), oversample, cropOptions)
       }
       if (!figuresOnly) {
         optionRects.forEach((rect, index) => {
@@ -1653,12 +1750,12 @@ async function buildBank({
           const optionPage = pages[optionPageNumber - 1]
           if (!optionPage) throw new Error(`${question.id}: option crop page ${optionPageNumber} missing`)
           const renderedOptionPage = renderPage({ rendered, work, pdfPath, sourcePage: optionPageNumber, oversample })
-          cropImage(renderedOptionPage, optionOutputs[index], optionPage, rect, oversample)
+          cropImage(renderedOptionPage, optionOutputs[index], optionPage, rect, oversample, cropOptions)
         })
       }
     } else {
       cropImage(renderedPage, output, cropPage, rectOverride
-        ?? figureCropRect(question, page, top, bottom), oversample)
+        ?? figureCropRect(question, page, top, bottom), oversample, cropOptions)
     }
   }
   return figures.length

@@ -142,6 +142,8 @@ describe('Dexie upgrade to v7', () => {
     expect((await db.meta.get(BANK_REVISION_KEY))?.value).toBe(BANK_REVISIONS[BANK_REVISIONS.length - 1].id)
     expect(JSON.parse(localStorage.getItem('level-up-bank-notice')!)).toEqual([
       { revision: '116-1', effectiveFrom: '2027-01-01', exams: { 'web-design-b': { archived: 1, moved: 1, added: revision.exams['web-design-b'].added } } },
+      // 116-3 swaps web-design-b's 90011 bank; this learner had no 90011 records.
+      { revision: '116-3', effectiveFrom: '2027-01-01', exams: { 'web-design-b': { archived: 0, moved: 0, added: (await BANK_REVISIONS[2].load()).exams['web-design-b'].added } } },
     ])
 
     // A second open (or a second tab) must not rewrite again.

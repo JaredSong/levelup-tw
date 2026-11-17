@@ -8,4 +8,5 @@ import type { BankRevision } from '../../storage/bankRevision'
 export const BANK_REVISIONS: { id: string; load: () => Promise<BankRevision> }[] = [
   { id: '116-1', load: () => import('./generated-116-1').then((module) => module.BANK_REVISION) },
   { id: '116-2', load: () => import('./generated-116-2').then((module) => module.BANK_REVISION) },
+  { id: '116-3', load: () => import('./generated-116-3').then((module) => module.BANK_REVISION) },
 ]

@@ -75,6 +75,8 @@ export interface Question {
   sourceImage?: string
   sourceImages?: string[]
   sourcePageImage?: string
+  /** Official symbol shown before each option's text (CNS legend questions). */
+  optionImages?: string[]
   active: boolean
 }
 

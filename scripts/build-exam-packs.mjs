@@ -1,3 +1,4 @@
+import { restoredFigureIds, symbolOptionIds } from './restoredFigures.mjs'
 import { COMMON_SCRIPT_OPTIONS, COMMON_SCRIPT_PROMPTS } from './commonScriptOverrides.mjs'
 import { access, mkdir, readFile, writeFile } from 'node:fs/promises'
 import { buildSourceProvenance, formatSourceRevision } from './examSources.mjs'
@@ -1663,6 +1664,15 @@ const INFORMATION_COMMON_BANK = {
   quota: 4,
 }
 
+// Figures the parser missed (restoredFigures.mjs): force them as figure questions
+// with their reviewed crops, and attach per-option symbols to CNS legend questions.
+for (const exam of EXAMS) {
+  const restored = restoredFigureIds(exam.occupationFile)
+  if (restored.length) exam.figureIds = [...(exam.figureIds ?? []), ...restored]
+  const symbols = symbolOptionIds(exam.occupationFile)
+  if (symbols.length) exam.symbolOptionIds = [...(exam.symbolOptionIds ?? []), ...symbols]
+}
+
 const OFFICIAL_LINKS = {
   registration: 'https://skill.tcte.edu.tw/notice.php',
   scoreLookup: 'https://eservice.wdasec.gov.tw/',
@@ -1779,6 +1789,19 @@ function normalizeQuestion(question, exam) {
     options: (surveyingSource ? SURVEYING_OPTION_OVERRIDES[question.id] : undefined) ?? exam.optionOverrides?.[question.id] ?? globalFor(QUESTION_OPTION_OVERRIDES) ?? question.options.map(clean),
     ...((!isolated && INACTIVE_IDS.has(question.id)) || exam.inactiveIds?.includes(question.id) ? { active: false } : {}),
     hasFigure,
+  }
+  // Official symbol legends (CNS): each text option carries its own symbol,
+  // cropped per option. The options stay text; the symbol shows beside it.
+  if (exam.symbolOptionIds?.includes(question.id)) {
+    const stem = `${exam.cropPrefix ? `${exam.cropPrefix}-` : ''}${question.id}`
+    return {
+      ...repaired,
+      hasFigure: false,
+      sourceImage: undefined,
+      sourceImages: undefined,
+      sourcePageImage: undefined,
+      optionImages: question.options.map((_, index) => `/question-images/${stem}-${index + 1}.png`),
+    }
   }
   if (!repaired.hasFigure && (!imageOverrides || codeOverride?.codeBlock)) {
     return { ...repaired, sourceImage: undefined, sourceImages: undefined, sourcePageImage: undefined }

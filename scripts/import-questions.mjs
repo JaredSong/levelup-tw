@@ -1,3 +1,4 @@
+import { restoredFigureIds } from './restoredFigures.mjs'
 import { COMMON_SCRIPT_OPTIONS, COMMON_SCRIPT_PROMPTS } from './commonScriptOverrides.mjs'
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { buildSourceProvenance, formatSourceRevision } from './examSources.mjs'
@@ -243,6 +244,7 @@ const OFFICIAL_LINKS = {
   handbook: 'https://skill.tcte.edu.tw/download.php',
   questionBank: 'https://techbank.wdasec.gov.tw/',
 }
+const RESTORED_IDS = new Set(restoredFigureIds('173002A13-raw.txt'))
 const banks = [
   { code: '17300', file: '173002A13-raw.txt', expected: 846 },
   { code: '90011', file: '900110A13-raw.txt', expected: 120 },
@@ -284,7 +286,9 @@ for (const bank of banks) {
     const imageOverrides = IMAGE_OVERRIDES[question.id]
     // A named image is a figure even when the parser saw no marker (90011-04-014's
     // Python code is drawn as graphics) — the same rule build-exam-packs applies.
-    const hasFigure = override?.hasFigure ?? (hasCodeBlock ? false : question.hasFigure || Boolean(imageOverrides))
+    // Figures the parser missed (restoredFigures.mjs); crops are `<id>.png`.
+    const restored = RESTORED_IDS.has(question.id)
+    const hasFigure = override?.hasFigure ?? (hasCodeBlock ? false : question.hasFigure || Boolean(imageOverrides) || restored)
     const sourcePage = override?.sourcePage ?? question.sourcePage
     const figureImages = hasFigure
       ? codeOverride?.optionCodeBlocks
@@ -308,7 +312,8 @@ for (const bank of banks) {
     }
     return {
       ...repaired,
-      sourcePageImage: sourcePageImageFor(repaired),
+      // No page render exists for these; the reviewed crop is the figure.
+      sourcePageImage: restored ? undefined : sourcePageImageFor(repaired),
     }
   }))
 }

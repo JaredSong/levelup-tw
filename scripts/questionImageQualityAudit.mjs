@@ -49,9 +49,12 @@ async function collectActiveImages() {
     const questions = JSON.parse(await readFile(new URL(`${examId}/questions.json`, EXAMS_ROOT), 'utf8'))
     for (const question of questions) {
       if (question.active === false) continue
-      const sources = question.sourceImages?.length
-        ? question.sourceImages
-        : question.sourceImage ? [question.sourceImage] : []
+      const sources = [
+        ...(question.sourceImages?.length
+          ? question.sourceImages
+          : question.sourceImage ? [question.sourceImage] : []),
+        ...(question.optionImages ?? []),
+      ]
       for (const source of sources) {
         if (!source || !source.toLowerCase().endsWith('.png')) continue
         const entry = images.get(source) ?? { image: source, refs: [] }

@@ -218,7 +218,7 @@
   "integrity": {
     "status": "fully_verified",
     "inactiveQuestionCount": 0,
-    "imageQuestionCount": 24,
+    "imageQuestionCount": 26,
     "note": "Answer keys independently cross-checked against the official PDF during import."
   }
 }

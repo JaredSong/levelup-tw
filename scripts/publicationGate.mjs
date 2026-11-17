@@ -128,9 +128,12 @@ async function auditPackImages(examId, examsRoot) {
       const braces = [...text].reduce((depth, ch) => (depth < 0 ? depth : depth + (ch === '{') - (ch === '}')), 0)
       if (opens !== closes || braces !== 0) failures.push(`${question.id}: unbalanced inline math in "${text}"`)
     }
-    const images = question.sourceImages?.length
-      ? question.sourceImages
-      : question.sourceImage ? [question.sourceImage] : []
+    const images = [
+      ...(question.sourceImages?.length
+        ? question.sourceImages
+        : question.sourceImage ? [question.sourceImage] : []),
+      ...(question.optionImages ?? []),
+    ]
     for (const image of images) {
       // Only PNG is decoded here — see pngPixelCheck.mjs header for why
       // JPEG (one file, repo-wide) is out of scope for this check.

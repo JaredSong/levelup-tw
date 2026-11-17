@@ -586,7 +586,13 @@ export function PracticeView({
               <>
                 <p className="answer-label">{zhTW.practiceView.correctAnswerLabel}</p>
                 <div className="revealed-options">
-                  {question.answers.map((value) => <span key={value}>{formatDisplayChoices([value])}. <MathText text={question.options[value - 1]} /></span>)}
+                  {question.answers.map((value) => (
+                    <span key={value}>
+                      {formatDisplayChoices([value])}.{' '}
+                      {question.optionImages?.[value - 1] ? <img className="option-symbol" src={question.optionImages[value - 1]} alt="" /> : null}
+                      <MathText text={question.options[value - 1]} />
+                    </span>
+                  ))}
                 </div>
                 {aiEnabled ? (
                   <button className="explain-button flashcard-cue" disabled={explaining} onClick={() => void requestExplanation('cue')} type="button">
@@ -613,6 +619,7 @@ export function PracticeView({
               const option = question.options[value - 1]
               const optionCode = question.optionCodeBlocks?.[value - 1]
               const optionImage = optionImages[value - 1]
+              const optionSymbol = question.optionImages?.[value - 1]
               const displayValue = index + 1
               const isSelected = selected.includes(value)
               const isCorrectChoice = !!answer && correctChoices.has(value)
@@ -629,6 +636,11 @@ export function PracticeView({
                       <CodeBlock code={optionCode} compact />
                     ) : optionImage ? (
                       <img className="option-image" src={optionImage} alt={`圖示選項 ${displayValue}`} />
+                    ) : optionSymbol ? (
+                      <span className="option-symbol-row">
+                        <img className="option-symbol" src={optionSymbol} alt="" />
+                        <MathText text={option} />
+                      </span>
                     ) : <MathText text={option} />}
                   </span>
                   {isCorrectChoice ? <Check size={18} /> : isWrongChoice ? <X size={18} /> : null}

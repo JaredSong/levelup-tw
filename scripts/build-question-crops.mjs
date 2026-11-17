@@ -1,4 +1,5 @@
 import { execFileSync } from 'node:child_process'
+import { RESTORED_FIGURES, RESTORED_ONLY_BANKS, SYMBOL_OPTIONS } from './restoredFigures.mjs'
 import { createHash } from 'node:crypto'
 import { appendFileSync, readFileSync, renameSync } from 'node:fs'
 import { access, copyFile, mkdir, readFile, readdir, unlink, writeFile } from 'node:fs/promises'
@@ -961,6 +962,26 @@ const BANKS = [
   },
 ]
 
+// Figures the parser missed on live banks (restoredFigures.mjs): crop exactly
+// those questions with their measured rects. Banks that had no crop entry crop
+// ONLY these questions (figureIdsOnly), never their parser-detected figures.
+for (const entry of RESTORED_ONLY_BANKS) {
+  if (!BANKS.some((bank) => bank.source === entry.source)) BANKS.push({ ...entry, figureIdsOnly: true })
+}
+for (const bank of BANKS) {
+  const rects = RESTORED_FIGURES[bank.source]
+  const symbols = SYMBOL_OPTIONS[bank.source]
+  if (!rects && !symbols) continue
+  const ids = [...Object.keys(rects ?? {}), ...Object.keys(symbols ?? {})]
+  bank.extraFigures = [...(bank.extraFigures ?? []), ...Object.keys(rects ?? {})]
+  bank.excludedFigures = (bank.excludedFigures ?? []).filter((id) => !ids.includes(id))
+  bank.figureRects = { ...(bank.figureRects ?? {}), ...(rects ?? {}) }
+  if (symbols) {
+    bank.symbolOptions = [...(bank.symbolOptions ?? []), ...Object.keys(symbols)]
+    bank.optionRectOverrides = { ...(bank.optionRectOverrides ?? {}), ...symbols }
+  }
+}
+
 const SCALE = 2 // 144 DPI: two pixels per PDF point.
 const missingOnly = process.argv.includes('--missing')
 const figuresOnly = process.argv.includes('--figures-only')
@@ -1007,7 +1028,7 @@ function clampRect(rect, page) {
 }
 
 function cropImage(renderedPage, output, page, rect, oversample = 1, { keepFaintLines = false } = {}) {
-  const { padTo, trimThreshold, binarizeThreshold, scale, blank = [], ...rawRect } = rect
+  const { padTo, trimThreshold, binarizeThreshold, scale, blank = [], hiRes, ...rawRect } = rect
   const crop = clampRect(rawRect, page)
   if (crop.width <= 3 || crop.height <= 3) {
     throw new Error(`${output}: invalid crop ${JSON.stringify(crop)}`)
@@ -1029,7 +1050,9 @@ function cropImage(renderedPage, output, page, rect, oversample = 1, { keepFaint
   }
   // Oversampled banks render at a higher DPI and area-average back down, so a
   // hairline that lands between 144-dpi pixels survives as a grey line.
-  if (oversample !== 1) filters.push(`scale=iw/${oversample}:ih/${oversample}:flags=area`)
+  // `hiRes` (per rect): keep the oversampled pixels. For embedded images finer than
+  // 144 dpi (survey tables), downscaling averages their 1px borders to near-white.
+  if (oversample !== 1 && !hiRes) filters.push(`scale=iw/${oversample}:ih/${oversample}:flags=area`)
   if (scale) filters.push(`scale=iw*${scale}:ih*${scale}:flags=lanczos`)
   if (binarizeThreshold !== undefined) {
     filters.push(`format=gray,lut=y='if(lt(val,${binarizeThreshold}),0,255)'`)
@@ -1631,6 +1654,10 @@ async function buildBank({
   excludedFigures = [],
   mixedFigureOptions = [],
   textOptionQuestions = [],
+  // Questions whose text options each carry an official symbol (CNS legends):
+  // crop one image per option from optionRectOverrides; the option text stays.
+  symbolOptions = [],
+  figureIdsOnly = false,
   figureRects = {},
   splitImageOptions = false,
   includeLeftFigures = false,
@@ -1649,9 +1676,13 @@ async function buildBank({
     question.hasFigure
       || EXTRA_FIGURES.has(question.id)
       || extraFigures.includes(question.id)
+      || symbolOptions.includes(question.id)
       || (includeLeftFigures && question.prompt.includes('左圖'))
       || / {2,}/.test(`${question.prompt}${question.options.join('')}`)
   ))
+  if (figureIdsOnly) {
+    figures = figures.filter((question) => extraFigures.includes(question.id) || symbolOptions.includes(question.id))
+  }
   if (requestedQuestionIds.size) {
     figures = figures.filter((question) => requestedQuestionIds.has(question.id))
   }
@@ -1689,7 +1720,7 @@ async function buildBank({
 
     const imageOptions = splitImageOptions
       && !textOptionQuestions.includes(question.id)
-      && question.options.some((option) => option.includes('圖示選項'))
+      && (question.options.some((option) => option.includes('圖示選項')) || symbolOptions.includes(question.id))
     const hasQuestionFigure = mixedFigureOptions.includes(question.id)
     if (textOptionQuestions.includes(question.id)) {
       await Promise.all([1, 2, 3, 4]
@@ -1734,7 +1765,8 @@ async function buildBank({
     const cropPageNumber = rectOverride?.page ?? question.sourcePage
     const cropPage = pages[cropPageNumber - 1]
     if (!cropPage) throw new Error(`${question.id}: crop page ${cropPageNumber} missing`)
-    const renderedPage = renderPage({ rendered, work, pdfPath, sourcePage: cropPageNumber, oversample })
+    const rectOversample = rectOverride?.hiRes ? Math.max(2, oversample) : oversample
+    const renderedPage = renderPage({ rendered, work, pdfPath, sourcePage: cropPageNumber, oversample: rectOversample })
 
     if (imageOptions && !optionRects) {
       throw new Error(`${question.id}: expected four graphical option markers on page ${question.sourcePage}`)
@@ -1742,7 +1774,7 @@ async function buildBank({
     if (optionRects) {
       if (hasQuestionFigure) {
         cropImage(renderedPage, output, cropPage, rectOverride
-          ?? figureCropRect(question, page, top, bottom, { ignoreInlineGap: true }), oversample, cropOptions)
+          ?? figureCropRect(question, page, top, bottom, { ignoreInlineGap: true }), rectOversample, cropOptions)
       }
       if (!figuresOnly) {
         optionRects.forEach((rect, index) => {
@@ -1755,7 +1787,7 @@ async function buildBank({
       }
     } else {
       cropImage(renderedPage, output, cropPage, rectOverride
-        ?? figureCropRect(question, page, top, bottom), oversample, cropOptions)
+        ?? figureCropRect(question, page, top, bottom), rectOversample, cropOptions)
     }
   }
   return figures.length

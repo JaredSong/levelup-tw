@@ -190,7 +190,7 @@
   "integrity": {
     "status": "fully_verified",
     "inactiveQuestionCount": 1,
-    "imageQuestionCount": 30,
+    "imageQuestionCount": 31,
     "note": "Answer keys independently cross-checked against the official PDF during import."
   }
 }

@@ -4,30 +4,32 @@ import { describe, expect, it } from 'vitest'
 import { buildMockQueue, type Question } from '../src/domain/studyEngine'
 
 const PACKS = [
+  // Figure counts include the questions restored by scripts/restoredFigures.mjs
+  // (figures the parser missed; CNS legend symbols are optionImages, not figures).
   // 116 bank 151004A15: 613 questions, no 本題刪題, 43 figure questions
   // (crops signed off; 15100-02-015 ships four separate option crops).
   { examId: 'forklift-operation-single', occupationCode: '15100', sourceQuestions: 613, inactive: 0, figures: 43, cropPrefix: '151004A15', tightCrops: true },
   // tightCrops added: 12600-01-043/044/045 (mixedFigureOptions) plus the 15
   // pure image-option questions all ship small per-option crops now.
-  { examId: 'interior-decoration-management-b', occupationCode: '12600', sourceQuestions: 718, inactive: 0, figures: 38, tightCrops: true },
+  { examId: 'interior-decoration-management-b', occupationCode: '12600', sourceQuestions: 718, inactive: 0, figures: 42, tightCrops: true },
   // tightCrops added: 20600-02-016's four options are now separate crops.
   { examId: 'beverage-preparation-c', occupationCode: '20600', sourceQuestions: 617, inactive: 0, figures: 4, tightCrops: true },
-  { examId: 'computer-software-application-b', occupationCode: '11800', sourceQuestions: 776, inactive: 0, figures: 6, cropPrefix: '118002', tightCrops: true },
-    { examId: 'industrial-wiring-c', occupationCode: '01300', sourceQuestions: 600, inactive: 0, figures: 96, cropPrefix: '013003', tightCrops: true },
+  { examId: 'computer-software-application-b', occupationCode: '11800', sourceQuestions: 776, inactive: 0, figures: 8, cropPrefix: '118002', tightCrops: true },
+    { examId: 'industrial-wiring-c', occupationCode: '01300', sourceQuestions: 600, inactive: 0, figures: 113, cropPrefix: '013003', tightCrops: true },
   { examId: 'indoor-wiring-b', occupationCode: '00700', sourceQuestions: 862, inactive: 7, figures: 64, cropPrefix: '007002' },
-  { examId: 'indoor-wiring-c', occupationCode: '00700', sourceQuestions: 618, inactive: 0, figures: 62, cropPrefix: '007003', tightCrops: true },
+  { examId: 'indoor-wiring-c', occupationCode: '00700', sourceQuestions: 618, inactive: 0, figures: 65, cropPrefix: '007003', tightCrops: true },
   { examId: 'industrial-electronics-c', occupationCode: '02800', sourceQuestions: 651, inactive: 0, figures: 128, cropPrefix: '028003' },
-  { examId: 'heat-treatment-c', occupationCode: '02100', sourceQuestions: 609, inactive: 0, figures: 4, cropPrefix: '021003', tightCrops: true },
+  { examId: 'heat-treatment-c', occupationCode: '02100', sourceQuestions: 609, inactive: 0, figures: 5, cropPrefix: '021003', tightCrops: true },
   // 116 bank 120002A13: 708 questions, no 本題刪題, 86 figure questions (79 the
   // parser marks + 7 drawn without a marker; 12000-03-078/079/080's program
   // snippets ship as their signed-off crops).
-  { examId: 'computer-hardware-repair-b', occupationCode: '12000', sourceQuestions: 708, inactive: 0, figures: 86, cropPrefix: '120002A13', tightCrops: true },
+  { examId: 'computer-hardware-repair-b', occupationCode: '12000', sourceQuestions: 708, inactive: 0, figures: 87, cropPrefix: '120002A13', tightCrops: true },
   // 116 bank 120003A13: 12000-01-003 (mixedFigureOptions) ships a small base
   // figure plus four small option crops.
   { examId: 'computer-hardware-repair-c', occupationCode: '12000', sourceQuestions: 606, inactive: 0, figures: 25, cropPrefix: '120003A13', tightCrops: true },
   // tightCrops added: 15 image-option questions now ship four small option
   // crops apiece instead of one combined strip.
-  { examId: 'water-pipe-fitting-c', occupationCode: '01600', sourceQuestions: 707, inactive: 0, figures: 34, cropPrefix: '016003', tightCrops: true },
+  { examId: 'water-pipe-fitting-c', occupationCode: '01600', sourceQuestions: 707, inactive: 0, figures: 39, cropPrefix: '016003', tightCrops: true },
   { examId: 'excavator-operation-single', occupationCode: '07002', sourceQuestions: 668, inactive: 0, figures: 12, cropPrefix: '070024', tightCrops: true },
   { examId: 'loader-operation-single', occupationCode: '07004', sourceQuestions: 676, inactive: 0, figures: 11, cropPrefix: '070044', tightCrops: true },
   // inactive 0 → 1: 14500-03-195's crop is a pure-white PNG (min=max=255 on
@@ -35,17 +37,17 @@ const PACKS = [
   // — a page-boundary crop fault, not missing source content. Pulled by Wen
   // (2026-07-21) until the crop bounds are fixed. See INACTIVE_IDS in
   // build-exam-packs.mjs.
-  { examId: 'motorcycle-repair-c', occupationCode: '14500', sourceQuestions: 599, inactive: 1, figures: 14, cropPrefix: '145003', tightCrops: true },
+  { examId: 'motorcycle-repair-c', occupationCode: '14500', sourceQuestions: 599, inactive: 1, figures: 37, cropPrefix: '145003', tightCrops: true },
   { examId: 'electrical-equipment-inspection-c', occupationCode: '16600', sourceQuestions: 685, inactive: 0, figures: 5, cropPrefix: '166003', tightCrops: true },
   { examId: 'aircraft-maintenance-c', occupationCode: '17600', sourceQuestions: 643, inactive: 0, figures: 21, cropPrefix: '176003', tightCrops: true },
   { examId: 'network-installation-c', occupationCode: '17200', sourceQuestions: 486, inactive: 0, figures: 26, cropPrefix: '172003', tightCrops: true },
-  { examId: 'engineering-surveying-b', occupationCode: '04202', sourceQuestions: 769, inactive: 11, figures: 52, cropPrefix: '042022', tightCrops: true },
+  { examId: 'engineering-surveying-b', occupationCode: '04202', sourceQuestions: 769, inactive: 11, figures: 66, cropPrefix: '042022', tightCrops: true },
   // 26 figure questions, crops byte-identical to the ones Jared reviewed in
   // tmp/import-batch/042003A11/image-review.html. 04200-01-033 is 本題刪題.
   // 三視圖 crops (05-001..020): 3D object + four options each, signed off by
   // Jared. Six 本題刪題 questions inactive.
   { examId: 'visual-communication-design-c', occupationCode: '20100', sourceQuestions: 608, inactive: 6, figures: 20, cropPrefix: '201003', tightCrops: true },
-  { examId: 'surveying-c', occupationCode: '04200', sourceQuestions: 704, inactive: 1, figures: 26, cropPrefix: '042003', tightCrops: true },
+  { examId: 'surveying-c', occupationCode: '04200', sourceQuestions: 704, inactive: 1, figures: 27, cropPrefix: '042003', tightCrops: true },
   // inactive 4 → 5: 21500-03-073's crop is a pure-white PNG even though the
   // figure exists in source/215003A11.pdf p.20. Same page-boundary crop
   // fault as 14500-03-195 above. Pulled by Wen (2026-07-21).
@@ -118,7 +120,8 @@ describe('new high-demand exam packs', () => {
           const usesTightCrops = expected.tightCrops
             || expected.examId === 'indoor-wiring-b'
             || expected.examId === 'industrial-electronics-c'
-          const minimumBytes = expected.examId === 'industrial-electronics-c' ? 100 : usesTightCrops ? 200 : 1_500
+          // 04200-05-035: the map symbol ⊥ alone (34×34, reviewed) compresses to < 200 B.
+          const minimumBytes = expected.examId === 'industrial-electronics-c' || question.id === '04200-05-035' ? 100 : usesTightCrops ? 200 : 1_500
           expect(bytes.byteLength, `${question.id} ${source}`).toBeGreaterThan(minimumBytes)
           expect(width, `${question.id} ${source}`).toBeGreaterThan(usesTightCrops ? 15 : 300)
           expect(height, `${question.id} ${source}`).toBeGreaterThan(usesTightCrops ? 15 : 30)
@@ -471,5 +474,56 @@ describe('new high-demand exam packs', () => {
     expect(c.get('90001-08-003')?.sourceImages).toEqual(['/question-images/900013A13-90001-08-003.png'])
     // Same id, different question per level: never cross-wired.
     expect(b.get('90001-01-001')?.prompt).not.toBe(c.get('90001-01-001')?.prompt)
+  })
+})
+
+describe('figures restored from the official PDFs (restoredFigures.mjs)', () => {
+  const manifests = (examId: string) => JSON.parse(readFileSync(new URL(`../public/data/exams/${examId}/manifest.json`, import.meta.url), 'utf8')) as { sources: { pdfFilename: string }[] }
+  const bank = (examId: string) => {
+    const data = JSON.parse(readFileSync(new URL(`../public/data/exams/${examId}/questions.json`, import.meta.url), 'utf8'))
+    return new Map((Array.isArray(data) ? data : data.questions).map((question: Question) => [question.id, question])) as Map<string, Question & { optionImages?: string[] }>
+  }
+  const packsFor = async (source: string) => {
+    const { readdirSync } = await import('node:fs')
+    return readdirSync(new URL('../public/data/exams/', import.meta.url))
+      .filter((examId) => manifests(examId).sources.some((item) => item.pdfFilename === `${source}.pdf`))
+  }
+
+  it('ships every restored question with its reviewed crop, in every pack that carries the bank', async () => {
+    const { RESTORED_FIGURES, SYMBOL_OPTIONS } = await import('./restoredFigures.mjs')
+    let checked = 0
+    for (const [source, rects] of Object.entries(RESTORED_FIGURES)) {
+      const packs = await packsFor(source)
+      expect(packs.length, source).toBeGreaterThan(0)
+      for (const examId of packs) {
+        const questions = bank(examId)
+        for (const id of Object.keys(rects as object)) {
+          const question = questions.get(id)
+          expect(question?.hasFigure, `${examId} ${id}`).toBe(true)
+          const sources = question?.sourceImages?.length ? question.sourceImages : [question?.sourceImage]
+          for (const image of sources) {
+            const bytes = readFileSync(new URL(`../public${decodeURIComponent(image ?? '')}`, import.meta.url))
+            expect(pngDimensions(bytes).width, `${examId} ${id}`).toBeGreaterThan(15)
+          }
+          checked += 1
+        }
+      }
+    }
+    for (const [source, ids] of Object.entries(SYMBOL_OPTIONS)) {
+      for (const examId of await packsFor(source)) {
+        const questions = bank(examId)
+        for (const id of Object.keys(ids as object)) {
+          const question = questions.get(id)
+          // Text options stay text; each gets its own official symbol.
+          expect(question?.options.some((option) => option.includes('圖示選項')), id).toBe(false)
+          expect(question?.optionImages, id).toHaveLength(4)
+          for (const image of question?.optionImages ?? []) {
+            expect(pngDimensions(readFileSync(new URL(`../public${image}`, import.meta.url))).width, id).toBeGreaterThan(15)
+          }
+          checked += 1
+        }
+      }
+    }
+    expect(checked).toBe(78)
   })
 })

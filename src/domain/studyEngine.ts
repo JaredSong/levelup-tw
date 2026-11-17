@@ -20,6 +20,8 @@ export interface Question {
   sourceImage?: string
   sourceImages?: string[]
   sourcePageImage?: string
+  /** Official symbol shown before each option's text (CNS legend questions). */
+  optionImages?: string[]
   /** false for officially deleted questions; absent means active. */
   active?: boolean
 }

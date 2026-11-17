@@ -160,8 +160,9 @@ describe('published question bank', () => {
   it('keeps active image questions linked to checked image assets', () => {
     const generated = loadBank().filter((question) => question.active !== false && question.hasFigure)
 
-    // 4 + 14 figure questions of 90011 A13 (04-014's code is drawn as graphics).
-    expect(generated).toHaveLength(18)
+    // 4 + 14 figure questions of 90011 A13 (04-014's code is drawn as graphics)
+    // + 17300-03-058 (Drive icon, restoredFigures.mjs).
+    expect(generated).toHaveLength(19)
     for (const question of generated) {
       expect(question.sourceImage, question.id).toBeTruthy()
       const images = question.sourceImages?.length ? question.sourceImages : [question.sourceImage]
@@ -170,7 +171,8 @@ describe('published question bank', () => {
       }
       // The 90011 page renders on disk are of the old A12 PDF, so A13
       // questions must not fall back to them.
-      if (question.subjectCode === '90011') {
+      // 90011 page renders are of the old PDF; restored figures have no page render.
+      if (question.subjectCode === '90011' || question.id === '17300-03-058') {
         expect(question.sourcePageImage, question.id).toBeUndefined()
         continue
       }

@@ -2348,14 +2348,14 @@ export const GENERATED_EXAM_SAMPLES: Record<string, ExamSampleSet> = {
     ],
     "samples": [
       {
-        "id": "12600-01-001",
+        "id": "12600-01-002",
         "sectionTitle": "圖說判讀",
-        "prompt": "左圖符號係為",
+        "prompt": "施工圖面常用文字簡寫符號中 GL 代表",
         "options": [
-          "轉彎標記",
-          "方向標記",
-          "剖面標記",
-          "立面標記"
+          "水平線",
+          "天花板線",
+          "地盤線",
+          "視平線"
         ],
         "answer": 3
       },
@@ -3271,16 +3271,16 @@ export const GENERATED_EXAM_SAMPLES: Record<string, ExamSampleSet> = {
     ],
     "samples": [
       {
-        "id": "01600-01-003",
+        "id": "01600-01-004",
         "sectionTitle": "施工圖說",
-        "prompt": "符號是表示",
+        "prompt": "記號\"∮\"係表示",
         "options": [
-          "制水閥",
-          "排氣閥",
-          "止回閥",
-          "排泥閥"
+          "中心",
+          "直徑",
+          "鑽孔",
+          "斜角"
         ],
-        "answer": 3
+        "answer": 2
       },
       {
         "id": "01600-02-001",

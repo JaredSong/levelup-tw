@@ -648,11 +648,11 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90011",
-        "version": "A12",
-        "pdfFilename": "900110A12.pdf",
-        "localFilename": "900110A12.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900110A12.pdf",
-        "sha256": "6b76e319e47cefd658551d2096521933bced6b4c99023874015863655b8dcd3a"
+        "version": "A13",
+        "pdfFilename": "900110A13.pdf",
+        "localFilename": "900110A13.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900110A13.pdf",
+        "sha256": "d9c18a3d549321f8f44e2ad384f5e8d36943aeb84f306590ae904379e12c0df3"
       },
       {
         "subjectCode": "90006",
@@ -693,9 +693,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "118003A14 + 900110A12 + 900060A12/900070A11/900080A18/900090A14",
-    "questionCount": 1267,
-    "activeQuestionCount": 1267,
+    "sourceRevision": "118003A14 + 900110A13 + 900060A12/900070A11/900080A18/900090A14",
+    "questionCount": 1268,
+    "activeQuestionCount": 1268,
     "sections": [
       {
         "id": "11800-01",
@@ -741,15 +741,15 @@ export const GENERATED_EXAM_MANIFESTS = [
         "id": "90011-02",
         "subjectCode": "90011",
         "sourceGroup": "information-common",
-        "titleZh": "網路概論與應用",
-        "questionCount": 29,
-        "activeQuestionCount": 29
+        "titleZh": "網路概論應用",
+        "questionCount": 20,
+        "activeQuestionCount": 20
       },
       {
         "id": "90011-03",
         "subjectCode": "90011",
         "sourceGroup": "information-common",
-        "titleZh": "作業系統",
+        "titleZh": "作業系統處理",
         "questionCount": 10,
         "activeQuestionCount": 10
       },
@@ -757,7 +757,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "id": "90011-04",
         "subjectCode": "90011",
         "sourceGroup": "information-common",
-        "titleZh": "資訊運算思維",
+        "titleZh": "資訊運算",
         "questionCount": 20,
         "activeQuestionCount": 20
       },
@@ -765,9 +765,17 @@ export const GENERATED_EXAM_MANIFESTS = [
         "id": "90011-05",
         "subjectCode": "90011",
         "sourceGroup": "information-common",
-        "titleZh": "資訊安全",
-        "questionCount": 40,
-        "activeQuestionCount": 40
+        "titleZh": "人工智慧應用",
+        "questionCount": 20,
+        "activeQuestionCount": 20
+      },
+      {
+        "id": "90011-06",
+        "subjectCode": "90011",
+        "sourceGroup": "information-common",
+        "titleZh": "資訊安全防護",
+        "questionCount": 30,
+        "activeQuestionCount": 30
       },
       {
         "id": "90006-01",
@@ -841,7 +849,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     "integrity": {
       "status": "fully_verified",
       "inactiveQuestionCount": 0,
-      "imageQuestionCount": 8,
+      "imageQuestionCount": 18,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
   },
@@ -864,11 +872,11 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90011",
-        "version": "A12",
-        "pdfFilename": "900110A12.pdf",
-        "localFilename": "900110A12.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900110A12.pdf",
-        "sha256": "6b76e319e47cefd658551d2096521933bced6b4c99023874015863655b8dcd3a"
+        "version": "A13",
+        "pdfFilename": "900110A13.pdf",
+        "localFilename": "900110A13.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900110A13.pdf",
+        "sha256": "d9c18a3d549321f8f44e2ad384f5e8d36943aeb84f306590ae904379e12c0df3"
       },
       {
         "subjectCode": "90006",
@@ -909,9 +917,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "118002A15 + 900110A12 + 900060A12/900070A11/900080A18/900090A14",
-    "questionCount": 1295,
-    "activeQuestionCount": 1295,
+    "sourceRevision": "118002A15 + 900110A13 + 900060A12/900070A11/900080A18/900090A14",
+    "questionCount": 1296,
+    "activeQuestionCount": 1296,
     "sections": [
       {
         "id": "11800-01",
@@ -957,15 +965,15 @@ export const GENERATED_EXAM_MANIFESTS = [
         "id": "90011-02",
         "subjectCode": "90011",
         "sourceGroup": "information-common",
-        "titleZh": "網路概論與應用",
-        "questionCount": 29,
-        "activeQuestionCount": 29
+        "titleZh": "網路概論應用",
+        "questionCount": 20,
+        "activeQuestionCount": 20
       },
       {
         "id": "90011-03",
         "subjectCode": "90011",
         "sourceGroup": "information-common",
-        "titleZh": "作業系統",
+        "titleZh": "作業系統處理",
         "questionCount": 10,
         "activeQuestionCount": 10
       },
@@ -973,7 +981,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "id": "90011-04",
         "subjectCode": "90011",
         "sourceGroup": "information-common",
-        "titleZh": "資訊運算思維",
+        "titleZh": "資訊運算",
         "questionCount": 20,
         "activeQuestionCount": 20
       },
@@ -981,9 +989,17 @@ export const GENERATED_EXAM_MANIFESTS = [
         "id": "90011-05",
         "subjectCode": "90011",
         "sourceGroup": "information-common",
-        "titleZh": "資訊安全",
-        "questionCount": 40,
-        "activeQuestionCount": 40
+        "titleZh": "人工智慧應用",
+        "questionCount": 20,
+        "activeQuestionCount": 20
+      },
+      {
+        "id": "90011-06",
+        "subjectCode": "90011",
+        "sourceGroup": "information-common",
+        "titleZh": "資訊安全防護",
+        "questionCount": 30,
+        "activeQuestionCount": 30
       },
       {
         "id": "90006-01",
@@ -1057,7 +1073,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     "integrity": {
       "status": "fully_verified",
       "inactiveQuestionCount": 0,
-      "imageQuestionCount": 14,
+      "imageQuestionCount": 24,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
   },
@@ -4215,16 +4231,16 @@ export const GENERATED_EXAM_MANIFESTS = [
     "titleZh": "堆高機操作單一級",
     "titleEn": "Forklift Operation (Single Level)",
     "category": "機械操作",
-    "version": "A14",
-    "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/151004A14.pdf",
+    "version": "A15",
+    "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/151004A15.pdf",
     "sources": [
       {
         "subjectCode": "15100",
-        "version": "A14",
-        "pdfFilename": "151004A14.pdf",
-        "localFilename": "151004A14.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/151004A14.pdf",
-        "sha256": "86529fc301e257a97d79c742550c52e220a59bf6493ee8239c87986aa4cf35ff"
+        "version": "A15",
+        "pdfFilename": "151004A15.pdf",
+        "localFilename": "151004A15.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/151004A15.pdf",
+        "sha256": "0e0335d0dd35824c8f172b87f88e8744e1b71748b95807ba8cd0f146f53d3cf2"
       },
       {
         "subjectCode": "90006",
@@ -4265,33 +4281,33 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "151004A14 + 900060A12/900070A11/900080A18/900090A14",
-    "questionCount": 1000,
-    "activeQuestionCount": 981,
+    "sourceRevision": "151004A15 + 900060A12/900070A11/900080A18/900090A14",
+    "questionCount": 1013,
+    "activeQuestionCount": 1013,
     "sections": [
       {
         "id": "15100-01",
         "subjectCode": "15100",
         "sourceGroup": "occupation",
         "titleZh": "基本檢查及保養",
-        "questionCount": 157,
-        "activeQuestionCount": 157
+        "questionCount": 171,
+        "activeQuestionCount": 171
       },
       {
         "id": "15100-02",
         "subjectCode": "15100",
         "sourceGroup": "occupation",
         "titleZh": "堆高機操作技術",
-        "questionCount": 252,
-        "activeQuestionCount": 251
+        "questionCount": 241,
+        "activeQuestionCount": 241
       },
       {
         "id": "15100-03",
         "subjectCode": "15100",
         "sourceGroup": "occupation",
         "titleZh": "安全及防護",
-        "questionCount": 191,
-        "activeQuestionCount": 173
+        "questionCount": 201,
+        "activeQuestionCount": 201
       },
       {
         "id": "90006-01",
@@ -4360,8 +4376,8 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 19,
-      "imageQuestionCount": 41,
+      "inactiveQuestionCount": 0,
+      "imageQuestionCount": 47,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
   },
@@ -6613,24 +6629,24 @@ export const GENERATED_EXAM_MANIFESTS = [
     "titleZh": "電腦硬體裝修乙級",
     "titleEn": "Computer Hardware Repair (Class B)",
     "category": "資訊",
-    "version": "A12",
-    "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/120002A12.pdf",
+    "version": "A13",
+    "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/120002A13.pdf",
     "sources": [
       {
         "subjectCode": "12000",
-        "version": "A12",
-        "pdfFilename": "120002A12.pdf",
-        "localFilename": "120002A12.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/120002A12.pdf",
-        "sha256": "7e477aed31b91ce05621abcd42aa263d6705cf3e164d1c31d245a6757660fa31"
+        "version": "A13",
+        "pdfFilename": "120002A13.pdf",
+        "localFilename": "120002A13.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/120002A13.pdf",
+        "sha256": "56bc4c655be3c55e7c8a49b5018cd818ea3954459b1f0abcabda8333b1ec4303"
       },
       {
         "subjectCode": "90011",
-        "version": "A12",
-        "pdfFilename": "900110A12.pdf",
-        "localFilename": "900110A12.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900110A12.pdf",
-        "sha256": "6b76e319e47cefd658551d2096521933bced6b4c99023874015863655b8dcd3a"
+        "version": "A13",
+        "pdfFilename": "900110A13.pdf",
+        "localFilename": "900110A13.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900110A13.pdf",
+        "sha256": "d9c18a3d549321f8f44e2ad384f5e8d36943aeb84f306590ae904379e12c0df3"
       },
       {
         "subjectCode": "90006",
@@ -6671,57 +6687,49 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "120002A12 + 900110A12 + 900060A12/900070A11/900080A18/900090A14",
-    "questionCount": 1292,
-    "activeQuestionCount": 1289,
+    "sourceRevision": "120002A13 + 900110A13 + 900060A12/900070A11/900080A18/900090A14",
+    "questionCount": 1228,
+    "activeQuestionCount": 1228,
     "sections": [
       {
         "id": "12000-01",
         "subjectCode": "12000",
         "sourceGroup": "occupation",
-        "titleZh": "電腦、電子及電機機械",
-        "questionCount": 67,
-        "activeQuestionCount": 66
+        "titleZh": "電腦、電子及電機機械識圖",
+        "questionCount": 64,
+        "activeQuestionCount": 64
       },
       {
         "id": "12000-02",
         "subjectCode": "12000",
         "sourceGroup": "occupation",
         "titleZh": "作業準備",
-        "questionCount": 93,
-        "activeQuestionCount": 93
+        "questionCount": 90,
+        "activeQuestionCount": 90
       },
       {
         "id": "12000-03",
         "subjectCode": "12000",
         "sourceGroup": "occupation",
-        "titleZh": "儀表、軟體及一般工具",
-        "questionCount": 210,
-        "activeQuestionCount": 210
+        "titleZh": "儀表、軟體及一般工具使用",
+        "questionCount": 191,
+        "activeQuestionCount": 191
       },
       {
         "id": "12000-04",
         "subjectCode": "12000",
         "sourceGroup": "occupation",
         "titleZh": "工作方法",
-        "questionCount": 191,
-        "activeQuestionCount": 190
+        "questionCount": 189,
+        "activeQuestionCount": 189
       },
       {
         "id": "12000-05",
         "subjectCode": "12000",
         "sourceGroup": "occupation",
-        "titleZh": "裝修及控制應用",
-        "questionCount": 171,
-        "activeQuestionCount": 171
-      },
-      {
-        "id": "12000-06",
-        "subjectCode": "12000",
-        "sourceGroup": "occupation",
-        "titleZh": "資訊安全措施",
-        "questionCount": 41,
-        "activeQuestionCount": 40
+        "titleZh": "裝配及檢修",
+        "questionCount": 174,
+        "activeQuestionCount": 174
       },
       {
         "id": "90011-01",
@@ -6735,15 +6743,15 @@ export const GENERATED_EXAM_MANIFESTS = [
         "id": "90011-02",
         "subjectCode": "90011",
         "sourceGroup": "information-common",
-        "titleZh": "網路概論與應用",
-        "questionCount": 29,
-        "activeQuestionCount": 29
+        "titleZh": "網路概論應用",
+        "questionCount": 20,
+        "activeQuestionCount": 20
       },
       {
         "id": "90011-03",
         "subjectCode": "90011",
         "sourceGroup": "information-common",
-        "titleZh": "作業系統",
+        "titleZh": "作業系統處理",
         "questionCount": 10,
         "activeQuestionCount": 10
       },
@@ -6751,7 +6759,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "id": "90011-04",
         "subjectCode": "90011",
         "sourceGroup": "information-common",
-        "titleZh": "資訊運算思維",
+        "titleZh": "資訊運算",
         "questionCount": 20,
         "activeQuestionCount": 20
       },
@@ -6759,9 +6767,17 @@ export const GENERATED_EXAM_MANIFESTS = [
         "id": "90011-05",
         "subjectCode": "90011",
         "sourceGroup": "information-common",
-        "titleZh": "資訊安全",
-        "questionCount": 40,
-        "activeQuestionCount": 40
+        "titleZh": "人工智慧應用",
+        "questionCount": 20,
+        "activeQuestionCount": 20
+      },
+      {
+        "id": "90011-06",
+        "subjectCode": "90011",
+        "sourceGroup": "information-common",
+        "titleZh": "資訊安全防護",
+        "questionCount": 30,
+        "activeQuestionCount": 30
       },
       {
         "id": "90006-01",
@@ -6834,8 +6850,8 @@ export const GENERATED_EXAM_MANIFESTS = [
     },
     "integrity": {
       "status": "fully_verified",
-      "inactiveQuestionCount": 3,
-      "imageQuestionCount": 83,
+      "inactiveQuestionCount": 0,
+      "imageQuestionCount": 104,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
   },
@@ -6845,24 +6861,24 @@ export const GENERATED_EXAM_MANIFESTS = [
     "titleZh": "電腦硬體裝修丙級",
     "titleEn": "Computer Hardware Repair (Class C)",
     "category": "資訊",
-    "version": "A12",
-    "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/120003A12.pdf",
+    "version": "A13",
+    "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/120003A13.pdf",
     "sources": [
       {
         "subjectCode": "12000",
-        "version": "A12",
-        "pdfFilename": "120003A12.pdf",
-        "localFilename": "120003A12.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/120003A12.pdf",
-        "sha256": "13a0f919350e28de8ada060fa3baec61d1700f4b05f4b4f14ebf13b43698b378"
+        "version": "A13",
+        "pdfFilename": "120003A13.pdf",
+        "localFilename": "120003A13.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/120003A13.pdf",
+        "sha256": "792ede847d3f2dd2aa55735fc50c7e3541330a2367e66a5f7119697315a10036"
       },
       {
         "subjectCode": "90011",
-        "version": "A12",
-        "pdfFilename": "900110A12.pdf",
-        "localFilename": "900110A12.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900110A12.pdf",
-        "sha256": "6b76e319e47cefd658551d2096521933bced6b4c99023874015863655b8dcd3a"
+        "version": "A13",
+        "pdfFilename": "900110A13.pdf",
+        "localFilename": "900110A13.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900110A13.pdf",
+        "sha256": "d9c18a3d549321f8f44e2ad384f5e8d36943aeb84f306590ae904379e12c0df3"
       },
       {
         "subjectCode": "90006",
@@ -6903,57 +6919,49 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "120003A12 + 900110A12 + 900060A12/900070A11/900080A18/900090A14",
-    "questionCount": 1226,
-    "activeQuestionCount": 1226,
+    "sourceRevision": "120003A13 + 900110A13 + 900060A12/900070A11/900080A18/900090A14",
+    "questionCount": 1126,
+    "activeQuestionCount": 1126,
     "sections": [
       {
         "id": "12000-01",
         "subjectCode": "12000",
         "sourceGroup": "occupation",
         "titleZh": "電腦、電子及電機機械識圖",
-        "questionCount": 49,
-        "activeQuestionCount": 49
+        "questionCount": 45,
+        "activeQuestionCount": 45
       },
       {
         "id": "12000-02",
         "subjectCode": "12000",
         "sourceGroup": "occupation",
         "titleZh": "作業準備",
-        "questionCount": 63,
-        "activeQuestionCount": 63
+        "questionCount": 86,
+        "activeQuestionCount": 86
       },
       {
         "id": "12000-03",
         "subjectCode": "12000",
         "sourceGroup": "occupation",
         "titleZh": "儀表、軟體及一般工具使用",
-        "questionCount": 149,
-        "activeQuestionCount": 149
+        "questionCount": 164,
+        "activeQuestionCount": 164
       },
       {
         "id": "12000-04",
         "subjectCode": "12000",
         "sourceGroup": "occupation",
         "titleZh": "工作方法",
-        "questionCount": 251,
-        "activeQuestionCount": 251
+        "questionCount": 203,
+        "activeQuestionCount": 203
       },
       {
         "id": "12000-05",
         "subjectCode": "12000",
         "sourceGroup": "occupation",
-        "titleZh": "裝修及控制應用",
-        "questionCount": 132,
-        "activeQuestionCount": 132
-      },
-      {
-        "id": "12000-06",
-        "subjectCode": "12000",
-        "sourceGroup": "occupation",
-        "titleZh": "資訊安全措施",
-        "questionCount": 63,
-        "activeQuestionCount": 63
+        "titleZh": "裝配及檢修",
+        "questionCount": 108,
+        "activeQuestionCount": 108
       },
       {
         "id": "90011-01",
@@ -6967,15 +6975,15 @@ export const GENERATED_EXAM_MANIFESTS = [
         "id": "90011-02",
         "subjectCode": "90011",
         "sourceGroup": "information-common",
-        "titleZh": "網路概論與應用",
-        "questionCount": 29,
-        "activeQuestionCount": 29
+        "titleZh": "網路概論應用",
+        "questionCount": 20,
+        "activeQuestionCount": 20
       },
       {
         "id": "90011-03",
         "subjectCode": "90011",
         "sourceGroup": "information-common",
-        "titleZh": "作業系統",
+        "titleZh": "作業系統處理",
         "questionCount": 10,
         "activeQuestionCount": 10
       },
@@ -6983,7 +6991,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "id": "90011-04",
         "subjectCode": "90011",
         "sourceGroup": "information-common",
-        "titleZh": "資訊運算思維",
+        "titleZh": "資訊運算",
         "questionCount": 20,
         "activeQuestionCount": 20
       },
@@ -6991,9 +6999,17 @@ export const GENERATED_EXAM_MANIFESTS = [
         "id": "90011-05",
         "subjectCode": "90011",
         "sourceGroup": "information-common",
-        "titleZh": "資訊安全",
-        "questionCount": 40,
-        "activeQuestionCount": 40
+        "titleZh": "人工智慧應用",
+        "questionCount": 20,
+        "activeQuestionCount": 20
+      },
+      {
+        "id": "90011-06",
+        "subjectCode": "90011",
+        "sourceGroup": "information-common",
+        "titleZh": "資訊安全防護",
+        "questionCount": 30,
+        "activeQuestionCount": 30
       },
       {
         "id": "90006-01",
@@ -7067,7 +7083,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     "integrity": {
       "status": "fully_verified",
       "inactiveQuestionCount": 0,
-      "imageQuestionCount": 25,
+      "imageQuestionCount": 43,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
   },
@@ -7090,11 +7106,11 @@ export const GENERATED_EXAM_MANIFESTS = [
       },
       {
         "subjectCode": "90011",
-        "version": "A12",
-        "pdfFilename": "900110A12.pdf",
-        "localFilename": "900110A12.pdf",
-        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900110A12.pdf",
-        "sha256": "6b76e319e47cefd658551d2096521933bced6b4c99023874015863655b8dcd3a"
+        "version": "A13",
+        "pdfFilename": "900110A13.pdf",
+        "localFilename": "900110A13.pdf",
+        "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900110A13.pdf",
+        "sha256": "d9c18a3d549321f8f44e2ad384f5e8d36943aeb84f306590ae904379e12c0df3"
       },
       {
         "subjectCode": "90006",
@@ -7135,9 +7151,9 @@ export const GENERATED_EXAM_MANIFESTS = [
       "handbook": "https://skill.tcte.edu.tw/download.php",
       "questionBank": "https://techbank.wdasec.gov.tw/"
     },
-    "sourceRevision": "172003A14 + 900110A12 + 900060A12/900070A11/900080A18/900090A14",
-    "questionCount": 1005,
-    "activeQuestionCount": 1005,
+    "sourceRevision": "172003A14 + 900110A13 + 900060A12/900070A11/900080A18/900090A14",
+    "questionCount": 1006,
+    "activeQuestionCount": 1006,
     "sections": [
       {
         "id": "17200-01",
@@ -7183,15 +7199,15 @@ export const GENERATED_EXAM_MANIFESTS = [
         "id": "90011-02",
         "subjectCode": "90011",
         "sourceGroup": "information-common",
-        "titleZh": "網路概論與應用",
-        "questionCount": 29,
-        "activeQuestionCount": 29
+        "titleZh": "網路概論應用",
+        "questionCount": 20,
+        "activeQuestionCount": 20
       },
       {
         "id": "90011-03",
         "subjectCode": "90011",
         "sourceGroup": "information-common",
-        "titleZh": "作業系統",
+        "titleZh": "作業系統處理",
         "questionCount": 10,
         "activeQuestionCount": 10
       },
@@ -7199,7 +7215,7 @@ export const GENERATED_EXAM_MANIFESTS = [
         "id": "90011-04",
         "subjectCode": "90011",
         "sourceGroup": "information-common",
-        "titleZh": "資訊運算思維",
+        "titleZh": "資訊運算",
         "questionCount": 20,
         "activeQuestionCount": 20
       },
@@ -7207,9 +7223,17 @@ export const GENERATED_EXAM_MANIFESTS = [
         "id": "90011-05",
         "subjectCode": "90011",
         "sourceGroup": "information-common",
-        "titleZh": "資訊安全",
-        "questionCount": 40,
-        "activeQuestionCount": 40
+        "titleZh": "人工智慧應用",
+        "questionCount": 20,
+        "activeQuestionCount": 20
+      },
+      {
+        "id": "90011-06",
+        "subjectCode": "90011",
+        "sourceGroup": "information-common",
+        "titleZh": "資訊安全防護",
+        "questionCount": 30,
+        "activeQuestionCount": 30
       },
       {
         "id": "90006-01",
@@ -7283,7 +7307,7 @@ export const GENERATED_EXAM_MANIFESTS = [
     "integrity": {
       "status": "fully_verified",
       "inactiveQuestionCount": 0,
-      "imageQuestionCount": 34,
+      "imageQuestionCount": 44,
       "note": "Answer keys independently cross-checked against the official PDF during import."
     }
   },

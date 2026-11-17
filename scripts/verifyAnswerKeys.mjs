@@ -20,8 +20,8 @@ const TARGETS = {
   'beauty-c': { subjectCode: '10000', pdf: 'source/100003A15.pdf', bank: 'public/data/exams/beauty-c/questions.json' },
   'computer-software-application-c': { subjectCode: '11800', pdf: 'source/118003A14.pdf', bank: 'public/data/exams/computer-software-application-c/questions.json' },
   'computer-software-application-b': { subjectCode: '11800', pdf: 'source/118002A15.pdf', bank: 'public/data/exams/computer-software-application-b/questions.json' },
-  'computer-hardware-repair-b': { subjectCode: '12000', pdf: 'source/120002A12.pdf', bank: 'public/data/exams/computer-hardware-repair-b/questions.json' },
-  'computer-hardware-repair-c': { subjectCode: '12000', pdf: 'source/120003A12.pdf', bank: 'public/data/exams/computer-hardware-repair-c/questions.json' },
+  'computer-hardware-repair-b': { subjectCode: '12000', pdf: 'source/120002A13.pdf', bank: 'public/data/exams/computer-hardware-repair-b/questions.json' },
+  'computer-hardware-repair-c': { subjectCode: '12000', pdf: 'source/120003A13.pdf', bank: 'public/data/exams/computer-hardware-repair-c/questions.json' },
   'motorcycle-repair-c': { subjectCode: '14500', pdf: 'source/145003A13.pdf', bank: 'public/data/exams/motorcycle-repair-c/questions.json' },
   'industrial-wiring-c': { subjectCode: '01300', pdf: 'source/013003A13.pdf', bank: 'public/data/exams/industrial-wiring-c/questions.json' },
   'indoor-wiring-b': { subjectCode: '00700', pdf: 'source/007002A15.pdf', bank: 'public/data/exams/indoor-wiring-b/questions.json' },
@@ -51,7 +51,7 @@ const TARGETS = {
   'heat-treatment-c': { subjectCode: '02100', pdf: 'source/021003A12.pdf', bank: 'public/data/exams/heat-treatment-c/questions.json' },
   'interior-decoration-management-b': { subjectCode: '12600', pdf: 'source/126002A12.pdf', bank: 'public/data/exams/interior-decoration-management-b/questions.json' },
   'accounting-c': { subjectCode: '14900', pdf: 'source/149003A15.pdf', bank: 'public/data/exams/accounting-c/questions.json' },
-  'forklift-operation-single': { subjectCode: '15100', pdf: 'source/151004A14.pdf', bank: 'public/data/exams/forklift-operation-single/questions.json' },
+  'forklift-operation-single': { subjectCode: '15100', pdf: 'source/151004A15.pdf', bank: 'public/data/exams/forklift-operation-single/questions.json' },
   'childcare-single': { subjectCode: '15400', pdf: 'source/154004A17.pdf', bank: 'public/data/exams/childcare-single/questions.json' },
   'electrical-equipment-inspection-c': { subjectCode: '16600', pdf: 'source/166003A15.pdf', bank: 'public/data/exams/electrical-equipment-inspection-c/questions.json' },
   'network-installation-c': { subjectCode: '17200', pdf: 'source/172003A14.pdf', bank: 'public/data/exams/network-installation-c/questions.json' },
@@ -72,7 +72,7 @@ const TARGETS = {
   '90008': { subjectCode: '90008', pdf: 'source/900080A18.pdf', bank: 'public/data/exams/web-design-b/questions.json' },
   '90009': { subjectCode: '90009', pdf: 'source/900090A14.pdf', bank: 'public/data/exams/web-design-b/questions.json' },
   '90010': { subjectCode: '90010', pdf: 'source/900100A17.pdf', bank: 'public/data/exams/chinese-cooking-meat-c/questions.json' },
-  '90011': { subjectCode: '90011', pdf: 'source/900110A12.pdf', bank: 'public/data/exams/web-design-b/questions.json' },
+  '90011': { subjectCode: '90011', pdf: 'source/900110A13.pdf', bank: 'public/data/exams/web-design-b/questions.json' },
   '90012': { subjectCode: '90012', pdf: 'source/900120A11.pdf', bank: 'public/data/exams/man-haircut-c/questions.json' },
 }
 

@@ -4,16 +4,16 @@
   "titleZh": "堆高機操作單一級",
   "titleEn": "Forklift Operation (Single Level)",
   "category": "機械操作",
-  "version": "A14",
-  "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/151004A14.pdf",
+  "version": "A15",
+  "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/151004A15.pdf",
   "sources": [
     {
       "subjectCode": "15100",
-      "version": "A14",
-      "pdfFilename": "151004A14.pdf",
-      "localFilename": "151004A14.pdf",
-      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/151004A14.pdf",
-      "sha256": "86529fc301e257a97d79c742550c52e220a59bf6493ee8239c87986aa4cf35ff"
+      "version": "A15",
+      "pdfFilename": "151004A15.pdf",
+      "localFilename": "151004A15.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/151004A15.pdf",
+      "sha256": "0e0335d0dd35824c8f172b87f88e8744e1b71748b95807ba8cd0f146f53d3cf2"
     },
     {
       "subjectCode": "90006",
@@ -54,33 +54,33 @@
     "handbook": "https://skill.tcte.edu.tw/download.php",
     "questionBank": "https://techbank.wdasec.gov.tw/"
   },
-  "sourceRevision": "151004A14 + 900060A12/900070A11/900080A18/900090A14",
-  "questionCount": 1000,
-  "activeQuestionCount": 981,
+  "sourceRevision": "151004A15 + 900060A12/900070A11/900080A18/900090A14",
+  "questionCount": 1013,
+  "activeQuestionCount": 1013,
   "sections": [
     {
       "id": "15100-01",
       "subjectCode": "15100",
       "sourceGroup": "occupation",
       "titleZh": "基本檢查及保養",
-      "questionCount": 157,
-      "activeQuestionCount": 157
+      "questionCount": 171,
+      "activeQuestionCount": 171
     },
     {
       "id": "15100-02",
       "subjectCode": "15100",
       "sourceGroup": "occupation",
       "titleZh": "堆高機操作技術",
-      "questionCount": 252,
-      "activeQuestionCount": 251
+      "questionCount": 241,
+      "activeQuestionCount": 241
     },
     {
       "id": "15100-03",
       "subjectCode": "15100",
       "sourceGroup": "occupation",
       "titleZh": "安全及防護",
-      "questionCount": 191,
-      "activeQuestionCount": 173
+      "questionCount": 201,
+      "activeQuestionCount": 201
     },
     {
       "id": "90006-01",
@@ -149,8 +149,8 @@
   },
   "integrity": {
     "status": "fully_verified",
-    "inactiveQuestionCount": 19,
-    "imageQuestionCount": 41,
+    "inactiveQuestionCount": 0,
+    "imageQuestionCount": 47,
     "note": "Answer keys independently cross-checked against the official PDF during import."
   }
 }

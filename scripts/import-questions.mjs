@@ -213,12 +213,6 @@ const QUESTION_OVERRIDES = {
   '90009-04-069': {
     sourcePage: 7,
   },
-  '90011-04-019': {
-    sourcePage: 8,
-  },
-  '90011-04-004': {
-    sourcePage: 6,
-  },
 }
 
 const IMAGE_OVERRIDES = {
@@ -251,7 +245,7 @@ const OFFICIAL_LINKS = {
 }
 const banks = [
   { code: '17300', file: '173002A13-raw.txt', expected: 846 },
-  { code: '90011', file: '900110A12-raw.txt', expected: 119 },
+  { code: '90011', file: '900110A13-raw.txt', expected: 120 },
   { code: '90006', file: '900060A12-raw.txt', expected: 100 },
   { code: '90007', file: '900070A11-raw.txt', expected: 100 },
   { code: '90008', file: '900080A18-raw.txt', expected: 100 },
@@ -262,6 +256,8 @@ const sources = await buildSourceProvenance(banks.map((bank) => bank.code))
 function sourcePageImageFor(question) {
   if (!question.hasFigure) return undefined
   if (question.subjectCode === '17300') return `/question-pages/page-${String(question.sourcePage).padStart(2, '0')}.jpg`
+  // public/question-pages/90011-page-*.jpg are renders of the old A12 PDF.
+  if (question.subjectCode === '90011') return undefined
   return `/question-pages/${question.subjectCode}-page-${question.sourcePage}.jpg`
 }
 
@@ -285,9 +281,11 @@ for (const bank of banks) {
     const override = QUESTION_OVERRIDES[question.id] ?? scripted
     const codeOverride = CODE_BLOCK_OVERRIDES[question.id]
     const hasCodeBlock = !!codeOverride?.codeBlock
-    const hasFigure = override?.hasFigure ?? (hasCodeBlock ? false : question.hasFigure)
-    const sourcePage = override?.sourcePage ?? question.sourcePage
     const imageOverrides = IMAGE_OVERRIDES[question.id]
+    // A named image is a figure even when the parser saw no marker (90011-04-014's
+    // Python code is drawn as graphics) — the same rule build-exam-packs applies.
+    const hasFigure = override?.hasFigure ?? (hasCodeBlock ? false : question.hasFigure || Boolean(imageOverrides))
+    const sourcePage = override?.sourcePage ?? question.sourcePage
     const figureImages = hasFigure
       ? codeOverride?.optionCodeBlocks
         ? imageOverrides?.slice(0, 1).map(questionImagePath)
@@ -323,8 +321,8 @@ const counts = Object.fromEntries(
   ]),
 )
 
-if (questions.length !== 1365) {
-  throw new Error(`Expected 1365 questions, received ${questions.length}`)
+if (questions.length !== 1366) {
+  throw new Error(`Expected 1366 questions, received ${questions.length}`)
 }
 
 for (const [section, count] of Object.entries(expected)) {

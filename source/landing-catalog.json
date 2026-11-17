@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-16T08:31:14.265Z",
+  "generatedAt": "2026-11-17T00:54:08.931Z",
   "examCount": 53,
-  "activeQuestionCount": 61977,
+  "activeQuestionCount": 61852,
   "demandPeriod": "115年截至9月底止通過技能檢定學術科測試",
   "demandSource": "https://www.wdasec.gov.tw/News_Content.aspx?n=5941D5DCC3DD7DDA&sms=CA0630966F34DA45&s=C8325D4465DF9769",
   "featuredExamIds": [
@@ -383,7 +383,7 @@
       "applicantCount": null
     }
   ],
-  "officialCheckedDate": "2026-11-16",
+  "officialCheckedDate": "2026-11-17",
   "officialUpcoming": {
     "accounting-c": "2027-01-01",
     "aircraft-maintenance-c": "2027-01-01",
@@ -399,10 +399,10 @@
     "chinese-cooking-meat-c": "2027-01-01",
     "chinese-cooking-vegetarian-c": "2027-01-01",
     "cnc-milling-b": "2027-01-01",
-    "computer-hardware-repair-b": null,
-    "computer-hardware-repair-c": null,
-    "computer-software-application-b": null,
-    "computer-software-application-c": null,
+    "computer-hardware-repair-b": "2027-01-01",
+    "computer-hardware-repair-c": "2027-01-01",
+    "computer-software-application-b": "2027-01-01",
+    "computer-software-application-c": "2027-01-01",
     "digital-electronics-b": "2027-01-01",
     "dining-service-c": "2027-01-01",
     "electrical-equipment-inspection-c": "2027-01-01",
@@ -411,7 +411,7 @@
     "excavator-operation-single": "2027-01-01",
     "folk-massage-single": "2027-01-01",
     "food-analysis-c": "2027-01-01",
-    "forklift-operation-single": null,
+    "forklift-operation-single": "2027-01-01",
     "funeral-service-b": "2027-01-01",
     "funeral-service-c": "2027-01-01",
     "heat-treatment-c": "2027-01-01",
@@ -426,7 +426,7 @@
     "machining-c": "2027-01-01",
     "man-haircut-c": "2027-01-01",
     "motorcycle-repair-c": "2027-01-01",
-    "network-installation-c": null,
+    "network-installation-c": "2027-01-01",
     "occupational-hygiene-management-a": "2027-01-01",
     "occupational-safety-health-management-b": "2027-01-01",
     "occupational-safety-management-a": "2027-01-01",
@@ -435,7 +435,7 @@
     "surveying-c": "2027-01-01",
     "visual-communication-design-c": "2027-01-01",
     "water-pipe-fitting-c": "2027-01-01",
-    "web-design-b": null,
+    "web-design-b": "2027-01-01",
     "western-cooking-c": "2027-01-01",
     "women-hairdressing-c": "2027-01-01"
   },

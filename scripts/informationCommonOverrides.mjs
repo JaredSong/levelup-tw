@@ -1,59 +1,50 @@
-// Shared repairs for the 90011 資訊技術 common-subject bank (900110A10).
+// Shared repairs for the 90011 資訊相關 common-subject bank (900110A13, 116-01-01 起).
 //
 // 90011 ships inside several packs (web-design-b via import-questions.mjs, and
-// computer-software-application-b/c, computer-hardware-repair-c and any future
+// computer-software-application-b/c, computer-hardware-repair-b/c and any future
 // pack via build-exam-packs.mjs). Both builders previously kept their own copy
 // of these overrides, and the copies drifted: build-exam-packs.mjs never
 // received the 90011 entries at all, so 14 questions per pack fell through to
 // the generic crop-filename convention `<cropPrefix>-<id>.png` — a file no crop
-// step produces, because 90011 is not a crop bank. The result was 42 broken
-// image references on disk across three shipped packs.
+// step produces under a pack's prefix. The result was 42 broken image
+// references on disk across three shipped packs.
 //
 // One bank, one set of repairs. Import from here; do not re-copy.
+//
+// Every entry is keyed to the A13 numbering. A13 renumbered and rewrote most of
+// the bank, so the A12 code transcriptions do not carry over: 04-009/014/019/020
+// changed text, and the rest print their code as graphics, so matching text
+// proves nothing about the code itself.
 
-// 90011's figures were extracted per page rather than per question id, so the
-// filenames are page-derived and contain spaces. They are matched to questions
-// by hand against source/900110A10.pdf.
+// 90011's figures are cropped by build-question-crops.mjs under the bank's own
+// prefix (900110A13), not the pack's, so each figure question names its crops
+// here. The set was reviewed against source/900110A13.pdf.
+const crop = (id) => `900110A13-${id}.png`
+const FIGURE_IDS = [
+  '90011-04-001', '90011-04-002', '90011-04-003', '90011-04-005', '90011-04-009',
+  '90011-04-013', '90011-04-015', '90011-04-016', '90011-04-017', '90011-04-018',
+  '90011-04-019', '90011-04-020',
+  // Python code drawn as graphics; the parser sees no figure marker.
+  '90011-04-014',
+]
 export const INFORMATION_COMMON_IMAGE_OVERRIDES = {
-  '90011-04-001': ['90011-page-5 1.png'],
-  '90011-04-002': ['90011-page-5 2.png'],
-  '90011-04-003': ['90011-page-6 3.png'],
-  '90011-04-004': [
-    '90011-page-6 4.png',
-    '90011-page-6 4-1.png',
-    '90011-page-6 4-2.png',
-    '90011-page-6 4-3.png',
-    '90011-page-6 4-4.png',
-  ],
-  '90011-04-005': ['90011-page-6 5.png'],
-  '90011-04-009': ['90011-page-7 9.png'],
-  '90011-04-013': ['90011-page-7 13.png'],
-  '90011-04-014': ['90011-page-7 14.png'],
-  '90011-04-015': ['90011-page-7 15.png'],
-  '90011-04-016': ['90011-page-7 16.png'],
-  '90011-04-017': ['90011-page-7 17.png'],
-  '90011-04-018': ['90011-page-7 18.png'],
-  '90011-04-019': ['90011-page-8 19.png'],
-  '90011-04-020': ['90011-page-8 20.png'],
+  ...Object.fromEntries(FIGURE_IDS.map((id) => [id, [crop(id)]])),
+  // Prompt flowchart, then the four option crops (unused while the options are
+  // typed below; kept so the typed code can be dropped without a re-crop).
+  '90011-04-004': [crop('90011-04-004'), ...[1, 2, 3, 4].map((n) => `900110A13-90011-04-004-${n}.png`)],
 }
 
-// Text extraction places these two questions on the wrong page, which would
-// point their fallback page scan at the wrong sheet of 900110A10.pdf.
-export const INFORMATION_COMMON_SOURCE_PAGE_OVERRIDES = {
-  '90011-04-004': 6,
-  '90011-04-019': 8,
-}
+// The A13 text layer puts every 90011 question on its own page, so nothing to
+// override. (The page renders under public/question-pages/90011-page-*.jpg show
+// the OLD A12 PDF, so 90011 questions carry no sourcePageImage in either builder.)
+export const INFORMATION_COMMON_SOURCE_PAGE_OVERRIDES = {}
 
-// These questions print code in the official PDF. Transcribing it beats
-// shipping a screenshot: the text stays selectable, scales, and survives a
-// missing crop. A question with a `codeBlock` needs no figure at all, so
+// Code transcriptions. A question with a `codeBlock` needs no figure at all, so
 // `hasFigure` goes false and its IMAGE_OVERRIDES entry above is unused.
 // `90011-04-004` is the exception — its four *options* are code, while the
-// prompt keeps a single figure, so only the first override image is used.
+// prompt keeps a single figure, so only the first override image is used. Its
+// options were checked against source/900110A13.pdf page 6.
 export const INFORMATION_COMMON_CODE_BLOCK_OVERRIDES = {
-  '12000-03-094': {
-    codeBlock: 'A=20:B=5:C=0\nDO WHILE A > B\n  B=B+5\n  A=A-5\n  C=C+1\nWEND',
-  },
   '90011-04-004': {
     optionCodeBlocks: [
       'X>3? cout<<B:cout<<A;\nX=X+1',
@@ -61,35 +52,5 @@ export const INFORMATION_COMMON_CODE_BLOCK_OVERRIDES = {
       'switch(X) {\n  case 1: cout<<A;\n  case 2: cout<<A;\n  case 3: cout<<A;\n  default: cout<<B;',
       'while (X>3) cout<<A;\ncout<<B;\nX=X+1;',
     ],
-  },
-  '90011-04-005': {
-    codeBlock: 'int a,b,c;\ncin>>a;\ncin>>b;\nc=a;\nif(b>c)\n    c=b;\ncout<<"the output is:"<<c;',
-  },
-  '90011-04-009': {
-    codeBlock: 'While (sum <= 1000)\n    sum = sum + 30;',
-  },
-  '90011-04-013': {
-    codeBlock: 'int x = 3;\nint a[] = {1,2,3,4};\nint *z;\nz = a;\nz = z + x;\ncout << *z << "\\n";',
-  },
-  '90011-04-014': {
-    codeBlock: 'int x = 3;\nint a[] = {1,2,3,4};\nint * z;\nz = &x;\ncout << *z << "\\n";',
-  },
-  '90011-04-015': {
-    codeBlock: 'int y = !(12 < 5 || 3 <= 5 && 3 > x) ? 7 : 9;',
-  },
-  '90011-04-016': {
-    codeBlock: "int x;\nx = (5 <= 3 && 'A' < 'F') ? 3 : 4",
-  },
-  '90011-04-017': {
-    codeBlock: 'int a=0, b=0, c=0;\nint x=(a<b+4);',
-  },
-  '90011-04-018': {
-    codeBlock: 'int f(int x, int y) {\n    if(x == y) return 0;\n    else return f(x-1, y) + 1;\n}',
-  },
-  '90011-04-019': {
-    codeBlock: 'for (i=0;i<=m-1;i++){\n    for (j=0;j<=p-1;j++){\n        c[i][j]=0;\n        for (k=0;k<=n-1;k++){\n            c[i][j]=c[i][j]+a[i][k]*b[k][j];\n        }\n    }\n}',
-  },
-  '90011-04-020': {
-    codeBlock: 'x1=2;y1=4;\nx2=6;y2=8;\na=y2-y1;\nb=x2-x1;\nc=-a*x1+b*y1;\ncout<<a<<"x+"<<-b<<"y+"<<c<<"=0";',
   },
 }

@@ -51,8 +51,8 @@ describe('published question bank', () => {
       examId: 'web-design-b',
       titleZh: '網頁設計乙級',
       level: '乙級',
-      questionCount: 1365,
-      activeQuestionCount: 1365,
+      questionCount: 1366,
+      activeQuestionCount: 1366,
       mockRules: { totalQuestions: 80, singleCount: 60, multipleCount: 20 },
     })
     expect(Object.fromEntries(manifest.sections.map((section) => [section.id, section.questionCount]))).toEqual({
@@ -65,17 +65,18 @@ describe('published question bank', () => {
       '90008-03': 100,
       '90009-04': 100,
       '90011-01': 20,
-      '90011-02': 29,
+      '90011-02': 20,
       '90011-03': 10,
       '90011-04': 20,
-      '90011-05': 40,
+      '90011-05': 20,
+      '90011-06': 30,
     })
     expect(generated.every((question) => question.examId === 'web-design-b')).toBe(true)
   })
 
-  it('keeps every generated 90011 answer key aligned with official A10', () => {
+  it('keeps every generated 90011 answer key aligned with official A13', () => {
     const official = parseQuestionBank(
-      readFileSync(new URL('../source/900110A10-raw.txt', import.meta.url), 'utf8'),
+      readFileSync(new URL('../source/900110A13-raw.txt', import.meta.url), 'utf8'),
     )
     const generated = JSON.parse(
       readFileSync(new URL('../source/questions.json', import.meta.url), 'utf8'),
@@ -83,21 +84,22 @@ describe('published question bank', () => {
     const informationCommon = generated.filter((question) => question.subjectCode === '90011')
     const generatedById = new Map(informationCommon.map((question) => [question.id, question]))
 
-    expect(official).toHaveLength(119)
-    expect(informationCommon).toHaveLength(119)
+    expect(official).toHaveLength(120)
+    expect(informationCommon).toHaveLength(120)
     expect(
       Object.fromEntries(
-        ['90011-01', '90011-02', '90011-03', '90011-04', '90011-05'].map((section) => [
+        ['90011-01', '90011-02', '90011-03', '90011-04', '90011-05', '90011-06'].map((section) => [
           section,
           informationCommon.filter((question) => question.section === section).length,
         ]),
       ),
     ).toEqual({
       '90011-01': 20,
-      '90011-02': 29,
+      '90011-02': 20,
       '90011-03': 10,
       '90011-04': 20,
-      '90011-05': 40,
+      '90011-05': 20,
+      '90011-06': 30,
     })
 
     for (const question of official) {
@@ -105,13 +107,13 @@ describe('published question bank', () => {
     }
   })
 
-  it('contains 1,365 unique, structurally valid questions', () => {
+  it('contains 1,366 unique, structurally valid questions', () => {
     const generated = JSON.parse(
       readFileSync(new URL('../source/questions.json', import.meta.url), 'utf8'),
     ) as Question[]
 
-    expect(generated).toHaveLength(1365)
-    expect(new Set(generated.map((question) => question.id)).size).toBe(1365)
+    expect(generated).toHaveLength(1366)
+    expect(new Set(generated.map((question) => question.id)).size).toBe(1366)
     expect(generated.every((question) => question.options.length === 4)).toBe(true)
     expect(generated.every((question) => question.answers.length > 0 && question.answers.every((answer) => answer >= 1 && answer <= 4))).toBe(true)
   })
@@ -158,14 +160,21 @@ describe('published question bank', () => {
   it('keeps active image questions linked to checked image assets', () => {
     const generated = loadBank().filter((question) => question.active !== false && question.hasFigure)
 
-    expect(generated).toHaveLength(8)
+    // 4 + 14 figure questions of 90011 A13 (04-014's code is drawn as graphics).
+    expect(generated).toHaveLength(18)
     for (const question of generated) {
       expect(question.sourceImage, question.id).toBeTruthy()
-      expect(question.sourcePageImage, question.id).toBeTruthy()
       const images = question.sourceImages?.length ? question.sourceImages : [question.sourceImage]
       for (const image of images) {
         expect(existsSync(new URL(`../public${decodeURIComponent(image ?? '')}`, import.meta.url)), `${question.id}: ${image}`).toBe(true)
       }
+      // The 90011 page renders on disk are of the old A12 PDF, so A13
+      // questions must not fall back to them.
+      if (question.subjectCode === '90011') {
+        expect(question.sourcePageImage, question.id).toBeUndefined()
+        continue
+      }
+      expect(question.sourcePageImage, question.id).toBeTruthy()
       expect(existsSync(new URL(`../public${question.sourcePageImage}`, import.meta.url)), `${question.id}: ${question.sourcePageImage}`).toBe(true)
     }
   })
@@ -225,15 +234,16 @@ describe('published question bank', () => {
     })
   })
 
-  it('keeps 90011 code questions transcribed as selectable code instead of screenshots', () => {
+  it('ships 90011 A13 code questions as their reviewed crops, 04-004 options as typed code', () => {
     const byId = new Map(loadBank().map((question) => [question.id, question]))
 
+    // A13 renumbered and rewrote the A12 code questions; only 04-004's options
+    // were re-checked against source/900110A13.pdf, so only they stay typed.
     expect(byId.get('90011-04-004')).toMatchObject({
       answers: [2],
       hasFigure: true,
-      sourceImage: '/question-images/90011-page-6%204.png',
-      sourceImages: ['/question-images/90011-page-6%204.png'],
-      sourcePageImage: '/question-pages/90011-page-6.jpg',
+      sourceImage: '/question-images/900110A13-90011-04-004.png',
+      sourceImages: ['/question-images/900110A13-90011-04-004.png'],
       optionCodeBlocks: [
         expect.stringContaining('X>3? cout<<B'),
         expect.stringContaining('if (X>3)'),
@@ -254,13 +264,11 @@ describe('published question bank', () => {
       '90011-04-020',
     ]) {
       const question = byId.get(id)
-      expect(question?.hasFigure, id).toBe(false)
-      expect(question?.codeBlock, id).toBeTruthy()
-      expect(question?.sourceImage, id).toBeUndefined()
-      expect(question?.sourceImages, id).toBeUndefined()
+      expect(question?.hasFigure, id).toBe(true)
+      expect(question?.codeBlock, id).toBeUndefined()
+      expect(question?.sourceImages, id).toEqual([`/question-images/900110A13-${id}.png`])
       expect(question?.sourcePageImage, id).toBeUndefined()
     }
-    expect(byId.get('90011-04-020')?.codeBlock).toContain('cout<<a<<"x+"<<-b<<"y+"<<c<<"=0";')
   })
 
   it('draws 90001 by the official 116 rule in real mocks (乙 10 single + 6 multiple, 丙 16)', () => {
@@ -286,7 +294,7 @@ describe('published question bank', () => {
     // leftover deletion list would hide live questions.
     const generated = loadBank()
     expect(generated.filter((question) => question.active === false)).toEqual([])
-    expect(generated.filter((question) => question.active !== false)).toHaveLength(1365)
+    expect(generated.filter((question) => question.active !== false)).toHaveLength(1366)
     expect(generated.filter((question) => question.subjectCode === '90008' && question.active !== false)).toHaveLength(100)
   })
 
@@ -449,10 +457,10 @@ describe('published question bank', () => {
       {
         examId: 'computer-hardware-repair-c',
         occupationCode: '12000',
-        version: 'A12',
-        occupation: 707,
-        total: 1226,
-        active: 1226,
+        version: 'A13',
+        occupation: 606,
+        total: 1126,
+        active: 1126,
         sections: 15,
         occupationQuota: 52,
         extraCommonCode: '90011',
@@ -473,9 +481,9 @@ describe('published question bank', () => {
         occupationCode: '17200',
         version: 'A14',
         occupation: 486,
-        total: 1005,
-        active: 1005,
-        sections: 13,
+        total: 1006,
+        active: 1006,
+        sections: 14,
         occupationQuota: 52,
         extraCommonCode: '90011',
         extraCommonQuota: 12,
@@ -834,7 +842,7 @@ describe('published question bank', () => {
         occupationActive: 748,
         extraCommonCode: '90011',
         extraCommonQuota: 12,
-        extraCommonActive: 119,
+        extraCommonActive: 120,
       },
       {
         examId: 'chinese-cooking-meat-c',

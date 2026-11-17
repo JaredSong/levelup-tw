@@ -28,25 +28,6 @@ const INACTIVE_IDS = new Set([
   '17800-06-007',
   '17800-06-069',
   '90010-01-100',
-  '15100-02-187',
-  '15100-03-011',
-  '15100-03-037',
-  '15100-03-039',
-  '15100-03-042',
-  '15100-03-043',
-  '15100-03-045',
-  '15100-03-059',
-  '15100-03-082',
-  '15100-03-097',
-  '15100-03-113',
-  '15100-03-114',
-  '15100-03-122',
-  '15100-03-128',
-  '15100-03-130',
-  '15100-03-143',
-  '15100-03-146',
-  '15100-03-147',
-  '15100-03-190',
   '18201-02-140',
   '18201-04-240',
   '14000-02-065',
@@ -859,10 +840,18 @@ const EXAMS = [
     level: '單一級',
     category: '機械操作',
     occupationCode: '15100',
-    occupationFile: '151004A14-raw.txt',
-    occupationExpected: 600,
-    version: 'A14',
+    occupationFile: '151004A15-raw.txt',
+    occupationExpected: 613,
+    version: 'A15',
     extraCommonCodes: [],
+    cropPrefix: '151004A15',
+    // scripted_tokens.py on 151004A15: CO₂ and kg/cm² (restoreScripts); H₂SO₄,
+    // PbO₂ and m/s² no rule covers cleanly.
+    restoreScripts: true,
+    optionOverrides: {
+      '15100-01-162': ['純鉛（Pb）', '硫酸（H₂SO₄）', '氫氧化鈉（NaOH）', '過氧化鉛（PbO₂）'],
+      '15100-03-148': ['9.8m/s²', '980m/s²', '1m/s²', '1cm/s²'],
+    },
     requireQuestionCrops: true,
     splitImageOptions: true,
     mockRules: {
@@ -1163,16 +1152,18 @@ const EXAMS = [
     category: '資訊',
     occupationCode: '12000',
     occupationSourceKey: '12000-2',
-    occupationFile: '120002A12-raw.txt',
-    occupationExpected: 773,
-    version: 'A12',
+    isolatedOccupation: true,
+    occupationFile: '120002A13-raw.txt',
+    occupationExpected: 708,
+    version: 'A13',
     extraCommonCodes: ['90011'],
-    cropPrefix: '120002',
+    cropPrefix: '120002A13',
     requireQuestionCrops: true,
     splitImageOptions: true,
-    mixedFigureOptionIds: ['12000-01-022', '12000-01-023'],
-    excludedFigureIds: ['12000-01-025'],
-    inactiveIds: ['12000-01-025', '12000-04-014', '12000-06-010'],
+    mixedFigureOptionIds: ['12000-01-020', '12000-01-021'],
+    // Circuits, a truth table and K-maps the PDF draws as graphics with no
+    // figure marker in the text (uncovered-ink scan of 120002A13).
+    figureIds: ['12000-01-027', '12000-01-036', '12000-02-058', '12000-02-059', '12000-02-060', '12000-02-063', '12000-02-064'],
     mockRules: {
       occupationQuota: 55,
       singleCount: 80,
@@ -1189,14 +1180,19 @@ const EXAMS = [
     level: '丙級',
     category: '資訊',
     occupationCode: '12000',
-    occupationFile: '120003A12-raw.txt',
-    occupationExpected: 707,
-    version: 'A12',
+    occupationFile: '120003A13-raw.txt',
+    occupationExpected: 606,
+    version: 'A13',
     extraCommonCodes: ['90011'],
-    cropPrefix: '120003',
+    cropPrefix: '120003A13',
     requireQuestionCrops: true,
     splitImageOptions: true,
     mixedFigureOptionIds: ['12000-01-003'],
+    // C++ / Visual Basic code the PDF draws as graphics with no figure marker
+    // in the text (uncovered-ink scan of 120003A13).
+    figureIds: ['12000-03-034', '12000-03-035', '12000-03-036', '12000-03-038', '12000-03-039', '12000-05-095', '12000-05-096', '12000-05-097'],
+    // Powers the text layer flattens (「16×2 1 0」), checked on the PDF image.
+    optionOverrides: { '12000-04-017': ['16×2¹⁰', '16×10¹⁰', '16×2³⁰', '16×10³⁰'] },
     mockRules: {
       occupationQuota: 52,
       singleCount: 80,
@@ -1661,9 +1657,9 @@ const FOOD_COMMON_BANK = {
 
 const INFORMATION_COMMON_BANK = {
   code: '90011',
-  file: '900110A12-raw.txt',
-  expected: 119,
-  version: 'A12',
+  file: '900110A13-raw.txt',
+  expected: 120,
+  version: 'A13',
   quota: 4,
 }
 
@@ -1680,6 +1676,8 @@ function questionImagePath(fileName) {
 
 function sourcePageImageFor(question) {
   if (!question.hasFigure || NO_SOURCE_PAGE_IMAGE.has(question.id)) return undefined
+  // public/question-pages/90011-page-*.jpg are renders of the old A12 PDF.
+  if (question.subjectCode === '90011') return undefined
   return `/question-pages/${question.subjectCode}-page-${question.sourcePage}.jpg`
 }
 

@@ -4,10 +4,9 @@ import { describe, expect, it } from 'vitest'
 import { buildMockQueue, type Question } from '../src/domain/studyEngine'
 
 const PACKS = [
-  // tightCrops added: this pack's one image-option question (15100-02-015)
-  // now ships four separate option crops instead of one combined strip, and
-  // those per-option crops are small like every other tight-cropped pack.
-  { examId: 'forklift-operation-single', occupationCode: '15100', sourceQuestions: 600, inactive: 19, figures: 37, tightCrops: true },
+  // 116 bank 151004A15: 613 questions, no 本題刪題, 43 figure questions
+  // (crops signed off; 15100-02-015 ships four separate option crops).
+  { examId: 'forklift-operation-single', occupationCode: '15100', sourceQuestions: 613, inactive: 0, figures: 43, cropPrefix: '151004A15', tightCrops: true },
   // tightCrops added: 12600-01-043/044/045 (mixedFigureOptions) plus the 15
   // pure image-option questions all ship small per-option crops now.
   { examId: 'interior-decoration-management-b', occupationCode: '12600', sourceQuestions: 718, inactive: 0, figures: 38, tightCrops: true },
@@ -19,12 +18,13 @@ const PACKS = [
   { examId: 'indoor-wiring-c', occupationCode: '00700', sourceQuestions: 618, inactive: 0, figures: 62, cropPrefix: '007003', tightCrops: true },
   { examId: 'industrial-electronics-c', occupationCode: '02800', sourceQuestions: 651, inactive: 0, figures: 128, cropPrefix: '028003' },
   { examId: 'heat-treatment-c', occupationCode: '02100', sourceQuestions: 609, inactive: 0, figures: 4, cropPrefix: '021003', tightCrops: true },
-  // 76 → 75: 12000-03-094 is a program snippet, now rendered as selectable
-  // code text instead of a fuzzy screenshot crop.
-  { examId: 'computer-hardware-repair-b', occupationCode: '12000', sourceQuestions: 773, inactive: 3, figures: 75, cropPrefix: '120002', tightCrops: true },
-  // tightCrops added: 12000-01-003 (mixedFigureOptions) now ships a small
-  // base figure plus four small option crops instead of one combined strip.
-  { examId: 'computer-hardware-repair-c', occupationCode: '12000', sourceQuestions: 707, inactive: 0, figures: 17, cropPrefix: '120003', tightCrops: true },
+  // 116 bank 120002A13: 708 questions, no 本題刪題, 86 figure questions (79 the
+  // parser marks + 7 drawn without a marker; 12000-03-078/079/080's program
+  // snippets ship as their signed-off crops).
+  { examId: 'computer-hardware-repair-b', occupationCode: '12000', sourceQuestions: 708, inactive: 0, figures: 86, cropPrefix: '120002A13', tightCrops: true },
+  // 116 bank 120003A13: 12000-01-003 (mixedFigureOptions) ships a small base
+  // figure plus four small option crops.
+  { examId: 'computer-hardware-repair-c', occupationCode: '12000', sourceQuestions: 606, inactive: 0, figures: 25, cropPrefix: '120003A13', tightCrops: true },
   // tightCrops added: 15 image-option questions now ship four small option
   // crops apiece instead of one combined strip.
   { examId: 'water-pipe-fitting-c', occupationCode: '01600', sourceQuestions: 707, inactive: 0, figures: 34, cropPrefix: '016003', tightCrops: true },

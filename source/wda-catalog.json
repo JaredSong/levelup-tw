@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-11-16T05:09:39.227Z",
+  "generatedAt": "2026-11-17T00:48:30.869Z",
   "source": "https://owinform.wdasec.gov.tw/",
   "authority": "official-primary",
-  "effectiveRocDate": "1151116",
-  "effectiveDate": "2026-11-16",
-  "officialTodayDate": "2026-11-16",
+  "effectiveRocDate": "1151117",
+  "effectiveDate": "2026-11-17",
+  "officialTodayDate": "2026-11-17",
   "entryCount": 269,
   "documentCount": 276,
   "errors": [],
@@ -6543,8 +6543,7 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/120002A12.pdf",
       "effectiveFrom": "2019-01-01",
       "effectiveFromRoc": "1080101",
-      "remark": null,
-      "sha256": "7e477aed31b91ce05621abcd42aa263d6705cf3e164d1c31d245a6757660fa31"
+      "remark": null
     },
     {
       "subjectCode": "12000",
@@ -6556,8 +6555,7 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/120003A12.pdf",
       "effectiveFrom": "2020-01-01",
       "effectiveFromRoc": "1090101",
-      "remark": null,
-      "sha256": "13a0f919350e28de8ada060fa3baec61d1700f4b05f4b4f14ebf13b43698b378"
+      "remark": null
     },
     {
       "subjectCode": "12100",
@@ -6922,8 +6920,7 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/151004A14.pdf",
       "effectiveFrom": "2022-01-01",
       "effectiveFromRoc": "1110101",
-      "remark": null,
-      "sha256": "86529fc301e257a97d79c742550c52e220a59bf6493ee8239c87986aa4cf35ff"
+      "remark": null
     },
     {
       "subjectCode": "15200",
@@ -8201,8 +8198,7 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900110A12.pdf",
       "effectiveFrom": "2020-01-01",
       "effectiveFromRoc": "1090101",
-      "remark": null,
-      "sha256": "6b76e319e47cefd658551d2096521933bced6b4c99023874015863655b8dcd3a"
+      "remark": null
     },
     {
       "subjectCode": "90012",
@@ -9926,7 +9922,8 @@
         "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/120002A13.pdf",
         "effectiveFrom": "2027-01-01",
         "effectiveFromRoc": "1160101",
-        "remark": "116/01/01起報檢者適用"
+        "remark": "116/01/01起報檢者適用",
+        "sha256": "56bc4c655be3c55e7c8a49b5018cd818ea3954459b1f0abcabda8333b1ec4303"
       },
       {
         "subjectCode": "12000",
@@ -9938,7 +9935,8 @@
         "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/120003A13.pdf",
         "effectiveFrom": "2027-01-01",
         "effectiveFromRoc": "1160101",
-        "remark": "116/01/01起報檢者適用"
+        "remark": "116/01/01起報檢者適用",
+        "sha256": "792ede847d3f2dd2aa55735fc50c7e3541330a2367e66a5f7119697315a10036"
       },
       {
         "subjectCode": "12100",
@@ -10303,7 +10301,8 @@
         "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/151004A15.pdf",
         "effectiveFrom": "2027-01-01",
         "effectiveFromRoc": "1160101",
-        "remark": "116/01/01起報檢者適用"
+        "remark": "116/01/01起報檢者適用",
+        "sha256": "0e0335d0dd35824c8f172b87f88e8744e1b71748b95807ba8cd0f146f53d3cf2"
       },
       {
         "subjectCode": "15200",
@@ -11588,7 +11587,8 @@
         "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900110A13.pdf",
         "effectiveFrom": "2027-01-01",
         "effectiveFromRoc": "1160101",
-        "remark": "116/01/01起報檢者適用"
+        "remark": "116/01/01起報檢者適用",
+        "sha256": "d9c18a3d549321f8f44e2ad384f5e8d36943aeb84f306590ae904379e12c0df3"
       },
       {
         "subjectCode": "90012",
@@ -11967,6 +11967,18 @@
       },
       {
         "examId": "computer-hardware-repair-b",
+        "subjectCode": "12000",
+        "installed": "120002A13.pdf",
+        "effectiveFrom": "2027-01-01"
+      },
+      {
+        "examId": "computer-hardware-repair-b",
+        "subjectCode": "90011",
+        "installed": "900110A13.pdf",
+        "effectiveFrom": "2027-01-01"
+      },
+      {
+        "examId": "computer-hardware-repair-b",
         "subjectCode": "90006",
         "installed": "900060A12.pdf",
         "effectiveFrom": "2027-01-01"
@@ -11991,6 +12003,18 @@
       },
       {
         "examId": "computer-hardware-repair-c",
+        "subjectCode": "12000",
+        "installed": "120003A13.pdf",
+        "effectiveFrom": "2027-01-01"
+      },
+      {
+        "examId": "computer-hardware-repair-c",
+        "subjectCode": "90011",
+        "installed": "900110A13.pdf",
+        "effectiveFrom": "2027-01-01"
+      },
+      {
+        "examId": "computer-hardware-repair-c",
         "subjectCode": "90006",
         "installed": "900060A12.pdf",
         "effectiveFrom": "2027-01-01"
@@ -12015,6 +12039,12 @@
       },
       {
         "examId": "computer-software-application-b",
+        "subjectCode": "90011",
+        "installed": "900110A13.pdf",
+        "effectiveFrom": "2027-01-01"
+      },
+      {
+        "examId": "computer-software-application-b",
         "subjectCode": "90006",
         "installed": "900060A12.pdf",
         "effectiveFrom": "2027-01-01"
@@ -12035,6 +12065,12 @@
         "examId": "computer-software-application-b",
         "subjectCode": "90009",
         "installed": "900090A14.pdf",
+        "effectiveFrom": "2027-01-01"
+      },
+      {
+        "examId": "computer-software-application-c",
+        "subjectCode": "90011",
+        "installed": "900110A13.pdf",
         "effectiveFrom": "2027-01-01"
       },
       {
@@ -12263,6 +12299,12 @@
         "examId": "food-analysis-c",
         "subjectCode": "90009",
         "installed": "900090A14.pdf",
+        "effectiveFrom": "2027-01-01"
+      },
+      {
+        "examId": "forklift-operation-single",
+        "subjectCode": "15100",
+        "installed": "151004A15.pdf",
         "effectiveFrom": "2027-01-01"
       },
       {
@@ -12633,6 +12675,12 @@
       },
       {
         "examId": "network-installation-c",
+        "subjectCode": "90011",
+        "installed": "900110A13.pdf",
+        "effectiveFrom": "2027-01-01"
+      },
+      {
+        "examId": "network-installation-c",
         "subjectCode": "90006",
         "installed": "900060A12.pdf",
         "effectiveFrom": "2027-01-01"
@@ -12861,6 +12909,12 @@
       },
       {
         "examId": "web-design-b",
+        "subjectCode": "90011",
+        "installed": "900110A13.pdf",
+        "effectiveFrom": "2027-01-01"
+      },
+      {
+        "examId": "web-design-b",
         "subjectCode": "90006",
         "installed": "900060A12.pdf",
         "effectiveFrom": "2027-01-01"
@@ -12932,61 +12986,6 @@
         "effectiveFrom": "2027-01-01"
       }
     ],
-    "behindAnnounced": [
-      {
-        "examId": "computer-hardware-repair-b",
-        "subjectCode": "12000",
-        "installed": "120002A12.pdf",
-        "announced": "120002A13.pdf"
-      },
-      {
-        "examId": "computer-hardware-repair-b",
-        "subjectCode": "90011",
-        "installed": "900110A12.pdf",
-        "announced": "900110A13.pdf"
-      },
-      {
-        "examId": "computer-hardware-repair-c",
-        "subjectCode": "12000",
-        "installed": "120003A12.pdf",
-        "announced": "120003A13.pdf"
-      },
-      {
-        "examId": "computer-hardware-repair-c",
-        "subjectCode": "90011",
-        "installed": "900110A12.pdf",
-        "announced": "900110A13.pdf"
-      },
-      {
-        "examId": "computer-software-application-b",
-        "subjectCode": "90011",
-        "installed": "900110A12.pdf",
-        "announced": "900110A13.pdf"
-      },
-      {
-        "examId": "computer-software-application-c",
-        "subjectCode": "90011",
-        "installed": "900110A12.pdf",
-        "announced": "900110A13.pdf"
-      },
-      {
-        "examId": "forklift-operation-single",
-        "subjectCode": "15100",
-        "installed": "151004A14.pdf",
-        "announced": "151004A15.pdf"
-      },
-      {
-        "examId": "network-installation-c",
-        "subjectCode": "90011",
-        "installed": "900110A12.pdf",
-        "announced": "900110A13.pdf"
-      },
-      {
-        "examId": "web-design-b",
-        "subjectCode": "90011",
-        "installed": "900110A12.pdf",
-        "announced": "900110A13.pdf"
-      }
-    ]
+    "behindAnnounced": []
   }
 }

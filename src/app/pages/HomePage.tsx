@@ -9,7 +9,7 @@ import { bankNoticeFor, dismissBankNotice } from '../../storage/bankRevisionRunn
 import { db, type SessionResult } from '../../storage/db'
 import { isSyncEnabled } from '../../storage/sync'
 import { daysUntilExam, getExamDate } from '../examCountdown'
-import { getRegistrationNotice, NATIONAL_EXAM_SCHEDULE_SOURCE } from '../nationalExamSchedule'
+import { getExamScheduleEntries, getRegistrationNotice, NATIONAL_EXAM_SCHEDULE_SOURCE } from '../nationalExamSchedule'
 import { useActiveExam } from '../useActiveExam'
 
 interface Props {
@@ -116,7 +116,9 @@ export function HomePage(props: Props) {
   const { activeExam } = useActiveExam()
   const now = new Date()
   const examDays = daysUntilExam(getExamDate(), now)
-  const registration = getRegistrationNotice(now)
+  // Only rounds the active exam runs in: a nudge for a round it isn't in would
+  // send the learner to register for an exam that isn't held.
+  const registration = getRegistrationNotice(now, getExamScheduleEntries(activeExam.examId))
   const showBackupNudge = !isSyncEnabled() && props.seen >= 20
   const lastMock = useLastMock(activeExam.examId)
   const mockDoneToday = Boolean(lastMock && localDayKey(lastMock.finishedAt) === localDayKey(now))

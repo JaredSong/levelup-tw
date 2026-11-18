@@ -47,7 +47,16 @@ describe('exam page FAQ', () => {
   it('only includes the schedule while a round is upcoming', () => {
     const baking = exam('baking-food-c')
     expect(examFaqs(baking, new Date('2026-10-01T00:00:00')).some((item) => item.q.includes('什麼時候報名'))).toBe(true)
-    expect(examFaqs(baking, new Date('2027-06-01T00:00:00')).some((item) => item.q.includes('什麼時候報名'))).toBe(false)
+    expect(examFaqs(baking, new Date('2027-11-08T00:00:00')).some((item) => item.q.includes('什麼時候報名'))).toBe(false)
+  })
+
+  it('names only the rounds this exam runs in', () => {
+    // 烘焙食品丙 runs in 116 round 3 only, so its FAQ skips rounds 1 and 2.
+    const answer = examFaqs(exam('baking-food-c'), new Date('2026-11-18T00:00:00')).find((item) => item.q.includes('什麼時候報名'))?.a
+    expect(answer).toContain('116 年度排在第 3 梯次')
+    expect(answer).toContain('116年度第3梯次')
+    expect(answer).toContain('2027-11-07')
+    expect(examFaqs(exam('industrial-wiring-c'), new Date('2026-11-18T00:00:00')).some((item) => item.q.includes('什麼時候報名'))).toBe(false)
   })
 
   it('marks up exactly the visible Q&As', () => {

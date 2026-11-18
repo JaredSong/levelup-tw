@@ -121,13 +121,13 @@ export const zhTW = {
     trustOfflineBody: '題庫下載後可離線使用；進度預設存在本機，換裝置再用進度代碼還原。',
     trustNoAds: '沒有廣告',
     trustNoAdsBody: '練習、模擬、複習與筆記畫面永遠不會跳出廣告打斷你。',
-    scheduleEyebrow: '考試日期 · 115 年度',
-    scheduleTitle: '115 年度全國技術士技能檢定，三個梯次的學科日期。',
-    scheduleBody: '報名一旦錯過就要等下一梯次，所以先把日期記起來。實際梯次、考科與報名時間，一律以官方簡章最新公告為準。',
+    scheduleEyebrow: '考試日期 · 116 年度',
+    scheduleTitle: '116 年度全國技術士技能檢定，三個梯次的學科日期。',
+    scheduleBody: '報名一旦錯過就要等下一梯次，所以先把日期記起來。實際梯次、考科與報名時間，一律以技能檢定中心最新公告為準。每個考科只排在其中幾個梯次，請到考科頁查看。',
     scheduleWritten: '學科測試',
     scheduleReg: '報名期間',
     scheduleNote: '資料整理自勞動部勞動力發展署技能檢定中心公告，僅供參考。',
-    scheduleSource: '115 年度簡章',
+    scheduleSource: '116 年度梯次公告',
     // Hero countdown chip, derived from the same schedule data. Function-shaped
     // so round/day counts slot into the sentence; no upcoming round → no chip.
     countdownChip: (round: number, days: number) => `距第${round}梯次學科測驗還有 ${days} 天`,
@@ -298,9 +298,9 @@ export const zhTW = {
       q: `「${name}」學科要練哪一份題庫？`,
       a: `「${name}」分成${titles}，各有自己的學科題庫。這頁是${title}（代號 ${code}）；報考其他類別的話，請練對應考科的題庫。`,
     }),
-    faqSchedule: (title: string, label: string, start: string, end: string, written: string) => ({
+    faqSchedule: (title: string, year: number, rounds: string, label: string, start: string, end: string, written: string) => ({
       q: `${title}什麼時候報名？學科什麼時候考？`,
-      a: `${label}報名期間是 ${start} 到 ${end}，學科測試日期為 ${written}。實際日期與報名方式請以技能檢定中心最新公告為準。`,
+      a: `${title}在 ${year} 年度排在第 ${rounds} 梯次。最近的是${label}，報名期間是 ${start} 到 ${end}，學科測試日期為 ${written}。實際日期與報名方式請以技能檢定中心最新公告為準。`,
     }),
     aboutTitle: '關於升級吧',
     aboutBody: '升級吧收錄技術士技能檢定官方公開的學科題庫，是免費的個人專案，不隸屬於勞動部勞動力發展署技能檢定中心。題目與答案整理自官方公開資料，僅供個人練習參考，一切請以官方最新公告為準。',
@@ -545,7 +545,7 @@ export const zhTW = {
     examDateManual: '你的考試日期',
     examDatePast: '已過',
     examDateNext: '下一梯次',
-    examDateSource: '資料來源：115年度全國技術士技能檢定簡章',
+    examDateSource: '資料來源：116年度全國技術士技能檢定梯次公告',
     officialInfoEyebrow: '官方資訊',
     officialInfoTitle: '報名、簡章與成績查詢',
     officialInfoHint: '這裡只連到官方系統；成績與合格資訊不在本機儲存，也不抓取個資。',

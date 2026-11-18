@@ -34,7 +34,7 @@ import { prefersReducedMotion, useAutoDrift, useCountUp } from './landingMotion'
 import { applyTheme, currentTheme, type Theme } from './theme'
 import { SupportPanel } from './SupportPanel'
 import { QrSvg } from '../components/QrCode'
-import { NATIONAL_EXAM_SCHEDULE_115, NATIONAL_EXAM_SCHEDULE_SOURCE, type NationalExamScheduleEntry } from './nationalExamSchedule'
+import { CURRENT_NATIONAL_EXAM_SCHEDULE, NATIONAL_EXAM_SCHEDULE_SOURCE, type NationalExamScheduleEntry } from './nationalExamSchedule'
 import { CATALOG_PATH, EN_PATH, GUIDE_PATH, SITE_ORIGIN, examPath } from './seoUrls'
 import { MathText } from '../components/MathText'
 
@@ -205,7 +205,7 @@ export function LandingPage({ exams, returning, onEnter, t = zhTW.landing, lang 
   // The nearest upcoming round drives the schedule highlight. sv-SE gives local
   // YYYY-MM-DD. Once every listed round has passed, nothing is highlighted.
   const todayIso = new Date().toLocaleDateString('sv-SE')
-  const nextScheduleId = NATIONAL_EXAM_SCHEDULE_115.find((entry) => entry.writtenDate >= todayIso)?.id
+  const nextScheduleId = CURRENT_NATIONAL_EXAM_SCHEDULE.find((entry) => entry.writtenDate >= todayIso)?.id
 
   useEffect(() => {
     const onScroll = () => setShowTop(window.scrollY > 700)
@@ -560,7 +560,7 @@ export function LandingPage({ exams, returning, onEnter, t = zhTW.landing, lang 
           <p>{t.scheduleBody}</p>
         </div>
         <div className="landing-schedule-grid">
-          {NATIONAL_EXAM_SCHEDULE_115.map((entry) => (
+          {CURRENT_NATIONAL_EXAM_SCHEDULE.map((entry) => (
             <div
               className={entry.id === nextScheduleId ? 'landing-schedule-card landing-schedule-next' : 'landing-schedule-card'}
               key={entry.id}

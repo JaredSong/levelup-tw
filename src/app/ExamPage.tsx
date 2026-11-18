@@ -6,7 +6,7 @@ import { zhTW } from '../i18n/zh-TW'
 import { INSTALLED_EXAMS } from './activeExam'
 import { trackLanding } from './analytics'
 import { GENERATED_EXAM_SAMPLES } from './generatedExamSamples'
-import { getNextNationalExamEntry } from './nationalExamSchedule'
+import { getNextExamRound } from './nationalExamSchedule'
 import { CATALOG_PATH, examPath } from './seoUrls'
 import { examAliasCopy, examFaqs, officialCheck } from './examFaqs'
 import { MathText } from '../components/MathText'
@@ -40,9 +40,10 @@ export function ExamPage({ exam, onEnter, onHome }: Props) {
   // actually search during registration season. All of it comes from the
   // manifest and the schedule module — never hand-typed here, so a stale date
   // can't outlive the data it came from. Computed at prerender time, which is
-  // why it is the next *upcoming* round rather than a fixed one.
+  // why it is the next *upcoming* round rather than a fixed one — and only a
+  // round this exam actually runs in (nationalExamRounds.ts).
   const now = new Date()
-  const nextRound = getNextNationalExamEntry(now)
+  const nextRound = getNextExamRound(exam.examId, now)
   const faqs = examFaqs(exam, now)
   const aliases = examAliasCopy(exam.examId)
   const latest = officialCheck(exam.examId)

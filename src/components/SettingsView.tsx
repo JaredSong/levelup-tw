@@ -2,7 +2,7 @@ import { Download, ExternalLink, FileWarning, LogOut, Moon, RefreshCw, RotateCcw
 import { useState } from 'react'
 import { getExamDate, setExamDate } from '../app/examCountdown'
 import { formatSyncCode, normalizeSyncCode } from '../app/syncCode'
-import { getNextNationalExamEntry, isScheduleEntryPast, NATIONAL_EXAM_SCHEDULE_115, NATIONAL_EXAM_SCHEDULE_SOURCE } from '../app/nationalExamSchedule'
+import { getNextNationalExamEntry, isScheduleEntryPast, CURRENT_NATIONAL_EXAM_SCHEDULE, NATIONAL_EXAM_SCHEDULE_SOURCE } from '../app/nationalExamSchedule'
 import { PROFILE_NAME_KEY } from '../app/onboardingState'
 import { useActiveExam } from '../app/useActiveExam'
 import type { Progress, Question } from '../domain/studyEngine'
@@ -203,7 +203,7 @@ export function SettingsView({ questions, progress }: Props) {
         <h2>{zhTW.stats.examDateTitle}</h2>
         <p>{zhTW.stats.examDateHint}</p>
         <div className="schedule-buttons" role="group" aria-label={zhTW.stats.examDateOfficial}>
-          {NATIONAL_EXAM_SCHEDULE_115.map((entry) => {
+          {CURRENT_NATIONAL_EXAM_SCHEDULE.map((entry) => {
             const isPast = isScheduleEntryPast(entry, now)
             const isNext = nextNationalExam?.id === entry.id
             const isSelected = examDateValue === entry.writtenDate

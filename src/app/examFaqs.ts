@@ -2,7 +2,7 @@ import type { ExamManifest } from '../core/exam'
 import { zhTW } from '../i18n/zh-TW'
 import { examAliases } from './examAliases'
 import { GENERATED_LANDING_CATALOG } from './generatedLandingCatalog'
-import { getNextNationalExamEntry } from './nationalExamSchedule'
+import { getExamRounds, getNextExamRound } from './nationalExamSchedule'
 import { formatQuestionCount } from './seoUrls'
 
 export interface ExamFaq {
@@ -58,8 +58,11 @@ export function examFaqs(exam: ExamManifest, now: Date): ExamFaq[] {
   const pdfs = (exam.sources ?? []).map((source) => source.pdfFilename)
   if (pdfs.length) faqs.push(t.faqDownload(title, pdfs.join('、')))
 
-  const next = getNextNationalExamEntry(now)
-  if (next) faqs.push(t.faqSchedule(title, next.label, next.registrationStart, next.registrationEnd, next.writtenDate))
+  const next = getNextExamRound(exam.examId, now)
+  if (next) {
+    const rounds = getExamRounds(exam.examId, next.year).join('、')
+    faqs.push(t.faqSchedule(title, next.year, rounds, next.label, next.registrationStart, next.registrationEnd, next.writtenDate))
+  }
 
   return faqs
 }

@@ -1,6 +1,8 @@
+import { NATIONAL_EXAM_ROUNDS } from './nationalExamRounds'
+
 export interface NationalExamScheduleEntry {
   id: string
-  year: 115
+  year: 115 | 116
   round: 1 | 2 | 3
   label: string
   writtenDate: string
@@ -8,7 +10,13 @@ export interface NationalExamScheduleEntry {
   registrationEnd: string
 }
 
-export const NATIONAL_EXAM_SCHEDULE_SOURCE = 'https://skill.tcte.edu.tw/doc/YR115/115Skill_reg_20260401.pdf'
+export const NATIONAL_EXAM_SCHEDULE_SOURCE_115 = 'https://skill.tcte.edu.tw/doc/YR115/115Skill_reg_20260401.pdf'
+// The 116 簡章 is not out yet; the dates come from the 技能檢定中心公告 (115.8.28,
+// 修正 115.11.13). Switch this to the 簡章 once it is published.
+export const NATIONAL_EXAM_SCHEDULE_SOURCE_116 =
+  'https://www.wdasec.gov.tw/News_Content.aspx?n=F240F6BB01FE46BA&s=2E98B26912AA4F97&sms=DD855C7DF840A224'
+/** The year learners are registering for now: what the landing and settings list. */
+export const NATIONAL_EXAM_SCHEDULE_SOURCE = NATIONAL_EXAM_SCHEDULE_SOURCE_116
 
 export const NATIONAL_EXAM_SCHEDULE_115: NationalExamScheduleEntry[] = [
   {
@@ -40,6 +48,45 @@ export const NATIONAL_EXAM_SCHEDULE_115: NationalExamScheduleEntry[] = [
   },
 ]
 
+export const NATIONAL_EXAM_SCHEDULE_116: NationalExamScheduleEntry[] = [
+  {
+    id: '116-1',
+    year: 116,
+    round: 1,
+    label: '116年度第1梯次',
+    writtenDate: '2027-03-14',
+    registrationStart: '2027-01-04',
+    registrationEnd: '2027-01-13',
+  },
+  {
+    id: '116-2',
+    year: 116,
+    round: 2,
+    label: '116年度第2梯次',
+    writtenDate: '2027-07-04',
+    registrationStart: '2027-04-26',
+    registrationEnd: '2027-05-06',
+  },
+  {
+    id: '116-3',
+    year: 116,
+    round: 3,
+    label: '116年度第3梯次',
+    writtenDate: '2027-11-07',
+    registrationStart: '2027-08-27',
+    registrationEnd: '2027-09-07',
+  },
+]
+
+/** Every known round, oldest first. */
+export const NATIONAL_EXAM_SCHEDULE: NationalExamScheduleEntry[] = [
+  ...NATIONAL_EXAM_SCHEDULE_115,
+  ...NATIONAL_EXAM_SCHEDULE_116,
+]
+
+/** The year learners are registering for now. */
+export const CURRENT_NATIONAL_EXAM_SCHEDULE = NATIONAL_EXAM_SCHEDULE_116
+
 function startOfLocalDay(date: Date) {
   return new Date(date.getFullYear(), date.getMonth(), date.getDate())
 }
@@ -50,8 +97,27 @@ export function isScheduleEntryPast(entry: Pick<NationalExamScheduleEntry, 'writ
   return startOfLocalDay(examDate).getTime() < startOfLocalDay(now).getTime()
 }
 
-export function getNextNationalExamEntry(now: Date, entries = NATIONAL_EXAM_SCHEDULE_115) {
+export function getNextNationalExamEntry(now: Date, entries = NATIONAL_EXAM_SCHEDULE) {
   return entries.find((entry) => !isScheduleEntryPast(entry, now)) ?? null
+}
+
+/**
+ * The next round this exam actually runs in, or null. Only years whose
+ * per-exam table has been read count, so an exam never shows a round it isn't
+ * in; an exam that isn't in the national exam that year shows none.
+ */
+export function getNextExamRound(examId: string, now: Date, entries = NATIONAL_EXAM_SCHEDULE) {
+  return getExamScheduleEntries(examId, entries).find((entry) => !isScheduleEntryPast(entry, now)) ?? null
+}
+
+/** The rounds this exam runs in, across every year whose per-exam table has been read. */
+export function getExamScheduleEntries(examId: string, entries = NATIONAL_EXAM_SCHEDULE) {
+  return entries.filter((entry) => (NATIONAL_EXAM_ROUNDS[entry.year]?.[examId] ?? []).includes(entry.round))
+}
+
+/** This exam's rounds in a year (e.g. [1, 3]), or [] when unknown or not offered. */
+export function getExamRounds(examId: string, year: number): number[] {
+  return NATIONAL_EXAM_ROUNDS[year]?.[examId] ?? []
 }
 
 /** Whole local days from `now` to an ISO date; negative once the date has passed. */
@@ -85,7 +151,7 @@ export interface RegistrationNotice {
  * this surfaces only while it is actionable and returns null the rest of the
  * year rather than becoming permanent furniture.
  */
-export function getRegistrationNotice(now: Date, entries = NATIONAL_EXAM_SCHEDULE_115): RegistrationNotice | null {
+export function getRegistrationNotice(now: Date, entries = NATIONAL_EXAM_SCHEDULE): RegistrationNotice | null {
   // The first round whose window has not already closed; a past exam's window is
   // closed by definition, so this also skips fully-past rounds.
   const entry = entries.find((candidate) => daysBetween(now, candidate.registrationEnd) >= 0)

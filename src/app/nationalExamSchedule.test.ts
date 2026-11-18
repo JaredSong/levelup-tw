@@ -1,5 +1,9 @@
 import { describe, expect, it } from 'vitest'
+import { INSTALLED_EXAMS } from './activeExam'
+import { NATIONAL_EXAM_ROUNDS_116 } from './nationalExamRounds'
 import {
+  getExamScheduleEntries,
+  getNextExamRound,
   getNextNationalExamEntry,
   getRegistrationNotice,
   isScheduleEntryPast,
@@ -20,8 +24,50 @@ describe('getNextNationalExamEntry', () => {
     expect(isScheduleEntryPast(ROUND_3, new Date('2026-11-09T00:01:00'))).toBe(true)
   })
 
+  it('rolls over into the next year once the last round of a year has passed', () => {
+    expect(getNextNationalExamEntry(new Date('2026-11-09T12:00:00'))?.id).toBe('116-1')
+  })
+
   it('returns null once every bundled round has passed', () => {
-    expect(getNextNationalExamEntry(new Date('2026-11-09T12:00:00'))).toBeNull()
+    expect(getNextNationalExamEntry(new Date('2027-11-08T12:00:00'))).toBeNull()
+  })
+})
+
+describe('per-exam rounds (116 梯次公告, 115.11.13 修正)', () => {
+  it('has rounds read from the gazette for every published exam', () => {
+    const missing = INSTALLED_EXAMS.map((exam) => exam.examId).filter((id) => !(id in NATIONAL_EXAM_ROUNDS_116))
+    expect(missing).toEqual([])
+  })
+
+  it('only lists exams that are published', () => {
+    const published = new Set(INSTALLED_EXAMS.map((exam) => exam.examId))
+    expect(Object.keys(NATIONAL_EXAM_ROUNDS_116).filter((id) => !published.has(id))).toEqual([])
+  })
+
+  it('gives an exam the next round it actually runs in, not the next round overall', () => {
+    // From 2026-11-18 the next round overall is 116-1 (written 2027-03-14).
+    const now = new Date('2026-11-18T12:00:00')
+    expect(getNextExamRound('computer-hardware-repair-c', now)?.id).toBe('116-1')
+    expect(getNextExamRound('web-design-b', now)?.id).toBe('116-2')
+    expect(getNextExamRound('machining-c', now)?.id).toBe('116-3')
+    expect(getNextExamRound('childcare-single', new Date('2027-04-01T12:00:00'))?.id).toBe('116-3')
+  })
+
+  it('shows no round for an exam that is not in the 116 national exam', () => {
+    const now = new Date('2026-11-18T12:00:00')
+    expect(getNextExamRound('industrial-electronics-c', now)).toBeNull()
+    expect(getNextExamRound('industrial-wiring-c', now)).toBeNull()
+  })
+
+  it('never borrows a year whose per-exam table has not been read', () => {
+    expect(getExamScheduleEntries('beauty-c').map((entry) => entry.id)).toEqual(['116-1', '116-2', '116-3'])
+  })
+
+  it('keeps the registration nudge to the exam\'s own rounds', () => {
+    // 116-1 registration is open on 2027-01-05; 測量丙 only runs in round 3.
+    const now = new Date('2027-01-05T12:00:00')
+    expect(getRegistrationNotice(now, getExamScheduleEntries('computer-hardware-repair-c'))?.entry.id).toBe('116-1')
+    expect(getRegistrationNotice(now, getExamScheduleEntries('surveying-c'))).toBeNull()
   })
 })
 

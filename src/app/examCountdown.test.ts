@@ -79,6 +79,6 @@ describe('getEffectiveExamDate', () => {
   })
 
   it('returns null when all bundled official rounds have passed and no manual date is set', () => {
-    expect(getEffectiveExamDate(new Date('2026-11-09T12:00:00'), fakeStorage())).toBeNull()
+    expect(getEffectiveExamDate(new Date('2027-11-08T12:00:00'), fakeStorage())).toBeNull()
   })
 })

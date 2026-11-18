@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-11-17T00:48:30.869Z",
+  "generatedAt": "2026-11-18T10:33:48.078Z",
   "source": "https://owinform.wdasec.gov.tw/",
   "authority": "official-primary",
-  "effectiveRocDate": "1151117",
-  "effectiveDate": "2026-11-17",
-  "officialTodayDate": "2026-11-17",
+  "effectiveRocDate": "1151118",
+  "effectiveDate": "2026-11-18",
+  "officialTodayDate": "2026-11-18",
   "entryCount": 269,
   "documentCount": 276,
   "errors": [],
@@ -4875,7 +4875,8 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/001002A12.pdf",
       "effectiveFrom": "2015-01-01",
       "effectiveFromRoc": "1040101",
-      "remark": null
+      "remark": null,
+      "sha256": "492b5f959ca72a407d0d8f67e491b0eaa3d8af8c3b3238819ab97ffbfaf4b6c6"
     },
     {
       "subjectCode": "00100",
@@ -4887,7 +4888,8 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/001003A11.pdf",
       "effectiveFrom": "2023-01-03",
       "effectiveFromRoc": "1120103",
-      "remark": null
+      "remark": null,
+      "sha256": "fb4f7298e217d490c28f1e9bd19ac8e13a1c9817445e49c6045667e4fe6475e0"
     },
     {
       "subjectCode": "00400",
@@ -5471,7 +5473,8 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/031002A12.pdf",
       "effectiveFrom": "2022-01-01",
       "effectiveFromRoc": "1110101",
-      "remark": null
+      "remark": null,
+      "sha256": "f16df840bd5d768dcd7d33958c355b4fd7942713f16a0fbf7a8a1c3228a0a2cf"
     },
     {
       "subjectCode": "03100",
@@ -6981,7 +6984,8 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/155003A13.pdf",
       "effectiveFrom": "2023-01-01",
       "effectiveFromRoc": "1120101",
-      "remark": null
+      "remark": null,
+      "sha256": "c487b4f5e1855d2d20f0347e36c0abf80c461c79aef16402947e043ae17eadde"
     },
     {
       "subjectCode": "15600",
@@ -7480,7 +7484,8 @@
       "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/183003A10.pdf",
       "effectiveFrom": "2009-01-01",
       "effectiveFromRoc": "0980101",
-      "remark": null
+      "remark": null,
+      "sha256": "b289184c6e9f3526b2cfa86cacc0d4eb04dcb9d3e5d13fca5c81b5494c062781"
     },
     {
       "subjectCode": "18301",
@@ -8253,7 +8258,8 @@
         "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/001002A12.pdf",
         "effectiveFrom": "2015-01-01",
         "effectiveFromRoc": "1040101",
-        "remark": null
+        "remark": null,
+        "sha256": "492b5f959ca72a407d0d8f67e491b0eaa3d8af8c3b3238819ab97ffbfaf4b6c6"
       },
       {
         "subjectCode": "00100",
@@ -8265,7 +8271,8 @@
         "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/001003A11.pdf",
         "effectiveFrom": "2023-01-03",
         "effectiveFromRoc": "1120103",
-        "remark": null
+        "remark": null,
+        "sha256": "fb4f7298e217d490c28f1e9bd19ac8e13a1c9817445e49c6045667e4fe6475e0"
       },
       {
         "subjectCode": "00400",
@@ -8849,7 +8856,8 @@
         "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/031002A12.pdf",
         "effectiveFrom": "2022-01-01",
         "effectiveFromRoc": "1110101",
-        "remark": null
+        "remark": null,
+        "sha256": "f16df840bd5d768dcd7d33958c355b4fd7942713f16a0fbf7a8a1c3228a0a2cf"
       },
       {
         "subjectCode": "03100",
@@ -10363,7 +10371,8 @@
         "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/155003A13.pdf",
         "effectiveFrom": "2023-01-01",
         "effectiveFromRoc": "1120101",
-        "remark": null
+        "remark": null,
+        "sha256": "c487b4f5e1855d2d20f0347e36c0abf80c461c79aef16402947e043ae17eadde"
       },
       {
         "subjectCode": "15600",
@@ -10862,7 +10871,8 @@
         "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/183003A10.pdf",
         "effectiveFrom": "2009-01-01",
         "effectiveFromRoc": "0980101",
-        "remark": null
+        "remark": null,
+        "sha256": "b289184c6e9f3526b2cfa86cacc0d4eb04dcb9d3e5d13fca5c81b5494c062781"
       },
       {
         "subjectCode": "18301",
@@ -11768,6 +11778,30 @@
         "effectiveFrom": "2027-01-01"
       },
       {
+        "examId": "boiler-operation-b",
+        "subjectCode": "90006",
+        "installed": "900060A12.pdf",
+        "effectiveFrom": "2027-01-01"
+      },
+      {
+        "examId": "boiler-operation-b",
+        "subjectCode": "90007",
+        "installed": "900070A11.pdf",
+        "effectiveFrom": "2027-01-01"
+      },
+      {
+        "examId": "boiler-operation-b",
+        "subjectCode": "90008",
+        "installed": "900080A18.pdf",
+        "effectiveFrom": "2027-01-01"
+      },
+      {
+        "examId": "boiler-operation-b",
+        "subjectCode": "90009",
+        "installed": "900090A14.pdf",
+        "effectiveFrom": "2027-01-01"
+      },
+      {
         "examId": "car-repair-c",
         "subjectCode": "90006",
         "installed": "900060A12.pdf",
@@ -12380,6 +12414,30 @@
         "effectiveFrom": "2027-01-01"
       },
       {
+        "examId": "gas-appliance-installation-c",
+        "subjectCode": "90006",
+        "installed": "900060A12.pdf",
+        "effectiveFrom": "2027-01-01"
+      },
+      {
+        "examId": "gas-appliance-installation-c",
+        "subjectCode": "90007",
+        "installed": "900070A11.pdf",
+        "effectiveFrom": "2027-01-01"
+      },
+      {
+        "examId": "gas-appliance-installation-c",
+        "subjectCode": "90008",
+        "installed": "900080A18.pdf",
+        "effectiveFrom": "2027-01-01"
+      },
+      {
+        "examId": "gas-appliance-installation-c",
+        "subjectCode": "90009",
+        "installed": "900090A14.pdf",
+        "effectiveFrom": "2027-01-01"
+      },
+      {
         "examId": "heat-treatment-c",
         "subjectCode": "90006",
         "installed": "900060A12.pdf",
@@ -12567,6 +12625,36 @@
       },
       {
         "examId": "international-trade-c",
+        "subjectCode": "90009",
+        "installed": "900090A14.pdf",
+        "effectiveFrom": "2027-01-01"
+      },
+      {
+        "examId": "lathe-c",
+        "subjectCode": "90001",
+        "installed": "900013A13.pdf",
+        "effectiveFrom": "2027-01-01"
+      },
+      {
+        "examId": "lathe-c",
+        "subjectCode": "90006",
+        "installed": "900060A12.pdf",
+        "effectiveFrom": "2027-01-01"
+      },
+      {
+        "examId": "lathe-c",
+        "subjectCode": "90007",
+        "installed": "900070A11.pdf",
+        "effectiveFrom": "2027-01-01"
+      },
+      {
+        "examId": "lathe-c",
+        "subjectCode": "90008",
+        "installed": "900080A18.pdf",
+        "effectiveFrom": "2027-01-01"
+      },
+      {
+        "examId": "lathe-c",
         "subjectCode": "90009",
         "installed": "900090A14.pdf",
         "effectiveFrom": "2027-01-01"
@@ -12807,6 +12895,54 @@
       },
       {
         "examId": "pressure-vessel-operation-single",
+        "subjectCode": "90009",
+        "installed": "900090A14.pdf",
+        "effectiveFrom": "2027-01-01"
+      },
+      {
+        "examId": "refrigeration-ac-b",
+        "subjectCode": "90006",
+        "installed": "900060A12.pdf",
+        "effectiveFrom": "2027-01-01"
+      },
+      {
+        "examId": "refrigeration-ac-b",
+        "subjectCode": "90007",
+        "installed": "900070A11.pdf",
+        "effectiveFrom": "2027-01-01"
+      },
+      {
+        "examId": "refrigeration-ac-b",
+        "subjectCode": "90008",
+        "installed": "900080A18.pdf",
+        "effectiveFrom": "2027-01-01"
+      },
+      {
+        "examId": "refrigeration-ac-b",
+        "subjectCode": "90009",
+        "installed": "900090A14.pdf",
+        "effectiveFrom": "2027-01-01"
+      },
+      {
+        "examId": "refrigeration-ac-c",
+        "subjectCode": "90006",
+        "installed": "900060A12.pdf",
+        "effectiveFrom": "2027-01-01"
+      },
+      {
+        "examId": "refrigeration-ac-c",
+        "subjectCode": "90007",
+        "installed": "900070A11.pdf",
+        "effectiveFrom": "2027-01-01"
+      },
+      {
+        "examId": "refrigeration-ac-c",
+        "subjectCode": "90008",
+        "installed": "900080A18.pdf",
+        "effectiveFrom": "2027-01-01"
+      },
+      {
+        "examId": "refrigeration-ac-c",
         "subjectCode": "90009",
         "installed": "900090A14.pdf",
         "effectiveFrom": "2027-01-01"

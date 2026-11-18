@@ -4,6 +4,8 @@ import { readFile } from 'node:fs/promises'
 const WDA_DOWNLOAD_ROOT = 'https://owinform.wdasec.gov.tw/owInform/DLowFile'
 
 export const SOURCE_BANKS = {
+  '00100-2': { subjectCode: '00100', version: 'A12', pdfFilename: '001002A12.pdf' },
+  '00100-3': { subjectCode: '00100', version: 'A11', pdfFilename: '001003A11.pdf' },
   '00700-2': { subjectCode: '00700', version: 'A15', pdfFilename: '007002A15.pdf' },
   '00700-3': { subjectCode: '00700', version: 'A13', pdfFilename: '007003A13.pdf' },
   '01300': { version: 'A13', pdfFilename: '013003A13.pdf' },
@@ -13,6 +15,7 @@ export const SOURCE_BANKS = {
   '02800': { version: 'A11', pdfFilename: '028003A11.pdf' },
   '04200': { version: 'A11', pdfFilename: '042003A11.pdf' },
   '04202': { version: 'A11', pdfFilename: '042022A11.pdf' },
+  '03100': { version: 'A12', pdfFilename: '031002A12.pdf' },
   '06000': { version: 'A12', pdfFilename: '060003A12.pdf' },
   '06700': { version: 'A13', pdfFilename: '067003A13.pdf' },
   '07602': { version: 'A13', pdfFilename: '076023A13.pdf' },
@@ -46,6 +49,8 @@ export const SOURCE_BANKS = {
   '14000': { version: 'A11', pdfFilename: '140003A11.pdf' },
   '18100': { version: 'A13', pdfFilename: '181003A13.pdf' },
   '18201': { version: 'A10', pdfFilename: '182012A10.pdf' },
+  '15500': { version: 'A13', pdfFilename: '155003A13.pdf' },
+  '18300': { version: 'A10', pdfFilename: '183003A10.pdf' },
   '18500': { version: 'A10', pdfFilename: '185003A10.pdf' },
   '07601': { version: 'A11', pdfFilename: '076013A11.pdf' },
   '07602-2': { subjectCode: '07602', version: 'A11', pdfFilename: '076022A11.pdf' },

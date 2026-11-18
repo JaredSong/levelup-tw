@@ -16,7 +16,7 @@ import {
   SURVEYING_QUESTION_OVERRIDES,
   SURVEYING_SOURCE_FILE,
 } from './surveyingQuestionOverrides.mjs'
-import { restoreScripts, rootsToMath, sanitizeText } from './textCorrections.mjs'
+import { restoreScripts, restoreScriptsDense, rootsToMath, sanitizeText } from './textCorrections.mjs'
 
 const INACTIVE_IDS = new Set([
   '07602-01-067',
@@ -546,6 +546,63 @@ const EXAMS = [
     requireQuestionCrops: true,
     splitImageOptions: true,
     figureIds: ['00700-13-005'],
+    mockRules: {
+      occupationQuota: 64,
+      singleCount: 80,
+      multipleCount: 0,
+      weightSingle: 1.25,
+      weightMultiple: 0,
+      extraSubjectQuota: [],
+    },
+  },
+  {
+    examId: 'refrigeration-ac-b',
+    titleZh: '冷凍空調裝修乙級',
+    titleEn: 'Refrigeration and Air Conditioning Installation (Class B)',
+    level: '乙級',
+    category: '電機工程',
+    occupationCode: '00100',
+    occupationSourceKey: '00100-2',
+    isolatedOccupation: true,
+    occupationFile: '001002A12-raw.txt',
+    occupationExpected: 799,
+    version: 'A12',
+    extraCommonCodes: [],
+    // Formula options typed in typedTextFixes.mjs instead of cropped.
+    excludedFigureIds: ['00100-05-012', '00100-05-018', '00100-05-028', '00100-05-055'],
+    cropPrefix: '001002A12',
+    // scripted_tokens.py: nearly every formula and unit is split (restoreScriptsDense).
+    restoreScripts: 'dense',
+    splitImageOptions: true,
+    inactiveIds: ['00100-05-059', '00100-06-069'],
+    mockRules: {
+      occupationQuota: 64,
+      singleCount: 60,
+      multipleCount: 20,
+      weightSingle: 1,
+      weightMultiple: 2,
+      extraSubjectQuota: [],
+    },
+  },
+  {
+    examId: 'refrigeration-ac-c',
+    titleZh: '冷凍空調裝修丙級',
+    titleEn: 'Refrigeration and Air Conditioning Installation (Class C)',
+    level: '丙級',
+    category: '電機工程',
+    occupationCode: '00100',
+    occupationSourceKey: '00100-3',
+    isolatedOccupation: true,
+    occupationFile: '001003A11-raw.txt',
+    occupationExpected: 662,
+    version: 'A11',
+    extraCommonCodes: [],
+    // The parser took the ℓ in 「(ℓ/min)」 for a figure; it is typed instead.
+    excludedFigureIds: ['00100-08-026', '00100-05-038'],
+    cropPrefix: '001003A11',
+    // scripted_tokens.py: nearly every formula and unit is split (restoreScriptsDense).
+    restoreScripts: 'dense',
+    splitImageOptions: true,
     mockRules: {
       occupationQuota: 64,
       singleCount: 80,
@@ -1125,6 +1182,33 @@ const EXAMS = [
     },
   },
   {
+    examId: 'lathe-c',
+    titleZh: '車床－車床丙級',
+    titleEn: 'Lathe Operation (Class C)',
+    level: '丙級',
+    category: '金屬及機械加工',
+    occupationCode: '18300',
+    occupationFile: '183003A10-raw.txt',
+    occupationExpected: 612,
+    version: 'A10',
+    extraCommonCodes: ['90001-3'],
+    // Typed in typedTextFixes.mjs (tolerance / 咔咔 / k formula); no crop.
+    excludedFigureIds: ['18300-05-176', '18300-07-027'],
+    cropPrefix: '183003A10',
+    // scripted_tokens.py: nearly every formula and unit is split (restoreScriptsDense).
+    restoreScripts: 'dense',
+    splitImageOptions: true,
+    inactiveIds: ['18300-04-054', '18300-05-210', '18300-08-012'],
+    mockRules: {
+      occupationQuota: 48,
+      singleCount: 80,
+      multipleCount: 0,
+      weightSingle: 1.25,
+      weightMultiple: 0,
+      extraSubjectQuota: [{ subjectCode: '90001', count: 16, single: 16, multiple: 0 }],
+    },
+  },
+  {
     examId: 'heat-treatment-c',
     titleZh: '熱處理丙級',
     titleEn: 'Heat Treatment (Class C)',
@@ -1242,6 +1326,32 @@ const EXAMS = [
     extraCommonCodes: [],
     cropPrefix: '016003',
     requireQuestionCrops: true,
+    splitImageOptions: true,
+    mockRules: {
+      occupationQuota: 64,
+      singleCount: 80,
+      multipleCount: 0,
+      weightSingle: 1.25,
+      weightMultiple: 0,
+      extraSubjectQuota: [],
+    },
+  },
+  {
+    examId: 'gas-appliance-installation-c',
+    titleZh: '特定瓦斯器具裝修丙級',
+    titleEn: 'Gas Appliance Installation (Class C)',
+    level: '丙級',
+    category: '銲接配管',
+    occupationCode: '15500',
+    occupationFile: '155003A13-raw.txt',
+    occupationExpected: 625,
+    version: 'A13',
+    extraCommonCodes: [],
+    // Formula options typed in typedTextFixes.mjs instead of cropped.
+    excludedFigureIds: ['15500-01-086'],
+    cropPrefix: '155003A13',
+    // scripted_tokens.py: nearly every formula and unit is split (restoreScriptsDense).
+    restoreScripts: 'dense',
     splitImageOptions: true,
     mockRules: {
       occupationQuota: 64,
@@ -1472,6 +1582,33 @@ const EXAMS = [
       multipleCount: 0,
       weightSingle: 1.25,
       weightMultiple: 0,
+      extraSubjectQuota: [],
+    },
+  },
+  {
+    examId: 'boiler-operation-b',
+    titleZh: '鍋爐操作乙級',
+    titleEn: 'Boiler Operation (Class B)',
+    level: '乙級',
+    category: '機械操作',
+    occupationCode: '03100',
+    occupationFile: '031002A12-raw.txt',
+    occupationExpected: 691,
+    version: 'A12',
+    extraCommonCodes: [],
+    // Typed in typedTextFixes.mjs (tolerance / 咔咔 / k formula); no crop.
+    excludedFigureIds: ['03100-03-027', '03100-01-225'],
+    cropPrefix: '031002A12',
+    // scripted_tokens.py: nearly every formula and unit is split (restoreScriptsDense).
+    restoreScripts: 'dense',
+    splitImageOptions: true,
+    inactiveIds: ['03100-01-103', '03100-01-121'],
+    mockRules: {
+      occupationQuota: 64,
+      singleCount: 60,
+      multipleCount: 20,
+      weightSingle: 1,
+      weightMultiple: 2,
       extraSubjectQuota: [],
     },
   },
@@ -1785,7 +1922,9 @@ function normalizeQuestion(question, exam) {
   // Only the pack's own occupation PDF was checked for scripted tokens; shared
   // subjects stay byte-identical to every other pack that ships them.
   const clean = exam.restoreScripts && question.subjectCode === exam.occupationCode
-    ? (text) => restoreScripts(sanitizeText(text))
+    ? exam.restoreScripts === 'dense'
+      ? (text) => restoreScriptsDense(sanitizeText(text))
+      : (text) => restoreScripts(sanitizeText(text))
     : sanitizeText
   const repaired = {
     ...question,

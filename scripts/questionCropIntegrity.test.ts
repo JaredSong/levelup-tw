@@ -19,6 +19,13 @@ const PACKS = [
   { examId: 'indoor-wiring-b', occupationCode: '00700', sourceQuestions: 862, inactive: 7, figures: 64, cropPrefix: '007002' },
   { examId: 'indoor-wiring-c', occupationCode: '00700', sourceQuestions: 618, inactive: 0, figures: 65, cropPrefix: '007003', tightCrops: true },
   { examId: 'industrial-electronics-c', occupationCode: '02800', sourceQuestions: 651, inactive: 0, figures: 128, cropPrefix: '028003' },
+  // 116 batch of 5. 冷凍空調裝修 legend symbols are drawn as images with no
+  // figure marker (restoredFigures.mjs); formula options are typed, not cropped.
+  { examId: 'refrigeration-ac-b', occupationCode: '00100', sourceQuestions: 799, inactive: 2, figures: 51, cropPrefix: '001002A12', tightCrops: true },
+  { examId: 'refrigeration-ac-c', occupationCode: '00100', sourceQuestions: 662, inactive: 0, figures: 12, cropPrefix: '001003A11', tightCrops: true },
+  { examId: 'lathe-c', occupationCode: '18300', sourceQuestions: 612, inactive: 3, figures: 2, cropPrefix: '183003A10', tightCrops: true },
+  { examId: 'gas-appliance-installation-c', occupationCode: '15500', sourceQuestions: 625, inactive: 0, figures: 2, cropPrefix: '155003A13', tightCrops: true },
+  { examId: 'boiler-operation-b', occupationCode: '03100', sourceQuestions: 691, inactive: 2, figures: 1, cropPrefix: '031002A12', tightCrops: true },
   { examId: 'heat-treatment-c', occupationCode: '02100', sourceQuestions: 609, inactive: 0, figures: 5, cropPrefix: '021003', tightCrops: true },
   // 116 bank 120002A13: 708 questions, no 本題刪題, 86 figure questions (79 the
   // parser marks + 7 drawn without a marker; 12000-03-078/079/080's program
@@ -121,7 +128,8 @@ describe('new high-demand exam packs', () => {
             || expected.examId === 'indoor-wiring-b'
             || expected.examId === 'industrial-electronics-c'
           // 04200-05-035: the map symbol ⊥ alone (34×34, reviewed) compresses to < 200 B.
-          const minimumBytes = expected.examId === 'industrial-electronics-c' || question.id === '04200-05-035' ? 100 : usesTightCrops ? 200 : 1_500
+          // 18300-05-161 ②: the L-shaped tolerance symbol alone (27×28, reviewed), 176 B.
+          const minimumBytes = expected.examId === 'industrial-electronics-c' || ['04200-05-035', '18300-05-161'].includes(question.id) ? 100 : usesTightCrops ? 200 : 1_500
           expect(bytes.byteLength, `${question.id} ${source}`).toBeGreaterThan(minimumBytes)
           expect(width, `${question.id} ${source}`).toBeGreaterThan(usesTightCrops ? 15 : 300)
           expect(height, `${question.id} ${source}`).toBeGreaterThan(usesTightCrops ? 15 : 30)
@@ -524,6 +532,6 @@ describe('figures restored from the official PDFs (restoredFigures.mjs)', () => 
         }
       }
     }
-    expect(checked).toBe(79)
+    expect(checked).toBe(144)
   })
 })

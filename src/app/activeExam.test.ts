@@ -142,6 +142,8 @@ describe('active exam selection', () => {
       'industrial-wiring-c',
       'indoor-wiring-b',
       'indoor-wiring-c',
+      'refrigeration-ac-b',
+      'refrigeration-ac-c',
       'electrical-equipment-inspection-c',
     ])
     expect(groups.find((group) => group.category === '餐飲食品')?.exams.map((exam) => exam.examId)).toEqual([

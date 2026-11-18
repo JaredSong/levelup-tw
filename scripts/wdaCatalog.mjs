@@ -86,6 +86,7 @@ export function selectCurrentTheoryPdf(rows, subjectCode, levelCode, effectiveRo
 export const ANNOUNCED_OUTSIDE_CATALOG = [
   { examId: 'cnc-milling-b', subjectCode: '90001', version: 'A13', pdfFilename: '900012A13.pdf', sha256: '6bbb67dbf424792ba7830af6c76471835bde2d30416c0f8bab368cdfd9fb01e4', effectiveFrom: '2027-01-01' },
   { examId: 'machining-c', subjectCode: '90001', version: 'A13', pdfFilename: '900013A13.pdf', sha256: '64ffe146fa1d12ce8dd46fd0d119e7829b095888c2139f9e91c4e6d4c9cdff7d', effectiveFrom: '2027-01-01' },
+  { examId: 'lathe-c', subjectCode: '90001', version: 'A13', pdfFilename: '900013A13.pdf', sha256: '64ffe146fa1d12ce8dd46fd0d119e7829b095888c2139f9e91c4e6d4c9cdff7d', effectiveFrom: '2027-01-01' },
 ]
 
 /**

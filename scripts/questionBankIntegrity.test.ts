@@ -277,6 +277,7 @@ describe('published question bank', () => {
     for (const [examId, occupation, expected] of [
       ['cnc-milling-b', '18201', { single: 10, multiple: 6, occupation: 48 }],
       ['machining-c', '18500', { single: 16, multiple: 0, occupation: 48 }],
+      ['lathe-c', '18300', { single: 16, multiple: 0, occupation: 48 }],
     ] as const) {
       const bank = loadExamBank(examId).filter((question) => question.active !== false)
       const manifest = JSON.parse(readFileSync(new URL(`../public/data/exams/${examId}/manifest.json`, import.meta.url), 'utf8')) as { mockRules: Parameters<typeof buildMockQueue>[1] }
@@ -596,6 +597,35 @@ describe('published question bank', () => {
     // Transcribed formulas stay text, not tiny images.
     expect(byId.get('04200-01-052')?.hasFigure).toBe(false)
     expect(byId.get('04200-01-052')?.options).toEqual(['P＝k/σ̂', 'P＝k/σ̂²', 'P＝k/σ̂³', 'P＝k/σ̂⁴'])
+  })
+
+  it('publishes the 116 batch of 5 with deletions, typed glyphs and restored scripts as printed', () => {
+    const cases = [
+      { examId: 'refrigeration-ac-b', code: '00100', published: 799, inactive: ['00100-05-059', '00100-06-069'] },
+      { examId: 'refrigeration-ac-c', code: '00100', published: 662, inactive: [] },
+      { examId: 'lathe-c', code: '18300', published: 612, inactive: ['18300-04-054', '18300-05-210', '18300-08-012'] },
+      { examId: 'gas-appliance-installation-c', code: '15500', published: 625, inactive: [] },
+      { examId: 'boiler-operation-b', code: '03100', published: 691, inactive: ['03100-01-103', '03100-01-121'] },
+    ]
+    for (const item of cases) {
+      const occupation = loadExamBank(item.examId).filter((question) => question.subjectCode === item.code)
+      expect(occupation, item.examId).toHaveLength(item.published)
+      expect(occupation.filter((question) => question.active === false).map((question) => question.id).sort(), item.examId).toEqual(item.inactive)
+      // The text layer splits units and formulas ("kg f /cm 2", "C 2 H 2"); none may ship split.
+      const split = occupation.filter((question) => [question.prompt, ...question.options].some((text) => /kg\s+f|(?<![A-Za-z])(CO|O|H|N|SO|Cl|CH)\s+\d|(?<![A-Za-z])(m|cm|mm)\s+[23](?!\d)/.test(text) || [...text].some((char) => char.charCodeAt(0) < 0x20 || (char.charCodeAt(0) >= 0x80 && char.charCodeAt(0) < 0xa0))))
+      expect(split.map((question) => question.id), item.examId).toEqual([])
+    }
+    const text = (examId: string, id: string) => {
+      const question = loadExamBank(examId).find((candidate) => candidate.id === id && candidate.subjectCode === id.slice(0, 5))
+      return [question?.prompt, ...(question?.options ?? [])].join(' ‖ ')
+    }
+    expect(text('refrigeration-ac-c', '00100-05-099')).toContain('98V ‖')
+    expect(text('refrigeration-ac-c', '00100-02-009')).toContain('C₂H₂F₄')
+    expect(text('refrigeration-ac-b', '00100-05-104')).toContain('1/⟦\\sqrt{3}⟧')
+    expect(text('lathe-c', '18300-05-176')).toContain('⟦2^{0}_{-0.02}⟧')
+    expect(text('gas-appliance-installation-c', '15500-03-001')).toContain('℄')
+    expect(text('boiler-operation-b', '03100-01-164')).toContain('⟦\\frac{衝吹壓力－關閉壓力}{衝吹壓力}⟧')
+    expect(text('boiler-operation-b', '03100-04-075')).toContain('SiO₃²⁻')
   })
 
   it('publishes 國貿業務丙級 as a text-only bank with every question active', () => {

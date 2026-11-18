@@ -192,6 +192,41 @@ const SCRIPT_FIXES = [
   [/（m\s+3）/g, '（m³）'],
 ]
 
+// Denser script repair for banks whose text layer splits nearly every formula
+// and unit (the 116 batch: 冷凍空調裝修乙/丙, 車床丙, 特定瓦斯器具裝修丙,
+// 鍋爐操作乙). Opt in with `restoreScripts: 'dense'`; runs before
+// restoreScripts(). Rules were checked against the page images:
+// - a formula is a run of element symbols whose subscripts arrive as
+//   space-separated digits ("C 2 H 2 F 4" → C₂H₂F₄, "H 2 O" → H₂O). Digits glued
+//   to letters (SS41, SM41, R-22, K1) are plain on the paper and left alone;
+// - an area/volume unit's ²/³ arrives as a separate digit ("m 3 /hr" → m³/hr),
+//   never when a letter follows ("5m3b" is a plain label);
+// - "kg f /cm" is kgf/cm (冷凍空調 prints a subscript f; kgf is the unit).
+const ELEMENT = '(?:Cl|Ca|Na|Mg|Al|Si|C|H|O|N|S|F|K)'
+const SUB = '₀₁₂₃₄₅₆₇₈₉'
+const SUP = { 2: '²', 3: '³' }
+// One formula token: element letters plus an optional space-separated subscript.
+// Tokens join across a space only right after a subscript ("H 2 O" → H₂O), so
+// "0.02N H 2 SO 4" stays two things: 0.02N and H₂SO₄.
+const TOKEN = `${ELEMENT}+(?:\\s+\\d{1,2}(?![\\d.,]))?`
+const FORMULA_RUN = new RegExp(`(?<![A-Za-z])${TOKEN}(?:${TOKEN}|(?<=\\s\\d{1,2})\\s+(?=${ELEMENT})${TOKEN})*`, 'g')
+export function restoreScriptsDense(text) {
+  if (typeof text !== 'string') return text
+  let out = text.replace(/kg\s*f\s*\/\s*(?=cm|m)/g, 'kgf/').replace(/㎏\s*f\s*\/\s*(?=㎝)/g, '㎏f/')
+  out = out.replace(FORMULA_RUN, (run) => {
+    if (!/\s\d/.test(run)) return run
+    return run.replace(/\s+(\d{1,2})/g, (_, digits) => [...digits].map((d) => SUB[d]).join('')).replace(/\s+/g, '')
+  })
+  out = out.replace(/(?<![A-Za-z])CH4(?![\d.])/g, 'CH₄')
+  out = out.replace(/(?<![A-Za-z])(Nm|cm|mm|kgm|m|㎝|㎜)\s*([23])(?![\dA-Za-z.])/g, (_, unit, digit) => `${unit}${SUP[digit]}`)
+  out = restoreScripts(out)
+  // After the base rules: a formula split by a space after its subscript
+  // ("H₂ O"), and stray spaces between a script glyph and a bracket or operator.
+  out = out.replace(new RegExp(`(?<=[₀-₉])\\s+(?=${ELEMENT}(?![a-z]{2}))`, 'g'), '')
+  out = out.replace(/(㎏|kg)\s+(?=\/)/g, '$1')
+  return out.replace(/([²³₀-₉])\s+(?=[)）/／+＋→=＝、，]|\.[A-Za-z])/g, '$1')
+}
+
 export function restoreScripts(text) {
   if (typeof text !== 'string') return text
   let out = text

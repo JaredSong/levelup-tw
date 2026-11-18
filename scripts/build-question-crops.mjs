@@ -960,6 +960,21 @@ const BANKS = [
       ],
     },
   },
+  // 116 batch of 5 (new packs); crops signed off 2026-11-18. Legend symbols the
+  // parser misses are in restoredFigures.mjs.
+  { code: '00100', source: '001003A11', cropPrefix: '001003A11', splitImageOptions: true, keepFaintLines: true, excludedFigures: ['00100-08-026', '00100-05-038'] },
+  { code: '00100', source: '001002A12', cropPrefix: '001002A12', splitImageOptions: true, keepFaintLines: true,
+    // Formula options typed in typedTextFixes.mjs instead of cropped.
+    excludedFigures: ['00100-05-012', '00100-05-018', '00100-05-028', '00100-05-055'],
+    // Inline symbols: the embedded image's exact bounds (the default box took text above).
+    figureRects: {
+      '00100-01-003': { x: 290.9, y: 172.2, width: 45.4, height: 21.3, trimThreshold: 250, hiRes: true },
+      '00100-01-004': { x: 290.9, y: 218.3, width: 18.4, height: 8.5, trimThreshold: 250, hiRes: true },
+    },
+  },
+  { code: '18300', source: '183003A10', cropPrefix: '183003A10', splitImageOptions: true, keepFaintLines: true, excludedFigures: ['18300-05-176', '18300-07-027'] },
+  { code: '15500', source: '155003A13', cropPrefix: '155003A13', splitImageOptions: true, keepFaintLines: true, excludedFigures: ['15500-01-086'] },
+  { code: '03100', source: '031002A12', cropPrefix: '031002A12', splitImageOptions: true, keepFaintLines: true, excludedFigures: ['03100-03-027', '03100-01-225'] },
 ]
 
 // Figures the parser missed on live banks (restoredFigures.mjs): crop exactly
@@ -1781,8 +1796,9 @@ async function buildBank({
           const optionPageNumber = rect.page ?? question.sourcePage
           const optionPage = pages[optionPageNumber - 1]
           if (!optionPage) throw new Error(`${question.id}: option crop page ${optionPageNumber} missing`)
-          const renderedOptionPage = renderPage({ rendered, work, pdfPath, sourcePage: optionPageNumber, oversample })
-          cropImage(renderedOptionPage, optionOutputs[index], optionPage, rect, oversample, cropOptions)
+          const optionOversample = rect.hiRes ? Math.max(2, oversample) : oversample
+          const renderedOptionPage = renderPage({ rendered, work, pdfPath, sourcePage: optionPageNumber, oversample: optionOversample })
+          cropImage(renderedOptionPage, optionOutputs[index], optionPage, rect, optionOversample, cropOptions)
         })
       }
     } else {

@@ -1,0 +1,290 @@
+{
+  "examId": "lathe-c",
+  "level": "丙級",
+  "titleZh": "車床－車床丙級",
+  "titleEn": "Lathe Operation (Class C)",
+  "category": "金屬及機械加工",
+  "version": "A10",
+  "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/183003A10.pdf",
+  "sources": [
+    {
+      "subjectCode": "18300",
+      "version": "A10",
+      "pdfFilename": "183003A10.pdf",
+      "localFilename": "183003A10.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/183003A10.pdf",
+      "sha256": "b289184c6e9f3526b2cfa86cacc0d4eb04dcb9d3e5d13fca5c81b5494c062781"
+    },
+    {
+      "subjectCode": "90001",
+      "version": "A13",
+      "pdfFilename": "900013A13.pdf",
+      "localFilename": "900013A13.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900013A13.pdf",
+      "sha256": "64ffe146fa1d12ce8dd46fd0d119e7829b095888c2139f9e91c4e6d4c9cdff7d"
+    },
+    {
+      "subjectCode": "90006",
+      "version": "A12",
+      "pdfFilename": "900060A12.pdf",
+      "localFilename": "900060A12.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+      "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
+    },
+    {
+      "subjectCode": "90007",
+      "version": "A11",
+      "pdfFilename": "900070A11.pdf",
+      "localFilename": "900070A11.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+      "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
+    },
+    {
+      "subjectCode": "90008",
+      "version": "A18",
+      "pdfFilename": "900080A18.pdf",
+      "localFilename": "900080A18.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+      "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
+    },
+    {
+      "subjectCode": "90009",
+      "version": "A14",
+      "pdfFilename": "900090A14.pdf",
+      "localFilename": "900090A14.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+      "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
+    }
+  ],
+  "officialLinks": {
+    "registration": "https://skill.tcte.edu.tw/notice.php",
+    "scoreLookup": "https://eservice.wdasec.gov.tw/",
+    "handbook": "https://skill.tcte.edu.tw/download.php",
+    "questionBank": "https://techbank.wdasec.gov.tw/"
+  },
+  "sourceRevision": "183003A10 + 900013A13 + 900060A12/900070A11/900080A18/900090A14",
+  "questionCount": 1609,
+  "activeQuestionCount": 1606,
+  "sections": [
+    {
+      "id": "18300-01",
+      "subjectCode": "18300",
+      "sourceGroup": "occupation",
+      "titleZh": "工件度量",
+      "questionCount": 66,
+      "activeQuestionCount": 66
+    },
+    {
+      "id": "18300-02",
+      "subjectCode": "18300",
+      "sourceGroup": "occupation",
+      "titleZh": "車床基本操作",
+      "questionCount": 62,
+      "activeQuestionCount": 62
+    },
+    {
+      "id": "18300-03",
+      "subjectCode": "18300",
+      "sourceGroup": "occupation",
+      "titleZh": "工件夾持及校正",
+      "questionCount": 48,
+      "activeQuestionCount": 48
+    },
+    {
+      "id": "18300-04",
+      "subjectCode": "18300",
+      "sourceGroup": "occupation",
+      "titleZh": "刀具選用、研磨及配置",
+      "questionCount": 65,
+      "activeQuestionCount": 64
+    },
+    {
+      "id": "18300-05",
+      "subjectCode": "18300",
+      "sourceGroup": "occupation",
+      "titleZh": "圓桿車削",
+      "questionCount": 287,
+      "activeQuestionCount": 286
+    },
+    {
+      "id": "18300-06",
+      "subjectCode": "18300",
+      "sourceGroup": "occupation",
+      "titleZh": "車削情況之判斷及處理",
+      "questionCount": 44,
+      "activeQuestionCount": 44
+    },
+    {
+      "id": "18300-07",
+      "subjectCode": "18300",
+      "sourceGroup": "occupation",
+      "titleZh": "故障察覺",
+      "questionCount": 28,
+      "activeQuestionCount": 28
+    },
+    {
+      "id": "18300-08",
+      "subjectCode": "18300",
+      "sourceGroup": "occupation",
+      "titleZh": "車床維護",
+      "questionCount": 12,
+      "activeQuestionCount": 11
+    },
+    {
+      "id": "90001-01",
+      "subjectCode": "90001",
+      "sourceGroup": "general-common",
+      "titleZh": "工作圖辨別及製作",
+      "questionCount": 54,
+      "activeQuestionCount": 54
+    },
+    {
+      "id": "90001-02",
+      "subjectCode": "90001",
+      "sourceGroup": "general-common",
+      "titleZh": "數學運算",
+      "questionCount": 37,
+      "activeQuestionCount": 37
+    },
+    {
+      "id": "90001-03",
+      "subjectCode": "90001",
+      "sourceGroup": "general-common",
+      "titleZh": "精密量測",
+      "questionCount": 75,
+      "activeQuestionCount": 75
+    },
+    {
+      "id": "90001-04",
+      "subjectCode": "90001",
+      "sourceGroup": "general-common",
+      "titleZh": "金屬材料辨別",
+      "questionCount": 63,
+      "activeQuestionCount": 63
+    },
+    {
+      "id": "90001-05",
+      "subjectCode": "90001",
+      "sourceGroup": "general-common",
+      "titleZh": "機械加工",
+      "questionCount": 80,
+      "activeQuestionCount": 80
+    },
+    {
+      "id": "90001-06",
+      "subjectCode": "90001",
+      "sourceGroup": "general-common",
+      "titleZh": "機件原理辨別",
+      "questionCount": 76,
+      "activeQuestionCount": 76
+    },
+    {
+      "id": "90001-07",
+      "subjectCode": "90001",
+      "sourceGroup": "general-common",
+      "titleZh": "初階電腦辨別",
+      "questionCount": 47,
+      "activeQuestionCount": 47
+    },
+    {
+      "id": "90001-08",
+      "subjectCode": "90001",
+      "sourceGroup": "general-common",
+      "titleZh": "氣壓辨別",
+      "questionCount": 50,
+      "activeQuestionCount": 50
+    },
+    {
+      "id": "90001-09",
+      "subjectCode": "90001",
+      "sourceGroup": "general-common",
+      "titleZh": "品質管制",
+      "questionCount": 58,
+      "activeQuestionCount": 58
+    },
+    {
+      "id": "90001-10",
+      "subjectCode": "90001",
+      "sourceGroup": "general-common",
+      "titleZh": "智慧製造",
+      "questionCount": 57,
+      "activeQuestionCount": 57
+    },
+    {
+      "id": "90006-01",
+      "subjectCode": "90006",
+      "sourceGroup": "general-common",
+      "titleZh": "職業安全衛生",
+      "questionCount": 100,
+      "activeQuestionCount": 100
+    },
+    {
+      "id": "90007-02",
+      "subjectCode": "90007",
+      "sourceGroup": "general-common",
+      "titleZh": "工作倫理與職業道德",
+      "questionCount": 100,
+      "activeQuestionCount": 100
+    },
+    {
+      "id": "90008-03",
+      "subjectCode": "90008",
+      "sourceGroup": "general-common",
+      "titleZh": "環境保護",
+      "questionCount": 100,
+      "activeQuestionCount": 100
+    },
+    {
+      "id": "90009-04",
+      "subjectCode": "90009",
+      "sourceGroup": "general-common",
+      "titleZh": "節能減碳",
+      "questionCount": 100,
+      "activeQuestionCount": 100
+    }
+  ],
+  "mockRules": {
+    "totalQuestions": 80,
+    "singleCount": 80,
+    "multipleCount": 0,
+    "durationMinutes": 100,
+    "passScore": 60,
+    "maxScore": 100,
+    "weightSingle": 1.25,
+    "weightMultiple": 0,
+    "subjectQuota": [
+      {
+        "subjectCode": "18300",
+        "count": 48
+      },
+      {
+        "subjectCode": "90001",
+        "count": 16,
+        "single": 16,
+        "multiple": 0
+      },
+      {
+        "subjectCode": "90006",
+        "count": 4
+      },
+      {
+        "subjectCode": "90007",
+        "count": 4
+      },
+      {
+        "subjectCode": "90008",
+        "count": 4
+      },
+      {
+        "subjectCode": "90009",
+        "count": 4
+      }
+    ]
+  },
+  "integrity": {
+    "status": "fully_verified",
+    "inactiveQuestionCount": 3,
+    "imageQuestionCount": 47,
+    "note": "Answer keys independently cross-checked against the official PDF during import."
+  }
+}

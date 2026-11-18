@@ -72,6 +72,11 @@ export const NATIONAL_EXAM_ROUNDS_116: Record<string, ExamRound[]> = {
   'web-design-b': [2],
   'western-cooking-c': [2],
   'women-hairdressing-c': [1, 3],
+  'boiler-operation-b': [1, 2, 3],
+  'gas-appliance-installation-c': [1],
+  'lathe-c': [3],
+  'refrigeration-ac-b': [1, 2, 3],
+  'refrigeration-ac-c': [1, 3],
 }
 
 /** Rounds per year for which we have read the per-exam table. */

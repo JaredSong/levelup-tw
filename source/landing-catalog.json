@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-17T00:54:08.931Z",
-  "examCount": 53,
-  "activeQuestionCount": 61852,
+  "generatedAt": "2026-11-18T11:03:20.551Z",
+  "examCount": 58,
+  "activeQuestionCount": 67831,
   "demandPeriod": "115年截至9月底止通過技能檢定學術科測試",
   "demandSource": "https://www.wdasec.gov.tw/News_Content.aspx?n=5941D5DCC3DD7DDA&sms=CA0630966F34DA45&s=C8325D4465DF9769",
   "featuredExamIds": [
@@ -201,6 +201,13 @@
       "applicantCount": 2151
     },
     {
+      "examId": "refrigeration-ac-c",
+      "titleZh": "冷凍空調裝修丙級",
+      "code": "00100",
+      "level": "丙級",
+      "applicantCount": 2091
+    },
+    {
       "examId": "western-cooking-c",
       "titleZh": "西餐烹調丙級",
       "code": "14000",
@@ -264,11 +271,25 @@
       "applicantCount": 1638
     },
     {
+      "examId": "lathe-c",
+      "titleZh": "車床－車床丙級",
+      "code": "18300",
+      "level": "丙級",
+      "applicantCount": 1409
+    },
+    {
       "examId": "aircraft-maintenance-c",
       "titleZh": "飛機修護丙級",
       "code": "17600",
       "level": "丙級",
       "applicantCount": 1375
+    },
+    {
+      "examId": "refrigeration-ac-b",
+      "titleZh": "冷凍空調裝修乙級",
+      "code": "00100",
+      "level": "乙級",
+      "applicantCount": 1360
     },
     {
       "examId": "beauty-b",
@@ -334,6 +355,13 @@
       "applicantCount": 977
     },
     {
+      "examId": "gas-appliance-installation-c",
+      "titleZh": "特定瓦斯器具裝修丙級",
+      "code": "15500",
+      "level": "丙級",
+      "applicantCount": 975
+    },
+    {
       "examId": "funeral-service-c",
       "titleZh": "喪禮服務丙級",
       "code": "20300",
@@ -346,6 +374,13 @@
       "code": "20300",
       "level": "乙級",
       "applicantCount": 900
+    },
+    {
+      "examId": "boiler-operation-b",
+      "titleZh": "鍋爐操作乙級",
+      "code": "03100",
+      "level": "乙級",
+      "applicantCount": 870
     },
     {
       "examId": "chinese-cooking-vegetarian-c",
@@ -383,7 +418,7 @@
       "applicantCount": null
     }
   ],
-  "officialCheckedDate": "2026-11-17",
+  "officialCheckedDate": "2026-11-18",
   "officialUpcoming": {
     "accounting-c": "2027-01-01",
     "aircraft-maintenance-c": "2027-01-01",
@@ -391,6 +426,7 @@
     "beauty-b": "2027-01-01",
     "beauty-c": "2027-01-01",
     "beverage-preparation-c": "2027-01-01",
+    "boiler-operation-b": "2027-01-01",
     "car-repair-c": "2027-01-01",
     "care-service-single": "2027-01-01",
     "chemistry-c": "2027-01-01",
@@ -414,6 +450,7 @@
     "forklift-operation-single": "2027-01-01",
     "funeral-service-b": "2027-01-01",
     "funeral-service-c": "2027-01-01",
+    "gas-appliance-installation-c": "2027-01-01",
     "heat-treatment-c": "2027-01-01",
     "horticulture-c": "2027-01-01",
     "indoor-wiring-b": "2027-01-01",
@@ -422,6 +459,7 @@
     "industrial-wiring-c": "2027-01-01",
     "interior-decoration-management-b": "2027-01-01",
     "international-trade-c": "2027-01-01",
+    "lathe-c": "2027-01-01",
     "loader-operation-single": "2027-01-01",
     "machining-c": "2027-01-01",
     "man-haircut-c": "2027-01-01",
@@ -431,6 +469,8 @@
     "occupational-safety-health-management-b": "2027-01-01",
     "occupational-safety-management-a": "2027-01-01",
     "pressure-vessel-operation-single": "2027-01-01",
+    "refrigeration-ac-b": "2027-01-01",
+    "refrigeration-ac-c": "2027-01-01",
     "retail-service-c": "2027-01-01",
     "surveying-c": "2027-01-01",
     "visual-communication-design-c": "2027-01-01",
@@ -439,5 +479,5 @@
     "western-cooking-c": "2027-01-01",
     "women-hairdressing-c": "2027-01-01"
   },
-  "metaDescription": "升級吧收錄 53 種技術士技能檢定學科題庫，包括堆高機操作單一級、職業安全衛生管理乙級、中餐烹調－葷食丙級、電腦軟體應用丙級。練官方公告題目、錯題複習與計時模擬考；免費、免註冊、可離線。"
+  "metaDescription": "升級吧收錄 58 種技術士技能檢定學科題庫，包括堆高機操作單一級、職業安全衛生管理乙級、中餐烹調－葷食丙級、電腦軟體應用丙級。練官方公告題目、錯題複習與計時模擬考；免費、免註冊、可離線。"
 }

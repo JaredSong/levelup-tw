@@ -1,0 +1,196 @@
+{
+  "examId": "refrigeration-ac-c",
+  "level": "丙級",
+  "titleZh": "冷凍空調裝修丙級",
+  "titleEn": "Refrigeration and Air Conditioning Installation (Class C)",
+  "category": "電機工程",
+  "version": "A11",
+  "sourceUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/001003A11.pdf",
+  "sources": [
+    {
+      "subjectCode": "00100",
+      "version": "A11",
+      "pdfFilename": "001003A11.pdf",
+      "localFilename": "001003A11.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/001003A11.pdf",
+      "sha256": "fb4f7298e217d490c28f1e9bd19ac8e13a1c9817445e49c6045667e4fe6475e0"
+    },
+    {
+      "subjectCode": "90006",
+      "version": "A12",
+      "pdfFilename": "900060A12.pdf",
+      "localFilename": "900060A12.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900060A12.pdf",
+      "sha256": "3f9701f10f52759eeea49975f77983daa8b8d40bf6c8ff6588fc4ac8d364cef2"
+    },
+    {
+      "subjectCode": "90007",
+      "version": "A11",
+      "pdfFilename": "900070A11.pdf",
+      "localFilename": "900070A11.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900070A11.pdf",
+      "sha256": "dbb8f9b7bb2a56125e01d98a32361ccaab1253b8ca6977b7b40ff0df0a7da1df"
+    },
+    {
+      "subjectCode": "90008",
+      "version": "A18",
+      "pdfFilename": "900080A18.pdf",
+      "localFilename": "900080A18.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900080A18.pdf",
+      "sha256": "c93ac428f2cfe02d8a35acd307393a9e075af37821396825d8dad721e787be43"
+    },
+    {
+      "subjectCode": "90009",
+      "version": "A14",
+      "pdfFilename": "900090A14.pdf",
+      "localFilename": "900090A14.pdf",
+      "officialUrl": "https://owinform.wdasec.gov.tw/owInform/DLowFile/900090A14.pdf",
+      "sha256": "464a5b6910912a32c5e470b5b77dca0888aff2aa3d0cb29575fa8e6c14d0c5f3"
+    }
+  ],
+  "officialLinks": {
+    "registration": "https://skill.tcte.edu.tw/notice.php",
+    "scoreLookup": "https://eservice.wdasec.gov.tw/",
+    "handbook": "https://skill.tcte.edu.tw/download.php",
+    "questionBank": "https://techbank.wdasec.gov.tw/"
+  },
+  "sourceRevision": "001003A11 + 900060A12/900070A11/900080A18/900090A14",
+  "questionCount": 1062,
+  "activeQuestionCount": 1062,
+  "sections": [
+    {
+      "id": "00100-01",
+      "subjectCode": "00100",
+      "sourceGroup": "occupation",
+      "titleZh": "識圖與製圖",
+      "questionCount": 33,
+      "activeQuestionCount": 33
+    },
+    {
+      "id": "00100-02",
+      "subjectCode": "00100",
+      "sourceGroup": "occupation",
+      "titleZh": "作業準備",
+      "questionCount": 51,
+      "activeQuestionCount": 51
+    },
+    {
+      "id": "00100-03",
+      "subjectCode": "00100",
+      "sourceGroup": "occupation",
+      "titleZh": "冷媒管加工",
+      "questionCount": 47,
+      "activeQuestionCount": 47
+    },
+    {
+      "id": "00100-04",
+      "subjectCode": "00100",
+      "sourceGroup": "occupation",
+      "titleZh": "冷媒系統處理",
+      "questionCount": 126,
+      "activeQuestionCount": 126
+    },
+    {
+      "id": "00100-05",
+      "subjectCode": "00100",
+      "sourceGroup": "occupation",
+      "titleZh": "電路系統處理",
+      "questionCount": 106,
+      "activeQuestionCount": 106
+    },
+    {
+      "id": "00100-06",
+      "subjectCode": "00100",
+      "sourceGroup": "occupation",
+      "titleZh": "運轉測試",
+      "questionCount": 94,
+      "activeQuestionCount": 94
+    },
+    {
+      "id": "00100-07",
+      "subjectCode": "00100",
+      "sourceGroup": "occupation",
+      "titleZh": "故障排除",
+      "questionCount": 127,
+      "activeQuestionCount": 127
+    },
+    {
+      "id": "00100-08",
+      "subjectCode": "00100",
+      "sourceGroup": "occupation",
+      "titleZh": "安裝與維護",
+      "questionCount": 78,
+      "activeQuestionCount": 78
+    },
+    {
+      "id": "90006-01",
+      "subjectCode": "90006",
+      "sourceGroup": "general-common",
+      "titleZh": "職業安全衛生",
+      "questionCount": 100,
+      "activeQuestionCount": 100
+    },
+    {
+      "id": "90007-02",
+      "subjectCode": "90007",
+      "sourceGroup": "general-common",
+      "titleZh": "工作倫理與職業道德",
+      "questionCount": 100,
+      "activeQuestionCount": 100
+    },
+    {
+      "id": "90008-03",
+      "subjectCode": "90008",
+      "sourceGroup": "general-common",
+      "titleZh": "環境保護",
+      "questionCount": 100,
+      "activeQuestionCount": 100
+    },
+    {
+      "id": "90009-04",
+      "subjectCode": "90009",
+      "sourceGroup": "general-common",
+      "titleZh": "節能減碳",
+      "questionCount": 100,
+      "activeQuestionCount": 100
+    }
+  ],
+  "mockRules": {
+    "totalQuestions": 80,
+    "singleCount": 80,
+    "multipleCount": 0,
+    "durationMinutes": 100,
+    "passScore": 60,
+    "maxScore": 100,
+    "weightSingle": 1.25,
+    "weightMultiple": 0,
+    "subjectQuota": [
+      {
+        "subjectCode": "00100",
+        "count": 64
+      },
+      {
+        "subjectCode": "90006",
+        "count": 4
+      },
+      {
+        "subjectCode": "90007",
+        "count": 4
+      },
+      {
+        "subjectCode": "90008",
+        "count": 4
+      },
+      {
+        "subjectCode": "90009",
+        "count": 4
+      }
+    ]
+  },
+  "integrity": {
+    "status": "fully_verified",
+    "inactiveQuestionCount": 0,
+    "imageQuestionCount": 16,
+    "note": "Answer keys independently cross-checked against the official PDF during import."
+  }
+}

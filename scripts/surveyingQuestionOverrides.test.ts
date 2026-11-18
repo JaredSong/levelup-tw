@@ -37,7 +37,7 @@ describe('042003A11 source transcriptions', () => {
   })
 
   it('preserves image options and transcribes the prompt where the PDF lost subscripts', () => {
-    expect(byId.get('04200-02-050')?.prompt).toContain('α_AB、α_BC')
+    expect(byId.get('04200-02-050')?.prompt).toContain('⟦α_{AB}⟧、⟦α_{BC}⟧')
     expect(byId.get('04200-01-052')?.prompt).toContain('σ̂')
     expect(byId.get('04200-04-050')?.options[3]).toBe('|(α₂－α₁)/2|')
     expect(byId.get('04200-06-007')?.options).toEqual(['一', '十', '△', '▲'])
@@ -53,18 +53,18 @@ describe('042003A11 source transcriptions', () => {
   })
 
   it('restores the height-difference variables needed to solve the questions', () => {
-    expect(byId.get('04200-03-149')?.prompt).toContain('ΔH_AB')
-    expect(byId.get('04200-03-150')?.prompt).toContain('ΔH_AC')
-    expect(byId.get('04200-03-152')?.prompt).toContain('ΔH_BA')
-    expect(byId.get('04200-03-153')?.prompt).toContain('ΔH_CA')
+    expect(byId.get('04200-03-149')?.prompt).toContain('⟦ΔH_{AB}⟧')
+    expect(byId.get('04200-03-150')?.prompt).toContain('⟦ΔH_{AC}⟧')
+    expect(byId.get('04200-03-152')?.prompt).toContain('⟦ΔH_{BA}⟧')
+    expect(byId.get('04200-03-153')?.prompt).toContain('⟦ΔH_{CA}⟧')
     for (let number = 157; number <= 162; number += 1) {
       const prompt = byId.get(`04200-03-${number}`)?.prompt ?? ''
-      expect(prompt).toContain('ΔH_AB＝2.345m')
-      expect(prompt).toContain('ΔH_BC＝3.468m')
-      expect(prompt).toContain('ΔH_CA＝-5.801m')
+      expect(prompt).toContain('⟦ΔH_{AB}⟧＝2.345m')
+      expect(prompt).toContain('⟦ΔH_{BC}⟧＝3.468m')
+      expect(prompt).toContain('⟦ΔH_{CA}⟧＝-5.801m')
     }
-    expect(byId.get('04200-04-099')?.prompt).toContain('AB 線方向角')
-    expect(byId.get('04200-04-099')?.prompt).toContain('CA 線方向角')
+    expect(byId.get('04200-04-099')?.prompt).toContain('⟦\\overline{AB}⟧方向角')
+    expect(byId.get('04200-04-099')?.prompt).toContain('⟦\\overline{CA}⟧方向角')
   })
 
   it('keeps the officially deleted question out of the active candidate set', () => {

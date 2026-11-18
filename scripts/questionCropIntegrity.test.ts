@@ -85,8 +85,8 @@ describe('new high-demand exam packs', () => {
     )) as Array<{ id: string; prompt: string; hasFigure?: boolean; sourceImages?: string[] }>
     const question = questions.find((item) => item.id === '04202-06-028')
 
-    expect(question?.prompt).toContain('AB＝20.000m 及 BC＝30.000m')
-    expect(question?.prompt).toContain('AB＝20.020m 及 AC＝50.050m')
+    expect(question?.prompt).toContain('⟦\\overline{AB}⟧＝20.000m 及 ⟦\\overline{BC}⟧＝30.000m')
+    expect(question?.prompt).toContain('⟦\\overline{AB}⟧＝20.020m 及 ⟦\\overline{AC}⟧＝50.050m')
     expect(question?.hasFigure).toBe(false)
     expect(question?.sourceImages).toBeUndefined()
   })

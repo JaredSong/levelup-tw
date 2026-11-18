@@ -40,7 +40,7 @@ const QUESTION_OVERRIDES = {
   '17300-02-043': {
     options: [
       'header("Content-type:image/png");',
-      'header("Meta http-equiv=html/png");',
+      'header("Meta http-equiv=\'html/png\'");',
       'header("image-type:html/image");',
       'header("Http-content:png/bin");',
     ],
@@ -51,7 +51,7 @@ const QUESTION_OVERRIDES = {
       'mysql_query("SET NAMES \'BIG5\'");',
       'mysql_codec("BIG5");',
       'mysql_set_var("CharacterSet","BIG5")',
-      'mysql_set_var("BIG5")',
+      'mysql_query("SET CHARACTER BIG5");',
     ],
     hasFigure: false,
   },
@@ -76,7 +76,7 @@ const QUESTION_OVERRIDES = {
   },
   '17300-02-157': {
     prompt: 'PHP 程式「echo "\\"escaped character\\"";」其輸出為何？',
-    options: ['""escaped character""', '"escaped character"', '\\escaped character\\', 'escaped character'],
+    options: ['"\\"escaped character\\""', '"escaped character"', '\\escaped character\\', 'escaped character'],
     hasFigure: false,
   },
   '17300-02-158': {

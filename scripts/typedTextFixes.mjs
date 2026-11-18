@@ -9,7 +9,11 @@
 // Read by build-exam-packs.mjs (exam text overrides) and import-questions.mjs.
 
 export const TYPED_TEXT_FIXES = {
+  '070024A10': {
+    '07002-01-203': { options: ["L/min", "kg/cm²", "psi", "kg_m"] },
+  },
   '007002A15': {
+    '00700-06-018': { prompt: "比流器（CT）二次側 ℓ 端接地之主要目的為" },
     '00700-02-027': { options: ["30", "10⟦\\sqrt{3}⟧", "10", "0"] },
     '00700-03-019': { options: ["2IL（Rcosθ＋Xsinθ）", "IL（Rcosθ＋Xsinθ）", "⟦\\sqrt{2}⟧ IL（Rcosθ＋Xsinθ）", "⟦\\sqrt{3}⟧ IL（Rcosθ＋Xsinθ）"] },
     '00700-03-020': { options: ["2IL（Rcosθ＋Xsinθ）", "IL（Rcosθ＋Xsinθ）", "⟦\\sqrt{2}⟧ IL（Rcosθ＋Xsinθ）", "⟦\\sqrt{3}⟧ IL（Rcosθ＋Xsinθ）"] },

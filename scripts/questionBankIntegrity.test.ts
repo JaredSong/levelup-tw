@@ -760,7 +760,7 @@ describe('published question bank', () => {
       expect(question?.options.some((option) => option.includes('圖示選項')), id).toBe(false)
     }
     expect(questions.find((item) => item.id === '17600-04-046')?.options).toEqual(['1800 呎', '24000 呎', '30000 呎', '36000 呎'])
-    expect(questions.find((item) => item.id === '17600-06-033')?.prompt).toContain('v = 100⟦\\sqrt{2}⟧ sin ωt')
+    expect(questions.find((item) => item.id === '17600-06-033')?.prompt).toContain('V = 100⟦\\sqrt{2}⟧ sin αt')
     expect(questions.find((item) => item.id === '17600-06-033')?.options).toEqual(['5A', '2⟦\\sqrt{2}⟧ A', '2A', '1A'])
     expect(questions.every((question) => question.examId === 'aircraft-maintenance-c')).toBe(true)
 

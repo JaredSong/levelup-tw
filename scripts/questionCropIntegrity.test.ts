@@ -31,7 +31,7 @@ const PACKS = [
   // crops apiece instead of one combined strip.
   { examId: 'water-pipe-fitting-c', occupationCode: '01600', sourceQuestions: 707, inactive: 0, figures: 39, cropPrefix: '016003', tightCrops: true },
   { examId: 'excavator-operation-single', occupationCode: '07002', sourceQuestions: 668, inactive: 0, figures: 12, cropPrefix: '070024', tightCrops: true },
-  { examId: 'loader-operation-single', occupationCode: '07004', sourceQuestions: 676, inactive: 0, figures: 11, cropPrefix: '070044', tightCrops: true },
+  { examId: 'loader-operation-single', occupationCode: '07004', sourceQuestions: 676, inactive: 0, figures: 12, cropPrefix: '070044', tightCrops: true },
   // inactive 0 → 1: 14500-03-195's crop is a pure-white PNG (min=max=255 on
   // every pixel) even though the figure exists in source/145003A13.pdf p.18
   // — a page-boundary crop fault, not missing source content. Pulled by Wen
@@ -524,6 +524,6 @@ describe('figures restored from the official PDFs (restoredFigures.mjs)', () => 
         }
       }
     }
-    expect(checked).toBe(78)
+    expect(checked).toBe(79)
   })
 })

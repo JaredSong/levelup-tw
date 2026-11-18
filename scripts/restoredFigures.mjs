@@ -15,6 +15,9 @@
 // symbolOptionIds). One list, both sides.
 
 export const RESTORED_FIGURES = {
+  '070044A12': {
+    '07004-02-006': { page: 17, x: 110.7, y: 315.4, width: 26.2, height: 14.2, trimThreshold: 250 },
+  },
   '007003A13': {
     '00700-01-045': { page: 5, x: 107.7, y: 456.3, width: 96.0, height: 64.5, trimThreshold: 250, hiRes: true },
     '00700-01-046': { page: 5, x: 107.7, y: 543.2, width: 96.0, height: 64.5, trimThreshold: 250, hiRes: true },

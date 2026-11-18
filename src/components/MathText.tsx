@@ -44,6 +44,8 @@ function mathNode(node: MathNode, key?: number): ReactNode {
     case 'sup':
       return createElement('msup', { key }, mathNode(node.base), mathNode(node.script))
     case 'sub':
+      // x^{a}_{b}: both scripts stacked on one base (a toleranced size 30⁺⁰·⁰⁵₀).
+      if (node.base.kind === 'sup') return createElement('msubsup', { key }, mathNode(node.base.base), mathNode(node.script), mathNode(node.base.script))
       return createElement('msub', { key }, mathNode(node.base), mathNode(node.script))
     case 'over':
       return createElement('mover', { key, accent: 'true' }, mathNode(node.body), createElement('mo', node.accent === 'bar' ? { stretchy: 'false', style: BAR_LIFT } : { stretchy: 'true' }, ACCENT_MARK[node.accent]))

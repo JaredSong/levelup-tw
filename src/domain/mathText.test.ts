@@ -21,6 +21,8 @@ describe('mathText', () => {
     expect(mathToPlain('求 ⟦\\sqrt{3^{2}×4^{2}×6}⟧ 是')).toBe('求 √(3²×4²×6) 是')
     expect(mathToPlain('⟦-\\frac{14}{9}⟧')).toBe('-14/9')
     expect(mathToPlain('⟦\\frac{\\cos A}{1−\\sin A}⟧')).toBe('(cos A)/(1−sin A)')
+    expect(mathToPlain('尺寸 ⟦30^{+0.05}_{0}⟧ mm')).toBe('尺寸 30(+0.05/0) mm')
+    expect(mathToPlain('⟦30^{0}_{-0.05}⟧')).toBe('30(0/-0.05)')
     expect(mathToPlain('若 ⟦\\overline{AB}⟧＝⟦\\overline{AC}⟧')).toBe('若 A̅B̅＝A̅C̅')
     expect(mathToPlain('平均值（⟦\\bar{x}⟧）')).toBe('平均值（x̄）')
     expect(mathToPlain('⟦\\arc{AC}⟧')).toBe('弧AC')

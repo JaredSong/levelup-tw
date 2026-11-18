@@ -1,4 +1,5 @@
 import { restoredFigureIds, symbolOptionIds } from './restoredFigures.mjs'
+import { typedTextFixes } from './typedTextFixes.mjs'
 import { COMMON_SCRIPT_OPTIONS, COMMON_SCRIPT_PROMPTS } from './commonScriptOverrides.mjs'
 import { access, mkdir, readFile, writeFile } from 'node:fs/promises'
 import { buildSourceProvenance, formatSourceRevision } from './examSources.mjs'
@@ -15,7 +16,7 @@ import {
   SURVEYING_QUESTION_OVERRIDES,
   SURVEYING_SOURCE_FILE,
 } from './surveyingQuestionOverrides.mjs'
-import { restoreScripts, sanitizeText } from './textCorrections.mjs'
+import { restoreScripts, rootsToMath, sanitizeText } from './textCorrections.mjs'
 
 const INACTIVE_IDS = new Set([
   '07602-01-067',
@@ -1666,11 +1667,18 @@ const INFORMATION_COMMON_BANK = {
 
 // Figures the parser missed (restoredFigures.mjs): force them as figure questions
 // with their reviewed crops, and attach per-option symbols to CNS legend questions.
+// Text the parser dropped (typedTextFixes.mjs) becomes exam text overrides.
 for (const exam of EXAMS) {
   const restored = restoredFigureIds(exam.occupationFile)
   if (restored.length) exam.figureIds = [...(exam.figureIds ?? []), ...restored]
   const symbols = symbolOptionIds(exam.occupationFile)
   if (symbols.length) exam.symbolOptionIds = [...(exam.symbolOptionIds ?? []), ...symbols]
+  // Text the PDF draws as graphics (typedTextFixes.mjs), transcribed from the page.
+  for (const [id, fix] of Object.entries(typedTextFixes(exam.occupationFile))) {
+    if (exam.promptOverrides?.[id] || exam.optionOverrides?.[id]) throw new Error(`${exam.examId}: ${id} already has a text override`)
+    if (fix.prompt) exam.promptOverrides = { ...exam.promptOverrides, [id]: fix.prompt }
+    if (fix.options) exam.optionOverrides = { ...exam.optionOverrides, [id]: fix.options }
+  }
 }
 
 const OFFICIAL_LINKS = {
@@ -1785,8 +1793,9 @@ function normalizeQuestion(question, exam) {
     ...(codeOverride?.optionCodeBlocks ? { optionCodeBlocks: codeOverride.optionCodeBlocks } : {}),
     sourcePage,
     sectionTitle: (isolated ? undefined : SECTION_TITLE_OVERRIDES[question.section]) ?? question.sectionTitle,
-    prompt: (surveyingSource ? SURVEYING_PROMPT_OVERRIDES[question.id] : undefined) ?? exam.promptOverrides?.[question.id] ?? globalFor(QUESTION_PROMPT_OVERRIDES) ?? clean(question.prompt),
-    options: (surveyingSource ? SURVEYING_OPTION_OVERRIDES[question.id] : undefined) ?? exam.optionOverrides?.[question.id] ?? globalFor(QUESTION_OPTION_OVERRIDES) ?? question.options.map(clean),
+    // Overrides skip clean(), so roots are drawn here for every text source.
+    prompt: rootsToMath((surveyingSource ? SURVEYING_PROMPT_OVERRIDES[question.id] : undefined) ?? exam.promptOverrides?.[question.id] ?? globalFor(QUESTION_PROMPT_OVERRIDES) ?? clean(question.prompt)),
+    options: ((surveyingSource ? SURVEYING_OPTION_OVERRIDES[question.id] : undefined) ?? exam.optionOverrides?.[question.id] ?? globalFor(QUESTION_OPTION_OVERRIDES) ?? question.options.map(clean)).map(rootsToMath),
     ...((!isolated && INACTIVE_IDS.has(question.id)) || exam.inactiveIds?.includes(question.id) ? { active: false } : {}),
     hasFigure,
   }

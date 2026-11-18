@@ -1,3 +1,4 @@
+import { typedTextFixes } from './typedTextFixes.mjs'
 import { restoredFigureIds } from './restoredFigures.mjs'
 import { COMMON_SCRIPT_OPTIONS, COMMON_SCRIPT_PROMPTS } from './commonScriptOverrides.mjs'
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
@@ -245,6 +246,7 @@ const OFFICIAL_LINKS = {
   questionBank: 'https://techbank.wdasec.gov.tw/',
 }
 const RESTORED_IDS = new Set(restoredFigureIds('173002A13-raw.txt'))
+const TYPED_TEXT = typedTextFixes('173002A13-raw.txt')
 const banks = [
   { code: '17300', file: '173002A13-raw.txt', expected: 846 },
   { code: '90011', file: '900110A13-raw.txt', expected: 120 },
@@ -280,7 +282,9 @@ for (const bank of banks) {
     const scripted = COMMON_SCRIPT_PROMPTS[question.id] || COMMON_SCRIPT_OPTIONS[question.id]
       ? { prompt: COMMON_SCRIPT_PROMPTS[question.id], options: COMMON_SCRIPT_OPTIONS[question.id] }
       : undefined
-    const override = QUESTION_OVERRIDES[question.id] ?? scripted
+    // Text the PDF draws as graphics, transcribed from the page (typedTextFixes.mjs).
+    const typed = TYPED_TEXT[question.id]
+    const override = typed ? { ...(QUESTION_OVERRIDES[question.id] ?? scripted), ...typed } : QUESTION_OVERRIDES[question.id] ?? scripted
     const codeOverride = CODE_BLOCK_OVERRIDES[question.id]
     const hasCodeBlock = !!codeOverride?.codeBlock
     const imageOverrides = IMAGE_OVERRIDES[question.id]

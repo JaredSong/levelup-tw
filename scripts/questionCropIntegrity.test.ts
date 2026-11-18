@@ -345,14 +345,14 @@ describe('new high-demand exam packs', () => {
       '/question-images/028003-02800-06-007-4.png',
     ])
     expect(byId.get('02800-08-021')).toMatchObject({
-      prompt: '將極座標 6√2∠135° 換為直角座標得',
+      prompt: '將極座標 6⟦\\sqrt{2}⟧∠135° 換為直角座標得',
     })
-    expect(byId.get('02800-08-022')?.options).toEqual(['1/2', 'π/2', '√2/2', '2/π 倍'])
-    expect(byId.get('02800-08-089')?.options).toEqual(['5－j5√3', '5＋j5√3', '5√3＋j5', '5√3－j5'])
+    expect(byId.get('02800-08-022')?.options).toEqual(['1/2', 'π/2', '⟦\\sqrt{2}⟧/2', '2/π 倍'])
+    expect(byId.get('02800-08-089')?.options).toEqual(['5－j5⟦\\sqrt{3}⟧', '5＋j5⟦\\sqrt{3}⟧', '5⟦\\sqrt{3}⟧＋j5', '5⟦\\sqrt{3}⟧－j5'])
     expect(byId.get('02800-09-052')).toMatchObject({
       prompt: '在電晶體參數中 h₁₁ = (ΔV₁ / ΔI₁)｜V₂=0，其 h₁₁ 代表意義為',
     })
-    expect(byId.get('02800-09-072')?.options).toEqual(['2 倍', '√2 倍', '1/2 倍', '1/√2 倍'])
+    expect(byId.get('02800-09-072')?.options).toEqual(['2 倍', '⟦\\sqrt{2}⟧ 倍', '1/2 倍', '1/⟦\\sqrt{2}⟧ 倍'])
     expect(byId.get('02800-10-025')).toMatchObject({
       prompt: '在 J.K 正反器中，J＝0、K＝1 時，當 CLOCK（時脈）信號激發後，其輸出 Q 與 Q̅ 為',
       options: ['Q＝1，Q̅＝1', 'Q＝0，Q̅＝1', 'Q＝0，Q̅＝0', 'Q＝1，Q̅＝0'],

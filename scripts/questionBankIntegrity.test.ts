@@ -760,8 +760,8 @@ describe('published question bank', () => {
       expect(question?.options.some((option) => option.includes('圖示選項')), id).toBe(false)
     }
     expect(questions.find((item) => item.id === '17600-04-046')?.options).toEqual(['1800 呎', '24000 呎', '30000 呎', '36000 呎'])
-    expect(questions.find((item) => item.id === '17600-06-033')?.prompt).toContain('v = 100√2 sin ωt')
-    expect(questions.find((item) => item.id === '17600-06-033')?.options).toEqual(['5A', '2√2 A', '2A', '1A'])
+    expect(questions.find((item) => item.id === '17600-06-033')?.prompt).toContain('v = 100⟦\\sqrt{2}⟧ sin ωt')
+    expect(questions.find((item) => item.id === '17600-06-033')?.options).toEqual(['5A', '2⟦\\sqrt{2}⟧ A', '2A', '1A'])
     expect(questions.every((question) => question.examId === 'aircraft-maintenance-c')).toBe(true)
 
     const active = questions.filter((question) => question.active !== false)
@@ -1012,5 +1012,13 @@ describe('bilingual glossary', () => {
     for (const required of ['何者為非', '不包括', '複選題', '下列何者錯誤']) {
       expect(terms.has(required), required).toBe(true)
     }
+  })
+})
+
+describe('characters the PDF text layer misreports', () => {
+  it('ships no ψ: every ψ in the source PDFs is drawn as φ (textCorrections.mjs)', () => {
+    const offenders = readdirSync(new URL('../public/data/exams/', import.meta.url)).flatMap((examId) =>
+      readFileSync(new URL(`../public/data/exams/${examId}/questions.json`, import.meta.url), 'utf8').includes('ψ') ? [examId] : [])
+    expect(offenders).toEqual([])
   })
 })

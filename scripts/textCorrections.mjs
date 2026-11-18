@@ -199,10 +199,52 @@ export function restoreScripts(text) {
   return out
 }
 
+// A bare √ prints the radicand beside the sign; the paper draws it under the bar.
+// Outside ⟦…⟧, √2 / √N / √LC / √(R² + X²) become ⟦\sqrt{…}⟧ (bracket dropped: the
+// bar is the grouping). Idempotent, so it can run on already-fixed text.
+const SCRIPT_TO_MATH = { '²': '^{2}', '³': '^{3}', 'ₑ': '_{e}', 'ₙ': '_{n}', '₁': '_{1}', '₂': '_{2}' }
+export function rootsToMath(text) {
+  if (typeof text !== 'string' || !text.includes('√')) return text
+  return text.split(/(⟦[^⟧]*⟧)/).map((part, index) => {
+    if (index % 2) return part
+    let out = ''
+    for (let at = 0; at < part.length; at += 1) {
+      if (part[at] !== '√') {
+        out += part[at]
+        continue
+      }
+      let end = at + 1
+      let body
+      if (part[end] === '(') {
+        let depth = 0
+        for (; end < part.length; end += 1) {
+          if (part[end] === '(') depth += 1
+          if (part[end] === ')' && --depth === 0) break
+        }
+        if (depth !== 0) throw new Error(`rootsToMath: unbalanced bracket after √ in "${text}"`)
+        body = part.slice(at + 2, end)
+        end += 1
+      } else {
+        body = /^([0-9.]+|[A-Za-z]+)/.exec(part.slice(end))?.[1]
+        if (!body) throw new Error(`rootsToMath: nothing after √ in "${text}"`)
+        end += body.length
+      }
+      const math = [...body].map((ch) => SCRIPT_TO_MATH[ch] ?? ch).join('').replace(/_([A-Za-z0-9])/g, '_{$1}')
+      out += `⟦\\sqrt{${math}}⟧`
+      at = end - 1
+    }
+    return out
+  }).join('')
+}
+
 export function sanitizeText(text) {
   if (typeof text !== 'string') return text
   let out = text
   for (const [re, fixed] of PATTERNS) out = out.replace(re, fixed)
   for (const [broken, fixed] of Object.entries(RAW_CORRECTIONS)) out = out.split(broken).join(fixed)
-  return out.replace(/(?<=[\u3400-\u9fff])\s+(?=[\u3400-\u9fff])/g, '')
+  // PMingLiU's text layer reports ψ (U+03C8) for a glyph it draws as φ: all 105 ψ
+  // in the source PDFs render as φ on the page (1φ3W, φ15, 方位角φAB). The paper
+  // decides, so ψ → φ. questionBankIntegrity.test.ts fails on any ψ that ships.
+  out = out.replaceAll('ψ', 'φ')
+  return rootsToMath(out.replace(/(?<=[\u3400-\u9fff])\s+(?=[\u3400-\u9fff])/g, ''))
 }

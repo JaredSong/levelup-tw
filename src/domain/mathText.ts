@@ -9,7 +9,7 @@
  * paper:
  *
  *   ⟦\frac{1}{3}⟧  ⟦\sqrt{3^{2}×4^{2}×6}⟧  ⟦\overline{AB}⟧  ⟦\arc{AC}⟧  ⟦\bar{x}⟧
- *   ⟦\sin A⟧  ⟦x^{2}⟧  ⟦a_{1}⟧
+ *   ⟦\sin A⟧  ⟦x^{2}⟧  ⟦a_{1}⟧  ⟦30^{+0.05}_{0}⟧ (toleranced size, scripts stacked)
  *
  * ⟦ ⟧ never occur in an official bank, so text without them is untouched.
  * Malformed math throws — the bank integrity test parses every question, so a
@@ -160,6 +160,8 @@ function plainNode(node: MathNode): string {
       return `${wrap(node.base)}${small}`
     }
     case 'sub':
+      // x^{a}_{b} is a toleranced size: 30^{+0.05}_{0} reads 30(+0.05/0).
+      if (node.base.kind === 'sup') return `${wrap(node.base.base)}(${plainNode(node.base.script)}/${plainNode(node.script)})`
       return `${wrap(node.base)}_${wrap(node.script)}`
     case 'over':
       if (node.accent === 'arc') return `弧${plainNode(node.body)}`

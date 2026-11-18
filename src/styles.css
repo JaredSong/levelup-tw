@@ -682,6 +682,9 @@ html.standalone, html.standalone body { background: var(--paper); }
 .option-list > button:has(.option-image) { min-height: 92px; align-items: center; }
 .option-symbol-row { display: flex; align-items: center; gap: 10px; min-width: 0; }
 .option-symbol-row > :last-child { flex: 1; min-width: 0; }
+.option-symbol-inline { display: inline; line-height: 1.9; }
+.option-symbol-inline > .option-symbol { margin: 0 2px; }
+h1 .option-symbol-inline > .option-symbol { max-height: 88px; max-width: 160px; }
 .option-symbol { display: inline-block; flex: none; width: auto; max-width: 112px; height: auto; max-height: 56px; object-fit: contain; vertical-align: middle; background: #fff; border-radius: 4px; padding: 2px; }
 .option-list > button:has(.code-block) { min-height: 82px; align-items: center; }
 .select-count { color: var(--muted); font-size: .8rem; font-weight: 700; font-variant-numeric: tabular-nums; }

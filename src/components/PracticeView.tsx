@@ -25,6 +25,7 @@ import type { Progress, Question } from '../domain/studyEngine'
 import { zhTW } from '../i18n/zh-TW'
 import type { StudySession } from '../types'
 import { MathText } from './MathText'
+import { OptionSymbolText } from './OptionSymbolText'
 import { mathToPlain } from '../domain/mathText'
 
 interface Props {
@@ -143,6 +144,18 @@ function figureImageSources(question: Question) {
     return []
   }
   return customImages
+}
+
+/**
+ * The stem leaves an empty 「」 where the paper prints a small symbol
+ * (「」符號表示：). With exactly one such gap and one figure, the figure is that
+ * symbol, so it goes inside the brackets instead of under the question.
+ */
+function inlineSymbolSource(question: Question) {
+  if (question.codeBlock || usesImageOptionPlaceholders(question)) return null
+  if (question.prompt.split('「」').length !== 2) return null
+  const figures = figureImageSources(question)
+  return figures.length === 1 ? figures[0] : null
 }
 
 /**
@@ -448,6 +461,7 @@ export function PracticeView({
   // stable and render each crop directly inside its answer card when available.
   const optionsAreImages = usesImageOptionPlaceholders(question)
   const optionImages = optionImageSources(question)
+  const inlineSymbol = inlineSymbolSource(question)
 
   const toggleOption = (option: number) => {
     if (answer || isFlashcard) return
@@ -522,11 +536,11 @@ export function PracticeView({
           </button>
         </div>
 
-        <h1><MathText text={question.prompt} /></h1>
+        <h1>{inlineSymbol ? <OptionSymbolText symbol={inlineSymbol} text={question.prompt} /> : <MathText text={question.prompt} />}</h1>
 
         {question.codeBlock ? <CodeBlock code={question.codeBlock} /> : null}
 
-        <QuestionFigure question={question} />
+        {inlineSymbol ? null : <QuestionFigure question={question} />}
 
         {optionsAreImages ? (
           <p className="figure-note"><ImageIcon size={15} /> 圖片選項已放在下方各選項內；請依官方 1、2、3、4 作答。</p>
@@ -589,8 +603,9 @@ export function PracticeView({
                   {question.answers.map((value) => (
                     <span key={value}>
                       {formatDisplayChoices([value])}.{' '}
-                      {question.optionImages?.[value - 1] ? <img className="option-symbol" src={question.optionImages[value - 1]} alt="" /> : null}
-                      <MathText text={question.options[value - 1]} />
+                      {question.optionImages?.[value - 1]
+                        ? <OptionSymbolText symbol={question.optionImages[value - 1]} text={question.options[value - 1]} />
+                        : <MathText text={question.options[value - 1]} />}
                     </span>
                   ))}
                 </div>
@@ -637,10 +652,7 @@ export function PracticeView({
                     ) : optionImage ? (
                       <img className="option-image" src={optionImage} alt={`圖示選項 ${displayValue}`} />
                     ) : optionSymbol ? (
-                      <span className="option-symbol-row">
-                        <img className="option-symbol" src={optionSymbol} alt="" />
-                        <MathText text={option} />
-                      </span>
+                      <OptionSymbolText symbol={optionSymbol} text={option} />
                     ) : <MathText text={option} />}
                   </span>
                   {isCorrectChoice ? <Check size={18} /> : isWrongChoice ? <X size={18} /> : null}

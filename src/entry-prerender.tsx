@@ -11,7 +11,7 @@ import { GuidePage } from './app/GuidePage'
 import { CatalogPage } from './app/CatalogPage'
 import { guideFaqs } from './app/guideFaqs'
 import { enLanding } from './i18n/en'
-import { CATALOG_PATH, SITE_ORIGIN, catalogTitle, examPageTitle, examPath } from './app/seoUrls'
+import { CATALOG_PATH, SITE_ORIGIN, catalogTitle, examPageDescription, examPageTitle, examPath } from './app/seoUrls'
 import { examFaqJsonLd } from './app/examFaqs'
 
 const noop = () => undefined
@@ -82,6 +82,7 @@ export const EXAM_META = INSTALLED_EXAMS.map((exam) => ({
   // Same builder as the visible FAQ on the page, so the markup can't drift.
   faqJsonLd: examFaqJsonLd(exam, new Date()),
   title: examPageTitle(exam.titleZh, exam.activeQuestionCount),
+  description: examPageDescription(exam.titleZh, exam.sections[0]?.subjectCode ?? exam.examId, exam.activeQuestionCount),
   titleZh: exam.titleZh,
   category: exam.category,
   level: exam.level,

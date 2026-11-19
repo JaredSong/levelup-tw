@@ -308,11 +308,22 @@ math.inline-math { font-size: 1.12em; math-style: normal; }
 .exam-aliases { margin: 10px 0 0; color: var(--muted); font-size: .9rem; line-height: 1.7; }
 .exam-overview { max-width: 62ch; margin: 22px 0 0; color: var(--ink3); font-size: clamp(1rem, 1.4vw, 1.1rem); line-height: 1.8; }
 .exam-hero .landing-primary { margin-top: 28px; }
-.exam-sections, .exam-samples, .exam-cta, .exam-facts, .exam-faq, .exam-related, .exam-about { padding: clamp(32px, 5vw, 60px) var(--pad); border-top: 1px solid var(--line2); }
-.exam-sections h2, .exam-samples h2, .exam-cta h2, .exam-facts h2, .exam-faq h2, .exam-related h2 { margin: 0 0 22px; font-size: clamp(1.4rem, 2.8vw, 2rem); line-height: 1.25; }
+.exam-sections, .exam-samples, .exam-siblings, .exam-cta, .exam-facts, .exam-faq, .exam-related, .exam-about { padding: clamp(32px, 5vw, 60px) var(--pad); border-top: 1px solid var(--line2); }
+.exam-sections h2, .exam-samples h2, .exam-siblings h2, .exam-cta h2, .exam-facts h2, .exam-faq h2, .exam-related h2 { margin: 0 0 22px; font-size: clamp(1.4rem, 2.8vw, 2rem); line-height: 1.25; }
 .exam-sections ul { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px 22px; margin: 0; padding: 0; list-style: none; }
 .exam-sections li { display: flex; align-items: center; gap: 9px; color: var(--ink2); font-size: .92rem; font-weight: 700; }
 .exam-sections li svg { flex: 0 0 auto; color: var(--accent); }
+.exam-sections li small { margin-left: auto; color: var(--muted); font-size: .8rem; font-weight: 600; white-space: nowrap; }
+.exam-sections p, .exam-siblings p { max-width: 62ch; margin: 16px 0 0; color: var(--ink2); font-size: .92rem; line-height: 1.7; }
+.exam-sibling { margin-top: 26px; }
+.exam-sibling h3 { margin: 0 0 12px; font-size: 1.05rem; }
+.exam-sibling h3 a { color: var(--accent-ink); }
+.exam-sibling-table { overflow-x: auto; }
+.exam-sibling table { width: 100%; max-width: 720px; border-collapse: collapse; font-size: .88rem; }
+.exam-sibling th, .exam-sibling td { padding: 8px 10px; border-bottom: 1px solid var(--line2); text-align: left; vertical-align: top; }
+.exam-sibling thead th { color: var(--muted); font-size: .78rem; }
+.exam-sibling tbody th { color: var(--muted); font-weight: 600; }
+.exam-sibling td { color: var(--ink2); font-weight: 700; }
 .exam-sample-list { display: grid; gap: 16px; }
 .exam-sample { padding: 22px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }
 .exam-sample-section { margin: 0 0 10px; color: var(--muted); font-size: .76rem; font-weight: 700; }

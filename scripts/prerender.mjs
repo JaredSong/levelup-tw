@@ -114,9 +114,8 @@ writeFileSync(EN_INDEX, en)
 // --- Per-exam pages at /exam/<id> (Traditional Chinese, SEO landings) ---
 function examHead(html, m) {
   const url = `${SITE_ORIGIN}${m.path}`
-  const count = m.count.toLocaleString('en-US')
   const title = m.title
-  const desc = `${m.titleZh}（${m.subjectCode}）學科題庫，共 ${count} 題。查看官方題庫 PDF 與來源版本，免費線上練習、錯題複習與計時模擬考；免註冊，進度保存在裝置。`
+  const desc = m.description // src/app/seoUrls.ts examPageDescription
   const ogTitle = `${m.titleZh}學科題庫 · 升級吧`
   let h = html
   h = replaceOnce(h, /<title>[^<]*<\/title>/, `<title>${title}</title>`, 'exam <title>')

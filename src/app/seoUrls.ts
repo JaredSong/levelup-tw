@@ -26,4 +26,8 @@ export const examPath = (examId: string): string => `/exam/${encodeURIComponent(
 export const formatQuestionCount = (count: number): string => count.toLocaleString('en-US')
 
 export const examPageTitle = (titleZh: string, count: number): string =>
-  `${titleZh}學科題庫｜${formatQuestionCount(count)} 題免費線上練習 - 升級吧`
+  `${titleZh}學科題庫｜${formatQuestionCount(count)} 題線上測驗・PDF 下載 - 升級吧`
+
+/** The exam page meta, og: and twitter: description. Prerender writes it from here only. */
+export const examPageDescription = (titleZh: string, subjectCode: string, count: number): string =>
+  `${titleZh}（${subjectCode}）學科線上測驗與官方題庫 PDF 下載，共 ${formatQuestionCount(count)} 題。免費練習、錯題自動複習、計時模擬考；免註冊、可離線，進度保存在裝置。`

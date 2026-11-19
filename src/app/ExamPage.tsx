@@ -6,8 +6,9 @@ import { zhTW } from '../i18n/zh-TW'
 import { INSTALLED_EXAMS } from './activeExam'
 import { trackLanding } from './analytics'
 import { GENERATED_EXAM_SAMPLES } from './generatedExamSamples'
-import { getNextExamRound } from './nationalExamSchedule'
-import { CATALOG_PATH, examPath } from './seoUrls'
+import { getExamRounds, getNextExamRound } from './nationalExamSchedule'
+import { CATALOG_PATH, examPath, formatQuestionCount } from './seoUrls'
+import { ROUND_YEAR, examSiblings, occupationWorkItems } from './examSiblings'
 import { examAliasCopy, examFaqs, officialCheck } from './examFaqs'
 import { MathText } from '../components/MathText'
 
@@ -25,15 +26,24 @@ interface Props {
 export function ExamPage({ exam, onEnter, onHome }: Props) {
   const t = zhTW.examPage
   const [sampleAnswers, setSampleAnswers] = useState<Record<string, number>>({})
-  const data = GENERATED_EXAM_SAMPLES[exam.examId] ?? { sections: [], samples: [] }
+  const data = GENERATED_EXAM_SAMPLES[exam.examId] ?? { samples: [] }
   const subjectCode = exam.sections[0]?.subjectCode ?? exam.examId
+  // The exam's own 專業 work items lead; shared 共同科目 are one line (the FAQ
+  // names them), so sibling pages don't open on the same list.
+  const workItems = occupationWorkItems(exam)
+  const commonCount = exam.activeQuestionCount - workItems.reduce((sum, item) => sum + item.count, 0)
+  const siblings = examSiblings(exam, INSTALLED_EXAMS)
 
   // Related exams: same category first (a real "explore" cluster for readers and
   // an internal-linking signal for crawlers), topped up with others, capped at 6.
-  const others = INSTALLED_EXAMS.filter((e) => e.examId !== exam.examId)
+  // Read the catalog as a ring starting after this exam, so every page in a
+  // category gets linked from its neighbours — taking the first six in catalog
+  // order left exams late in the list (數位電子乙級: 1 exam page) almost unlinked.
+  const at = INSTALLED_EXAMS.findIndex((e) => e.examId === exam.examId)
+  const ring = [...INSTALLED_EXAMS.slice(at + 1), ...INSTALLED_EXAMS.slice(0, Math.max(at, 0))]
   const related = [
-    ...others.filter((e) => e.category === exam.category),
-    ...others.filter((e) => e.category !== exam.category),
+    ...ring.filter((e) => e.category === exam.category),
+    ...ring.filter((e) => e.category !== exam.category),
   ].slice(0, 6)
 
   // Registration dates, pass mark and official links: the questions people
@@ -114,14 +124,15 @@ export function ExamPage({ exam, onEnter, onHome }: Props) {
         <ul>{exam.sources?.length ? exam.sources.map(source => <li key={source.officialUrl}><a href={source.officialUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackLanding('official_pdf', { exam_id: exam.examId, subject_code: source.subjectCode })}><FileDown size={17} /><span><strong>{source.subjectCode} · {source.subjectCode === subjectCode ? `${exam.titleZh}專業科目` : exam.sections.find(section => section.subjectCode === source.subjectCode)?.titleZh ?? '共同科目'}</strong><small>{source.version} · PDF</small></span><ArrowRight size={16} /></a></li>) : <li><a href={exam.sourceUrl ?? exam.officialLinks?.questionBank ?? 'https://techbank.wdasec.gov.tw/'} target="_blank" rel="noopener noreferrer">前往官方題庫來源<ArrowRight size={16} /></a></li>}</ul>
       </section>
 
-      {data.sections.length ? (
+      {workItems.length ? (
         <section className="exam-sections">
-          <h2>{t.sectionsTitle}</h2>
+          <h2>{t.sectionsTitle(exam.titleZh)}</h2>
           <ul>
-            {data.sections.map((section) => (
-              <li key={section}><BadgeCheck size={15} />{section}</li>
+            {workItems.map((item) => (
+              <li key={item.title}><BadgeCheck size={15} />{item.title}<small>{t.sectionCount(formatQuestionCount(item.count))}</small></li>
             ))}
           </ul>
+          {commonCount > 0 ? <p>{t.commonNote(formatQuestionCount(commonCount))}</p> : null}
         </section>
       ) : null}
 
@@ -144,6 +155,35 @@ export function ExamPage({ exam, onEnter, onHome }: Props) {
               </article>
             ))}
           </div>
+        </section>
+      ) : null}
+
+      {siblings.length ? (
+        <section className="exam-siblings">
+          <h2>{t.siblingsTitle(exam.titleZh)}</h2>
+          <p>{t.siblingsLead}</p>
+          {siblings.map(({ sibling, shared, onlyHere, onlyThere }) => (
+            <div className="exam-sibling" key={sibling.examId}>
+              <h3>{t.siblingVs} <a href={examPath(sibling.examId)}>{sibling.titleZh}</a></h3>
+              <div className="exam-sibling-table">
+                <table>
+                  <thead><tr><th scope="col">{t.siblingItem}</th><th scope="col">{exam.titleZh}</th><th scope="col">{sibling.titleZh}</th></tr></thead>
+                  <tbody>
+                    {siblingRows(exam, sibling).map(([label, here, there]) => (
+                      <tr key={label}><th scope="row">{label}</th><td>{here}</td><td>{there}</td></tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              {shared.length ? (
+                <>
+                  {onlyHere.length ? <p>{t.siblingOnly(exam.titleZh, onlyHere.join('、'))}</p> : null}
+                  {onlyThere.length ? <p>{t.siblingOnly(sibling.titleZh, onlyThere.join('、'))}</p> : null}
+                </>
+              ) : <p>{t.siblingNoShared}</p>}
+            </div>
+          ))}
+          <p className="exam-facts-note">{t.siblingNote}</p>
         </section>
       ) : null}
 
@@ -229,4 +269,26 @@ export function ExamPage({ exam, onEnter, onHome }: Props) {
       </footer>
     </main>
   )
+}
+
+/** Fact rows of a sibling comparison: [label, this exam, sibling]. */
+function siblingRows(exam: ExamManifest, sibling: ExamManifest): [string, string, string][] {
+  const t = zhTW.examPage
+  const facts = (e: ExamManifest) => {
+    const items = occupationWorkItems(e)
+    const rules = e.mockRules
+    return [
+      e.level,
+      e.sections.find((section) => section.sourceGroup === 'occupation')?.subjectCode ?? '',
+      t.sectionCount(formatQuestionCount(e.activeQuestionCount)),
+      t.sectionCount(formatQuestionCount(items.reduce((sum, item) => sum + item.count, 0))),
+      t.siblingItemCount(items.length),
+      t.siblingFormatValue(rules.totalQuestions, rules.singleCount, rules.multipleCount),
+      t.siblingRoundsValue(getExamRounds(e.examId, ROUND_YEAR)),
+    ]
+  }
+  const labels = [t.siblingLevel, t.siblingCode, t.siblingTotal, t.siblingOccupation, t.siblingItems, t.siblingFormat, t.siblingRounds(ROUND_YEAR)]
+  const here = facts(exam)
+  const there = facts(sibling)
+  return labels.map((label, index) => [label, here[index], there[index]])
 }

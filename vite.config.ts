@@ -87,7 +87,23 @@ export default defineConfig(({ isSsrBuild }) => ({
         clientsClaim: true,
         skipWaiting: true,
         globPatterns: ['**/*.{js,css,html,svg,webmanifest}'],
+        // Every prerendered page (/, /en/, /exams/, /guide/, /exam/<id>/, /app)
+        // has its own head, so navigations go to the network for that page's
+        // HTML. The default navigateFallback answered every navigation with the
+        // precached landing shell, leaking the landing's description, og and
+        // JSON-LD onto exam pages. When the network fails (offline) the
+        // precached shell still boots the app, so /app keeps working offline.
+        // Pages are deliberately not runtime-cached: a stale HTML copy could
+        // point at hashed assets a later SW update has already deleted.
+        navigateFallback: null,
         runtimeCaching: [
+          {
+            urlPattern: ({ request }) => request.mode === 'navigate',
+            handler: 'NetworkOnly',
+            options: {
+              precacheFallback: { fallbackURL: 'index.html' },
+            },
+          },
           {
             // Question banks are served from cache instantly (offline-first), but
             // revalidated in the background: these URLs are unversioned, so

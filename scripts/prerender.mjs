@@ -264,6 +264,13 @@ if (sitemapLocs.size !== indexable.length) {
 if (readFileSync(INDEX, 'utf8').includes('exam-hero')) {
   throw new Error('prerender: dist/index.html contains "exam-hero" — the unknown-exam 404 in functions/_middleware.js would stop working')
 }
+// The pages above only reach a returning visitor if the service worker lets
+// navigations through. A navigation route bound to the precached shell would
+// hand every page the landing's head instead (vite.config.ts, navigateFallback).
+const sw = readFileSync(new URL('../dist/sw.js', import.meta.url), 'utf8')
+if (sw.includes('createHandlerBoundToURL') || !sw.includes('PrecacheFallbackPlugin')) {
+  throw new Error('prerender: dist/sw.js must fetch navigations from the network with the precached shell only as offline fallback — see navigateFallback in vite.config.ts')
+}
 
 rmSync(SSR_OUT, { recursive: true, force: true })
 console.log(`prerender: wrote zh + en landings, the exam catalog, ${EXAM_META.length} exam pages, sitemap, and llms.txt`)
